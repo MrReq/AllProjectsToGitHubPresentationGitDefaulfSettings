@@ -194,12 +194,12 @@ class Okres {
         return !(this.do_.isBefore(inny.od) || this.od.isAfter(inny.do_));
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Okres okres)) return false;
-        return od.equals(okres.od) && do_.equals(okres.do_);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Okres okres)) return false;
+//        return od.equals(okres.od) && do_.equals(okres.do_);
+//    }
 
     @Override
     public int hashCode() {
