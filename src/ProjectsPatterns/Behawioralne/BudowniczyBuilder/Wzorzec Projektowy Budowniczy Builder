@@ -1,0 +1,8 @@
+Używamy kiedy tworzony obiekt ma wiele elementów które są opcjonalne.
+kolejne elementy obiektu dodajemy wraz z nachodzącymi potrzebami.
+Tworzymy klasę budowniczego danego obiektu. Ma prywatne pole klasy obiektu oraz publiczne metody,
+które dodają kolejne elementy. Finalna metoda build() tworzy obiekt.
+Tworzymy interfejs Budowniczego obiektu, który ma zestaw tych metod które potem możemy różni implementować.
+Tworzymy klasę która jest odpowiedzialna za stworzenie wybudowanie takiego obiektu.
+Czyli może to być dyrektor który decyduje o takim rozwiązaniu. Klasa ta ma pole prywatne i publiczne metody,
+które tworzą kilka obiektów różnych

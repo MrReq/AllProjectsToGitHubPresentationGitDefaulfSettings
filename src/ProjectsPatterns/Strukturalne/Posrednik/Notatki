@@ -1,0 +1,2 @@
+Pośrednik jest to strukturalny wzorzec projektowy, którego celem jest stworzenie obiektu zastępczego w miejsce innego obiektu.
+Pełnomocnik kontroluje dostęp do pierwotnego obiektu umożliwiające wykonanie czynności po lub przed przekazaniu do niego zapytania.

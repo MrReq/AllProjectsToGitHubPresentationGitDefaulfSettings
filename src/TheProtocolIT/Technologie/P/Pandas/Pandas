@@ -1,0 +1,208 @@
+Dobra — ale uprzedzę Cię od razu:
+„wszystko o Pandas” to temat na tygodnie, nie jedną odpowiedź 😄
+
+Zamiast zalewać Cię teorią, dam Ci **konkretny, praktyczny skrót 80/20**, który faktycznie pozwoli Ci używać pandas w realnych zadaniach.
+
+---
+
+# 🧠 1. Czym jest Pandas (w praktyce)
+
+👉 Pandas = narzędzie do pracy z danymi tabelarycznymi
+
+Myśl o tym jak:
+
+* Excel 📊
+* ale w Pythonie 🐍
+* * automatyzacja + kod + skalowalność
+
+---
+
+# 🧱 2. Dwie najważniejsze struktury
+
+### 🔹 DataFrame (NAJWAŻNIEJSZE)
+
+Tabela (wiersze + kolumny)
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "name": ["Jan", "Anna"],
+    "age": [25, 30]
+})
+```
+
+👉 99% czasu pracujesz na DataFrame
+
+---
+
+### 🔹 Series
+
+Jedna kolumna (rzadziej używana solo)
+
+---
+
+# 📥 3. Wczytywanie danych (realne użycie)
+
+Najczęściej:
+
+```python
+df = pd.read_csv("data.csv")
+```
+
+Inne:
+
+* `read_excel()`
+* `read_json()`
+
+👉 90% przypadków = CSV
+
+---
+
+# 🔍 4. Podstawowa eksploracja (MUST KNOW)
+
+```python
+df.head()      # pierwsze 5 wierszy
+df.tail()      # ostatnie
+df.info()      # typy danych
+df.describe()  # statystyki
+```
+
+👉 To robisz ZAWSZE na początku
+
+---
+
+# 🔎 5. Filtrowanie danych
+
+```python
+df[df["age"] > 25]
+```
+
+Warunki:
+
+```python
+df[(df["age"] > 20) & (df["age"] < 40)]
+```
+
+👉 kluczowa umiejętność
+
+---
+
+# 📊 6. Wybieranie kolumn
+
+```python
+df["name"]          # jedna kolumna
+df[["name", "age"]] # kilka
+```
+
+---
+
+# ➕ 7. Dodawanie kolumn
+
+```python
+df["age_plus_10"] = df["age"] + 10
+```
+
+---
+
+# 📈 8. Grupowanie (mega ważne)
+
+```python
+df.groupby("city")["age"].mean()
+```
+
+👉 np.:
+
+* średnia cena per miasto
+* liczba użytkowników per kraj
+
+---
+
+# 🔄 9. Sortowanie
+
+```python
+df.sort_values("age", ascending=False)
+```
+
+---
+
+# ❌ 10. Braki danych (bardzo ważne)
+
+```python
+df.isnull()
+df.dropna()
+df.fillna(0)
+```
+
+👉 realne dane ZAWSZE są brudne
+
+---
+
+# 🔗 11. Łączenie danych (jak SQL JOIN)
+
+```python
+pd.merge(df1, df2, on="id")
+```
+
+---
+
+# ⚡ 12. Apply (często używane)
+
+```python
+df["age"] = df["age"].apply(lambda x: x + 1)
+```
+
+---
+
+# 🚀 13. Najważniejszy workflow (zapamiętaj!)
+
+1. 📥 wczytaj dane
+2. 🔍 sprawdź (`head`, `info`)
+3. 🧹 wyczyść (`dropna`, `fillna`)
+4. 🔎 filtruj
+5. 📊 analizuj (`groupby`)
+6. 📈 wynik
+
+👉 to robisz w KAŻDYM projekcie
+
+---
+
+# ⚠️ Najczęstsze błędy początkujących
+
+❌ Myślenie jak w Excelu (klikaniem)
+❌ Brak `.copy()` przy operacjach
+❌ Ignorowanie `NaN`
+❌ Pisanie pętli zamiast operacji Pandas
+
+---
+
+# 🧠 Jak Pandas łączy się z resztą
+
+* * scikit-learn → ML
+* * matplotlib → wykresy
+* * numpy → obliczenia
+
+---
+
+# 💪 Minimalny skill, który już daje wartość
+
+Jeśli umiesz:
+
+* read_csv
+* filter
+* groupby
+* fillna
+
+👉 jesteś w stanie zrobić **80% realnych zadań data**
+
+---
+
+# 🔥 Jeśli chcesz iść dalej
+
+Mogę Ci zrobić:
+
+* 📅 **3-dniowy plan nauki Pandas (praktyczny)**
+* 💻 **mini projekt: analiza danych jak junior data analyst**
+* 🧠 albo **quiz / zadania żeby to utrwalić**
+
+Powiedz tylko jak chcesz się uczyć 👇

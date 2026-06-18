@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Click the button to display the cookies associated with this document.</p>
+
+<button onclick="myFunction()">Try it</button>
+<p>
+    /////////////////////
+</p>
+
+
+<p id = "text">Here is just a basic text</p>
+<script>
+    document.getElementById("text").innerHTML = "Thi is the first script"
+    function myFunction() {
+        document.getElementById("demo").innerHTML =
+            "Cookies associated with this document: " + document.cookie;
+    }
+</script>
+
+
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="demo2">JavaScript can change HTML content.</p>
+
+<button type="button" onclick='document.getElementById("demo2").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+<p>
+    /////////////////////
+</p>
+
+<p>JavaScript can change HTML attribute values.</p>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:1000px">
+
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+
+<p>
+    /////////////////////
+</p>
+
+    <script>
+        function nowaFunckja() {
+            document.getElementById("text").innerHTML = "Script in body"
+        }
+    </script>
+    <head>
+        <script>
+        function headFunckja() {
+        document.getElementById("text").innerHTML = "Script in head"
+        }
+        </script>
+    </head>
+    <button type="przycisk" onclick="headFunckja()">
+        Przycisk
+    </button>
+</body>
+
+
+
+
+</html>

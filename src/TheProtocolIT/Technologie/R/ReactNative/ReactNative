@@ -1,0 +1,197 @@
+Dobra — lecimy tym samym stylem: **praktyczne 80/20**, zero zbędnej teorii 🔥
+
+---
+
+# 🧠 1. Czym jest React Native (w praktyce)
+
+👉 React Native = robienie aplikacji mobilnych używając JavaScript + React
+
+Czyli:
+
+* 📱 Android + iOS
+* 💻 jeden kod
+* ⚛️ logika jak w React
+
+---
+
+# 🧱 2. Najważniejsza idea
+
+👉 **WSZYSTKO to komponenty**
+
+Zamiast HTML masz:
+
+```javascript
+<View>
+  <Text>Hello</Text>
+</View>
+```
+
+---
+
+# 🔹 Podstawowe komponenty (MUST KNOW)
+
+* `View` → jak `div`
+* `Text` → tekst
+* `Button` → przycisk
+* `TextInput` → input
+
+👉 to wystarczy na start do 80% rzeczy
+
+---
+
+# ⚙️ 3. State (najważniejsze w praktyce)
+
+```javascript
+import { useState } from "react";
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View>
+      <Text>{count}</Text>
+      <Button title="Klik" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+};
+```
+
+👉 UI reaguje na zmiany danych
+
+---
+
+# 🎨 4. Stylowanie (trochę inne niż CSS)
+
+```javascript
+const styles = {
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+};
+```
+
+👉 używasz:
+
+* Flexbox
+* camelCase zamiast kebab-case
+
+---
+
+# 📱 5. Layout (bardzo ważne)
+
+👉 Flexbox rządzi wszystkim:
+
+* `flexDirection: "column"` (domyślnie)
+* `row`
+* `justifyContent`
+* `alignItems`
+
+---
+
+# 🔄 6. Obsługa zdarzeń
+
+```javascript
+<Button title="Klik" onPress={handleClick} />
+```
+
+👉 zamiast `onClick` masz `onPress`
+
+---
+
+# 📦 7. Nawigacja (ważne w realnych appkach)
+
+Używa się:
+👉 React Navigation
+
+Typy:
+
+* Stack (ekrany jak stos)
+* Tab (dolne menu)
+
+---
+
+# 🌐 8. API (realne użycie)
+
+```javascript
+fetch("https://api.com/data")
+  .then(res => res.json())
+  .then(data => console.log(data));
+```
+
+👉 90% aplikacji = pobieranie danych z API
+
+---
+
+# 💻 9. Najważniejszy workflow
+
+1. 📱 UI (View + Text)
+2. 🔄 State (useState)
+3. ⚙️ logika
+4. 🌐 API
+5. 🧭 nawigacja
+
+---
+
+# ⚠️ Najczęstsze błędy
+
+❌ Mylenie z React (HTML ≠ React Native)
+❌ Próba używania CSS 1:1
+❌ Brak zrozumienia Flexbox
+❌ Za dużo bibliotek na start
+
+---
+
+# 🔥 10. Minimalny projekt (MUST DO)
+
+👉 TODO app:
+
+* dodawanie zadania
+* lista
+* usuwanie
+
+👉 jeśli to zrobisz = masz solidne podstawy
+
+---
+
+# 🧠 Jak React Native łączy się z resztą
+
+* * React → ogromny plus
+* * backend (np. Node / .NET) → API
+* * Expo → łatwy start
+
+---
+
+# 🚀 Pro tip (bardzo ważne)
+
+👉 Zacznij od Expo (SERIO)
+
+Bez tego:
+
+* konfiguracja Cię zabije 😄
+
+---
+
+# 💪 Co wystarczy żeby być „junior-ready”
+
+Jeśli umiesz:
+
+* komponenty
+* useState
+* API
+* listy
+
+👉 możesz robić proste aplikacje mobilne
+
+---
+
+# 🔥 Jeśli chcesz iść dalej
+
+Mogę Ci zrobić:
+
+* 📅 **3-dniowy plan React Native (praktyczny)**
+* 💻 **projekt: appka mobilna + backend API**
+* 🧠 **zadania jak na rozmowie o pracę**
+
+Powiedz tylko 👇

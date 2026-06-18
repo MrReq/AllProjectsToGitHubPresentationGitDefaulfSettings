@@ -1,0 +1,299 @@
+Jasne — potraktujmy to jak solidny, praktyczny kurs od podstaw do poziomu produkcyjnego. Skupię się na tym, żebyś po nim **realnie potrafił używać Ansible**, a nie tylko znał teorię.
+
+---
+
+# 🧠 Kurs Ansible (od zera do praktyka)
+
+## 📌 1. Czym jest Ansible?
+
+**Ansible** to narzędzie do:
+
+* automatyzacji konfiguracji (Configuration Management)
+* wdrożeń (Deployment)
+* orkiestracji infrastruktury
+
+👉 Działa bez agentów (agentless) — używa SSH
+👉 Piszesz w YAML (czytelny format)
+👉 Idealny do DevOps / SysAdmin / Cloud
+
+---
+
+## 🧱 2. Jak działa Ansible?
+
+Podstawowe elementy:
+
+* **Control Node** – Twój komputer (tu instalujesz Ansible)
+* **Managed Nodes** – serwery docelowe
+* **Inventory** – lista hostów
+* **Playbook** – scenariusz działań (YAML)
+* **Module** – gotowe funkcje (np. instalacja pakietów)
+
+---
+
+## ⚙️ 3. Instalacja
+
+### Linux (Ubuntu/Debian):
+
+```bash
+sudo apt update
+sudo apt install ansible -y
+```
+
+### Sprawdzenie:
+
+```bash
+ansible --version
+```
+
+---
+
+## 📂 4. Inventory (lista serwerów)
+
+Plik `hosts.ini`:
+
+```ini
+[web]
+192.168.1.10
+192.168.1.11
+
+[db]
+192.168.1.20
+
+[all:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+```
+
+Test połączenia:
+
+```bash
+ansible all -i hosts.ini -m ping
+```
+
+---
+
+## 📜 5. Pierwszy Playbook
+
+Plik `install_nginx.yml`:
+
+```yaml
+- name: Instalacja Nginx
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Instaluj nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Uruchom nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+```
+
+Uruchomienie:
+
+```bash
+ansible-playbook -i hosts.ini install_nginx.yml
+```
+
+---
+
+## 🧩 6. Najważniejsze moduły
+
+| Moduł     | Co robi              |
+| --------- | -------------------- |
+| apt / yum | instalacja pakietów  |
+| service   | zarządzanie usługami |
+| copy      | kopiowanie plików    |
+| template  | pliki z Jinja2       |
+| file      | zarządzanie plikami  |
+| user      | użytkownicy          |
+| git       | repozytoria          |
+
+---
+
+## 🧠 7. Zmienne
+
+```yaml
+- hosts: web
+  vars:
+    package_name: nginx
+
+  tasks:
+    - name: Instaluj pakiet
+      apt:
+        name: "{{ package_name }}"
+        state: present
+```
+
+---
+
+## 🧾 8. Templates (Jinja2)
+
+Plik `index.html.j2`:
+
+```html
+<h1>Witaj {{ hostname }}</h1>
+```
+
+Playbook:
+
+```yaml
+- hosts: web
+  vars:
+    hostname: "Serwer Ansible"
+
+  tasks:
+    - template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+```
+
+---
+
+## 🔁 9. Idempotencja (KLUCZOWE)
+
+Ansible:
+👉 nie robi zmian jeśli nie trzeba
+👉 możesz uruchamiać playbook wielokrotnie
+
+To ogromna przewaga nad zwykłymi skryptami.
+
+---
+
+## 🧱 10. Role (struktura projektu)
+
+Struktura:
+
+```
+roles/
+  nginx/
+    tasks/
+      main.yml
+    handlers/
+    templates/
+    files/
+    vars/
+```
+
+Użycie:
+
+```yaml
+- hosts: web
+  roles:
+    - nginx
+```
+
+---
+
+## 🔔 11. Handlers (np. restart usługi)
+
+```yaml
+tasks:
+  - name: Zmień config
+    template:
+      src: nginx.conf.j2
+      dest: /etc/nginx/nginx.conf
+    notify: restart nginx
+
+handlers:
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
+```
+
+---
+
+## 🔐 12. Ansible Vault (sekrety)
+
+```bash
+ansible-vault create secrets.yml
+```
+
+Użycie:
+
+```yaml
+vars_files:
+  - secrets.yml
+```
+
+---
+
+## ☁️ 13. Ansible w chmurze
+
+Obsługuje:
+
+* AWS
+* Azure
+* GCP
+
+Dynamic inventory:
+
+```bash
+ansible-inventory -i aws_ec2.yml --list
+```
+
+---
+
+## 🚀 14. Best Practices
+
+* używaj **roles**
+* trzymaj repo w Git
+* dziel playbooki na mniejsze
+* używaj **ansible-lint**
+* testuj na stagingu
+
+---
+
+## 🧪 15. Debugowanie
+
+```yaml
+- debug:
+    var: ansible_hostname
+```
+
+Tryb check:
+
+```bash
+ansible-playbook play.yml --check
+```
+
+---
+
+## 📚 16. Co dalej?
+
+Jeśli chcesz wejść poziom wyżej:
+
+* CI/CD (GitLab, GitHub Actions)
+* Ansible + Docker / Kubernetes
+* Ansible Tower / AWX
+* Pisanie własnych modułów
+
+---
+
+## 💡 Mini projekt (polecam zrobić)
+
+👉 Zrób playbook, który:
+
+1. Instaluje Nginx
+2. Wrzuca własną stronę HTML
+3. Otwiera port 80
+4. Restartuje usługę tylko jeśli trzeba
+
+---
+
+## ❓ Chcesz iść dalej?
+
+Mogę Ci przygotować:
+
+* 🔥 roadmapę nauki (np. pod DevOps job)
+* 🧪 zadania rekrutacyjne
+* 🏗️ projekt produkcyjny (np. deploy aplikacji)
+* 🧠 quiz sprawdzający wiedzę
+
+Powiedz tylko: *„poziom wyżej”* albo czego konkretnie potrzebujesz.

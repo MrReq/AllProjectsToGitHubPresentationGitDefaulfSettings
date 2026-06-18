@@ -1,0 +1,205 @@
+**Postman** to jedno z najpopularniejszych narzędzi do pracy z API — używane przez programistów, testerów i DevOpsów do tworzenia, testowania i dokumentowania zapytań HTTP. Jeśli pracujesz z backendem, integracjami albo automatyzacją, prędzej czy później na niego trafisz.
+
+---
+
+# 🔧 Czym właściwie jest Postman?
+
+Postman to aplikacja (desktop + web), która pozwala:
+
+* wysyłać zapytania HTTP (GET, POST, PUT, DELETE itd.)
+* testować API bez pisania kodu
+* analizować odpowiedzi serwera
+* automatyzować testy API
+* współdzielić kolekcje zapytań z zespołem
+
+Można powiedzieć: **to „klient API + środowisko testowe w jednym”**
+
+---
+
+# 🧠 Do czego się go używa?
+
+Najczęściej:
+
+* testowanie backendu (np. czy endpoint działa)
+* debugowanie API
+* integracja systemów
+* automatyczne testy (np. w CI/CD)
+* dokumentacja API
+
+---
+
+# 📦 Podstawowe pojęcia
+
+### 1. Request (zapytanie)
+
+To coś, co wysyłasz do serwera:
+
+* URL (np. `https://api.example.com/users`)
+* metoda (GET / POST / PUT / DELETE)
+* nagłówki (headers)
+* body (np. JSON)
+
+---
+
+### 2. Response (odpowiedź)
+
+To, co serwer zwraca:
+
+* status (200, 404, 500…)
+* body (najczęściej JSON)
+* headers
+
+---
+
+### 3. Kolekcje (Collections)
+
+Zestawy zapytań uporządkowane w foldery
+👉 używane do:
+
+* organizacji pracy
+* udostępniania zespołowi
+
+---
+
+### 4. Environment (środowiska)
+
+Pozwalają przełączać się między:
+
+* DEV
+* TEST
+* PROD
+
+Np. zamiast zmieniać URL ręcznie:
+
+```
+{{base_url}}/users
+```
+
+---
+
+# 🚀 Najważniejsze funkcje
+
+### 🔹 1. Testowanie API
+
+Wysyłasz request → widzisz odpowiedź → sprawdzasz czy działa
+
+---
+
+### 🔹 2. Automatyczne testy (JavaScript)
+
+Możesz pisać testy, np.:
+
+```javascript
+pm.test("Status is 200", function () {
+    pm.response.to.have.status(200);
+});
+```
+
+---
+
+### 🔹 3. Mocki API
+
+Możesz symulować backend bez jego istnienia
+
+---
+
+### 🔹 4. Runner (Collection Runner)
+
+Uruchamiasz serię zapytań automatycznie
+
+---
+
+### 🔹 5. Monitorowanie API
+
+Postman może cyklicznie sprawdzać API i wysyłać alerty
+
+---
+
+### 🔹 6. Dokumentacja
+
+Tworzy czytelną dokumentację API dla zespołu lub klientów
+
+---
+
+# 🔄 Przykład użycia (prosty flow)
+
+1. Tworzysz request:
+
+   * GET `/users`
+2. Wysyłasz
+3. Dostajesz JSON:
+
+```json
+[
+  { "id": 1, "name": "Jan" }
+]
+```
+
+4. Dodajesz test:
+
+   * czy lista nie jest pusta
+5. Zapisujesz w kolekcji
+
+---
+
+# 🧩 Integracje
+
+Postman działa z:
+
+* CI/CD (np. Jenkins, GitHub Actions)
+* Swagger / OpenAPI
+* Git
+* narzędziami do testów API
+
+---
+
+# 👍 Zalety
+
+* bardzo łatwy start
+* GUI (nie musisz pisać kodu)
+* ogromna popularność
+* świetny do nauki API
+* wspiera automatyzację
+
+---
+
+# 👎 Wady
+
+* przy dużych projektach może być ciężki
+* nie zastąpi pełnych testów backendu
+* czasem wolny przy dużych kolekcjach
+
+---
+
+# 🆚 Alternatywy
+
+* Insomnia – lżejszy i bardziej minimalistyczny
+* curl – narzędzie CLI
+* Swagger – bardziej do dokumentacji
+
+---
+
+# 🧠 Kiedy warto używać?
+
+* uczysz się API → TAK
+* testujesz backend → TAK
+* robisz automatyczne testy → TAK
+* robisz frontend → też się przydaje
+
+---
+
+# 🔥 TL;DR
+
+Postman to:
+👉 narzędzie do testowania API
+👉 bez pisania backendu
+👉 z automatyzacją i testami
+👉 używane praktycznie wszędzie w IT
+
+---
+
+Jeśli chcesz, mogę:
+
+* pokazać Ci **krok po kroku jak używać Postmana**
+* zrobić **mini kurs (od zera do zaawansowanego)**
+* albo dać Ci **zadania do nauki (jak na juniora QA / backend)**

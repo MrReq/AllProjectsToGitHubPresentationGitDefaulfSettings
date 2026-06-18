@@ -1,0 +1,3 @@
+Adapter to strukturalny wzorzec projektowy, którego celem jest umożliwienie współpracy dwóm klasom o niekompatybilnych interfejsach.
+Adapter przekształca interfejs jednej z klas na interfejs drugiej klasy.
+Tak jak w życiu codziennym jest przejściówką.

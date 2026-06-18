@@ -1,0 +1,2 @@
+Dekorator jest to strukturalny wzorzec projektowy, którego celem jest umożliwienie rozszerzenia zachowania
+istniejących obiektów poprzez opakowanie je w specjalnych obiektach, które będą zawierać dane zachowanie.

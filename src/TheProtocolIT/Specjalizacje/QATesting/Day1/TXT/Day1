@@ -1,0 +1,112 @@
+🔥 DZIEŃ 1 — KONKRETNY PLAN
+
+👉 Cel: zrozumieć czym jest QA + podstawy HTML
+
+Czas: ~4–6h (jak mniej, to podziel na 2 dni)
+
+🧠 1. Zrozum czym jest QA (1h)
+
+Musisz ogarnąć podstawy:
+
+Naucz się:
+Co to jest testowanie oprogramowania
+Co to jest bug
+Co to jest test case
+Różnica:
+frontend vs backend
+manual vs automation
+
+👉 wpisz w YouTube:
+
+"QA testing basics"
+"manual tester co robi"
+
+📌 Nie oglądaj 10h — max 1h i lecimy dalej
+
+🌐 2. HTML — TOTALNE PODSTAWY (2–3h)
+
+👉 To jest fundament QA webowego
+
+Naucz się:
+struktura strony:
+<html>
+<head>
+<body>
+najważniejsze tagi:
+<div>
+<h1>
+<p>
+<a>
+<button>
+<input>
+atrybuty:
+id
+class
+🔧 PRAKTYKA (MEGA WAŻNE)
+
+Zrób prostą stronę:
+
+<h1>Moja pierwsza strona testowa</h1>
+<input type="text" placeholder="Wpisz imię">
+<button>Kliknij mnie</button>
+
+👉 zapisz jako index.html i otwórz w przeglądarce
+
+🔍 3. DevTools (1–2h)
+
+👉 To jest narzędzie QA nr 1
+
+W przeglądarce:
+
+kliknij PPM → "Inspect"
+Naucz się:
+jak znaleźć element
+jak zobaczyć HTML
+jak zmienić tekst na stronie
+
+👉 spróbuj:
+
+zmienić nazwę przycisku
+zmienić tekst nagłówka
+🐞 4. Pierwsze testowanie (1h)
+
+Wejdź na dowolną stronę, np:
+
+sklep
+login page
+
+I spróbuj znaleźć błędy:
+
+Przykłady:
+wpisz dziwne dane
+klikaj szybko
+zostaw puste pola
+
+👉 zapisz 3–5 bugów (nawet jeśli są “głupie”)
+
+✅ CHECKLISTA NA KONIEC DNIA 1
+
+Jeśli to ogarniesz — jesteś na dobrej drodze:
+
+✔ wiesz czym jest QA
+✔ umiesz otworzyć DevTools
+✔ rozumiesz podstawowy HTML
+✔ znalazłeś kilka bugów
+
+💡 WAŻNE NA START
+
+👉 Nie próbuj wszystkiego zrozumieć idealnie
+👉 Liczy się praktyka, nie teoria
+👉 Codziennie coś robisz = wygrywasz
+
+➡️ Następny krok
+
+Jak skończysz:
+👉 napisz mi "dzień 1 zrobiony"
+
+i dam Ci:
+
+DZIEŃ 2 (już bardziej praktyczny)
+pierwsze mini zadania jak na prawdziwej pracy QA
+
+Możemy też robić to jak mentor — będę Cię prowadził krok po kroku 💪
