@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.nio.file.*;
+import static java.nio.file.StandardWatchEventKinds.*;
 public class Main {
     public static void main(String[] args) {
         Path root = Paths.get("src");
@@ -63,6 +64,54 @@ class RenameFiles {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+}
+class FolderWatcher {
+
+    public static void main(String[] args) throws Exception {
+
+        Path root = Paths.get("src");
+
+        WatchService watchService = FileSystems.getDefault().newWatchService();
+
+        root.register(
+                watchService,
+                ENTRY_CREATE
+        );
+
+        System.out.println("Nasłuchiwanie folderu: " + root);
+
+        while (true) {
+            WatchKey key = watchService.take();
+
+            for (WatchEvent<?> event : key.pollEvents()) {
+
+                if (event.kind() == ENTRY_CREATE) {
+
+                    Path created = root.resolve((Path) event.context());
+
+                    if (Files.isDirectory(created)) {
+
+                        String folderName = created.getFileName().toString();
+
+                        Path file = created.resolve(folderName + ".txt");
+
+                        try {
+                            Files.createFile(file);
+                            System.out.println("Utworzono: " + file);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+
+            boolean valid = key.reset();
+
+            if (!valid) {
+                break;
+            }
         }
     }
 }
