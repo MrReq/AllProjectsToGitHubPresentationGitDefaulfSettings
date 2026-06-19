@@ -1,0 +1,157 @@
+Amazon Aurora MySQL jest relacyjną bazą danych dostępną w chmurze AWS.
+
+Jest to usługa zarządzana, co oznacza, że większość zadań administracyjnych wykonywana jest automatycznie przez AWS.
+
+Administrator nie musi samodzielnie instalować serwera bazy danych.
+
+Administrator nie musi zarządzać aktualizacjami systemu operacyjnego.
+
+Administrator nie musi ręcznie konfigurować replikacji danych.
+
+Aurora została zaprojektowana jako w pełni kompatybilna z MySQL.
+
+Większość aplikacji wykorzystujących MySQL może zostać połączona z Aurorą bez większych zmian w kodzie.
+
+Aurora obsługuje standardowy język SQL.
+
+Aurora współpracuje z popularnymi technologiami Java takimi jak JDBC, JPA, Hibernate oraz Spring Boot.
+
+Jedną z największych zalet Aurory jest wysoka wydajność.
+
+Aurora została zoptymalizowana pod kątem obsługi dużej liczby zapytań oraz wysokiego obciążenia.
+
+W wielu scenariuszach działa szybciej niż tradycyjny MySQL uruchomiony na pojedynczym serwerze.
+
+Architektura Aurory opiera się na oddzieleniu warstwy obliczeniowej od warstwy przechowywania danych.
+
+Warstwa obliczeniowa odpowiada za wykonywanie zapytań i obsługę połączeń klientów.
+
+Warstwa przechowywania odpowiada za zapisywanie oraz przechowywanie danych.
+
+Dzięki temu możliwe jest niezależne skalowanie obu warstw.
+
+Aurora automatycznie replikuje dane pomiędzy wieloma lokalizacjami.
+
+Każda operacja zapisu jest kopiowana do kilku niezależnych kopii danych.
+
+Takie rozwiązanie zwiększa bezpieczeństwo oraz odporność na awarie.
+
+Dane przechowywane są w wielu strefach dostępności jednego regionu AWS.
+
+Strefa dostępności to odrębne centrum danych posiadające własne zasilanie i infrastrukturę sieciową.
+
+Awaria pojedynczej strefy nie powoduje utraty danych ani zatrzymania działania systemu.
+
+Aurora automatycznie wykrywa awarie instancji bazy danych.
+
+W przypadku problemu ruch zostaje automatycznie przełączony na instancję zapasową.
+
+Mechanizm ten nazywany jest failover.
+
+Failover pozwala zminimalizować czas niedostępności aplikacji.
+
+Aurora wspiera architekturę Multi-AZ.
+
+Multi-AZ oznacza wykorzystanie wielu stref dostępności jednocześnie.
+
+Dzięki temu baza danych zachowuje wysoką dostępność nawet podczas awarii infrastruktury.
+
+Aurora umożliwia tworzenie replik odczytowych.
+
+Repliki odczytowe służą do obsługi zapytań typu SELECT.
+
+Pozwala to odciążyć główną instancję odpowiedzialną za operacje zapisu.
+
+Dzięki replikom można obsługiwać większą liczbę użytkowników bez utraty wydajności.
+
+Aurora automatycznie synchronizuje dane pomiędzy wszystkimi instancjami klastra.
+
+Podstawową jednostką działania Aurory jest klaster.
+
+Klaster zawiera jedną instancję główną odpowiedzialną za zapisywanie danych.
+
+Klaster może również zawierać wiele instancji przeznaczonych wyłącznie do odczytu.
+
+Aurora obsługuje automatyczne tworzenie kopii zapasowych.
+
+Backupy wykonywane są bez konieczności zatrzymywania bazy danych.
+
+System pozwala przywrócić dane do dowolnego momentu w określonym przedziale czasu.
+
+Mechanizm ten nosi nazwę Point-In-Time Recovery.
+
+Aurora przechowuje logi transakcyjne umożliwiające dokładne odtworzenie stanu bazy.
+
+Aurora wspiera skalowanie pionowe.
+
+Skalowanie pionowe polega na zwiększaniu mocy pojedynczej instancji poprzez dodanie procesorów lub pamięci.
+
+Aurora wspiera również skalowanie poziome.
+
+Skalowanie poziome polega na dodawaniu kolejnych instancji obsługujących ruch użytkowników.
+
+Specjalną odmianą tej usługi jest Aurora Serverless.
+
+Aurora Serverless automatycznie dostosowuje zasoby obliczeniowe do aktualnego obciążenia.
+
+Przy niewielkim ruchu zużywa mniej zasobów.
+
+Przy wzroście liczby użytkowników automatycznie zwiększa swoją wydajność.
+
+Pozwala to ograniczyć koszty utrzymania infrastruktury.
+
+Aurora zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania na dyskach.
+
+Dane mogą być również szyfrowane podczas przesyłania przez sieć.
+
+Aurora integruje się z usługą AWS Key Management Service odpowiedzialną za zarządzanie kluczami szyfrującymi.
+
+System wspiera kontrolę dostępu oraz zarządzanie uprawnieniami użytkowników.
+
+Aurora umożliwia monitorowanie działania bazy danych w czasie rzeczywistym.
+
+Usługa integruje się z Amazon CloudWatch.
+
+CloudWatch pozwala śledzić wydajność, zużycie zasobów oraz liczbę zapytań.
+
+Administrator może tworzyć alarmy informujące o problemach lub przekroczeniu określonych progów.
+
+Aurora generuje szczegółowe logi diagnostyczne.
+
+Logi pomagają analizować błędy oraz problemy wydajnościowe.
+
+Aurora jest często wykorzystywana w nowoczesnych systemach opartych o mikroserwisy.
+
+Jest popularnym rozwiązaniem w aplikacjach e-commerce.
+
+Jest wykorzystywana w platformach SaaS.
+
+Jest stosowana w systemach wymagających wysokiej dostępności i niezawodności.
+
+Aurora bardzo dobrze współpracuje z Dockerem.
+
+Aurora bardzo dobrze współpracuje z Kubernetesem.
+
+Może być wykorzystywana jako centralna baza danych dla aplikacji uruchamianych w kontenerach.
+
+Aurora wspiera transakcje zgodne z zasadami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację jednocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość danych po zatwierdzeniu transakcji.
+
+Znajomość MySQL znacząco ułatwia naukę Aurory.
+
+Większość poleceń SQL działa w bardzo podobny sposób.
+
+Aurora jest obecnie jedną z najpopularniejszych baz danych w ekosystemie AWS.
+
+Jest szeroko wykorzystywana w nowoczesnych aplikacjach chmurowych.
+
+Znajomość Amazon Aurora MySQL jest ceniona na stanowiskach związanych z programowaniem backendowym, DevOps, Cloud Computing oraz architekturą systemów rozproszonych.

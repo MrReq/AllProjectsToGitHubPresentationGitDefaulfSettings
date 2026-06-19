@@ -1,3 +1,11 @@
 Elementy dodatkowe w celu Łatwiejszej komunikacji.
 Ściśle powiązane z dokumentacją projektu.
 W celu oznaczenia że coś jest przestarzałem.
+
+Annotation, czyli adnotacja, jest specjalnym znacznikiem dodawanym do kodu źródłowego.
+
+Pozwala przekazywać dodatkowe informacje kompilatorowi, frameworkom lub narzędziom programistycznym.
+
+Adnotacje nie opisują logiki działania programu.
+
+Dostarczają metadanych na temat elementów kodu.

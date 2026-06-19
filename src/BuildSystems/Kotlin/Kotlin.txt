@@ -1,0 +1,221 @@
+Kotlin jest nowoczesnym językiem programowania stworzonym przez firmę [JetBrains](https://www.jetbrains.com?utm_source=chatgpt.com).
+
+Został oficjalnie zaprezentowany w 2011 roku.
+
+Pierwsza stabilna wersja pojawiła się w 2016 roku.
+
+Kotlin został zaprojektowany jako bardziej zwięzła, bezpieczna i nowoczesna alternatywa dla Javy.
+
+---
+
+Kotlin działa na platformie JVM.
+
+Kod Kotlin jest kompilowany do bytecode.
+
+Wygenerowany bytecode może zostać uruchomiony przez JVM.
+
+Dzięki temu Kotlin może korzystać ze wszystkich bibliotek dostępnych dla Javy.
+
+Może współpracować z istniejącymi projektami Java bez konieczności ich przepisywania.
+
+---
+
+Kotlin jest oficjalnie wspieranym językiem do tworzenia aplikacji Android.
+
+W 2017 roku firma [Google Android Developers](https://developer.android.com/kotlin?utm_source=chatgpt.com) ogłosiła oficjalne wsparcie dla Kotlin.
+
+Od tego momentu popularność języka gwałtownie wzrosła.
+
+Obecnie wiele nowych aplikacji Android powstaje właśnie w Kotlinie.
+
+---
+
+Jedną z największych zalet Kotlin jest zwięzłość kodu.
+
+Ten sam program można często napisać przy użyciu znacznie mniejszej liczby linii niż w Javie.
+
+Mniejsza ilość kodu oznacza łatwiejsze utrzymanie projektu.
+
+Mniejsza ilość kodu oznacza również mniejsze ryzyko błędów.
+
+---
+
+Kotlin posiada wbudowaną ochronę przed błędami NullPointerException.
+
+W Javie wartość null jest jedną z najczęstszych przyczyn błędów aplikacji.
+
+W Kotlin typy są domyślnie niezerowalne.
+
+Programista musi świadomie oznaczyć zmienną jako nullable.
+
+Dzięki temu wiele błędów jest wykrywanych już podczas kompilacji.
+
+---
+
+Kotlin wspiera programowanie obiektowe.
+
+Można tworzyć klasy.
+
+Można tworzyć interfejsy.
+
+Można tworzyć klasy abstrakcyjne.
+
+Można stosować dziedziczenie.
+
+Można stosować polimorfizm.
+
+---
+
+Kotlin wspiera również programowanie funkcyjne.
+
+Funkcje mogą być przekazywane jako argumenty.
+
+Funkcje mogą być zwracane przez inne funkcje.
+
+Możliwe jest tworzenie funkcji anonimowych.
+
+Możliwe jest stosowanie lambd.
+
+---
+
+Kotlin posiada mechanizm Data Class.
+
+Data Class służy do przechowywania danych.
+
+Kompilator automatycznie generuje metody equals().
+
+Kompilator automatycznie generuje metody hashCode().
+
+Kompilator automatycznie generuje metodę toString().
+
+Kompilator automatycznie generuje funkcje kopiowania obiektów.
+
+---
+
+Kotlin posiada mechanizm Object.
+
+Object pozwala tworzyć singletony.
+
+Singleton jest obiektem posiadającym tylko jedną instancję w całej aplikacji.
+
+Nie ma potrzeby ręcznego implementowania wzorca Singleton.
+
+---
+
+Kotlin posiada mechanizm Companion Object.
+
+Companion Object jest odpowiednikiem statycznych elementów znanych z Javy.
+
+Pozwala przechowywać wspólne metody i pola dla całej klasy.
+
+---
+
+Kotlin wspiera Extension Functions.
+
+Extension Function pozwala rozszerzyć istniejącą klasę o nowe funkcje.
+
+Nie ma potrzeby modyfikowania kodu źródłowego tej klasy.
+
+Jest to jedna z najbardziej charakterystycznych cech Kotlin.
+
+---
+
+Kotlin posiada mechanizm Smart Cast.
+
+Kompilator automatycznie rozpoznaje typ obiektu po wcześniejszym sprawdzeniu.
+
+Nie ma potrzeby wykonywania wielu jawnych rzutowań.
+
+Kod staje się bardziej czytelny.
+
+---
+
+Kotlin wspiera Coroutines.
+
+Coroutines służą do programowania asynchronicznego.
+
+Pozwalają wykonywać wiele operacji równolegle.
+
+Zużywają mniej zasobów niż tradycyjne wątki.
+
+Są szeroko wykorzystywane w aplikacjach Android.
+
+---
+
+Kotlin może być używany do tworzenia aplikacji backendowych.
+
+Popularnym frameworkiem jest Spring Boot.
+
+Kotlin współpracuje ze Spring Boot równie dobrze jak Java.
+
+Wiele nowych mikroserwisów powstaje właśnie przy wykorzystaniu Kotlin.
+
+---
+
+Kotlin może być używany do tworzenia aplikacji webowych.
+
+Może być kompilowany do JavaScript.
+
+Kod Kotlin może być wykonywany bezpośrednio w przeglądarce.
+
+Pozwala to tworzyć aplikacje frontendowe.
+
+---
+
+Kotlin wspiera Kotlin Multiplatform.
+
+Kotlin Multiplatform umożliwia współdzielenie kodu pomiędzy różnymi platformami.
+
+Ten sam kod może działać na Androidzie.
+
+Ten sam kod może działać na iOS.
+
+Ten sam kod może działać na JVM.
+
+Ten sam kod może działać w przeglądarce.
+
+---
+
+Kotlin posiada bardzo dobrą integrację z IntelliJ IDEA.
+
+Nie jest to przypadek.
+
+Kotlin został stworzony przez tę samą firmę, która rozwija IntelliJ IDEA.
+
+Wsparcie dla języka jest jednym z najlepszych dostępnych na rynku.
+
+---
+
+Kotlin jest obecnie jednym z najpopularniejszych języków działających na JVM.
+
+Jest szczególnie ceniony za czytelność kodu.
+
+Jest ceniony za bezpieczeństwo typów.
+
+Jest ceniony za wysoką produktywność programistów.
+
+Jest ceniony za pełną kompatybilność z ekosystemem Java.
+
+---
+
+Najczęstsze zastosowania Kotlin obejmują tworzenie aplikacji Android.
+
+Obejmują tworzenie mikroserwisów.
+
+Obejmują tworzenie aplikacji webowych.
+
+Obejmują tworzenie aplikacji desktopowych.
+
+Obejmują tworzenie aplikacji wieloplatformowych.
+
+---
+
+Znajomość Kotlin jest szczególnie cenna dla programistów Java.
+
+Przejście z Javy do Kotlin jest stosunkowo łatwe.
+
+Oba języki działają na JVM.
+
+Oba języki korzystają z tych samych bibliotek.
+
+Oba języki mogą współpracować w ramach jednego projektu.

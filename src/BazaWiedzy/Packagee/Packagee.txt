@@ -1,0 +1,7 @@
+Package jest mechanizmem organizacji kodu w Javie.
+
+Służy do grupowania powiązanych klas, interfejsów, rekordów, enumów oraz adnotacji.
+
+Dzięki pakietom projekt jest uporządkowany.
+
+Ułatwiają zarządzanie zależnościami oraz zapobiegają konfliktom nazw pomiędzy elementami aplikacji.

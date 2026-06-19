@@ -1,0 +1,183 @@
+Maven jest narzędziem do automatyzacji budowania projektów Java.
+
+Został stworzony przez organizację Apache Software Foundation.
+
+Jego głównym celem jest uproszczenie procesu kompilacji, testowania, pakowania i zarządzania zależnościami.
+
+Przed Mavenem programiści musieli ręcznie pobierać biblioteki i dodawać je do projektu.
+
+Maven automatycznie pobiera wymagane biblioteki z repozytoriów internetowych.
+
+Najważniejszym plikiem w projekcie Maven jest pom.xml.
+
+Nazwa POM oznacza Project Object Model.
+
+Plik pom.xml zawiera całą konfigurację projektu.
+
+W pliku pom.xml definiuje się nazwę projektu.
+
+W pliku pom.xml definiuje się wersję projektu.
+
+W pliku pom.xml definiuje się zależności.
+
+W pliku pom.xml definiuje się wtyczki.
+
+W pliku pom.xml definiuje się sposób budowania aplikacji.
+
+Każdy projekt Maven posiada identyfikator groupId.
+
+groupId najczęściej reprezentuje organizację lub autora projektu.
+
+Przykładem groupId może być com.company.
+
+Każdy projekt Maven posiada artifactId.
+
+artifactId określa nazwę projektu.
+
+Każdy projekt Maven posiada version.
+
+version określa aktualną wersję aplikacji.
+
+Połączenie groupId, artifactId i version jednoznacznie identyfikuje artefakt.
+
+Artefakt to wynik działania procesu budowania.
+
+Artefaktem może być plik JAR.
+
+Artefaktem może być plik WAR.
+
+Artefaktem może być biblioteka.
+
+Maven wykorzystuje koncepcję repozytoriów.
+
+Repozytorium to miejsce przechowywania bibliotek.
+
+Najważniejszym repozytorium publicznym jest Maven Central Repository.
+
+Podczas pobierania zależności Maven najpierw sprawdza repozytorium lokalne.
+
+Repozytorium lokalne znajduje się na komputerze programisty.
+
+Domyślnie znajduje się w katalogu .m2.
+
+Jeżeli biblioteka nie istnieje lokalnie, Maven pobiera ją z repozytorium zdalnego.
+
+Po pobraniu biblioteka jest zapisywana w repozytorium lokalnym.
+
+Dzięki temu kolejne budowania są szybsze.
+
+Zależności definiuje się w sekcji dependencies.
+
+Każda zależność posiada groupId.
+
+Każda zależność posiada artifactId.
+
+Każda zależność posiada version.
+
+Przykładową zależnością może być biblioteka JUnit.
+
+Przykładową zależnością może być framework Spring Boot.
+
+Maven automatycznie pobiera zależności przechodnie.
+
+Zależności przechodnie to biblioteki wymagane przez inne biblioteki.
+
+Programista nie musi ręcznie pobierać wszystkich wymaganych plików.
+
+Maven wykorzystuje standardową strukturę katalogów.
+
+Kod źródłowy znajduje się zwykle w katalogu src/main/java.
+
+Pliki zasobów znajdują się zwykle w katalogu src/main/resources.
+
+Testy znajdują się zwykle w katalogu src/test/java.
+
+Zasoby testowe znajdują się zwykle w katalogu src/test/resources.
+
+Przestrzeganie tej struktury eliminuje konieczność dodatkowej konfiguracji.
+
+Maven działa w oparciu o cykl życia projektu.
+
+Cykl życia projektu składa się z faz.
+
+Najczęściej używanym cyklem życia jest Default Lifecycle.
+
+Faza validate sprawdza poprawność projektu.
+
+Faza compile kompiluje kod źródłowy.
+
+Faza test uruchamia testy jednostkowe.
+
+Faza package tworzy artefakt.
+
+Faza verify wykonuje dodatkową weryfikację.
+
+Faza install instaluje artefakt w repozytorium lokalnym.
+
+Faza deploy publikuje artefakt do repozytorium zdalnego.
+
+Uruchomienie jednej fazy powoduje wykonanie wszystkich wcześniejszych faz.
+
+Uruchomienie package wykona również validate, compile i test.
+
+Najczęściej używanym poleceniem jest mvn clean install.
+
+Polecenie clean usuwa poprzednie wyniki budowania.
+
+Polecenie install buduje projekt i zapisuje artefakt lokalnie.
+
+Katalog target zawiera wynik budowania.
+
+W katalogu target znajdują się wygenerowane pliki JAR lub WAR.
+
+Maven wykorzystuje wtyczki do wykonywania dodatkowych operacji.
+
+Wtyczki rozszerzają możliwości Mavena.
+
+Jedną z najważniejszych wtyczek jest Maven Compiler Plugin.
+
+Maven Compiler Plugin odpowiada za kompilację kodu.
+
+Maven Surefire Plugin odpowiada za uruchamianie testów.
+
+Maven Jar Plugin odpowiada za tworzenie plików JAR.
+
+Maven War Plugin odpowiada za tworzenie plików WAR.
+
+Maven Shade Plugin umożliwia tworzenie tzw. Fat JAR.
+
+Fat JAR zawiera aplikację oraz wszystkie zależności w jednym pliku.
+
+Maven może współpracować z systemami CI/CD.
+
+Maven jest często wykorzystywany w Jenkins.
+
+Maven jest często wykorzystywany w GitLab CI/CD.
+
+Maven jest często wykorzystywany w GitHub Actions.
+
+Większość współczesnych projektów Java wykorzystuje Maven lub Gradle.
+
+Maven stawia na konwencję zamiast konfiguracji.
+
+Oznacza to, że wiele rzeczy działa automatycznie bez dodatkowych ustawień.
+
+Maven jest bardzo popularny w projektach korporacyjnych.
+
+Maven jest standardem w wielu dużych projektach Java.
+
+Znajomość Mavena jest jedną z podstawowych umiejętności programisty Java.
+
+Maven jest często jednym z pierwszych narzędzi, których uczy się początkujący programista Java.
+
+IntelliJ IDEA posiada natywne wsparcie dla Maven.
+
+Projekt Maven można utworzyć bezpośrednio podczas tworzenia nowego projektu w IntelliJ IDEA.
+
+Po zaimportowaniu projektu IntelliJ automatycznie pobiera wszystkie zależności zdefiniowane w pom.xml.
+
+Zmiana pliku pom.xml zwykle powoduje automatyczne przeładowanie konfiguracji projektu.
+
+Maven znacząco upraszcza zarządzanie bibliotekami w projektach Java.
+
+Bez Mavena zarządzanie dużymi projektami byłoby znacznie bardziej czasochłonne i podatne na błędy.

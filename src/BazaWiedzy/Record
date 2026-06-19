@@ -1,0 +1,13 @@
+Record jest specjalnym typem klasy przeznaczonym głównie do przechowywania danych.
+
+Pozwala w prosty sposób tworzyć niemodyfikowalne obiekty.
+
+Nie wymaga ręcznego pisania konstruktorów.
+
+Nie wymaga ręcznego tworzenia metod equals().
+
+Nie wymaga ręcznego tworzenia metod hashCode().
+
+Nie wymaga ręcznego tworzenia metod toString().
+
+Record znacząco upraszcza tworzenie klas danych.

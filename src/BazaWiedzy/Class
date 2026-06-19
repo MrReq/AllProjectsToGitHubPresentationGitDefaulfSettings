@@ -1,5 +1,9 @@
+Class, czyli klasa, jest podstawowym elementem programowania obiektowego w Javie.
 
-KLASY ZWYKŁE
+Stanowi szablon definiujący strukturę oraz zachowanie obiektów.
 
+Klasa może zawierać pola przechowujące dane.
 
-KLASY ABSTRAKCYJNE
+Może zawierać metody realizujące operacje.
+
+Może również posiadać konstruktory służące do tworzenia nowych obiektów.

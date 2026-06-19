@@ -1,0 +1,193 @@
+DataGrip jest profesjonalnym narzędziem do pracy z bazami danych.
+
+DataGrip został stworzony przez [JetBrains](https://www.jetbrains.com/datagrip/?utm_source=chatgpt.com).
+
+Należy do tej samej rodziny narzędzi co IntelliJ IDEA.
+
+DataGrip jest przeznaczony głównie dla programistów, administratorów baz danych oraz analityków danych.
+
+Głównym celem DataGrip jest ułatwienie zarządzania bazami danych oraz tworzenia zapytań SQL.
+
+DataGrip obsługuje wiele różnych systemów bazodanowych.
+
+Może łączyć się z MySQL.
+
+Może łączyć się z PostgreSQL.
+
+Może łączyć się z Microsoft SQL Server.
+
+Może łączyć się z Oracle Database.
+
+Może łączyć się z MariaDB.
+
+Może łączyć się z SQLite.
+
+Może łączyć się z MongoDB poprzez odpowiednie sterowniki.
+
+Może łączyć się z bazami danych działającymi lokalnie.
+
+Może łączyć się z bazami danych działającymi w chmurze.
+
+Może łączyć się z Amazon Aurora MySQL.
+
+Może łączyć się z bazami uruchomionymi w Dockerze.
+
+Może łączyć się z bazami uruchomionymi w Kubernetesie.
+
+Po utworzeniu połączenia DataGrip automatycznie analizuje strukturę bazy danych.
+
+Program pobiera informacje o tabelach.
+
+Program pobiera informacje o kolumnach.
+
+Program pobiera informacje o indeksach.
+
+Program pobiera informacje o kluczach głównych.
+
+Program pobiera informacje o kluczach obcych.
+
+Program pobiera informacje o widokach.
+
+Program pobiera informacje o procedurach składowanych.
+
+Program pobiera informacje o funkcjach.
+
+Wszystkie te elementy są prezentowane w przejrzystym drzewie obiektów.
+
+DataGrip posiada bardzo zaawansowany edytor SQL.
+
+Edytor SQL oferuje kolorowanie składni.
+
+Edytor SQL oferuje automatyczne uzupełnianie kodu.
+
+Edytor SQL potrafi podpowiadać nazwy tabel.
+
+Edytor SQL potrafi podpowiadać nazwy kolumn.
+
+Edytor SQL potrafi podpowiadać nazwy funkcji.
+
+Edytor SQL wykrywa błędy składniowe podczas pisania zapytania.
+
+Pozwala to szybciej znajdować błędy w kodzie SQL.
+
+DataGrip wspiera refaktoryzację obiektów bazodanowych.
+
+Zmiana nazwy tabeli może zostać automatycznie uwzględniona w innych miejscach projektu.
+
+Zmiana nazwy kolumny może zostać automatycznie zaktualizowana w zapytaniach.
+
+DataGrip pozwala wykonywać zapytania SQL bezpośrednio z poziomu edytora.
+
+Wyniki zapytań prezentowane są w formie tabelarycznej.
+
+Dane można filtrować.
+
+Dane można sortować.
+
+Dane można grupować.
+
+Dane można eksportować do różnych formatów.
+
+Obsługiwany jest eksport do CSV.
+
+Obsługiwany jest eksport do Excel.
+
+Obsługiwany jest eksport do JSON.
+
+Obsługiwany jest eksport do XML.
+
+DataGrip umożliwia edycję danych bezpośrednio w tabelach.
+
+Program pozwala dodawać nowe rekordy.
+
+Program pozwala aktualizować istniejące rekordy.
+
+Program pozwala usuwać rekordy.
+
+Zmiany mogą być zatwierdzane lub cofane.
+
+DataGrip wspiera transakcje bazodanowe.
+
+Program umożliwia ręczne wykonywanie COMMIT.
+
+Program umożliwia ręczne wykonywanie ROLLBACK.
+
+Pozwala to bezpiecznie testować zmiany w bazie danych.
+
+DataGrip oferuje narzędzia do analizy wydajności zapytań.
+
+Możliwe jest wyświetlanie planów wykonania zapytań.
+
+Plan wykonania pokazuje sposób przetwarzania zapytania przez silnik bazy danych.
+
+Analiza planów wykonania pomaga optymalizować wydajność aplikacji.
+
+DataGrip umożliwia porównywanie schematów baz danych.
+
+Możliwe jest porównanie dwóch różnych baz.
+
+Możliwe jest porównanie dwóch wersji tej samej bazy.
+
+Program potrafi wygenerować skrypty synchronizujące różnice pomiędzy schematami.
+
+DataGrip wspiera systemy kontroli wersji.
+
+Może współpracować z [GitHub](https://github.com?utm_source=chatgpt.com).
+
+Może współpracować z [GitLab](https://gitlab.com?utm_source=chatgpt.com).
+
+Może współpracować z [Bitbucket](https://bitbucket.org?utm_source=chatgpt.com).
+
+Pozwala to przechowywać skrypty SQL w repozytoriach Git.
+
+DataGrip posiada wbudowany terminal.
+
+Terminal pozwala wykonywać polecenia systemowe bez opuszczania programu.
+
+DataGrip obsługuje wiele połączeń jednocześnie.
+
+Programista może pracować równocześnie z kilkoma bazami danych.
+
+Programista może porównywać dane pomiędzy różnymi środowiskami.
+
+Często wykorzystuje się to podczas pracy z bazą deweloperską, testową i produkcyjną.
+
+DataGrip automatycznie pobiera odpowiednie sterowniki JDBC.
+
+Programista nie musi samodzielnie wyszukiwać większości sterowników.
+
+Proces konfiguracji połączenia jest dzięki temu znacznie prostszy.
+
+DataGrip posiada rozbudowany system wyszukiwania.
+
+Możliwe jest szybkie odnajdywanie tabel.
+
+Możliwe jest szybkie odnajdywanie kolumn.
+
+Możliwe jest szybkie odnajdywanie procedur.
+
+Możliwe jest szybkie odnajdywanie widoków.
+
+DataGrip wspiera diagramy baz danych.
+
+Program może generować diagramy relacji pomiędzy tabelami.
+
+Diagramy pomagają zrozumieć strukturę bazy danych.
+
+Jest to szczególnie przydatne podczas pracy z dużymi systemami.
+
+DataGrip jest często wykorzystywany podczas projektowania baz danych.
+
+DataGrip jest często wykorzystywany podczas debugowania aplikacji.
+
+DataGrip jest często wykorzystywany podczas optymalizacji zapytań SQL.
+
+DataGrip jest często wykorzystywany przez zespoły backendowe.
+
+DataGrip jest często wykorzystywany przez administratorów baz danych.
+
+DataGrip jest jednym z najbardziej zaawansowanych narzędzi do pracy z bazami danych dostępnych na rynku.
+
+Znajomość DataGrip może znacząco zwiększyć produktywność podczas pracy z SQL oraz systemami bazodanowymi.
+
+Dla programistów Java korzystających z MySQL, PostgreSQL, Microsoft SQL Server lub Amazon Aurora DataGrip jest jednym z najwygodniejszych narzędzi do codziennej pracy z bazami danych.

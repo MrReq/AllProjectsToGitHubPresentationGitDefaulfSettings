@@ -1,0 +1,5 @@
+Enum jest specjalnym typem służącym do reprezentowania stałego zbioru wartości.
+
+Wykorzystuje się go wszędzie tam, gdzie liczba możliwych opcji jest z góry określona.
+
+Wartości enum nie powinny ulegać zmianie podczas działania programu.

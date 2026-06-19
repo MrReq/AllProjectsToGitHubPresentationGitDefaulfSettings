@@ -1,0 +1,9 @@
+JVM, czyli Java Virtual Machine, jest maszyną wirtualną odpowiedzialną za uruchamianie aplikacji napisanych w Javie.
+
+Kod źródłowy jest najpierw kompilowany do postaci bytecode.
+
+Następnie bytecode wykonywany jest przez JVM.
+
+Dzięki temu ten sam program może działać na różnych systemach operacyjnych.
+
+Nie ma potrzeby modyfikowania kodu dla każdej platformy osobno.

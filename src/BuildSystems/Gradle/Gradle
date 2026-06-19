@@ -1,0 +1,195 @@
+Gradle jest nowoczesnym systemem budowania projektów.
+
+Gradle jest jednym z najpopularniejszych Build Systemów w ekosystemie Java.
+
+Gradle został stworzony jako bardziej elastyczna alternatywa dla Mavena.
+
+Gradle łączy zalety Apache Ant oraz Mavena.
+
+Gradle automatyzuje proces budowania aplikacji.
+
+Gradle automatyzuje proces kompilacji kodu.
+
+Gradle automatyzuje proces pobierania zależności.
+
+Gradle automatyzuje proces uruchamiania testów.
+
+Gradle automatyzuje proces pakowania aplikacji.
+
+Gradle automatyzuje proces publikowania artefaktów.
+
+Gradle jest wykorzystywany nie tylko w projektach Java.
+
+Gradle wspiera również Kotlin.
+
+Gradle wspiera Groovy.
+
+Gradle wspiera Scala.
+
+Gradle wspiera Android.
+
+Gradle jest domyślnym Build Systemem dla aplikacji Android.
+
+Najważniejszym plikiem konfiguracyjnym Gradle jest build.gradle.
+
+Coraz częściej wykorzystywany jest plik build.gradle.kts.
+
+Plik build.gradle.kts wykorzystuje język Kotlin DSL.
+
+DSL oznacza Domain Specific Language.
+
+DSL jest specjalnym językiem przeznaczonym do konfiguracji.
+
+Gradle wykorzystuje zadania zwane Task.
+
+Task jest podstawową jednostką pracy w Gradle.
+
+Każde zadanie wykonuje określoną czynność.
+
+Przykładem zadania jest kompilacja kodu.
+
+Przykładem zadania jest uruchamianie testów.
+
+Przykładem zadania jest tworzenie pliku JAR.
+
+Przykładem zadania jest publikowanie aplikacji.
+
+Gradle posiada wiele gotowych zadań.
+
+Programista może również tworzyć własne zadania.
+
+Gradle buduje graf zależności pomiędzy zadaniami.
+
+Dzięki temu wie, które zadania muszą zostać wykonane wcześniej.
+
+Gradle wykonuje tylko te zadania, które są rzeczywiście potrzebne.
+
+Pozwala to znacząco przyspieszyć budowanie projektu.
+
+Gradle wykorzystuje mechanizm Incremental Build.
+
+Incremental Build oznacza budowanie tylko zmodyfikowanych elementów projektu.
+
+Dzięki temu kolejne budowania są szybsze.
+
+Gradle posiada system cache.
+
+Cache przechowuje wyniki wcześniej wykonanych operacji.
+
+Jeżeli nic się nie zmieniło, Gradle może wykorzystać zapisane wyniki.
+
+Gradle wykorzystuje repozytoria do pobierania bibliotek.
+
+Najczęściej wykorzystywanym repozytorium jest Maven Central Repository.
+
+Gradle może korzystać z tych samych bibliotek co Maven.
+
+Gradle posiada własne repozytorium lokalne.
+
+Gradle może również korzystać z lokalnego repozytorium Mavena.
+
+Zależności definiowane są w sekcji dependencies.
+
+Każda zależność posiada group.
+
+Każda zależność posiada nazwę artefaktu.
+
+Każda zależność posiada wersję.
+
+Gradle automatycznie pobiera wszystkie wymagane biblioteki.
+
+Gradle obsługuje zależności przechodnie.
+
+Programista nie musi ręcznie pobierać dodatkowych bibliotek.
+
+Gradle wspiera projekty wielomodułowe.
+
+Projekt wielomodułowy może składać się z wielu niezależnych modułów.
+
+Każdy moduł może być budowany osobno.
+
+Każdy moduł może posiadać własne zależności.
+
+Gradle wykorzystuje plik settings.gradle.
+
+Plik settings.gradle definiuje strukturę projektu.
+
+Plik settings.gradle określa jakie moduły należą do projektu.
+
+Najczęściej używane polecenie Gradle to gradle build.
+
+Polecenie build kompiluje kod.
+
+Polecenie build uruchamia testy.
+
+Polecenie build tworzy artefakt aplikacji.
+
+Polecenie gradle clean usuwa wyniki poprzedniego budowania.
+
+Polecenie gradle test uruchamia testy jednostkowe.
+
+Polecenie gradle jar tworzy plik JAR.
+
+Polecenie gradle tasks wyświetla wszystkie dostępne zadania.
+
+Gradle posiada mechanizm Wrapper.
+
+Wrapper pozwala uruchamiać Gradle bez instalowania go na komputerze.
+
+Wrapper zapewnia identyczną wersję Gradle dla wszystkich programistów.
+
+Pliki Wrappera są zwykle przechowywane w repozytorium Git.
+
+Do uruchamiania Wrappera w systemie Windows służy plik gradlew.bat.
+
+Do uruchamiania Wrappera w systemach Linux i macOS służy plik gradlew.
+
+Wrapper automatycznie pobiera wymaganą wersję Gradle.
+
+Gradle jest bardzo popularny w środowisku DevOps.
+
+Gradle dobrze współpracuje z Dockerem.
+
+Gradle dobrze współpracuje z Kubernetesem.
+
+Gradle jest często wykorzystywany w pipeline'ach CI/CD.
+
+Gradle współpracuje z Jenkins.
+
+Gradle współpracuje z GitHub Actions.
+
+Gradle współpracuje z GitLab CI/CD.
+
+Gradle jest często wybierany w dużych projektach mikroserwisowych.
+
+Gradle jest zazwyczaj szybszy od Mavena przy dużych projektach.
+
+Gradle oferuje większą elastyczność konfiguracji niż Maven.
+
+Gradle pozwala pisać własną logikę budowania.
+
+Maven jest prostszy do nauki.
+
+Gradle jest bardziej elastyczny i bardziej programowalny.
+
+Maven opiera się głównie na pliku XML.
+
+Gradle opiera się głównie na DSL opartym o Groovy lub Kotlin.
+
+W projektach Android Gradle jest standardem.
+
+W projektach Java można używać zarówno Gradle jak i Mavena.
+
+IntelliJ IDEA posiada pełne wsparcie dla Gradle.
+
+Po zaimportowaniu projektu IntelliJ automatycznie rozpoznaje pliki Gradle.
+
+IntelliJ automatycznie synchronizuje zależności zdefiniowane w Gradle.
+
+Zmiana pliku build.gradle powoduje ponowną synchronizację projektu.
+
+Znajomość Gradle jest bardzo ceniona na rynku pracy.
+
+W wielu nowoczesnych projektach Gradle stopniowo zastępuje Maven.
+
+Gradle jest obecnie jednym z najważniejszych narzędzi używanych przez programistów Java.

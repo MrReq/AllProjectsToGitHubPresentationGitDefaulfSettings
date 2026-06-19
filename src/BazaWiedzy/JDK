@@ -1,0 +1,9 @@
+JDK, czyli Java Development Kit, jest kompletnym zestawem narzędzi potrzebnych do tworzenia aplikacji Java.
+
+Zawiera kompilator języka Java.
+
+Zawiera JVM.
+
+Zawiera dodatkowe narzędzia programistyczne.
+
+Bez JDK nie jest możliwe tworzenie ani kompilowanie aplikacji napisanych w Javie.

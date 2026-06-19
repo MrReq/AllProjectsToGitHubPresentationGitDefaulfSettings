@@ -1,0 +1,213 @@
+Język C jest jednym z najważniejszych języków programowania w historii informatyki.
+
+Został stworzony przez Dennis Ritchie w laboratoriach Bell Labs na początku lat siedemdziesiątych.
+
+Powstał jako rozwinięcie wcześniejszego języka B.
+
+Język C został zaprojektowany z myślą o tworzeniu systemów operacyjnych.
+
+Pierwszym dużym projektem napisanym w języku C był system operacyjny Unix.
+
+Sukces systemu Unix przyczynił się do ogromnej popularności języka C.
+
+Język C jest językiem kompilowanym.
+
+Oznacza to, że kod źródłowy musi zostać przetłumaczony przez kompilator na kod maszynowy.
+
+Wynikiem kompilacji jest program wykonywalny.
+
+Program wykonywalny może zostać uruchomiony bez obecności kompilatora.
+
+Język C jest językiem proceduralnym.
+
+Programy tworzone są głównie przy użyciu funkcji.
+
+Kod wykonywany jest krok po kroku zgodnie z kolejnością instrukcji.
+
+Język C oferuje bardzo wysoką wydajność.
+
+Programy napisane w C działają bardzo szybko.
+
+Kod generowany przez kompilator jest bliski kodowi maszynowemu procesora.
+
+Język C zapewnia bezpośredni dostęp do pamięci operacyjnej.
+
+Programista może samodzielnie zarządzać pamięcią.
+
+Programista może odczytywać i modyfikować konkretne adresy pamięci.
+
+Ta cecha daje dużą kontrolę nad działaniem programu.
+
+Jednocześnie zwiększa ryzyko popełnienia błędów.
+
+Jednym z najważniejszych elementów języka C są wskaźniki.
+
+Wskaźnik jest zmienną przechowującą adres pamięci.
+
+Wskaźniki umożliwiają bezpośrednią pracę na pamięci komputera.
+
+Wskaźniki są często uznawane za jeden z najtrudniejszych elementów języka C.
+
+Język C nie posiada automatycznego zarządzania pamięcią.
+
+Programista sam odpowiada za przydzielanie pamięci.
+
+Programista sam odpowiada za zwalnianie pamięci.
+
+Nieprawidłowe zarządzanie pamięcią może prowadzić do wycieków pamięci.
+
+Wyciek pamięci oznacza sytuację, w której program zajmuje pamięć i nigdy jej nie zwalnia.
+
+Język C nie posiada mechanizmu Garbage Collector.
+
+Garbage Collector jest stosowany między innymi w językach Java i C#.
+
+W języku C pamięć dynamiczna przydzielana jest przy użyciu funkcji malloc.
+
+Pamięć dynamiczna może być również przydzielana przy użyciu funkcji calloc.
+
+Pamięć dynamiczna zwalniana jest przy użyciu funkcji free.
+
+Język C posiada niewielką liczbę słów kluczowych.
+
+Dzięki temu składnia języka jest stosunkowo prosta.
+
+Jednocześnie wiele operacji wymaga większej wiedzy programistycznej.
+
+Podstawową jednostką organizacji kodu jest funkcja.
+
+Każdy program rozpoczyna wykonywanie od funkcji main.
+
+Funkcja main jest punktem wejścia programu.
+
+Język C obsługuje podstawowe typy danych.
+
+Typ int służy do przechowywania liczb całkowitych.
+
+Typ float służy do przechowywania liczb zmiennoprzecinkowych.
+
+Typ double służy do przechowywania liczb zmiennoprzecinkowych o większej precyzji.
+
+Typ char służy do przechowywania pojedynczych znaków.
+
+Typ void oznacza brak wartości.
+
+Język C wspiera tablice.
+
+Tablice pozwalają przechowywać wiele wartości tego samego typu.
+
+Rozmiar tablicy jest zwykle określany podczas jej tworzenia.
+
+Język C nie sprawdza automatycznie zakresu indeksów tablic.
+
+Odwołanie do nieprawidłowego indeksu może prowadzić do błędów programu.
+
+Język C wspiera instrukcje warunkowe.
+
+Instrukcja if pozwala wykonywać kod pod określonym warunkiem.
+
+Instrukcja switch pozwala wybierać różne ścieżki wykonania programu.
+
+Język C wspiera pętle.
+
+Pętla for jest najczęściej wykorzystywana do wykonywania określonej liczby iteracji.
+
+Pętla while działa dopóki spełniony jest określony warunek.
+
+Pętla do-while wykonuje się co najmniej jeden raz.
+
+Język C wspiera struktury danych.
+
+Struktura pozwala grupować wiele różnych pól w jednym obiekcie.
+
+Struktury definiowane są przy użyciu słowa kluczowego struct.
+
+Struktury są często wykorzystywane do reprezentowania bardziej złożonych danych.
+
+Język C wspiera unie.
+
+Unia pozwala wielu polom współdzielić ten sam obszar pamięci.
+
+Język C wspiera wyliczenia.
+
+Wyliczenia definiowane są przy użyciu słowa kluczowego enum.
+
+Wyliczenia zwiększają czytelność kodu.
+
+Język C wykorzystuje pliki nagłówkowe.
+
+Pliki nagłówkowe posiadają rozszerzenie .h.
+
+Pliki nagłówkowe zawierają deklaracje funkcji.
+
+Pliki nagłówkowe zawierają deklaracje struktur.
+
+Pliki nagłówkowe zawierają definicje stałych.
+
+Pliki źródłowe posiadają zwykle rozszerzenie .c.
+
+Programy w języku C często składają się z wielu plików źródłowych.
+
+Proces budowania programu obejmuje kompilację i linkowanie.
+
+Kompilacja tłumaczy kod źródłowy na kod obiektowy.
+
+Linkowanie łączy wszystkie moduły programu w jeden plik wykonywalny.
+
+Język C posiada bogatą bibliotekę standardową.
+
+Biblioteka stdio.h umożliwia obsługę wejścia i wyjścia.
+
+Biblioteka stdlib.h zawiera funkcje związane z pamięcią i konwersją danych.
+
+Biblioteka string.h umożliwia pracę z tekstem.
+
+Biblioteka math.h zawiera funkcje matematyczne.
+
+Język C jest szeroko wykorzystywany w programowaniu systemowym.
+
+Wiele systemów operacyjnych zostało napisanych w całości lub częściowo w C.
+
+Znaczna część jądra systemu Linux została napisana w języku C.
+
+Wiele sterowników urządzeń tworzonych jest w języku C.
+
+Język C jest popularny w systemach wbudowanych.
+
+Systemy wbudowane występują między innymi w samochodach, urządzeniach medycznych i sprzęcie elektronicznym.
+
+Język C jest często wykorzystywany w mikrokontrolerach.
+
+Język C jest wykorzystywany w programowaniu urządzeń IoT.
+
+Język C jest często wykorzystywany przy tworzeniu kompilatorów.
+
+Język C jest często wykorzystywany przy tworzeniu baz danych.
+
+Znaczna część systemu MySQL została napisana w języku C.
+
+Znaczna część systemu PostgreSQL została napisana w języku C.
+
+Język C miał ogromny wpływ na rozwój innych języków programowania.
+
+Na jego podstawie powstał język C++.
+
+Na jego podstawie powstał język Objective-C.
+
+Składnia języka C wpłynęła na język Java.
+
+Składnia języka C wpłynęła na język C#.
+
+Składnia języka C wpłynęła na język JavaScript.
+
+Znajomość języka C pomaga lepiej zrozumieć działanie komputerów.
+
+Znajomość języka C pomaga zrozumieć zarządzanie pamięcią.
+
+Znajomość języka C pomaga zrozumieć działanie systemów operacyjnych.
+
+Znajomość języka C pomaga zrozumieć sposób działania współczesnych języków programowania.
+
+Język C pozostaje jednym z najważniejszych języków programowania pomimo upływu kilkudziesięciu lat od jego powstania.
+
+Do dziś jest powszechnie wykorzystywany w systemach wymagających wysokiej wydajności oraz pełnej kontroli nad sprzętem.

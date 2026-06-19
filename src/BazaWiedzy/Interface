@@ -1,5 +1,13 @@
 WIADOMOSCI OGOLNE
 
+Interface, czyli interfejs, definiuje zestaw metod, które muszą zostać zaimplementowane przez klasy korzystające z tego interfejsu.
+
+Interfejs określa wymagane zachowanie obiektów.
+
+Nie narzuca jednak sposobu realizacji tego zachowania.
+
+Jest jednym z fundamentów programowania obiektowego i polimorfizmu.
+
 INTERFACE
 
 INTERFACE FUNKCYJNY.

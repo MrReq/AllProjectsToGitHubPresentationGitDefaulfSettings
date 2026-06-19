@@ -1,0 +1,155 @@
+Build System to zestaw narzędzi i procesów odpowiedzialnych za budowanie aplikacji.
+
+Budowanie aplikacji oznacza przekształcenie kodu źródłowego w gotowy program.
+
+Proces budowania obejmuje kompilację kodu.
+
+Proces budowania obejmuje pobieranie zależności.
+
+Proces budowania obejmuje uruchamianie testów.
+
+Proces budowania obejmuje tworzenie plików wykonywalnych.
+
+Proces budowania obejmuje generowanie dokumentacji.
+
+Build System automatyzuje wszystkie te czynności.
+
+Dzięki Build Systemowi programista nie musi wykonywać wielu operacji ręcznie.
+
+IntelliJ IDEA posiada własny wewnętrzny system budowania.
+
+Nazywany jest IntelliJ Build System.
+
+IntelliJ Build System jest domyślnie wykorzystywany w prostych projektach Java.
+
+IntelliJ Build System potrafi kompilować kod źródłowy.
+
+IntelliJ Build System potrafi uruchamiać aplikacje.
+
+IntelliJ Build System potrafi uruchamiać testy.
+
+IntelliJ Build System nie jest jednak pełnoprawnym narzędziem do zarządzania zależnościami.
+
+W większych projektach wykorzystuje się zewnętrzne Build Systemy.
+
+Najpopularniejszym Build Systemem w świecie Java jest Maven.
+
+Drugim bardzo popularnym Build Systemem jest Gradle.
+
+Starszym rozwiązaniem jest Apache Ant.
+
+Build System określa sposób budowania projektu.
+
+Build System określa kolejność wykonywania zadań.
+
+Build System określa jakie biblioteki są potrzebne.
+
+Build System określa jakie testy należy uruchomić.
+
+Build System określa jaki artefakt ma zostać wygenerowany.
+
+Artefaktem może być plik JAR.
+
+Artefaktem może być plik WAR.
+
+Artefaktem może być obraz Dockera.
+
+IntelliJ IDEA potrafi współpracować z wieloma Build Systemami jednocześnie.
+
+Podczas tworzenia projektu można wybrać Maven.
+
+Podczas tworzenia projektu można wybrać Gradle.
+
+Podczas tworzenia projektu można wybrać IntelliJ Build System.
+
+Projekt bez Build Systemu jest trudniejszy w utrzymaniu.
+
+Projekt bez Build Systemu wymaga ręcznego dodawania bibliotek.
+
+Projekt bez Build Systemu wymaga ręcznej konfiguracji kompilacji.
+
+Build System zwiększa powtarzalność procesu budowania.
+
+Build System zapewnia identyczne budowanie projektu na różnych komputerach.
+
+Build System eliminuje problem "u mnie działa".
+
+Build System jest podstawą nowoczesnego procesu CI/CD.
+
+Systemy CI/CD wykorzystują Build System do automatycznego budowania aplikacji.
+
+Po wysłaniu kodu do repozytorium Build System może automatycznie rozpocząć kompilację.
+
+Build System może automatycznie uruchomić testy.
+
+Build System może automatycznie wykryć błędy.
+
+Build System może automatycznie opublikować aplikację.
+
+W IntelliJ IDEA można wybrać sposób budowania projektu.
+
+Można korzystać z wewnętrznego kompilatora IntelliJ.
+
+Można korzystać z Mavena.
+
+Można korzystać z Gradle.
+
+Opcja ta znajduje się w ustawieniach Build Tools.
+
+IntelliJ często deleguje budowanie do Mavena lub Gradle.
+
+Delegowanie oznacza, że IntelliJ uruchamia odpowiednie polecenia Build Systemu.
+
+W przypadku Mavena mogą być wykonywane polecenia mvn compile.
+
+W przypadku Mavena mogą być wykonywane polecenia mvn package.
+
+W przypadku Gradle mogą być wykonywane zadania build.
+
+Gradle wykorzystuje pojęcie Task.
+
+Maven wykorzystuje pojęcie Lifecycle oraz Phase.
+
+Ant wykorzystuje pojęcie Target.
+
+Każdy Build System posiada własną filozofię działania.
+
+Maven opiera się na konwencji.
+
+Gradle opiera się na elastycznej konfiguracji.
+
+Ant opiera się na ręcznym definiowaniu kroków.
+
+Maven wykorzystuje plik pom.xml.
+
+Gradle wykorzystuje plik build.gradle.
+
+Nowsze wersje Gradle często wykorzystują plik build.gradle.kts.
+
+Rozszerzenie kts oznacza wykorzystanie języka Kotlin.
+
+Ant wykorzystuje plik build.xml.
+
+IntelliJ automatycznie rozpoznaje typ Build Systemu po tych plikach.
+
+Po otwarciu projektu IntelliJ może automatycznie zaimportować konfigurację Build Systemu.
+
+IntelliJ automatycznie pobiera zależności zdefiniowane w Mavenie lub Gradle.
+
+Zmiana konfiguracji Build Systemu zwykle powoduje synchronizację projektu.
+
+Synchronizacja aktualizuje biblioteki i ustawienia projektu.
+
+Build System jest jednym z najważniejszych elementów współczesnego projektu Java.
+
+Praktycznie każdy profesjonalny projekt Java korzysta z Build Systemu.
+
+Znajomość Build Systemów jest niezbędna dla programisty Java.
+
+Podczas rozmów kwalifikacyjnych często pojawiają się pytania dotyczące Maven i Gradle.
+
+W praktyce większość projektów korporacyjnych wykorzystuje Maven lub Gradle.
+
+IntelliJ IDEA zapewnia pełne wsparcie dla obu tych narzędzi.
+
+Zrozumienie działania Build Systemów jest kluczowe do efektywnej pracy nad większymi projektami Java.
