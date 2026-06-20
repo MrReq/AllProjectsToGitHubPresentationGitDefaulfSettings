@@ -27,4 +27,20 @@ END;
 /*
  wywołanie procedury AktualizacjaNazwyTurnieju z argumentem 'Nowy Turniej'
  */
-CALL AktualizacjaNazwyTurnieju('Nowy Turniej')
+CALL AktualizacjaNazwyTurnieju('Nowy Turniej');
+
+create or replace procedure AktualizacjaNazwyTurnieju(
+       v_nowanazwaTurnieju Varchar(20) DEFAULT 'Default'
+)
+IS
+    v_lastIDTurnieju int;
+BEGIN
+    SELECT MAX(IDTurnieju)
+    INTO v_lastIDTurnieju
+    FROM Turniej;
+
+    UPDATE Turniej
+    SET NazwaTurnieju = v_nowanazwaTurnieju
+    Where IDTurnieju = v_lastIdturnieju;
+    DBMS_OUTPUT.PUT_LINE('Nazwa ostatnio dodanego turnieju została zaktualizowana na '+ v_nowanazwaTurnieju);
+end;

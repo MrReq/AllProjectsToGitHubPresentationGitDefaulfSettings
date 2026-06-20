@@ -1,0 +1,195 @@
+
+
+Amazon Redshift jest usługą hurtowni danych dostępną w chmurze AWS.
+
+Została stworzona przez [Amazon Web Services](https://aws.amazon.com/redshift/?utm_source=chatgpt.com).
+
+Amazon Redshift służy do przechowywania oraz analizowania bardzo dużych ilości danych.
+
+Jest przeznaczony głównie do zastosowań analitycznych.
+
+Nie jest typową bazą danych wykorzystywaną do codziennej obsługi aplikacji.
+
+Redshift został zaprojektowany do wykonywania złożonych zapytań analitycznych.
+
+Redshift jest często wykorzystywany w systemach Business Intelligence.
+
+Redshift jest często wykorzystywany przez analityków danych.
+
+Redshift jest często wykorzystywany przez Data Engineerów.
+
+Redshift jest często wykorzystywany przez zespoły zajmujące się raportowaniem.
+
+Podstawowym zadaniem Redshift jest analiza ogromnych zbiorów danych.
+
+Dane mogą pochodzić z aplikacji internetowych.
+
+Dane mogą pochodzić z systemów ERP.
+
+Dane mogą pochodzić z systemów CRM.
+
+Dane mogą pochodzić z baz danych transakcyjnych.
+
+Dane mogą pochodzić z logów systemowych.
+
+Dane mogą pochodzić z platform e-commerce.
+
+Redshift należy do kategorii Data Warehouse.
+
+Data Warehouse oznacza hurtownię danych.
+
+Hurtownia danych służy do przechowywania historycznych danych biznesowych.
+
+Hurtownia danych umożliwia analizowanie trendów i wzorców.
+
+Hurtownia danych pozwala tworzyć raporty oraz dashboardy.
+
+Redshift wykorzystuje architekturę kolumnową.
+
+Oznacza to, że dane przechowywane są kolumnami zamiast wierszami.
+
+Przechowywanie kolumnowe zwiększa wydajność zapytań analitycznych.
+
+Przechowywanie kolumnowe zmniejsza ilość odczytywanych danych.
+
+Przechowywanie kolumnowe poprawia stopień kompresji danych.
+
+Redshift wykorzystuje zaawansowane algorytmy kompresji.
+
+Kompresja zmniejsza ilość miejsca zajmowanego przez dane.
+
+Kompresja pozwala również przyspieszyć wykonywanie zapytań.
+
+Redshift został zaprojektowany do pracy na zbiorach danych liczących miliony lub miliardy rekordów.
+
+Tradycyjne relacyjne bazy danych często mają problemy z tak dużymi wolumenami danych.
+
+Redshift umożliwia wykonywanie skomplikowanych analiz w krótkim czasie.
+
+Redshift wykorzystuje architekturę MPP.
+
+MPP oznacza Massively Parallel Processing.
+
+Massively Parallel Processing polega na równoległym wykonywaniu operacji na wielu węzłach.
+
+Dzięki temu obliczenia są rozdzielane pomiędzy wiele maszyn.
+
+Pozwala to znacząco zwiększyć wydajność systemu.
+
+Klaster Redshift składa się z wielu węzłów.
+
+Węzeł główny zarządza zapytaniami użytkowników.
+
+Węzły obliczeniowe wykonują operacje na danych.
+
+Redshift automatycznie rozdziela dane pomiędzy węzły klastra.
+
+Redshift umożliwia skalowanie wraz ze wzrostem ilości danych.
+
+Nowe węzły mogą zostać dodane do klastra.
+
+Dodanie nowych węzłów zwiększa moc obliczeniową systemu.
+
+Dodanie nowych węzłów zwiększa pojemność przechowywania danych.
+
+Redshift obsługuje standardowy język SQL.
+
+Programiści mogą korzystać ze znanych poleceń SQL.
+
+Analitycy mogą tworzyć zapytania bez konieczności nauki nowego języka.
+
+Redshift jest kompatybilny z wieloma narzędziami analitycznymi.
+
+Może współpracować z [Tableau](https://www.tableau.com/?utm_source=chatgpt.com).
+
+Może współpracować z [Power BI](https://powerbi.microsoft.com/?utm_source=chatgpt.com).
+
+Może współpracować z [Looker Studio](https://lookerstudio.google.com/?utm_source=chatgpt.com).
+
+Może współpracować z narzędziami ETL.
+
+ETL oznacza Extract, Transform, Load.
+
+Proces ETL służy do pobierania, przetwarzania i ładowania danych.
+
+Redshift bardzo dobrze integruje się z innymi usługami AWS.
+
+Redshift może pobierać dane z [Amazon S3](https://aws.amazon.com/s3/?utm_source=chatgpt.com).
+
+Amazon S3 jest usługą przechowywania plików w chmurze.
+
+Redshift może analizować dane zapisane w Amazon S3.
+
+Redshift współpracuje z [AWS Glue](https://aws.amazon.com/glue/?utm_source=chatgpt.com).
+
+AWS Glue jest usługą służącą do integracji i transformacji danych.
+
+Redshift współpracuje z [Amazon EMR](https://aws.amazon.com/emr/?utm_source=chatgpt.com).
+
+Amazon EMR umożliwia przetwarzanie dużych zbiorów danych przy użyciu technologii Big Data.
+
+Redshift współpracuje z [Amazon QuickSight](https://aws.amazon.com/quicksight/?utm_source=chatgpt.com).
+
+QuickSight umożliwia tworzenie raportów i wizualizacji danych.
+
+Redshift wspiera automatyczne tworzenie kopii zapasowych.
+
+System automatycznie wykonuje backupy danych.
+
+Administrator może przywrócić dane z kopii zapasowej.
+
+Redshift zapewnia wysoką dostępność danych.
+
+Redshift wspiera szyfrowanie danych.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Redshift integruje się z usługą AWS Key Management Service.
+
+AWS Key Management Service odpowiada za zarządzanie kluczami szyfrującymi.
+
+Redshift umożliwia kontrolowanie dostępu użytkowników.
+
+Redshift integruje się z systemem IAM.
+
+IAM oznacza Identity and Access Management.
+
+IAM pozwala definiować role oraz uprawnienia użytkowników.
+
+Redshift wspiera monitorowanie wydajności.
+
+Redshift integruje się z [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/?utm_source=chatgpt.com).
+
+CloudWatch pozwala śledzić wykorzystanie zasobów oraz wydajność klastra.
+
+Redshift wspiera analizę danych historycznych.
+
+Redshift wspiera analizę sprzedaży.
+
+Redshift wspiera analizę zachowań użytkowników.
+
+Redshift wspiera analizę ruchu sieciowego.
+
+Redshift wspiera analizę danych finansowych.
+
+Redshift jest często wykorzystywany w sektorze bankowym.
+
+Redshift jest często wykorzystywany w handlu elektronicznym.
+
+Redshift jest często wykorzystywany w telekomunikacji.
+
+Redshift jest często wykorzystywany przez duże przedsiębiorstwa.
+
+Redshift nie jest przeznaczony do obsługi dużej liczby małych transakcji.
+
+Do obsługi transakcyjnych baz danych częściej wykorzystuje się rozwiązania takie jak MySQL lub Amazon Aurora.
+
+Redshift został zoptymalizowany pod kątem odczytu i analizy danych.
+
+Redshift należy do najpopularniejszych usług Data Warehouse dostępnych w chmurze AWS.
+
+Znajomość Amazon Redshift jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Business Intelligence, Big Data, Cloud Computing oraz analizą danych.
+
+Redshift jest jednym z kluczowych narzędzi wykorzystywanych do budowy nowoczesnych platform analitycznych opartych o chmurę AWS.

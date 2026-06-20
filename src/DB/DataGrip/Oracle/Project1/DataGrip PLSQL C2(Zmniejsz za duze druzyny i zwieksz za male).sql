@@ -29,3 +29,49 @@ BEGIN
      END LOOP;
      CLOSE cursorDoZwiekszeniaLubZmenijszeniaDruzyn;
 END;
+
+DECLARE
+    CURSOR kursor IS
+        SELECT NazwaDruzyny, IloscZawodnikow
+        FROM Druzyna
+        WHERE iloscZawodnikow NOT BETWEEN 3 AND 10;
+    v_nazwaDruzyny VARCHAR(20);
+    v_iloscZawodnikow int;
+BEGIN
+    open kursor;
+    LOOP
+        FETCH kursor
+        INTO v_nazwaDruzyny, v_iloscZawodnikow;
+        EXIT WHEN kursor%NOTFOUND;
+    end loop;
+    close kursor;
+end;
+
+
+DECLARE
+
+declare cursor kursor
+        is
+            select nazwadruzyny, liczbaZawodnikow
+            from Druzyna
+            WHERE liczbaZawodnikow NOT BETWEEN  3 and 10;
+            v_nazwaDruzyny Varchar(20);
+            v_liczbaZawodnikow int;
+Begin
+    open kursor;
+    Loop
+        FETCH next from kursor
+        into v_nazwaDruzyny,v_liczbaZawodnikow;
+        EXIT When kursor%NOTFOUND;
+        if v_liczbaZawodnikow > 10 THEN
+            v_liczbaZawodnikow := v_liczbaZawodnikow - 1;
+        ELSE
+            v_liczbaZawodnikow := v_liczbaZawodnikow + 1;
+        end if;
+
+        UPDATE Druzyna
+        Set liczbazawodnikow = v_liczbaZawodnikow
+        WHERE nazwaDruzyny = v_nazwaDruzyny;
+    end loop;
+    close kursor;
+end;

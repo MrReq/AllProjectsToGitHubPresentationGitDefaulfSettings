@@ -34,3 +34,21 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Dodano nowego gracza o id = '||v_NewGraczID);
     end if;
 end;
+
+DECLARE
+    vidnowegoGracza int;
+    vidNowegoKlienta int;
+    viloscgraczy int;
+BEGIN
+    SELECT MAX (IDGracza) + 1 INTO vidnowegoGracza FROM GRACZ;
+    SELECT COUNT (*) INTO viloscgraczy FROM GRACZ;
+    SELECT MAX (IDUzytkownika) + 1 INTO vidNowegoKlienta FROM KLIENT;
+    IF viloscgraczy < 100 THEN
+        INSERT INTO KLIENT VALUES (vidNowegoKlienta,'RandomName','RandomSurname' ,
+                                   DATE'2000-05-05','M',20384591232,'RandomNationality',
+                                   'RandomCity',1847264002);
+    end if
+    ELSE
+
+end;
+

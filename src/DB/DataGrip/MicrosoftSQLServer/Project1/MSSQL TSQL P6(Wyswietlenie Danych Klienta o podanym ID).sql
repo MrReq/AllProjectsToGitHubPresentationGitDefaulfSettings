@@ -46,3 +46,32 @@ BEGIN
     PRINT 'Imie: ' + @Imie
         + ' Nazwisko: ' + @Nazwisko;
 END;
+
+
+create procedure DaneKlient (@vidKlienta int, @vImieKlienta Varchar(100) OUTPUT, @vNazwiskoKlienta Varchar(100) OUTPUT)
+AS
+Begin
+    if not exists(
+       select 1
+       from Klient
+       where IDKlient = @vidKlienta
+    )
+       Begin
+            raiserror ('brak takiego klienta'16,1)
+       END
+
+    SELECT
+        @v_Imie = Imie
+        @Nazisko = Naziwsko
+    From Klient
+    where IDUzytkownika = @vidKlienta
+
+    Print('Dane klient o podanym id '+ Cast(IDUzytkownika AS Varchar ()))
+
+END
+
+Declare
+    @Imie VARchar(10)
+    @Naziwsko VARchar(10) OUTPUT
+
+EXEC DaneKlienta 10,@IMIE, @Nazwisko

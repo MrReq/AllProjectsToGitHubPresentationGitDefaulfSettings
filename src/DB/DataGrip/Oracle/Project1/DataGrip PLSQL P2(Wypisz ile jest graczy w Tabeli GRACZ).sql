@@ -16,3 +16,20 @@ BEGIN
     );
 end;
 
+DECLARE
+    v_iloscgraczy2 int;
+
+BEGIN
+    SELECT COUNT (*)
+    into v_iloscgraczy2
+    From Gracz;
+    DBMS_OUTPUT.PUT_LINE ('W tabeli gracz jest ' ||v_iloscgraczy2 || ' graczy');
+END;
+
+
+DECLARE
+    vcounter int;
+BEGIN
+    SELECT COUNT(*) INTO vcounter FROM GRACZ;
+    DBMS_OUTPUT.PUT_LINE('W tabeli GRACZ jest '|| vcounter || ' graczy');
+end;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL C1(Wyswietlenie wszystkich graczy ktorzy maja rozegrane minimalna ilosc godzin).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL C2(Zmniejsz za duze druzyny i zwieksz za male).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL P1(Zapisywanie Gracza do turnieju).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL P2(Wypisz ile jest graczy w Tabeli GRACZ).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL P3(Wstawienie nowego gracza a wczesniej klienta jesli graczy jest ich mniej niz 100).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL P5(Aktualizacja nazwy turnieju).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL P6(Wyswietlenie Danych Klienta o podanym ID).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL T1(Dodawany klient musi miec conajmniej 13 lat).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/MicrosoftSQLServer/Project1/MSSQL TSQL T2(Proba usuwania komputera).sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL C1(Wyswietlenie wszystkich graczy ktorzy maja rozegrane minimalna ilosc godzin).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL C2(Zmniejsz za duze druzyny i zwieksz za male).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL P1(Zapisywanie Gracza do turnieju).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL P2(Wypisz ile jest graczy w Tabeli GRACZ).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL P3(Wstawienie nowego gracza a wczesniej klienta jesli graczy jest ich mniej niz 100).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL P5(Aktualizacja nazwy turnieju).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL P6(Wyswietlenie Danych Klienta o podanym ID).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL T1(Dodawany klient musi miec conajmniej 13 lat).sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/src/DB/DataGrip/Oracle/Project1/DataGrip PLSQL T2(Proba usuwania komputera).sql" dialect="OracleSqlPlus" />
+  </component>
+</project>
