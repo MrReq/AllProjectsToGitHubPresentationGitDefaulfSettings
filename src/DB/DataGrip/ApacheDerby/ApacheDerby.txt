@@ -1,0 +1,167 @@
+Apache Derby jest relacyjnym systemem zarządzania bazą danych.
+
+Apache Derby jest projektem rozwijanym przez Apache Software Foundation.
+
+Jest to lekka baza danych napisana w języku Java.
+
+Apache Derby jest całkowicie darmowy oraz otwartoźródłowy.
+
+Kod źródłowy Derby jest dostępny publicznie.
+
+Apache Derby został stworzony z myślą o aplikacjach wymagających niewielkiej i łatwej do wdrożenia bazy danych.
+
+Jedną z największych zalet Derby jest jego niewielki rozmiar.
+
+Derby może działać bez konieczności instalowania osobnego serwera bazodanowego.
+
+Baza danych może zostać uruchomiona bezpośrednio wewnątrz aplikacji Java.
+
+Taki tryb działania nazywany jest Embedded Mode.
+
+W trybie Embedded baza danych działa w tym samym procesie co aplikacja.
+
+Aplikacja komunikuje się z bazą danych bezpośrednio poprzez biblioteki Java.
+
+Rozwiązanie to upraszcza wdrażanie aplikacji.
+
+Nie ma potrzeby instalowania dodatkowego oprogramowania na komputerze użytkownika.
+
+Apache Derby może również działać jako klasyczny serwer bazodanowy.
+
+Taki tryb działania nazywany jest Network Server Mode.
+
+W trybie serwerowym wiele aplikacji może jednocześnie korzystać z jednej bazy danych.
+
+Klienci komunikują się z bazą za pomocą połączeń sieciowych.
+
+Apache Derby jest w pełni napisany w języku Java.
+
+Dzięki temu działa na wszystkich systemach operacyjnych obsługujących Java Virtual Machine.
+
+Może działać na systemie Windows.
+
+Może działać na systemie Linux.
+
+Może działać na systemie macOS.
+
+Derby wykorzystuje standardowy język SQL.
+
+Programiści mogą tworzyć tabele.
+
+Programiści mogą definiować relacje pomiędzy tabelami.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Derby obsługuje klucze główne.
+
+Derby obsługuje klucze obce.
+
+Derby obsługuje indeksy.
+
+Derby obsługuje widoki.
+
+Derby obsługuje transakcje.
+
+Apache Derby jest zgodny z zasadami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość danych po zapisaniu transakcji.
+
+Apache Derby posiada wbudowaną obsługę JDBC.
+
+JDBC jest standardowym mechanizmem komunikacji aplikacji Java z bazami danych.
+
+Dzięki temu Derby bardzo dobrze integruje się z projektami Java.
+
+Derby może współpracować z Hibernate.
+
+Derby może współpracować z JPA.
+
+Derby może współpracować ze Spring Framework.
+
+Derby może współpracować ze Spring Boot.
+
+Apache Derby jest często wykorzystywany podczas nauki baz danych.
+
+Jest często wykorzystywany na uczelniach.
+
+Jest często wykorzystywany podczas kursów programowania.
+
+Jest często wykorzystywany do tworzenia niewielkich aplikacji desktopowych.
+
+Derby sprawdza się w projektach demonstracyjnych.
+
+Derby sprawdza się w aplikacjach testowych.
+
+Derby jest często wykorzystywany podczas tworzenia prototypów.
+
+Programista może szybko uruchomić bazę danych bez instalowania MySQL lub PostgreSQL.
+
+Apache Derby przechowuje dane w plikach znajdujących się na dysku.
+
+Cała baza danych może być przeniesiona poprzez skopiowanie odpowiedniego katalogu.
+
+Ułatwia to tworzenie kopii zapasowych.
+
+Ułatwia to przenoszenie aplikacji pomiędzy komputerami.
+
+Apache Derby oferuje narzędzia administracyjne.
+
+Możliwe jest wykonywanie poleceń SQL z poziomu konsoli.
+
+Możliwe jest zarządzanie strukturą bazy danych.
+
+Możliwe jest monitorowanie działania systemu.
+
+Apache Derby posiada niewielkie wymagania sprzętowe.
+
+Zużywa mało pamięci operacyjnej.
+
+Zużywa niewiele zasobów procesora.
+
+Dzięki temu dobrze sprawdza się na słabszym sprzęcie.
+
+Apache Derby nie jest jednak przeznaczony do obsługi bardzo dużych systemów.
+
+Nie jest najlepszym wyborem dla aplikacji obsługujących tysiące użytkowników jednocześnie.
+
+Nie jest konkurencją dla dużych systemów takich jak PostgreSQL.
+
+Nie jest konkurencją dla MySQL.
+
+Nie jest konkurencją dla Oracle Database.
+
+Jego głównym celem jest prostota oraz łatwość integracji z aplikacjami Java.
+
+Apache Derby był przez wiele lat dołączany do środowiska NetBeans.
+
+Dzięki temu wielu programistów Java miało z nim kontakt już na początku nauki.
+
+Apache Derby jest często porównywany do SQLite.
+
+Oba systemy są lekkimi bazami danych.
+
+Oba systemy mogą działać bez osobnego serwera.
+
+Główna różnica polega na tym, że Derby został napisany w Javie.
+
+SQLite został napisany w języku C.
+
+Apache Derby jest szczególnie interesujący dla programistów Java.
+
+Pozwala szybko dodać relacyjną bazę danych do aplikacji bez konieczności instalowania dodatkowej infrastruktury.
+
+Znajomość Apache Derby pomaga zrozumieć działanie relacyjnych baz danych oraz integrację baz danych z aplikacjami Java.
+
+Mimo że obecnie częściej wykorzystuje się MySQL, PostgreSQL lub bazy chmurowe, Apache Derby nadal pozostaje wartościowym narzędziem do nauki, testowania oraz budowy niewielkich aplikacji.
