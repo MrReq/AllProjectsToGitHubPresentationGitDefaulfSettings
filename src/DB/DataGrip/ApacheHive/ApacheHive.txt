@@ -1,0 +1,191 @@
+Apache Hive jest systemem przeznaczonym do przechowywania oraz analizy bardzo dużych zbiorów danych.
+
+Apache Hive jest projektem rozwijanym przez Apache Software Foundation.
+
+Hive został pierwotnie stworzony przez [Meta Platforms](https://about.meta.com/?utm_source=chatgpt.com), dawniej znaną jako Facebook.
+
+Głównym celem Hive było uproszczenie analizy ogromnych ilości danych przechowywanych w środowisku Hadoop.
+
+Apache Hive nie jest klasyczną relacyjną bazą danych.
+
+Apache Hive jest systemem Data Warehouse.
+
+Data Warehouse oznacza hurtownię danych.
+
+Hive został zaprojektowany głównie do przetwarzania danych analitycznych.
+
+Hive nie jest przeznaczony do obsługi dużej liczby małych transakcji.
+
+Hive nie jest przeznaczony do zastosowań OLTP.
+
+OLTP oznacza Online Transaction Processing.
+
+Systemy OLTP są wykorzystywane do obsługi codziennych operacji biznesowych.
+
+Hive jest przeznaczony głównie do zastosowań OLAP.
+
+OLAP oznacza Online Analytical Processing.
+
+Systemy OLAP służą do analizowania dużych ilości danych historycznych.
+
+Apache Hive działa w ekosystemie Hadoop.
+
+Hadoop jest platformą przeznaczoną do przechowywania i przetwarzania dużych zbiorów danych.
+
+Hive wykorzystuje system plików HDFS.
+
+HDFS oznacza Hadoop Distributed File System.
+
+HDFS umożliwia przechowywanie danych na wielu serwerach jednocześnie.
+
+Dane są automatycznie rozdzielane pomiędzy wiele maszyn.
+
+Dane są automatycznie replikowane w celu zwiększenia bezpieczeństwa.
+
+Hive pozwala wykonywać zapytania podobne do SQL.
+
+Język wykorzystywany przez Hive nazywa się HiveQL.
+
+HiveQL jest bardzo podobny do standardowego SQL.
+
+Dzięki temu osoby znające SQL mogą szybko rozpocząć pracę z Hive.
+
+Programiści mogą wykonywać operacje SELECT.
+
+Programiści mogą tworzyć tabele.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą agregować dane.
+
+Programiści mogą wykonywać złożone analizy danych.
+
+Hive tłumaczy zapytania HiveQL na zadania wykonywane przez silniki przetwarzania danych.
+
+W początkowych wersjach Hive wykorzystywał głównie MapReduce.
+
+MapReduce jest modelem przetwarzania danych wykorzystywanym przez Hadoop.
+
+MapReduce umożliwia równoległe przetwarzanie danych na wielu serwerach.
+
+Nowsze wersje Hive mogą współpracować z Apache Tez.
+
+Nowsze wersje Hive mogą współpracować z Apache Spark.
+
+Wykorzystanie Tez lub Spark znacząco zwiększa wydajność wykonywania zapytań.
+
+Apache Hive został zaprojektowany do pracy z bardzo dużymi zbiorami danych.
+
+Może analizować dane liczone w terabajtach.
+
+Może analizować dane liczone w petabajtach.
+
+Hive dobrze sprawdza się podczas tworzenia raportów biznesowych.
+
+Hive dobrze sprawdza się podczas analizy zachowań użytkowników.
+
+Hive dobrze sprawdza się podczas analizy logów systemowych.
+
+Hive dobrze sprawdza się podczas analizy danych finansowych.
+
+Hive umożliwia tworzenie tabel zewnętrznych.
+
+Tabela zewnętrzna nie przechowuje danych wewnątrz samego Hive.
+
+Tabela zewnętrzna wskazuje jedynie lokalizację danych znajdujących się w systemie plików.
+
+Dzięki temu wiele narzędzi może korzystać z tych samych danych.
+
+Hive obsługuje partycjonowanie danych.
+
+Partycjonowanie polega na podziale danych na mniejsze fragmenty.
+
+Partycjonowanie zwiększa wydajność wykonywania zapytań.
+
+Hive obsługuje bucketing.
+
+Bucketing polega na podziale danych na określoną liczbę plików.
+
+Bucketing może przyspieszać operacje łączenia danych.
+
+Hive wspiera wiele formatów przechowywania danych.
+
+Dane mogą być zapisane jako pliki tekstowe.
+
+Dane mogą być zapisane w formacie ORC.
+
+Dane mogą być zapisane w formacie Parquet.
+
+Dane mogą być zapisane w formacie Avro.
+
+Format ORC został zoptymalizowany specjalnie pod kątem Hive.
+
+Format Parquet jest bardzo popularny w środowiskach Big Data.
+
+Hive współpracuje z wieloma narzędziami ekosystemu Hadoop.
+
+Hive współpracuje z Apache Spark.
+
+Hive współpracuje z Apache HBase.
+
+Hive współpracuje z Apache Kafka.
+
+Hive współpracuje z Apache Sqoop.
+
+Hive współpracuje z Apache Flume.
+
+Apache Hive posiada metastore.
+
+Metastore jest centralnym repozytorium metadanych.
+
+Metadane zawierają informacje o tabelach.
+
+Metadane zawierają informacje o kolumnach.
+
+Metadane zawierają informacje o lokalizacji danych.
+
+Metastore najczęściej wykorzystuje relacyjną bazę danych.
+
+Często wykorzystywany jest MySQL.
+
+Często wykorzystywany jest PostgreSQL.
+
+Hive umożliwia integrację z narzędziami Business Intelligence.
+
+Hive może współpracować z [Tableau](https://www.tableau.com/?utm_source=chatgpt.com).
+
+Hive może współpracować z [Power BI](https://powerbi.microsoft.com/?utm_source=chatgpt.com).
+
+Hive może współpracować z [Apache Superset](https://superset.apache.org/?utm_source=chatgpt.com).
+
+Hive jest często wykorzystywany przez Data Engineerów.
+
+Hive jest często wykorzystywany przez Data Scientistów.
+
+Hive jest często wykorzystywany przez analityków danych.
+
+Hive jest wykorzystywany w przedsiębiorstwach przetwarzających ogromne ilości informacji.
+
+Hive jest popularny w sektorze finansowym.
+
+Hive jest popularny w telekomunikacji.
+
+Hive jest popularny w handlu elektronicznym.
+
+Hive jest popularny w mediach społecznościowych.
+
+Apache Hive nie został zaprojektowany do pracy w czasie rzeczywistym.
+
+Wykonywanie zapytań może trwać znacznie dłużej niż w tradycyjnych bazach danych.
+
+Hive stawia na możliwość przetwarzania ogromnych ilości danych, a nie na minimalne opóźnienia.
+
+Hive jest szczególnie przydatny w środowiskach Big Data.
+
+Hive pozwala analizować dane, których rozmiar przekracza możliwości tradycyjnych baz danych.
+
+Apache Hive odegrał bardzo ważną rolę w rozwoju nowoczesnych platform analitycznych.
+
+Mimo pojawienia się nowszych technologii nadal pozostaje jednym z najważniejszych narzędzi w ekosystemie Hadoop.
+
+Znajomość Apache Hive jest ceniona na stanowiskach związanych z Big Data, Data Engineering, Data Analytics oraz architekturą systemów przetwarzania danych.

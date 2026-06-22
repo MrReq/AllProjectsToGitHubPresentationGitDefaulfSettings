@@ -1,0 +1,197 @@
+Apache Spark jest jednym z najpopularniejszych frameworków do przetwarzania dużych zbiorów danych.
+
+Projekt rozwijany jest przez Apache Software Foundation.
+
+Spark został stworzony z myślą o szybkim przetwarzaniu danych w środowiskach rozproszonych.
+
+Jest uznawany za jedną z najważniejszych technologii ekosystemu Big Data.
+
+Spark powstał na University of California, Berkeley.
+
+Później został przekazany do Apache Software Foundation.
+
+Apache Spark umożliwia analizowanie ogromnych ilości danych rozproszonych pomiędzy wieloma serwerami.
+
+Dane mogą być przetwarzane równolegle przez wiele maszyn jednocześnie.
+
+Pozwala to znacząco skrócić czas wykonywania obliczeń.
+
+Spark został zaprojektowany jako szybsza alternatywa dla MapReduce.
+
+MapReduce przez wiele lat był podstawowym mechanizmem przetwarzania danych w Hadoop.
+
+Jednym z głównych problemów MapReduce była konieczność częstego zapisywania danych na dysku.
+
+Spark ogranicza liczbę operacji dyskowych.
+
+Spark przechowuje dane głównie w pamięci operacyjnej.
+
+Dzięki temu wiele operacji wykonywanych jest znacznie szybciej.
+
+W niektórych scenariuszach Spark może działać wielokrotnie szybciej niż MapReduce.
+
+Apache Spark jest frameworkiem rozproszonym.
+
+Oznacza to, że może działać na jednym komputerze lub na setkach serwerów jednocześnie.
+
+Wszystkie maszyny współpracują ze sobą w ramach klastra.
+
+Klaster składa się z węzła głównego oraz wielu węzłów roboczych.
+
+Węzeł główny zarządza wykonywaniem zadań.
+
+Węzły robocze wykonują właściwe obliczenia.
+
+Spark automatycznie rozdziela pracę pomiędzy wszystkie dostępne maszyny.
+
+Jednym z najważniejszych elementów Spark są RDD.
+
+RDD oznacza Resilient Distributed Dataset.
+
+RDD jest rozproszoną kolekcją danych przechowywaną na wielu serwerach.
+
+RDD stanowił podstawowy model pracy z danymi w pierwszych wersjach Spark.
+
+Obecnie częściej wykorzystuje się DataFrame oraz Dataset.
+
+DataFrame jest strukturą danych przypominającą tabelę w bazie danych.
+
+Każda kolumna posiada określony typ danych.
+
+DataFrame umożliwia wykonywanie operacji analitycznych w prosty sposób.
+
+Dataset łączy zalety DataFrame z bezpieczeństwem typów znanym z języków programowania.
+
+Apache Spark wspiera wiele języków programowania.
+
+Najpopularniejszym językiem wykorzystywanym w Spark jest Python.
+
+Wsparcie dla Pythona realizowane jest przez bibliotekę PySpark.
+
+Spark wspiera również Java.
+
+Spark wspiera również Scala.
+
+Spark wspiera również R.
+
+Dzięki temu może być wykorzystywany przez programistów oraz analityków danych.
+
+Apache Spark składa się z kilku głównych modułów.
+
+Pierwszym z nich jest Spark Core.
+
+Spark Core odpowiada za podstawowe operacje przetwarzania danych.
+
+Spark Core zarządza pamięcią.
+
+Spark Core zarządza komunikacją pomiędzy węzłami klastra.
+
+Spark Core odpowiada za planowanie zadań.
+
+Kolejnym modułem jest Spark SQL.
+
+Spark SQL umożliwia wykonywanie zapytań SQL na dużych zbiorach danych.
+
+Pozwala analizować dane przy użyciu składni podobnej do tradycyjnych baz danych.
+
+Spark SQL jest jednym z najczęściej wykorzystywanych elementów całego frameworka.
+
+Kolejnym modułem jest Structured Streaming.
+
+Structured Streaming umożliwia przetwarzanie danych napływających w czasie rzeczywistym.
+
+Dane mogą pochodzić z logów systemowych.
+
+Dane mogą pochodzić z czujników IoT.
+
+Dane mogą pochodzić z aplikacji internetowych.
+
+Dane mogą pochodzić z systemów finansowych.
+
+Spark może analizować takie dane niemal natychmiast po ich pojawieniu się.
+
+Kolejnym modułem jest MLlib.
+
+MLlib jest biblioteką uczenia maszynowego.
+
+Pozwala tworzyć modele klasyfikacji.
+
+Pozwala tworzyć modele regresji.
+
+Pozwala wykonywać grupowanie danych.
+
+Pozwala wykonywać analizę statystyczną.
+
+Uczenie maszynowe może być realizowane bez konieczności eksportowania danych do innych systemów.
+
+Kolejnym modułem jest GraphX.
+
+GraphX umożliwia analizowanie danych w postaci grafów.
+
+Grafy wykorzystywane są między innymi w mediach społecznościowych.
+
+Grafy wykorzystywane są w systemach rekomendacyjnych.
+
+Grafy wykorzystywane są w analizie relacji pomiędzy użytkownikami.
+
+Apache Spark bardzo dobrze integruje się z ekosystemem Big Data.
+
+Może współpracować z Apache Hadoop.
+
+Może współpracować z Apache Hive.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Apache HBase.
+
+Może współpracować z Apache Cassandra.
+
+Może współpracować z MongoDB.
+
+Może współpracować z Amazon Redshift.
+
+Może współpracować z Amazon S3.
+
+Spark może odczytywać dane z wielu różnych źródeł jednocześnie.
+
+Może przetwarzać dane zapisane w plikach CSV.
+
+Może przetwarzać dane zapisane w JSON.
+
+Może przetwarzać dane zapisane w Parquet.
+
+Może przetwarzać dane zapisane w ORC.
+
+Może przetwarzać dane zapisane w bazach danych.
+
+Jedną z największych zalet Spark jest skalowalność.
+
+Wraz ze wzrostem ilości danych można dodawać kolejne serwery do klastra.
+
+Framework automatycznie wykorzysta dodatkowe zasoby.
+
+Spark zapewnia również odporność na awarie.
+
+Jeżeli jeden z serwerów przestanie działać, zadania mogą zostać automatycznie uruchomione ponownie na innych maszynach.
+
+Dzięki temu przetwarzanie danych może być kontynuowane bez utraty wyników.
+
+Apache Spark jest szeroko wykorzystywany przez największe firmy technologiczne na świecie.
+
+Jest wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w systemach analitycznych.
+
+Jest wykorzystywany w platformach wykorzystujących sztuczną inteligencję.
+
+Apache Spark stał się jednym z podstawowych narzędzi współczesnego Data Engineering.
+
+Jest kluczowym elementem wielu platform Big Data budowanych w chmurze.
+
+Znajomość Apache Spark jest bardzo ceniona na stanowiskach związanych z Big Data, Data Engineering, Data Science, Machine Learning oraz Cloud Computing.
+
+Dla wielu organizacji Spark stanowi centralny element infrastruktury odpowiedzialnej za przetwarzanie i analizę ogromnych ilości danych.

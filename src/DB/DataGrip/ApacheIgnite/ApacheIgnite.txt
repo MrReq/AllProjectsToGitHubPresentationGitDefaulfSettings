@@ -1,0 +1,167 @@
+Apache Ignite jest rozproszoną platformą do przechowywania oraz przetwarzania danych w pamięci operacyjnej.
+
+Projekt rozwijany jest przez Apache Software Foundation.
+
+Apache Ignite należy do grupy technologii określanych jako In-Memory Data Grid.
+
+Oznacza to, że dane przechowywane są głównie w pamięci RAM zamiast na dysku.
+
+Dzięki temu dostęp do danych jest znacznie szybszy niż w tradycyjnych bazach danych.
+
+Ignite został zaprojektowany z myślą o aplikacjach wymagających bardzo wysokiej wydajności oraz niskich opóźnień.
+
+Technologia ta jest często wykorzystywana w systemach finansowych.
+
+Jest wykorzystywana w platformach e-commerce.
+
+Jest wykorzystywana w systemach telekomunikacyjnych.
+
+Jest wykorzystywana wszędzie tam, gdzie szybkość dostępu do danych ma kluczowe znaczenie.
+
+Podstawową ideą Apache Ignite jest przechowywanie danych bezpośrednio w pamięci operacyjnej wielu serwerów jednocześnie.
+
+Kilka serwerów tworzy wspólny klaster.
+
+Każdy serwer przechowuje część danych.
+
+Obciążenie jest automatycznie rozdzielane pomiędzy wszystkie węzły klastra.
+
+Takie podejście pozwala obsługiwać bardzo duże ilości danych oraz użytkowników.
+
+Apache Ignite jest systemem rozproszonym.
+
+Oznacza to, że może działać jednocześnie na wielu komputerach.
+
+Węzły klastra komunikują się ze sobą automatycznie.
+
+Nowe serwery mogą być dodawane do klastra bez zatrzymywania aplikacji.
+
+Pozwala to łatwo skalować system wraz ze wzrostem liczby użytkowników.
+
+Jedną z najważniejszych funkcji Ignite jest Distributed Cache.
+
+Distributed Cache oznacza rozproszoną pamięć podręczną.
+
+Cache przechowuje często wykorzystywane dane w pamięci RAM.
+
+Dzięki temu aplikacja nie musi za każdym razem odczytywać danych z bazy danych.
+
+Znacząco zmniejsza to czas odpowiedzi aplikacji.
+
+Zmniejsza również obciążenie głównej bazy danych.
+
+Apache Ignite może pełnić rolę samodzielnej bazy danych.
+
+Może również działać jako warstwa cache pomiędzy aplikacją a relacyjną bazą danych.
+
+Takie rozwiązanie jest bardzo popularne w dużych systemach biznesowych.
+
+Ignite wspiera standard SQL.
+
+Programiści mogą wykonywać zapytania podobne do tych znanych z relacyjnych baz danych.
+
+Możliwe jest wykonywanie operacji SELECT.
+
+Możliwe jest wykonywanie operacji JOIN.
+
+Możliwe jest wykonywanie agregacji danych.
+
+Możliwe jest filtrowanie oraz sortowanie danych.
+
+Silnik SQL działa bezpośrednio na danych przechowywanych w pamięci.
+
+Pozwala to uzyskać bardzo wysoką wydajność zapytań.
+
+Apache Ignite wspiera transakcje.
+
+Transakcje zapewniają spójność danych podczas wykonywania wielu operacji jednocześnie.
+
+System wspiera właściwości ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równoczesnych operacji.
+
+Durability oznacza trwałość zatwierdzonych danych.
+
+Ignite oferuje również możliwość wykonywania obliczeń rozproszonych.
+
+Obliczenia mogą być wykonywane równolegle na wielu serwerach.
+
+Pozwala to znacząco skrócić czas przetwarzania dużych zbiorów danych.
+
+Mechanizm ten często wykorzystywany jest w analizie danych oraz przetwarzaniu wsadowym.
+
+Apache Ignite posiada funkcję Data Affinity.
+
+Data Affinity polega na wykonywaniu obliczeń możliwie najbliżej miejsca przechowywania danych.
+
+Dzięki temu ograniczana jest ilość danych przesyłanych przez sieć.
+
+Pozwala to dodatkowo zwiększyć wydajność systemu.
+
+Ignite umożliwia trwałe przechowywanie danych na dysku.
+
+Początkowo system był kojarzony głównie z pamięcią RAM.
+
+Obecnie może również przechowywać dane w sposób trwały.
+
+Pozwala to odzyskać dane po ponownym uruchomieniu klastra.
+
+Apache Ignite wspiera replikację danych.
+
+Kopie danych mogą być przechowywane na wielu serwerach jednocześnie.
+
+Awaria pojedynczego serwera nie powoduje utraty danych.
+
+System automatycznie dba o dostępność informacji.
+
+Ignite integruje się z wieloma językami programowania.
+
+Najlepsze wsparcie oferowane jest dla języka Java.
+
+Dostępne są również biblioteki dla języka .NET.
+
+Dostępne są również biblioteki dla języka C++.
+
+Apache Ignite bardzo dobrze współpracuje z aplikacjami opartymi na Javie.
+
+Może być integrowany ze Spring Framework.
+
+Może być integrowany ze Spring Boot.
+
+Może być wykorzystywany w architekturze mikroserwisowej.
+
+Ignite współpracuje z popularnymi relacyjnymi bazami danych.
+
+Może współpracować z MySQL.
+
+Może współpracować z PostgreSQL.
+
+Może współpracować z Oracle Database.
+
+Może współpracować z Microsoft SQL Server.
+
+W wielu projektach Ignite wykorzystywany jest jako warstwa przyspieszająca działanie tych baz danych.
+
+Apache Ignite oferuje również wsparcie dla uczenia maszynowego.
+
+Niektóre operacje analityczne mogą być wykonywane bezpośrednio na danych znajdujących się w klastrze.
+
+Pozwala to ograniczyć konieczność przenoszenia danych pomiędzy różnymi systemami.
+
+Ignite jest często wykorzystywany w środowiskach Big Data.
+
+Jest wykorzystywany w systemach przetwarzających dane w czasie rzeczywistym.
+
+Jest wykorzystywany w platformach wymagających wysokiej dostępności.
+
+Jest wykorzystywany w aplikacjach obsługujących tysiące lub miliony użytkowników.
+
+Największą zaletą Apache Ignite jest połączenie bardzo szybkiego dostępu do danych z możliwością skalowania na wiele serwerów.
+
+Technologia ta stanowi pomost pomiędzy tradycyjnymi bazami danych a nowoczesnymi systemami przetwarzania rozproszonego.
+
+Znajomość Apache Ignite jest szczególnie ceniona na stanowiskach związanych z architekturą systemów rozproszonych, Big Data, backend development oraz projektowaniem aplikacji o wysokiej wydajności.
