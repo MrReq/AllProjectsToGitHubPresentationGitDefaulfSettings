@@ -1,0 +1,12 @@
+@relation mieszkania
+
+@attribute metraz numeric
+@attribute pokoje numeric
+@attribute miasto {Warszawa,Krakow,Gdansk}
+@attribute price numeric
+
+@data
+50,2,Warszawa,500000
+70,3,Krakow,650000
+40,1,Warszawa,420000
+90,4,Gdansk,800000
