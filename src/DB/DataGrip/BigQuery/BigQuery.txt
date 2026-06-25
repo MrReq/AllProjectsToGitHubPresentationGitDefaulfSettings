@@ -1,0 +1,197 @@
+BigQuery jest w pełni zarządzaną usługą hurtowni danych dostępną w chmurze Google Cloud.
+
+Usługa została stworzona przez [Google Cloud](https://cloud.google.com/bigquery?utm_source=chatgpt.com).
+
+BigQuery należy do kategorii usług Data Warehouse.
+
+Data Warehouse oznacza hurtownię danych przeznaczoną do przechowywania oraz analizowania bardzo dużych zbiorów informacji.
+
+BigQuery został zaprojektowany z myślą o wykonywaniu szybkich analiz na ogromnych ilościach danych.
+
+Usługa jest szeroko wykorzystywana w projektach Big Data.
+
+Usługa jest szeroko wykorzystywana w projektach Business Intelligence.
+
+Usługa jest wykorzystywana przez Data Engineerów.
+
+Usługa jest wykorzystywana przez Data Scientistów.
+
+Usługa jest wykorzystywana przez analityków danych.
+
+Jedną z największych zalet BigQuery jest model Serverless.
+
+Serverless oznacza, że użytkownik nie musi zarządzać serwerami.
+
+Nie ma potrzeby instalowania infrastruktury.
+
+Nie ma potrzeby konfigurowania klastrów.
+
+Nie ma potrzeby zarządzania aktualizacjami systemu.
+
+Google automatycznie zarządza całą infrastrukturą.
+
+Programista może skupić się wyłącznie na analizie danych.
+
+BigQuery umożliwia wykonywanie zapytań przy użyciu standardowego języka SQL.
+
+Składnia SQL jest zgodna z popularnymi standardami.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować wyniki.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z BigQuery.
+
+BigQuery został zaprojektowany do analizowania bardzo dużych zbiorów danych.
+
+Usługa może przetwarzać dane liczone w terabajtach.
+
+Usługa może przetwarzać dane liczone w petabajtach.
+
+Usługa może analizować miliardy rekordów w krótkim czasie.
+
+BigQuery wykorzystuje rozproszoną architekturę obliczeniową.
+
+Zapytania wykonywane są równolegle na wielu serwerach.
+
+Dzięki temu analiza danych jest bardzo wydajna.
+
+BigQuery wykorzystuje kolumnowy sposób przechowywania danych.
+
+Kolumnowe przechowywanie danych pozwala odczytywać wyłącznie potrzebne kolumny.
+
+Zmniejsza to ilość przetwarzanych danych.
+
+Pozwala to znacząco zwiększyć wydajność zapytań.
+
+BigQuery automatycznie kompresuje dane.
+
+Kompresja zmniejsza ilość zajmowanego miejsca.
+
+Kompresja może również przyspieszać wykonywanie analiz.
+
+BigQuery bardzo dobrze współpracuje z innymi usługami Google Cloud.
+
+Może odczytywać dane z Cloud Storage.
+
+Może współpracować z Cloud SQL.
+
+Może współpracować z Bigtable.
+
+Może współpracować z Pub/Sub.
+
+Może współpracować z Dataflow.
+
+Może współpracować z Dataproc.
+
+Może współpracować z Vertex AI.
+
+BigQuery umożliwia analizowanie danych zapisanych w wielu formatach.
+
+Obsługiwane są pliki CSV.
+
+Obsługiwane są pliki JSON.
+
+Obsługiwane są pliki Avro.
+
+Obsługiwane są pliki Parquet.
+
+Obsługiwane są pliki ORC.
+
+BigQuery umożliwia tworzenie tabel.
+
+BigQuery umożliwia tworzenie widoków.
+
+BigQuery umożliwia tworzenie widoków materializowanych.
+
+Widok materializowany przechowuje wcześniej obliczone wyniki zapytań.
+
+Pozwala to przyspieszyć wykonywanie często używanych analiz.
+
+BigQuery wspiera partycjonowanie danych.
+
+Partycjonowanie polega na podziale tabel na mniejsze części.
+
+Pozwala to analizować jedynie wybrane fragmenty danych.
+
+Zmniejsza to czas wykonywania zapytań.
+
+Zmniejsza to również koszty przetwarzania danych.
+
+BigQuery wspiera klastrowanie danych.
+
+Klastrowanie polega na fizycznym uporządkowaniu danych według wybranych kolumn.
+
+Pozwala to jeszcze bardziej zwiększyć wydajność zapytań.
+
+BigQuery umożliwia analizowanie danych historycznych.
+
+BigQuery umożliwia analizowanie logów aplikacyjnych.
+
+BigQuery umożliwia analizowanie danych sprzedażowych.
+
+BigQuery umożliwia analizowanie danych marketingowych.
+
+BigQuery umożliwia analizowanie danych finansowych.
+
+BigQuery umożliwia analizowanie danych pochodzących z urządzeń IoT.
+
+BigQuery oferuje funkcje uczenia maszynowego.
+
+Mechanizm ten nosi nazwę BigQuery ML.
+
+BigQuery ML pozwala tworzyć modele uczenia maszynowego przy użyciu SQL.
+
+Pozwala to budować modele predykcyjne bez opuszczania środowiska BigQuery.
+
+BigQuery umożliwia analizowanie danych w czasie zbliżonym do rzeczywistego.
+
+Nowe dane mogą być przesyłane do systemu na bieżąco.
+
+Dzięki temu raporty mogą być stale aktualizowane.
+
+BigQuery integruje się z Looker Studio.
+
+Looker Studio umożliwia tworzenie interaktywnych raportów oraz dashboardów.
+
+BigQuery współpracuje również z wieloma zewnętrznymi narzędziami Business Intelligence.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+BigQuery zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Dostęp do danych może być kontrolowany przy użyciu Cloud Identity and Access Management.
+
+System umożliwia definiowanie ról oraz uprawnień użytkowników.
+
+BigQuery jest szeroko wykorzystywany przez duże przedsiębiorstwa.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w marketingu.
+
+Jest wykorzystywany w analizie danych internetowych.
+
+Jest wykorzystywany wszędzie tam, gdzie przetwarzane są bardzo duże ilości danych.
+
+Największą zaletą BigQuery jest możliwość wykonywania bardzo szybkich analiz na ogromnych zbiorach danych bez konieczności zarządzania infrastrukturą.
+
+Połączenie modelu Serverless, standardowego SQL oraz automatycznego skalowania sprawia, że BigQuery jest jedną z najpopularniejszych platform analitycznych dostępnych w chmurze.
+
+Znajomość BigQuery jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Data Analytics, Business Intelligence, Big Data, Machine Learning oraz Cloud Computing.

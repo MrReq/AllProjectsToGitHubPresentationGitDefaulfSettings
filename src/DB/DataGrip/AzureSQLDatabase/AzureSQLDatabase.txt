@@ -1,0 +1,195 @@
+Azure SQL Database jest zarządzaną relacyjną bazą danych dostępną w chmurze Microsoft Azure.
+
+Usługa została stworzona przez [Microsoft Azure](https://azure.microsoft.com/products/azure-sql/database?utm_source=chatgpt.com).
+
+Azure SQL Database należy do kategorii usług Database as a Service.
+
+Skrót Database as a Service często oznaczany jest jako DBaaS.
+
+DBaaS oznacza, że dostawca chmury odpowiada za utrzymanie infrastruktury bazodanowej.
+
+Administrator nie musi instalować serwera bazy danych.
+
+Administrator nie musi konfigurować systemu operacyjnego.
+
+Administrator nie musi ręcznie instalować aktualizacji.
+
+Administrator nie musi samodzielnie wykonywać większości zadań administracyjnych.
+
+Azure SQL Database bazuje na silniku Microsoft SQL Server.
+
+Większość funkcji znanych z SQL Server jest również dostępna w Azure SQL Database.
+
+Programiści mogą korzystać z języka Transact-SQL.
+
+Transact-SQL jest rozszerzeniem standardowego języka SQL.
+
+Język ten często określany jest skrótem T-SQL.
+
+Azure SQL Database obsługuje tabele.
+
+Azure SQL Database obsługuje widoki.
+
+Azure SQL Database obsługuje indeksy.
+
+Azure SQL Database obsługuje procedury składowane.
+
+Azure SQL Database obsługuje funkcje.
+
+Azure SQL Database obsługuje wyzwalacze.
+
+Azure SQL Database obsługuje transakcje.
+
+System jest zgodny z zasadami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Jedną z największych zalet Azure SQL Database jest wysoka dostępność.
+
+Microsoft automatycznie replikuje dane.
+
+Dane przechowywane są w wielu kopiach.
+
+Awaria pojedynczego serwera nie powoduje utraty danych.
+
+Usługa automatycznie przełącza ruch na sprawną infrastrukturę w przypadku awarii.
+
+Proces ten odbywa się bez konieczności ręcznej interwencji administratora.
+
+Azure SQL Database automatycznie wykonuje kopie zapasowe.
+
+Backupy tworzone są w regularnych odstępach czasu.
+
+Administrator może przywrócić bazę danych do wybranego momentu.
+
+Mechanizm ten określany jest jako Point-In-Time Restore.
+
+Usługa umożliwia również długoterminowe przechowywanie kopii zapasowych.
+
+Azure SQL Database wspiera automatyczne skalowanie.
+
+W zależności od wybranego modelu można zwiększać moc obliczeniową.
+
+Można zwiększać ilość dostępnej pamięci.
+
+Można zwiększać ilość przestrzeni dyskowej.
+
+Proces skalowania nie wymaga instalowania nowego serwera.
+
+Azure SQL Database oferuje kilka modeli wdrożenia.
+
+Najprostszym rozwiązaniem jest pojedyncza baza danych.
+
+Możliwe jest również wykorzystanie Elastic Pool.
+
+Elastic Pool pozwala wielu bazom danych współdzielić zasoby obliczeniowe.
+
+Rozwiązanie to pozwala lepiej wykorzystać dostępne zasoby.
+
+Azure SQL Database oferuje model Serverless.
+
+Model Serverless automatycznie dostosowuje moc obliczeniową do aktualnego obciążenia.
+
+Przy niewielkim ruchu usługa zużywa mniej zasobów.
+
+Przy wzroście liczby użytkowników automatycznie zwiększa swoją wydajność.
+
+Pozwala to ograniczyć koszty działania aplikacji.
+
+Azure SQL Database zapewnia wysoki poziom bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Usługa wspiera Transparent Data Encryption.
+
+Transparent Data Encryption często oznaczane jest skrótem TDE.
+
+TDE automatycznie szyfruje pliki bazy danych.
+
+Azure SQL Database wspiera Dynamic Data Masking.
+
+Dynamic Data Masking pozwala ukrywać wrażliwe informacje przed wybranymi użytkownikami.
+
+Usługa wspiera Row-Level Security.
+
+Row-Level Security umożliwia ograniczenie dostępu do poszczególnych wierszy tabeli.
+
+Azure SQL Database integruje się z mechanizmami uwierzytelniania Microsoft.
+
+Może współpracować z Microsoft Entra ID.
+
+Microsoft Entra ID był wcześniej znany jako Azure Active Directory.
+
+Usługa wspiera uwierzytelnianie wieloskładnikowe.
+
+Azure SQL Database umożliwia monitorowanie wydajności.
+
+Integruje się z Azure Monitor.
+
+Administrator może analizować wykorzystanie procesora.
+
+Administrator może analizować wykorzystanie pamięci.
+
+Administrator może analizować liczbę wykonywanych zapytań.
+
+Administrator może analizować czas wykonywania zapytań.
+
+Azure SQL Database posiada mechanizmy automatycznej optymalizacji.
+
+Usługa może automatycznie tworzyć rekomendacje dotyczące indeksów.
+
+Usługa może automatycznie usuwać niepotrzebne indeksy.
+
+Usługa może analizować wydajność zapytań.
+
+Pozwala to utrzymywać wysoką wydajność bazy danych.
+
+Azure SQL Database współpracuje z wieloma językami programowania.
+
+Może być wykorzystywana przez aplikacje Java.
+
+Może być wykorzystywana przez aplikacje C#.
+
+Może być wykorzystywana przez aplikacje Python.
+
+Może być wykorzystywana przez aplikacje Node.js.
+
+Komunikacja z bazą danych odbywa się najczęściej przy użyciu sterowników JDBC, ODBC lub ADO.NET.
+
+Azure SQL Database dobrze współpracuje z frameworkiem Spring Boot.
+
+Azure SQL Database dobrze współpracuje z Hibernate.
+
+Azure SQL Database dobrze współpracuje z JPA.
+
+Usługa integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Power BI.
+
+Może współpracować z Azure Data Factory.
+
+Może współpracować z Azure Synapse Analytics.
+
+Azure SQL Database znajduje zastosowanie w aplikacjach internetowych.
+
+Jest wykorzystywana w systemach biznesowych.
+
+Jest wykorzystywana w aplikacjach mobilnych.
+
+Jest wykorzystywana w platformach e-commerce.
+
+Jest wykorzystywana w rozwiązaniach działających w chmurze.
+
+Największą zaletą Azure SQL Database jest połączenie funkcjonalności SQL Server z wygodą zarządzanej usługi chmurowej.
+
+Programista może skupić się na tworzeniu aplikacji zamiast na administracji serwerami.
+
+Znajomość Azure SQL Database jest szczególnie ceniona na stanowiskach związanych z backend development, Cloud Computing, DevOps, Data Engineering oraz administracją bazami danych w środowisku Microsoft Azure.

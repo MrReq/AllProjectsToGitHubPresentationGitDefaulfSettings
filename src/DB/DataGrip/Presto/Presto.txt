@@ -1,0 +1,171 @@
+Presto jest rozproszonym silnikiem do wykonywania zapytań SQL nad dużymi zbiorami danych.
+
+Projekt został pierwotnie opracowany przez Meta Platforms, dawniej Facebook.
+
+Presto został zaprojektowany z myślą o bardzo szybkim wykonywaniu zapytań analitycznych.
+
+System należy do ekosystemu Big Data.
+
+Presto nie jest klasyczną bazą danych.
+
+Presto nie przechowuje danych.
+
+Jego zadaniem jest wykonywanie zapytań nad danymi znajdującymi się w innych systemach.
+
+Takie rozwiązanie określane jest jako silnik zapytań.
+
+Presto umożliwia analizowanie danych pochodzących z wielu źródeł jednocześnie.
+
+Nie ma potrzeby kopiowania danych do jednego miejsca.
+
+Pozwala to ograniczyć ilość przechowywanych danych.
+
+Pozwala również skrócić czas przygotowania analiz.
+
+Presto obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować wyniki.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Presto.
+
+Jedną z największych zalet Presto jest możliwość jednoczesnego wykonywania zapytań do wielu różnych systemów.
+
+Presto wykorzystuje specjalne konektory.
+
+Konektory odpowiadają za komunikację z zewnętrznymi źródłami danych.
+
+Presto może współpracować z Apache Hive.
+
+Może współpracować z Apache Hadoop.
+
+Może współpracować z PostgreSQL.
+
+Może współpracować z MySQL.
+
+Może współpracować z Oracle Database.
+
+Może współpracować z Microsoft SQL Server.
+
+Może współpracować z MongoDB.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Amazon S3.
+
+Może współpracować z Google Cloud Storage.
+
+Może współpracować z wieloma innymi źródłami danych.
+
+Presto umożliwia wykonywanie jednego zapytania obejmującego dane z wielu różnych systemów.
+
+Pozwala to budować złożone raporty bez konieczności wcześniejszego importowania danych.
+
+Presto został zaprojektowany jako system rozproszony.
+
+Zapytania wykonywane są równolegle przez wiele serwerów.
+
+Pozwala to analizować bardzo duże zbiory danych.
+
+System automatycznie rozdziela zadania pomiędzy dostępne węzły.
+
+Presto wykorzystuje architekturę Coordinator oraz Worker.
+
+Coordinator odpowiada za planowanie wykonywania zapytań.
+
+Worker odpowiada za przetwarzanie danych.
+
+W klastrze może działać wielu Workerów jednocześnie.
+
+Pozwala to bardzo dobrze skalować wydajność.
+
+Presto przetwarza dane w pamięci operacyjnej.
+
+Nie zapisuje wyników pośrednich na dysku, jeśli nie jest to konieczne.
+
+Takie podejście znacząco skraca czas wykonywania analiz.
+
+Presto bardzo dobrze sprawdza się podczas wykonywania interaktywnych zapytań.
+
+Użytkownik może otrzymać wynik w ciągu kilku sekund nawet dla bardzo dużych zbiorów danych.
+
+Presto wspiera przetwarzanie równoległe.
+
+Każdy Worker wykonuje część operacji.
+
+Na końcu wyniki są łączone przez Coordinator.
+
+Presto współpracuje z popularnymi formatami danych.
+
+Obsługiwane są pliki CSV.
+
+Obsługiwane są pliki JSON.
+
+Obsługiwane są pliki Parquet.
+
+Obsługiwane są pliki ORC.
+
+Obsługiwane są pliki Avro.
+
+Presto bardzo dobrze współpracuje z hurtowniami danych opartymi na Data Lake.
+
+Presto oferuje mechanizmy bezpieczeństwa.
+
+Możliwe jest uwierzytelnianie użytkowników.
+
+Możliwe jest autoryzowanie dostępu do danych.
+
+Możliwa jest integracja z systemami LDAP.
+
+Możliwa jest integracja z Kerberos.
+
+Możliwe jest szyfrowanie komunikacji przy użyciu TLS.
+
+Presto współpracuje z wieloma narzędziami Business Intelligence.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Apache Superset.
+
+Może współpracować z Grafana.
+
+Presto udostępnia sterownik JDBC.
+
+Dostępny jest również sterownik ODBC.
+
+Programiści mogą łatwo integrować Presto z aplikacjami Java.
+
+Presto może współpracować ze Spring Boot.
+
+Presto może współpracować z Hibernate w scenariuszach odczytu danych.
+
+Presto znajduje zastosowanie w analizie danych.
+
+Jest wykorzystywany w projektach Big Data.
+
+Jest wykorzystywany w hurtowniach danych.
+
+Jest wykorzystywany w Data Lake.
+
+Jest wykorzystywany w analizie logów.
+
+Jest wykorzystywany w raportowaniu biznesowym.
+
+Jest wykorzystywany w analizach finansowych.
+
+Największą zaletą Presto jest możliwość wykonywania bardzo szybkich zapytań SQL nad wieloma różnymi źródłami danych bez konieczności ich wcześniejszego kopiowania do jednej bazy danych.
+
+Połączenie rozproszonej architektury, przetwarzania w pamięci operacyjnej oraz szerokiego zestawu konektorów sprawia, że Presto jest jednym z najważniejszych narzędzi analitycznych wykorzystywanych w środowiskach Big Data.
+
+Znajomość Presto jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Big Data, Business Intelligence, analizą danych, Cloud Computing oraz projektowaniem nowoczesnych platform analitycznych.

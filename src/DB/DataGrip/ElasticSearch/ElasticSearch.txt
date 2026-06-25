@@ -1,0 +1,209 @@
+Elasticsearch jest rozproszonym systemem przeznaczonym do wyszukiwania oraz analizy danych.
+
+Projekt rozwijany jest przez Elastic N.V..
+
+Elasticsearch należy do grupy wyszukiwarek pełnotekstowych.
+
+Jest również zaliczany do baz danych typu NoSQL.
+
+System został zaprojektowany z myślą o bardzo szybkim wyszukiwaniu informacji.
+
+Elasticsearch potrafi analizować ogromne ilości danych w bardzo krótkim czasie.
+
+Jest jednym z najpopularniejszych silników wyszukiwania wykorzystywanych we współczesnych aplikacjach.
+
+Elasticsearch przechowuje dane w postaci dokumentów.
+
+Dokumenty zapisywane są w formacie JSON.
+
+Każdy dokument składa się z pól.
+
+Poszczególne dokumenty nie muszą posiadać identycznej struktury.
+
+Model dokumentowy zapewnia dużą elastyczność.
+
+Elasticsearch automatycznie indeksuje zapisane dokumenty.
+
+Indeksowanie polega na przygotowaniu danych do bardzo szybkiego wyszukiwania.
+
+Dzięki indeksom wyszukiwanie trwa znacznie krócej niż przeszukiwanie całej bazy danych.
+
+Podstawową jednostką przechowywania danych jest indeks.
+
+Indeks można porównać do tabeli w relacyjnej bazie danych.
+
+Wewnątrz indeksu znajdują się dokumenty.
+
+Każdy dokument posiada unikalny identyfikator.
+
+Elasticsearch wykorzystuje odwrócony indeks.
+
+Odwrócony indeks jest strukturą danych umożliwiającą bardzo szybkie wyszukiwanie tekstu.
+
+Każde słowo zostaje zapisane wraz z informacją, w których dokumentach występuje.
+
+Pozwala to błyskawicznie odnajdywać odpowiednie dokumenty.
+
+Jedną z największych zalet Elasticsearch jest pełnotekstowe wyszukiwanie.
+
+System potrafi wyszukiwać pojedyncze słowa.
+
+System potrafi wyszukiwać całe frazy.
+
+System potrafi wyszukiwać podobne wyrażenia.
+
+System potrafi uwzględniać błędy w pisowni.
+
+System potrafi dopasowywać wyniki nawet wtedy, gdy użytkownik wpisze niepełne słowo.
+
+Mechanizm ten określany jest jako Full-Text Search.
+
+Elasticsearch wykorzystuje analizatory tekstu.
+
+Analizator przygotowuje tekst do indeksowania.
+
+Tekst może zostać podzielony na pojedyncze wyrazy.
+
+Tekst może zostać zamieniony na małe litery.
+
+Tekst może zostać oczyszczony ze znaków specjalnych.
+
+Tekst może zostać poddany stemmingowi.
+
+Stemming polega na sprowadzaniu wyrazów do ich podstawowej formy.
+
+Dzięki temu wyszukiwanie staje się bardziej skuteczne.
+
+Elasticsearch obsługuje język zapytań Query DSL.
+
+Query DSL wykorzystuje składnię JSON.
+
+Programista może tworzyć bardzo rozbudowane zapytania.
+
+Możliwe jest filtrowanie wyników.
+
+Możliwe jest sortowanie wyników.
+
+Możliwe jest grupowanie danych.
+
+Możliwe jest wykonywanie agregacji.
+
+Możliwe jest wyszukiwanie według wielu kryteriów jednocześnie.
+
+Elasticsearch bardzo dobrze sprawdza się podczas analizy logów.
+
+Jest często wykorzystywany do monitorowania aplikacji.
+
+Jest często wykorzystywany do monitorowania infrastruktury.
+
+Jest często wykorzystywany do wyszukiwania produktów w sklepach internetowych.
+
+Jest często wykorzystywany w portalach informacyjnych.
+
+Jest często wykorzystywany w systemach zarządzania dokumentami.
+
+Elasticsearch został zaprojektowany jako system rozproszony.
+
+Może działać na wielu serwerach jednocześnie.
+
+Serwery tworzą wspólny klaster.
+
+Każdy serwer nazywany jest węzłem.
+
+Dane automatycznie dzielone są na fragmenty.
+
+Fragmenty danych nazywane są shardami.
+
+Sharding umożliwia rozłożenie danych pomiędzy wiele serwerów.
+
+Pozwala to zwiększyć wydajność systemu.
+
+Pozwala to łatwo skalować środowisko.
+
+Elasticsearch wspiera replikację danych.
+
+Każdy shard może posiadać jedną lub więcej kopii.
+
+Replikacja zwiększa bezpieczeństwo danych.
+
+Replikacja zwiększa dostępność systemu.
+
+Awaria jednego serwera nie powoduje utraty wszystkich danych.
+
+Elasticsearch automatycznie równoważy obciążenie pomiędzy węzłami klastra.
+
+Nowe serwery mogą zostać dodawane bez zatrzymywania działania systemu.
+
+Elasticsearch obsługuje agregacje.
+
+Agregacje umożliwiają wykonywanie analiz statystycznych.
+
+Możliwe jest zliczanie dokumentów.
+
+Możliwe jest obliczanie średnich wartości.
+
+Możliwe jest obliczanie sum.
+
+Możliwe jest grupowanie danych według określonych pól.
+
+Pozwala to tworzyć raporty oraz zestawienia.
+
+Elasticsearch integruje się z wieloma technologiami.
+
+Może współpracować z Logstash.
+
+Logstash odpowiada za pobieranie oraz przetwarzanie danych.
+
+Może współpracować z Kibana.
+
+Kibana umożliwia tworzenie dashboardów oraz wizualizacji danych.
+
+Elasticsearch, Logstash i Kibana tworzą popularny stos technologiczny ELK.
+
+Może współpracować z Beats.
+
+Beats służy do przesyłania logów oraz metryk do Elasticsearch.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z aplikacjami Java.
+
+Może współpracować z aplikacjami Python.
+
+Może współpracować z aplikacjami .NET.
+
+Może współpracować z aplikacjami Node.js.
+
+Elasticsearch oferuje oficjalne biblioteki dla wielu języków programowania.
+
+System zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest ograniczanie dostępu do danych.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Elasticsearch znajduje zastosowanie w handlu elektronicznym.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w mediach społecznościowych.
+
+Jest wykorzystywany w systemach monitoringu.
+
+Jest wykorzystywany w analizie logów.
+
+Jest wykorzystywany w wyszukiwarkach internetowych.
+
+Największą zaletą Elasticsearch jest możliwość błyskawicznego wyszukiwania informacji oraz analizowania ogromnych ilości danych w czasie zbliżonym do rzeczywistego.
+
+Połączenie pełnotekstowego wyszukiwania, rozproszonej architektury oraz zaawansowanych mechanizmów analitycznych sprawia, że Elasticsearch jest jednym z najważniejszych narzędzi wykorzystywanych w nowoczesnych systemach informatycznych.
+
+Znajomość Elasticsearch jest szczególnie ceniona na stanowiskach związanych z backend development, DevOps, Data Engineering, Big Data, analizą logów oraz projektowaniem systemów wyszukiwania.

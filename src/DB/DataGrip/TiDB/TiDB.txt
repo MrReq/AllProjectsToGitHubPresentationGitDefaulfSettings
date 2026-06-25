@@ -1,0 +1,209 @@
+TiDB jest rozproszonym relacyjnym systemem zarządzania bazą danych typu Distributed SQL.
+
+Projekt rozwijany jest jako oprogramowanie otwartoźródłowe przez PingCAP.
+
+TiDB został zaprojektowany z myślą o łatwym skalowaniu oraz wysokiej dostępności.
+
+System łączy zalety tradycyjnych relacyjnych baz danych z architekturą rozproszoną.
+
+TiDB jest zgodny z protokołem oraz składnią MySQL.
+
+Dzięki temu wiele aplikacji wykorzystujących MySQL może zostać przeniesionych do TiDB przy minimalnych zmianach.
+
+TiDB znajduje zastosowanie w aplikacjach internetowych.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w platformach SaaS.
+
+Jest wykorzystywany w rozwiązaniach Big Data.
+
+TiDB obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+TiDB obsługuje standardowy język SQL.
+
+System jest w dużym stopniu zgodny z MySQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość MySQL oraz SQL pozwala bardzo szybko rozpocząć pracę z TiDB.
+
+Jedną z najważniejszych cech TiDB jest architektura Distributed SQL.
+
+Dane przechowywane są na wielu serwerach jednocześnie.
+
+Zapytania wykonywane są równolegle przez wiele węzłów.
+
+Pozwala to bardzo łatwo zwiększać wydajność systemu.
+
+TiDB wykorzystuje architekturę Shared-Nothing.
+
+Każdy serwer posiada własny procesor, pamięć oraz dyski.
+
+Nie występuje współdzielona pamięć pomiędzy serwerami.
+
+Takie rozwiązanie umożliwia niemal liniowe skalowanie poziome.
+
+Architektura TiDB składa się z kilku głównych komponentów.
+
+TiDB Server odpowiada za obsługę zapytań SQL.
+
+TiKV odpowiada za przechowywanie danych.
+
+Placement Driver zarządza klastrem oraz rozmieszczeniem danych.
+
+Komponenty mogą być skalowane niezależnie od siebie.
+
+TiDB wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+TiDB wykorzystuje algorytm MVCC.
+
+MVCC oznacza Multi-Version Concurrency Control.
+
+Pozwala to wielu użytkownikom jednocześnie wykonywać operacje odczytu oraz zapisu.
+
+TiDB wykorzystuje mechanizm konsensusu Raft.
+
+Raft zapewnia synchronizację danych pomiędzy serwerami.
+
+Pozwala zachować wysoką dostępność oraz odporność na awarie.
+
+TiDB oferuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+TiDB wspiera wiele rodzajów indeksów.
+
+Dostępne są indeksy podstawowe.
+
+Dostępne są indeksy unikalne.
+
+Dostępne są indeksy złożone.
+
+Odpowiedni dobór indeksów zwiększa wydajność zapytań.
+
+TiDB oferuje automatyczne równoważenie obciążenia.
+
+Dane są automatycznie przenoszone pomiędzy serwerami.
+
+Pozwala to równomiernie wykorzystywać zasoby klastra.
+
+TiDB wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+TiDB oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+TiDB współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka Go.
+
+Dostępne są biblioteki dla języka Node.js.
+
+TiDB bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+TiDB integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z TiCDC.
+
+TiCDC umożliwia przechwytywanie zmian danych w czasie rzeczywistym.
+
+TiDB może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być wdrażany w kontenerach Docker.
+
+Może być wdrażany w środowiskach Kubernetes.
+
+TiDB znajduje zastosowanie w handlu elektronicznym.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w systemach SaaS.
+
+Jest wykorzystywany w platformach internetowych.
+
+Jest wykorzystywany w aplikacjach przetwarzających duże ilości danych.
+
+Jest wykorzystywany w systemach wymagających wysokiej dostępności.
+
+Największą zaletą TiDB jest połączenie zgodności z MySQL, rozproszonej architektury, automatycznego skalowania oraz pełnej obsługi transakcji ACID w jednej platformie.
+
+Dzięki architekturze Distributed SQL, wykorzystaniu TiKV, mechanizmowi Raft oraz możliwości niemal liniowego skalowania TiDB jest jednym z najnowocześniejszych systemów bazodanowych przeznaczonych dla aplikacji chmurowych i systemów klasy Enterprise.
+
+Znajomość TiDB jest szczególnie ceniona na stanowiskach związanych z backend development, Data Engineering, Cloud Computing, DevOps, administracją bazami danych oraz projektowaniem nowoczesnych rozproszonych systemów informatycznych.

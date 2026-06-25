@@ -1,0 +1,185 @@
+Sybase Adaptive Server Enterprise jest relacyjnym systemem zarządzania bazą danych klasy Enterprise.
+
+System często określany jest skrótem Sybase ASE.
+
+ASE oznacza Adaptive Server Enterprise.
+
+System został pierwotnie opracowany przez firmę Sybase.
+
+Obecnie rozwijany jest przez SAP.
+
+Sybase ASE należy do najbardziej dojrzałych komercyjnych systemów bazodanowych.
+
+Od wielu lat wykorzystywany jest w dużych przedsiębiorstwach.
+
+System znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka wydajność oraz niezawodność.
+
+Sybase ASE obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Sybase ASE obsługuje standardowy język SQL.
+
+System wykorzystuje własne rozszerzenia języka SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Sybase ASE.
+
+Sybase ASE wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Sybase ASE wykorzystuje zaawansowane mechanizmy blokowania danych.
+
+System automatycznie zarządza współbieżnym dostępem wielu użytkowników.
+
+Pozwala to utrzymać wysoką spójność informacji.
+
+Sybase ASE oferuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco zwiększyć wydajność aplikacji.
+
+Sybase ASE wspiera wiele rodzajów indeksów.
+
+Indeksy przyspieszają wykonywanie zapytań.
+
+Administrator może projektować indeksy dostosowane do charakteru danych.
+
+Sybase ASE wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to zwiększyć wydajność oraz uprościć administrację.
+
+Sybase ASE oferuje mechanizmy wysokiej dostępności.
+
+Możliwa jest replikacja danych.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Możliwe jest budowanie środowisk odpornych na awarie.
+
+Sybase ASE wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+Sybase ASE oferuje rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+Sybase ASE współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka C.
+
+Dostępne są biblioteki dla języka C++.
+
+Dostępne są biblioteki dla platformy .NET.
+
+Sybase ASE bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Sybase ASE integruje się z rozwiązaniami SAP.
+
+Może współpracować z SAP Business Suite.
+
+Może współpracować z SAP Replication Server.
+
+Może współpracować z SAP Data Services.
+
+Może współpracować z SAP BusinessObjects.
+
+Sybase ASE może być uruchamiany na systemie Windows.
+
+Może być uruchamiany na systemie Linux.
+
+Może być uruchamiany na wybranych systemach UNIX.
+
+Może być wdrażany zarówno lokalnie, jak i w środowiskach prywatnych chmur.
+
+Sybase ASE znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w ubezpieczeniach.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w handlu.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka niezawodność oraz obsługa dużej liczby transakcji.
+
+Największą zaletą Sybase ASE jest połączenie wysokiej wydajności, rozbudowanych mechanizmów bezpieczeństwa, obsługi transakcji oraz wieloletniej stabilności sprawdzonej w systemach klasy Enterprise.
+
+Dzięki zgodności z SQL, zaawansowanemu zarządzaniu współbieżnością oraz integracji z rozwiązaniami SAP, Sybase ASE pozostaje ważnym systemem bazodanowym wykorzystywanym w wielu dużych przedsiębiorstwach na całym świecie.
+
+Znajomość Sybase ASE jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, backend development, systemami finansowymi, integracją rozwiązań SAP oraz utrzymywaniem dużych systemów korporacyjnych.

@@ -1,0 +1,195 @@
+MariaDB jest relacyjnym systemem zarządzania bazą danych rozwijanym jako oprogramowanie otwartoźródłowe.
+
+Projekt został stworzony przez Michael Widenius, jednego z twórców MySQL.
+
+MariaDB powstała jako rozwidlenie projektu MySQL.
+
+Projekt został utworzony po przejęciu firmy MySQL przez Oracle Corporation.
+
+Celem projektu było zachowanie w pełni otwartego systemu bazodanowego.
+
+MariaDB jest obecnie rozwijana przez MariaDB Foundation oraz MariaDB plc.
+
+MariaDB należy do najpopularniejszych relacyjnych baz danych na świecie.
+
+Jest wykorzystywana zarówno w małych projektach, jak i w dużych systemach produkcyjnych.
+
+MariaDB obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+MariaDB obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z MariaDB.
+
+MariaDB wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Najczęściej wykorzystywanym silnikiem magazynowania danych jest InnoDB.
+
+MariaDB obsługuje również wiele innych silników.
+
+Każdy silnik może być zoptymalizowany do innych zastosowań.
+
+MariaDB oferuje zaawansowane mechanizmy indeksowania.
+
+Indeksy znacząco przyspieszają wykonywanie zapytań.
+
+System posiada własny optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+MariaDB wspiera partycjonowanie tabel.
+
+Partycjonowanie pozwala dzielić bardzo duże tabele na mniejsze części.
+
+Pozwala to zwiększyć wydajność oraz uprościć zarządzanie danymi.
+
+MariaDB oferuje replikację danych.
+
+Replikacja umożliwia tworzenie kopii bazy danych na innych serwerach.
+
+Pozwala to zwiększyć dostępność systemu.
+
+Pozwala to odciążyć główny serwer podczas wykonywania operacji odczytu.
+
+MariaDB wspiera klastry wysokiej dostępności.
+
+Jednym z popularnych rozwiązań jest Galera Cluster.
+
+Galera Cluster umożliwia jednoczesną pracę wielu serwerów.
+
+Awaria jednego węzła nie powoduje zatrzymania całego systemu.
+
+MariaDB oferuje mechanizmy tworzenia kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii bazy danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+MariaDB zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System wspiera uwierzytelnianie przy użyciu różnych metod.
+
+MariaDB współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka PHP.
+
+Dostępne są biblioteki dla języka Node.js.
+
+MariaDB bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+MariaDB jest jednym z najczęściej wykorzystywanych systemów bazodanowych w aplikacjach internetowych.
+
+Stanowi jeden z elementów popularnego stosu LAMP.
+
+LAMP oznacza Linux, Apache, MySQL lub MariaDB oraz PHP.
+
+MariaDB bardzo dobrze współpracuje z systemami zarządzania treścią.
+
+Jest wykorzystywana przez WordPress.
+
+Jest wykorzystywana przez Joomla.
+
+Jest wykorzystywana przez Drupal.
+
+MariaDB integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Power BI.
+
+Może współpracować z Tableau.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+MariaDB może być uruchamiana lokalnie.
+
+Może być uruchamiana w chmurze.
+
+Może być uruchamiana w Dockerze.
+
+Może być wdrażana w środowiskach Kubernetes.
+
+MariaDB znajduje zastosowanie w aplikacjach internetowych.
+
+Jest wykorzystywana w sklepach internetowych.
+
+Jest wykorzystywana w systemach ERP.
+
+Jest wykorzystywana w systemach CRM.
+
+Jest wykorzystywana w aplikacjach mobilnych.
+
+Jest wykorzystywana w systemach biznesowych.
+
+Największą zaletą MariaDB jest połączenie wysokiej wydajności, zgodności z MySQL, bogatego zestawu funkcji oraz otwartoźródłowego charakteru projektu.
+
+Dzięki zgodności z MySQL większość aplikacji może zostać przeniesiona do MariaDB przy minimalnych zmianach.
+
+Znajomość MariaDB jest szczególnie ceniona na stanowiskach związanych z backend development, administracją bazami danych, DevOps, Cloud Computing oraz tworzeniem nowoczesnych aplikacji internetowych.

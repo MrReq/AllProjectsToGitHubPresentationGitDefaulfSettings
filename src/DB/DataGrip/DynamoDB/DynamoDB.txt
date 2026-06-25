@@ -1,0 +1,199 @@
+Amazon DynamoDB jest zarządzaną bazą danych typu NoSQL dostępną w chmurze AWS.
+
+Usługa została stworzona przez [Amazon Web Services](https://aws.amazon.com/dynamodb/?utm_source=chatgpt.com).
+
+DynamoDB została zaprojektowana z myślą o bardzo wysokiej wydajności oraz bardzo małych opóźnieniach.
+
+Jest jedną z najpopularniejszych baz danych NoSQL dostępnych w chmurze.
+
+DynamoDB jest usługą w pełni zarządzaną.
+
+Administrator nie musi instalować serwera bazy danych.
+
+Administrator nie musi zarządzać systemem operacyjnym.
+
+Administrator nie musi wykonywać aktualizacji.
+
+Administrator nie musi konfigurować replikacji.
+
+Większość zadań administracyjnych wykonywana jest automatycznie przez AWS.
+
+Amazon DynamoDB należy do grupy baz danych NoSQL.
+
+NoSQL oznacza, że baza danych nie wykorzystuje klasycznego modelu relacyjnego.
+
+DynamoDB nie obsługuje relacji pomiędzy tabelami w sposób charakterystyczny dla relacyjnych baz danych.
+
+Model danych został zaprojektowany przede wszystkim z myślą o wysokiej wydajności oraz łatwym skalowaniu.
+
+DynamoDB wykorzystuje model klucz-wartość.
+
+DynamoDB wykorzystuje również model dokumentowy.
+
+Każda tabela składa się z elementów nazywanych Items.
+
+Item jest odpowiednikiem rekordu w relacyjnej bazie danych.
+
+Każdy Item składa się z atrybutów.
+
+Atrybut jest odpowiednikiem kolumny.
+
+Poszczególne rekordy nie muszą posiadać identycznego zestawu atrybutów.
+
+Zapewnia to dużą elastyczność podczas projektowania modelu danych.
+
+Każda tabela posiada klucz główny.
+
+Klucz główny jednoznacznie identyfikuje każdy rekord.
+
+Klucz główny może składać się wyłącznie z Partition Key.
+
+Klucz główny może również składać się z Partition Key oraz Sort Key.
+
+Partition Key decyduje o rozmieszczeniu danych pomiędzy serwerami.
+
+Sort Key umożliwia przechowywanie wielu powiązanych rekordów w ramach jednego Partition Key.
+
+Odpowiedni dobór klucza głównego ma bardzo duży wpływ na wydajność systemu.
+
+Amazon DynamoDB automatycznie partycjonuje dane.
+
+Partycjonowanie polega na rozdzielaniu danych pomiędzy wiele serwerów.
+
+Proces ten odbywa się automatycznie.
+
+Administrator nie musi ręcznie zarządzać rozmieszczeniem danych.
+
+DynamoDB automatycznie skaluje się wraz ze wzrostem ilości danych.
+
+Nowe zasoby są przydzielane automatycznie.
+
+Pozwala to obsługiwać miliony operacji na sekundę.
+
+Jedną z największych zalet DynamoDB jest bardzo wysoka dostępność.
+
+Dane automatycznie replikowane są pomiędzy wieloma strefami dostępności.
+
+Awaria pojedynczego centrum danych nie powoduje utraty danych.
+
+System automatycznie zapewnia ciągłość działania.
+
+Amazon DynamoDB oferuje dwa modele wydajności.
+
+Pierwszym modelem jest Provisioned Capacity.
+
+W tym modelu użytkownik sam określa wymaganą wydajność.
+
+Drugim modelem jest On-Demand Capacity.
+
+Model On-Demand automatycznie dostosowuje wydajność do aktualnego obciążenia.
+
+Rozwiązanie to jest wygodne dla aplikacji o zmiennym ruchu.
+
+DynamoDB oferuje mechanizm Auto Scaling.
+
+Auto Scaling automatycznie zwiększa lub zmniejsza dostępne zasoby.
+
+Pozwala to ograniczyć koszty działania aplikacji.
+
+Amazon DynamoDB zapewnia bardzo krótki czas odpowiedzi.
+
+Większość operacji wykonywana jest w czasie liczonym w pojedynczych milisekundach.
+
+Dzięki temu baza danych doskonale sprawdza się w aplikacjach czasu rzeczywistego.
+
+Amazon DynamoDB wspiera transakcje.
+
+Możliwe jest wykonywanie wielu operacji jako jednej logicznej całości.
+
+Transakcje zwiększają spójność danych.
+
+DynamoDB umożliwia wykonywanie zapytań przy użyciu operacji Query.
+
+Operacja Query służy do wyszukiwania danych na podstawie klucza.
+
+Dostępna jest również operacja Scan.
+
+Operacja Scan przegląda wszystkie rekordy tabeli.
+
+Operacja Scan jest znacznie mniej wydajna od Query.
+
+Amazon DynamoDB wspiera indeksy wtórne.
+
+Dostępne są Global Secondary Index.
+
+Global Secondary Index często oznaczany jest skrótem GSI.
+
+Dostępne są również Local Secondary Index.
+
+Local Secondary Index często oznaczany jest skrótem LSI.
+
+Indeksy umożliwiają wyszukiwanie danych według różnych atrybutów.
+
+Amazon DynamoDB posiada mechanizm DynamoDB Streams.
+
+DynamoDB Streams zapisuje informacje o zmianach wykonywanych w tabelach.
+
+Zmiany mogą być wykorzystywane przez inne aplikacje.
+
+Mechanizm ten często współpracuje z AWS Lambda.
+
+Lambda może automatycznie reagować na każdą zmianę danych.
+
+Amazon DynamoDB wspiera mechanizm Time To Live.
+
+Mechanizm Time To Live często oznaczany jest skrótem TTL.
+
+TTL pozwala automatycznie usuwać rekordy po określonym czasie.
+
+Rozwiązanie to jest przydatne podczas przechowywania danych tymczasowych.
+
+Amazon DynamoDB bardzo dobrze integruje się z innymi usługami AWS.
+
+Może współpracować z Amazon API Gateway.
+
+Może współpracować z Amazon ECS.
+
+Może współpracować z Amazon EKS.
+
+Może współpracować z Amazon EC2.
+
+Może współpracować z AWS Step Functions.
+
+Może współpracować z Amazon CloudWatch.
+
+CloudWatch umożliwia monitorowanie wydajności oraz wykorzystania zasobów.
+
+DynamoDB zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Usługa integruje się z AWS Identity and Access Management.
+
+IAM umożliwia zarządzanie użytkownikami oraz uprawnieniami.
+
+Usługa integruje się z AWS Key Management Service.
+
+AWS Key Management Service odpowiada za zarządzanie kluczami szyfrującymi.
+
+Amazon DynamoDB znajduje zastosowanie w aplikacjach internetowych.
+
+Jest wykorzystywana w aplikacjach mobilnych.
+
+Jest wykorzystywana w platformach e-commerce.
+
+Jest wykorzystywana w systemach IoT.
+
+Jest wykorzystywana w aplikacjach gamingowych.
+
+Jest wykorzystywana w architekturze mikroserwisowej.
+
+Jest wykorzystywana w aplikacjach działających na skalę globalną.
+
+Największą zaletą Amazon DynamoDB jest możliwość automatycznego skalowania przy zachowaniu bardzo wysokiej wydajności oraz minimalnych opóźnień.
+
+Połączenie modelu NoSQL, automatycznego zarządzania infrastrukturą oraz ścisłej integracji z usługami AWS sprawia, że DynamoDB jest jednym z najważniejszych elementów nowoczesnych aplikacji chmurowych.
+
+Znajomość Amazon DynamoDB jest szczególnie ceniona na stanowiskach związanych z backend development, Cloud Computing, Data Engineering, architekturą mikroserwisów oraz projektowaniem aplikacji obsługujących bardzo dużą liczbę użytkowników.

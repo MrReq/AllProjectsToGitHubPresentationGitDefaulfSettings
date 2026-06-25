@@ -1,0 +1,201 @@
+Apache Cassandra jest rozproszoną bazą danych typu NoSQL.
+
+Projekt rozwijany jest przez Apache Software Foundation.
+
+Apache Cassandra została pierwotnie opracowana przez [Meta Platforms](https://about.meta.com/?utm_source=chatgpt.com), dawniej znaną jako Facebook.
+
+Powstała z myślą o przechowywaniu ogromnych ilości danych przy zachowaniu wysokiej wydajności oraz nieprzerwanej dostępności.
+
+Apache Cassandra została zaprojektowana dla aplikacji działających przez całą dobę.
+
+System bardzo dobrze sprawdza się w środowiskach, w których nawet krótka przerwa w działaniu jest niedopuszczalna.
+
+Cassandra jest jedną z najpopularniejszych baz danych NoSQL na świecie.
+
+NoSQL oznacza, że system nie opiera się na klasycznym modelu relacyjnych baz danych.
+
+W przeciwieństwie do MySQL lub PostgreSQL Cassandra nie wykorzystuje relacji pomiędzy tabelami w tradycyjny sposób.
+
+Nie obsługuje kluczy obcych.
+
+Nie obsługuje złożonych operacji JOIN w taki sposób jak relacyjne bazy danych.
+
+Model danych został zaprojektowany przede wszystkim pod kątem wydajności.
+
+Apache Cassandra wykorzystuje architekturę rozproszoną.
+
+Dane przechowywane są jednocześnie na wielu serwerach.
+
+Wszystkie serwery współpracują ze sobą jako jeden klaster.
+
+Każdy serwer nazywany jest węzłem.
+
+Wszystkie węzły posiadają takie same uprawnienia.
+
+Nie istnieje jeden centralny serwer zarządzający całym systemem.
+
+Architektura ta określana jest jako Peer-to-Peer.
+
+Każdy węzeł może jednocześnie obsługiwać operacje odczytu oraz zapisu.
+
+Takie rozwiązanie eliminuje pojedynczy punkt awarii.
+
+Jeżeli jeden z serwerów przestanie działać, pozostałe nadal obsługują użytkowników.
+
+System automatycznie wykrywa awarie.
+
+System automatycznie przekierowuje ruch na pozostałe dostępne węzły.
+
+Apache Cassandra automatycznie replikuje dane.
+
+Każdy rekord może być przechowywany na kilku serwerach jednocześnie.
+
+Liczba kopii danych określana jest przez współczynnik replikacji.
+
+Replikacja zwiększa bezpieczeństwo danych.
+
+Replikacja zwiększa dostępność systemu.
+
+Replikacja umożliwia szybkie odzyskanie danych po awarii.
+
+Cassandra pozwala tworzyć klastry obejmujące wiele centrów danych.
+
+Centra danych mogą znajdować się w różnych miastach.
+
+Centra danych mogą znajdować się w różnych krajach.
+
+Pozwala to budować aplikacje dostępne na całym świecie.
+
+Użytkownicy mogą łączyć się z najbliższym geograficznie centrum danych.
+
+Zmniejsza to opóźnienia podczas komunikacji.
+
+Apache Cassandra wykorzystuje model szerokich kolumn.
+
+Model ten różni się od klasycznych tabel relacyjnych.
+
+Każdy rekord identyfikowany jest za pomocą klucza głównego.
+
+Klucz główny decyduje o sposobie rozmieszczenia danych w klastrze.
+
+Odpowiedni dobór klucza głównego ma ogromny wpływ na wydajność systemu.
+
+Projektowanie modelu danych w Cassandrze różni się od projektowania relacyjnych baz danych.
+
+Najpierw analizuje się zapytania wykonywane przez aplikację.
+
+Dopiero później projektuje się strukturę tabel.
+
+Takie podejście pozwala zoptymalizować wydajność odczytu i zapisu.
+
+Apache Cassandra wykorzystuje własny język zapytań.
+
+Język ten nazywa się Cassandra Query Language.
+
+Skrót CQL oznacza Cassandra Query Language.
+
+Składnia CQL przypomina klasyczny SQL.
+
+Programista może tworzyć tabele.
+
+Programista może dodawać rekordy.
+
+Programista może aktualizować dane.
+
+Programista może usuwać dane.
+
+Programista może wykonywać zapytania SELECT.
+
+Znajomość SQL znacznie ułatwia naukę CQL.
+
+Jedną z największych zalet Cassandry jest bardzo wysoka wydajność zapisu danych.
+
+System potrafi obsługiwać setki tysięcy operacji zapisu na sekundę.
+
+Wydajność może dodatkowo wzrastać wraz z rozbudową klastra.
+
+Apache Cassandra została zaprojektowana z myślą o skalowaniu poziomym.
+
+Skalowanie poziome polega na dodawaniu kolejnych serwerów do klastra.
+
+Nie ma konieczności wymiany istniejących maszyn na mocniejsze.
+
+Po dodaniu nowych węzłów dane są automatycznie rozdzielane pomiędzy wszystkie serwery.
+
+Pozwala to zwiększać wydajność praktycznie bez przerywania pracy systemu.
+
+Apache Cassandra wykorzystuje mechanizm partycjonowania danych.
+
+Partycjonowanie polega na rozdzielaniu danych pomiędzy wiele węzłów klastra.
+
+Każdy rekord trafia na odpowiedni serwer zgodnie z wartością klucza partycjonującego.
+
+Pozwala to równomiernie rozłożyć obciążenie.
+
+Apache Cassandra wspiera różne poziomy spójności danych.
+
+Programista może określić, ile kopii danych musi potwierdzić zapis lub odczyt.
+
+Pozwala to znaleźć kompromis pomiędzy wydajnością a spójnością danych.
+
+Mechanizm ten wynika z twierdzenia CAP.
+
+Twierdzenie CAP opisuje ograniczenia systemów rozproszonych.
+
+Według twierdzenia CAP nie można jednocześnie zapewnić pełnej spójności, pełnej dostępności oraz odporności na podziały sieci.
+
+Apache Cassandra została zaprojektowana przede wszystkim z naciskiem na wysoką dostępność oraz odporność na awarie.
+
+System jest szczególnie dobrze przystosowany do pracy w środowiskach rozproszonych.
+
+Apache Cassandra bardzo dobrze współpracuje z innymi technologiami Big Data.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Apache Hadoop.
+
+Może współpracować z Apache Flink.
+
+Może współpracować z platformami chmurowymi.
+
+Może współpracować z Dockerem.
+
+Może współpracować z Kubernetesem.
+
+Apache Cassandra posiada sterowniki dla wielu języków programowania.
+
+Najbardziej rozbudowane wsparcie dostępne jest dla języka Java.
+
+Dostępne są również sterowniki dla języka Python.
+
+Dostępne są również sterowniki dla języka C#.
+
+Dostępne są również sterowniki dla języka Go.
+
+Dostępne są również sterowniki dla języka Node.js.
+
+Cassandra znajduje zastosowanie w systemach obsługujących ogromną liczbę użytkowników.
+
+Jest wykorzystywana w portalach społecznościowych.
+
+Jest wykorzystywana w systemach bankowych.
+
+Jest wykorzystywana w platformach streamingowych.
+
+Jest wykorzystywana w rozwiązaniach Internetu Rzeczy.
+
+Jest wykorzystywana w systemach monitorowania infrastruktury.
+
+Jest wykorzystywana do przechowywania logów aplikacyjnych.
+
+Jest wykorzystywana do przechowywania danych telemetrycznych.
+
+Jest wykorzystywana do przechowywania danych generowanych przez urządzenia IoT.
+
+Największą zaletą Apache Cassandra jest możliwość przechowywania ogromnych ilości danych przy jednoczesnym zachowaniu bardzo wysokiej wydajności oraz odporności na awarie.
+
+System został zaprojektowany z myślą o aplikacjach działających na skalę globalną.
+
+Znajomość Apache Cassandra jest szczególnie ceniona na stanowiskach związanych z Big Data, Data Engineering, architekturą systemów rozproszonych, Cloud Computing oraz budową aplikacji obsługujących miliony użytkowników.

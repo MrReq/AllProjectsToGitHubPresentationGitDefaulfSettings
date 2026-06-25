@@ -1,0 +1,213 @@
+Vertica jest kolumnowym systemem zarządzania bazą danych przeznaczonym do analizy bardzo dużych zbiorów danych.
+
+System został opracowany przez firmę Vertica Systems.
+
+Obecnie rozwijany jest przez OpenText.
+
+Vertica należy do grupy analitycznych baz danych klasy Enterprise.
+
+System został zaprojektowany z myślą o budowie hurtowni danych oraz platform Business Intelligence.
+
+Vertica bardzo dobrze sprawdza się podczas wykonywania złożonych analiz.
+
+Jest wykorzystywana przez duże przedsiębiorstwa na całym świecie.
+
+Jest wykorzystywana w bankowości.
+
+Jest wykorzystywana w telekomunikacji.
+
+Jest wykorzystywana w handlu.
+
+Jest wykorzystywana w przemyśle.
+
+Jest wykorzystywana w analizie danych naukowych.
+
+Vertica obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy.
+
+Możliwe jest tworzenie widoków.
+
+Możliwe jest projektowanie schematów hurtowni danych.
+
+Vertica obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Programiści mogą tworzyć procedury.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Vertica.
+
+Jedną z najważniejszych cech Vertica jest kolumnowy sposób przechowywania danych.
+
+Kolumnowy zapis oznacza, że wartości tej samej kolumny przechowywane są obok siebie.
+
+Pozwala to odczytywać wyłącznie potrzebne kolumny.
+
+Znacząco zwiększa to wydajność analiz.
+
+Kolumnowy model przechowywania bardzo dobrze współpracuje z mechanizmami kompresji.
+
+Vertica automatycznie kompresuje dane.
+
+Kompresja zmniejsza ilość zajmowanego miejsca.
+
+Kompresja może również zwiększać szybkość wykonywania zapytań.
+
+Vertica wykorzystuje architekturę MPP.
+
+MPP oznacza Massively Parallel Processing.
+
+Massively Parallel Processing polega na równoczesnym wykonywaniu operacji przez wiele procesorów oraz serwerów.
+
+Pozwala to analizować ogromne ilości danych w bardzo krótkim czasie.
+
+Vertica wykorzystuje architekturę Shared-Nothing.
+
+Każdy serwer posiada własną pamięć oraz własne dyski.
+
+Dane automatycznie rozdzielane są pomiędzy serwerami.
+
+Pozwala to łatwo skalować system.
+
+Vertica posiada zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Vertica wykorzystuje projekcje zamiast klasycznych indeksów jako podstawowy mechanizm optymalizacji odczytu.
+
+Projekcje przechowują dane w sposób zoptymalizowany dla określonych typów zapytań.
+
+Pozwala to znacząco zwiększyć wydajność analiz.
+
+Vertica wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to uprościć zarządzanie danymi.
+
+Pozwala również zwiększyć wydajność zapytań.
+
+Vertica wspiera analizę danych w czasie rzeczywistym.
+
+Możliwe jest ładowanie nowych danych bez zatrzymywania systemu.
+
+Analitycy mogą wykonywać zapytania na bieżąco aktualizowanych danych.
+
+Vertica oferuje rozbudowane funkcje analityczne.
+
+Możliwe jest wykonywanie analiz statystycznych.
+
+Możliwe jest wykonywanie analiz predykcyjnych.
+
+Możliwe jest wykonywanie analiz szeregów czasowych.
+
+Możliwe jest wykonywanie analiz przestrzennych.
+
+Vertica wspiera integrację z bibliotekami uczenia maszynowego.
+
+Vertica oferuje mechanizmy wysokiej dostępności.
+
+Możliwa jest replikacja danych.
+
+Możliwe jest automatyczne odtwarzanie danych po awarii.
+
+Możliwe jest budowanie klastrów odpornych na awarie.
+
+Vertica wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+Vertica oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+Vertica współpracuje z wieloma narzędziami analitycznymi.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z dbt.
+
+Vertica współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka R.
+
+Vertica bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate w scenariuszach analitycznych.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Vertica może być uruchamiana lokalnie.
+
+Może być uruchamiana w chmurze.
+
+Może być wdrażana w środowiskach hybrydowych.
+
+Może być wykorzystywana jako platforma analityczna w środowiskach wielochmurowych.
+
+Vertica znajduje zastosowanie w hurtowniach danych.
+
+Jest wykorzystywana w Business Intelligence.
+
+Jest wykorzystywana w analizie sprzedaży.
+
+Jest wykorzystywana w analizie finansowej.
+
+Jest wykorzystywana w analizie zachowań klientów.
+
+Jest wykorzystywana w projektach Big Data.
+
+Jest wykorzystywana w systemach raportowania korporacyjnego.
+
+Największą zaletą Vertica jest połączenie kolumnowego modelu przechowywania danych, architektury MPP, bardzo wysokiej kompresji oraz wyjątkowo szybkiego wykonywania zapytań analitycznych.
+
+Dzięki przetwarzaniu równoległemu, projekcjom, zaawansowanemu optymalizatorowi zapytań oraz integracji z narzędziami analitycznymi Vertica pozostaje jednym z najwydajniejszych systemów przeznaczonych do budowy hurtowni danych i analiz biznesowych.
+
+Znajomość Vertica jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Business Intelligence, Big Data, analityką danych, administracją bazami danych oraz projektowaniem nowoczesnych platform analitycznych.

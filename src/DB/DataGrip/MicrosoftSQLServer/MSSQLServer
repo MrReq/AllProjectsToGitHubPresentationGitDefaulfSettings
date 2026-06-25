@@ -1,0 +1,225 @@
+Microsoft SQL Server jest relacyjnym systemem zarządzania bazą danych klasy Enterprise.
+
+System został opracowany przez Microsoft.
+
+Microsoft SQL Server należy do najpopularniejszych komercyjnych baz danych na świecie.
+
+Jest wykorzystywany zarówno w małych aplikacjach, jak i w dużych systemach korporacyjnych.
+
+Microsoft SQL Server obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Microsoft SQL Server obsługuje standardowy język SQL.
+
+Najczęściej wykorzystywanym rozszerzeniem jest Transact-SQL.
+
+Transact-SQL często określany jest skrótem T-SQL.
+
+T-SQL rozszerza standardowy SQL o dodatkowe instrukcje programistyczne.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Programiści mogą korzystać z kursora.
+
+Programiści mogą korzystać z transakcji.
+
+Znajomość T-SQL jest jedną z najważniejszych umiejętności administratorów oraz programistów SQL Server.
+
+Microsoft SQL Server wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Microsoft SQL Server oferuje wiele poziomów izolacji transakcji.
+
+Pozwala to dobrać odpowiedni kompromis pomiędzy wydajnością oraz spójnością danych.
+
+Microsoft SQL Server wykorzystuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco zwiększyć wydajność systemu.
+
+Microsoft SQL Server wspiera wiele rodzajów indeksów.
+
+Dostępne są indeksy klastrowe.
+
+Dostępne są indeksy nieklastrowe.
+
+Dostępne są indeksy kolumnowe.
+
+Dostępne są indeksy pełnotekstowe.
+
+Odpowiedni dobór indeksów ma bardzo duży wpływ na wydajność zapytań.
+
+Microsoft SQL Server wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to zwiększyć wydajność oraz uprościć administrację.
+
+Microsoft SQL Server wspiera kompresję danych.
+
+Kompresja zmniejsza ilość zajmowanego miejsca.
+
+Kompresja może również przyspieszać wykonywanie zapytań.
+
+Microsoft SQL Server oferuje mechanizmy wysokiej dostępności.
+
+Jednym z najważniejszych rozwiązań jest Always On Availability Groups.
+
+Always On Availability Groups umożliwia replikację danych pomiędzy wieloma serwerami.
+
+Pozwala to zapewnić wysoką dostępność systemu.
+
+Awaria jednego serwera nie powoduje zatrzymania całej bazy danych.
+
+Microsoft SQL Server wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii zapasowych.
+
+Możliwe jest wykonywanie kopii różnicowych.
+
+Możliwe jest wykonywanie kopii dziennika transakcji.
+
+Możliwe jest odtwarzanie danych do wybranego momentu.
+
+Microsoft SQL Server oferuje rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+System wspiera Transparent Data Encryption.
+
+Transparent Data Encryption często oznaczane jest skrótem TDE.
+
+Microsoft SQL Server wspiera Always Encrypted.
+
+Always Encrypted umożliwia szyfrowanie danych wrażliwych.
+
+System wspiera Row-Level Security.
+
+Row-Level Security umożliwia ograniczenie dostępu do wybranych rekordów.
+
+Microsoft SQL Server umożliwia prowadzenie audytu działań użytkowników.
+
+Microsoft SQL Server współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki ADO.NET dla platformy .NET.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Microsoft SQL Server bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Microsoft SQL Server oferuje bogaty zestaw narzędzi administracyjnych.
+
+Najpopularniejszym narzędziem jest SQL Server Management Studio.
+
+SQL Server Management Studio często określane jest skrótem SSMS.
+
+SSMS umożliwia zarządzanie bazami danych.
+
+SSMS umożliwia wykonywanie zapytań SQL.
+
+SSMS umożliwia monitorowanie wydajności.
+
+SSMS umożliwia administrację serwerem.
+
+Microsoft SQL Server integruje się z wieloma usługami firmy Microsoft.
+
+Może współpracować z Azure SQL Database.
+
+Może współpracować z Azure Synapse Analytics.
+
+Może współpracować z Power BI.
+
+Może współpracować z SQL Server Integration Services.
+
+SQL Server Integration Services często oznaczane jest skrótem SSIS.
+
+SSIS służy do realizacji procesów ETL.
+
+Microsoft SQL Server współpracuje z SQL Server Analysis Services.
+
+SQL Server Analysis Services często oznaczane jest skrótem SSAS.
+
+SSAS umożliwia tworzenie modeli analitycznych oraz kostek OLAP.
+
+Microsoft SQL Server współpracuje z SQL Server Reporting Services.
+
+SQL Server Reporting Services często oznaczane jest skrótem SSRS.
+
+SSRS umożliwia tworzenie raportów biznesowych.
+
+Microsoft SQL Server znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w ochronie zdrowia.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany w systemach CRM.
+
+Jest wykorzystywany w rozwiązaniach Business Intelligence.
+
+Największą zaletą Microsoft SQL Server jest połączenie wydajnego silnika bazodanowego, rozbudowanych narzędzi administracyjnych, zaawansowanych mechanizmów bezpieczeństwa oraz ścisłej integracji z ekosystemem Microsoft.
+
+Dzięki obsłudze T-SQL, wysokiej dostępności, rozbudowanym możliwościom analitycznym oraz bogatemu zestawowi narzędzi SQL Server od wielu lat pozostaje jednym z najczęściej wykorzystywanych systemów bazodanowych klasy Enterprise.
+
+Znajomość Microsoft SQL Server jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, backend development, Business Intelligence, Data Engineering, DevOps oraz projektowaniem i utrzymywaniem dużych systemów biznesowych.

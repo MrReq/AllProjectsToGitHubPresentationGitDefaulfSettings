@@ -1,0 +1,185 @@
+ClickHouse jest kolumnowym systemem zarządzania bazą danych przeznaczonym do analizy bardzo dużych zbiorów danych.
+
+ClickHouse został stworzony przez Yandex.
+
+Obecnie rozwój projektu wspierany jest przez [ClickHouse, Inc.](https://clickhouse.com/?utm_source=chatgpt.com) oraz społeczność open source.
+
+ClickHouse jest udostępniany jako oprogramowanie otwartoźródłowe.
+
+System został zaprojektowany z myślą o bardzo szybkiej analizie danych.
+
+Jest zaliczany do grupy systemów OLAP.
+
+OLAP oznacza Online Analytical Processing.
+
+Systemy OLAP służą do wykonywania złożonych analiz oraz raportów na dużych zbiorach danych.
+
+ClickHouse nie został zaprojektowany jako klasyczna baza transakcyjna.
+
+Jego głównym zadaniem jest szybkie wykonywanie zapytań analitycznych.
+
+ClickHouse bardzo dobrze sprawdza się podczas analizy miliardów rekordów.
+
+Jedną z najważniejszych cech ClickHouse jest kolumnowy sposób przechowywania danych.
+
+W tradycyjnych bazach danych dane przechowywane są wierszami.
+
+W ClickHouse dane przechowywane są kolumnami.
+
+Pozwala to odczytywać wyłącznie kolumny wykorzystywane w zapytaniu.
+
+Zmniejsza to ilość przetwarzanych danych.
+
+Znacząco zwiększa to wydajność wykonywania analiz.
+
+ClickHouse wykorzystuje zaawansowane mechanizmy kompresji danych.
+
+Kompresja zmniejsza ilość zajmowanego miejsca na dysku.
+
+Kompresja pozwala również ograniczyć ilość danych odczytywanych podczas wykonywania zapytań.
+
+Dzięki temu analiza danych jest jeszcze szybsza.
+
+ClickHouse został zoptymalizowany pod kątem wykonywania operacji odczytu.
+
+System doskonale radzi sobie z dużą liczbą zapytań analitycznych.
+
+ClickHouse obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować wyniki.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z ClickHouse.
+
+ClickHouse posiada własny silnik wykonywania zapytań.
+
+Silnik został zaprojektowany z myślą o maksymalnym wykorzystaniu nowoczesnych procesorów.
+
+Zapytania wykonywane są równolegle przez wiele wątków.
+
+Pozwala to osiągać bardzo wysoką wydajność.
+
+ClickHouse może działać na pojedynczym serwerze.
+
+Może również działać jako system rozproszony.
+
+W środowisku rozproszonym dane przechowywane są na wielu serwerach jednocześnie.
+
+Zapytania wykonywane są równolegle na wszystkich węzłach klastra.
+
+Pozwala to analizować bardzo duże ilości danych.
+
+ClickHouse wspiera replikację danych.
+
+Replikacja zwiększa bezpieczeństwo oraz dostępność systemu.
+
+Awaria pojedynczego serwera nie powoduje utraty wszystkich danych.
+
+ClickHouse umożliwia partycjonowanie tabel.
+
+Partycjonowanie polega na podziale danych na mniejsze fragmenty.
+
+Pozwala to szybciej wyszukiwać potrzebne informacje.
+
+ClickHouse umożliwia definiowanie kluczy sortowania.
+
+Dane zapisywane są w uporządkowanej kolejności.
+
+Pozwala to przyspieszyć filtrowanie oraz agregację danych.
+
+ClickHouse oferuje wiele różnych silników tabel.
+
+Każdy silnik został zaprojektowany do określonego rodzaju zastosowań.
+
+Najczęściej wykorzystywanym silnikiem jest MergeTree.
+
+MergeTree zapewnia wysoką wydajność zapisu oraz odczytu danych.
+
+MergeTree wspiera partycjonowanie.
+
+MergeTree wspiera indeksowanie.
+
+MergeTree wspiera kompresję danych.
+
+ClickHouse bardzo dobrze radzi sobie z danymi szeregów czasowych.
+
+Dane szeregów czasowych opisują zdarzenia występujące w określonych momentach.
+
+Takie dane często pochodzą z systemów monitoringu.
+
+Takie dane często pochodzą z urządzeń IoT.
+
+Takie dane często pochodzą z logów aplikacyjnych.
+
+ClickHouse jest często wykorzystywany do analizy logów.
+
+Jest wykorzystywany do monitorowania infrastruktury.
+
+Jest wykorzystywany do analizy ruchu sieciowego.
+
+Jest wykorzystywany do analizy danych marketingowych.
+
+Jest wykorzystywany do analizy danych finansowych.
+
+Jest wykorzystywany w platformach Business Intelligence.
+
+ClickHouse integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Grafana.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Metabase.
+
+ClickHouse posiada sterowniki dla wielu języków programowania.
+
+Dostępne są sterowniki dla języka Java.
+
+Dostępne są sterowniki dla języka Python.
+
+Dostępne są sterowniki dla języka Go.
+
+Dostępne są sterowniki dla języka C#.
+
+Dostępne są sterowniki dla języka Node.js.
+
+ClickHouse może być uruchamiany lokalnie.
+
+Może być uruchamiany w Dockerze.
+
+Może być uruchamiany w Kubernetes.
+
+Dostępna jest również zarządzana usługa ClickHouse Cloud.
+
+ClickHouse jest wykorzystywany przez wiele dużych organizacji na całym świecie.
+
+Jest popularny w firmach technologicznych.
+
+Jest popularny w platformach e-commerce.
+
+Jest popularny w telekomunikacji.
+
+Jest popularny w systemach monitoringu.
+
+Jest popularny w analizie danych internetowych.
+
+Największą zaletą ClickHouse jest możliwość wykonywania bardzo szybkich analiz na ogromnych zbiorach danych przy jednoczesnym zachowaniu wysokiej wydajności oraz niskiego zużycia zasobów.
+
+Połączenie kolumnowego przechowywania danych, zaawansowanej kompresji oraz równoległego wykonywania zapytań sprawia, że ClickHouse jest jedną z najszybszych analitycznych baz danych dostępnych obecnie na rynku.
+
+Znajomość ClickHouse jest szczególnie ceniona na stanowiskach związanych z Big Data, Data Engineering, Business Intelligence, analizą danych, monitorowaniem infrastruktury oraz Cloud Computing.

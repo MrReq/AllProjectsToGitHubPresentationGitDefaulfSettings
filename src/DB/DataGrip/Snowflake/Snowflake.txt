@@ -1,0 +1,195 @@
+Snowflake jest chmurową platformą do przechowywania oraz analizy danych.
+
+System został opracowany przez Snowflake Inc..
+
+Snowflake należy do najpopularniejszych platform typu Data Warehouse dostępnych w chmurze.
+
+Platforma została zaprojektowana z myślą o analizowaniu bardzo dużych zbiorów danych.
+
+Snowflake działa wyłącznie w środowisku chmurowym.
+
+Nie wymaga instalowania serwera bazodanowego.
+
+Administrator nie musi zarządzać infrastrukturą.
+
+Administrator nie musi wykonywać aktualizacji systemu.
+
+Większość zadań administracyjnych wykonywana jest automatycznie przez platformę.
+
+Snowflake obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy.
+
+Możliwe jest tworzenie widoków.
+
+Możliwe jest tworzenie schematów.
+
+Snowflake obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Snowflake.
+
+Jedną z najważniejszych cech Snowflake jest całkowite rozdzielenie warstwy przechowywania danych od warstwy obliczeniowej.
+
+Dane przechowywane są niezależnie od zasobów obliczeniowych.
+
+Warstwa obliczeniowa może być skalowana niezależnie od ilości przechowywanych danych.
+
+Pozwala to bardzo efektywnie wykorzystywać zasoby.
+
+Snowflake wykorzystuje architekturę wieloklastrową.
+
+Każdy klaster obliczeniowy określany jest jako Virtual Warehouse.
+
+Virtual Warehouse odpowiada za wykonywanie zapytań SQL.
+
+Możliwe jest jednoczesne uruchomienie wielu niezależnych Virtual Warehouse.
+
+Poszczególne zespoły mogą korzystać z tych samych danych bez wzajemnego wpływu na wydajność.
+
+Snowflake automatycznie skaluje zasoby obliczeniowe.
+
+Platforma może zwiększać lub zmniejszać moc obliczeniową w zależności od obciążenia.
+
+Pozwala to ograniczać koszty.
+
+Snowflake wykorzystuje kolumnowy model przechowywania danych.
+
+Kolumnowy zapis danych zwiększa wydajność analiz.
+
+Platforma automatycznie kompresuje dane.
+
+Kompresja zmniejsza ilość zajmowanego miejsca.
+
+Kompresja może również przyspieszać wykonywanie zapytań.
+
+Snowflake wykorzystuje architekturę MPP.
+
+MPP oznacza Massively Parallel Processing.
+
+Massively Parallel Processing polega na równoczesnym wykonywaniu obliczeń przez wiele procesorów lub serwerów.
+
+Pozwala to analizować ogromne ilości danych w bardzo krótkim czasie.
+
+Snowflake obsługuje dane półstrukturalne.
+
+Możliwe jest przechowywanie dokumentów JSON.
+
+Możliwe jest przechowywanie danych XML.
+
+Możliwe jest przechowywanie danych Avro.
+
+Możliwe jest przechowywanie danych Parquet.
+
+Możliwe jest wykonywanie zapytań SQL na danych półstrukturalnych.
+
+Snowflake wspiera mechanizm Time Travel.
+
+Time Travel umożliwia odtworzenie danych z wybranego momentu w przeszłości.
+
+Pozwala to odzyskać przypadkowo usunięte lub zmodyfikowane dane.
+
+Snowflake oferuje mechanizm Fail-safe.
+
+Fail-safe zapewnia dodatkową ochronę danych po zakończeniu okresu Time Travel.
+
+Rozwiązanie to zwiększa bezpieczeństwo informacji.
+
+Snowflake umożliwia bezpieczne udostępnianie danych.
+
+Mechanizm ten określany jest jako Secure Data Sharing.
+
+Dane mogą być współdzielone pomiędzy organizacjami bez konieczności ich kopiowania.
+
+Pozwala to uprościć współpracę pomiędzy firmami.
+
+Snowflake oferuje mechanizmy bezpieczeństwa klasy Enterprise.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Platforma umożliwia prowadzenie audytu działań użytkowników.
+
+Snowflake współpracuje z wieloma platformami chmurowymi.
+
+Może działać na Amazon Web Services.
+
+Może działać na Microsoft Azure.
+
+Może działać na Google Cloud Platform.
+
+Dzięki temu użytkownicy mogą wybrać preferowanego dostawcę chmury.
+
+Snowflake integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Power BI.
+
+Może współpracować z Tableau.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z dbt.
+
+Snowflake współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Snowflake bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować ze Spring Boot.
+
+Może współpracować z narzędziami ETL oraz ELT.
+
+Snowflake znajduje zastosowanie w hurtowniach danych.
+
+Jest wykorzystywany w Business Intelligence.
+
+Jest wykorzystywany w Data Engineering.
+
+Jest wykorzystywany w analizie finansowej.
+
+Jest wykorzystywany w analizie sprzedaży.
+
+Jest wykorzystywany w uczeniu maszynowym.
+
+Jest wykorzystywany w projektach Big Data.
+
+Największą zaletą Snowflake jest połączenie pełnej architektury chmurowej, automatycznego skalowania, wysokiej wydajności oraz całkowitego rozdzielenia warstwy obliczeniowej od warstwy przechowywania danych.
+
+Dzięki obsłudze SQL, przetwarzaniu równoległemu, możliwości współdzielenia danych oraz integracji z najpopularniejszymi narzędziami analitycznymi Snowflake jest jedną z najważniejszych platform wykorzystywanych we współczesnym Data Engineering i Business Intelligence.
+
+Znajomość Snowflake jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Business Intelligence, Big Data, Cloud Computing, analityką danych, DevOps oraz projektowaniem nowoczesnych platform analitycznych.

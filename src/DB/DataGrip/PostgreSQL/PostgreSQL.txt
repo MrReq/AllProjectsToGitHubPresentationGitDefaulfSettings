@@ -1,0 +1,269 @@
+PostgreSQL jest relacyjnym systemem zarządzania bazą danych rozwijanym jako oprogramowanie otwartoźródłowe.
+
+Projekt rozwijany jest przez PostgreSQL Global Development Group.
+
+PostgreSQL należy do najbardziej zaawansowanych relacyjnych baz danych na świecie.
+
+Jest ceniony za zgodność ze standardem SQL, wysoką wydajność oraz bardzo bogaty zestaw funkcji.
+
+PostgreSQL jest wykorzystywany zarówno w niewielkich aplikacjach, jak i w największych systemach korporacyjnych.
+
+Jest jedną z najpopularniejszych baz danych wykorzystywanych przez programistów.
+
+PostgreSQL obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+PostgreSQL wspiera również model obiektowo-relacyjny.
+
+Możliwe jest definiowanie własnych typów danych.
+
+Możliwe jest tworzenie typów wyliczeniowych.
+
+Możliwe jest tworzenie domen.
+
+Możliwe jest przechowywanie złożonych struktur danych.
+
+PostgreSQL obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z PostgreSQL.
+
+PostgreSQL wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+PostgreSQL wykorzystuje architekturę MVCC.
+
+MVCC oznacza Multi-Version Concurrency Control.
+
+MVCC umożliwia jednoczesne wykonywanie operacji odczytu oraz zapisu bez nadmiernego blokowania danych.
+
+Pozwala to zwiększyć wydajność systemu.
+
+PostgreSQL oferuje bardzo zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco zwiększyć wydajność aplikacji.
+
+PostgreSQL wspiera wiele rodzajów indeksów.
+
+Dostępne są indeksy B-tree.
+
+Dostępne są indeksy Hash.
+
+Dostępne są indeksy GiST.
+
+Dostępne są indeksy SP-GiST.
+
+Dostępne są indeksy GIN.
+
+Dostępne są indeksy BRIN.
+
+Każdy typ indeksu został zaprojektowany do innych zastosowań.
+
+PostgreSQL wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to zwiększyć wydajność.
+
+Pozwala uprościć administrację bazą danych.
+
+PostgreSQL oferuje bogaty zestaw typów danych.
+
+Obsługiwane są liczby.
+
+Obsługiwane są teksty.
+
+Obsługiwane są daty.
+
+Obsługiwane są znaczniki czasu.
+
+Obsługiwane są dane binarne.
+
+Obsługiwane są typy JSON.
+
+Obsługiwane są typy JSONB.
+
+JSONB umożliwia wydajne przechowywanie oraz indeksowanie dokumentów JSON.
+
+PostgreSQL bardzo dobrze sprawdza się zarówno jako relacyjna baza danych, jak i jako baza dokumentowa.
+
+PostgreSQL wspiera dane przestrzenne.
+
+Najpopularniejszym rozszerzeniem jest PostGIS.
+
+PostGIS umożliwia przechowywanie danych geograficznych.
+
+PostGIS umożliwia wykonywanie analiz przestrzennych.
+
+PostGIS jest szeroko wykorzystywany w systemach GIS.
+
+PostgreSQL oferuje mechanizmy replikacji.
+
+Dostępna jest replikacja strumieniowa.
+
+Dostępna jest replikacja logiczna.
+
+Replikacja zwiększa dostępność systemu.
+
+Replikacja umożliwia odciążenie głównego serwera.
+
+PostgreSQL wspiera wysoką dostępność.
+
+Możliwe jest budowanie klastrów.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Do zarządzania klastrami często wykorzystywane są dodatkowe narzędzia.
+
+PostgreSQL oferuje mechanizmy tworzenia kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest archiwizowanie dzienników transakcji.
+
+Możliwe jest odtwarzanie danych do wybranego momentu.
+
+PostgreSQL zapewnia rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System wspiera uwierzytelnianie z wykorzystaniem wielu metod.
+
+PostgreSQL umożliwia tworzenie rozszerzeń.
+
+Rozszerzenia dodają nowe funkcje bez modyfikowania silnika bazy danych.
+
+Dostępnych jest wiele rozszerzeń rozwijanych przez społeczność.
+
+PostgreSQL współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka Go.
+
+Dostępne są biblioteki dla języka Node.js.
+
+PostgreSQL bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+PostgreSQL bardzo dobrze współpracuje z platformami chmurowymi.
+
+Jest dostępny jako usługa zarządzana u wielu dostawców chmury.
+
+Może współpracować z Amazon RDS for PostgreSQL.
+
+Może współpracować z Azure Database for PostgreSQL.
+
+Może współpracować z Cloud SQL for PostgreSQL.
+
+PostgreSQL integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Power BI.
+
+Może współpracować z Tableau.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+PostgreSQL oferuje wiele narzędzi administracyjnych.
+
+Najpopularniejszym z nich jest pgAdmin.
+
+pgAdmin umożliwia zarządzanie bazami danych.
+
+pgAdmin umożliwia wykonywanie zapytań SQL.
+
+pgAdmin umożliwia monitorowanie serwera.
+
+pgAdmin umożliwia projektowanie obiektów bazy danych.
+
+PostgreSQL może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być uruchamiany w Dockerze.
+
+Może być wdrażany w środowiskach Kubernetes.
+
+PostgreSQL znajduje zastosowanie w aplikacjach internetowych.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany w systemach CRM.
+
+Jest wykorzystywany w aplikacjach mobilnych.
+
+Jest wykorzystywany w rozwiązaniach Business Intelligence.
+
+Jest wykorzystywany w systemach GIS.
+
+Jest wykorzystywany w projektach Data Engineering.
+
+Największą zaletą PostgreSQL jest połączenie pełnej zgodności z SQL, ogromnej liczby zaawansowanych funkcji, wysokiej wydajności oraz otwartoźródłowego charakteru projektu.
+
+Dzięki obsłudze MVCC, JSONB, PostGIS, rozbudowanym możliwościom rozszerzeń oraz bardzo bogatemu ekosystemowi narzędzi PostgreSQL od wielu lat pozostaje jedną z najbardziej cenionych baz danych zarówno przez programistów, jak i administratorów.
+
+Znajomość PostgreSQL jest szczególnie ceniona na stanowiskach związanych z backend development, administracją bazami danych, Data Engineering, DevOps, Cloud Computing, Business Intelligence oraz projektowaniem nowoczesnych aplikacji internetowych i systemów korporacyjnych.

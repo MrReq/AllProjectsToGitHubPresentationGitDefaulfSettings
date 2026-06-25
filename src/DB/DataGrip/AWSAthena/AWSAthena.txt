@@ -1,0 +1,185 @@
+Amazon Athena jest usługą analityczną dostępną w chmurze AWS.
+
+Usługa została stworzona przez [Amazon Web Services](https://aws.amazon.com/athena/?utm_source=chatgpt.com).
+
+Amazon Athena umożliwia analizowanie danych przy użyciu języka SQL.
+
+Jedną z największych zalet Athena jest brak konieczności zarządzania serwerami.
+
+Model ten określany jest jako Serverless.
+
+Serverless oznacza, że użytkownik nie musi tworzyć ani utrzymywać infrastruktury.
+
+AWS automatycznie udostępnia zasoby potrzebne do wykonania zapytania.
+
+Użytkownik płaci jedynie za ilość danych przetworzonych podczas wykonywania zapytań.
+
+Nie ponosi kosztów utrzymywania nieużywanych serwerów.
+
+Amazon Athena nie przechowuje danych we własnej bazie.
+
+Athena analizuje dane zapisane w innych usługach.
+
+Najczęściej wykorzystywanym źródłem danych jest Amazon S3.
+
+Amazon S3 służy do przechowywania plików w chmurze.
+
+Pliki mogą zawierać dane tekstowe.
+
+Pliki mogą zawierać dane w formacie CSV.
+
+Pliki mogą zawierać dane w formacie JSON.
+
+Pliki mogą zawierać dane w formacie Parquet.
+
+Pliki mogą zawierać dane w formacie ORC.
+
+Athena odczytuje dane bezpośrednio z tych plików.
+
+Nie ma potrzeby wcześniejszego importowania danych do bazy danych.
+
+Takie podejście określane jest jako Query on Read.
+
+Query on Read oznacza analizowanie danych dopiero w momencie wykonywania zapytania.
+
+Pozwala to szybko rozpocząć pracę z dużymi zbiorami danych.
+
+Amazon Athena wykorzystuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować dane.
+
+Programiści mogą grupować dane.
+
+Programiści mogą wykonywać operacje JOIN.
+
+Znajomość SQL jest wystarczająca do rozpoczęcia pracy z Athena.
+
+Silnik Amazon Athena oparty jest na projekcie Trino.
+
+Starsze wersje wykorzystywały silnik Presto.
+
+Trino jest rozproszonym silnikiem wykonywania zapytań SQL.
+
+Silnik automatycznie przetwarza dane równolegle na wielu zasobach obliczeniowych.
+
+Pozwala to analizować bardzo duże zbiory danych.
+
+Athena bardzo dobrze sprawdza się w środowiskach Big Data.
+
+Usługa potrafi analizować dane liczone w terabajtach.
+
+Usługa potrafi analizować dane liczone w petabajtach.
+
+Athena umożliwia analizowanie danych historycznych.
+
+Athena umożliwia analizowanie logów aplikacyjnych.
+
+Athena umożliwia analizowanie danych finansowych.
+
+Athena umożliwia analizowanie danych sprzedażowych.
+
+Athena umożliwia analizowanie danych pochodzących z urządzeń IoT.
+
+Athena współpracuje z wieloma usługami AWS.
+
+Może analizować dane zapisane w Amazon S3.
+
+Może korzystać z metadanych przechowywanych w AWS Glue.
+
+AWS Glue przechowuje informacje o strukturze danych.
+
+Repozytorium metadanych AWS Glue nazywane jest Data Catalog.
+
+Data Catalog zawiera informacje o tabelach.
+
+Data Catalog zawiera informacje o kolumnach.
+
+Data Catalog zawiera informacje o typach danych.
+
+Athena wykorzystuje te informacje podczas wykonywania zapytań.
+
+Athena może współpracować z Amazon QuickSight.
+
+QuickSight umożliwia tworzenie raportów oraz interaktywnych dashboardów.
+
+Athena może współpracować z Amazon Redshift.
+
+Athena może współpracować z Apache Spark.
+
+Athena może współpracować z Apache Hive.
+
+Athena obsługuje partycjonowanie danych.
+
+Partycjonowanie polega na podziale danych na mniejsze części.
+
+Dzięki partycjonowaniu Athena odczytuje tylko potrzebne fragmenty danych.
+
+Zmniejsza to czas wykonywania zapytań.
+
+Zmniejsza to również koszty przetwarzania danych.
+
+Athena bardzo dobrze współpracuje z formatami kolumnowymi.
+
+Najczęściej wykorzystywanym formatem jest Parquet.
+
+Często wykorzystywany jest również format ORC.
+
+Formaty kolumnowe pozwalają odczytywać wyłącznie potrzebne kolumny.
+
+Zmniejsza to ilość danych odczytywanych z dysku.
+
+Pozwala to znacząco zwiększyć wydajność.
+
+Athena umożliwia tworzenie widoków.
+
+Widoki upraszczają wykonywanie często używanych zapytań.
+
+Athena umożliwia tworzenie tabel zewnętrznych.
+
+Tabela zewnętrzna wskazuje lokalizację danych zapisanych w Amazon S3.
+
+Dane pozostają w oryginalnych plikach.
+
+Athena nie tworzy ich dodatkowych kopii.
+
+Athena wspiera szyfrowanie danych.
+
+Może korzystać z usług zarządzania kluczami oferowanych przez AWS.
+
+Athena integruje się z mechanizmami kontroli dostępu AWS.
+
+Uprawnienia mogą być zarządzane za pomocą AWS Identity and Access Management.
+
+Athena umożliwia monitorowanie wykonywanych zapytań.
+
+Informacje o działaniu usługi mogą być analizowane przy użyciu Amazon CloudWatch.
+
+CloudWatch pozwala monitorować wydajność oraz aktywność użytkowników.
+
+Athena jest często wykorzystywana przez Data Engineerów.
+
+Athena jest często wykorzystywana przez Data Analystów.
+
+Athena jest często wykorzystywana przez Data Scientistów.
+
+Athena jest wykorzystywana w projektach Business Intelligence.
+
+Athena jest wykorzystywana podczas analizy logów systemowych.
+
+Athena jest wykorzystywana podczas analizy danych marketingowych.
+
+Athena jest wykorzystywana podczas analizy zachowań użytkowników.
+
+Athena jest wykorzystywana podczas analizy danych finansowych.
+
+Największą zaletą Amazon Athena jest możliwość wykonywania zapytań SQL bez konieczności budowania i utrzymywania własnej infrastruktury bazodanowej.
+
+Usługa pozwala szybko analizować ogromne ilości danych zapisanych w Amazon S3.
+
+Dzięki modelowi Serverless użytkownik może skupić się na analizie danych zamiast na administracji serwerami.
+
+Znajomość Amazon Athena jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Data Analytics, Cloud Computing, Business Intelligence oraz Big Data.

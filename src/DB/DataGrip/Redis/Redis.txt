@@ -1,0 +1,203 @@
+Redis jest bazą danych typu NoSQL przechowującą dane głównie w pamięci operacyjnej.
+
+Redis jest skrótem od Remote Dictionary Server.
+
+Projekt rozwijany jest jako oprogramowanie otwartoźródłowe.
+
+Redis został pierwotnie stworzony przez Salvatore Sanfilippo.
+
+Obecnie rozwój technologii wspiera Redis Ltd..
+
+Redis należy do najszybszych systemów bazodanowych dostępnych na rynku.
+
+Bardzo krótki czas dostępu do danych wynika z przechowywania ich w pamięci RAM.
+
+Redis jest najczęściej wykorzystywany jako baza typu klucz-wartość.
+
+System obsługuje jednak znacznie więcej struktur danych.
+
+Redis nie przechowuje danych w tabelach.
+
+Każda wartość identyfikowana jest przez unikalny klucz.
+
+Klucz jest najczęściej tekstem.
+
+Pod kluczem może znajdować się wiele różnych typów danych.
+
+Redis obsługuje ciągi znaków.
+
+Redis obsługuje listy.
+
+Redis obsługuje zbiory.
+
+Redis obsługuje zbiory uporządkowane.
+
+Redis obsługuje tablice mieszające.
+
+Redis obsługuje strumienie.
+
+Redis obsługuje mapy bitowe.
+
+Redis obsługuje struktury HyperLogLog.
+
+Redis obsługuje struktury Geospatial.
+
+Tak duża liczba struktur danych pozwala wykorzystywać Redis w wielu różnych scenariuszach.
+
+Jedną z największych zalet Redis jest bardzo wysoka wydajność.
+
+Większość operacji wykonywana jest w czasie liczonym w mikrosekundach lub pojedynczych milisekundach.
+
+Redis bardzo dobrze sprawdza się w aplikacjach czasu rzeczywistego.
+
+Redis jest często wykorzystywany jako pamięć podręczna.
+
+Pamięć podręczna określana jest również jako Cache.
+
+Cache umożliwia przechowywanie najczęściej wykorzystywanych danych.
+
+Pozwala to znacząco odciążyć główną bazę danych.
+
+Pozwala również skrócić czas odpowiedzi aplikacji.
+
+Redis bardzo często współpracuje z relacyjnymi bazami danych.
+
+Może współpracować z PostgreSQL.
+
+Może współpracować z MySQL.
+
+Może współpracować z Oracle Database.
+
+Może współpracować z Microsoft SQL Server.
+
+Redis przechowuje dane głównie w pamięci operacyjnej.
+
+System może jednak zapisywać dane na dysku.
+
+Mechanizm ten określany jest jako Persistence.
+
+Redis oferuje dwa podstawowe mechanizmy trwałości danych.
+
+Pierwszym mechanizmem jest RDB.
+
+RDB tworzy okresowe migawki całej bazy danych.
+
+Drugim mechanizmem jest AOF.
+
+AOF oznacza Append Only File.
+
+AOF zapisuje każdą operację modyfikującą dane.
+
+Administrator może wybrać jeden z mechanizmów lub korzystać z obu jednocześnie.
+
+Redis wspiera replikację.
+
+Jeden serwer może pełnić rolę głównego węzła.
+
+Pozostałe serwery przechowują kopie danych.
+
+Replikacja zwiększa dostępność systemu.
+
+Replikacja umożliwia odciążenie głównego serwera.
+
+Redis oferuje mechanizm Redis Sentinel.
+
+Redis Sentinel monitoruje stan serwerów.
+
+Redis Sentinel automatycznie wykrywa awarie.
+
+Redis Sentinel może automatycznie wybrać nowy serwer główny.
+
+Redis wspiera również Redis Cluster.
+
+Redis Cluster umożliwia automatyczne dzielenie danych pomiędzy wiele serwerów.
+
+Pozwala to skalować system poziomo.
+
+Redis oferuje mechanizm wygasania danych.
+
+Każdy klucz może posiadać określony czas życia.
+
+Mechanizm ten określany jest jako TTL.
+
+TTL oznacza Time To Live.
+
+Po upływie określonego czasu dane zostają automatycznie usunięte.
+
+Rozwiązanie to jest bardzo często wykorzystywane podczas przechowywania sesji użytkowników.
+
+Redis wspiera mechanizm Pub/Sub.
+
+Pub/Sub oznacza Publish/Subscribe.
+
+Mechanizm ten umożliwia komunikację pomiędzy aplikacjami.
+
+Jedna aplikacja publikuje komunikaty.
+
+Pozostałe aplikacje odbierają je w czasie rzeczywistym.
+
+Redis wspiera również strumienie danych.
+
+Strumienie umożliwiają budowanie systemów kolejkowania komunikatów.
+
+Redis bardzo dobrze współpracuje z wieloma językami programowania.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka JavaScript.
+
+Dostępne są biblioteki dla języka Go.
+
+Redis bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować ze Spring Boot.
+
+Może współpracować z Spring Data Redis.
+
+Spring Data Redis znacząco upraszcza komunikację z bazą danych.
+
+Redis integruje się z wieloma platformami chmurowymi.
+
+Może współpracować z Amazon ElastiCache.
+
+Może współpracować z Azure Cache for Redis.
+
+Może współpracować z Google Cloud Memorystore.
+
+Redis znajduje zastosowanie w pamięci podręcznej.
+
+Jest wykorzystywany do przechowywania sesji użytkowników.
+
+Jest wykorzystywany do kolejkowania zadań.
+
+Jest wykorzystywany do przechowywania liczników.
+
+Jest wykorzystywany w systemach czatów.
+
+Jest wykorzystywany w aplikacjach czasu rzeczywistego.
+
+Jest wykorzystywany w systemach rekomendacyjnych.
+
+Jest wykorzystywany w platformach gamingowych.
+
+Jest wykorzystywany w systemach Internetu Rzeczy.
+
+Redis oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest uwierzytelnianie użytkowników.
+
+Możliwe jest definiowanie list kontroli dostępu.
+
+Możliwe jest szyfrowanie komunikacji przy użyciu TLS.
+
+Możliwe jest ograniczanie dostępu do poszczególnych poleceń.
+
+Największą zaletą Redis jest niezwykle wysoka wydajność, bardzo bogaty zestaw struktur danych oraz możliwość wykorzystywania go zarówno jako bazy danych, pamięci podręcznej, systemu kolejkowego, jak i platformy komunikacyjnej.
+
+Połączenie przechowywania danych w pamięci operacyjnej, replikacji, klastrowania oraz rozbudowanego ekosystemu bibliotek sprawia, że Redis jest jednym z najważniejszych narzędzi wykorzystywanych w nowoczesnych aplikacjach internetowych.
+
+Znajomość Redis jest szczególnie ceniona na stanowiskach związanych z backend development, Full Stack Development, DevOps, Cloud Computing, Data Engineering oraz projektowaniem aplikacji wymagających bardzo wysokiej wydajności i niskich opóźnień.

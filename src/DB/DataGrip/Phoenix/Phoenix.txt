@@ -1,0 +1,139 @@
+Apache Phoenix jest relacyjną warstwą SQL działającą nad Apache HBase.
+
+Projekt rozwijany jest jako oprogramowanie otwartoźródłowe przez Apache Software Foundation.
+
+Apache Phoenix nie jest samodzielnym systemem zarządzania bazą danych.
+
+Phoenix wykorzystuje możliwości bazy danych Apache HBase.
+
+Dzięki temu użytkownicy mogą wykonywać zapytania SQL na danych zapisanych w HBase.
+
+Apache Phoenix został zaprojektowany z myślą o analizowaniu bardzo dużych zbiorów danych.
+
+System należy do ekosystemu Big Data.
+
+Phoenix łączy możliwości relacyjnego języka SQL z wydajnością rozproszonej bazy NoSQL.
+
+Pozwala programistom korzystać ze znajomej składni SQL bez konieczności pisania złożonych operacji charakterystycznych dla HBase.
+
+Apache Phoenix obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPSERT.
+
+UPSERT umożliwia dodanie nowego rekordu lub aktualizację istniejącego.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Apache Phoenix.
+
+Apache Phoenix automatycznie tłumaczy zapytania SQL na operacje wykonywane przez Apache HBase.
+
+Programista nie musi bezpośrednio korzystać z niskopoziomowego interfejsu HBase.
+
+Rozwiązanie to znacząco upraszcza tworzenie aplikacji.
+
+Apache Phoenix wykorzystuje architekturę rozproszoną Apache HBase.
+
+Dane przechowywane są na wielu serwerach.
+
+System automatycznie skaluje się wraz ze wzrostem ilości danych.
+
+Może obsługiwać bardzo duże klastry.
+
+Może przechowywać miliardy rekordów.
+
+Apache Phoenix wspiera przetwarzanie równoległe.
+
+Zapytania wykonywane są jednocześnie przez wiele węzłów klastra.
+
+Pozwala to znacząco skrócić czas wykonywania analiz.
+
+Apache Phoenix oferuje mechanizmy indeksowania.
+
+Dostępne są indeksy lokalne.
+
+Dostępne są indeksy globalne.
+
+Odpowiednio zaprojektowane indeksy znacząco zwiększają wydajność zapytań.
+
+Apache Phoenix wspiera przetwarzanie danych w czasie zbliżonym do rzeczywistego.
+
+System dobrze sprawdza się zarówno podczas odczytu, jak i zapisu dużych ilości danych.
+
+Apache Phoenix posiada własny optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny sposób wykonania operacji.
+
+Apache Phoenix współpracuje z wieloma elementami ekosystemu Hadoop.
+
+Może współpracować z Apache Hadoop.
+
+Może współpracować z Apache HBase.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Hive.
+
+Może współpracować z Apache Kafka.
+
+Apache Phoenix udostępnia sterownik JDBC.
+
+Programiści mogą komunikować się z bazą danych przy użyciu standardowego interfejsu JDBC.
+
+Rozwiązanie to ułatwia integrację z aplikacjami Java.
+
+Apache Phoenix bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate po odpowiedniej konfiguracji.
+
+Może współpracować z JPA w określonych scenariuszach.
+
+Może współpracować ze Spring Boot.
+
+Apache Phoenix wspiera tworzenie tabel.
+
+Tabela w Phoenix odpowiada strukturze przechowywanej w Apache HBase.
+
+Programista może zarządzać strukturą danych przy użyciu poleceń SQL.
+
+Apache Phoenix oferuje mechanizmy bezpieczeństwa odziedziczone po Apache HBase.
+
+Możliwe jest kontrolowanie dostępu do danych.
+
+Możliwe jest uwierzytelnianie użytkowników.
+
+Możliwe jest szyfrowanie komunikacji sieciowej.
+
+Apache Phoenix znajduje zastosowanie w analizie danych.
+
+Jest wykorzystywany w projektach Big Data.
+
+Jest wykorzystywany w systemach monitoringu.
+
+Jest wykorzystywany w analizie logów.
+
+Jest wykorzystywany w systemach Internetu Rzeczy.
+
+Jest wykorzystywany w aplikacjach przetwarzających ogromne ilości danych.
+
+Jest wykorzystywany wszędzie tam, gdzie potrzebna jest wydajność Apache HBase oraz wygoda korzystania z języka SQL.
+
+Największą zaletą Apache Phoenix jest możliwość wykonywania zapytań SQL na danych przechowywanych w Apache HBase bez konieczności korzystania z niskopoziomowego interfejsu tej bazy danych.
+
+Połączenie standardowego SQL, rozproszonej architektury HBase oraz integracji z ekosystemem Hadoop sprawia, że Apache Phoenix jest cennym narzędziem dla projektów Big Data wymagających zarówno wysokiej wydajności, jak i prostego dostępu do danych.
+
+Znajomość Apache Phoenix jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Big Data, backend development, analizą danych oraz projektowaniem rozproszonych systemów przetwarzania informacji.

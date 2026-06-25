@@ -1,0 +1,183 @@
+Exasol jest relacyjnym systemem zarządzania bazą danych przeznaczonym do analizy bardzo dużych zbiorów danych.
+
+Projekt rozwijany jest przez Exasol.
+
+Exasol należy do grupy analitycznych baz danych typu OLAP.
+
+OLAP oznacza Online Analytical Processing.
+
+Systemy OLAP zostały zaprojektowane do wykonywania złożonych analiz oraz raportów biznesowych.
+
+Exasol nie jest typową bazą danych przeznaczoną do obsługi dużej liczby transakcji.
+
+Jego głównym zadaniem jest szybkie analizowanie ogromnych ilości danych.
+
+Exasol został zoptymalizowany pod kątem wykonywania bardzo złożonych zapytań SQL.
+
+System bardzo dobrze sprawdza się podczas analizowania milionów oraz miliardów rekordów.
+
+Jedną z największych zalet Exasol jest bardzo wysoka wydajność.
+
+Baza danych została zaprojektowana z myślą o maksymalnym wykorzystaniu pamięci operacyjnej.
+
+Dane w pierwszej kolejności przetwarzane są w pamięci RAM.
+
+Pozwala to znacząco skrócić czas wykonywania zapytań.
+
+Exasol wykorzystuje architekturę In-Memory.
+
+In-Memory oznacza, że najczęściej używane dane przetwarzane są bezpośrednio w pamięci operacyjnej.
+
+Dzięki temu ograniczana jest liczba operacji wykonywanych na dysku.
+
+Exasol wykorzystuje kolumnowy model przechowywania danych.
+
+W klasycznych bazach danych dane przechowywane są wierszami.
+
+W Exasol dane przechowywane są kolumnami.
+
+Pozwala to odczytywać wyłącznie kolumny potrzebne do wykonania zapytania.
+
+Zmniejsza to ilość przetwarzanych danych.
+
+Znacząco zwiększa to wydajność analiz.
+
+Exasol wykorzystuje zaawansowane mechanizmy kompresji danych.
+
+Kompresja zmniejsza ilość miejsca zajmowanego przez dane.
+
+Kompresja pozwala również przyspieszyć wykonywanie zapytań.
+
+Exasol obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować wyniki.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Exasol.
+
+Exasol został zaprojektowany jako system rozproszony.
+
+Może działać na wielu serwerach jednocześnie.
+
+Serwery tworzą wspólny klaster.
+
+Zapytania wykonywane są równolegle przez wszystkie dostępne węzły.
+
+Pozwala to bardzo dobrze skalować wydajność systemu.
+
+Exasol wykorzystuje architekturę MPP.
+
+MPP oznacza Massively Parallel Processing.
+
+Massively Parallel Processing polega na równoczesnym wykonywaniu obliczeń na wielu serwerach.
+
+Każdy serwer przetwarza własną część danych.
+
+Wyniki są następnie łączone w jedną odpowiedź.
+
+Takie podejście pozwala znacząco skrócić czas wykonywania analiz.
+
+Exasol automatycznie rozdziela dane pomiędzy węzły klastra.
+
+Obciążenie jest równomiernie rozkładane pomiędzy wszystkie serwery.
+
+Nowe węzły mogą zostać dodawane wraz ze wzrostem ilości danych.
+
+Pozwala to łatwo zwiększać wydajność całego środowiska.
+
+Exasol wspiera tworzenie indeksów.
+
+Jednocześnie dzięki kolumnowej architekturze wiele zapytań wykonywanych jest bardzo szybko nawet bez rozbudowanego indeksowania.
+
+System wykorzystuje własny optymalizator zapytań.
+
+Optymalizator analizuje sposób wykonania każdego zapytania.
+
+Na tej podstawie wybierany jest najbardziej efektywny plan wykonania.
+
+Pozwala to osiągać bardzo wysoką wydajność.
+
+Exasol współpracuje z wieloma źródłami danych.
+
+Może pobierać dane z relacyjnych baz danych.
+
+Może pobierać dane z plików CSV.
+
+Może pobierać dane z plików Parquet.
+
+Może pobierać dane z plików JSON.
+
+Może integrować się z platformami Big Data.
+
+Exasol bardzo dobrze współpracuje z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Qlik Sense.
+
+Może współpracować z Microsoft Excel.
+
+Exasol oferuje wsparcie dla języków analitycznych.
+
+Możliwe jest uruchamianie skryptów w języku Python.
+
+Możliwe jest uruchamianie skryptów w języku R.
+
+Pozwala to wykonywać zaawansowane analizy statystyczne.
+
+Pozwala to budować modele uczenia maszynowego.
+
+Pozwala to realizować obliczenia bez konieczności eksportowania danych.
+
+Exasol wspiera integrację z narzędziami ETL.
+
+ETL oznacza Extract, Transform, Load.
+
+Proces ETL polega na pobraniu danych.
+
+Następnie dane są przekształcane.
+
+Na końcu dane są ładowane do hurtowni danych.
+
+Exasol jest często wykorzystywany w projektach Business Intelligence.
+
+Jest wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w analizie danych sprzedażowych.
+
+Jest wykorzystywany w raportowaniu biznesowym.
+
+Jest wykorzystywany wszędzie tam, gdzie analizowane są bardzo duże ilości danych.
+
+Exasol oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników oraz ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System wspiera uwierzytelnianie oraz kontrolę dostępu.
+
+Największą zaletą Exasol jest połączenie architektury In-Memory, kolumnowego modelu przechowywania danych oraz równoległego przetwarzania zapytań.
+
+Takie rozwiązanie pozwala wykonywać bardzo złożone analizy biznesowe w czasie liczonym często w sekundach zamiast minut lub godzin.
+
+Znajomość Exasol jest szczególnie ceniona na stanowiskach związanych z Business Intelligence, Data Engineering, Big Data, analizą danych oraz projektowaniem nowoczesnych hurtowni danych.

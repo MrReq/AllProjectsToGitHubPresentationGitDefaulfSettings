@@ -1,0 +1,175 @@
+SQLite jest relacyjnym systemem zarządzania bazą danych rozwijanym jako oprogramowanie otwartoźródłowe.
+
+Projekt został opracowany przez D. Richard Hipp.
+
+SQLite należy do najczęściej wykorzystywanych silników baz danych na świecie.
+
+System został zaprojektowany z myślą o prostocie, niewielkich wymaganiach oraz łatwej integracji z aplikacjami.
+
+SQLite jest bazą danych typu Embedded.
+
+Embedded oznacza, że baza danych działa bezpośrednio wewnątrz aplikacji.
+
+Nie wymaga instalowania osobnego serwera.
+
+Nie wymaga uruchamiania dodatkowych usług.
+
+Cała baza danych przechowywana jest najczęściej w jednym pliku.
+
+Aplikacja komunikuje się z tym plikiem bezpośrednio.
+
+SQLite obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+SQLite obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z SQLite.
+
+SQLite wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+SQLite wykorzystuje mechanizm blokowania pliku.
+
+W danym momencie wiele procesów może odczytywać dane.
+
+Operacje zapisu są odpowiednio synchronizowane.
+
+Pozwala to zachować spójność danych.
+
+SQLite oferuje mechanizm Write-Ahead Logging.
+
+Mechanizm ten często określany jest skrótem WAL.
+
+Tryb WAL zwiększa wydajność współbieżnych operacji odczytu i zapisu.
+
+SQLite wspiera indeksowanie.
+
+Indeksy znacząco przyspieszają wykonywanie zapytań.
+
+Administrator może tworzyć indeksy dla najczęściej wykorzystywanych kolumn.
+
+SQLite oferuje wiele typów danych.
+
+Obsługiwane są liczby całkowite.
+
+Obsługiwane są liczby zmiennoprzecinkowe.
+
+Obsługiwane są teksty.
+
+Obsługiwane są dane binarne.
+
+Obsługiwane są wartości NULL.
+
+SQLite stosuje dynamiczny system typowania.
+
+Każda kolumna posiada preferowany typ danych.
+
+Jednak w wielu przypadkach możliwe jest zapisanie danych innego typu.
+
+SQLite nie wymaga konfiguracji serwera.
+
+Nie wymaga zarządzania użytkownikami.
+
+Nie wymaga zarządzania połączeniami sieciowymi.
+
+Dzięki temu bardzo łatwo wdrożyć go w nowych projektach.
+
+SQLite bardzo dobrze współpracuje z wieloma językami programowania.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka C++.
+
+Dostępne są biblioteki dla języka JavaScript.
+
+SQLite został napisany w języku C.
+
+Dzięki temu może być łatwo integrowany z wieloma platformami.
+
+SQLite bardzo dobrze współpracuje z aplikacjami Java.
+
+Najczęściej wykorzystywany jest sterownik JDBC.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+SQLite jest domyślną bazą danych w wielu aplikacjach mobilnych.
+
+Jest szeroko wykorzystywany na platformie Android.
+
+Wiele aplikacji przechowuje lokalne dane właśnie w SQLite.
+
+SQLite jest wykorzystywany również przez przeglądarki internetowe.
+
+Jest wykorzystywany przez aplikacje desktopowe.
+
+Jest wykorzystywany przez systemy wbudowane.
+
+Jest wykorzystywany przez urządzenia Internetu Rzeczy.
+
+SQLite znajduje zastosowanie w testowaniu aplikacji.
+
+Jest często wykorzystywany jako lekka baza danych podczas tworzenia oprogramowania.
+
+SQLite oferuje bardzo wysoką niezawodność.
+
+Projekt jest rozwijany od wielu lat.
+
+Kod źródłowy przechodzi rygorystyczne testy jakości.
+
+SQLite charakteryzuje się bardzo małą liczbą błędów.
+
+SQLite może przechowywać bazy danych o rozmiarze wielu terabajtów.
+
+Jednocześnie zachowuje bardzo niewielkie wymagania sprzętowe.
+
+SQLite nie jest jednak przeznaczony do obsługi bardzo dużej liczby jednoczesnych operacji zapisu.
+
+W takich zastosowaniach lepiej sprawdzają się serwerowe systemy bazodanowe.
+
+Największą zaletą SQLite jest prostota, brak konieczności instalowania serwera, niewielkie wymagania sprzętowe oraz możliwość przechowywania całej bazy danych w jednym pliku.
+
+Dzięki zgodności z SQL, wysokiej niezawodności oraz bardzo łatwej integracji z aplikacjami SQLite jest jednym z najczęściej wykorzystywanych systemów baz danych w aplikacjach mobilnych, desktopowych oraz systemach wbudowanych.
+
+Znajomość SQLite jest szczególnie ceniona na stanowiskach związanych z programowaniem aplikacji mobilnych, backend development, tworzeniem aplikacji desktopowych, systemów Embedded, Internetu Rzeczy oraz testowaniem oprogramowania.

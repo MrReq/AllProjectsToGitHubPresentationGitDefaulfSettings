@@ -1,0 +1,173 @@
+CockroachDB jest rozproszoną relacyjną bazą danych typu SQL.
+
+Projekt został stworzony przez Cockroach Labs.
+
+CockroachDB został zaprojektowany z myślą o bardzo wysokiej dostępności oraz odporności na awarie.
+
+Nazwa CockroachDB nawiązuje do karalucha, który potrafi przetrwać w bardzo trudnych warunkach.
+
+Ma to symbolizować odporność systemu na awarie infrastruktury.
+
+CockroachDB łączy zalety klasycznych relacyjnych baz danych z możliwościami nowoczesnych systemów rozproszonych.
+
+System obsługuje standardowy język SQL.
+
+Programiści mogą tworzyć tabele.
+
+Programiści mogą definiować relacje pomiędzy tabelami.
+
+Programiści mogą korzystać z kluczy głównych.
+
+Programiści mogą korzystać z kluczy obcych.
+
+Programiści mogą wykonywać operacje SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z CockroachDB.
+
+Jedną z najważniejszych cech CockroachDB jest architektura rozproszona.
+
+Baza danych może działać jednocześnie na wielu serwerach.
+
+Wszystkie serwery tworzą wspólny klaster.
+
+Każdy serwer przechowuje część danych.
+
+Dane są automatycznie rozdzielane pomiędzy wszystkie węzły klastra.
+
+System automatycznie dba o równomierne rozłożenie obciążenia.
+
+CockroachDB nie posiada pojedynczego punktu awarii.
+
+Awaria jednego serwera nie powoduje zatrzymania działania całej bazy danych.
+
+Pozostałe węzły nadal obsługują zapytania użytkowników.
+
+System automatycznie wykrywa awarie.
+
+System automatycznie przenosi dane pomiędzy dostępnymi serwerami.
+
+CockroachDB automatycznie replikuje dane.
+
+Każda informacja przechowywana jest w kilku kopiach.
+
+Replikacja zwiększa bezpieczeństwo danych.
+
+Replikacja zwiększa dostępność systemu.
+
+Replikacja pozwala zachować ciągłość działania nawet podczas awarii całych serwerów.
+
+CockroachDB umożliwia budowanie klastrów obejmujących wiele centrów danych.
+
+Centra danych mogą znajdować się w różnych regionach świata.
+
+Pozwala to tworzyć globalnie dostępne aplikacje.
+
+Użytkownicy mogą łączyć się z najbliższym geograficznie centrum danych.
+
+Zmniejsza to opóźnienia komunikacyjne.
+
+CockroachDB wspiera skalowanie poziome.
+
+Skalowanie poziome polega na dodawaniu kolejnych serwerów do klastra.
+
+Po dodaniu nowego węzła dane są automatycznie równoważone.
+
+Nie ma konieczności ręcznego przenoszenia danych.
+
+System automatycznie wykorzystuje nowe zasoby obliczeniowe.
+
+CockroachDB zapewnia pełną zgodność z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Zapewnienie transakcji ACID w środowisku rozproszonym jest jedną z najważniejszych cech CockroachDB.
+
+System wykorzystuje algorytm Raft do synchronizacji danych pomiędzy węzłami.
+
+Raft jest algorytmem osiągania konsensusu w systemach rozproszonych.
+
+Algorytm zapewnia spójność danych pomimo awarii części klastra.
+
+CockroachDB automatycznie wybiera lidera dla każdej grupy replik.
+
+Lider odpowiada za koordynowanie operacji zapisu.
+
+Pozostałe repliki synchronizują swoje dane z liderem.
+
+CockroachDB jest kompatybilny z protokołem PostgreSQL.
+
+Wiele aplikacji korzystających z PostgreSQL może zostać dostosowanych do CockroachDB przy niewielkich zmianach.
+
+Dostępne są sterowniki JDBC.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka Go.
+
+Dostępne są biblioteki dla języka Node.js.
+
+CockroachDB bardzo dobrze współpracuje z aplikacjami opartymi na Spring Boot.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może być wykorzystywany w architekturze mikroserwisowej.
+
+CockroachDB oferuje automatyczne równoważenie obciążenia.
+
+System monitoruje wykorzystanie zasobów.
+
+W razie potrzeby automatycznie przenosi dane pomiędzy serwerami.
+
+Pozwala to utrzymać wysoką wydajność całego klastra.
+
+CockroachDB wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+System umożliwia odtwarzanie danych po awarii.
+
+CockroachDB oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Możliwe jest definiowanie użytkowników oraz uprawnień.
+
+System wspiera uwierzytelnianie z wykorzystaniem certyfikatów.
+
+CockroachDB znajduje zastosowanie w aplikacjach finansowych.
+
+Jest wykorzystywany w platformach e-commerce.
+
+Jest wykorzystywany w systemach SaaS.
+
+Jest wykorzystywany w aplikacjach działających globalnie.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka dostępność oraz odporność na awarie.
+
+Największą zaletą CockroachDB jest połączenie klasycznego modelu relacyjnej bazy danych z możliwościami automatycznego skalowania i pracy w środowisku rozproszonym.
+
+Programista może korzystać z dobrze znanego języka SQL, jednocześnie uzyskując funkcjonalność charakterystyczną dla nowoczesnych systemów chmurowych.
+
+Znajomość CockroachDB jest szczególnie ceniona na stanowiskach związanych z backend development, Cloud Computing, architekturą systemów rozproszonych, DevOps oraz projektowaniem aplikacji o wysokiej dostępności.

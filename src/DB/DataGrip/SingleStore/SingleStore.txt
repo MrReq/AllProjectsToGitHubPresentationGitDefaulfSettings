@@ -1,0 +1,201 @@
+SingleStore jest relacyjnym systemem zarządzania bazą danych klasy Distributed SQL.
+
+System był wcześniej znany pod nazwą MemSQL.
+
+Projekt rozwijany jest przez SingleStore.
+
+SingleStore został zaprojektowany z myślą o bardzo szybkim przetwarzaniu danych transakcyjnych oraz analitycznych.
+
+System należy do grupy baz danych typu HTAP.
+
+HTAP oznacza Hybrid Transactional and Analytical Processing.
+
+HTAP umożliwia jednoczesne wykonywanie operacji OLTP oraz OLAP.
+
+Dzięki temu jedna baza danych może obsługiwać zarówno transakcje, jak i zaawansowane analizy.
+
+SingleStore obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie relacji pomiędzy tabelami.
+
+Możliwe jest tworzenie indeksów.
+
+SingleStore obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z SingleStore.
+
+Jedną z najważniejszych cech SingleStore jest rozproszona architektura.
+
+System może działać na wielu serwerach jednocześnie.
+
+Serwery współpracują jako jeden logiczny klaster.
+
+Dane automatycznie rozdzielane są pomiędzy wiele węzłów.
+
+Pozwala to łatwo skalować system.
+
+SingleStore wykorzystuje architekturę Shared-Nothing.
+
+Każdy serwer posiada własny procesor, pamięć oraz dyski.
+
+Nie występuje współdzielona pamięć pomiędzy serwerami.
+
+Takie rozwiązanie umożliwia bardzo dobre skalowanie poziome.
+
+SingleStore wykorzystuje przetwarzanie równoległe.
+
+Zapytania wykonywane są jednocześnie przez wiele węzłów.
+
+Pozwala to analizować ogromne ilości danych w bardzo krótkim czasie.
+
+SingleStore wspiera przechowywanie danych zarówno w pamięci operacyjnej, jak i na dyskach.
+
+Najczęściej wykorzystywane dane mogą znajdować się w pamięci RAM.
+
+Pozwala to znacząco skrócić czas odpowiedzi.
+
+SingleStore wykorzystuje dwa główne typy tabel.
+
+Rowstore przechowuje dane w układzie wierszowym.
+
+Rowstore najlepiej sprawdza się podczas wykonywania operacji transakcyjnych.
+
+Columnstore przechowuje dane w układzie kolumnowym.
+
+Columnstore został zoptymalizowany pod kątem analiz danych.
+
+Administrator może wybrać odpowiedni sposób przechowywania danych.
+
+SingleStore wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+SingleStore oferuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+SingleStore wspiera indeksowanie.
+
+Dostępne są indeksy typu Hash.
+
+Dostępne są indeksy typu Skiplist.
+
+Odpowiedni dobór indeksów zwiększa wydajność operacji.
+
+SingleStore obsługuje dane JSON.
+
+Możliwe jest przechowywanie dokumentów JSON.
+
+Możliwe jest wykonywanie zapytań na danych zapisanych w formacie JSON.
+
+Łączy to zalety relacyjnych baz danych z elastycznością modelu dokumentowego.
+
+SingleStore bardzo dobrze współpracuje z systemami przetwarzania strumieni danych.
+
+Może współpracować z Apache Kafka.
+
+Może przetwarzać dane napływające w czasie rzeczywistym.
+
+SingleStore integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Apache Superset.
+
+SingleStore współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka Go.
+
+SingleStore bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+SingleStore oferuje rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+SingleStore może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być wdrażany w kontenerach Docker.
+
+Może być wdrażany w środowiskach Kubernetes.
+
+SingleStore znajduje zastosowanie w analizie danych w czasie rzeczywistym.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w systemach Internetu Rzeczy.
+
+Jest wykorzystywany w platformach analitycznych.
+
+Jest wykorzystywany w systemach monitoringu.
+
+Największą zaletą SingleStore jest połączenie bardzo wysokiej wydajności, rozproszonej architektury, obsługi transakcji oraz zaawansowanych analiz danych w jednej platformie.
+
+Dzięki architekturze Distributed SQL, obsłudze danych w pamięci operacyjnej, kolumnowemu i wierszowemu modelowi przechowywania danych oraz możliwości przetwarzania strumieni danych SingleStore jest jednym z najnowocześniejszych systemów bazodanowych wykorzystywanych w aplikacjach wymagających analizy danych w czasie rzeczywistym.
+
+Znajomość SingleStore jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Big Data, Business Intelligence, backend development, Cloud Computing, DevOps oraz projektowaniem nowoczesnych systemów analitycznych i aplikacji o wysokiej wydajności.

@@ -1,0 +1,183 @@
+Greenplum Database jest rozproszonym relacyjnym systemem zarządzania bazą danych przeznaczonym do analizy bardzo dużych zbiorów danych.
+
+Greenplum Database należy do grupy analitycznych baz danych typu OLAP.
+
+OLAP oznacza Online Analytical Processing.
+
+Systemy OLAP służą do wykonywania złożonych analiz oraz raportów biznesowych.
+
+Greenplum został zaprojektowany z myślą o przetwarzaniu ogromnych ilości danych.
+
+Jest często wykorzystywany jako hurtownia danych.
+
+Projekt bazuje na PostgreSQL.
+
+Dzięki temu Greenplum zachowuje zgodność z wieloma funkcjami PostgreSQL.
+
+Programiści znający PostgreSQL mogą stosunkowo łatwo rozpocząć pracę z Greenplum.
+
+Greenplum obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Greenplum.
+
+Jedną z najważniejszych cech Greenplum jest architektura rozproszona.
+
+System może działać na wielu serwerach jednocześnie.
+
+Wszystkie serwery współpracują jako jeden klaster.
+
+Klaster składa się z serwera głównego oraz wielu serwerów roboczych.
+
+Serwer główny odpowiada za przyjmowanie zapytań od użytkowników.
+
+Serwery robocze wykonują właściwe operacje na danych.
+
+Dane są automatycznie rozdzielane pomiędzy wszystkie serwery robocze.
+
+Takie rozwiązanie pozwala analizować bardzo duże zbiory danych.
+
+Greenplum wykorzystuje architekturę MPP.
+
+MPP oznacza Massively Parallel Processing.
+
+Massively Parallel Processing polega na równoczesnym wykonywaniu obliczeń na wielu serwerach.
+
+Każdy serwer przetwarza własny fragment danych.
+
+Wyniki częściowe są następnie łączone w końcową odpowiedź.
+
+Pozwala to znacząco skrócić czas wykonywania zapytań.
+
+Greenplum wykorzystuje partycjonowanie danych.
+
+Partycjonowanie polega na podziale danych pomiędzy wiele serwerów.
+
+Każdy serwer przechowuje jedynie część całej bazy danych.
+
+Pozwala to równomiernie rozłożyć obciążenie.
+
+Greenplum umożliwia skalowanie poziome.
+
+Skalowanie poziome polega na dodawaniu kolejnych serwerów do klastra.
+
+Wraz ze wzrostem ilości danych można zwiększać moc obliczeniową systemu.
+
+Nie ma konieczności wymiany istniejących serwerów na mocniejsze.
+
+Greenplum bardzo dobrze sprawdza się podczas analizowania miliardów rekordów.
+
+System został zoptymalizowany pod kątem wykonywania złożonych zapytań analitycznych.
+
+Jest często wykorzystywany w raportowaniu biznesowym.
+
+Jest często wykorzystywany w analizie finansowej.
+
+Jest często wykorzystywany w analizie sprzedaży.
+
+Jest często wykorzystywany w analizie danych klientów.
+
+Greenplum wykorzystuje kolumnowy sposób przechowywania danych w wybranych przypadkach.
+
+Kolumnowe przechowywanie pozwala ograniczyć ilość odczytywanych danych.
+
+Pozwala to zwiększyć wydajność analiz.
+
+Greenplum wspiera kompresję danych.
+
+Kompresja zmniejsza ilość miejsca zajmowanego przez dane.
+
+Kompresja może również przyspieszać wykonywanie zapytań.
+
+Greenplum oferuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to efektywnie wykorzystywać zasoby klastra.
+
+Greenplum wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Greenplum bardzo dobrze współpracuje z ekosystemem Big Data.
+
+Może współpracować z Apache Hadoop.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z Apache Hive.
+
+Może współpracować z platformami chmurowymi.
+
+Greenplum współpracuje z wieloma narzędziami Business Intelligence.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Qlik Sense.
+
+Może współpracować z Apache Superset.
+
+Greenplum wspiera języki proceduralne.
+
+Możliwe jest tworzenie procedur składowanych.
+
+Możliwe jest tworzenie funkcji.
+
+Możliwe jest rozszerzanie funkcjonalności bazy danych.
+
+Greenplum oferuje biblioteki dla wielu języków programowania.
+
+Dostępne są sterowniki JDBC.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Greenplum znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany przez przedsiębiorstwa analizujące ogromne ilości danych.
+
+Największą zaletą Greenplum jest połączenie zgodności z PostgreSQL, architektury MPP oraz możliwości analizowania bardzo dużych zbiorów danych w środowisku rozproszonym.
+
+Dzięki równoległemu wykonywaniu zapytań Greenplum pozwala realizować złożone analizy znacznie szybciej niż klasyczne relacyjne bazy danych działające na pojedynczym serwerze.
+
+Znajomość Greenplum Database jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Business Intelligence, Big Data, analizą danych oraz projektowaniem nowoczesnych hurtowni danych.

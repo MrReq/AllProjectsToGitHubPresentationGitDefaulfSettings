@@ -1,0 +1,205 @@
+SAP HANA jest relacyjnym systemem zarządzania bazą danych klasy Enterprise wykorzystującym technologię In-Memory.
+
+System został opracowany przez SAP.
+
+SAP HANA należy do najbardziej zaawansowanych platform bazodanowych przeznaczonych do przetwarzania danych w czasie rzeczywistym.
+
+Nazwa HANA pochodzi od określenia High-Performance Analytic Appliance.
+
+SAP HANA została zaprojektowana z myślą o jednoczesnym wykonywaniu operacji transakcyjnych oraz analitycznych.
+
+Model ten określany jest jako HTAP.
+
+HTAP oznacza Hybrid Transactional and Analytical Processing.
+
+Dzięki temu jedna baza danych może obsługiwać zarówno systemy OLTP, jak i OLAP.
+
+SAP HANA obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+SAP HANA obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z SAP HANA.
+
+Jedną z najważniejszych cech SAP HANA jest architektura In-Memory.
+
+Większość danych przechowywana jest bezpośrednio w pamięci operacyjnej.
+
+Pozwala to znacząco skrócić czas wykonywania zapytań.
+
+Operacje wykonywane są znacznie szybciej niż w tradycyjnych bazach danych opartych głównie na dyskach.
+
+SAP HANA wykorzystuje kolumnowy model przechowywania danych.
+
+Kolumnowe przechowywanie pozwala odczytywać wyłącznie potrzebne kolumny.
+
+Znacząco zwiększa to wydajność analiz.
+
+SAP HANA obsługuje również przechowywanie danych w układzie wierszowym.
+
+Administrator może wybrać odpowiedni sposób przechowywania danych.
+
+SAP HANA wykorzystuje zaawansowane mechanizmy kompresji.
+
+Kompresja zmniejsza ilość zajmowanej pamięci.
+
+Kompresja może również zwiększać wydajność operacji.
+
+SAP HANA wspiera przetwarzanie równoległe.
+
+Zapytania wykonywane są jednocześnie przez wiele rdzeni procesora.
+
+Pozwala to bardzo dobrze wykorzystywać nowoczesne serwery.
+
+SAP HANA posiada zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+SAP HANA wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+SAP HANA oferuje mechanizmy wysokiej dostępności.
+
+Możliwa jest replikacja danych.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Możliwe jest budowanie klastrów wysokiej dostępności.
+
+Rozwiązania te minimalizują ryzyko przestojów.
+
+SAP HANA wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+SAP HANA oferuje rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+SAP HANA wspiera analizę danych w czasie rzeczywistym.
+
+Możliwe jest wykonywanie złożonych raportów.
+
+Możliwe jest analizowanie bardzo dużych zbiorów danych.
+
+Możliwe jest budowanie modeli predykcyjnych.
+
+Możliwe jest wykonywanie analiz przestrzennych.
+
+Możliwe jest przetwarzanie danych tekstowych.
+
+SAP HANA oferuje wbudowane biblioteki uczenia maszynowego.
+
+Platforma wspiera również analizę grafów.
+
+SAP HANA bardzo dobrze współpracuje z aplikacjami SAP.
+
+Jest podstawową bazą danych dla SAP S/4HANA.
+
+Może współpracować z SAP Business Warehouse.
+
+Może współpracować z SAP Business Technology Platform.
+
+Może współpracować z SAP Analytics Cloud.
+
+SAP HANA współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Dostępne są biblioteki dla języka C++.
+
+SAP HANA bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+SAP HANA może być uruchamiana lokalnie.
+
+Może być uruchamiana w chmurze.
+
+Może być wdrażana w środowiskach hybrydowych.
+
+Może być uruchamiana w kontenerach.
+
+SAP HANA znajduje zastosowanie w bankowości.
+
+Jest wykorzystywana w handlu.
+
+Jest wykorzystywana w produkcji.
+
+Jest wykorzystywana w logistyce.
+
+Jest wykorzystywana w ochronie zdrowia.
+
+Jest wykorzystywana w telekomunikacji.
+
+Jest wykorzystywana w systemach ERP.
+
+Jest wykorzystywana w rozwiązaniach Business Intelligence.
+
+Największą zaletą SAP HANA jest połączenie architektury In-Memory, kolumnowego modelu przechowywania danych, możliwości jednoczesnego przetwarzania transakcyjnego i analitycznego oraz ścisłej integracji z ekosystemem SAP.
+
+Dzięki bardzo wysokiej wydajności, zaawansowanym funkcjom analitycznym oraz możliwości przetwarzania danych w czasie rzeczywistym SAP HANA jest jednym z najważniejszych systemów bazodanowych wykorzystywanych przez duże przedsiębiorstwa na całym świecie.
+
+Znajomość SAP HANA jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, Data Engineering, Business Intelligence, backend development, konsultingiem SAP oraz projektowaniem i utrzymywaniem systemów klasy Enterprise.

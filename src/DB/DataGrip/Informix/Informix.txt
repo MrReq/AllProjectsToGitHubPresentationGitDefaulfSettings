@@ -1,0 +1,201 @@
+Informix jest relacyjnym systemem zarządzania bazą danych klasy Enterprise.
+
+System został opracowany przez IBM.
+
+Informix był pierwotnie rozwijany przez firmę Informix Software.
+
+W 2001 roku technologia została przejęta przez IBM.
+
+Obecnie Informix jest rozwijany jako jeden z systemów bazodanowych IBM.
+
+Informix został zaprojektowany z myślą o wysokiej wydajności, niezawodności oraz ciągłej dostępności.
+
+System znajduje zastosowanie zarówno w dużych przedsiębiorstwach, jak i w systemach wbudowanych.
+
+Informix obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Informix obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Programiści mogą tworzyć funkcje zdefiniowane przez użytkownika.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Informix.
+
+Informix wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Jedną z największych zalet Informix jest bardzo wysoka wydajność.
+
+System został zoptymalizowany pod kątem szybkiego przetwarzania danych.
+
+Baza danych bardzo dobrze radzi sobie z dużą liczbą jednoczesnych użytkowników.
+
+Informix wykorzystuje architekturę wielowątkową.
+
+Pozwala to efektywnie wykorzystywać nowoczesne procesory wielordzeniowe.
+
+System automatycznie zarządza wieloma operacjami wykonywanymi równocześnie.
+
+Informix wspiera przetwarzanie równoległe.
+
+Zapytania mogą być wykonywane jednocześnie przez wiele procesorów.
+
+Pozwala to skrócić czas wykonywania złożonych analiz.
+
+Informix oferuje zaawansowane mechanizmy wysokiej dostępności.
+
+System wspiera replikację danych.
+
+System wspiera klastry wysokiej dostępności.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Rozwiązania te minimalizują ryzyko przestojów.
+
+Informix automatycznie wykonuje kopie zapasowe.
+
+Administrator może wykonywać kopie pełne.
+
+Administrator może wykonywać kopie przyrostowe.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+Informix wspiera partycjonowanie danych.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to zwiększyć wydajność zapytań.
+
+Pozwala to uprościć zarządzanie bardzo dużymi bazami danych.
+
+Informix oferuje zaawansowane mechanizmy indeksowania.
+
+Indeksy znacząco przyspieszają wykonywanie zapytań.
+
+System posiada własny optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Informix wspiera dane przestrzenne.
+
+Możliwe jest przechowywanie informacji geograficznych.
+
+System może być wykorzystywany w rozwiązaniach GIS.
+
+Informix obsługuje dane czasowe.
+
+Bardzo dobrze sprawdza się podczas przechowywania danych historycznych.
+
+Informix wspiera model obiektowo-relacyjny.
+
+Oprócz klasycznych tabel możliwe jest wykorzystywanie bardziej złożonych struktur danych.
+
+Informix oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+Informix współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka C++.
+
+Informix bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Informix integruje się z wieloma rozwiązaniami analitycznymi.
+
+Może współpracować z IBM Cognos Analytics.
+
+Może współpracować z IBM Watson Studio.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Apache Spark.
+
+Jedną z charakterystycznych cech Informix jest możliwość pracy na urządzeniach o ograniczonych zasobach.
+
+System może być wykorzystywany w urządzeniach przemysłowych.
+
+Może być wykorzystywany w systemach Internetu Rzeczy.
+
+Może być wykorzystywany w rozwiązaniach Edge Computing.
+
+Informix znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w sektorze przemysłowym.
+
+Jest wykorzystywany w ochronie zdrowia.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w handlu.
+
+Jest wykorzystywany w systemach produkcyjnych.
+
+Największą zaletą Informix jest połączenie wysokiej wydajności, niezawodności, rozbudowanych mechanizmów wysokiej dostępności oraz możliwości działania zarówno w dużych centrach danych, jak i na urządzeniach o ograniczzonych zasobach sprzętowych.
+
+Dzięki bogatym funkcjom administracyjnym, pełnemu wsparciu dla SQL oraz wieloletniej obecności na rynku Informix pozostaje ważnym rozwiązaniem w środowiskach korporacyjnych oraz przemysłowych.
+
+Znajomość Informix jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, backend development, Data Engineering, systemami przemysłowymi, Internetem Rzeczy oraz projektowaniem rozwiązań klasy Enterprise.

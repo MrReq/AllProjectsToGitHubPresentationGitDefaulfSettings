@@ -1,0 +1,165 @@
+Comprehensive IT Acronyms Encyclopedia - Part 1
+This is Part 1 of a growing encyclopedia.
+Acronyms are grouped by domain and sorted alphabetically within each section.
+General Programming
+ABI — Application Binary Interface
+API — Application Programming Interface
+ASM — Assembly Language
+AST — Abstract Syntax Tree
+BDD — Behavior-Driven Development
+CD — Continuous Delivery / Continuous Deployment
+CI — Continuous Integration
+CLI — Command Line Interface
+CRUD — Create Read Update Delete
+DDD — Domain-Driven Design
+DI — Dependency Injection
+DRY — Don't Repeat Yourself
+DSL — Domain Specific Language
+FP — Functional Programming
+GC — Garbage Collection
+GUI — Graphical User Interface
+IDE — Integrated Development Environment
+IoC — Inversion of Control
+JDK — Java Development Kit
+JRE — Java Runtime Environment
+JVM — Java Virtual Machine
+KISS — Keep It Simple, Stupid
+LTS — Long-Term Support
+MVC — Model View Controller
+MVP — Model View Presenter
+MVVM — Model View ViewModel
+OOP — Object-Oriented Programming
+ORM — Object Relational Mapping
+SDK — Software Development Kit
+SOLID — Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
+SRP — Single Responsibility Principle
+TDD — Test-Driven Development
+UML — Unified Modeling Language
+YAGNI — You Aren't Gonna Need It
+Databases
+ACID — Atomicity Consistency Isolation Durability
+BASE — Basically Available Soft state Eventual consistency
+BLOB — Binary Large Object
+CDC — Change Data Capture
+DBA — Database Administrator
+DBMS — Database Management System
+DCL — Data Control Language
+DDL — Data Definition Language
+DML — Data Manipulation Language
+ELT — Extract Load Transform
+ERD — Entity Relationship Diagram
+ETL — Extract Transform Load
+FK — Foreign Key
+JSONB — Binary JSON
+MVCC — Multi-Version Concurrency Control
+NoSQL — Not Only SQL
+OLAP — Online Analytical Processing
+OLTP — Online Transaction Processing
+PK — Primary Key
+RDBMS — Relational Database Management System
+SQL — Structured Query Language
+TCL — Transaction Control Language
+Networking
+ARP — Address Resolution Protocol
+BGP — Border Gateway Protocol
+CIDR — Classless Inter-Domain Routing
+DHCP — Dynamic Host Configuration Protocol
+DNS — Domain Name System
+FTP — File Transfer Protocol
+FTPS — File Transfer Protocol Secure
+HTTP — HyperText Transfer Protocol
+HTTPS — HyperText Transfer Protocol Secure
+ICMP — Internet Control Message Protocol
+IMAP — Internet Message Access Protocol
+IP — Internet Protocol
+IPv4 — Internet Protocol version 4
+IPv6 — Internet Protocol version 6
+LAN — Local Area Network
+MAC — Media Access Control
+MAN — Metropolitan Area Network
+NAT — Network Address Translation
+NTP — Network Time Protocol
+POP3 — Post Office Protocol version 3
+QoS — Quality of Service
+RDP — Remote Desktop Protocol
+SMTP — Simple Mail Transfer Protocol
+SNMP — Simple Network Management Protocol
+SSH — Secure Shell
+SSL — Secure Sockets Layer
+TCP — Transmission Control Protocol
+TLS — Transport Layer Security
+UDP — User Datagram Protocol
+URI — Uniform Resource Identifier
+URL — Uniform Resource Locator
+VPN — Virtual Private Network
+WAN — Wide Area Network
+WLAN — Wireless Local Area Network
+Cloud, DevOps & Containers
+AKS — Azure Kubernetes Service
+AMI — Amazon Machine Image
+AWS — Amazon Web Services
+CI/CD — Continuous Integration / Continuous Deployment
+CNCF — Cloud Native Computing Foundation
+CNI — Container Network Interface
+CRI — Container Runtime Interface
+CSI — Container Storage Interface
+ECR — Elastic Container Registry
+ECS — Elastic Container Service
+EKS — Elastic Kubernetes Service
+GCP — Google Cloud Platform
+GKE — Google Kubernetes Engine
+IaC — Infrastructure as Code
+IaaS — Infrastructure as a Service
+K8s — Kubernetes
+OCI — Oracle Cloud Infrastructure
+PaaS — Platform as a Service
+SaaS — Software as a Service
+VM — Virtual Machine
+VPC — Virtual Private Cloud
+Cybersecurity
+ACL — Access Control List
+AES — Advanced Encryption Standard
+CSP — Content Security Policy
+CSRF — Cross Site Request Forgery
+CVE — Common Vulnerabilities and Exposures
+CVSS — Common Vulnerability Scoring System
+DDoS — Distributed Denial of Service
+HMAC — Hash-based Message Authentication Code
+IAM — Identity and Access Management
+JWT — JSON Web Token
+MFA — Multi-Factor Authentication
+OAuth — Open Authorization
+OIDC — OpenID Connect
+PKI — Public Key Infrastructure
+RBAC — Role-Based Access Control
+RSA — Rivest Shamir Adleman
+SAML — Security Assertion Markup Language
+SHA — Secure Hash Algorithm
+SIEM — Security Information and Event Management
+SOC — Security Operations Center
+SSO — Single Sign-On
+TLS — Transport Layer Security
+XSS — Cross Site Scripting
+Artificial Intelligence
+AGI — Artificial General Intelligence
+AI — Artificial Intelligence
+ANN — Artificial Neural Network
+ASR — Automatic Speech Recognition
+CNN — Convolutional Neural Network
+CV — Computer Vision
+DL — Deep Learning
+GAN — Generative Adversarial Network
+GPU — Graphics Processing Unit
+LLM — Large Language Model
+ML — Machine Learning
+MLOps — Machine Learning Operations
+NLP — Natural Language Processing
+OCR — Optical Character Recognition
+RAG — Retrieval-Augmented Generation
+RL — Reinforcement Learning
+RNN — Recurrent Neural Network
+TF — TensorFlow
+TPU — Tensor Processing Unit
+VLM — Vision Language Model
+Roadmap
+Future parts will cover Java, .NET, C/C++, Python, JavaScript, Linux, Windows, Docker, Kubernetes, AWS, Azure, GCP, SAP, Oracle, Cisco, VMware, databases, Big Data, networking, hardware, graphics, telecommunications and many more. The final encyclopedia is intended to contain 3,000–5,000 acronyms.

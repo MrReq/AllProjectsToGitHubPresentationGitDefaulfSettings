@@ -1,0 +1,189 @@
+IBM Db2 LUW jest relacyjnym systemem zarządzania bazą danych opracowanym przez IBM.
+
+Skrót Db2 oznacza Database 2.
+
+Skrót LUW oznacza Linux, UNIX oraz Windows.
+
+Oznacza to, że ta edycja Db2 przeznaczona jest dla tych systemów operacyjnych.
+
+IBM Db2 LUW należy do grupy relacyjnych baz danych klasy Enterprise.
+
+System został zaprojektowany z myślą o obsłudze dużych oraz bardzo dużych systemów biznesowych.
+
+Jest wykorzystywany przez banki.
+
+Jest wykorzystywany przez firmy ubezpieczeniowe.
+
+Jest wykorzystywany przez administrację publiczną.
+
+Jest wykorzystywany przez przedsiębiorstwa przemysłowe.
+
+Jest wykorzystywany przez duże korporacje na całym świecie.
+
+IBM Db2 LUW obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+IBM Db2 LUW obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Programiści mogą tworzyć funkcje zdefiniowane przez użytkownika.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z IBM Db2 LUW.
+
+IBM Db2 LUW wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+IBM Db2 LUW wykorzystuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco skrócić czas wykonywania złożonych operacji.
+
+IBM Db2 LUW wspiera indeksowanie.
+
+Odpowiednio zaprojektowane indeksy przyspieszają wykonywanie zapytań.
+
+System obsługuje wiele rodzajów indeksów.
+
+IBM Db2 LUW oferuje mechanizmy partycjonowania danych.
+
+Partycjonowanie pozwala dzielić bardzo duże tabele na mniejsze części.
+
+Pozwala to zwiększyć wydajność oraz uprościć zarządzanie danymi.
+
+IBM Db2 LUW wspiera kompresję danych.
+
+Kompresja zmniejsza ilość zajmowanego miejsca na dysku.
+
+Kompresja może również przyspieszyć wykonywanie zapytań.
+
+IBM Db2 LUW oferuje architekturę In-Memory dla wybranych operacji.
+
+Najczęściej wykorzystywane dane mogą być przetwarzane bezpośrednio w pamięci operacyjnej.
+
+Pozwala to zwiększyć wydajność analiz.
+
+IBM Db2 LUW wspiera przetwarzanie równoległe.
+
+Zapytania mogą być wykonywane jednocześnie przez wiele rdzeni procesora.
+
+Pozwala to efektywnie wykorzystywać nowoczesne serwery.
+
+IBM Db2 LUW oferuje mechanizmy wysokiej dostępności.
+
+System wspiera replikację danych.
+
+System wspiera automatyczne przełączanie na serwer zapasowy.
+
+Rozwiązania te ograniczają ryzyko przestojów.
+
+IBM Db2 LUW umożliwia wykonywanie kopii zapasowych bez zatrzymywania pracy systemu.
+
+Administrator może wykonywać pełne kopie zapasowe.
+
+Administrator może wykonywać kopie przyrostowe.
+
+System umożliwia odtwarzanie danych po awarii.
+
+IBM Db2 LUW oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+IBM Db2 LUW współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka C++.
+
+IBM Db2 LUW bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+IBM Db2 LUW integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z IBM Cognos Analytics.
+
+Może współpracować z IBM Watson Studio.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Apache Spark.
+
+IBM Db2 LUW znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w sektorze ubezpieczeniowym.
+
+Jest wykorzystywany w ochronie zdrowia.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka wydajność oraz niezawodność.
+
+Największą zaletą IBM Db2 LUW jest połączenie wysokiej wydajności, pełnej zgodności z SQL, zaawansowanych mechanizmów bezpieczeństwa oraz możliwości obsługi bardzo dużych baz danych.
+
+Dzięki bogatym funkcjom administracyjnym, wysokiej dostępności oraz integracji z narzędziami analitycznymi IBM Db2 LUW od wielu lat pozostaje jednym z najważniejszych systemów bazodanowych klasy Enterprise.
+
+Znajomość IBM Db2 LUW jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, backend development, Data Engineering, Business Intelligence oraz projektowaniem i utrzymywaniem dużych systemów korporacyjnych.

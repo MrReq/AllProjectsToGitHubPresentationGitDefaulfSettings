@@ -1,0 +1,163 @@
+Tarantool jest bazą danych typu NoSQL oraz platformą do tworzenia aplikacji działających w pamięci operacyjnej.
+
+Projekt rozwijany jest jako oprogramowanie otwartoźródłowe przez Tarantool.
+
+Tarantool został zaprojektowany z myślą o bardzo wysokiej wydajności oraz bardzo niskich opóźnieniach.
+
+System jest często wykorzystywany w aplikacjach czasu rzeczywistego.
+
+Jest wykorzystywany w systemach finansowych.
+
+Jest wykorzystywany w platformach telekomunikacyjnych.
+
+Jest wykorzystywany w systemach kolejkowania komunikatów.
+
+Jest wykorzystywany w rozwiązaniach Internetu Rzeczy.
+
+Tarantool przechowuje dane głównie w pamięci operacyjnej.
+
+Dzięki temu większość operacji wykonywana jest w czasie liczonym w mikrosekundach.
+
+System może również zapisywać dane na dysku.
+
+Pozwala to zachować trwałość informacji po ponownym uruchomieniu serwera.
+
+Tarantool wykorzystuje model klucz-wartość.
+
+System obsługuje również model dokumentowy.
+
+Dane organizowane są w przestrzeniach.
+
+Przestrzeń można porównać do tabeli w relacyjnej bazie danych.
+
+Każdy rekord składa się z pól.
+
+System nie wymaga sztywnego schematu danych.
+
+Pozwala to łatwo dostosowywać strukturę informacji do potrzeb aplikacji.
+
+Tarantool obsługuje język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć indeksy.
+
+Znajomość SQL ułatwia rozpoczęcie pracy z Tarantool.
+
+Jedną z najważniejszych cech Tarantool jest możliwość wykonywania logiki biznesowej bezpośrednio w bazie danych.
+
+Platforma wykorzystuje język Lua.
+
+Lua jest lekkim oraz bardzo szybkim językiem programowania.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć procedury.
+
+Programiści mogą budować kompletne usługi działające bezpośrednio na serwerze Tarantool.
+
+Tarantool oferuje bardzo wydajny mechanizm indeksowania.
+
+Obsługiwane są indeksy Hash.
+
+Obsługiwane są indeksy Tree.
+
+Obsługiwane są indeksy Bitset.
+
+Obsługiwane są indeksy R-Tree.
+
+Odpowiedni dobór indeksów znacząco zwiększa wydajność operacji.
+
+Tarantool wspiera transakcje.
+
+System zapewnia spójność wykonywanych operacji.
+
+Możliwe jest grupowanie wielu zmian w jednej transakcji.
+
+Tarantool wykorzystuje architekturę opartą na zdarzeniach.
+
+Pozwala to efektywnie obsługiwać bardzo dużą liczbę jednoczesnych połączeń.
+
+System został zoptymalizowany pod kątem pracy w czasie rzeczywistym.
+
+Tarantool wspiera replikację danych.
+
+Możliwe jest tworzenie wielu kopii danych.
+
+Replikacja zwiększa dostępność systemu.
+
+Replikacja umożliwia automatyczne odzyskiwanie po awarii.
+
+Tarantool wspiera klastry.
+
+Dane mogą być automatycznie rozdzielane pomiędzy wiele serwerów.
+
+Pozwala to skalować system poziomo.
+
+Tarantool współpracuje z wieloma językami programowania.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka Go.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Dostępne są biblioteki dla języka PHP.
+
+Tarantool bardzo dobrze współpracuje z aplikacjami Java.
+
+Komunikacja odbywa się za pomocą oficjalnych sterowników.
+
+Może współpracować ze Spring Boot.
+
+Może być wykorzystywany jako bardzo szybka warstwa przechowywania danych.
+
+Tarantool oferuje mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Możliwe jest szyfrowanie komunikacji sieciowej.
+
+System umożliwia kontrolowanie dostępu do danych.
+
+Tarantool może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być wdrażany w kontenerach Docker.
+
+Może być wdrażany w środowiskach Kubernetes.
+
+Tarantool znajduje zastosowanie w systemach finansowych.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w platformach gamingowych.
+
+Jest wykorzystywany w systemach rekomendacyjnych.
+
+Jest wykorzystywany w aplikacjach czasu rzeczywistego.
+
+Jest wykorzystywany w systemach kolejkowania komunikatów.
+
+Największą zaletą Tarantool jest połączenie bardzo wysokiej wydajności, przechowywania danych w pamięci operacyjnej, możliwości uruchamiania logiki biznesowej w języku Lua oraz obsługi transakcji i klastrów w jednej platformie.
+
+Dzięki architekturze In-Memory, bardzo niskim opóźnieniom oraz bogatym możliwościom programowania Tarantool jest jednym z najciekawszych rozwiązań dla aplikacji wymagających błyskawicznego przetwarzania danych.
+
+Znajomość Tarantool jest szczególnie ceniona na stanowiskach związanych z backend development, systemami czasu rzeczywistego, Data Engineering, DevOps, Cloud Computing oraz projektowaniem aplikacji o bardzo wysokiej wydajności.

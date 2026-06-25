@@ -1,0 +1,123 @@
+Couchbase Query jest językiem zapytań wykorzystywanym w bazie danych Couchbase Server.
+
+Język ten najczęściej określany jest jako N1QL.
+
+Nazwę N1QL wymawia się „Nickel”.
+
+N1QL stanowi połączenie języka SQL z modelem dokumentowym baz NoSQL.
+
+Został zaprojektowany tak, aby osoby znające SQL mogły łatwo rozpocząć pracę z bazą Couchbase.
+
+Couchbase Query pozwala wykonywać zapytania na dokumentach zapisanych w formacie JSON.
+
+Dokument JSON jest podstawową jednostką przechowywania danych w Couchbase.
+
+Każdy dokument może posiadać własną strukturę.
+
+Nie wszystkie dokumenty muszą zawierać identyczne pola.
+
+Model ten zapewnia większą elastyczność niż klasyczne relacyjne bazy danych.
+
+N1QL wykorzystuje składnię bardzo podobną do standardowego SQL.
+
+Programista może wykonywać zapytania SELECT.
+
+Programista może dodawać nowe dokumenty przy użyciu polecenia INSERT.
+
+Programista może aktualizować dokumenty przy użyciu polecenia UPDATE.
+
+Programista może usuwać dokumenty przy użyciu polecenia DELETE.
+
+Programista może filtrować dane przy użyciu klauzuli WHERE.
+
+Programista może sortować wyniki przy użyciu ORDER BY.
+
+Programista może ograniczać liczbę wyników przy użyciu LIMIT.
+
+Programista może grupować dane przy użyciu GROUP BY.
+
+Programista może wykonywać operacje agregacji.
+
+Dostępne są funkcje COUNT.
+
+Dostępne są funkcje SUM.
+
+Dostępne są funkcje AVG.
+
+Dostępne są funkcje MIN.
+
+Dostępne są funkcje MAX.
+
+N1QL umożliwia wykonywanie operacji JOIN.
+
+Możliwe jest łączenie danych zapisanych w różnych kolekcjach.
+
+Jest to jedna z cech odróżniających Couchbase od wielu innych baz NoSQL.
+
+N1QL umożliwia pracę z zagnieżdżonymi dokumentami JSON.
+
+Programista może odwoływać się do pól znajdujących się wewnątrz innych obiektów.
+
+Programista może odczytywać elementy tablic zapisanych w dokumentach.
+
+Programista może filtrować elementy tablic.
+
+Programista może przeszukiwać złożone struktury JSON.
+
+N1QL wykorzystuje indeksy do przyspieszania wykonywania zapytań.
+
+Odpowiednio zaprojektowane indeksy mają bardzo duży wpływ na wydajność.
+
+Bez indeksów wykonywanie zapytań może być znacznie wolniejsze.
+
+Couchbase oferuje indeksy podstawowe.
+
+Couchbase oferuje indeksy wtórne.
+
+Couchbase oferuje indeksy pełnotekstowe.
+
+N1QL współpracuje z silnikiem Query Service.
+
+Query Service odpowiada za analizowanie oraz wykonywanie zapytań.
+
+Silnik optymalizuje sposób wykonania zapytania.
+
+Pozwala to skrócić czas odpowiedzi systemu.
+
+Couchbase Query obsługuje transakcje.
+
+Możliwe jest wykonywanie wielu operacji jako jednej logicznej całości.
+
+Transakcje zwiększają spójność danych.
+
+N1QL bardzo dobrze współpracuje z aplikacjami Java.
+
+Programiści mogą korzystać z oficjalnego SDK dla języka Java.
+
+Zapytania mogą być wykonywane bezpośrednio z poziomu aplikacji.
+
+Parametry zapytań mogą być przekazywane w bezpieczny sposób.
+
+Pozwala to ograniczyć ryzyko ataków typu SQL Injection.
+
+N1QL wspiera przygotowane zapytania.
+
+Przygotowane zapytania mogą być wykonywane wielokrotnie.
+
+Pozwala to zwiększyć wydajność aplikacji.
+
+Couchbase Query może być wykorzystywany w aplikacjach internetowych.
+
+Może być wykorzystywany w systemach e-commerce.
+
+Może być wykorzystywany w aplikacjach mobilnych.
+
+Może być wykorzystywany w architekturze mikroserwisowej.
+
+Może być wykorzystywany w systemach działających w chmurze.
+
+Największą zaletą Couchbase Query jest możliwość wykonywania zapytań przypominających SQL na dokumentach JSON bez konieczności rezygnowania z elastyczności baz NoSQL.
+
+Dzięki składni podobnej do SQL oraz obsłudze dokumentów JSON N1QL znacząco ułatwia pracę programistom przechodzącym z relacyjnych baz danych do Couchbase.
+
+Znajomość Couchbase Query jest szczególnie ceniona na stanowiskach związanych z backend development, bazami NoSQL, Data Engineering oraz projektowaniem nowoczesnych aplikacji opartych na dokumentowych bazach danych.

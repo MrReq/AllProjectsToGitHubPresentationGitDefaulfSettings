@@ -1,0 +1,189 @@
+OpenEdge jest platformą do tworzenia aplikacji biznesowych, która zawiera relacyjny system zarządzania bazą danych oraz środowisko programistyczne.
+
+Platforma została opracowana przez Progress Software.
+
+OpenEdge jest rozwijany od wielu lat.
+
+System został zaprojektowany z myślą o tworzeniu stabilnych oraz wydajnych aplikacji biznesowych.
+
+OpenEdge jest wykorzystywany przez przedsiębiorstwa na całym świecie.
+
+Jest szczególnie popularny w systemach ERP.
+
+Jest wykorzystywany w systemach CRM.
+
+Jest wykorzystywany w systemach logistycznych.
+
+Jest wykorzystywany w systemach produkcyjnych.
+
+Jest wykorzystywany w rozwiązaniach dla sektora finansowego.
+
+OpenEdge zawiera relacyjną bazę danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie indeksów.
+
+Możliwe jest definiowanie relacji pomiędzy tabelami.
+
+OpenEdge obsługuje standard SQL.
+
+Platforma wykorzystuje również własny język programowania.
+
+Język ten nosi nazwę OpenEdge Advanced Business Language.
+
+OpenEdge Advanced Business Language często określany jest skrótem OpenEdge ABL.
+
+OpenEdge ABL był wcześniej znany jako Progress 4GL.
+
+Język ten został zaprojektowany specjalnie do tworzenia aplikacji biznesowych.
+
+OpenEdge ABL umożliwia jednoczesne programowanie logiki biznesowej oraz operacji na bazie danych.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą tworzyć procedury.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć aplikacje desktopowe.
+
+Programiści mogą tworzyć aplikacje internetowe.
+
+OpenEdge wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Jedną z największych zalet OpenEdge jest bardzo wysoka wydajność.
+
+System został zoptymalizowany pod kątem obsługi aplikacji biznesowych.
+
+Może jednocześnie obsługiwać dużą liczbę użytkowników.
+
+OpenEdge wykorzystuje mechanizmy wielowersyjnej kontroli współbieżności.
+
+Pozwala to ograniczyć liczbę blokad podczas jednoczesnej pracy wielu użytkowników.
+
+OpenEdge posiada własny optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+OpenEdge wspiera indeksowanie.
+
+Odpowiednio zaprojektowane indeksy znacząco przyspieszają wykonywanie zapytań.
+
+OpenEdge oferuje mechanizmy wysokiej dostępności.
+
+Możliwe jest tworzenie replik danych.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Możliwe jest budowanie środowisk o wysokiej niezawodności.
+
+OpenEdge wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+OpenEdge oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+OpenEdge współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla platformy .NET.
+
+Dostępne są interfejsy REST.
+
+Dostępne są interfejsy SOAP.
+
+OpenEdge bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z JDBC.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA po odpowiedniej konfiguracji.
+
+Może współpracować ze Spring Boot.
+
+OpenEdge integruje się z wieloma systemami zewnętrznymi.
+
+Może współpracować z aplikacjami ERP.
+
+Może współpracować z systemami CRM.
+
+Może współpracować z usługami internetowymi.
+
+Może współpracować z platformami chmurowymi.
+
+OpenEdge wspiera architekturę usługową.
+
+Możliwe jest tworzenie interfejsów API.
+
+Możliwe jest udostępnianie usług REST.
+
+Możliwe jest integrowanie wielu aplikacji biznesowych.
+
+OpenEdge może być uruchamiany na systemie Windows.
+
+Może być uruchamiany na systemie Linux.
+
+Może być uruchamiany na wybranych systemach UNIX.
+
+Platforma może działać zarówno lokalnie, jak i w środowiskach chmurowych.
+
+OpenEdge znajduje zastosowanie w przedsiębiorstwach produkcyjnych.
+
+Jest wykorzystywany w logistyce.
+
+Jest wykorzystywany w handlu.
+
+Jest wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w administracji.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka stabilność oraz wieloletnie wsparcie dla aplikacji biznesowych.
+
+Największą zaletą OpenEdge jest połączenie relacyjnej bazy danych, własnego języka programowania, rozbudowanych mechanizmów bezpieczeństwa oraz narzędzi do tworzenia kompletnych aplikacji biznesowych w jednej platformie.
+
+Dzięki wysokiej wydajności, niezawodności oraz bogatym możliwościom integracji OpenEdge od wielu lat pozostaje popularnym rozwiązaniem dla przedsiębiorstw rozwijających i utrzymujących rozbudowane systemy biznesowe.
+
+Znajomość OpenEdge jest szczególnie ceniona na stanowiskach związanych z tworzeniem aplikacji biznesowych, administracją bazami danych, integracją systemów, backend development oraz utrzymywaniem systemów klasy Enterprise.

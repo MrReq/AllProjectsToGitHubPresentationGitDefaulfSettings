@@ -1,0 +1,201 @@
+MongoDB jest dokumentowym systemem zarządzania bazą danych typu NoSQL.
+
+Projekt został opracowany przez MongoDB, Inc..
+
+MongoDB należy do najpopularniejszych baz danych NoSQL na świecie.
+
+System został zaprojektowany z myślą o elastycznym przechowywaniu danych oraz łatwym skalowaniu.
+
+MongoDB bardzo dobrze sprawdza się w nowoczesnych aplikacjach internetowych.
+
+Jest szeroko wykorzystywany w architekturze mikroserwisowej.
+
+Jest często wykorzystywany w rozwiązaniach chmurowych.
+
+MongoDB nie wykorzystuje klasycznego relacyjnego modelu danych.
+
+Dane przechowywane są w dokumentach.
+
+Dokumenty zapisywane są w formacie BSON.
+
+BSON jest binarną odmianą formatu JSON.
+
+Dokumenty grupowane są w kolekcjach.
+
+Kolekcję można porównać do tabeli w relacyjnej bazie danych.
+
+Dokument można porównać do rekordu.
+
+Każdy dokument może posiadać własną strukturę.
+
+Nie wszystkie dokumenty muszą zawierać identyczne pola.
+
+Model dokumentowy zapewnia bardzo dużą elastyczność.
+
+MongoDB bardzo dobrze sprawdza się w aplikacjach, w których struktura danych często się zmienia.
+
+MongoDB wykorzystuje model dokumentowy.
+
+Dokumenty mogą zawierać zagnieżdżone obiekty.
+
+Dokumenty mogą zawierać tablice.
+
+Pozwala to przechowywać złożone dane bez konieczności tworzenia wielu powiązanych tabel.
+
+MongoDB obsługuje bogaty język zapytań.
+
+Programiści mogą wyszukiwać dokumenty.
+
+Programiści mogą dodawać nowe dokumenty.
+
+Programiści mogą aktualizować dokumenty.
+
+Programiści mogą usuwać dokumenty.
+
+Programiści mogą wykonywać operacje agregacji.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować wyniki.
+
+Programiści mogą wykonywać wyszukiwanie pełnotekstowe.
+
+MongoDB oferuje zaawansowany mechanizm agregacji.
+
+Mechanizm ten określany jest jako Aggregation Pipeline.
+
+Aggregation Pipeline umożliwia wykonywanie wieloetapowych operacji na danych.
+
+Pozwala grupować dane.
+
+Pozwala filtrować dane.
+
+Pozwala przekształcać dokumenty.
+
+Pozwala wykonywać zaawansowane analizy.
+
+MongoDB wspiera indeksowanie.
+
+Indeksy znacząco przyspieszają wykonywanie zapytań.
+
+System obsługuje indeksy pojedynczych pól.
+
+System obsługuje indeksy złożone.
+
+System obsługuje indeksy tekstowe.
+
+System obsługuje indeksy geoprzestrzenne.
+
+System obsługuje indeksy typu TTL.
+
+TTL oznacza Time To Live.
+
+Indeksy TTL umożliwiają automatyczne usuwanie dokumentów po określonym czasie.
+
+MongoDB został zaprojektowany jako system rozproszony.
+
+System wspiera replikację danych.
+
+Replikacja odbywa się przy użyciu Replica Set.
+
+Replica Set składa się z głównego serwera oraz serwerów zapasowych.
+
+Główny serwer odpowiada za operacje zapisu.
+
+Serwery zapasowe przechowują kopie danych.
+
+Awaria głównego serwera powoduje automatyczny wybór nowego serwera głównego.
+
+Rozwiązanie to zwiększa dostępność systemu.
+
+MongoDB wspiera sharding.
+
+Sharding polega na podziale danych pomiędzy wiele serwerów.
+
+Pozwala to łatwo skalować bazę danych.
+
+System automatycznie rozdziela dane pomiędzy poszczególne węzły.
+
+MongoDB wspiera transakcje.
+
+Nowoczesne wersje systemu umożliwiają wykonywanie transakcji obejmujących wiele dokumentów.
+
+System zapewnia zgodność z właściwościami ACID dla takich transakcji.
+
+MongoDB bardzo dobrze współpracuje z wieloma językami programowania.
+
+Dostępne są oficjalne biblioteki dla języka Java.
+
+Dostępne są oficjalne biblioteki dla języka Python.
+
+Dostępne są oficjalne biblioteki dla języka C#.
+
+Dostępne są oficjalne biblioteki dla języka JavaScript.
+
+Dostępne są oficjalne biblioteki dla języka Node.js.
+
+Dostępne są oficjalne biblioteki dla języka Go.
+
+MongoDB bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować ze Spring Boot.
+
+Może współpracować z Spring Data MongoDB.
+
+Spring Data MongoDB znacząco upraszcza komunikację pomiędzy aplikacją a bazą danych.
+
+MongoDB oferuje usługę chmurową.
+
+Usługa ta nosi nazwę MongoDB Atlas.
+
+MongoDB Atlas umożliwia uruchamianie baz danych w chmurze.
+
+Usługa wspiera platformy AWS.
+
+Usługa wspiera platformę Microsoft Azure.
+
+Usługa wspiera platformę Google Cloud.
+
+MongoDB oferuje narzędzie graficzne.
+
+Narzędzie to nosi nazwę MongoDB Compass.
+
+MongoDB Compass umożliwia przeglądanie dokumentów.
+
+MongoDB Compass umożliwia analizowanie wydajności zapytań.
+
+MongoDB Compass umożliwia zarządzanie kolekcjami.
+
+MongoDB zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System wspiera uwierzytelnianie wieloskładnikowe w usługach chmurowych.
+
+MongoDB znajduje zastosowanie w portalach społecznościowych.
+
+Jest wykorzystywany w sklepach internetowych.
+
+Jest wykorzystywany w aplikacjach mobilnych.
+
+Jest wykorzystywany w systemach zarządzania treścią.
+
+Jest wykorzystywany w platformach streamingowych.
+
+Jest wykorzystywany w systemach Internetu Rzeczy.
+
+Jest wykorzystywany w rozwiązaniach opartych na mikroserwisach.
+
+Największą zaletą MongoDB jest bardzo elastyczny model dokumentowy, łatwe skalowanie oraz możliwość przechowywania złożonych struktur danych bez konieczności projektowania rozbudowanych relacyjnych schematów.
+
+Połączenie dokumentów BSON, replikacji, shardingu oraz bogatego ekosystemu narzędzi sprawia, że MongoDB jest jedną z najczęściej wybieranych baz danych NoSQL w nowoczesnych projektach informatycznych.
+
+Znajomość MongoDB jest szczególnie ceniona na stanowiskach związanych z backend development, Full Stack Development, Cloud Computing, Data Engineering, DevOps oraz projektowaniem aplikacji wykorzystujących architekturę mikroserwisową.

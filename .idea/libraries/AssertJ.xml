@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="AssertJ">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/src/BibliotekiIJary/AssertJ" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/src/BibliotekiIJary/AssertJ" recursive="false" />
+  </library>
+</component>

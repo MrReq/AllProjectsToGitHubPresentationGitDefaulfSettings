@@ -1,0 +1,169 @@
+Amazon DocumentDB jest zarządzaną dokumentową bazą danych dostępną w chmurze AWS.
+
+Usługa została stworzona przez [Amazon Web Services](https://aws.amazon.com/documentdb/?utm_source=chatgpt.com).
+
+Amazon DocumentDB należy do grupy baz danych NoSQL.
+
+NoSQL oznacza, że baza danych nie wykorzystuje klasycznego modelu relacyjnego.
+
+Dane przechowywane są w postaci dokumentów.
+
+Dokumenty zapisywane są w formacie BSON.
+
+BSON jest binarną odmianą formatu JSON.
+
+Struktura dokumentów jest elastyczna.
+
+Poszczególne dokumenty nie muszą posiadać identycznych pól.
+
+Pozwala to łatwo przechowywać dane o zmiennej strukturze.
+
+Amazon DocumentDB został zaprojektowany jako usługa zgodna z interfejsem API MongoDB.
+
+Większość aplikacji wykorzystujących MongoDB może zostać połączona z Amazon DocumentDB przy niewielkich zmianach.
+
+Programiści mogą korzystać z popularnych sterowników MongoDB.
+
+Dostępne są sterowniki dla języka Java.
+
+Dostępne są sterowniki dla języka Python.
+
+Dostępne są sterowniki dla języka C#.
+
+Dostępne są sterowniki dla języka Node.js.
+
+Dostępne są sterowniki dla języka Go.
+
+Amazon DocumentDB jest usługą zarządzaną.
+
+Administrator nie musi instalować serwera bazy danych.
+
+Administrator nie musi zarządzać systemem operacyjnym.
+
+Administrator nie musi ręcznie wykonywać aktualizacji.
+
+Administrator nie musi konfigurować replikacji.
+
+Większość czynności administracyjnych wykonywana jest automatycznie przez AWS.
+
+Jedną z najważniejszych cech Amazon DocumentDB jest wysoka dostępność.
+
+Dane automatycznie replikowane są pomiędzy wieloma strefami dostępności.
+
+Strefa dostępności jest odrębnym centrum danych w regionie AWS.
+
+Awaria pojedynczej strefy nie powoduje utraty danych.
+
+System automatycznie przełącza ruch na zapasową instancję.
+
+Pozwala to ograniczyć czas niedostępności aplikacji.
+
+Amazon DocumentDB automatycznie wykonuje kopie zapasowe.
+
+Backupy wykonywane są bez zatrzymywania działania bazy danych.
+
+Administrator może przywrócić bazę do wybranego momentu.
+
+Mechanizm ten określany jest jako Point-In-Time Recovery.
+
+Amazon DocumentDB przechowuje dane oddzielnie od warstwy obliczeniowej.
+
+Warstwa obliczeniowa odpowiada za wykonywanie zapytań.
+
+Warstwa przechowywania odpowiada za zapis danych.
+
+Takie rozwiązanie umożliwia niezależne skalowanie obu warstw.
+
+Amazon DocumentDB wspiera skalowanie poziome odczytu.
+
+Możliwe jest tworzenie wielu replik odczytowych.
+
+Repliki odczytowe obsługują zapytania typu READ.
+
+Pozwala to zwiększyć liczbę jednoczesnych użytkowników.
+
+Główna instancja nadal odpowiada za operacje zapisu.
+
+Amazon DocumentDB bardzo dobrze sprawdza się podczas przechowywania dokumentów JSON.
+
+Jest często wykorzystywany w aplikacjach internetowych.
+
+Jest często wykorzystywany w aplikacjach mobilnych.
+
+Jest często wykorzystywany w architekturze mikroserwisowej.
+
+Jest często wykorzystywany w systemach zarządzania treścią.
+
+Jest często wykorzystywany do przechowywania katalogów produktów.
+
+Jest często wykorzystywany do przechowywania profili użytkowników.
+
+Amazon DocumentDB obsługuje indeksowanie dokumentów.
+
+Indeksy przyspieszają wykonywanie zapytań.
+
+Odpowiednio zaprojektowane indeksy mają duży wpływ na wydajność systemu.
+
+Amazon DocumentDB umożliwia wykonywanie złożonych zapytań na dokumentach.
+
+Możliwe jest filtrowanie danych.
+
+Możliwe jest sortowanie wyników.
+
+Możliwe jest wykonywanie agregacji.
+
+Możliwe jest wyszukiwanie danych wewnątrz zagnieżdżonych dokumentów.
+
+Amazon DocumentDB wspiera potok agregacji.
+
+Potok agregacji umożliwia wykonywanie wieloetapowych operacji analitycznych na dokumentach.
+
+Rozwiązanie to jest bardzo podobne do mechanizmów dostępnych w MongoDB.
+
+Amazon DocumentDB integruje się z wieloma usługami AWS.
+
+Może współpracować z AWS Lambda.
+
+Może współpracować z Amazon EC2.
+
+Może współpracować z Amazon ECS.
+
+Może współpracować z Amazon EKS.
+
+Może współpracować z Amazon CloudWatch.
+
+CloudWatch umożliwia monitorowanie wydajności bazy danych.
+
+Administrator może analizować wykorzystanie procesora.
+
+Administrator może analizować wykorzystanie pamięci.
+
+Administrator może analizować liczbę połączeń.
+
+Administrator może monitorować wydajność zapytań.
+
+Amazon DocumentDB zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Usługa integruje się z AWS Identity and Access Management.
+
+IAM umożliwia zarządzanie użytkownikami oraz uprawnieniami.
+
+Amazon DocumentDB integruje się z AWS Key Management Service.
+
+AWS Key Management Service odpowiada za zarządzanie kluczami szyfrującymi.
+
+Amazon DocumentDB jest zoptymalizowany pod kątem aplikacji wykorzystujących model dokumentowy.
+
+Nie jest przeznaczony do klasycznych relacyjnych operacji SQL.
+
+Nie obsługuje relacji pomiędzy tabelami w sposób charakterystyczny dla relacyjnych baz danych.
+
+Największą zaletą Amazon DocumentDB jest możliwość przechowywania elastycznych dokumentów przy jednoczesnym korzystaniu z w pełni zarządzanej infrastruktury AWS.
+
+Połączenie zgodności z API MongoDB, automatycznej replikacji, wysokiej dostępności oraz łatwego skalowania sprawia, że Amazon DocumentDB jest popularnym rozwiązaniem dla nowoczesnych aplikacji opartych na dokumentowych bazach danych.
+
+Znajomość Amazon DocumentDB jest szczególnie ceniona na stanowiskach związanych z backend development, Cloud Computing, Data Engineering, architekturą mikroserwisów oraz projektowaniem aplikacji wykorzystujących bazy NoSQL.

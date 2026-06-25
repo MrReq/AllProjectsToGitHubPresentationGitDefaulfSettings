@@ -1,0 +1,189 @@
+HSQLDB jest lekkim relacyjnym systemem zarządzania bazą danych napisanym w języku Java.
+
+HSQLDB jest skrótem od HyperSQL Database.
+
+Projekt rozwijany jest jako oprogramowanie otwartoźródłowe.
+
+HSQLDB został zaprojektowany z myślą o prostocie, niewielkich wymaganiach sprzętowych oraz łatwej integracji z aplikacjami Java.
+
+Jest jedną z najstarszych baz danych napisanych całkowicie w języku Java.
+
+HSQLDB jest często wykorzystywany podczas nauki programowania.
+
+Jest często wykorzystywany do testowania aplikacji.
+
+Jest często wykorzystywany do tworzenia niewielkich aplikacji desktopowych.
+
+Jedną z największych zalet HSQLDB jest możliwość pracy w kilku różnych trybach.
+
+Pierwszym z nich jest Embedded Mode.
+
+W trybie Embedded baza danych działa bezpośrednio wewnątrz aplikacji.
+
+Nie ma potrzeby uruchamiania osobnego serwera bazodanowego.
+
+Program komunikuje się z bazą danych przy użyciu bibliotek Java.
+
+Rozwiązanie to znacząco upraszcza konfigurację projektu.
+
+Drugim trybem pracy jest Server Mode.
+
+W tym trybie HSQLDB działa jako klasyczny serwer bazodanowy.
+
+Wiele aplikacji może jednocześnie korzystać z tej samej bazy danych.
+
+Komunikacja odbywa się za pośrednictwem sieci.
+
+HSQLDB może również działać w trybie In-Memory.
+
+W tym trybie wszystkie dane przechowywane są wyłącznie w pamięci operacyjnej.
+
+Po zakończeniu działania programu dane zostają usunięte.
+
+Rozwiązanie to jest bardzo popularne podczas wykonywania testów automatycznych.
+
+Testy uruchamiane są bardzo szybko.
+
+Nie ma potrzeby instalowania dodatkowego serwera bazodanowego.
+
+HSQLDB może również przechowywać dane w plikach na dysku.
+
+Dane pozostają dostępne po ponownym uruchomieniu aplikacji.
+
+Pozwala to wykorzystywać HSQLDB również jako lokalną bazę danych.
+
+HSQLDB obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+HSQLDB obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z HSQLDB.
+
+HSQLDB wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+HSQLDB oferuje zgodność ze standardem JDBC.
+
+Komunikacja z bazą danych odbywa się przy użyciu interfejsu JDBC.
+
+Dzięki temu integracja z aplikacjami Java jest bardzo prosta.
+
+HSQLDB współpracuje z Hibernate.
+
+HSQLDB współpracuje z JPA.
+
+HSQLDB współpracuje ze Spring Boot.
+
+HSQLDB współpracuje z aplikacjami Java SE.
+
+HSQLDB współpracuje z aplikacjami Jakarta EE.
+
+HSQLDB oferuje własną konsolę administracyjną.
+
+Administrator może wykonywać zapytania SQL.
+
+Administrator może przeglądać strukturę bazy danych.
+
+Administrator może zarządzać tabelami.
+
+Administrator może analizować zapisane dane.
+
+HSQLDB oferuje wiele typów danych.
+
+Możliwe jest przechowywanie liczb.
+
+Możliwe jest przechowywanie tekstu.
+
+Możliwe jest przechowywanie dat.
+
+Możliwe jest przechowywanie czasu.
+
+Możliwe jest przechowywanie danych binarnych.
+
+System wspiera duże obiekty binarne.
+
+Duże obiekty binarne określane są jako BLOB.
+
+System wspiera również duże obiekty tekstowe.
+
+Duże obiekty tekstowe określane są jako CLOB.
+
+HSQLDB oferuje mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Administrator może kontrolować dostęp do poszczególnych obiektów bazy danych.
+
+HSQLDB posiada niewielkie wymagania sprzętowe.
+
+Zużywa niewielką ilość pamięci operacyjnej.
+
+Uruchamia się bardzo szybko.
+
+Instalacja najczęściej sprowadza się do dodania jednego pliku JAR do projektu.
+
+HSQLDB znajduje zastosowanie podczas nauki SQL.
+
+Jest wykorzystywany podczas nauki JDBC.
+
+Jest wykorzystywany podczas nauki JPA.
+
+Jest wykorzystywany podczas nauki Hibernate.
+
+Jest wykorzystywany podczas nauki Spring Boot.
+
+Jest wykorzystywany podczas testów jednostkowych.
+
+Jest wykorzystywany podczas testów integracyjnych.
+
+Jest wykorzystywany podczas tworzenia prototypów aplikacji.
+
+Jest wykorzystywany w niewielkich aplikacjach desktopowych.
+
+HSQLDB nie został jednak zaprojektowany do obsługi bardzo dużych środowisk produkcyjnych.
+
+W dużych systemach częściej wykorzystywane są PostgreSQL, MySQL, Oracle Database lub Microsoft SQL Server.
+
+Największą zaletą HSQLDB jest połączenie prostoty konfiguracji, niewielkich wymagań sprzętowych oraz pełnej zgodności z ekosystemem Java.
+
+Możliwość działania w pamięci operacyjnej, w plikach lub jako serwer sprawia, że HSQLDB jest bardzo uniwersalnym rozwiązaniem do nauki, testowania oraz tworzenia niewielkich aplikacji.
+
+Znajomość HSQLDB jest szczególnie przydatna podczas nauki programowania w Javie, tworzenia aplikacji wykorzystujących JDBC, Hibernate i Spring Boot oraz przygotowywania testów automatycznych opartych na relacyjnych bazach danych.

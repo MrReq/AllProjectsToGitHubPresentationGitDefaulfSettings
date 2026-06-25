@@ -1,0 +1,205 @@
+InterSystems IRIS jest wielomodelowym systemem zarządzania bazą danych oraz platformą do tworzenia aplikacji klasy Enterprise.
+
+System został opracowany przez InterSystems.
+
+InterSystems IRIS został zaprojektowany z myślą o przetwarzaniu danych w czasie rzeczywistym.
+
+Platforma łączy funkcje bazy danych, silnika integracyjnego oraz środowiska analitycznego.
+
+InterSystems IRIS jest szeroko wykorzystywany w sektorze medycznym.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany w systemach logistycznych.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka wydajność oraz niezawodność.
+
+Jedną z najważniejszych cech InterSystems IRIS jest obsługa wielu modeli danych.
+
+System obsługuje relacyjny model danych.
+
+System obsługuje model dokumentowy.
+
+System obsługuje model obiektowy.
+
+System obsługuje model klucz-wartość.
+
+System obsługuje dane wielowymiarowe.
+
+Pozwala to wykorzystywać różne sposoby przechowywania danych w ramach jednego systemu.
+
+InterSystems IRIS obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z InterSystems IRIS.
+
+InterSystems IRIS wspiera programowanie obiektowe.
+
+Dane mogą być reprezentowane jako klasy oraz obiekty.
+
+Obiekty mogą być automatycznie mapowane na struktury relacyjne.
+
+Pozwala to łatwiej tworzyć nowoczesne aplikacje.
+
+InterSystems IRIS wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Jedną z największych zalet InterSystems IRIS jest bardzo wysoka wydajność.
+
+System został zoptymalizowany pod kątem przetwarzania dużej liczby operacji jednocześnie.
+
+Bardzo dobrze sprawdza się w aplikacjach czasu rzeczywistego.
+
+InterSystems IRIS wykorzystuje zaawansowane mechanizmy buforowania danych.
+
+Najczęściej wykorzystywane informacje przechowywane są w pamięci operacyjnej.
+
+Pozwala to znacząco skrócić czas odpowiedzi systemu.
+
+InterSystems IRIS wspiera przetwarzanie równoległe.
+
+Zapytania mogą być wykonywane jednocześnie przez wiele rdzeni procesora.
+
+Pozwala to efektywnie wykorzystywać nowoczesne serwery.
+
+InterSystems IRIS oferuje zaawansowane mechanizmy integracji systemów.
+
+Platforma umożliwia wymianę danych pomiędzy różnymi aplikacjami.
+
+Obsługiwane są interfejsy REST.
+
+Obsługiwane są usługi SOAP.
+
+Obsługiwane są komunikaty JSON.
+
+Obsługiwane są komunikaty XML.
+
+Platforma wspiera standardy wymiany danych wykorzystywane w ochronie zdrowia.
+
+Obsługiwany jest standard HL7.
+
+Obsługiwany jest standard FHIR.
+
+Dzięki temu InterSystems IRIS jest bardzo popularny w systemach medycznych.
+
+InterSystems IRIS oferuje wbudowane mechanizmy interoperacyjności.
+
+Interoperacyjność oznacza możliwość współpracy wielu różnych systemów informatycznych.
+
+Platforma może automatycznie przetwarzać oraz przekazywać dane pomiędzy aplikacjami.
+
+InterSystems IRIS wspiera analizę danych.
+
+Platforma umożliwia wykonywanie analiz w czasie rzeczywistym.
+
+Możliwe jest tworzenie raportów.
+
+Możliwe jest monitorowanie procesów biznesowych.
+
+InterSystems IRIS oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+InterSystems IRIS wspiera wysoką dostępność.
+
+Możliwe jest tworzenie klastrów.
+
+Możliwa jest replikacja danych.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Rozwiązania te ograniczają ryzyko przestojów.
+
+InterSystems IRIS współpracuje z wieloma językami programowania.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka JavaScript.
+
+Dostępne są biblioteki dla języka C++.
+
+InterSystems IRIS oferuje sterownik JDBC.
+
+InterSystems IRIS bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+InterSystems IRIS integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z platformami chmurowymi.
+
+InterSystems IRIS może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być uruchamiany w kontenerach Docker.
+
+Może być wdrażany w środowiskach Kubernetes.
+
+InterSystems IRIS znajduje zastosowanie w elektronicznej dokumentacji medycznej.
+
+Jest wykorzystywany w systemach laboratoryjnych.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w ubezpieczeniach.
+
+Jest wykorzystywany w logistyce.
+
+Jest wykorzystywany w systemach produkcyjnych.
+
+Największą zaletą InterSystems IRIS jest połączenie wielomodelowej bazy danych, zaawansowanych mechanizmów integracji, wysokiej wydajności oraz możliwości przetwarzania danych w czasie rzeczywistym w jednej platformie.
+
+Dzięki obsłudze wielu modeli danych, pełnemu wsparciu dla SQL oraz rozbudowanym funkcjom interoperacyjności InterSystems IRIS jest jednym z najważniejszych rozwiązań wykorzystywanych w systemach klasy Enterprise, zwłaszcza w sektorze ochrony zdrowia.
+
+Znajomość InterSystems IRIS jest szczególnie ceniona na stanowiskach związanych z backend development, administracją bazami danych, integracją systemów, Data Engineering, Cloud Computing oraz projektowaniem aplikacji dla sektora medycznego i finansowego.

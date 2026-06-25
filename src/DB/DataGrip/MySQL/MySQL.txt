@@ -1,0 +1,227 @@
+MySQL jest relacyjnym systemem zarządzania bazą danych.
+
+Projekt został opracowany przez firmę MySQL AB.
+
+Obecnie rozwijany jest przez Oracle Corporation.
+
+MySQL należy do najpopularniejszych systemów baz danych na świecie.
+
+Jest wykorzystywany zarówno w niewielkich aplikacjach, jak i w dużych systemach produkcyjnych.
+
+MySQL jest dostępny w wersji Community Edition rozwijanej jako oprogramowanie otwartoźródłowe.
+
+Dostępne są również komercyjne edycje Enterprise oferujące dodatkowe funkcje administracyjne oraz bezpieczeństwa.
+
+MySQL obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+MySQL obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z MySQL.
+
+Najczęściej wykorzystywanym silnikiem magazynowania danych jest InnoDB.
+
+InnoDB obsługuje transakcje.
+
+InnoDB wspiera klucze obce.
+
+InnoDB zapewnia zgodność z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+MySQL oferuje również inne silniki magazynowania danych.
+
+Jednym z nich jest MyISAM.
+
+MyISAM zapewnia bardzo szybkie operacje odczytu.
+
+MyISAM nie obsługuje jednak transakcji ani kluczy obcych.
+
+MySQL wykorzystuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco zwiększyć wydajność systemu.
+
+MySQL wspiera indeksowanie.
+
+Dostępne są indeksy podstawowe.
+
+Dostępne są indeksy unikalne.
+
+Dostępne są indeksy złożone.
+
+Dostępne są indeksy pełnotekstowe.
+
+Odpowiednio zaprojektowane indeksy znacząco przyspieszają wykonywanie zapytań.
+
+MySQL wspiera partycjonowanie tabel.
+
+Partycjonowanie pozwala dzielić bardzo duże tabele na mniejsze części.
+
+Pozwala to zwiększyć wydajność oraz uprościć zarządzanie bazą danych.
+
+MySQL oferuje mechanizmy replikacji.
+
+Replikacja umożliwia tworzenie kopii danych na innych serwerach.
+
+Pozwala to zwiększyć dostępność systemu.
+
+Pozwala również odciążyć główny serwer podczas wykonywania operacji odczytu.
+
+MySQL wspiera klastry.
+
+Jednym z rozwiązań jest MySQL InnoDB Cluster.
+
+Dostępne jest również MySQL Cluster.
+
+Rozwiązania te umożliwiają budowanie środowisk o wysokiej dostępności.
+
+MySQL oferuje mechanizmy tworzenia kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+MySQL zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System wspiera uwierzytelnianie z wykorzystaniem wielu metod.
+
+MySQL współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka PHP.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Dostępne są biblioteki dla języka Go.
+
+MySQL bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+MySQL stanowi jeden z elementów popularnego stosu LAMP.
+
+LAMP oznacza Linux, Apache, MySQL oraz PHP.
+
+MySQL jest również wykorzystywany w stosie LEMP.
+
+LEMP oznacza Linux, Nginx, MySQL oraz PHP.
+
+MySQL bardzo dobrze współpracuje z systemami zarządzania treścią.
+
+Jest wykorzystywany przez WordPress.
+
+Jest wykorzystywany przez Drupal.
+
+Jest wykorzystywany przez Joomla.
+
+MySQL integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Power BI.
+
+Może współpracować z Tableau.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+MySQL oferuje narzędzie graficzne.
+
+Najpopularniejszym z nich jest MySQL Workbench.
+
+MySQL Workbench umożliwia projektowanie baz danych.
+
+MySQL Workbench umożliwia wykonywanie zapytań SQL.
+
+MySQL Workbench umożliwia administrację serwerem.
+
+MySQL Workbench umożliwia modelowanie schematów baz danych.
+
+MySQL może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być uruchamiany w Dockerze.
+
+Może być wdrażany w środowiskach Kubernetes.
+
+MySQL znajduje zastosowanie w aplikacjach internetowych.
+
+Jest wykorzystywany w sklepach internetowych.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany w systemach CRM.
+
+Jest wykorzystywany w aplikacjach mobilnych.
+
+Jest wykorzystywany w systemach zarządzania treścią.
+
+Jest wykorzystywany w platformach społecznościowych.
+
+Największą zaletą MySQL jest połączenie wysokiej wydajności, prostoty obsługi, zgodności ze standardem SQL oraz bardzo bogatego ekosystemu narzędzi i bibliotek.
+
+Dzięki łatwej integracji z językami programowania, frameworkami oraz platformami chmurowymi MySQL od wielu lat pozostaje jednym z najczęściej wykorzystywanych systemów baz danych na świecie.
+
+Znajomość MySQL jest szczególnie ceniona na stanowiskach związanych z backend development, Full Stack Development, administracją bazami danych, DevOps, Cloud Computing oraz tworzeniem nowoczesnych aplikacji internetowych.

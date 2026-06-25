@@ -7,5 +7,21 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="weka-stable-3.8.6" level="project" />
+    <orderEntry type="library" name="logback-classic-1.4.14" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.21.2" level="project" />
+    <orderEntry type="library" name="slf4j-api-2.0.17 (1)" level="project" />
+    <orderEntry type="library" name="gson-2.13.2 (1)" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-9.7.0" level="project" />
+    <orderEntry type="library" name="postgresql-42.7.11" level="project" />
+    <orderEntry type="library" name="MicrosoftSQLServerJDBC" level="project" />
+    <orderEntry type="library" name="ojdbc17" level="project" />
+    <orderEntry type="library" name="junit-jupiter-6.0.3" level="project" />
+    <orderEntry type="library" name="mockito-core-5.23.0" level="project" />
+    <orderEntry type="library" name="AssertJ" level="project" />
+    <orderEntry type="library" name="httpclient5-5.6.1-javadoc" level="project" />
+    <orderEntry type="library" name="httpcore5-5.3.6" level="project" />
+    <orderEntry type="library" name="httpclient5-5.6.1" level="project" />
+    <orderEntry type="library" name="commons-csv-1.9.0" level="project" />
   </component>
 </module>

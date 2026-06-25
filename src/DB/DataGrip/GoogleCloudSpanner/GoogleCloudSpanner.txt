@@ -1,0 +1,171 @@
+Google Cloud Spanner jest w pełni zarządzaną relacyjną bazą danych dostępną w chmurze Google Cloud.
+
+Usługa została stworzona przez [Google Cloud](https://cloud.google.com/spanner?utm_source=chatgpt.com).
+
+Cloud Spanner został zaprojektowany z myślą o aplikacjach działających na skalę globalną.
+
+Łączy zalety klasycznych relacyjnych baz danych z możliwościami systemów rozproszonych.
+
+Jest jedną z najbardziej zaawansowanych technologicznie baz danych dostępnych w chmurze.
+
+Cloud Spanner obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Programiści mogą korzystać ze standardowego języka SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć widoki.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Cloud Spanner.
+
+Jedną z najważniejszych cech Cloud Spanner jest architektura rozproszona.
+
+Baza danych może działać jednocześnie na wielu serwerach.
+
+Serwery mogą znajdować się w różnych regionach świata.
+
+Wszystkie serwery tworzą jeden logiczny system bazodanowy.
+
+Dane są automatycznie rozdzielane pomiędzy wiele węzłów.
+
+System automatycznie zarządza rozmieszczeniem danych.
+
+Cloud Spanner automatycznie replikuje dane.
+
+Każdy fragment danych przechowywany jest w wielu kopiach.
+
+Replikacja zwiększa bezpieczeństwo informacji.
+
+Replikacja zwiększa dostępność systemu.
+
+Awaria pojedynczego serwera nie powoduje utraty danych.
+
+Awaria całego centrum danych również nie powoduje zatrzymania działania systemu.
+
+Cloud Spanner wspiera automatyczne skalowanie.
+
+Skalowanie poziome polega na dodawaniu kolejnych zasobów obliczeniowych.
+
+Proces ten odbywa się praktycznie bez przerywania pracy aplikacji.
+
+Nie ma konieczności ręcznego przenoszenia danych.
+
+System automatycznie równoważy obciążenie pomiędzy wszystkimi serwerami.
+
+Cloud Spanner zapewnia pełną zgodność z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Zapewnienie transakcji ACID w środowisku rozproszonym jest jedną z największych zalet Cloud Spanner.
+
+Google Cloud Spanner wykorzystuje technologię TrueTime.
+
+TrueTime jest mechanizmem synchronizacji czasu opracowanym przez Google.
+
+Technologia ta wykorzystuje zegary atomowe oraz odbiorniki GPS.
+
+Pozwala bardzo precyzyjnie synchronizować czas pomiędzy serwerami.
+
+Dokładna synchronizacja czasu umożliwia zachowanie spójności transakcji w skali globalnej.
+
+TrueTime jest jednym z najważniejszych elementów architektury Cloud Spanner.
+
+Cloud Spanner automatycznie wybiera miejsca przechowywania danych.
+
+Administrator może określić region lub wiele regionów działania bazy danych.
+
+System sam zarządza replikacją oraz rozmieszczeniem danych.
+
+Cloud Spanner bardzo dobrze współpracuje z innymi usługami Google Cloud.
+
+Może współpracować z BigQuery.
+
+Może współpracować z Cloud Storage.
+
+Może współpracować z Pub/Sub.
+
+Może współpracować z Dataflow.
+
+Może współpracować z Vertex AI.
+
+Cloud Spanner współpracuje z wieloma językami programowania.
+
+Dostępne są biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka Go.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Cloud Spanner bardzo dobrze integruje się z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z Spring Boot.
+
+Może współpracować z JDBC.
+
+Cloud Spanner oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Dostęp do danych kontrolowany jest przy użyciu Cloud Identity and Access Management.
+
+Administrator może definiować role oraz uprawnienia użytkowników.
+
+Cloud Spanner integruje się z narzędziami monitorującymi Google Cloud.
+
+Administrator może analizować wydajność bazy danych.
+
+Administrator może monitorować liczbę zapytań.
+
+Administrator może monitorować wykorzystanie zasobów.
+
+Administrator może analizować czas wykonywania operacji.
+
+Cloud Spanner znajduje zastosowanie w systemach finansowych.
+
+Jest wykorzystywany w platformach e-commerce.
+
+Jest wykorzystywany w systemach telekomunikacyjnych.
+
+Jest wykorzystywany w globalnych aplikacjach internetowych.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka dostępność oraz globalna spójność danych.
+
+Największą zaletą Google Cloud Spanner jest możliwość jednoczesnego zapewnienia relacyjnego modelu danych, transakcji ACID, automatycznego skalowania oraz globalnej dostępności.
+
+Połączenie architektury rozproszonej, technologii TrueTime oraz pełnego wsparcia dla SQL sprawia, że Cloud Spanner jest jedną z najbardziej zaawansowanych baz danych dostępnych w środowisku chmurowym.
+
+Znajomość Google Cloud Spanner jest szczególnie ceniona na stanowiskach związanych z Cloud Computing, backend development, architekturą systemów rozproszonych, Data Engineering oraz projektowaniem aplikacji działających na skalę globalną.

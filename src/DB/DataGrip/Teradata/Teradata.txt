@@ -1,0 +1,205 @@
+Teradata jest relacyjnym systemem zarządzania bazą danych oraz platformą analityczną klasy Enterprise.
+
+System został opracowany przez Teradata.
+
+Teradata należy do najbardziej zaawansowanych platform przeznaczonych do budowy hurtowni danych.
+
+System został zaprojektowany z myślą o analizowaniu bardzo dużych zbiorów danych.
+
+Teradata jest wykorzystywana przez największe przedsiębiorstwa na świecie.
+
+Jest wykorzystywana w bankowości.
+
+Jest wykorzystywana w handlu.
+
+Jest wykorzystywana w telekomunikacji.
+
+Jest wykorzystywana w sektorze ubezpieczeniowym.
+
+Jest wykorzystywana w administracji publicznej.
+
+Teradata obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie indeksów.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Teradata obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć procedury składowane.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Teradata.
+
+Jedną z najważniejszych cech Teradata jest architektura MPP.
+
+MPP oznacza Massively Parallel Processing.
+
+Massively Parallel Processing polega na równoczesnym wykonywaniu operacji przez wiele procesorów oraz serwerów.
+
+Każdy węzeł przetwarza część danych.
+
+Pozwala to analizować ogromne zbiory informacji w bardzo krótkim czasie.
+
+Teradata automatycznie rozdziela dane pomiędzy serwery.
+
+Mechanizm ten określany jest jako Shared-Nothing Architecture.
+
+Każdy serwer posiada własną pamięć oraz własne dyski.
+
+Pozwala to bardzo dobrze skalować wydajność.
+
+Teradata wykorzystuje mechanizm AMP.
+
+AMP oznacza Access Module Processor.
+
+Każdy AMP odpowiada za przechowywanie oraz przetwarzanie części danych.
+
+Zapytania wykonywane są równolegle przez wiele modułów AMP.
+
+Teradata posiada zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco zwiększyć wydajność analiz.
+
+Teradata wspiera wiele rodzajów indeksów.
+
+Dostępne są Primary Index.
+
+Dostępne są Secondary Index.
+
+Dostępne są Join Index.
+
+Dostępne są Hash Index.
+
+Odpowiedni dobór indeksów znacząco zwiększa wydajność operacji.
+
+Teradata wspiera kompresję danych.
+
+Kompresja zmniejsza ilość zajmowanego miejsca.
+
+Kompresja może również zwiększać wydajność wykonywania zapytań.
+
+Teradata wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to zwiększyć wydajność oraz uprościć administrację.
+
+Teradata wspiera przetwarzanie danych w czasie zbliżonym do rzeczywistego.
+
+Platforma może analizować ogromne ilości informacji napływających z wielu źródeł.
+
+Teradata oferuje mechanizmy wysokiej dostępności.
+
+Możliwa jest replikacja danych.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Możliwe jest budowanie środowisk odpornych na awarie.
+
+Teradata wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+Teradata oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+Teradata współpracuje z wieloma narzędziami analitycznymi.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Kafka.
+
+Może współpracować z dbt.
+
+Teradata współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka R.
+
+Teradata bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Teradata może być uruchamiana lokalnie.
+
+Może być uruchamiana w chmurze.
+
+Może być wdrażana w środowiskach hybrydowych.
+
+Może być wykorzystywana jako platforma Data Warehouse jako usługa.
+
+Teradata znajduje zastosowanie w hurtowniach danych.
+
+Jest wykorzystywana w Business Intelligence.
+
+Jest wykorzystywana w analizie finansowej.
+
+Jest wykorzystywana w analizie sprzedaży.
+
+Jest wykorzystywana w analizie klientów.
+
+Jest wykorzystywana w projektach Big Data.
+
+Jest wykorzystywana w systemach raportowania korporacyjnego.
+
+Największą zaletą Teradata jest połączenie rozproszonej architektury MPP, bardzo wysokiej wydajności, zaawansowanego optymalizatora zapytań oraz możliwości analizowania ogromnych zbiorów danych w jednej platformie.
+
+Dzięki architekturze Shared-Nothing, równoległemu przetwarzaniu danych oraz bogatym funkcjom analitycznym Teradata od wielu lat pozostaje jednym z najważniejszych systemów wykorzystywanych do budowy hurtowni danych klasy Enterprise.
+
+Znajomość Teradata jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Business Intelligence, Big Data, administracją bazami danych, analityką danych oraz projektowaniem nowoczesnych platform analitycznych.

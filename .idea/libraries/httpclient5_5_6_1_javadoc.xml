@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="httpclient5-5.6.1-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/ApacheHttpClient/httpclient5-5.6.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

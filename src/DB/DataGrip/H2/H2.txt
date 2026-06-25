@@ -1,0 +1,171 @@
+H2 Database jest lekkim relacyjnym systemem zarządzania bazą danych napisanym w języku Java.
+
+Projekt jest rozwijany jako oprogramowanie otwartoźródłowe.
+
+H2 został zaprojektowany z myślą o prostocie, wysokiej wydajności oraz łatwej integracji z aplikacjami Java.
+
+Jest jedną z najpopularniejszych baz danych wykorzystywanych podczas nauki programowania oraz testowania aplikacji.
+
+H2 bardzo często wykorzystywany jest w projektach tworzonych przy użyciu Java.
+
+Jest szczególnie popularny w aplikacjach opartych na Spring Boot.
+
+Jedną z największych zalet H2 jest brak konieczności instalowania osobnego serwera bazodanowego.
+
+Baza danych może działać bezpośrednio wewnątrz aplikacji.
+
+Tryb ten określany jest jako Embedded Mode.
+
+W trybie Embedded baza danych działa w tym samym procesie co aplikacja.
+
+Program komunikuje się z bazą danych za pomocą biblioteki Java.
+
+Rozwiązanie to znacząco upraszcza konfigurację projektu.
+
+H2 może również działać jako klasyczny serwer bazodanowy.
+
+Tryb ten określany jest jako Server Mode.
+
+W trybie serwerowym wiele aplikacji może jednocześnie korzystać z jednej bazy danych.
+
+H2 może również pracować w trybie mieszanym.
+
+Tryb mieszany umożliwia jednoczesny dostęp lokalny oraz sieciowy do tej samej bazy danych.
+
+H2 obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą tworzyć tabele.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury.
+
+Programiści mogą korzystać z funkcji SQL.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z H2.
+
+H2 wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+H2 może przechowywać dane w pamięci operacyjnej.
+
+Tryb ten określany jest jako In-Memory Database.
+
+W tym trybie wszystkie dane przechowywane są wyłącznie w pamięci RAM.
+
+Po zakończeniu działania programu dane zostają usunięte.
+
+Rozwiązanie to jest bardzo popularne podczas testowania aplikacji.
+
+Testy wykonywane są bardzo szybko.
+
+Nie ma potrzeby instalowania ani konfigurowania zewnętrznej bazy danych.
+
+H2 może również przechowywać dane na dysku.
+
+W tym przypadku baza danych zapisywana jest w pliku.
+
+Dane pozostają dostępne również po ponownym uruchomieniu aplikacji.
+
+H2 oferuje własną konsolę administracyjną.
+
+Konsola działa w przeglądarce internetowej.
+
+Pozwala przeglądać tabele.
+
+Pozwala wykonywać zapytania SQL.
+
+Pozwala analizować strukturę bazy danych.
+
+Pozwala zarządzać zapisanymi danymi.
+
+H2 bardzo dobrze współpracuje z frameworkiem Spring Boot.
+
+Spring Boot potrafi automatycznie konfigurować połączenie z bazą H2.
+
+Podczas uruchamiania aplikacji baza danych może zostać utworzona automatycznie.
+
+Tabele mogą być tworzone automatycznie przez Hibernate.
+
+Rozwiązanie to znacząco przyspiesza rozwój aplikacji.
+
+H2 współpracuje z JPA.
+
+H2 współpracuje z Hibernate.
+
+H2 współpracuje z JDBC.
+
+H2 może być wykorzystywany w aplikacjach Java SE.
+
+H2 może być wykorzystywany w aplikacjach Java EE.
+
+H2 może być wykorzystywany w aplikacjach Spring Boot.
+
+H2 oferuje tryby zgodności z innymi bazami danych.
+
+Może emulować składnię MySQL.
+
+Może emulować składnię PostgreSQL.
+
+Może emulować składnię Oracle Database.
+
+Może emulować składnię Microsoft SQL Server.
+
+Pozwala to łatwiej testować aplikacje przeznaczone dla różnych systemów bazodanowych.
+
+H2 posiada niewielkie wymagania sprzętowe.
+
+Uruchamia się bardzo szybko.
+
+Zużywa niewielką ilość pamięci operacyjnej.
+
+Instalacja sprowadza się najczęściej do dodania jednego pliku JAR do projektu.
+
+H2 oferuje sterownik JDBC.
+
+Komunikacja z bazą danych odbywa się przy użyciu standardowego interfejsu JDBC.
+
+Programista nie musi korzystać ze specjalnych bibliotek.
+
+H2 znajduje zastosowanie podczas nauki SQL.
+
+Jest wykorzystywany podczas nauki JPA.
+
+Jest wykorzystywany podczas nauki Hibernate.
+
+Jest wykorzystywany podczas nauki Spring Boot.
+
+Jest wykorzystywany podczas testów jednostkowych.
+
+Jest wykorzystywany podczas testów integracyjnych.
+
+Jest wykorzystywany podczas tworzenia prototypów aplikacji.
+
+H2 nie jest jednak przeznaczony do obsługi bardzo dużych systemów produkcyjnych.
+
+W środowiskach produkcyjnych częściej wykorzystywane są MySQL, PostgreSQL, Oracle Database lub Microsoft SQL Server.
+
+Największą zaletą H2 jest połączenie bardzo prostej konfiguracji, wysokiej wydajności oraz pełnej integracji z ekosystemem Java.
+
+Dzięki możliwości działania w pamięci operacyjnej oraz zgodności z popularnymi frameworkami H2 znacząco ułatwia rozwój oraz testowanie aplikacji.
+
+Znajomość H2 jest szczególnie ceniona podczas nauki programowania w Javie, tworzenia aplikacji opartych na Spring Boot oraz przygotowywania testów automatycznych wykorzystujących relacyjne bazy danych.

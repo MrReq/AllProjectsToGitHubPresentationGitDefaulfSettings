@@ -1,0 +1,243 @@
+Oracle Database jest relacyjnym systemem zarządzania bazą danych klasy Enterprise.
+
+System został opracowany przez Oracle Corporation.
+
+Oracle Database należy do najbardziej zaawansowanych i najczęściej wykorzystywanych komercyjnych baz danych na świecie.
+
+Jest wykorzystywany przez największe przedsiębiorstwa, instytucje finansowe oraz organizacje rządowe.
+
+Oracle Database został zaprojektowany z myślą o bardzo wysokiej wydajności, niezawodności oraz bezpieczeństwie.
+
+Oracle Database obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Oracle Database wspiera również model obiektowo-relacyjny.
+
+Możliwe jest definiowanie własnych typów danych.
+
+Możliwe jest przechowywanie obiektów.
+
+Możliwe jest wykorzystywanie kolekcji oraz złożonych struktur danych.
+
+Oracle Database obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Programiści mogą korzystać z pakietów.
+
+Programiści mogą tworzyć własne typy danych.
+
+Znajomość SQL jest podstawą pracy z Oracle Database.
+
+Oracle Database wykorzystuje język PL/SQL.
+
+PL/SQL jest proceduralnym rozszerzeniem języka SQL opracowanym przez Oracle.
+
+PL/SQL umożliwia tworzenie złożonej logiki biznesowej bezpośrednio w bazie danych.
+
+PL/SQL wspiera zmienne.
+
+PL/SQL wspiera instrukcje warunkowe.
+
+PL/SQL wspiera pętle.
+
+PL/SQL wspiera obsługę wyjątków.
+
+PL/SQL wspiera kursory.
+
+Oracle Database wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Oracle Database wykorzystuje architekturę MVCC.
+
+MVCC oznacza Multi-Version Concurrency Control.
+
+MVCC umożliwia jednoczesne wykonywanie operacji odczytu i zapisu bez nadmiernego blokowania danych.
+
+Pozwala to zwiększyć wydajność systemu.
+
+Oracle Database oferuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Pozwala to znacząco skrócić czas wykonywania złożonych operacji.
+
+Oracle Database wspiera wiele rodzajów indeksów.
+
+Dostępne są indeksy B-tree.
+
+Dostępne są indeksy bitmapowe.
+
+Dostępne są indeksy funkcyjne.
+
+Dostępne są indeksy pełnotekstowe.
+
+Odpowiednio zaprojektowane indeksy znacząco zwiększają wydajność zapytań.
+
+Oracle Database wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to zwiększyć wydajność.
+
+Pozwala uprościć zarządzanie bardzo dużymi bazami danych.
+
+Oracle Database oferuje kompresję danych.
+
+Kompresja zmniejsza ilość zajmowanego miejsca.
+
+Kompresja może również zwiększyć wydajność analiz.
+
+Oracle Database wspiera przetwarzanie równoległe.
+
+Zapytania mogą być wykonywane jednocześnie przez wiele procesorów.
+
+Pozwala to efektywnie wykorzystywać nowoczesne serwery.
+
+Oracle Database oferuje mechanizmy wysokiej dostępności.
+
+Jednym z najważniejszych rozwiązań jest Oracle Real Application Clusters.
+
+Oracle Real Application Clusters często określany jest skrótem Oracle RAC.
+
+Oracle RAC umożliwia jednoczesną pracę wielu serwerów na jednej bazie danych.
+
+Awaria jednego serwera nie powoduje zatrzymania całego systemu.
+
+Oracle Database wspiera replikację danych.
+
+Jednym z najważniejszych rozwiązań jest Oracle Data Guard.
+
+Oracle Data Guard umożliwia tworzenie zapasowych kopii bazy danych.
+
+Oracle Data Guard wspiera automatyczne przełączanie na serwer zapasowy.
+
+Oracle Database oferuje mechanizmy tworzenia kopii zapasowych.
+
+Najważniejszym narzędziem jest Oracle Recovery Manager.
+
+Oracle Recovery Manager często określany jest skrótem RMAN.
+
+RMAN umożliwia wykonywanie pełnych kopii zapasowych.
+
+RMAN umożliwia wykonywanie kopii przyrostowych.
+
+RMAN umożliwia odtwarzanie danych po awarii.
+
+Oracle Database oferuje rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System wspiera Transparent Data Encryption.
+
+Transparent Data Encryption często oznaczane jest skrótem TDE.
+
+Oracle Database umożliwia prowadzenie audytu działań użytkowników.
+
+Oracle Database współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla języka C#.
+
+Dostępne są biblioteki dla języka Node.js.
+
+Oracle Database bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Oracle Database integruje się z wieloma produktami Oracle.
+
+Może współpracować z Oracle Application Express.
+
+Może współpracować z Oracle Analytics Cloud.
+
+Może współpracować z Oracle GoldenGate.
+
+Może współpracować z Oracle Enterprise Manager.
+
+Może współpracować z Oracle Cloud Infrastructure.
+
+Oracle Database może być uruchamiany lokalnie.
+
+Może być uruchamiany w chmurze.
+
+Może być wdrażany w kontenerach.
+
+Może być wykorzystywany w środowiskach hybrydowych.
+
+Oracle Database znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w sektorze ubezpieczeniowym.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany w ochronie zdrowia.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany w rozwiązaniach Business Intelligence.
+
+Jest wykorzystywany w systemach przetwarzających ogromne ilości danych.
+
+Największą zaletą Oracle Database jest połączenie bardzo wysokiej wydajności, rozbudowanych mechanizmów bezpieczeństwa, wysokiej dostępności oraz niezwykle bogatego zestawu funkcji przeznaczonych dla systemów klasy Enterprise.
+
+Dzięki obsłudze PL/SQL, architekturze MVCC, rozwiązaniom Oracle RAC, Oracle Data Guard oraz szerokiej integracji z ekosystemem Oracle, Oracle Database od wielu lat pozostaje jednym z najważniejszych systemów bazodanowych wykorzystywanych przez największe organizacje na świecie.
+
+Znajomość Oracle Database jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, backend development, Data Engineering, Business Intelligence, DevOps, Cloud Computing oraz projektowaniem i utrzymywaniem dużych systemów korporacyjnych.

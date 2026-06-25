@@ -1,0 +1,177 @@
+DuckDB jest relacyjnym systemem zarządzania bazą danych przeznaczonym do analizy danych.
+
+Projekt rozwijany jest jako oprogramowanie otwartoźródłowe.
+
+DuckDB został zaprojektowany z myślą o bardzo szybkiej analizie danych na pojedynczym komputerze.
+
+Jest często określany jako analityczna baza danych typu in-process.
+
+In-process oznacza, że baza danych działa bezpośrednio wewnątrz aplikacji.
+
+Nie wymaga uruchamiania osobnego serwera bazodanowego.
+
+Program komunikuje się z bazą danych za pomocą biblioteki.
+
+Rozwiązanie to upraszcza konfigurację oraz wdrażanie aplikacji.
+
+DuckDB jest często porównywany do SQLite.
+
+Oba systemy działają bez potrzeby uruchamiania osobnego serwera.
+
+Oba systemy mogą przechowywać dane w pojedynczym pliku.
+
+Najważniejsza różnica polega na przeznaczeniu obu baz danych.
+
+SQLite został zoptymalizowany głównie pod kątem aplikacji transakcyjnych.
+
+DuckDB został zoptymalizowany pod kątem analiz danych.
+
+DuckDB należy do grupy systemów OLAP.
+
+OLAP oznacza Online Analytical Processing.
+
+Systemy OLAP służą do wykonywania złożonych analiz oraz raportów.
+
+DuckDB nie został zaprojektowany jako baza danych obsługująca dużą liczbę jednoczesnych użytkowników.
+
+Najlepiej sprawdza się podczas lokalnej analizy danych.
+
+Jedną z najważniejszych cech DuckDB jest kolumnowy sposób przechowywania danych.
+
+W tradycyjnych bazach danych dane przechowywane są wierszami.
+
+DuckDB przechowuje dane kolumnami.
+
+Pozwala to odczytywać wyłącznie kolumny wykorzystywane w zapytaniu.
+
+Zmniejsza to ilość przetwarzanych danych.
+
+Znacząco zwiększa to wydajność analiz.
+
+DuckDB obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje JOIN.
+
+Programiści mogą wykonywać agregacje.
+
+Programiści mogą filtrować dane.
+
+Programiści mogą sortować wyniki.
+
+Programiści mogą korzystać z funkcji okienkowych.
+
+Programiści mogą tworzyć widoki.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z DuckDB.
+
+DuckDB został zaprojektowany z myślą o pracy z dużymi zbiorami danych.
+
+System potrafi analizować miliony rekordów bardzo szybko.
+
+Potrafi analizować dane zapisane w różnych formatach.
+
+Obsługiwane są pliki CSV.
+
+Obsługiwane są pliki JSON.
+
+Obsługiwane są pliki Parquet.
+
+Obsługiwane są pliki Arrow.
+
+DuckDB może wykonywać zapytania bezpośrednio na plikach.
+
+Nie zawsze istnieje konieczność importowania danych do bazy.
+
+Pozwala to znacząco przyspieszyć analizę danych.
+
+DuckDB bardzo dobrze współpracuje z formatem Parquet.
+
+Parquet jest jednym z najpopularniejszych formatów wykorzystywanych w środowiskach Big Data.
+
+DuckDB umożliwia analizowanie plików Parquet bez ich wcześniejszego ładowania.
+
+Pozwala to oszczędzać czas oraz miejsce na dysku.
+
+DuckDB wykorzystuje wektorowy silnik wykonywania zapytań.
+
+Wektorowe przetwarzanie polega na jednoczesnym wykonywaniu operacji na wielu rekordach.
+
+Takie podejście pozwala efektywnie wykorzystywać możliwości nowoczesnych procesorów.
+
+Dzięki temu wiele zapytań wykonywanych jest bardzo szybko.
+
+DuckDB wykorzystuje równoległe wykonywanie zapytań.
+
+Operacje mogą być realizowane przez wiele rdzeni procesora jednocześnie.
+
+Pozwala to jeszcze bardziej zwiększyć wydajność analiz.
+
+DuckDB bardzo dobrze integruje się z językiem Python.
+
+Może współpracować z biblioteką Pandas.
+
+Może współpracować z biblioteką Polars.
+
+Może współpracować z biblioteką NumPy.
+
+Może współpracować z Apache Arrow.
+
+Dzięki temu jest bardzo popularny w środowisku Data Science.
+
+DuckDB oferuje również biblioteki dla języka Java.
+
+Dostępne są biblioteki dla języka C++.
+
+Dostępne są biblioteki dla języka R.
+
+Dostępne są biblioteki dla języka Node.js.
+
+DuckDB może być wykorzystywany jako silnik analityczny w aplikacjach Java.
+
+DuckDB nie wymaga skomplikowanej konfiguracji.
+
+W wielu przypadkach wystarczy dodać jedną bibliotekę do projektu.
+
+Baza danych może zostać utworzona automatycznie podczas uruchamiania aplikacji.
+
+DuckDB wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+DuckDB znajduje zastosowanie w analizie danych.
+
+Jest wykorzystywany w projektach Business Intelligence.
+
+Jest wykorzystywany w projektach Data Science.
+
+Jest wykorzystywany podczas eksploracji danych.
+
+Jest wykorzystywany podczas przygotowywania danych do uczenia maszynowego.
+
+Jest wykorzystywany do tworzenia prototypów analiz.
+
+DuckDB bardzo dobrze współpracuje z narzędziami analitycznymi.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z Apache Arrow.
+
+Może współpracować z Pandas.
+
+Może współpracować z Polars.
+
+Największą zaletą DuckDB jest możliwość wykonywania bardzo szybkich analiz danych bez konieczności uruchamiania serwera bazodanowego.
+
+Połączenie kolumnowego modelu przechowywania danych, wysokiej wydajności oraz bardzo prostej konfiguracji sprawia, że DuckDB stał się jednym z najpopularniejszych narzędzi analitycznych ostatnich lat.
+
+Znajomość DuckDB jest szczególnie ceniona na stanowiskach związanych z Data Science, Data Engineering, Business Intelligence, analizą danych oraz tworzeniem nowoczesnych aplikacji przetwarzających duże zbiory informacji.

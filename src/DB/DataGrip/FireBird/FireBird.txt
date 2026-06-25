@@ -1,0 +1,189 @@
+Firebird jest relacyjnym systemem zarządzania bazą danych.
+
+Firebird jest udostępniany jako oprogramowanie otwartoźródłowe.
+
+Projekt rozwijany jest przez Firebird Project.
+
+Firebird powstał jako rozwinięcie systemu InterBase.
+
+InterBase został opracowany przez firmę Borland.
+
+Po udostępnieniu kodu źródłowego powstał projekt Firebird.
+
+Firebird jest rozwijany od wielu lat.
+
+System zdobył dużą popularność dzięki swojej stabilności oraz niewielkim wymaganiom sprzętowym.
+
+Firebird jest zgodny z relacyjnym modelem baz danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Relacje pomiędzy tabelami definiowane są przy użyciu kluczy głównych oraz kluczy obcych.
+
+Firebird obsługuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Firebird.
+
+Firebird wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Firebird wykorzystuje architekturę MVCC.
+
+MVCC oznacza Multi-Version Concurrency Control.
+
+MVCC pozwala wielu użytkownikom jednocześnie pracować na tych samych danych.
+
+System przechowuje wiele wersji rekordów.
+
+Czytanie danych nie blokuje ich zapisywania.
+
+Zapisywanie danych nie blokuje odczytu.
+
+Pozwala to zwiększyć wydajność pracy wielu użytkowników.
+
+Firebird może działać jako klasyczny serwer bazodanowy.
+
+Może również działać w trybie Embedded.
+
+Tryb Embedded pozwala uruchomić bazę danych bez instalowania osobnego serwera.
+
+Cała baza danych działa wtedy bezpośrednio wewnątrz aplikacji.
+
+Rozwiązanie to jest często wykorzystywane w aplikacjach desktopowych.
+
+Firebird przechowuje dane w pojedynczym pliku bazy danych.
+
+Ułatwia to wykonywanie kopii zapasowych.
+
+Ułatwia to przenoszenie aplikacji pomiędzy komputerami.
+
+Firebird oferuje mechanizmy automatycznego odzyskiwania danych po awarii.
+
+System wykorzystuje dziennik transakcji.
+
+Pozwala to zachować spójność danych nawet po nieoczekiwanym wyłączeniu komputera.
+
+Firebird wspiera indeksowanie.
+
+Indeksy znacząco przyspieszają wykonywanie zapytań.
+
+Administrator może tworzyć indeksy dla najczęściej wykorzystywanych kolumn.
+
+Firebird posiada własny optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny sposób wykonania operacji.
+
+Firebird obsługuje wiele typów danych.
+
+Możliwe jest przechowywanie liczb.
+
+Możliwe jest przechowywanie tekstu.
+
+Możliwe jest przechowywanie dat.
+
+Możliwe jest przechowywanie czasu.
+
+Możliwe jest przechowywanie danych binarnych.
+
+Firebird wspiera duże obiekty binarne.
+
+Duże obiekty binarne określane są jako BLOB.
+
+BLOB umożliwia przechowywanie obrazów.
+
+BLOB umożliwia przechowywanie dokumentów.
+
+BLOB umożliwia przechowywanie plików multimedialnych.
+
+Firebird oferuje zaawansowany system bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Administrator może kontrolować dostęp do poszczególnych tabel oraz obiektów bazy danych.
+
+Firebird współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki dla języka Java.
+
+Najczęściej wykorzystywany jest sterownik JDBC.
+
+Dostępne są również biblioteki dla języka C#.
+
+Dostępne są również biblioteki dla języka Python.
+
+Dostępne są również biblioteki dla języka Delphi.
+
+Firebird bardzo dobrze współpracuje z aplikacjami Java.
+
+Może być integrowany z Hibernate.
+
+Może być integrowany z JPA.
+
+Może być wykorzystywany w aplikacjach Spring Boot.
+
+Firebird jest szczególnie popularny w aplikacjach desktopowych.
+
+Jest często wykorzystywany w systemach księgowych.
+
+Jest często wykorzystywany w systemach magazynowych.
+
+Jest często wykorzystywany w oprogramowaniu dla małych i średnich przedsiębiorstw.
+
+Jest często wykorzystywany w systemach sprzedażowych.
+
+Jest często wykorzystywany w aplikacjach działających lokalnie.
+
+Firebird charakteryzuje się niewielkimi wymaganiami sprzętowymi.
+
+Może działać na komputerach o ograniczonych zasobach.
+
+Instalacja systemu jest stosunkowo prosta.
+
+Administracja bazą danych nie wymaga rozbudowanej infrastruktury.
+
+Firebird działa na systemie Windows.
+
+Firebird działa na systemie Linux.
+
+Firebird działa na systemie macOS.
+
+Firebird działa również na wielu innych systemach operacyjnych.
+
+Największą zaletą Firebird jest połączenie niewielkich wymagań sprzętowych, wysokiej stabilności oraz bogatej funkcjonalności relacyjnej bazy danych.
+
+Dzięki obsłudze SQL, transakcji ACID, procedur składowanych oraz trybu Embedded Firebird doskonale sprawdza się zarówno w niewielkich aplikacjach desktopowych, jak i w bardziej rozbudowanych systemach biznesowych.
+
+Znajomość Firebird jest szczególnie ceniona na stanowiskach związanych z tworzeniem aplikacji biznesowych, administracją bazami danych, programowaniem w Javie, Delphi oraz systemami wykorzystywanymi przez małe i średnie przedsiębiorstwa.

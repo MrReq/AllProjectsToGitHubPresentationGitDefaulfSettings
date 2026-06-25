@@ -1,0 +1,189 @@
+Tibero jest relacyjnym systemem zarządzania bazą danych klasy Enterprise.
+
+System został opracowany przez TmaxSoft.
+
+Tibero został zaprojektowany jako wysokowydajna baza danych dla dużych przedsiębiorstw.
+
+Jednym z głównych celów projektu było zapewnienie wysokiej zgodności z Oracle Database.
+
+Dzięki temu migracja aplikacji z Oracle do Tibero może być stosunkowo prosta.
+
+Tibero jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany w bankowości.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w ochronie zdrowia.
+
+Jest wykorzystywany w dużych przedsiębiorstwach.
+
+Tibero obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Tibero obsługuje standardowy język SQL.
+
+System wspiera również wiele rozszerzeń zgodnych z Oracle.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć funkcje.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Tibero.
+
+Tibero wspiera język PSM.
+
+System zapewnia również wysoką zgodność z językiem PL/SQL wykorzystywanym przez Oracle Database.
+
+Pozwala to przenosić wiele istniejących procedur oraz funkcji przy niewielkich zmianach.
+
+Tibero wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Tibero wykorzystuje architekturę MVCC.
+
+MVCC oznacza Multi-Version Concurrency Control.
+
+Pozwala to wielu użytkownikom jednocześnie odczytywać i modyfikować dane przy zachowaniu wysokiej wydajności.
+
+Tibero oferuje zaawansowany optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej wydajny plan wykonania.
+
+Tibero wspiera wiele rodzajów indeksów.
+
+Dostępne są indeksy B-tree.
+
+Dostępne są indeksy bitmapowe.
+
+Dostępne są indeksy funkcyjne.
+
+Odpowiedni dobór indeksów zwiększa wydajność wykonywania zapytań.
+
+Tibero wspiera partycjonowanie tabel.
+
+Partycjonowanie umożliwia podział bardzo dużych tabel na mniejsze części.
+
+Pozwala to poprawić wydajność oraz uprościć administrację.
+
+Tibero oferuje mechanizmy wysokiej dostępności.
+
+Możliwe jest tworzenie klastrów.
+
+Możliwa jest replikacja danych.
+
+Możliwe jest automatyczne przełączanie na serwer zapasowy.
+
+Rozwiązania te zwiększają niezawodność systemu.
+
+Tibero wspiera tworzenie kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest wykonywanie kopii przyrostowych.
+
+Możliwe jest odtwarzanie danych po awarii.
+
+Tibero oferuje zaawansowane mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+System umożliwia prowadzenie audytu działań użytkowników.
+
+Tibero współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka Python.
+
+Dostępne są biblioteki dla platformy .NET.
+
+Dostępne są biblioteki dla języka C.
+
+Tibero bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z Hibernate.
+
+Może współpracować z JPA.
+
+Może współpracować ze Spring Boot.
+
+Tibero integruje się z wieloma narzędziami analitycznymi.
+
+Może współpracować z Tableau.
+
+Może współpracować z Power BI.
+
+Może współpracować z Apache Spark.
+
+Może współpracować z narzędziami ETL.
+
+Tibero może być uruchamiany lokalnie.
+
+Może być wdrażany w środowiskach chmurowych.
+
+Może być wykorzystywany w środowiskach hybrydowych.
+
+Platforma wspiera nowoczesne środowiska wirtualizacji.
+
+Tibero znajduje zastosowanie w bankowości.
+
+Jest wykorzystywany w administracji publicznej.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany w ochronie zdrowia.
+
+Jest wykorzystywany w systemach ERP.
+
+Jest wykorzystywany w dużych systemach biznesowych.
+
+Największą zaletą Tibero jest wysoka zgodność z Oracle Database, bardzo dobra wydajność, rozbudowane mechanizmy wysokiej dostępności oraz niższe koszty wdrożenia w porównaniu z niektórymi komercyjnymi rozwiązaniami klasy Enterprise.
+
+Dzięki zgodności z SQL, obsłudze PL/SQL, architekturze MVCC oraz bogatym funkcjom administracyjnym Tibero stanowi atrakcyjną alternatywę dla organizacji poszukujących wydajnej relacyjnej bazy danych klasy Enterprise.
+
+Znajomość Tibero jest szczególnie ceniona na stanowiskach związanych z administracją bazami danych, backend development, migracją systemów Oracle, Data Engineering oraz projektowaniem i utrzymywaniem dużych systemów korporacyjnych.

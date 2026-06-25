@@ -1,0 +1,169 @@
+Mimer SQL jest relacyjnym systemem zarządzania bazą danych rozwijanym przez Mimer Information Technology AB.
+
+Mimer SQL jest jednym z najstarszych komercyjnych systemów bazodanowych rozwijanych do dziś.
+
+Projekt rozpoczął się w latach siedemdziesiątych XX wieku.
+
+System został zaprojektowany z myślą o pełnej zgodności ze standardem SQL.
+
+Mimer SQL jest wykorzystywany zarówno w systemach wbudowanych, jak i w aplikacjach klasy Enterprise.
+
+Szczególną popularność zdobył w sektorze telekomunikacyjnym.
+
+Jest również wykorzystywany w przemyśle.
+
+Jest wykorzystywany w systemach transportowych.
+
+Jest wykorzystywany w rozwiązaniach Internetu Rzeczy.
+
+Mimer SQL obsługuje relacyjny model danych.
+
+Dane przechowywane są w tabelach.
+
+Tabele składają się z wierszy oraz kolumn.
+
+Możliwe jest definiowanie kluczy głównych.
+
+Możliwe jest definiowanie kluczy obcych.
+
+Możliwe jest tworzenie relacji pomiędzy tabelami.
+
+Mimer SQL został zaprojektowany zgodnie z międzynarodowymi standardami SQL.
+
+System obsługuje znaczną część standardów ANSI SQL oraz ISO SQL.
+
+Dzięki temu aplikacje mogą być łatwiej przenoszone pomiędzy różnymi systemami bazodanowymi.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą wykonywać operacje INSERT.
+
+Programiści mogą wykonywać operacje UPDATE.
+
+Programiści mogą wykonywać operacje DELETE.
+
+Programiści mogą korzystać z operacji JOIN.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą tworzyć indeksy.
+
+Programiści mogą tworzyć procedury składowane.
+
+Programiści mogą tworzyć wyzwalacze.
+
+Programiści mogą tworzyć funkcje.
+
+Znajomość SQL pozwala bardzo szybko rozpocząć pracę z Mimer SQL.
+
+Mimer SQL wspiera transakcje.
+
+System jest zgodny z właściwościami ACID.
+
+Atomicity oznacza niepodzielność transakcji.
+
+Consistency oznacza zachowanie spójności danych.
+
+Isolation oznacza izolację równocześnie wykonywanych transakcji.
+
+Durability oznacza trwałość zapisanych danych.
+
+Mimer SQL wykorzystuje mechanizmy wielowersyjnej kontroli współbieżności.
+
+Pozwala to wielu użytkownikom jednocześnie korzystać z bazy danych.
+
+Operacje odczytu oraz zapisu mogą być wykonywane równolegle.
+
+Zmniejsza to liczbę blokad.
+
+Pozwala zwiększyć wydajność systemu.
+
+Mimer SQL posiada własny optymalizator zapytań.
+
+Optymalizator analizuje strukturę zapytania.
+
+Na tej podstawie wybierany jest najbardziej efektywny plan wykonania.
+
+Pozwala to skrócić czas wykonywania złożonych operacji.
+
+Mimer SQL wspiera indeksowanie.
+
+Indeksy przyspieszają wykonywanie zapytań.
+
+Administrator może tworzyć indeksy dla najczęściej wykorzystywanych kolumn.
+
+Mimer SQL oferuje mechanizmy bezpieczeństwa.
+
+Możliwe jest definiowanie użytkowników.
+
+Możliwe jest definiowanie ról.
+
+Możliwe jest zarządzanie uprawnieniami.
+
+Administrator może kontrolować dostęp do poszczególnych tabel oraz obiektów bazy danych.
+
+System umożliwia uwierzytelnianie użytkowników.
+
+Mimer SQL może pracować na wielu systemach operacyjnych.
+
+Obsługiwany jest system Windows.
+
+Obsługiwany jest system Linux.
+
+Obsługiwane są również wybrane systemy UNIX.
+
+Mimer SQL jest również dostępny dla wielu platform wbudowanych.
+
+Dzięki temu często wykorzystywany jest w urządzeniach przemysłowych.
+
+Mimer SQL charakteryzuje się niewielkimi wymaganiami sprzętowymi.
+
+Może pracować na urządzeniach posiadających ograniczoną ilość pamięci.
+
+Pozwala to wykorzystywać bazę danych w systemach Embedded.
+
+Mimer SQL współpracuje z wieloma językami programowania.
+
+Dostępne są sterowniki JDBC dla języka Java.
+
+Dostępne są sterowniki ODBC.
+
+Dostępne są biblioteki dla języka C.
+
+Dostępne są biblioteki dla języka C++.
+
+Dostępne są biblioteki dla języka Python.
+
+Mimer SQL bardzo dobrze współpracuje z aplikacjami Java.
+
+Może współpracować z JDBC.
+
+Może współpracować z Hibernate po odpowiedniej konfiguracji.
+
+Może być wykorzystywany w aplikacjach serwerowych oraz desktopowych.
+
+Mimer SQL oferuje mechanizmy tworzenia kopii zapasowych.
+
+Możliwe jest wykonywanie pełnych kopii danych.
+
+Możliwe jest odtwarzanie bazy danych po awarii.
+
+System zapewnia wysoką niezawodność działania.
+
+Mimer SQL znajduje zastosowanie w telekomunikacji.
+
+Jest wykorzystywany w przemyśle.
+
+Jest wykorzystywany w systemach transportowych.
+
+Jest wykorzystywany w urządzeniach medycznych.
+
+Jest wykorzystywany w rozwiązaniach Internetu Rzeczy.
+
+Jest wykorzystywany wszędzie tam, gdzie wymagana jest wysoka stabilność oraz zgodność ze standardami SQL.
+
+Największą zaletą Mimer SQL jest bardzo wysoka zgodność ze standardem SQL, niewielkie wymagania sprzętowe oraz możliwość pracy zarówno w systemach klasy Enterprise, jak i na urządzeniach wbudowanych.
+
+Dzięki wieloletniemu rozwojowi, wysokiej niezawodności oraz przenośności Mimer SQL pozostaje interesującym rozwiązaniem dla projektów wymagających stabilnego i zgodnego ze standardami systemu relacyjnej bazy danych.
+
+Znajomość Mimer SQL jest szczególnie przydatna na stanowiskach związanych z systemami wbudowanymi, programowaniem w języku Java i C++, administracją bazami danych oraz projektowaniem specjalistycznych systemów przemysłowych i telekomunikacyjnych.

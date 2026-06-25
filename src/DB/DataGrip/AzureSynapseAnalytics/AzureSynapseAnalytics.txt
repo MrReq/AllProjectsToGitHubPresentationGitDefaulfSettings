@@ -1,0 +1,191 @@
+Azure Synapse Analytics jest usługą analityczną dostępną w chmurze Microsoft Azure.
+
+Usługa została stworzona przez [Microsoft Azure](https://azure.microsoft.com/products/synapse-analytics?utm_source=chatgpt.com).
+
+Azure Synapse Analytics jest platformą przeznaczoną do przechowywania, przetwarzania oraz analizowania bardzo dużych zbiorów danych.
+
+Usługa łączy funkcje hurtowni danych, platformy Big Data oraz narzędzi analitycznych.
+
+Azure Synapse Analytics został zaprojektowany z myślą o organizacjach przetwarzających ogromne ilości informacji.
+
+Jest często wykorzystywany w projektach Business Intelligence.
+
+Jest często wykorzystywany w projektach Big Data.
+
+Jest często wykorzystywany przez Data Engineerów.
+
+Jest często wykorzystywany przez Data Scientistów.
+
+Jest często wykorzystywany przez analityków danych.
+
+Azure Synapse Analytics jest następcą usługi Azure SQL Data Warehouse.
+
+Nowa platforma rozszerzyła możliwości klasycznej hurtowni danych o dodatkowe funkcje analityczne.
+
+Jednym z głównych elementów Azure Synapse Analytics jest hurtownia danych.
+
+Hurtownia danych służy do przechowywania danych historycznych pochodzących z wielu różnych systemów.
+
+Dane mogą pochodzić z baz danych.
+
+Dane mogą pochodzić z aplikacji biznesowych.
+
+Dane mogą pochodzić z systemów ERP.
+
+Dane mogą pochodzić z systemów CRM.
+
+Dane mogą pochodzić z urządzeń IoT.
+
+Dane mogą pochodzić z logów aplikacyjnych.
+
+Azure Synapse Analytics umożliwia analizowanie wszystkich tych danych w jednym miejscu.
+
+Platforma wykorzystuje standardowy język SQL.
+
+Programiści mogą wykonywać zapytania SELECT.
+
+Programiści mogą tworzyć widoki.
+
+Programiści mogą wykonywać operacje agregacji.
+
+Programiści mogą wykonywać operacje JOIN.
+
+Znajomość SQL pozwala szybko rozpocząć pracę z platformą.
+
+Azure Synapse Analytics oferuje dwa główne modele wykonywania zapytań.
+
+Pierwszym z nich jest Dedicated SQL Pool.
+
+Dedicated SQL Pool udostępnia dedykowane zasoby obliczeniowe.
+
+Rozwiązanie to zapewnia wysoką wydajność przy stałym obciążeniu.
+
+Drugim modelem jest Serverless SQL Pool.
+
+Serverless SQL Pool nie wymaga wcześniejszego tworzenia infrastruktury.
+
+Zapytania wykonywane są wyłącznie wtedy, gdy są potrzebne.
+
+Użytkownik płaci jedynie za ilość przetworzonych danych.
+
+Model Serverless jest szczególnie przydatny podczas okazjonalnej analizy danych.
+
+Azure Synapse Analytics bardzo dobrze współpracuje z Data Lake.
+
+Najczęściej wykorzystywana jest usługa Azure Data Lake Storage.
+
+Data Lake umożliwia przechowywanie ogromnych ilości danych w różnych formatach.
+
+Dane nie muszą być wcześniej przekształcane do postaci relacyjnej.
+
+Platforma może analizować dane bezpośrednio z Data Lake.
+
+Takie podejście pozwala ograniczyć czas przygotowania danych.
+
+Azure Synapse Analytics integruje się z Apache Spark.
+
+Platforma umożliwia uruchamianie klastrów Apache Spark.
+
+Spark wykorzystywany jest do przetwarzania dużych zbiorów danych.
+
+Spark umożliwia wykonywanie analiz statystycznych.
+
+Spark umożliwia przygotowywanie danych do uczenia maszynowego.
+
+Spark umożliwia przetwarzanie danych zapisanych w wielu różnych formatach.
+
+Azure Synapse Analytics oferuje środowisko Notebook.
+
+Notebook umożliwia łączenie kodu, dokumentacji oraz wyników analiz w jednym miejscu.
+
+Notebooki mogą wykorzystywać język Python.
+
+Notebooki mogą wykorzystywać język Scala.
+
+Notebooki mogą wykorzystywać język SQL.
+
+Notebooki są często wykorzystywane podczas analiz danych oraz eksperymentów.
+
+Azure Synapse Analytics posiada wbudowane narzędzia ETL.
+
+ETL oznacza Extract, Transform, Load.
+
+Proces ETL polega na pobraniu danych.
+
+Następnie dane są przekształcane.
+
+Na końcu dane są ładowane do hurtowni danych.
+
+Platforma umożliwia tworzenie graficznych pipeline'ów.
+
+Pipeline określa kolejność wykonywania poszczególnych operacji.
+
+Pipeline może automatycznie pobierać dane z wielu źródeł.
+
+Pipeline może automatycznie przekształcać dane.
+
+Pipeline może automatycznie ładować dane do hurtowni.
+
+Azure Synapse Analytics integruje się z wieloma usługami Microsoft Azure.
+
+Może współpracować z Azure SQL Database.
+
+Może współpracować z Azure Data Factory.
+
+Może współpracować z Azure Machine Learning.
+
+Może współpracować z Power BI.
+
+Power BI umożliwia tworzenie interaktywnych raportów oraz dashboardów.
+
+Azure Synapse Analytics wspiera analizę danych w czasie zbliżonym do rzeczywistego.
+
+Platforma umożliwia analizowanie danych napływających z różnych źródeł.
+
+Rozwiązanie to znajduje zastosowanie między innymi w monitorowaniu infrastruktury oraz analizie zdarzeń.
+
+Azure Synapse Analytics zapewnia zaawansowane mechanizmy bezpieczeństwa.
+
+Dane mogą być szyfrowane podczas przechowywania.
+
+Dane mogą być szyfrowane podczas przesyłania przez sieć.
+
+Platforma integruje się z Microsoft Entra ID.
+
+Możliwe jest zarządzanie użytkownikami oraz uprawnieniami.
+
+Platforma integruje się z Azure Monitor.
+
+Administrator może monitorować wydajność wykonywanych zapytań.
+
+Administrator może monitorować wykorzystanie zasobów.
+
+Administrator może analizować działanie pipeline'ów.
+
+Azure Synapse Analytics obsługuje wiele formatów danych.
+
+Platforma może przetwarzać pliki CSV.
+
+Platforma może przetwarzać pliki JSON.
+
+Platforma może przetwarzać pliki Parquet.
+
+Platforma może przetwarzać pliki ORC.
+
+Platforma może przetwarzać dane zapisane w relacyjnych bazach danych.
+
+Azure Synapse Analytics jest często wykorzystywany w sektorze finansowym.
+
+Jest wykorzystywany w handlu elektronicznym.
+
+Jest wykorzystywany w sektorze medycznym.
+
+Jest wykorzystywany w telekomunikacji.
+
+Jest wykorzystywany wszędzie tam, gdzie analizowane są bardzo duże ilości danych.
+
+Największą zaletą Azure Synapse Analytics jest połączenie hurtowni danych, platformy Big Data, silnika Apache Spark oraz narzędzi ETL w jednym zintegrowanym środowisku.
+
+Pozwala to budować kompletne rozwiązania analityczne bez konieczności korzystania z wielu niezależnych narzędzi.
+
+Znajomość Azure Synapse Analytics jest szczególnie ceniona na stanowiskach związanych z Data Engineering, Data Analytics, Business Intelligence, Big Data, Machine Learning oraz Cloud Computing.
