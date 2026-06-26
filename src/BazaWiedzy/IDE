@@ -1,13 +1,137 @@
-IDE, czyli Integrated Development Environment, jest środowiskiem programistycznym wspomagającym tworzenie aplikacji.
+IDE jest skrótem od Integrated Development Environment.
 
-Oferuje edycję kodu.
+W języku polskim oznacza Zintegrowane Środowisko Programistyczne.
 
-Oferuje podpowiedzi składni.
+IDE jest programem przeznaczonym do tworzenia, testowania oraz uruchamiania aplikacji.
 
-Oferuje debugowanie aplikacji.
+IDE łączy wiele narzędzi programistycznych w jednym miejscu.
 
-Oferuje integrację z systemami kontroli wersji.
+Dzięki temu programista nie musi korzystać z wielu oddzielnych aplikacji.
 
-Oferuje automatyczną refaktoryzację kodu.
+IDE znacząco przyspiesza proces tworzenia oprogramowania.
 
-Przykładem IDE jest IntelliJ IDEA.
+IDE poprawia czytelność kodu.
+
+IDE ułatwia wykrywanie błędów.
+
+IDE automatyzuje wiele codziennych czynności programisty.
+
+Podstawowym elementem każdego IDE jest edytor kodu.
+
+Edytor umożliwia tworzenie oraz modyfikowanie plików źródłowych.
+
+Nowoczesne IDE oferują kolorowanie składni.
+
+Kolorowanie składni ułatwia czytanie kodu.
+
+IDE automatycznie podpowiada kod.
+
+Mechanizm ten nazywany jest Code Completion lub IntelliSense.
+
+Podpowiedzi uwzględniają typy danych, metody, klasy oraz dokumentację.
+
+IDE automatycznie wykrywa błędy składniowe.
+
+Błędy są zaznaczane już podczas pisania kodu.
+
+IDE oferuje mechanizm Refactoring.
+
+Refaktoryzacja umożliwia zmianę struktury kodu bez zmiany jego działania.
+
+Najczęściej wykorzystywane operacje refaktoryzacji to: Rename, Extract Method, Extract Variable, Extract Interface, Move Class, Change Signature oraz Inline.
+
+IDE umożliwia automatyczne formatowanie kodu.
+
+Kod zostaje uporządkowany zgodnie z ustalonym stylem.
+
+IDE posiada debugger.
+
+Debugger umożliwia analizowanie działania programu krok po kroku.
+
+Programista może zatrzymywać wykonywanie programu.
+
+Miejsca zatrzymania nazywane są Breakpointami.
+
+Debugger umożliwia podgląd wartości zmiennych.
+
+Debugger umożliwia analizowanie stosu wywołań.
+
+Debugger umożliwia wykonywanie programu linia po linii.
+
+IDE umożliwia kompilowanie projektu.
+
+IDE umożliwia uruchamianie aplikacji.
+
+IDE umożliwia wykonywanie testów jednostkowych.
+
+IDE integruje się z systemami kontroli wersji.
+
+Najczęściej wykorzystywane systemy to: Git, GitHub, GitLab oraz Bitbucket.
+
+IDE współpracuje z systemami budowania projektów.
+
+Najczęściej wykorzystywane Build Systemy to: Maven, Gradle, Ant, CMake oraz MSBuild.
+
+IDE umożliwia zarządzanie zależnościami projektu.
+
+IDE automatycznie pobiera wymagane biblioteki.
+
+IDE współpracuje z bazami danych.
+
+Programista może wykonywać zapytania SQL bez opuszczania środowiska.
+
+IDE umożliwia projektowanie interfejsów graficznych.
+
+Niektóre środowiska oferują graficzne kreatory formularzy.
+
+IDE obsługuje wiele języków programowania.
+
+Najczęściej spotykane języki to: Java, C, C++, C#, Python, JavaScript, TypeScript, Kotlin, Go, Rust, PHP oraz SQL.
+
+IDE może obsługiwać wiele frameworków.
+
+Najczęściej spotykane frameworki to: Spring Boot, Jakarta EE, ASP.NET Core, Angular, React, Vue, Django oraz Flask.
+
+IDE umożliwia instalowanie rozszerzeń.
+
+Rozszerzenia zwiększają możliwości środowiska.
+
+IDE współpracuje z Dockerem.
+
+IDE współpracuje z Kubernetes.
+
+IDE współpracuje z platformami chmurowymi.
+
+IDE może integrować się z narzędziami CI/CD.
+
+Najpopularniejsze środowiska IDE to: IntelliJ IDEA, Eclipse IDE, Apache NetBeans, Visual Studio, Visual Studio Code, PyCharm, WebStorm, CLion, Rider, Android Studio oraz Xcode.
+
+Każde IDE jest zwykle wyspecjalizowane w określonych technologiach.
+
+IntelliJ IDEA jest szczególnie popularne w programowaniu Java i Kotlin.
+
+Visual Studio jest najczęściej wykorzystywane do tworzenia aplikacji w C#, .NET oraz C++.
+
+PyCharm jest przeznaczone głównie do programowania w Pythonie.
+
+CLion specjalizuje się w językach C oraz C++.
+
+WebStorm jest przeznaczone do tworzenia aplikacji JavaScript oraz TypeScript.
+
+Android Studio służy do tworzenia aplikacji na system Android.
+
+Xcode jest oficjalnym środowiskiem do tworzenia aplikacji dla systemów Apple.
+
+Nowoczesne IDE wykorzystują sztuczną inteligencję do wspomagania programowania.
+
+AI może generować fragmenty kodu.
+
+AI może proponować poprawki.
+
+AI może wykrywać potencjalne błędy.
+
+AI może tworzyć dokumentację.
+
+Największą zaletą IDE jest połączenie edytora kodu, kompilatora, debuggera, narzędzi do testowania, systemów budowania projektów oraz integracji z kontrolą wersji w jednym środowisku.
+
+Znajomość pracy z IDE jest jedną z podstawowych umiejętności każdego programisty niezależnie od używanego języka programowania lub technologii.

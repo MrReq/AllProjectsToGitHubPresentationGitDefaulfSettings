@@ -1,9 +1,367 @@
-Class, czyli klasa, jest podstawowym elementem programowania obiektowego w Javie.
+Klasa jest jednym z podstawowych elementów programowania obiektowego w języku Java.
 
-Stanowi szablon definiujący strukturę oraz zachowanie obiektów.
+Klasa stanowi szablon służący do tworzenia obiektów.
 
-Klasa może zawierać pola przechowujące dane.
+Na podstawie jednej klasy można utworzyć dowolną liczbę obiektów.
 
-Może zawierać metody realizujące operacje.
+Klasa opisuje, jakie dane oraz jakie zachowania będą posiadały tworzone obiekty.
 
-Może również posiadać konstruktory służące do tworzenia nowych obiektów.
+Klasa składa się z pól, metod, konstruktorów oraz bloków inicjalizacyjnych.
+
+Klasa może również zawierać klasy wewnętrzne, rekordy, enumy oraz interfejsy.
+
+Każda klasa posiada nazwę.
+
+Nazwy klas zgodnie z konwencją zapisuje się w stylu PascalCase.
+
+Przykład.
+
+```java
+public class Person {
+
+}
+```
+
+Słowo kluczowe `class` służy do definiowania klasy.
+
+Przykład.
+
+```java
+class Car {
+
+}
+```
+
+Klasa może posiadać modyfikatory dostępu.
+
+Najczęściej wykorzystywane to: `public`, `protected`, `private` (dla klas wewnętrznych) oraz brak modyfikatora oznaczający package-private.
+
+Klasa może posiadać również inne modyfikatory.
+
+Najczęściej spotykane to: `abstract`, `final`, `sealed`, `non-sealed` oraz `strictfp`.
+
+Klasa składa się z pól.
+
+Pola przechowują dane obiektu.
+
+Przykład.
+
+```java
+public class Person {
+
+    String name;
+
+    int age;
+
+}
+```
+
+Klasa składa się z metod.
+
+Metody opisują zachowanie obiektu.
+
+Przykład.
+
+```java
+public class Person {
+
+    void sayHello() {
+        System.out.println("Hello");
+    }
+
+}
+```
+
+Klasa może posiadać konstruktory.
+
+Konstruktor służy do tworzenia oraz inicjalizacji obiektu.
+
+Przykład.
+
+```java
+public class Person {
+
+    Person() {
+
+    }
+
+}
+```
+
+Klasa może posiadać wiele konstruktorów.
+
+Takie zjawisko nazywa się przeciążaniem konstruktorów.
+
+Przykład.
+
+```java
+public class Person {
+
+    Person() {
+
+    }
+
+    Person(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
+}
+```
+
+Obiekt tworzony jest za pomocą słowa kluczowego `new`.
+
+Przykład.
+
+```java
+Person person = new Person();
+```
+
+Każdy utworzony obiekt zajmuje miejsce w pamięci Heap.
+
+Referencja do obiektu przechowywana jest zazwyczaj na stosie.
+
+Klasa może posiadać pola instancyjne.
+
+Każdy obiekt posiada własną kopię takich pól.
+
+Przykład.
+
+```java
+public class Person {
+
+    String name;
+
+}
+```
+
+Klasa może posiadać pola statyczne.
+
+Pola statyczne są wspólne dla wszystkich obiektów.
+
+Przykład.
+
+```java
+public class Person {
+
+    static int counter;
+
+}
+```
+
+Klasa może posiadać metody statyczne.
+
+Metody statyczne wywoływane są bez tworzenia obiektu.
+
+Przykład.
+
+```java
+public class MathUtil {
+
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+}
+```
+
+Wywołanie.
+
+```java
+int result = MathUtil.add(2, 3);
+```
+
+Klasa może posiadać stałe.
+
+Stałe oznaczane są słowami `static final`.
+
+Przykład.
+
+```java
+public class Config {
+
+    public static final double PI = 3.14159;
+
+}
+```
+
+Klasa może dziedziczyć po innej klasie.
+
+Do dziedziczenia wykorzystuje się słowo `extends`.
+
+Przykład.
+
+```java
+class Animal {
+
+}
+
+class Dog extends Animal {
+
+}
+```
+
+Klasa może implementować interfejsy.
+
+Do tego celu wykorzystuje się słowo `implements`.
+
+Przykład.
+
+```java
+interface Flyable {
+
+    void fly();
+
+}
+
+class Bird implements Flyable {
+
+    @Override
+    public void fly() {
+
+    }
+
+}
+```
+
+Klasa może być abstrakcyjna.
+
+Klasy abstrakcyjne oznacza się słowem `abstract`.
+
+Nie można tworzyć ich obiektów.
+
+Przykład.
+
+```java
+abstract class Animal {
+
+    abstract void makeSound();
+
+}
+```
+
+Klasa może być final.
+
+Klasy final nie można dziedziczyć.
+
+Przykład.
+
+```java
+final class Constants {
+
+}
+```
+
+Klasa może być sealed.
+
+Klasy sealed ograniczają możliwość dziedziczenia.
+
+Przykład.
+
+```java
+public sealed class Shape
+        permits Circle, Square {
+
+}
+```
+
+Klasa może być non-sealed.
+
+Pozwala to ponownie otworzyć możliwość dalszego dziedziczenia.
+
+Przykład.
+
+```java
+public non-sealed class Circle extends Shape {
+
+}
+```
+
+Klasa może być zagnieżdżona.
+
+Najczęściej spotykane rodzaje klas zagnieżdżonych to: Inner Class, Static Nested Class, Local Class oraz Anonymous Class.
+
+Przykład klasy wewnętrznej.
+
+```java
+class Outer {
+
+    class Inner {
+
+    }
+
+}
+```
+
+Klasa może być generyczna.
+
+Pozwala to pracować z różnymi typami danych.
+
+Przykład.
+
+```java
+public class Box<T> {
+
+    private T value;
+
+}
+```
+
+Klasa może implementować wiele interfejsów.
+
+Przykład.
+
+```java
+class Duck implements Flyable, Swimmable {
+
+}
+```
+
+Każda klasa w Javie dziedziczy po klasie `Object`.
+
+Oznacza to, że wszystkie klasy posiadają podstawowe metody odziedziczone z klasy Object.
+
+Najważniejsze metody klasy `Object` to: `toString()`, `equals()`, `hashCode()`, `getClass()`, `clone()`, `wait()`, `notify()`, `notifyAll()` oraz `finalize()`.
+
+Każda klasa posiada domyślny konstruktor.
+
+Kompilator tworzy go automatycznie tylko wtedy, gdy programista nie zdefiniował żadnego własnego konstruktora.
+
+Klasy mogą być umieszczane w pakietach.
+
+Każdy plik `.java` może zawierać jedną publiczną klasę.
+
+Nazwa pliku musi być zgodna z nazwą publicznej klasy.
+
+Przykład.
+
+```text
+Person.java
+```
+
+```java
+public class Person {
+
+}
+```
+
+Klasy współpracują z mechanizmem Reflection.
+
+Reflection umożliwia analizowanie klas podczas działania programu.
+
+Przykład.
+
+```java
+Class<?> clazz = Person.class;
+
+System.out.println(clazz.getName());
+```
+
+Klasy są podstawą programowania obiektowego.
+
+Na ich podstawie budowane są wszystkie aplikacje Java.
+
+Frameworki takie jak Spring Boot, Hibernate czy JavaFX opierają swoje działanie na klasach oraz ich wzajemnych zależnościach.
+
+Znajomość klas jest absolutnie niezbędna do nauki dziedziczenia, polimorfizmu, hermetyzacji, interfejsów, generyków, refleksji oraz wszystkich nowoczesnych frameworków wykorzystywanych w ekosystemie Java.

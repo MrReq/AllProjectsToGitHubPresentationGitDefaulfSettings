@@ -1,7 +1,469 @@
-Package jest mechanizmem organizacji kodu w Javie.
+Pakiet w języku Java jest mechanizmem służącym do organizowania klas, interfejsów, rekordów, enumów, adnotacji oraz innych elementów programu.
 
-Służy do grupowania powiązanych klas, interfejsów, rekordów, enumów oraz adnotacji.
+Pakiety pełnią podobną rolę jak foldery w systemie operacyjnym.
 
-Dzięki pakietom projekt jest uporządkowany.
+Ich głównym zadaniem jest porządkowanie kodu źródłowego.
 
-Ułatwiają zarządzanie zależnościami oraz zapobiegają konfliktom nazw pomiędzy elementami aplikacji.
+Pakiety ułatwiają zarządzanie dużymi projektami.
+
+Pakiety zmniejszają ryzyko konfliktów nazw pomiędzy klasami.
+
+Pakiety umożliwiają logiczny podział aplikacji.
+
+Pakiety zwiększają czytelność kodu.
+
+Pakiety poprawiają jego utrzymywalność.
+
+Każdy plik Java może należeć tylko do jednego pakietu.
+
+Deklaracja pakietu znajduje się zawsze na początku pliku źródłowego.
+
+Deklaracja pakietu poprzedza wszystkie importy.
+
+Przykład deklaracji pakietu wygląda następująco.
+
+```java
+package com.company.project.model;
+```
+
+Jeżeli plik nie zawiera deklaracji package, należy do pakietu domyślnego.
+
+Pakiet domyślny nazywany jest Default Package.
+
+Nie zaleca się używania pakietu domyślnego w profesjonalnych projektach.
+
+Pakiety tworzą hierarchię.
+
+Hierarchia zapisywana jest przy użyciu kropek.
+
+Każda kropka odpowiada kolejnemu katalogowi.
+
+Przykład.
+
+```text
+com.company.project.model
+```
+
+Odpowiada strukturze katalogów.
+
+```text
+com
+ └── company
+      └── project
+           └── model
+```
+
+Nazwy pakietów zgodnie z konwencją zapisuje się małymi literami.
+
+Nie stosuje się wielkich liter.
+
+Nie stosuje się spacji.
+
+Nie stosuje się znaków specjalnych.
+
+Najczęściej wykorzystuje się odwrotną nazwę domeny internetowej.
+
+Przykład.
+
+```text
+pl.pjatk.student.project
+```
+
+lub
+
+```text
+com.google.gson
+```
+
+Takie nazewnictwo gwarantuje unikalność pakietów.
+
+Pakiety mogą zawierać klasy.
+
+Pakiety mogą zawierać interfejsy.
+
+Pakiety mogą zawierać rekordy.
+
+Pakiety mogą zawierać enumy.
+
+Pakiety mogą zawierać adnotacje.
+
+Pakiety mogą zawierać podpakiety.
+
+Podpakiety są niezależnymi pakietami.
+
+Pakiet parent nie ma automatycznego dostępu do elementów podpakietu.
+
+Podpakiet również nie ma automatycznego dostępu do pakietu nadrzędnego.
+
+Przykład.
+
+```text
+com.company
+com.company.model
+```
+
+Są to dwa różne pakiety.
+
+Pakiety wykorzystują mechanizm importowania klas.
+
+Import umożliwia korzystanie z klas znajdujących się w innych pakietach.
+
+Przykład.
+
+```java
+import java.util.ArrayList;
+```
+
+Możliwe jest również importowanie wszystkich klas z danego pakietu.
+
+```java
+import java.util.*;
+```
+
+Import z gwiazdką nie importuje podpakietów.
+
+Importowane są jedynie klasy znajdujące się bezpośrednio w danym pakiecie.
+
+Import nie powoduje kopiowania klasy.
+
+Import jedynie informuje kompilator, gdzie znajduje się dana klasa.
+
+Możliwe jest korzystanie z pełnej nazwy klasy.
+
+Przykład.
+
+```java
+java.util.ArrayList<String> list = new java.util.ArrayList<>();
+```
+
+W takim przypadku import nie jest potrzebny.
+
+Najważniejszym pakietem języka Java jest java.lang.
+
+Pakiet java.lang importowany jest automatycznie.
+
+Nie trzeba go importować ręcznie.
+
+Znajdują się w nim podstawowe klasy języka.
+
+Do najważniejszych należą.
+
+String.
+
+Object.
+
+System.
+
+Math.
+
+Thread.
+
+Exception.
+
+RuntimeException.
+
+Integer.
+
+Double.
+
+Boolean.
+
+Character.
+
+Pakiet java.util zawiera klasy narzędziowe.
+
+Znajdują się tam kolekcje.
+
+List.
+
+Set.
+
+Map.
+
+ArrayList.
+
+LinkedList.
+
+HashMap.
+
+HashSet.
+
+TreeMap.
+
+TreeSet.
+
+Scanner.
+
+Random.
+
+Optional.
+
+UUID.
+
+Date.
+
+Timer.
+
+Comparator.
+
+Collections.
+
+Pakiet java.io odpowiada za operacje wejścia i wyjścia.
+
+Znajdują się tam klasy.
+
+File.
+
+InputStream.
+
+OutputStream.
+
+Reader.
+
+Writer.
+
+BufferedReader.
+
+BufferedWriter.
+
+PrintWriter.
+
+Pakiet java.nio rozszerza możliwości pracy z plikami.
+
+Udostępnia nowoczesne API wejścia i wyjścia.
+
+Najczęściej wykorzystywane klasy to.
+
+Files.
+
+Path.
+
+Paths.
+
+FileChannel.
+
+ByteBuffer.
+
+Pakiet java.net odpowiada za komunikację sieciową.
+
+Zawiera klasy.
+
+URL.
+
+URI.
+
+Socket.
+
+ServerSocket.
+
+HttpURLConnection.
+
+InetAddress.
+
+Pakiet java.sql umożliwia komunikację z bazami danych.
+
+Najważniejsze klasy to.
+
+Connection.
+
+Statement.
+
+PreparedStatement.
+
+CallableStatement.
+
+ResultSet.
+
+DriverManager.
+
+SQLException.
+
+Pakiet javax.swing zawiera komponenty graficzne Swing.
+
+Znajdują się tam klasy.
+
+JFrame.
+
+JPanel.
+
+JButton.
+
+JLabel.
+
+JTextField.
+
+JTable.
+
+JList.
+
+JTree.
+
+JMenu.
+
+JDialog.
+
+Pakiet java.awt zawiera podstawowe komponenty graficzne.
+
+Zawiera również klasy odpowiedzialne za rysowanie.
+
+Najczęściej wykorzystywane klasy to.
+
+Graphics.
+
+Graphics2D.
+
+Color.
+
+Font.
+
+Toolkit.
+
+Dimension.
+
+Rectangle.
+
+Pakiet java.time został dodany w Java 8.
+
+Jest nowoczesnym API do obsługi dat i czasu.
+
+Najważniejsze klasy to.
+
+LocalDate.
+
+LocalTime.
+
+LocalDateTime.
+
+Instant.
+
+Duration.
+
+Period.
+
+ZoneId.
+
+ZonedDateTime.
+
+Pakiet java.concurrent zawiera narzędzia do programowania współbieżnego.
+
+Najważniejsze klasy to.
+
+ExecutorService.
+
+Executors.
+
+Future.
+
+Callable.
+
+ConcurrentHashMap.
+
+Semaphore.
+
+CountDownLatch.
+
+CyclicBarrier.
+
+AtomicInteger.
+
+Pakiety posiadają własny poziom dostępu.
+
+Jeżeli przed klasą lub metodą nie podano żadnego modyfikatora dostępu, obowiązuje dostęp package-private.
+
+Element package-private jest dostępny wyłącznie wewnątrz tego samego pakietu.
+
+Przykład.
+
+```java
+class Person {
+}
+```
+
+Klasa Person będzie widoczna jedynie w swoim pakiecie.
+
+Pakiety są podstawą organizacji projektów Maven.
+
+Struktura projektu najczęściej wygląda następująco.
+
+```text
+src
+ └── main
+      └── java
+           └── com
+                └── company
+                     └── project
+                          ├── model
+                          ├── service
+                          ├── repository
+                          ├── controller
+                          ├── util
+                          ├── config
+                          ├── exception
+                          └── Main.java
+```
+
+Najczęściej spotykane pakiety w aplikacjach Java to.
+
+model.
+
+entity.
+
+dto.
+
+service.
+
+repository.
+
+controller.
+
+config.
+
+util.
+
+mapper.
+
+exception.
+
+validation.
+
+security.
+
+client.
+
+api.
+
+database.
+
+common.
+
+helper.
+
+factory.
+
+builder.
+
+observer.
+
+strategy.
+
+command.
+
+singleton.
+
+Pakiety umożliwiają również grupowanie klas według wzorców projektowych.
+
+Każdy wzorzec może posiadać własny pakiet.
+
+Pakiety współpracują z modułami wprowadzonymi w Java 9.
+
+Moduł może zawierać wiele pakietów.
+
+Moduł decyduje, które pakiety będą dostępne dla innych modułów.
+
+Informacje o modułach znajdują się w pliku `module-info.java`.
+
+Pakiety są jednym z podstawowych mechanizmów organizacji kodu w języku Java.
+
+Bez odpowiednio zaprojektowanej struktury pakietów utrzymanie dużych projektów staje się bardzo trudne.
+
+Znajomość pakietów jest niezbędna podczas pracy z Maven, Gradle, Spring Boot, Jakarta EE, bibliotekami zewnętrznymi oraz wszystkimi nowoczesnymi projektami tworzonymi w języku Java.

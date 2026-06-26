@@ -1,0 +1,810 @@
+Przejrzałem przesłane materiały. Jest to komplet materiałów z przedmiotu **PPJ – Podstawy Programowania w Java** (wykłady 1–15, przykłady oraz dokumentacja). Na ich podstawie przygotowałem skondensowane podsumowanie całego kursu.
+
+---
+
+# 📚 PPJ – Podsumowanie wiedzy
+
+## 1. Czym jest Java?
+
+Java jest obiektowym, kompilowanym językiem programowania działającym na maszynie wirtualnej JVM.
+
+Proces działania programu:
+
+```
+Kod źródłowy (.java)
+        ↓
+Kompilator javac
+        ↓
+Bytecode (.class)
+        ↓
+JVM
+        ↓
+Program
+```
+
+Najważniejsze cechy:
+
+* obiektowość
+* przenośność
+* silne typowanie
+* automatyczne zarządzanie pamięcią (Garbage Collector)
+* bezpieczeństwo typów
+
+---
+
+# 2. Budowa programu
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello");
+
+    }
+
+}
+```
+
+Elementy:
+
+* klasa
+* metoda main()
+* instrukcje
+* wywołania metod
+
+---
+
+# 3. Typy danych
+
+## Typy proste
+
+| Typ     | Rozmiar      | Przykład |
+| ------- | ------------ | -------- |
+| byte    | 8 bit        | 10       |
+| short   | 16 bit       | 120      |
+| int     | 32 bit       | 1000     |
+| long    | 64 bit       | 100L     |
+| float   | 32 bit       | 2.5f     |
+| double  | 64 bit       | 2.5      |
+| char    | znak Unicode | 'A'      |
+| boolean | true/false   | true     |
+
+---
+
+## Typy referencyjne
+
+* String
+* tablice
+* klasy
+* interfejsy
+* enum
+* rekordy
+
+---
+
+# 4. Zmienne
+
+Deklaracja
+
+```java
+int x;
+```
+
+Inicjalizacja
+
+```java
+x = 5;
+```
+
+Deklaracja z inicjalizacją
+
+```java
+int x = 5;
+```
+
+---
+
+# 5. Operatory
+
+## Arytmetyczne
+
+```
++
+-
+*
+/
+%
+```
+
+---
+
+## Porównania
+
+```
+==
+!=
+>
+<
+>=
+<=
+```
+
+---
+
+## Logiczne
+
+```
+&&
+||
+!
+```
+
+---
+
+## Przypisania
+
+```
+=
++=
+-=
+*=
+/=
+%=
+```
+
+---
+
+## Inkrementacja
+
+```
+++
+--
+```
+
+---
+
+# 6. Instrukcje
+
+Pusta
+
+```java
+;
+```
+
+Blok
+
+```java
+{
+
+}
+```
+
+Deklaracja
+
+```java
+int a;
+```
+
+Wyrażenie
+
+```java
+a++;
+```
+
+---
+
+# 7. Instrukcje warunkowe
+
+## if
+
+```java
+if(warunek){
+
+}
+```
+
+---
+
+## if else
+
+```java
+if(){
+
+}
+else{
+
+}
+```
+
+---
+
+## else if
+
+```java
+if(){
+
+}
+else if(){
+
+}
+else{
+
+}
+```
+
+---
+
+## Operator warunkowy
+
+```java
+x = (a>b) ? a : b;
+```
+
+---
+
+## switch
+
+```java
+switch(x){
+
+case 1:
+break;
+
+default:
+
+}
+```
+
+---
+
+# 8. Pętle
+
+## while
+
+```java
+while(warunek){
+
+}
+```
+
+---
+
+## do while
+
+```java
+do{
+
+}while(warunek);
+```
+
+---
+
+## for
+
+```java
+for(int i=0;i<10;i++){
+
+}
+```
+
+---
+
+## foreach
+
+```java
+for(int x : tablica){
+
+}
+```
+
+---
+
+# 9. break i continue
+
+break
+
+* kończy pętlę
+
+continue
+
+* przechodzi do następnej iteracji
+
+---
+
+# 10. Tablice
+
+Deklaracja
+
+```java
+int[] tab;
+```
+
+Tworzenie
+
+```java
+tab = new int[10];
+```
+
+Jednocześnie
+
+```java
+int[] tab = new int[10];
+```
+
+---
+
+Wypełnianie
+
+```java
+int[] tab = {1,2,3,4};
+```
+
+---
+
+Długość
+
+```java
+tab.length
+```
+
+---
+
+Tablice wielowymiarowe
+
+```java
+int[][] tab = new int[3][4];
+```
+
+---
+
+# 11. String
+
+Najczęściej używane metody
+
+```
+length()
+
+charAt()
+
+substring()
+
+replace()
+
+contains()
+
+startsWith()
+
+endsWith()
+
+equals()
+
+equalsIgnoreCase()
+
+split()
+
+trim()
+
+toLowerCase()
+
+toUpperCase()
+```
+
+---
+
+# 12. Funkcje (metody)
+
+Bez argumentów
+
+```java
+void test(){
+
+}
+```
+
+---
+
+Z argumentami
+
+```java
+void suma(int a,int b){
+
+}
+```
+
+---
+
+Zwracające wartość
+
+```java
+int suma(){
+
+return 5;
+
+}
+```
+
+---
+
+Przeciążanie
+
+```java
+suma(int)
+
+suma(double)
+
+suma(int,int)
+```
+
+---
+
+# 13. Rekurencja
+
+Funkcja wywołuje samą siebie.
+
+Warunek zakończenia jest obowiązkowy.
+
+Przykład
+
+```
+silnia
+
+Fibonacci
+
+potęgowanie
+
+DFS
+```
+
+---
+
+# 14. Obiektowość
+
+Najważniejsze pojęcia
+
+Klasa
+
+↓
+
+Obiekt
+
+↓
+
+Pole
+
+↓
+
+Metoda
+
+↓
+
+Konstruktor
+
+---
+
+# 15. Klasa
+
+```java
+class Student{
+
+String imie;
+
+int wiek;
+
+void przedstaw(){
+
+}
+
+}
+```
+
+---
+
+# 16. Obiekt
+
+```java
+Student s = new Student();
+```
+
+---
+
+# 17. Konstruktor
+
+Domyślny
+
+```java
+Student(){
+
+}
+```
+
+Parametryczny
+
+```java
+Student(String i){
+
+}
+```
+
+---
+
+# 18. this
+
+Odnosi się do bieżącego obiektu.
+
+```java
+this.imie = imie;
+```
+
+---
+
+# 19. Enkapsulacja
+
+Ukrywanie pól.
+
+```
+private
+
+public getter
+
+public setter
+```
+
+---
+
+# 20. Dziedziczenie
+
+```java
+class Animal{
+
+}
+
+class Dog extends Animal{
+
+}
+```
+
+Dog posiada wszystko z Animal.
+
+---
+
+# 21. Polimorfizm
+
+```java
+Animal a = new Dog();
+```
+
+Jedna referencja
+
+↓
+
+Wiele implementacji
+
+---
+
+# 22. Nadpisywanie metod
+
+```java
+@Override
+```
+
+Pozwala zmienić zachowanie metody klasy bazowej.
+
+---
+
+# 23. Pakiety
+
+```java
+package pl.pjatk;
+```
+
+Służą do organizacji kodu.
+
+---
+
+# 24. Wyjątki
+
+```java
+try{
+
+}
+catch(Exception e){
+
+}
+finally{
+
+}
+```
+
+---
+
+Najczęściej spotykane
+
+```
+NullPointerException
+
+ArrayIndexOutOfBoundsException
+
+ArithmeticException
+
+IOException
+
+NumberFormatException
+```
+
+---
+
+# 25. Strumienie
+
+## Bajtowe
+
+```
+FileInputStream
+
+FileOutputStream
+```
+
+---
+
+## Znakowe
+
+```
+FileReader
+
+FileWriter
+
+BufferedReader
+
+BufferedWriter
+```
+
+---
+
+# 26. Operacje na plikach
+
+Odczyt
+
+Zapis
+
+Dopisywanie
+
+Zamykanie plików
+
+Obsługa wyjątków
+
+---
+
+# 27. Wyrażenia regularne
+
+Najważniejsze symbole
+
+```
+.
+
+*
+
++
+
+?
+
+[]
+
+()
+
+^
+
+$
+
+\d
+
+\w
+
+\s
+```
+
+---
+
+Przykład
+
+```java
+"[0-9]+"
+```
+
+Dopasowuje liczby.
+
+---
+
+# 28. Mechanika referencji
+
+```
+int
+```
+
+kopiowana jest wartość
+
+```
+Student
+```
+
+kopiowany jest adres obiektu.
+
+---
+
+# 29. Pamięć
+
+Stos (Stack)
+
+* zmienne lokalne
+* wywołania metod
+
+Sterta (Heap)
+
+* obiekty
+* tablice
+
+---
+
+# 30. Garbage Collector
+
+Automatycznie usuwa obiekty, do których nie istnieją referencje.
+
+---
+
+# 31. Najważniejsze zasady programowania
+
+* stosuj czytelne nazwy
+* dziel kod na metody
+* unikaj duplikacji
+* nie używaj liczb "na sztywno"
+* komentuj tylko trudne fragmenty
+* testuj program
+
+---
+
+# 32. Kolejność nauki PPJ
+
+```
+Java
+│
+├── składnia
+├── typy danych
+├── operatory
+├── instrukcje
+├── if
+├── switch
+├── pętle
+├── tablice
+├── String
+├── metody
+├── rekurencja
+├── klasy
+├── obiekty
+├── konstruktory
+├── this
+├── enkapsulacja
+├── dziedziczenie
+├── polimorfizm
+├── wyjątki
+├── pliki
+├── regex
+└── dobre praktyki
+```
+
+## Najważniejsze pojęcia do zapamiętania
+
+* JVM, JDK i JRE oraz ich role.
+* Typy proste a typy referencyjne.
+* Zakres zmiennych i czas ich życia.
+* Różnice między `if`, `switch` i operatorem `?:`.
+* Różnice między pętlami `for`, `while`, `do-while` i `foreach`.
+* Praca z tablicami jedno- i wielowymiarowymi.
+* Tworzenie oraz wywoływanie metod, przekazywanie argumentów i zwracanie wartości.
+* Rekurencja oraz warunek zakończenia.
+* Programowanie obiektowe: klasy, obiekty, pola, metody i konstruktory.
+* Enkapsulacja, dziedziczenie, polimorfizm i nadpisywanie metod.
+* Obsługa wyjątków (`try`, `catch`, `finally`).
+* Operacje wejścia/wyjścia na plikach.
+* Podstawy wyrażeń regularnych.
+* Różnica między pamięcią stosu (Stack) i sterty (Heap) oraz działanie Garbage Collectora.
+
+To podsumowanie obejmuje praktycznie cały zakres wykładów PPJ z udostępnionych materiałów i stanowi dobrą bazę zarówno do powtórki przed egzaminem, jak i do dalszej nauki bardziej zaawansowanych zagadnień języka Java.

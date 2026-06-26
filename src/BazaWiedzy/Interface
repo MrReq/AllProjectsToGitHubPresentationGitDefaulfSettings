@@ -1,16 +1,353 @@
-WIADOMOSCI OGOLNE
+Interfejs jest jednym z podstawowych elementów programowania obiektowego w języku Java.
 
-Interface, czyli interfejs, definiuje zestaw metod, które muszą zostać zaimplementowane przez klasy korzystające z tego interfejsu.
+Interfejs definiuje zestaw metod, które dana klasa powinna zaimplementować.
 
-Interfejs określa wymagane zachowanie obiektów.
+Interfejs określa **co** obiekt potrafi zrobić, ale niekoniecznie **jak** to robi.
 
-Nie narzuca jednak sposobu realizacji tego zachowania.
+Interfejs jest wzorcem lub kontraktem dla klas.
 
-Jest jednym z fundamentów programowania obiektowego i polimorfizmu.
+Interfejs definiuje się za pomocą słowa kluczowego `interface`.
 
-INTERFACE
+Przykład.
 
-INTERFACE FUNKCYJNY.
+```java
+public interface Animal {
 
-INTERFACE MARKER
+    void makeSound();
 
+}
+```
+
+Klasa implementuje interfejs za pomocą słowa kluczowego `implements`.
+
+Przykład.
+
+```java
+public class Dog implements Animal {
+
+    @Override
+    public void makeSound() {
+        System.out.println("Woof");
+    }
+
+}
+```
+
+Jedna klasa może implementować wiele interfejsów.
+
+Przykład.
+
+```java
+public class Duck implements Flyable, Swimmable {
+
+}
+```
+
+Jest to jedna z największych zalet interfejsów.
+
+Java nie pozwala na dziedziczenie po wielu klasach.
+
+Java pozwala natomiast implementować wiele interfejsów.
+
+Interfejs nie może być tworzony za pomocą operatora `new`.
+
+Przykład niepoprawny.
+
+```java
+Animal animal = new Animal();
+```
+
+Poprawnym rozwiązaniem jest utworzenie obiektu klasy implementującej interfejs.
+
+```java
+Animal animal = new Dog();
+```
+
+Przed Java 8 interfejs mógł zawierać jedynie metody abstrakcyjne oraz stałe.
+
+Od Java 8 interfejs może zawierać metody `default` oraz `static`.
+
+Od Java 9 interfejs może również zawierać metody `private`.
+
+Najczęściej spotykane elementy interfejsu to: metody abstrakcyjne, metody `default`, metody `static`, metody `private` oraz stałe.
+
+---
+
+## Metody abstrakcyjne
+
+Nie posiadają implementacji.
+
+```java
+public interface Animal {
+
+    void makeSound();
+
+}
+```
+
+Każda klasa implementująca interfejs musi zaimplementować tę metodę.
+
+---
+
+## Metody default
+
+Posiadają gotową implementację.
+
+Klasa może ją wykorzystać lub nadpisać.
+
+```java
+public interface Animal {
+
+    default void sleep() {
+        System.out.println("Sleeping...");
+    }
+
+}
+```
+
+---
+
+## Metody static
+
+Należą do interfejsu, a nie do obiektu.
+
+```java
+public interface MathUtil {
+
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+}
+```
+
+Wywołanie.
+
+```java
+int result = MathUtil.add(2, 5);
+```
+
+---
+
+## Metody private
+
+Służą do używania wewnątrz interfejsu.
+
+Nie są dostępne dla klas implementujących.
+
+```java
+public interface Example {
+
+    private void helper() {
+
+    }
+
+}
+```
+
+---
+
+## Stałe
+
+Każde pole w interfejsie jest automatycznie:
+
+* `public`
+* `static`
+* `final`
+
+Przykład.
+
+```java
+public interface Config {
+
+    int PORT = 8080;
+
+}
+```
+
+Jest to równoważne z zapisem.
+
+```java
+public static final int PORT = 8080;
+```
+
+---
+
+## Polimorfizm
+
+Interfejs bardzo często wykorzystywany jest z polimorfizmem.
+
+```java
+Animal animal = new Dog();
+
+animal.makeSound();
+```
+
+Można później podmienić implementację.
+
+```java
+Animal animal = new Cat();
+```
+
+Kod korzystający z interfejsu nie musi być zmieniany.
+
+---
+
+## Interfejs jako typ zmiennej
+
+Jest to bardzo dobra praktyka.
+
+```java
+List<String> list = new ArrayList<>();
+```
+
+Nie piszemy.
+
+```java
+ArrayList<String> list = new ArrayList<>();
+```
+
+Dzięki temu łatwo można zmienić implementację.
+
+```java
+List<String> list = new LinkedList<>();
+```
+
+Kod pozostaje taki sam.
+
+---
+
+## Interfejs funkcyjny
+
+Interfejs posiadający dokładnie jedną metodę abstrakcyjną.
+
+Oznacza się go adnotacją `@FunctionalInterface`.
+
+```java
+@FunctionalInterface
+public interface Calculator {
+
+    int calculate(int a, int b);
+
+}
+```
+
+Może być wykorzystywany przez wyrażenia Lambda.
+
+```java
+Calculator add = (a, b) -> a + b;
+```
+
+---
+
+## Najczęściej wykorzystywane interfejsy Java
+
+Kolekcje:
+
+* List
+* Set
+* Map
+* Queue
+* Deque
+* Collection
+* Iterable
+
+Programowanie funkcyjne:
+
+* Runnable
+* Callable
+* Comparator
+* Comparable
+* Predicate
+* Consumer
+* Supplier
+* Function
+* BiFunction
+* UnaryOperator
+* BinaryOperator
+
+Wejście i wyjście:
+
+* Closeable
+* AutoCloseable
+* Serializable
+
+---
+
+## Interfejsy w Spring Boot
+
+Spring bardzo intensywnie wykorzystuje interfejsy.
+
+Najczęściej spotykane to:
+
+* JpaRepository
+* CrudRepository
+* PagingAndSortingRepository
+* UserDetailsService
+* CommandLineRunner
+* ApplicationRunner
+
+Przykład.
+
+```java
+public interface UserRepository
+        extends JpaRepository<User, Long> {
+
+}
+```
+
+---
+
+## Interfejsy własne
+
+Przykład.
+
+```java
+public interface Vehicle {
+
+    void start();
+
+    void stop();
+
+}
+```
+
+Implementacja.
+
+```java
+public class Car implements Vehicle {
+
+    @Override
+    public void start() {
+        System.out.println("Car started");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Car stopped");
+    }
+
+}
+```
+
+---
+
+## Interface vs Abstract Class
+
+| Interface                                    | Abstract Class                     |
+| -------------------------------------------- | ---------------------------------- |
+| Nie posiada konstruktora                     | Może posiadać konstruktor          |
+| Można implementować wiele                    | Można dziedziczyć tylko po jednej  |
+| Opisuje możliwości                           | Opisuje wspólną strukturę          |
+| Nie przechowuje stanu obiektu (poza stałymi) | Może przechowywać pola instancyjne |
+| Używa słowa `implements`                     | Używa słowa `extends`              |
+
+---
+
+Interfejs jest jednym z najważniejszych mechanizmów programowania obiektowego.
+
+Pozwala oddzielić definicję zachowania od jego implementacji.
+
+Ułatwia tworzenie elastycznego, rozszerzalnego oraz łatwego w testowaniu kodu.
+
+Interfejsy są szeroko wykorzystywane w Java SE, Spring Boot, Hibernate, Jakarta EE, Androidzie oraz praktycznie wszystkich nowoczesnych frameworkach opartych na języku Java.

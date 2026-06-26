@@ -1,11 +1,388 @@
-Elementy dodatkowe w celu Łatwiejszej komunikacji.
-Ściśle powiązane z dokumentacją projektu.
-W celu oznaczenia że coś jest przestarzałem.
+Adnotacja w języku Java jest specjalnym znacznikiem dodawanym do elementów programu.
 
-Annotation, czyli adnotacja, jest specjalnym znacznikiem dodawanym do kodu źródłowego.
+Adnotacje nazywane są również Annotations.
 
-Pozwala przekazywać dodatkowe informacje kompilatorowi, frameworkom lub narzędziom programistycznym.
+Adnotacje rozpoczynają się od znaku @.
 
-Adnotacje nie opisują logiki działania programu.
+Adnotacje nie zmieniają bezpośrednio działania programu.
 
-Dostarczają metadanych na temat elementów kodu.
+Stanowią dodatkowe informacje dla kompilatora, środowiska uruchomieniowego lub bibliotek.
+
+Adnotacje mogą być odczytywane podczas kompilacji.
+
+Adnotacje mogą być odczytywane podczas działania programu.
+
+Adnotacje mogą być wykorzystywane przez narzędzia zewnętrzne.
+
+Adnotacje znacząco upraszczają tworzenie nowoczesnych aplikacji Java.
+
+Adnotacje zostały wprowadzone w Java 5.
+
+Przykład prostej adnotacji.
+
+```java
+@Override
+public String toString() {
+    return "Person";
+}
+```
+
+W powyższym przykładzie wykorzystana została adnotacja @Override.
+
+Adnotacja @Override informuje kompilator, że metoda nadpisuje metodę klasy nadrzędnej.
+
+Jeżeli metoda nie zostanie poprawnie nadpisana, kompilator zgłosi błąd.
+
+Adnotacje mogą być umieszczane przed wieloma elementami programu.
+
+Mogą znajdować się przed klasą.
+
+Mogą znajdować się przed interfejsem.
+
+Mogą znajdować się przed rekordem.
+
+Mogą znajdować się przed enumem.
+
+Mogą znajdować się przed metodą.
+
+Mogą znajdować się przed konstruktorem.
+
+Mogą znajdować się przed polem.
+
+Mogą znajdować się przed parametrem metody.
+
+Mogą znajdować się przed zmienną lokalną.
+
+Mogą znajdować się przed pakietem.
+
+Mogą znajdować się przed modułem.
+
+Java posiada wiele wbudowanych adnotacji.
+
+Najczęściej wykorzystywaną jest @Override.
+
+Kolejną często spotykaną adnotacją jest @Deprecated.
+
+Przykład.
+
+```java
+@Deprecated
+public void oldMethod() {
+}
+```
+
+Adnotacja @Deprecated oznacza, że dany element nie powinien być już używany.
+
+Kompilator wyświetla ostrzeżenie podczas korzystania z takiego elementu.
+
+Najczęściej oznacza to, że istnieje nowsze rozwiązanie.
+
+Kolejną ważną adnotacją jest @SuppressWarnings.
+
+Przykład.
+
+```java
+@SuppressWarnings("unchecked")
+```
+
+Adnotacja ta wyłącza określone ostrzeżenia kompilatora.
+
+Powinna być stosowana wyłącznie wtedy, gdy programista świadomie akceptuje dane ostrzeżenie.
+
+Adnotacja @FunctionalInterface oznacza interfejs funkcyjny.
+
+Przykład.
+
+```java
+@FunctionalInterface
+public interface Calculator {
+    int add(int a, int b);
+}
+```
+
+Interfejs funkcyjny może posiadać tylko jedną metodę abstrakcyjną.
+
+Takie interfejsy wykorzystywane są przez wyrażenia Lambda.
+
+Java udostępnia również adnotację @SafeVarargs.
+
+Adnotacja ta eliminuje ostrzeżenia związane z metodami wykorzystującymi varargs oraz typy generyczne.
+
+Adnotacje mogą posiadać parametry.
+
+Przykład.
+
+```java
+@SuppressWarnings("unused")
+```
+
+Wartość "unused" jest parametrem adnotacji.
+
+Adnotacje mogą posiadać wiele parametrów.
+
+Przykład.
+
+```java
+@MyAnnotation(
+    author = "Marcin",
+    version = 1
+)
+```
+
+Adnotacje mogą również posiadać wartości domyślne.
+
+Przykład.
+
+```java
+public @interface MyAnnotation {
+
+    String author() default "Unknown";
+
+}
+```
+
+Jeżeli użytkownik nie poda wartości, zostanie wykorzystana wartość domyślna.
+
+Możliwe jest tworzenie własnych adnotacji.
+
+Przykład.
+
+```java
+public @interface Author {
+
+    String name();
+
+}
+```
+
+Adnotacja wykorzystywana jest następująco.
+
+```java
+@Author(name = "Marcin")
+public class Person {
+}
+```
+
+Każda własna adnotacja jest w rzeczywistości specjalnym interfejsem.
+
+Definicja rozpoczyna się od słowa @interface.
+
+Adnotacje mogą być przechowywane tylko podczas kompilacji.
+
+Mogą być przechowywane w plikach .class.
+
+Mogą być również dostępne podczas działania programu.
+
+Za sposób przechowywania odpowiada adnotacja @Retention.
+
+Najczęściej wykorzystywane wartości to SOURCE.
+
+SOURCE oznacza, że adnotacja istnieje jedynie podczas kompilacji.
+
+CLASS oznacza, że adnotacja zostaje zapisana w pliku .class.
+
+RUNTIME oznacza, że adnotacja jest dostępna również podczas działania programu.
+
+Przykład.
+
+```java
+@Retention(RetentionPolicy.RUNTIME)
+```
+
+Adnotacja @Target określa, gdzie można wykorzystać daną adnotację.
+
+Przykład.
+
+```java
+@Target(ElementType.METHOD)
+```
+
+Oznacza to, że adnotację można umieszczać wyłącznie nad metodami.
+
+Najczęściej wykorzystywane wartości ElementType to.
+
+TYPE.
+
+METHOD.
+
+FIELD.
+
+CONSTRUCTOR.
+
+PARAMETER.
+
+LOCAL_VARIABLE.
+
+ANNOTATION_TYPE.
+
+PACKAGE.
+
+MODULE.
+
+TYPE_PARAMETER.
+
+TYPE_USE.
+
+Adnotacja @Documented powoduje umieszczanie adnotacji w dokumentacji Javadoc.
+
+Przykład.
+
+```java
+@Documented
+```
+
+Adnotacja @Inherited umożliwia dziedziczenie adnotacji przez klasy potomne.
+
+Domyślnie adnotacje nie są dziedziczone.
+
+Przykład.
+
+```java
+@Inherited
+```
+
+Java Reflection umożliwia odczytywanie adnotacji podczas działania programu.
+
+Najczęściej wykorzystywane metody to.
+
+getAnnotation().
+
+getAnnotations().
+
+isAnnotationPresent().
+
+Przykład.
+
+```java
+Class<?> clazz = Person.class;
+
+Author author = clazz.getAnnotation(Author.class);
+```
+
+Frameworki Java bardzo intensywnie wykorzystują adnotacje.
+
+Największym przykładem jest Spring Boot.
+
+Najczęściej wykorzystywane adnotacje Spring Boot to.
+
+@Service.
+
+@Repository.
+
+@Controller.
+
+@RestController.
+
+@Component.
+
+@Configuration.
+
+@Bean.
+
+@Autowired.
+
+@Value.
+
+@RequestMapping.
+
+@GetMapping.
+
+@PostMapping.
+
+@PutMapping.
+
+@DeleteMapping.
+
+@PathVariable.
+
+@RequestParam.
+
+@RequestBody.
+
+@ResponseBody.
+
+@ResponseStatus.
+
+@Entity.
+
+@Table.
+
+@Column.
+
+@Id.
+
+@GeneratedValue.
+
+@OneToMany.
+
+@ManyToOne.
+
+@ManyToMany.
+
+@OneToOne.
+
+@Transient.
+
+@Embedded.
+
+@Embeddable.
+
+Lombok również wykorzystuje adnotacje.
+
+Najpopularniejsze to.
+
+@Getter.
+
+@Setter.
+
+@Data.
+
+@Builder.
+
+@NoArgsConstructor.
+
+@AllArgsConstructor.
+
+@RequiredArgsConstructor.
+
+@ToString.
+
+@EqualsAndHashCode.
+
+@Value.
+
+@Test.
+
+@BeforeEach.
+
+@AfterEach.
+
+@BeforeAll.
+
+@AfterAll.
+
+Adnotacje są również szeroko wykorzystywane w JUnit.
+
+Pozwalają oznaczać metody testowe.
+
+Pozwalają definiować przygotowanie środowiska testowego.
+
+Pozwalają wykonywać kod po zakończeniu testów.
+
+Hibernate wykorzystuje adnotacje do mapowania obiektowo-relacyjnego.
+
+Programista nie musi tworzyć konfiguracji w plikach XML.
+
+Cała konfiguracja może znajdować się bezpośrednio w kodzie.
+
+To znacznie upraszcza tworzenie aplikacji.
+
+Adnotacje są jednym z najważniejszych mechanizmów współczesnej Javy.
+
+Pozwalają zastąpić dużą część konfiguracji zapisanej dawniej w plikach XML.
+
+Umożliwiają frameworkom automatyczne wykrywanie klas, metod oraz zależności.
+
+Dzięki adnotacjom kod jest krótszy, czytelniejszy oraz łatwiejszy w utrzymaniu.
+
+Znajomość adnotacji jest niezbędna podczas pracy z Java SE, Spring Boot, Hibernate, Jakarta Persistence, Lombok, JUnit, Maven, Gradle oraz większością nowoczesnych frameworków wykorzystywanych w ekosystemie Java.

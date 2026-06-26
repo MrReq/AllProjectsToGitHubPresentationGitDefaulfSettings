@@ -1,0 +1,295 @@
+Kubernetes jest platformą służącą do orkiestracji kontenerów.
+
+Nazwa Kubernetes pochodzi z języka greckiego i oznacza sternika lub nawigatora.
+
+Kubernetes często określany jest skrótem K8s.
+
+Skrót K8s oznacza, że pomiędzy literami K i s znajduje się osiem znaków.
+
+Projekt został stworzony przez Google.
+
+Obecnie rozwijany jest przez Cloud Native Computing Foundation.
+
+Kubernetes jest oprogramowaniem otwartoźródłowym.
+
+Platforma umożliwia automatyczne wdrażanie aplikacji.
+
+Platforma umożliwia automatyczne skalowanie aplikacji.
+
+Platforma umożliwia automatyczne zarządzanie kontenerami.
+
+Kubernetes jest standardem w nowoczesnych środowiskach Cloud Native.
+
+Kubernetes najczęściej współpracuje z kontenerami Docker.
+
+Obecnie może współpracować również z innymi środowiskami zgodnymi z Container Runtime Interface.
+
+Kubernetes nie tworzy kontenerów.
+
+Jego zadaniem jest zarządzanie już istniejącymi kontenerami.
+
+Jedną z najważniejszych zalet Kubernetes jest automatyzacja.
+
+Administrator nie musi ręcznie uruchamiać każdego kontenera.
+
+Platforma sama decyduje, gdzie uruchomić aplikację.
+
+Platforma monitoruje stan uruchomionych aplikacji.
+
+Platforma automatycznie restartuje uszkodzone kontenery.
+
+Platforma automatycznie przenosi aplikacje pomiędzy serwerami.
+
+Platforma automatycznie zwiększa lub zmniejsza liczbę uruchomionych instancji.
+
+Podstawowym elementem Kubernetes jest Cluster.
+
+Cluster oznacza grupę serwerów współpracujących jako jeden system.
+
+Klaster składa się z Control Plane oraz Worker Nodes.
+
+Control Plane zarządza całym klastrem.
+
+Worker Nodes wykonują rzeczywistą pracę.
+
+Na Worker Nodes uruchamiane są kontenery.
+
+Najważniejszym elementem aplikacji jest Pod.
+
+Pod jest najmniejszą jednostką wykonywaną przez Kubernetes.
+
+Pod może zawierać jeden kontener.
+
+Pod może zawierać wiele współpracujących kontenerów.
+
+Kontenery znajdujące się w jednym Podzie współdzielą sieć.
+
+Kontenery współdzielą również przestrzeń dyskową.
+
+Pod jest tworzony oraz usuwany automatycznie.
+
+Programista zazwyczaj nie zarządza Podami bezpośrednio.
+
+Do zarządzania Podami wykorzystywany jest Deployment.
+
+Deployment odpowiada za utrzymywanie odpowiedniej liczby Podów.
+
+Jeżeli jeden Pod ulegnie awarii, Deployment automatycznie utworzy nowy.
+
+Deployment umożliwia wykonywanie aktualizacji aplikacji.
+
+Deployment umożliwia wykonywanie Rollback.
+
+Rollback oznacza powrót do poprzedniej wersji aplikacji.
+
+Kubernetes wykorzystuje ReplicaSet.
+
+ReplicaSet odpowiada za utrzymanie określonej liczby identycznych Podów.
+
+Pozwala to zwiększyć dostępność aplikacji.
+
+Kubernetes wykorzystuje Service.
+
+Service zapewnia stały adres sieciowy dla aplikacji.
+
+Adres Podów może się zmieniać.
+
+Adres Service pozostaje niezmienny.
+
+Dzięki temu inne aplikacje zawsze wiedzą, gdzie wysłać żądanie.
+
+Najczęściej wykorzystywane typy Service to ClusterIP.
+
+ClusterIP udostępnia aplikację wyłącznie wewnątrz klastra.
+
+NodePort udostępnia aplikację na porcie serwera.
+
+LoadBalancer wykorzystuje zewnętrzny Load Balancer.
+
+ExternalName mapuje usługę na zewnętrzną nazwę DNS.
+
+Kubernetes wykorzystuje Ingress.
+
+Ingress zarządza ruchem HTTP oraz HTTPS.
+
+Ingress umożliwia publikowanie aplikacji w Internecie.
+
+Ingress może kierować ruch do wielu różnych usług.
+
+Kubernetes wykorzystuje Namespace.
+
+Namespace umożliwia logiczne oddzielenie aplikacji.
+
+Kilka zespołów może korzystać z jednego klastra.
+
+Każdy zespół może posiadać własny Namespace.
+
+Kubernetes wykorzystuje ConfigMap.
+
+ConfigMap przechowuje konfigurację aplikacji.
+
+Pozwala oddzielić konfigurację od kodu programu.
+
+Kubernetes wykorzystuje Secret.
+
+Secret przechowuje poufne informacje.
+
+Najczęściej przechowywane są hasła.
+
+Przechowywane są również klucze API.
+
+Przechowywane są certyfikaty.
+
+Kubernetes wykorzystuje Volume.
+
+Volume umożliwia trwałe przechowywanie danych.
+
+Dane nie są tracone po ponownym uruchomieniu kontenera.
+
+Persistent Volume oznacza trwały zasób dyskowy.
+
+Persistent Volume Claim oznacza żądanie przydzielenia przestrzeni dyskowej.
+
+StorageClass definiuje sposób tworzenia przestrzeni dyskowej.
+
+Kubernetes wykorzystuje Scheduler.
+
+Scheduler wybiera serwer, na którym zostanie uruchomiony Pod.
+
+Pod uwagę brane są dostępne zasoby.
+
+Pod uwagę brane jest obciążenie serwerów.
+
+Pod uwagę brane są reguły administratora.
+
+Kubernetes wykorzystuje kubelet.
+
+Kubelet działa na każdym Worker Node.
+
+Kubelet komunikuje się z Control Plane.
+
+Kubelet uruchamia kontenery.
+
+Kubelet monitoruje ich działanie.
+
+Kubernetes wykorzystuje kube-proxy.
+
+kube-proxy odpowiada za komunikację sieciową pomiędzy Podami.
+
+kube-proxy zarządza regułami sieciowymi.
+
+Control Plane składa się z kilku podstawowych komponentów.
+
+API Server stanowi główny interfejs komunikacyjny klastra.
+
+Scheduler przydziela zadania do odpowiednich Worker Nodes.
+
+Controller Manager nadzoruje stan klastra.
+
+etcd przechowuje konfigurację całego klastra.
+
+etcd jest rozproszoną bazą danych typu Key-Value.
+
+Kubernetes wspiera automatyczne skalowanie.
+
+Horizontal Pod Autoscaler zwiększa liczbę Podów.
+
+Vertical Pod Autoscaler zmienia ilość przydzielonych zasobów.
+
+Cluster Autoscaler dodaje nowe serwery do klastra.
+
+Kubernetes umożliwia Rolling Update.
+
+Nowa wersja aplikacji wdrażana jest stopniowo.
+
+Pozwala to uniknąć przestojów.
+
+Kubernetes umożliwia Canary Deployment.
+
+Nowa wersja trafia najpierw do niewielkiej grupy użytkowników.
+
+Po pozytywnych testach wdrażana jest dla wszystkich.
+
+Kubernetes umożliwia Blue-Green Deployment.
+
+Dwie wersje aplikacji działają równolegle.
+
+Przełączenie użytkowników następuje w wybranym momencie.
+
+Kubernetes wykorzystuje pliki YAML.
+
+Pliki YAML opisują konfigurację klastra.
+
+Pliki YAML opisują Deployment.
+
+Pliki YAML opisują Service.
+
+Pliki YAML opisują ConfigMap.
+
+Pliki YAML opisują Secret.
+
+Najczęściej używanym narzędziem do komunikacji z Kubernetes jest **kubectl**.
+
+kubectl umożliwia tworzenie zasobów.
+
+kubectl umożliwia usuwanie zasobów.
+
+kubectl umożliwia monitorowanie klastra.
+
+kubectl umożliwia pobieranie logów.
+
+Kubernetes bardzo dobrze współpracuje z kontenerami.
+
+Może współpracować z Docker.
+
+Może współpracować z containerd.
+
+Może współpracować z CRI-O.
+
+Kubernetes bardzo dobrze współpracuje z narzędziami DevOps.
+
+Może współpracować z Helm.
+
+Może współpracować z Argo CD.
+
+Może współpracować z Jenkins.
+
+Może współpracować z GitHub Actions.
+
+Może współpracować z GitLab CI/CD.
+
+Może współpracować z Terraform.
+
+Kubernetes bardzo dobrze współpracuje z platformami chmurowymi.
+
+Może współpracować z Amazon Elastic Kubernetes Service.
+
+Może współpracować z Azure Kubernetes Service.
+
+Może współpracować z Google Kubernetes Engine.
+
+Może współpracować z Oracle Container Engine for Kubernetes.
+
+Może współpracować z Red Hat OpenShift.
+
+Kubernetes znajduje zastosowanie w architekturze mikroserwisów.
+
+Jest wykorzystywany w aplikacjach internetowych.
+
+Jest wykorzystywany w platformach SaaS.
+
+Jest wykorzystywany w systemach finansowych.
+
+Jest wykorzystywany w systemach Internetu Rzeczy.
+
+Jest wykorzystywany w rozwiązaniach Big Data.
+
+Jest wykorzystywany w platformach sztucznej inteligencji.
+
+Jest wykorzystywany praktycznie we wszystkich nowoczesnych środowiskach Cloud Native.
+
+Największą zaletą Kubernetes jest automatyzacja wdrażania, skalowania oraz zarządzania kontenerami przy jednoczesnym zapewnieniu wysokiej dostępności, odporności na awarie oraz łatwego przenoszenia aplikacji pomiędzy różnymi środowiskami.
+
+Dzięki rozproszonej architekturze, bogatemu ekosystemowi narzędzi oraz integracji z niemal wszystkimi platformami chmurowymi Kubernetes stał się światowym standardem orkiestracji kontenerów i jedną z najważniejszych technologii współczesnego DevOps oraz Cloud Computing.
+
+Znajomość Kubernetes jest szczególnie ceniona na stanowiskach związanych z DevOps, Cloud Engineering, Platform Engineering, Site Reliability Engineering, backend development, administracją systemami, architekturą mikroserwisów oraz projektowaniem nowoczesnych aplikacji chmurowych.

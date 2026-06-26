@@ -1,5 +1,349 @@
-Enum jest specjalnym typem służącym do reprezentowania stałego zbioru wartości.
+Enum jest specjalnym typem klasy służącym do przechowywania stałego zbioru wartości.
 
-Wykorzystuje się go wszędzie tam, gdzie liczba możliwych opcji jest z góry określona.
+Nazwa Enum pochodzi od słowa Enumeration.
 
-Wartości enum nie powinny ulegać zmianie podczas działania programu.
+Enumeration oznacza wyliczenie.
+
+Enum został wprowadzony w Java 5.
+
+Enum jest wykorzystywany wtedy, gdy zmienna może przyjmować tylko określone wartości.
+
+Dzięki temu kod jest bardziej czytelny.
+
+Dzięki temu kod jest bezpieczniejszy.
+
+Dzięki temu kompilator może wykrywać wiele błędów już podczas kompilacji.
+
+Enum definiuje się za pomocą słowa kluczowego `enum`.
+
+Najprostszy przykład.
+
+```java
+public enum Day {
+
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY
+
+}
+```
+
+Użycie.
+
+```java
+Day today = Day.MONDAY;
+
+System.out.println(today);
+```
+
+Każda wartość enuma jest w rzeczywistości obiektem.
+
+Nie jest to zwykła liczba ani String.
+
+Enum automatycznie dziedziczy po klasie `java.lang.Enum`.
+
+Nie można dziedziczyć po innym enumie.
+
+Enum nie może dziedziczyć po klasie.
+
+Enum może implementować interfejsy.
+
+Przykład.
+
+```java
+interface Printable {
+    void print();
+}
+
+enum Color implements Printable {
+
+    RED,
+    GREEN,
+    BLUE;
+
+    @Override
+    public void print() {
+        System.out.println(this);
+    }
+}
+```
+
+Enum może posiadać pola.
+
+Przykład.
+
+```java
+public enum Size {
+
+    SMALL(1),
+    MEDIUM(2),
+    LARGE(3);
+
+    private int level;
+
+    Size(int level) {
+        this.level = level;
+    }
+
+}
+```
+
+Enum może posiadać konstruktor.
+
+Konstruktor enuma jest zawsze prywatny.
+
+Nie można utworzyć własnego obiektu enuma za pomocą operatora `new`.
+
+Obiekty enuma są tworzone automatycznie podczas uruchamiania programu.
+
+Enum może posiadać metody.
+
+Przykład.
+
+```java
+public enum Size {
+
+    SMALL,
+    MEDIUM,
+    LARGE;
+
+    public boolean isLarge() {
+        return this == LARGE;
+    }
+
+}
+```
+
+Użycie.
+
+```java
+System.out.println(Size.LARGE.isLarge());
+```
+
+Enum może posiadać pola statyczne.
+
+Enum może posiadać metody statyczne.
+
+Enum może implementować własną logikę biznesową.
+
+Najczęściej wykorzystywane metody klasy Enum to: `values()`, `valueOf()`, `name()`, `ordinal()` oraz `compareTo()`.
+
+Metoda `values()` zwraca wszystkie wartości enuma.
+
+Przykład.
+
+```java
+for (Day day : Day.values()) {
+    System.out.println(day);
+}
+```
+
+Metoda `valueOf()` zamienia tekst na wartość enuma.
+
+Przykład.
+
+```java
+Day day = Day.valueOf("FRIDAY");
+```
+
+Metoda `name()` zwraca nazwę wartości.
+
+Przykład.
+
+```java
+System.out.println(Day.MONDAY.name());
+```
+
+Metoda `ordinal()` zwraca numer pozycji enuma.
+
+Przykład.
+
+```java
+System.out.println(Day.MONDAY.ordinal());
+```
+
+Nie zaleca się wykorzystywania `ordinal()` do zapisywania danych w bazie danych.
+
+Kolejność elementów może się zmienić.
+
+Metoda `compareTo()` umożliwia porównywanie wartości enumów.
+
+Przykład.
+
+```java
+System.out.println(
+        Day.MONDAY.compareTo(Day.FRIDAY)
+);
+```
+
+Enum można wykorzystać w instrukcji `switch`.
+
+Przykład.
+
+```java
+Day day = Day.SATURDAY;
+
+switch (day) {
+
+    case MONDAY:
+        System.out.println("Work");
+        break;
+
+    case SATURDAY:
+    case SUNDAY:
+        System.out.println("Weekend");
+        break;
+
+    default:
+        System.out.println("Normal day");
+}
+```
+
+Enum może posiadać różne wartości przypisane do poszczególnych elementów.
+
+Przykład.
+
+```java
+public enum Planet {
+
+    MERCURY(3.30),
+    VENUS(4.87),
+    EARTH(5.97);
+
+    private final double mass;
+
+    Planet(double mass) {
+        this.mass = mass;
+    }
+
+    public double getMass() {
+        return mass;
+    }
+
+}
+```
+
+Każda wartość enuma może posiadać własną implementację metod.
+
+Przykład.
+
+```java
+public enum Operation {
+
+    ADD {
+        public int calculate(int a, int b) {
+            return a + b;
+        }
+    },
+
+    SUBTRACT {
+        public int calculate(int a, int b) {
+            return a - b;
+        }
+    };
+
+    public abstract int calculate(int a, int b);
+
+}
+```
+
+Enum bardzo dobrze współpracuje z kolekcjami.
+
+Java udostępnia specjalne kolekcje przeznaczone dla enumów.
+
+Najważniejsze z nich to: `EnumSet` oraz `EnumMap`.
+
+Przykład `EnumSet`.
+
+```java
+EnumSet<Day> weekend =
+        EnumSet.of(Day.SATURDAY, Day.SUNDAY);
+```
+
+Przykład `EnumMap`.
+
+```java
+EnumMap<Day, String> schedule =
+        new EnumMap<>(Day.class);
+
+schedule.put(Day.MONDAY, "Work");
+```
+
+Enum jest często wykorzystywany w aplikacjach biznesowych.
+
+Najczęściej opisuje statusy.
+
+Przykład.
+
+```java
+public enum OrderStatus {
+
+    NEW,
+    PAID,
+    SHIPPED,
+    DELIVERED,
+    CANCELLED
+
+}
+```
+
+Enum często opisuje role użytkowników.
+
+Przykład.
+
+```java
+public enum Role {
+
+    USER,
+    MODERATOR,
+    ADMIN
+
+}
+```
+
+Enum często opisuje poziomy uprawnień.
+
+Enum często opisuje typy dokumentów.
+
+Enum często opisuje typy płatności.
+
+Enum często opisuje dni tygodnia.
+
+Enum często opisuje miesiące.
+
+Enum często opisuje stany aplikacji.
+
+Frameworki takie jak Spring Boot oraz Hibernate bardzo dobrze współpracują z enumami.
+
+Hibernate umożliwia zapis enumów do bazy danych.
+
+Najczęściej wykorzystuje się adnotację `@Enumerated`.
+
+Przykład.
+
+```java
+@Enumerated(EnumType.STRING)
+private OrderStatus status;
+```
+
+Najczęściej stosuje się `EnumType.STRING`.
+
+Nie zaleca się stosowania `EnumType.ORDINAL`.
+
+Zmiana kolejności elementów może prowadzić do błędów w bazie danych.
+
+Największą zaletą enumów jest bezpieczeństwo typów.
+
+Programista nie może przypisać wartości spoza zdefiniowanego zbioru.
+
+Kod staje się bardziej czytelny.
+
+Kod jest łatwiejszy w utrzymaniu.
+
+Ryzyko błędów wynikających z używania "magicznych" liczb lub napisów zostaje znacząco ograniczone.
+
+Znajomość enumów jest niezbędna podczas pracy z Java SE, Spring Boot, Hibernate, JPA, aplikacjami biznesowymi oraz wszędzie tam, gdzie występuje skończony zbiór możliwych wartości.

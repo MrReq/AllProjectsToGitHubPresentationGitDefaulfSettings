@@ -1,13 +1,158 @@
-HTML File jest plikiem definiującym strukturę strony internetowej.
+Plik HTML jest podstawowym plikiem wykorzystywanym do tworzenia stron internetowych.
 
-Za pomocą języka HTML określa się elementy takie jak nagłówki.
+HTML jest skrótem od HyperText Markup Language.
 
-Określa się akapity.
+HTML nie jest językiem programowania.
 
-Określa się formularze.
+HTML jest językiem znaczników.
 
-Określa się tabele.
+HTML opisuje strukturę strony internetowej.
 
-Określa się obrazy.
+Przeglądarka internetowa odczytuje plik HTML i wyświetla jego zawartość użytkownikowi.
 
-HTML stanowi fundament każdej strony internetowej.
+Pliki HTML najczęściej posiadają rozszerzenie `.html`.
+
+Możliwe jest również używanie rozszerzenia `.htm`.
+
+Każdy dokument HTML składa się z elementów nazywanych znacznikami.
+
+Znaczniki zapisuje się pomiędzy nawiasami ostrymi.
+
+Przykład.
+
+```html
+<h1>Witaj świecie</h1>
+```
+
+Większość znaczników posiada znacznik otwierający oraz zamykający.
+
+Przykład.
+
+```html
+<p>To jest akapit.</p>
+```
+
+Niektóre znaczniki nie posiadają znacznika zamykającego.
+
+Najczęściej spotykane to: `<br>`, `<hr>`, `<img>`, `<input>`, `<meta>` oraz `<link>`.
+
+Każdy poprawny dokument HTML powinien rozpoczynać się od deklaracji typu dokumentu.
+
+Przykład.
+
+```html
+<!DOCTYPE html>
+```
+
+Deklaracja informuje przeglądarkę, że dokument wykorzystuje HTML5.
+
+Podstawowa struktura dokumentu HTML wygląda następująco.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moja strona</title>
+</head>
+
+<body>
+
+    <h1>Witaj świecie</h1>
+
+</body>
+</html>
+```
+
+Element `<html>` jest korzeniem całego dokumentu.
+
+Element `<head>` zawiera informacje o stronie.
+
+Element `<body>` zawiera treść wyświetlaną użytkownikowi.
+
+W sekcji `<head>` najczęściej znajdują się znaczniki: `<title>`, `<meta>`, `<link>`, `<style>` oraz `<script>`.
+
+Element `<title>` określa tytuł strony wyświetlany na karcie przeglądarki.
+
+Element `<meta>` przechowuje informacje o stronie.
+
+Element `<link>` służy do dołączania arkuszy CSS.
+
+Element `<script>` umożliwia dołączanie kodu JavaScript.
+
+Element `<style>` pozwala umieścić kod CSS bezpośrednio w pliku HTML.
+
+Sekcja `<body>` zawiera wszystkie elementy widoczne dla użytkownika.
+
+Najczęściej wykorzystywane znaczniki strukturalne to: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>` oraz `<footer>`.
+
+Najczęściej wykorzystywane znaczniki tekstowe to: `<h1>`–`<h6>`, `<p>`, `<span>`, `<strong>`, `<em>`, `<b>`, `<i>` oraz `<mark>`.
+
+Najczęściej wykorzystywane znaczniki list to: `<ul>`, `<ol>` oraz `<li>`.
+
+Najczęściej wykorzystywane znaczniki tabel to: `<table>`, `<tr>`, `<td>`, `<th>`, `<thead>`, `<tbody>` oraz `<tfoot>`.
+
+Najczęściej wykorzystywane znaczniki formularzy to: `<form>`, `<input>`, `<textarea>`, `<select>`, `<option>`, `<button>` oraz `<label>`.
+
+Najczęściej wykorzystywane znaczniki multimedialne to: `<img>`, `<audio>`, `<video>`, `<source>` oraz `<canvas>`.
+
+Najczęściej wykorzystywane znaczniki odnośników to: `<a>`.
+
+Przykład.
+
+```html
+<a href="https://example.com">
+    Przejdź na stronę
+</a>
+```
+
+Znaczniki HTML mogą posiadać atrybuty.
+
+Atrybuty dostarczają dodatkowych informacji o elemencie.
+
+Przykład.
+
+```html
+<img src="photo.jpg" alt="Zdjęcie">
+```
+
+Najczęściej wykorzystywane atrybuty to: `id`, `class`, `style`, `src`, `href`, `alt`, `title`, `name`, `value`, `placeholder`, `disabled`, `checked` oraz `readonly`.
+
+Atrybut `id` powinien być unikalny w całym dokumencie.
+
+Atrybut `class` może być przypisany wielu elementom.
+
+CSS wykorzystuje atrybut `class` do stylowania elementów.
+
+JavaScript często wykorzystuje `id` oraz `class` do wyszukiwania elementów.
+
+HTML współpracuje z CSS.
+
+CSS odpowiada za wygląd strony.
+
+HTML współpracuje z JavaScript.
+
+JavaScript odpowiada za logikę oraz interakcję z użytkownikiem.
+
+Nowoczesne strony internetowe wykorzystują HTML5.
+
+HTML5 wprowadził nowe elementy semantyczne.
+
+Najważniejsze z nich to: `<header>`, `<footer>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<nav>` oraz `<figure>`.
+
+Semantyczny HTML poprawia czytelność kodu.
+
+Semantyczny HTML ułatwia indeksowanie stron przez wyszukiwarki.
+
+Semantyczny HTML poprawia dostępność dla osób korzystających z czytników ekranu.
+
+Pliki HTML mogą być tworzone w dowolnym edytorze tekstowym.
+
+Najczęściej wykorzystywane środowiska to: Visual Studio Code, IntelliJ IDEA, WebStorm oraz Notepad++.
+
+Plik HTML można otworzyć w dowolnej nowoczesnej przeglądarce internetowej.
+
+Najczęściej wykorzystywane przeglądarki to: Google Chrome, Mozilla Firefox, Microsoft Edge oraz Safari.
+
+Największą zaletą plików HTML jest prostota, uniwersalność oraz zgodność ze wszystkimi nowoczesnymi przeglądarkami internetowymi.
+
+Znajomość HTML jest podstawą tworzenia stron internetowych, aplikacji webowych, interfejsów użytkownika oraz pracy z technologiami takimi jak CSS, JavaScript, React, Angular, Vue, Spring Boot, ASP.NET Core i wieloma innymi frameworkami webowymi.
