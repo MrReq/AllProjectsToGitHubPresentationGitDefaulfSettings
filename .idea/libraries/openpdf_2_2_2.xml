@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="openpdf-2.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OpenPDF/openpdf-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OpenPDF/commons-logging-1.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OpenPDF/bcutil-jdk18on-1.81.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OpenPDF/bcprov-jdk18on-1.81.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OpenPDF/bcpkix-jdk18on-1.81.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

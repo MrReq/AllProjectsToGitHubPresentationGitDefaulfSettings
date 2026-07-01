@@ -2,6 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+Nauka
+PKD
 
 ### Eclipse ###
 .apt_generated
@@ -14,7 +16,8 @@ out/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
+Nauka
+PKD
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

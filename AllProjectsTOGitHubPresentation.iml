@@ -68,5 +68,16 @@
     <orderEntry type="library" name="javax.activation-api-1.2.0" level="project" />
     <orderEntry type="library" name="validation-api-2.0.1.Final" level="project" />
     <orderEntry type="library" name="javax.activation-api-1.2.0 (2)" level="project" />
+    <orderEntry type="library" name="angus-activation-2.0.2" level="project" />
+    <orderEntry type="library" name="junit-jupiter-api-5.13.4" level="project" />
+    <orderEntry type="library" name="log4j-api-2.25.2" level="project" />
+    <orderEntry type="library" name="logback-core-1.5.18" level="project" />
+    <orderEntry type="library" name="objenesis-3.4" level="project" />
+    <orderEntry type="library" name="okio-jvm-3.16.0" level="project" />
+    <orderEntry type="library" name="openpdf-2.2.2" level="project" />
+    <orderEntry type="library" name="ojdbc17-23.8.0.25.04" level="project" />
+    <orderEntry type="library" name="converter-gson-3.0.0" level="project" />
+    <orderEntry type="library" name="jcl-over-slf4j-2.0.17" level="project" />
+    <orderEntry type="library" name="jcommon-1.0.24" level="project" />
   </component>
 </module>

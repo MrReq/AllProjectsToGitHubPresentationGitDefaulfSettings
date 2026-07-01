@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ojdbc17-23.8.0.25.04">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OracleJDBC/ojdbc17-23.8.0.25.04.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OracleJDBC/oraclepki-23.8.0.25.04.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OracleJDBC/simplefan-23.8.0.25.04.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/OracleJDBC/ucp-23.8.0.25.04.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
