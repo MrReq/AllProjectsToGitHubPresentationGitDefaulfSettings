@@ -1,7 +1,298 @@
-JavaScript File jest plikiem zawierającym kod języka JavaScript.
+JavaScript jest jednym z najpopularniejszych języków programowania na świecie.
 
-Kod ten może być wykonywany przez przeglądarki internetowe.
+JavaScript został stworzony w 1995 roku przez Brendan Eich.
 
-Może być również wykonywany przez środowiska takie jak Node.js.
+Język został opracowany w ciągu zaledwie 10 dni.
 
-JavaScript jest podstawowym językiem programowania wykorzystywanym do tworzenia dynamicznych stron internetowych.
+Początkowo JavaScript nosił nazwę Mocha.
+
+Następnie został przemianowany na LiveScript.
+
+Ostatecznie przyjął nazwę JavaScript.
+
+Mimo podobnej nazwy JavaScript nie jest odmianą języka Java.
+
+Java oraz JavaScript to dwa całkowicie różne języki programowania.
+
+JavaScript jest językiem wysokiego poziomu.
+
+JavaScript jest językiem interpretowanym.
+
+JavaScript jest językiem dynamicznie typowanym.
+
+JavaScript jest językiem wieloparadygmatowym.
+
+Obsługuje programowanie proceduralne.
+
+Obsługuje programowanie obiektowe.
+
+Obsługuje programowanie funkcyjne.
+
+Pierwotnie JavaScript był wykorzystywany wyłącznie po stronie przeglądarki.
+
+Obecnie może być wykorzystywany również po stronie serwera.
+
+Najpopularniejszym środowiskiem uruchomieniowym jest Node.js.
+
+JavaScript jest jednym z trzech podstawowych filarów tworzenia stron internetowych.
+
+HTML odpowiada za strukturę strony.
+
+CSS odpowiada za wygląd strony.
+
+JavaScript odpowiada za logikę oraz interakcję z użytkownikiem.
+
+Kod JavaScript może być umieszczony bezpośrednio w pliku HTML.
+
+Przykład.
+
+```html
+<script>
+    console.log("Hello World");
+</script>
+```
+
+Najczęściej jednak kod umieszczany jest w osobnym pliku z rozszerzeniem `.js`.
+
+Przykład.
+
+```html
+<script src="script.js"></script>
+```
+
+Podstawową funkcją służącą do wyświetlania informacji jest `console.log()`.
+
+Przykład.
+
+```javascript
+console.log("Hello World");
+```
+
+Zmienne można deklarować za pomocą słów kluczowych `let`, `const` oraz `var`.
+
+Obecnie zaleca się używanie `let` oraz `const`.
+
+Przykład.
+
+```javascript
+let age = 20;
+
+const PI = 3.14;
+```
+
+JavaScript obsługuje podstawowe typy danych.
+
+Najważniejsze z nich to: Number, String, Boolean, Undefined, Null, Object, Symbol oraz BigInt.
+
+JavaScript posiada również tablice.
+
+Przykład.
+
+```javascript
+let numbers = [1, 2, 3, 4];
+```
+
+JavaScript posiada obiekty.
+
+Przykład.
+
+```javascript
+let person = {
+    name: "Jan",
+    age: 20
+};
+```
+
+Funkcje definiuje się za pomocą słowa kluczowego `function`.
+
+Przykład.
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+```
+
+JavaScript obsługuje funkcje strzałkowe.
+
+Przykład.
+
+```javascript
+const add = (a, b) => a + b;
+```
+
+Instrukcje sterujące są bardzo podobne do języka Java.
+
+Dostępne są `if`, `else`, `switch`, `for`, `while`, `do...while`, `break` oraz `continue`.
+
+JavaScript posiada pętlę `for...of`.
+
+Służy ona do iterowania po elementach kolekcji.
+
+Przykład.
+
+```javascript
+for (const number of numbers) {
+    console.log(number);
+}
+```
+
+JavaScript posiada również pętlę `for...in`.
+
+Służy ona do iterowania po właściwościach obiektów.
+
+Przykład.
+
+```javascript
+for (const key in person) {
+    console.log(key);
+}
+```
+
+JavaScript wykorzystuje model prototypowy zamiast klasycznego dziedziczenia.
+
+Od standardu ECMAScript 2015 dostępne jest również słowo kluczowe `class`.
+
+Przykład.
+
+```javascript
+class Person {
+
+    constructor(name) {
+        this.name = name;
+    }
+
+    sayHello() {
+        console.log("Hello");
+    }
+
+}
+```
+
+Obiekty tworzy się za pomocą operatora `new`.
+
+Przykład.
+
+```javascript
+const person = new Person("Jan");
+```
+
+JavaScript obsługuje moduły.
+
+Najczęściej wykorzystuje się `export` oraz `import`.
+
+Przykład eksportu.
+
+```javascript
+export function add(a, b) {
+    return a + b;
+}
+```
+
+Przykład importu.
+
+```javascript
+import { add } from "./math.js";
+```
+
+JavaScript posiada mechanizm obsługi wyjątków.
+
+Do tego celu wykorzystywane są instrukcje `try`, `catch`, `finally` oraz `throw`.
+
+Przykład.
+
+```javascript
+try {
+
+    console.log("Test");
+
+} catch (error) {
+
+    console.log(error);
+
+}
+```
+
+JavaScript bardzo dobrze obsługuje programowanie asynchroniczne.
+
+Najczęściej wykorzystywane mechanizmy to: Callback, Promise oraz Async/Await.
+
+Przykład Promise.
+
+```javascript
+fetch("users.json")
+    .then(response => response.json())
+    .then(data => console.log(data));
+```
+
+Przykład Async/Await.
+
+```javascript
+async function loadUsers() {
+
+    const response = await fetch("users.json");
+
+    const users = await response.json();
+
+    console.log(users);
+
+}
+```
+
+JavaScript umożliwia manipulowanie strukturą strony internetowej.
+
+Odbywa się to za pomocą modelu DOM.
+
+DOM jest skrótem od Document Object Model.
+
+Przykład.
+
+```javascript
+document.getElementById("title").textContent = "Nowy tytuł";
+```
+
+JavaScript umożliwia reagowanie na zdarzenia.
+
+Najczęściej wykorzystywane zdarzenia to: click, submit, input, change, keydown, keyup, mouseover oraz load.
+
+Przykład.
+
+```javascript
+button.addEventListener("click", () => {
+    alert("Kliknięto");
+});
+```
+
+JavaScript współpracuje z technologią AJAX.
+
+AJAX umożliwia komunikację z serwerem bez przeładowywania strony.
+
+Obecnie najczęściej wykorzystuje się interfejs Fetch API.
+
+JavaScript posiada bardzo bogaty ekosystem bibliotek.
+
+Najpopularniejsze biblioteki to: jQuery, Lodash oraz Axios.
+
+Najpopularniejsze frameworki JavaScript to: React, Angular, Vue.js, Svelte oraz Next.js.
+
+JavaScript współpracuje z wieloma narzędziami.
+
+Najczęściej wykorzystywane to: npm, Yarn, Vite, Webpack, Babel, ESLint oraz Prettier.
+
+JavaScript może być wykorzystywany do tworzenia aplikacji internetowych.
+
+Może być wykorzystywany do tworzenia aplikacji serwerowych.
+
+Może być wykorzystywany do tworzenia aplikacji mobilnych.
+
+Może być wykorzystywany do tworzenia aplikacji desktopowych.
+
+Może być wykorzystywany do tworzenia gier.
+
+Może być wykorzystywany do tworzenia aplikacji IoT.
+
+Największą zaletą JavaScript jest uniwersalność, ogromny ekosystem bibliotek oraz możliwość programowania zarówno po stronie klienta, jak i serwera.
+
+Dzięki wsparciu wszystkich nowoczesnych przeglądarek oraz środowiska Node.js JavaScript jest jednym z najważniejszych języków programowania wykorzystywanych we współczesnym tworzeniu oprogramowania.
+
+Znajomość JavaScript jest szczególnie ceniona na stanowiskach związanych z Frontend Development, Full Stack Development, Backend Development, Mobile Development, Cloud Computing oraz tworzeniem nowoczesnych aplikacji internetowych.

@@ -1,5 +1,189 @@
-SDK, czyli Software Development Kit, jest zestawem bibliotek, narzędzi i dokumentacji przeznaczonych do tworzenia aplikacji dla konkretnej technologii lub platformy.
+SDK jest skrótem od Software Development Kit.
 
-JDK jest przykładem SDK przeznaczonego dla języka Java.
+W języku polskim oznacza Zestaw Narzędzi Programistycznych.
 
-SDK dostarcza wszystko, co jest potrzebne do rozpoczęcia pracy z daną technologią.
+SDK jest zbiorem narzędzi umożliwiających tworzenie aplikacji dla określonej platformy, systemu lub technologii.
+
+SDK dostarcza wszystko, czego programista potrzebuje do rozpoczęcia pracy z daną platformą.
+
+W skład SDK najczęściej wchodzą biblioteki.
+
+SDK zawiera interfejsy API.
+
+SDK zawiera dokumentację.
+
+SDK zawiera przykładowe projekty.
+
+SDK zawiera narzędzia programistyczne.
+
+SDK może zawierać kompilatory.
+
+SDK może zawierać debuggery.
+
+SDK może zawierać emulatory.
+
+SDK może zawierać narzędzia do testowania.
+
+SDK może zawierać narzędzia do pakowania aplikacji.
+
+SDK może zawierać narzędzia wiersza poleceń.
+
+SDK jest przeznaczone dla programistów.
+
+SDK znacząco ułatwia tworzenie aplikacji.
+
+Dzięki SDK programista nie musi tworzyć wszystkich funkcji od podstaw.
+
+SDK udostępnia gotowe rozwiązania.
+
+SDK bardzo często korzysta z API.
+
+API określa sposób komunikacji z daną platformą.
+
+SDK dostarcza gotową implementację korzystającą z tego API.
+
+API i SDK nie są tym samym.
+
+API definiuje zasady komunikacji.
+
+SDK zawiera narzędzia umożliwiające korzystanie z API.
+
+Można powiedzieć, że API jest częścią SDK.
+
+Przykładowo, jeżeli firma udostępnia usługę internetową, może opublikować API.
+
+Programista pobiera SDK tej usługi.
+
+SDK zawiera gotowe klasy oraz metody umożliwiające korzystanie z API.
+
+Przykład.
+
+```java id="f9zn5z"
+AmazonS3Client client = new AmazonS3Client();
+
+client.putObject(...);
+```
+
+Programista nie musi samodzielnie tworzyć komunikacji HTTP.
+
+SDK wykonuje większość pracy automatycznie.
+
+Jednym z najbardziej znanych SDK jest JDK.
+
+JDK jest SDK przeznaczonym do programowania w języku Java.
+
+JDK zawiera JVM.
+
+JDK zawiera kompilator `javac`.
+
+JDK zawiera standardowe biblioteki Java.
+
+JDK zawiera narzędzia takie jak `jar`, `javadoc`, `jdb` oraz `jpackage`.
+
+Kolejnym przykładem jest Android SDK.
+
+Android SDK umożliwia tworzenie aplikacji na system Android.
+
+Android SDK zawiera biblioteki Android.
+
+Android SDK zawiera emulator urządzeń.
+
+Android SDK zawiera narzędzia ADB.
+
+Android SDK zawiera narzędzia do kompilacji aplikacji.
+
+Przykładem jest również Windows SDK.
+
+Windows SDK umożliwia tworzenie aplikacji dla systemu Windows.
+
+Programiści gier często korzystają z Game SDK.
+
+Przykładem są SDK udostępniane przez producentów konsol.
+
+Programiści aplikacji mobilnych korzystają z iOS SDK.
+
+iOS SDK umożliwia tworzenie aplikacji dla systemów Apple.
+
+Platformy chmurowe udostępniają własne SDK.
+
+Najpopularniejsze to: AWS SDK, Azure SDK oraz Google Cloud SDK.
+
+Przykład użycia AWS SDK.
+
+```java id="96m7q5"
+S3Client client = S3Client.create();
+```
+
+Przykład użycia Azure SDK.
+
+```java id="fdjr6q"
+BlobServiceClient client = new BlobServiceClientBuilder()
+        .connectionString(connectionString)
+        .buildClient();
+```
+
+SDK dostępne są dla wielu języków programowania.
+
+Najczęściej wspierane języki to: Java, C#, Python, JavaScript, TypeScript, Go, C++, PHP, Ruby oraz Kotlin.
+
+SDK mogą być instalowane na różne sposoby.
+
+Najczęściej wykorzystuje się menedżery pakietów.
+
+W języku Java najczęściej wykorzystuje się Maven oraz Gradle.
+
+W Pythonie wykorzystuje się pip.
+
+W JavaScript wykorzystuje się npm oraz Yarn.
+
+W języku C# wykorzystuje się NuGet.
+
+SDK często współpracuje z IDE.
+
+Najpopularniejsze środowiska to: IntelliJ IDEA, Visual Studio, Android Studio, Xcode oraz Visual Studio Code.
+
+SDK bardzo często zawiera dokumentację.
+
+Dokumentacja opisuje dostępne klasy.
+
+Dokumentacja opisuje metody.
+
+Dokumentacja zawiera przykłady użycia.
+
+Dokumentacja wyjaśnia sposób konfiguracji.
+
+SDK często zawiera gotowe przykładowe projekty.
+
+Dzięki nim można szybko rozpocząć pracę z nową technologią.
+
+## Najpopularniejsze SDK
+
+* JDK
+* Android SDK
+* iOS SDK
+* Windows SDK
+* AWS SDK
+* Azure SDK
+* Google Cloud SDK
+* .NET SDK
+* Flutter SDK
+* Unity SDK
+* Facebook SDK
+* Firebase SDK
+* Stripe SDK
+* PayPal SDK
+* Twilio SDK
+* OpenAI SDK
+
+## SDK vs API
+
+| SDK                            | API                                    |
+| ------------------------------ | -------------------------------------- |
+| Jest zestawem narzędzi         | Jest interfejsem komunikacyjnym        |
+| Zawiera biblioteki i narzędzia | Definiuje sposób komunikacji           |
+| Ułatwia tworzenie aplikacji    | Umożliwia komunikację między systemami |
+| Może zawierać wiele API        | Jest często częścią SDK                |
+
+Największą zaletą SDK jest dostarczenie kompletnego zestawu narzędzi, bibliotek oraz dokumentacji, dzięki którym programista może szybko rozpocząć tworzenie aplikacji bez konieczności implementowania wszystkich mechanizmów od podstaw.
+
+Znajomość SDK jest niezbędna podczas pracy z Java, Androidem, platformami chmurowymi, aplikacjami mobilnymi, usługami internetowymi oraz praktycznie każdą nowoczesną technologią udostępniającą narzędzia dla programistów.

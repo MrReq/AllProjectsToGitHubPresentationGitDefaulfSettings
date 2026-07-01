@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="javafx-base-24.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/JavaFX/javafx-base-24.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/JavaFX/javafx-controls-24.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/JavaFX/javafx-fxml-24.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/JavaFX/javafx-graphics-24.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/JavaFX/javafx-media-24.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/JavaFX/javafx-web-24.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,9 +1,316 @@
-JVM, czyli Java Virtual Machine, jest maszyną wirtualną odpowiedzialną za uruchamianie aplikacji napisanych w Javie.
+JVM jest skrótem od Java Virtual Machine.
 
-Kod źródłowy jest najpierw kompilowany do postaci bytecode.
+W języku polskim oznacza Wirtualną Maszynę Javy.
 
-Następnie bytecode wykonywany jest przez JVM.
+JVM jest środowiskiem uruchomieniowym odpowiedzialnym za wykonywanie programów napisanych w języku Java.
 
-Dzięki temu ten sam program może działać na różnych systemach operacyjnych.
+JVM stanowi najważniejszy element środowiska JRE.
 
-Nie ma potrzeby modyfikowania kodu dla każdej platformy osobno.
+Bez JVM uruchomienie programu Java nie byłoby możliwe.
+
+Głównym zadaniem JVM jest wykonywanie kodu bajtowego.
+
+Kod źródłowy Java nie jest wykonywany bezpośrednio.
+
+Najpierw zostaje skompilowany do kodu bajtowego.
+
+Kompilację wykonuje kompilator `javac`.
+
+Przykład.
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+
+}
+```
+
+Po kompilacji powstaje plik.
+
+```text
+Main.class
+```
+
+Plik `.class` zawiera Bytecode.
+
+Bytecode jest pośrednią postacią programu.
+
+Bytecode nie jest kodem maszynowym.
+
+Bytecode jest niezależny od systemu operacyjnego.
+
+Dzięki temu ten sam plik `.class` może zostać uruchomiony na różnych platformach.
+
+To właśnie JVM tłumaczy Bytecode na kod maszynowy odpowiedni dla danego procesora.
+
+Cały proces wygląda następująco.
+
+```text
+Kod Java (.java)
+        │
+        ▼
+     javac
+        │
+        ▼
+Kod bajtowy (.class)
+        │
+        ▼
+       JVM
+        │
+        ▼
+Kod maszynowy
+        │
+        ▼
+Procesor
+```
+
+Największą zaletą JVM jest przenośność aplikacji.
+
+Program napisany raz może zostać uruchomiony na różnych systemach operacyjnych.
+
+Zasada ta znana jest jako "Write Once, Run Anywhere".
+
+Skrót ten często zapisuje się jako WORA.
+
+JVM działa na systemach Windows.
+
+JVM działa na systemach Linux.
+
+JVM działa na systemach macOS.
+
+JVM działa również na wielu innych platformach.
+
+JVM składa się z kilku głównych elementów.
+
+Najważniejsze z nich to: Class Loader, Runtime Data Areas, Execution Engine, Garbage Collector oraz Native Interface.
+
+---
+
+## Class Loader
+
+Class Loader odpowiada za ładowanie klas do pamięci.
+
+Ładowanie odbywa się automatycznie podczas działania programu.
+
+Klasy ładowane są tylko wtedy, gdy są potrzebne.
+
+Proces ładowania składa się z trzech etapów.
+
+Najpierw następuje Loading.
+
+Następnie Linking.
+
+Na końcu Initialization.
+
+---
+
+## Runtime Data Areas
+
+Runtime Data Areas są obszarami pamięci wykorzystywanymi przez JVM.
+
+Najważniejsze obszary pamięci to: Heap, Stack, Method Area, Program Counter Register oraz Native Method Stack.
+
+### Heap
+
+Heap przechowuje wszystkie obiekty programu.
+
+To właśnie tutaj trafiają obiekty utworzone za pomocą operatora `new`.
+
+Przykład.
+
+```java
+Person person = new Person();
+```
+
+Obiekt `Person` znajduje się w pamięci Heap.
+
+Heap jest współdzielony przez wszystkie wątki.
+
+### Stack
+
+Stack przechowuje wywołania metod.
+
+Stack przechowuje zmienne lokalne.
+
+Każdy wątek posiada własny Stack.
+
+Po zakończeniu metody odpowiednia ramka stosu zostaje usunięta.
+
+### Method Area
+
+Method Area przechowuje informacje o klasach.
+
+Znajdują się tam metody.
+
+Znajdują się tam pola statyczne.
+
+Znajdują się tam stałe.
+
+Od Java 8 funkcję tę pełni głównie Metaspace.
+
+### Program Counter Register
+
+Program Counter przechowuje adres aktualnie wykonywanej instrukcji.
+
+Każdy wątek posiada własny Program Counter.
+
+### Native Method Stack
+
+Native Method Stack obsługuje metody napisane w językach natywnych, takich jak C lub C++.
+
+---
+
+## Execution Engine
+
+Execution Engine wykonuje Bytecode.
+
+Silnik ten interpretuje instrukcje.
+
+Może również kompilować je do kodu maszynowego.
+
+Do tego celu wykorzystywany jest Just-In-Time Compiler.
+
+JIT jest skrótem od Just-In-Time Compiler.
+
+JIT kompiluje najczęściej wykonywane fragmenty programu do kodu maszynowego.
+
+Dzięki temu aplikacja działa znacznie szybciej.
+
+---
+
+## Garbage Collector
+
+Garbage Collector odpowiada za automatyczne zwalnianie pamięci.
+
+Programista nie musi ręcznie usuwać obiektów.
+
+Garbage Collector usuwa obiekty, które nie są już używane.
+
+Zmniejsza to ryzyko wycieków pamięci.
+
+Garbage Collector działa automatycznie.
+
+Programista może jedynie sugerować jego uruchomienie.
+
+Przykład.
+
+```java
+System.gc();
+```
+
+Nie ma gwarancji, że Garbage Collector zostanie uruchomiony natychmiast.
+
+Nowoczesne JVM wykorzystują różne algorytmy Garbage Collection.
+
+Najczęściej spotykane to: Serial GC, Parallel GC, G1 GC, ZGC oraz Shenandoah GC.
+
+---
+
+## Java Native Interface
+
+Java Native Interface nazywane jest również JNI.
+
+JNI umożliwia wywoływanie kodu napisanego w językach C oraz C++.
+
+Dzięki temu Java może korzystać z bibliotek natywnych.
+
+---
+
+## Proces uruchamiania programu
+
+Program uruchamiany jest poleceniem.
+
+```bash
+java Main
+```
+
+JVM lokalizuje klasę `Main`.
+
+JVM odnajduje metodę `main()`.
+
+```java
+public static void main(String[] args)
+```
+
+Od tego miejsca rozpoczyna wykonywanie programu.
+
+---
+
+## Wielowątkowość
+
+JVM posiada wbudowaną obsługę wielowątkowości.
+
+Każdy wątek posiada własny Stack.
+
+Wątki współdzielą Heap.
+
+Programista może tworzyć nowe wątki.
+
+Przykład.
+
+```java
+Thread thread = new Thread();
+
+thread.start();
+```
+
+---
+
+## Najczęściej spotykane implementacje JVM
+
+Najpopularniejszą implementacją jest HotSpot JVM.
+
+HotSpot rozwijany jest w ramach projektu OpenJDK.
+
+Inne implementacje to: Eclipse OpenJ9, GraalVM, Azul Prime oraz Oracle GraalVM.
+
+---
+
+## Narzędzia współpracujące z JVM
+
+Najczęściej wykorzystywane narzędzia to: `java`, `javac`, `jcmd`, `jconsole`, `jvisualvm`, `jstack`, `jmap`, `jstat`, `jps` oraz `jfr`.
+
+Narzędzia te służą do monitorowania działania JVM.
+
+Pozwalają analizować pamięć.
+
+Pozwalają analizować wątki.
+
+Pozwalają wykrywać problemy z wydajnością.
+
+---
+
+## JVM a JRE i JDK
+
+Relacja pomiędzy tymi elementami wygląda następująco.
+
+```text
+JDK
+│
+├── JRE
+│   │
+│   ├── JVM
+│   └── Biblioteki Java
+│
+├── Kompilator javac
+├── Javadoc
+├── Jar
+└── Pozostałe narzędzia
+```
+
+JDK służy do tworzenia aplikacji.
+
+JRE służy do uruchamiania aplikacji.
+
+JVM wykonuje kod bajtowy aplikacji.
+
+Największą zaletą JVM jest możliwość uruchamiania tego samego programu na różnych systemach operacyjnych bez konieczności ponownej kompilacji.
+
+Dzięki automatycznemu zarządzaniu pamięcią, kompilacji Just-In-Time, wielowątkowości oraz rozbudowanym mechanizmom optymalizacji JVM jest jednym z najbardziej zaawansowanych środowisk uruchomieniowych wykorzystywanych we współczesnym programowaniu.
+
+Znajomość działania JVM jest niezbędna dla każdego programisty Java, ponieważ pozwala lepiej zrozumieć zarządzanie pamięcią, wydajność aplikacji, działanie Garbage Collectora, obsługę wątków oraz proces wykonywania kodu Java.

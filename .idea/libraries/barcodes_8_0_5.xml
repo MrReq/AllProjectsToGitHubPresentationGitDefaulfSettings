@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="barcodes-8.0.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/barcodes-8.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/commons-8.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/forms-8.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/io-8.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/kernel-8.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/layout-8.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/iText/svg-8.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,389 @@
+To również jest temat bardzo obszerny. Informatycy na co dzień używają **kilku tysięcy skrótów**. Poniżej znajdziesz najważniejsze z nich, pogrupowane według dziedzin.
+
+---
+
+# Programowanie
+
+API – Interfejs Programowania Aplikacji
+
+SDK – Zestaw Narzędzi Programistycznych
+
+IDE – Zintegrowane Środowisko Programistyczne
+
+JDK – Zestaw Narzędzi Programistycznych Javy
+
+JRE – Środowisko Uruchomieniowe Javy
+
+JVM – Wirtualna Maszyna Javy
+
+CLR – Wspólne Środowisko Uruchomieniowe .NET
+
+IL – Język Pośredni
+
+OOP – Programowanie Obiektowe
+
+POP – Programowanie Proceduralne
+
+FP – Programowanie Funkcyjne
+
+AOP – Programowanie Aspektowe
+
+MVC – Model-Widok-Kontroler
+
+MVP – Model-Widok-Prezenter
+
+MVVM – Model-Widok-Model Widoku
+
+DDD – Projektowanie Sterowane Dziedziną
+
+TDD – Programowanie Sterowane Testami
+
+BDD – Programowanie Sterowane Zachowaniem
+
+SOLID – Zbiór pięciu zasad projektowania obiektowego
+
+DRY – Nie Powtarzaj Się
+
+KISS – Zachowaj Prostotę
+
+YAGNI – Nie Twórz Czegoś, Czego Jeszcze Nie Potrzebujesz
+
+ORM – Mapowanie Obiektowo-Relacyjne
+
+DTO – Obiekt Transferu Danych
+
+DAO – Obiekt Dostępu do Danych
+
+POJO – Zwykły Obiekt Javy
+
+CRUD – Tworzenie, Odczyt, Aktualizacja, Usuwanie
+
+---
+
+# Java
+
+JDK – Zestaw Narzędzi Programistycznych Javy
+
+JRE – Środowisko Uruchomieniowe Javy
+
+JVM – Wirtualna Maszyna Javy
+
+JIT – Kompilator Just-In-Time
+
+JNI – Interfejs Natywny Javy
+
+GC – Mechanizm Odśmiecania Pamięci
+
+WORA – Napisz Raz, Uruchom Wszędzie
+
+JAR – Archiwum Java
+
+WAR – Archiwum Aplikacji Webowej
+
+EAR – Archiwum Aplikacji Enterprise
+
+JPA – API Trwałości Jakarta
+
+JDBC – Łącznik Baz Danych Java
+
+JMX – Rozszerzenia Zarządzania Java
+
+JNDI – Interfejs Nazewnictwa i Katalogów Java
+
+---
+
+# Bazy danych
+
+DB – Baza Danych
+
+DBMS – System Zarządzania Bazą Danych
+
+RDBMS – Relacyjny System Zarządzania Bazą Danych
+
+SQL – Strukturalny Język Zapytań
+
+NoSQL – Nie Tylko SQL
+
+DDL – Język Definiowania Danych
+
+DML – Język Modyfikowania Danych
+
+DCL – Język Kontroli Danych
+
+TCL – Język Sterowania Transakcjami
+
+OLTP – Przetwarzanie Transakcji Online
+
+OLAP – Przetwarzanie Analityczne Online
+
+ETL – Pobierz, Przekształć, Załaduj
+
+ELT – Pobierz, Załaduj, Przekształć
+
+CDC – Przechwytywanie Zmian Danych
+
+ACID – Atomowość, Spójność, Izolacja, Trwałość
+
+BASE – Podstawowa Dostępność, Miękki Stan, Ostateczna Spójność
+
+PK – Klucz Główny
+
+FK – Klucz Obcy
+
+ERD – Diagram Związków Encji
+
+---
+
+# Sieci komputerowe
+
+IP – Protokół Internetowy
+
+TCP – Protokół Kontroli Transmisji
+
+UDP – Protokół Datagramów Użytkownika
+
+HTTP – Protokół Transferu Hipertekstu
+
+HTTPS – Bezpieczny Protokół Transferu Hipertekstu
+
+FTP – Protokół Transferu Plików
+
+SFTP – Bezpieczny Transfer Plików
+
+SSH – Bezpieczna Powłoka
+
+SSL – Warstwa Bezpiecznych Gniazd
+
+TLS – Bezpieczeństwo Warstwy Transportowej
+
+DNS – System Nazw Domen
+
+DHCP – Dynamiczna Konfiguracja Hostów
+
+SMTP – Protokół Wysyłania Poczty
+
+POP3 – Protokół Odbioru Poczty
+
+IMAP – Protokół Dostępu do Poczty
+
+VPN – Wirtualna Sieć Prywatna
+
+LAN – Sieć Lokalna
+
+WAN – Sieć Rozległa
+
+WLAN – Bezprzewodowa Sieć Lokalna
+
+MAN – Miejska Sieć Komputerowa
+
+NAT – Translacja Adresów Sieciowych
+
+MAC – Adres Kontrolera Dostępu do Medium
+
+CIDR – Bezklasowy Routing Międzydomenowy
+
+---
+
+# Web Development
+
+HTML – Język Znaczników Hipertekstu
+
+CSS – Kaskadowe Arkusze Stylów
+
+DOM – Model Obiektowy Dokumentu
+
+JSON – Notacja Obiektów JavaScript
+
+XML – Rozszerzalny Język Znaczników
+
+REST – Reprezentacyjny Transfer Stanu
+
+SOAP – Prosty Protokół Dostępu do Obiektów
+
+AJAX – Asynchroniczny JavaScript i XML
+
+SPA – Aplikacja Jednostronicowa
+
+SSR – Renderowanie Po Stronie Serwera
+
+CSR – Renderowanie Po Stronie Klienta
+
+PWA – Progresywna Aplikacja Internetowa
+
+---
+
+# DevOps
+
+CI – Ciągła Integracja
+
+CD – Ciągłe Dostarczanie lub Wdrażanie
+
+IaC – Infrastruktura jako Kod
+
+K8s – Kubernetes
+
+VM – Maszyna Wirtualna
+
+VPC – Prywatna Chmura Wirtualna
+
+CNI – Interfejs Sieci Kontenerów
+
+CSI – Interfejs Pamięci Masowej Kontenerów
+
+CRI – Interfejs Środowiska Uruchomieniowego Kontenerów
+
+---
+
+# Cloud Computing
+
+IaaS – Infrastruktura jako Usługa
+
+PaaS – Platforma jako Usługa
+
+SaaS – Oprogramowanie jako Usługa
+
+FaaS – Funkcja jako Usługa
+
+AWS – Amazon Web Services
+
+GCP – Google Cloud Platform
+
+OCI – Oracle Cloud Infrastructure
+
+AKS – Azure Kubernetes Service
+
+EKS – Elastic Kubernetes Service
+
+GKE – Google Kubernetes Engine
+
+---
+
+# Cyberbezpieczeństwo
+
+AES – Zaawansowany Standard Szyfrowania
+
+RSA – Algorytm Rivesta, Shamira i Adlemana
+
+SHA – Bezpieczny Algorytm Skrótu
+
+JWT – Token JSON
+
+OAuth – Otwarta Autoryzacja
+
+OIDC – OpenID Connect
+
+PKI – Infrastruktura Klucza Publicznego
+
+MFA – Uwierzytelnianie Wieloskładnikowe
+
+SSO – Pojedyncze Logowanie
+
+RBAC – Kontrola Dostępu Oparta na Rolach
+
+ACL – Lista Kontroli Dostępu
+
+CVE – Wspólna Lista Podatności i Zagrożeń
+
+CVSS – System Oceny Podatności
+
+XSS – Cross-Site Scripting
+
+CSRF – Fałszowanie Żądań Między Witrynami
+
+DDoS – Rozproszona Odmowa Usługi
+
+---
+
+# AI i Data Science
+
+AI – Sztuczna Inteligencja
+
+AGI – Ogólna Sztuczna Inteligencja
+
+ML – Uczenie Maszynowe
+
+DL – Głębokie Uczenie
+
+ANN – Sztuczna Sieć Neuronowa
+
+CNN – Konwolucyjna Sieć Neuronowa
+
+RNN – Rekurencyjna Sieć Neuronowa
+
+LLM – Duży Model Językowy
+
+NLP – Przetwarzanie Języka Naturalnego
+
+OCR – Optyczne Rozpoznawanie Znaków
+
+RAG – Generowanie Wspomagane Wyszukiwaniem
+
+GPU – Procesor Graficzny
+
+TPU – Procesor Tensorowy
+
+MLOps – Operacje Uczenia Maszynowego
+
+---
+
+# Testowanie
+
+QA – Zapewnienie Jakości
+
+QC – Kontrola Jakości
+
+UAT – Testy Akceptacyjne Użytkownika
+
+E2E – Testy End-to-End
+
+SIT – Testy Integracyjne Systemu
+
+BVT – Test Weryfikacji Kompilacji
+
+---
+
+# Kontrola wersji
+
+VCS – System Kontroli Wersji
+
+DVCS – Rozproszony System Kontroli Wersji
+
+PR – Pull Request
+
+MR – Merge Request
+
+---
+
+# Systemy operacyjne
+
+OS – System Operacyjny
+
+GUI – Graficzny Interfejs Użytkownika
+
+CLI – Interfejs Wiersza Poleceń
+
+TTY – Terminal
+
+PID – Identyfikator Procesu
+
+RAM – Pamięć Operacyjna
+
+ROM – Pamięć Tylko do Odczytu
+
+CPU – Procesor
+
+GPU – Procesor Graficzny
+
+SSD – Dysk Półprzewodnikowy
+
+HDD – Dysk Twardy
+
+BIOS – Podstawowy System Wejścia/Wyjścia
+
+UEFI – Zunifikowany Interfejs Oprogramowania Sprzętowego
+
+---
+
+To jest około **180 najczęściej spotykanych skrótów**, z którymi programista, administrator, DevOps Engineer, Data Engineer czy specjalista QA spotyka się niemal codziennie.
+
+Można tę listę rozszerzyć do około **3000–5000 skrótów**, obejmując praktycznie wszystkie technologie wykorzystywane we współczesnej informatyce.

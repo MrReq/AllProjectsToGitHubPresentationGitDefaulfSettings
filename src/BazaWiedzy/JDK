@@ -1,9 +1,184 @@
-JDK, czyli Java Development Kit, jest kompletnym zestawem narzędzi potrzebnych do tworzenia aplikacji Java.
+JDK jest skrótem od Java Development Kit.
 
-Zawiera kompilator języka Java.
+W języku polskim oznacza Zestaw Narzędzi Programistycznych dla Javy.
 
-Zawiera JVM.
+JDK jest kompletnym środowiskiem służącym do tworzenia aplikacji w języku Java.
 
-Zawiera dodatkowe narzędzia programistyczne.
+JDK zawiera wszystkie narzędzia potrzebne do pisania, kompilowania, uruchamiania oraz testowania programów.
 
-Bez JDK nie jest możliwe tworzenie ani kompilowanie aplikacji napisanych w Javie.
+Bez zainstalowanego JDK nie można tworzyć aplikacji Java.
+
+JDK jest rozwijane przez Oracle.
+
+Istnieją również inne implementacje JDK.
+
+Najpopularniejsze z nich to: Eclipse Adoptium, Amazon Corretto, Azul Systems Zulu, BellSoft Liberica oraz Microsoft Build of OpenJDK.
+
+JDK bazuje na projekcie OpenJDK.
+
+OpenJDK jest otwartoźródłową implementacją platformy Java.
+
+JDK składa się z kilku głównych elementów.
+
+Najważniejsze z nich to: JRE, JVM, kompilator `javac`, interpreter `java`, narzędzia diagnostyczne, debugger, generator dokumentacji Javadoc oraz narzędzia do pakowania aplikacji.
+
+Najważniejszym elementem JDK jest JRE.
+
+JRE jest skrótem od Java Runtime Environment.
+
+JRE odpowiada za uruchamianie aplikacji Java.
+
+W skład JRE wchodzi JVM oraz standardowe biblioteki Java.
+
+JVM jest skrótem od Java Virtual Machine.
+
+JVM wykonuje skompilowany kod Java.
+
+Dzięki JVM ten sam program może działać na różnych systemach operacyjnych.
+
+Zależność pomiędzy tymi elementami wygląda następująco.
+
+```text
+JDK
+│
+├── JRE
+│   │
+│   ├── JVM
+│   └── Biblioteki Java
+│
+├── Kompilator javac
+├── Interpreter java
+├── Javadoc
+├── Jar
+├── Jdb
+├── Jdeps
+├── Jlink
+├── Jpackage
+└── Pozostałe narzędzia
+```
+
+Najważniejszym narzędziem JDK jest `javac`.
+
+`javac` kompiluje pliki `.java` do plików `.class`.
+
+Przykład.
+
+```bash
+javac Main.java
+```
+
+Powstaje plik.
+
+```text
+Main.class
+```
+
+Program uruchamia się za pomocą polecenia `java`.
+
+Przykład.
+
+```bash
+java Main
+```
+
+Polecenie `java` uruchamia maszynę JVM.
+
+JVM wykonuje kod bajtowy zapisany w pliku `.class`.
+
+Kolejnym ważnym narzędziem jest `jar`.
+
+`jar` służy do tworzenia archiwów JAR.
+
+Przykład.
+
+```bash
+jar cf app.jar *.class
+```
+
+Plik JAR umożliwia łatwe dystrybuowanie aplikacji.
+
+Narzędzie `javadoc` automatycznie generuje dokumentację programu.
+
+Przykład.
+
+```bash
+javadoc Main.java
+```
+
+Dokumentacja tworzona jest w postaci stron HTML.
+
+Narzędzie `jdb` jest debuggerem dla języka Java.
+
+Pozwala analizować działanie programu.
+
+Narzędzie `jdeps` analizuje zależności projektu.
+
+Umożliwia sprawdzenie, z jakich modułów korzysta aplikacja.
+
+Narzędzie `jlink` pozwala tworzyć własne środowisko uruchomieniowe Java.
+
+Dzięki temu aplikacja może zawierać tylko potrzebne moduły.
+
+Zmniejsza to rozmiar końcowej aplikacji.
+
+Narzędzie `jpackage` umożliwia tworzenie instalatorów aplikacji.
+
+Można tworzyć instalatory dla systemu Windows.
+
+Można tworzyć instalatory dla systemu Linux.
+
+Można tworzyć instalatory dla systemu macOS.
+
+JDK zawiera standardową bibliotekę klas.
+
+Najważniejsze pakiety to: `java.lang`, `java.util`, `java.io`, `java.nio`, `java.net`, `java.sql`, `java.time`, `java.math`, `java.concurrent` oraz `javax.swing`.
+
+JDK współpracuje z wieloma środowiskami programistycznymi.
+
+Najczęściej wykorzystywane IDE to: IntelliJ IDEA, Eclipse IDE, Apache NetBeans oraz Visual Studio Code.
+
+JDK współpracuje z systemami budowania projektów.
+
+Najczęściej wykorzystywane to: Maven, Gradle oraz Ant.
+
+Każda nowa wersja JDK wprowadza nowe możliwości języka Java.
+
+Przykładowo Java 8 wprowadziła wyrażenia Lambda oraz Stream API.
+
+Java 9 wprowadziła moduły.
+
+Java 14 wprowadziła rekordy jako funkcję podglądową.
+
+Java 17 jest wersją LTS.
+
+Java 21 jest kolejną wersją LTS i wprowadza między innymi Virtual Threads oraz wiele usprawnień wydajnościowych.
+
+LTS jest skrótem od Long-Term Support.
+
+Wersje LTS są wspierane przez dłuższy okres czasu.
+
+Najczęściej są wykorzystywane w środowiskach produkcyjnych.
+
+Wersje niebędące LTS służą głównie do szybszego udostępniania nowych funkcji.
+
+Numer wersji JDK można sprawdzić poleceniem.
+
+```bash
+java -version
+```
+
+Wersję kompilatora można sprawdzić poleceniem.
+
+```bash
+javac -version
+```
+
+Zmienne środowiskowe często wykorzystywane z JDK to `JAVA_HOME` oraz `PATH`.
+
+`JAVA_HOME` wskazuje katalog, w którym zainstalowano JDK.
+
+`PATH` umożliwia uruchamianie poleceń Java z dowolnego miejsca w systemie.
+
+Największą zaletą JDK jest dostarczenie kompletnego zestawu narzędzi potrzebnych do tworzenia, kompilowania, uruchamiania, testowania oraz dystrybucji aplikacji Java.
+
+Znajomość JDK jest niezbędna dla każdego programisty Java, ponieważ stanowi podstawę pracy z IDE, Maven, Gradle, Spring Boot, Hibernate, Jakarta EE oraz wszystkimi nowoczesnymi technologiami opartymi na języku Java.

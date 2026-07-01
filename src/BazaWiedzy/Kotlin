@@ -1,7 +1,297 @@
-Kotlin jest nowoczesnym językiem programowania działającym na platformie JVM.
+Kotlin jest nowoczesnym językiem programowania rozwijanym przez JetBrains.
 
-Został stworzony jako bardziej zwięzła alternatywa dla Javy.
+Pierwsza publiczna wersja Kotlina została zaprezentowana w 2011 roku.
 
-Oferuje również większe bezpieczeństwo kodu.
+Wersja 1.0 została wydana w 2016 roku.
 
-Obecnie jest oficjalnie wspieranym językiem do tworzenia aplikacji Android.
+Kotlin został zaprojektowany jako nowocześniejsza alternatywa dla języka Java.
+
+Kotlin jest w pełni interoperacyjny z Javą.
+
+Oznacza to, że kod Kotlin może korzystać z klas napisanych w Javie.
+
+Kod Java może również korzystać z klas napisanych w Kotlinie.
+
+Kotlin kompilowany jest do kodu bajtowego JVM.
+
+Dzięki temu działa na Java Virtual Machine.
+
+Kotlin może być również kompilowany do JavaScript.
+
+Kotlin może być kompilowany do kodu natywnego za pomocą Kotlin/Native.
+
+Kotlin może być wykorzystywany do tworzenia aplikacji wieloplatformowych.
+
+Projekt ten nosi nazwę Kotlin Multiplatform.
+
+Kotlin jest oficjalnie wspierany przez Google jako język do tworzenia aplikacji Android.
+
+Od 2019 roku Kotlin jest preferowanym językiem programowania dla platformy Android.
+
+Pliki źródłowe Kotlin posiadają rozszerzenie `.kt`.
+
+Kod Kotlin jest zazwyczaj krótszy od kodu Java.
+
+Kotlin eliminuje wiele powtarzalnego kodu.
+
+Jednym z głównych celów Kotlina jest zwiększenie bezpieczeństwa kodu.
+
+Najważniejszą cechą Kotlina jest Null Safety.
+
+System typów pomaga unikać błędów związanych z wartością `null`.
+
+Przykład.
+
+```kotlin
+var name: String = "Jan"
+
+// name = null    // Błąd kompilacji
+```
+
+Jeżeli zmienna może przechowywać `null`, należy użyć znaku `?`.
+
+Przykład.
+
+```kotlin
+var name: String? = null
+```
+
+Do bezpiecznego odwoływania się do obiektów służy operator `?.`.
+
+Przykład.
+
+```kotlin
+println(name?.length)
+```
+
+Operator `?:` nazywany jest Elvis Operator.
+
+Pozwala zwrócić wartość domyślną.
+
+Przykład.
+
+```kotlin
+val length = name?.length ?: 0
+```
+
+Zmienne deklaruje się za pomocą słów kluczowych `val` oraz `var`.
+
+`val` oznacza zmienną niemodyfikowalną.
+
+`var` oznacza zmienną modyfikowalną.
+
+Przykład.
+
+```kotlin
+val age = 20
+
+var city = "Warszawa"
+```
+
+Kotlin potrafi automatycznie określać typ zmiennej.
+
+Mechanizm ten nazywa się Type Inference.
+
+Przykład.
+
+```kotlin
+val number = 10
+```
+
+Kompilator sam rozpoznaje typ `Int`.
+
+Funkcje definiuje się za pomocą słowa kluczowego `fun`.
+
+Przykład.
+
+```kotlin
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+Funkcje mogą posiadać wartości domyślne parametrów.
+
+Przykład.
+
+```kotlin
+fun greet(name: String = "Gość") {
+    println(name)
+}
+```
+
+Kotlin obsługuje funkcje jednowierszowe.
+
+Przykład.
+
+```kotlin
+fun square(x: Int) = x * x
+```
+
+Klasy definiuje się za pomocą słowa kluczowego `class`.
+
+Przykład.
+
+```kotlin
+class Person(
+    val name: String,
+    var age: Int
+)
+```
+
+Kotlin posiada Data Class.
+
+Data Class automatycznie generuje metody `toString()`, `equals()`, `hashCode()`, `copy()` oraz metody komponentów.
+
+Przykład.
+
+```kotlin
+data class Person(
+    val name: String,
+    val age: Int
+)
+```
+
+Tworzenie obiektu nie wymaga użycia słowa `new`.
+
+Przykład.
+
+```kotlin
+val person = Person("Jan", 20)
+```
+
+Kotlin obsługuje dziedziczenie.
+
+Klasy są domyślnie `final`.
+
+Aby umożliwić dziedziczenie, należy użyć słowa kluczowego `open`.
+
+Przykład.
+
+```kotlin
+open class Animal
+
+class Dog : Animal()
+```
+
+Interfejsy definiuje się podobnie jak w Javie.
+
+Przykład.
+
+```kotlin
+interface Flyable {
+
+    fun fly()
+
+}
+```
+
+Kotlin obsługuje Enum Class.
+
+Przykład.
+
+```kotlin
+enum class Day {
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY
+}
+```
+
+Kotlin obsługuje klasy zapieczętowane.
+
+Tworzy się je za pomocą słowa kluczowego `sealed`.
+
+Przykład.
+
+```kotlin
+sealed class Result
+```
+
+Kotlin obsługuje Recordopodobne klasy poprzez Data Class.
+
+Kotlin posiada Extension Functions.
+
+Pozwalają one rozszerzać istniejące klasy bez ich modyfikowania.
+
+Przykład.
+
+```kotlin
+fun String.firstLetter() = this[0]
+```
+
+Wywołanie.
+
+```kotlin
+println("Kotlin".firstLetter())
+```
+
+Kotlin posiada Lambda Expressions.
+
+Przykład.
+
+```kotlin
+val add = { a: Int, b: Int -> a + b }
+```
+
+Kotlin bardzo dobrze współpracuje z kolekcjami.
+
+Najczęściej wykorzystywane kolekcje to: List, MutableList, Set, MutableSet, Map oraz MutableMap.
+
+Przykład.
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4)
+```
+
+Kotlin posiada bogate operacje na kolekcjach.
+
+Najczęściej wykorzystywane funkcje to: `map()`, `filter()`, `forEach()`, `sorted()`, `find()`, `any()`, `all()`, `count()` oraz `reduce()`.
+
+Przykład.
+
+```kotlin
+val even = numbers.filter { it % 2 == 0 }
+```
+
+Kotlin obsługuje Coroutines.
+
+Coroutines są nowoczesnym mechanizmem programowania asynchronicznego.
+
+Pozwalają pisać kod asynchroniczny w sposób przypominający kod synchroniczny.
+
+Przykład.
+
+```kotlin
+suspend fun downloadData() {
+
+}
+```
+
+Kotlin bardzo dobrze współpracuje z Java.
+
+Można bezpośrednio korzystać z bibliotek Java.
+
+Można korzystać z frameworków takich jak Spring Boot, Hibernate oraz Jakarta EE.
+
+Kotlin jest szeroko wykorzystywany w tworzeniu aplikacji Android.
+
+Jest również wykorzystywany do tworzenia aplikacji serwerowych.
+
+Może być wykorzystywany do tworzenia aplikacji desktopowych.
+
+Może być wykorzystywany do tworzenia aplikacji webowych.
+
+Może być wykorzystywany do tworzenia aplikacji wieloplatformowych.
+
+Najpopularniejsze frameworki wspierające Kotlin to: Spring Boot, Ktor, Android SDK oraz Jetpack Compose.
+
+Najczęściej wykorzystywane środowiska programistyczne to: IntelliJ IDEA, Android Studio oraz Visual Studio Code z odpowiednimi rozszerzeniami.
+
+Kotlin wykorzystuje system budowania projektów Gradle.
+
+Gradle jest domyślnym narzędziem budowania aplikacji Android.
+
+Największą zaletą Kotlina jest zwięzła składnia, bezpieczeństwo typów, pełna interoperacyjność z Javą oraz nowoczesne mechanizmy programowania, takie jak Null Safety, Coroutines i Extension Functions.
+
+Znajomość Kotlina jest szczególnie ceniona na stanowiskach związanych z Android Development, Backend Development, Full Stack Development oraz tworzeniem nowoczesnych aplikacji opartych na platformie JVM.

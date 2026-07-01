@@ -1,11 +1,199 @@
-StyleSheet, najczęściej w postaci pliku CSS, odpowiada za wygląd i prezentację elementów HTML.
+StyleSheet jest mechanizmem służącym do definiowania wyglądu elementów interfejsu użytkownika.
 
-Pozwala definiować kolory.
+Najczęściej termin StyleSheet odnosi się do arkuszy stylów CSS wykorzystywanych w aplikacjach internetowych.
 
-Pozwala definiować rozmiary.
+StyleSheet oddziela warstwę prezentacji od struktury dokumentu.
 
-Pozwala definiować marginesy.
+Dzięki temu kod HTML odpowiada za strukturę strony, a StyleSheet za jej wygląd.
 
-Pozwala definiować pozycjonowanie elementów.
+Takie podejście zwiększa czytelność projektu.
 
-Pozwala definiować wiele innych aspektów wizualnych strony internetowej.
+Takie podejście ułatwia utrzymanie kodu.
+
+Zmiana wyglądu strony nie wymaga modyfikowania kodu HTML.
+
+Jeden arkusz stylów może być wykorzystywany przez wiele stron.
+
+StyleSheet opisuje między innymi kolory.
+
+StyleSheet opisuje czcionki.
+
+StyleSheet opisuje rozmiary elementów.
+
+StyleSheet opisuje marginesy.
+
+StyleSheet opisuje odstępy.
+
+StyleSheet opisuje obramowania.
+
+StyleSheet opisuje tła.
+
+StyleSheet opisuje animacje.
+
+StyleSheet opisuje układ elementów na stronie.
+
+Najczęściej wykorzystywanym językiem arkuszy stylów jest CSS.
+
+CSS jest skrótem od Cascading Style Sheets.
+
+Arkusze stylów można dołączać na trzy sposoby.
+
+Pierwszym sposobem jest styl inline.
+
+Styl znajduje się bezpośrednio w znaczniku HTML.
+
+Przykład.
+
+```html
+<p style="color:red;">Hello World</p>
+```
+
+Drugim sposobem jest styl wewnętrzny.
+
+Styl umieszczany jest w sekcji `<head>`.
+
+Przykład.
+
+```html
+<style>
+p {
+    color: red;
+}
+</style>
+```
+
+Trzecim sposobem jest zewnętrzny arkusz stylów.
+
+Jest to najczęściej stosowane rozwiązanie.
+
+Przykład.
+
+```html
+<link rel="stylesheet" href="style.css">
+```
+
+Kod CSS znajduje się wtedy w osobnym pliku.
+
+Najczęściej plik posiada rozszerzenie `.css`.
+
+Przykład.
+
+```css
+p {
+    color: red;
+}
+```
+
+Każda reguła CSS składa się z selektora oraz deklaracji.
+
+Selektor określa, które elementy zostaną ostylowane.
+
+Deklaracja określa sposób stylowania.
+
+Przykład.
+
+```css
+h1 {
+    color: blue;
+    font-size: 32px;
+}
+```
+
+Najczęściej wykorzystywane selektory to: selektor elementu, selektor klasy, selektor identyfikatora, selektor uniwersalny oraz selektory atrybutów.
+
+Przykład selektora klasy.
+
+```css
+.button {
+    background-color: green;
+}
+```
+
+Przykład selektora identyfikatora.
+
+```css
+#menu {
+    color: white;
+}
+```
+
+Atrybut `class` może być używany przez wiele elementów.
+
+Atrybut `id` powinien być unikalny w obrębie strony.
+
+CSS wykorzystuje mechanizm kaskadowości.
+
+Jeżeli kilka reguł dotyczy tego samego elementu, przeglądarka wybiera regułę o najwyższym priorytecie.
+
+Mechanizm ten nazywany jest Cascade.
+
+CSS wykorzystuje również mechanizm dziedziczenia.
+
+Niektóre właściwości są automatycznie dziedziczone przez elementy potomne.
+
+Najczęściej wykorzystywane właściwości CSS to: `color`, `background-color`, `font-size`, `font-family`, `width`, `height`, `margin`, `padding`, `border`, `display`, `position`, `overflow` oraz `opacity`.
+
+Do tworzenia nowoczesnych układów stron najczęściej wykorzystuje się Flexbox.
+
+Drugim bardzo popularnym rozwiązaniem jest CSS Grid.
+
+Flexbox najlepiej sprawdza się przy układzie jednowymiarowym.
+
+CSS Grid najlepiej sprawdza się przy układach dwuwymiarowych.
+
+StyleSheet umożliwia tworzenie animacji.
+
+Do tego celu wykorzystywane są właściwości `transition` oraz `animation`.
+
+StyleSheet umożliwia tworzenie responsywnych stron internetowych.
+
+Najczęściej wykorzystuje się Media Queries.
+
+Przykład.
+
+```css
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+}
+```
+
+Dzięki temu wygląd strony może zmieniać się w zależności od rozmiaru ekranu.
+
+StyleSheet współpracuje z JavaScript.
+
+JavaScript może dynamicznie zmieniać style elementów.
+
+Przykład.
+
+```javascript
+document.getElementById("title").style.color = "red";
+```
+
+StyleSheet jest wykorzystywany nie tylko w technologiach webowych.
+
+JavaFX wykorzystuje własny język stylów oparty na CSS.
+
+Przykład.
+
+```css
+.button {
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+}
+```
+
+Frameworki frontendowe również korzystają z arkuszy stylów.
+
+Najpopularniejsze z nich to: Bootstrap, Tailwind CSS, Bulma, Foundation oraz Material UI.
+
+Arkusze stylów są również wykorzystywane w wielu bibliotekach GUI.
+
+Pozwalają oddzielić logikę aplikacji od jej wyglądu.
+
+Największą zaletą StyleSheet jest możliwość centralnego zarządzania wyglądem aplikacji przy zachowaniu czytelnego i łatwego w utrzymaniu kodu.
+
+Znajomość StyleSheet jest niezbędna podczas tworzenia stron internetowych, aplikacji webowych, interfejsów użytkownika oraz pracy z technologiami takimi jak HTML, CSS, JavaScript, JavaFX, React, Angular, Vue czy Spring Boot z silnikami szablonów.

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="eclipselink-5.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/EclipseLink/eclipselink-5.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/EclipseLink/h2-2.3.232.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/EclipseLink/jakarta.persistence-api-3.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/EclipseLink/sqlite-jdbc-3.50.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

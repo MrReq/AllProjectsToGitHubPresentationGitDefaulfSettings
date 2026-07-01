@@ -48,5 +48,25 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="httpcore5-h2-5.3.6" level="project" />
+    <orderEntry type="library" name="httpclient5-5.5.1" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.5.0" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.5.0 (2)" level="project" />
+    <orderEntry type="library" name="poi-5.4.1" level="project" />
+    <orderEntry type="library" name="log4j-core-2.25.2" level="project" />
+    <orderEntry type="library" name="apiguardian-api-1.1.2" level="project" />
+    <orderEntry type="library" name="commons-csv-1.14.1" level="project" />
+    <orderEntry type="library" name="commons-io-2.20.0" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.18.0" level="project" />
+    <orderEntry type="library" name="eclipselink-5.0.0" level="project" />
+    <orderEntry type="library" name="flatlaf-3.6" level="project" />
+    <orderEntry type="library" name="checker-qual-3.49.5" level="project" />
+    <orderEntry type="library" name="antlr4-runtime-4.13.2" level="project" />
+    <orderEntry type="library" name="barcodes-8.0.5" level="project" />
+    <orderEntry type="library" name="jackson-core-2.20.0" level="project" />
+    <orderEntry type="library" name="javafx-base-24.0.2" level="project" />
+    <orderEntry type="library" name="javax.activation-api-1.2.0" level="project" />
+    <orderEntry type="library" name="validation-api-2.0.1.Final" level="project" />
+    <orderEntry type="library" name="javax.activation-api-1.2.0 (2)" level="project" />
   </component>
 </module>

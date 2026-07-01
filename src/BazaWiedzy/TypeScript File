@@ -1,9 +1,313 @@
-TypeScript File jest plikiem zawierającym kod języka TypeScript.
+TypeScript jest językiem programowania opracowanym przez Microsoft.
 
-TypeScript rozszerza możliwości JavaScript.
+Pierwsza wersja TypeScript została wydana w 2012 roku.
 
-Dodaje statyczne typowanie.
+TypeScript jest nadzbiorem języka JavaScript.
 
-Dodaje dodatkowe mechanizmy zwiększające bezpieczeństwo kodu.
+Oznacza to, że każdy poprawny kod JavaScript jest również poprawnym kodem TypeScript.
 
-Ułatwia rozwój dużych projektów.
+TypeScript rozszerza JavaScript o nowe mechanizmy.
+
+Najważniejszym z nich jest statyczne typowanie.
+
+Kod TypeScript kompilowany jest do JavaScript.
+
+Przeglądarki internetowe nie wykonują kodu TypeScript bezpośrednio.
+
+Przed uruchomieniem kod musi zostać przekształcony do JavaScript.
+
+Proces ten nazywa się transpilacją.
+
+Do transpilacji wykorzystywany jest kompilator `tsc`.
+
+Pliki źródłowe TypeScript posiadają rozszerzenie `.ts`.
+
+Pliki zawierające kod JSX oraz TypeScript posiadają rozszerzenie `.tsx`.
+
+Po kompilacji powstaje plik JavaScript z rozszerzeniem `.js`.
+
+Przykład.
+
+```typescript
+let message: string = "Hello World";
+
+console.log(message);
+```
+
+Po kompilacji.
+
+```javascript
+let message = "Hello World";
+
+console.log(message);
+```
+
+Największą zaletą TypeScript jest statyczne sprawdzanie typów.
+
+Wiele błędów wykrywanych jest już podczas kompilacji.
+
+Zmienne mogą posiadać jawnie określony typ.
+
+Przykład.
+
+```typescript
+let age: number = 20;
+
+let name: string = "Jan";
+
+let active: boolean = true;
+```
+
+TypeScript potrafi automatycznie określać typ zmiennej.
+
+Mechanizm ten nazywa się Type Inference.
+
+Przykład.
+
+```typescript
+let age = 20;
+```
+
+Kompilator sam rozpozna typ `number`.
+
+Najczęściej wykorzystywane typy danych to: `string`, `number`, `boolean`, `bigint`, `symbol`, `null`, `undefined`, `object`, `any`, `unknown`, `void` oraz `never`.
+
+TypeScript obsługuje tablice.
+
+Przykład.
+
+```typescript
+let numbers: number[] = [1, 2, 3];
+```
+
+Można również używać typu generycznego.
+
+```typescript
+let numbers: Array<number> = [1, 2, 3];
+```
+
+TypeScript obsługuje krotki.
+
+Przykład.
+
+```typescript
+let person: [string, number] = ["Jan", 20];
+```
+
+TypeScript posiada Enum.
+
+Przykład.
+
+```typescript
+enum Color {
+
+    Red,
+    Green,
+    Blue
+
+}
+```
+
+TypeScript obsługuje interfejsy.
+
+Interfejs definiuje strukturę obiektu.
+
+Przykład.
+
+```typescript
+interface Person {
+
+    name: string;
+
+    age: number;
+
+}
+```
+
+Użycie.
+
+```typescript
+let person: Person = {
+
+    name: "Jan",
+    age: 20
+
+};
+```
+
+TypeScript obsługuje klasy.
+
+Przykład.
+
+```typescript
+class Person {
+
+    constructor(
+        public name: string,
+        public age: number
+    ) {}
+
+}
+```
+
+Tworzenie obiektu.
+
+```typescript
+const person = new Person("Jan", 20);
+```
+
+TypeScript obsługuje dziedziczenie.
+
+Przykład.
+
+```typescript
+class Animal {
+
+    move() {}
+
+}
+
+class Dog extends Animal {
+
+}
+```
+
+TypeScript obsługuje implementację interfejsów.
+
+Przykład.
+
+```typescript
+interface Printable {
+
+    print(): void;
+
+}
+
+class Document implements Printable {
+
+    print() {
+        console.log("Print");
+    }
+
+}
+```
+
+TypeScript obsługuje funkcje.
+
+Przykład.
+
+```typescript
+function add(a: number, b: number): number {
+
+    return a + b;
+
+}
+```
+
+Obsługiwane są również funkcje strzałkowe.
+
+Przykład.
+
+```typescript
+const add = (a: number, b: number): number => a + b;
+```
+
+TypeScript posiada typy generyczne.
+
+Przykład.
+
+```typescript
+class Box<T> {
+
+    value: T;
+
+    constructor(value: T) {
+        this.value = value;
+    }
+
+}
+```
+
+TypeScript obsługuje Union Types.
+
+Pozwalają one określić kilka możliwych typów.
+
+Przykład.
+
+```typescript
+let value: string | number;
+```
+
+TypeScript obsługuje Intersection Types.
+
+Przykład.
+
+```typescript
+type Employee = Person & Worker;
+```
+
+TypeScript posiada Aliasy Typów.
+
+Przykład.
+
+```typescript
+type Id = number;
+```
+
+TypeScript posiada moduły.
+
+Najczęściej wykorzystuje się `export` oraz `import`.
+
+Przykład eksportu.
+
+```typescript
+export class User {
+
+}
+```
+
+Przykład importu.
+
+```typescript
+import { User } from "./User";
+```
+
+TypeScript bardzo dobrze współpracuje z JavaScript ES6.
+
+Obsługuje `async` oraz `await`.
+
+Obsługuje `Promise`.
+
+Obsługuje destrukturyzację.
+
+Obsługuje operatory spread oraz rest.
+
+Obsługuje template strings.
+
+TypeScript współpracuje z Node.js.
+
+TypeScript jest najczęściej używany do tworzenia aplikacji internetowych.
+
+Jest również wykorzystywany w aplikacjach serwerowych.
+
+Może być wykorzystywany do tworzenia aplikacji desktopowych.
+
+Może być wykorzystywany do tworzenia aplikacji mobilnych.
+
+Najpopularniejsze frameworki wykorzystujące TypeScript to: Angular, NestJS, Next.js, Nuxt oraz Ionic.
+
+Framework Angular został napisany głównie z myślą o TypeScript.
+
+Biblioteka React bardzo często wykorzystywana jest razem z TypeScript.
+
+TypeScript współpracuje z większością bibliotek JavaScript.
+
+Do zarządzania projektami najczęściej wykorzystuje się npm lub Yarn.
+
+Najczęściej wykorzystywane środowiska programistyczne to: Visual Studio Code, WebStorm oraz IntelliJ IDEA.
+
+Największą zaletą TypeScript jest możliwość wykrywania błędów na etapie kompilacji, lepsze wsparcie dla dużych projektów oraz łatwiejsze utrzymanie kodu dzięki statycznemu typowaniu.
+
+TypeScript jest szczególnie ceniony w dużych projektach, gdzie bezpieczeństwo typów, czytelność kodu oraz łatwość jego rozwoju mają kluczowe znaczenie.
+
+Znajomość TypeScript jest bardzo przydatna na stanowiskach związanych z Frontend Development, Full Stack Development, Backend Development w Node.js oraz tworzeniem nowoczesnych aplikacji internetowych.

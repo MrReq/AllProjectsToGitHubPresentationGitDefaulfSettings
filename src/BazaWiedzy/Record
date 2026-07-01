@@ -1,13 +1,315 @@
-Record jest specjalnym typem klasy przeznaczonym głównie do przechowywania danych.
+Record jest specjalnym typem klasy wprowadzonym do języka Java.
 
-Pozwala w prosty sposób tworzyć niemodyfikowalne obiekty.
+Record został dodany jako funkcja podglądowa w Java 14.
 
-Nie wymaga ręcznego pisania konstruktorów.
+Od Java 16 Record jest pełnoprawnym elementem języka.
 
-Nie wymaga ręcznego tworzenia metod equals().
+Record służy do tworzenia prostych, niemutowalnych obiektów przechowujących dane.
 
-Nie wymaga ręcznego tworzenia metod hashCode().
+Głównym celem Record jest ograniczenie ilości powtarzalnego kodu.
 
-Nie wymaga ręcznego tworzenia metod toString().
+Record automatycznie generuje wiele metod, które w zwykłej klasie trzeba napisać ręcznie.
 
-Record znacząco upraszcza tworzenie klas danych.
+Najczęściej Record wykorzystywany jest jako DTO.
+
+Record bardzo dobrze sprawdza się również jako obiekt reprezentujący wynik operacji.
+
+Record definiuje się za pomocą słowa kluczowego `record`.
+
+Najprostszy przykład.
+
+```java
+public record Person(String name, int age) {
+
+}
+```
+
+Powyższy Record jest odpowiednikiem klasy.
+
+```java
+public class Person {
+
+    private final String name;
+    private final int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String name() {
+        return name;
+    }
+
+    public int age() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person[name=" + name + ", age=" + age + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // ...
+    }
+
+    @Override
+    public int hashCode() {
+        // ...
+    }
+}
+```
+
+Record automatycznie generuje konstruktor.
+
+Record automatycznie generuje metody dostępowe.
+
+Record automatycznie generuje metodę `toString()`.
+
+Record automatycznie generuje metodę `equals()`.
+
+Record automatycznie generuje metodę `hashCode()`.
+
+Metody dostępowe w Record nie posiadają przedrostka `get`.
+
+Przykład.
+
+```java
+Person person = new Person("Jan", 20);
+
+System.out.println(person.name());
+
+System.out.println(person.age());
+```
+
+Nie wywołujemy metod `getName()` ani `getAge()`.
+
+Pola Record są automatycznie oznaczane jako `private final`.
+
+Oznacza to, że są niemutowalne.
+
+Po utworzeniu obiektu nie można zmienić jego wartości.
+
+Przykład.
+
+```java
+Person person = new Person("Jan", 20);
+
+// person.name = "Adam"; // Błąd
+```
+
+Record posiada konstruktor kanoniczny.
+
+Jest on tworzony automatycznie przez kompilator.
+
+Można go również napisać samodzielnie.
+
+Przykład.
+
+```java
+public record Person(String name, int age) {
+
+    public Person(String name, int age) {
+
+        if (age < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        this.name = name;
+        this.age = age;
+    }
+
+}
+```
+
+Można również zastosować konstruktor kompaktowy.
+
+Przykład.
+
+```java
+public record Person(String name, int age) {
+
+    public Person {
+
+        if (age < 0) {
+            throw new IllegalArgumentException();
+        }
+
+    }
+
+}
+```
+
+Konstruktor kompaktowy nie wymaga przypisywania wartości do pól.
+
+Kompilator zrobi to automatycznie.
+
+Record może zawierać własne metody.
+
+Przykład.
+
+```java
+public record Rectangle(double width, double height) {
+
+    public double area() {
+        return width * height;
+    }
+
+}
+```
+
+Użycie.
+
+```java
+Rectangle rectangle = new Rectangle(5, 8);
+
+System.out.println(rectangle.area());
+```
+
+Record może implementować interfejsy.
+
+Przykład.
+
+```java
+interface Printable {
+
+    void print();
+
+}
+
+public record Person(String name)
+        implements Printable {
+
+    @Override
+    public void print() {
+        System.out.println(name);
+    }
+
+}
+```
+
+Record nie może dziedziczyć po innej klasie.
+
+Każdy Record automatycznie dziedziczy po klasie `java.lang.Record`.
+
+Record jest automatycznie oznaczany jako `final`.
+
+Nie można po nim dziedziczyć.
+
+Record może zawierać metody statyczne.
+
+Record może zawierać pola statyczne.
+
+Record nie może posiadać niestatycznych pól innych niż zadeklarowane komponenty.
+
+Przykład poprawny.
+
+```java
+public record Config(String name) {
+
+    public static final String VERSION = "1.0";
+
+}
+```
+
+Przykład niepoprawny.
+
+```java
+public record Person(String name) {
+
+    private int age;
+
+}
+```
+
+Powyższy kod nie skompiluje się.
+
+Record może zawierać bloki statyczne.
+
+Przykład.
+
+```java
+public record Config(String name) {
+
+    static {
+        System.out.println("Loaded");
+    }
+
+}
+```
+
+Record bardzo dobrze współpracuje z kolekcjami.
+
+Przykład.
+
+```java
+List<Person> people = List.of(
+        new Person("Jan", 20),
+        new Person("Anna", 25)
+);
+```
+
+Record bardzo dobrze współpracuje z Stream API.
+
+Przykład.
+
+```java
+people.stream()
+      .map(Person::name)
+      .forEach(System.out::println);
+```
+
+Record jest często wykorzystywany w Spring Boot.
+
+Może służyć jako DTO przekazywane pomiędzy klientem a serwerem.
+
+Przykład.
+
+```java
+public record UserDto(
+        Long id,
+        String username
+) {
+}
+```
+
+Record bardzo dobrze współpracuje z bibliotekami JSON.
+
+Frameworki takie jak Jackson potrafią automatycznie serializować oraz deserializować Record.
+
+Record może być wykorzystywany z Hibernate.
+
+Najczęściej pełni rolę DTO.
+
+Nie jest jednak dobrym wyborem dla encji JPA.
+
+Encje JPA wymagają możliwości modyfikowania pól oraz konstruktora bezargumentowego.
+
+Record jest niemutowalny.
+
+Dlatego do encji zazwyczaj wykorzystuje się klasy.
+
+Record jest szczególnie przydatny do tworzenia:
+
+* DTO (Data Transfer Object),
+* obiektów konfiguracyjnych,
+* wyników zapytań,
+* odpowiedzi REST API,
+* obiektów przekazywanych pomiędzy warstwami aplikacji,
+* obiektów reprezentujących wartości.
+
+## Class vs Record
+
+| Class                                  | Record                                    |
+| -------------------------------------- | ----------------------------------------- |
+| Może posiadać pola modyfikowalne       | Pola są zawsze `private final`            |
+| Wymaga ręcznego napisania wielu metod  | Metody są generowane automatycznie        |
+| Może dziedziczyć po innej klasie       | Nie może dziedziczyć po klasie            |
+| Może być mutowalna                     | Jest niemutowalna                         |
+| Nadaje się do każdej logiki biznesowej | Najlepiej sprawdza się jako obiekt danych |
+
+Największą zaletą Record jest możliwość tworzenia prostych, czytelnych i niemutowalnych klas przy użyciu minimalnej ilości kodu.
+
+Znajomość Record jest bardzo przydatna podczas pracy z Java 16+, Spring Boot, REST API, Stream API oraz nowoczesnymi aplikacjami wykorzystującymi wzorzec DTO.

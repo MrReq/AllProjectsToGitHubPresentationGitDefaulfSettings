@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="checker-qual-3.49.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/Guava/checker-qual-3.49.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/Guava/error_prone_annotations-2.36.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/Guava/failureaccess-1.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/Guava/guava-33.4.8-jre.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/Guava/j2objc-annotations-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/BibliotekiIJary/Guava/jspecify-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

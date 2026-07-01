@@ -23,20 +23,20 @@ class Car {
     }
 
 }
-public class Person4 {
+ class Person4 {
 
-    Person() {
+    Person4() {
 
     }
 
 }
  class Person5 {
 
-    Person() {
+    Person5() {
 
     }
 
-    Person(String name) {
+    Person5(String name) {
         this.name = name;
     }
 
