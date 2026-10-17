@@ -1,0 +1,926 @@
+# Helm
+
+## 1. Czym jest Helm
+
+Helm to menedżer pakietów dla Kubernetes.
+
+Helm pozwala instalować, konfigurować, aktualizować i usuwać aplikacje uruchamiane w klastrach Kubernetes.
+
+Helm jest często określany jako „package manager for Kubernetes”.
+
+Można go porównać do `apt` w systemach Debian/Ubuntu, `npm` w JavaScript czy `Maven` w Javie, jednak Helm działa na poziomie aplikacji wdrażanych do Kubernetes.
+
+Helm wykorzystuje szablony i pliki konfiguracyjne YAML do opisywania sposobu wdrażania aplikacji.
+
+## 2. Dlaczego powstał Helm
+
+Kubernetes wykorzystuje manifesty YAML do definiowania zasobów.
+
+Dla prostej aplikacji możemy potrzebować między innymi:
+
+```text
+Deployment
+Service
+ConfigMap
+Secret
+Ingress
+PersistentVolumeClaim
+```
+
+Przy większych aplikacjach liczba plików YAML może szybko rosnąć.
+
+Dodatkowo różne środowiska mogą wymagać innych wartości.
+
+Przykładowo środowisko development może używać:
+
+```text
+replicas: 1
+```
+
+a produkcja:
+
+```text
+replicas: 5
+```
+
+Helm pozwala opisać wspólną strukturę aplikacji i zmieniać wartości konfiguracyjne bez kopiowania całych manifestów.
+
+## 3. Helm Chart
+
+Najważniejszym pojęciem w Helm jest Chart.
+
+Chart to pakiet zawierający definicję aplikacji przeznaczonej do wdrożenia w Kubernetes.
+
+Chart może zawierać:
+
+```text
+Deployment
+Service
+Ingress
+ConfigMap
+Secret
+PersistentVolumeClaim
+```
+
+oraz inne zasoby Kubernetes.
+
+Możemy więc traktować Chart jako gotowy „pakiet wdrożeniowy” aplikacji.
+
+## 4. Struktura Helm Chart
+
+Typowa struktura Chart może wyglądać tak:
+
+```text
+my-app/
+│
+├── Chart.yaml
+├── values.yaml
+├── templates/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   ├── ingress.yaml
+│   └── _helpers.tpl
+└── charts/
+```
+
+Każdy element ma określone zadanie.
+
+## 5. Chart.yaml
+
+`Chart.yaml` zawiera podstawowe informacje o Chart.
+
+Przykład:
+
+```yaml
+apiVersion: v2
+name: my-app
+description: My Kubernetes application
+type: application
+version: 1.0.0
+appVersion: "1.0"
+```
+
+`name` określa nazwę Chart.
+
+`version` określa wersję Chart.
+
+`appVersion` określa wersję aplikacji wdrażanej przez Chart.
+
+## 6. values.yaml
+
+`values.yaml` zawiera wartości konfiguracyjne używane przez szablony.
+
+Przykład:
+
+```yaml
+replicaCount: 2
+
+image:
+  repository: nginx
+  tag: "1.27"
+
+service:
+  type: ClusterIP
+  port: 80
+```
+
+Możemy później zmienić te wartości bez modyfikowania wszystkich manifestów.
+
+## 7. Templates
+
+Katalog `templates` zawiera szablony manifestów Kubernetes.
+
+Przykład:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-app
+spec:
+  replicas: {{ .Values.replicaCount }}
+```
+
+Helm przetwarza taki szablon i generuje poprawny manifest Kubernetes.
+
+## 8. Helm Template Engine
+
+Helm wykorzystuje język szablonów oparty na Go templates.
+
+W szablonach można używać między innymi:
+
+```text
+{{ .Values.replicaCount }}
+```
+
+Wartość zostanie pobrana z `values.yaml`.
+
+Jeżeli:
+
+```yaml
+replicaCount: 3
+```
+
+to:
+
+```yaml
+replicas: {{ .Values.replicaCount }}
+```
+
+zostanie wygenerowane jako:
+
+```yaml
+replicas: 3
+```
+
+## 9. Release
+
+Release to konkretna instalacja Chart w klastrze Kubernetes.
+
+Jeden Chart może zostać zainstalowany wiele razy.
+
+Przykładowo:
+
+```text
+my-app-dev
+my-app-test
+my-app-prod
+```
+
+mogą być trzema różnymi Release tego samego Chart.
+
+Każdy Release posiada własny stan i konfigurację.
+
+## 10. Repository
+
+Helm Repository jest miejscem, w którym przechowywane są Charts.
+
+Możemy dodać repozytorium:
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+```
+
+Następnie możemy wyszukiwać dostępne Charts:
+
+```bash
+helm search repo nginx
+```
+
+Repozytoria pozwalają korzystać z gotowych pakietów zamiast tworzyć wszystko samodzielnie.
+
+## 11. OCI Registry
+
+Współczesny Helm obsługuje również przechowywanie Charts w rejestrach OCI.
+
+OCI oznacza Open Container Initiative.
+
+Charts mogą być przechowywane między innymi w rejestrach obsługujących OCI.
+
+Przykładem może być:
+
+```text
+ghcr.io
+```
+
+Dzięki temu Helm może korzystać z infrastruktury podobnej do tej wykorzystywanej przez obrazy kontenerów.
+
+## 12. Instalowanie aplikacji
+
+Aplikację z Chart można zainstalować za pomocą:
+
+```bash
+helm install my-app ./my-chart
+```
+
+`my-app` jest nazwą Release.
+
+`./my-chart` wskazuje lokalny Chart.
+
+Helm wygeneruje manifesty Kubernetes i zastosuje je w klastrze.
+
+## 13. Instalowanie Chart z repozytorium
+
+Możemy również instalować gotowe Charts:
+
+```bash
+helm install my-nginx bitnami/nginx
+```
+
+Helm pobierze Chart z repozytorium i wdroży go w aktualnym klastrze Kubernetes.
+
+## 14. Sprawdzanie Release
+
+Możemy wyświetlić zainstalowane Release:
+
+```bash
+helm list
+```
+
+Możemy również sprawdzić Release w konkretnym namespace:
+
+```bash
+helm list -n production
+```
+
+## 15. Aktualizacja aplikacji
+
+Helm pozwala aktualizować istniejące Release.
+
+Służy do tego:
+
+```bash
+helm upgrade my-app ./my-chart
+```
+
+Możemy również przekazać nowe wartości:
+
+```bash
+helm upgrade my-app ./my-chart \
+  --set replicaCount=5
+```
+
+Kubernetes otrzyma zaktualizowaną konfigurację.
+
+## 16. Rollback
+
+Jedną z ważnych funkcji Helm jest możliwość cofnięcia wdrożenia.
+
+Jeżeli nowa wersja aplikacji powoduje problemy, możemy wykonać:
+
+```bash
+helm rollback my-app 1
+```
+
+Helm przywróci wcześniejszą wersję Release.
+
+Możemy sprawdzić historię:
+
+```bash
+helm history my-app
+```
+
+## 17. Uninstall
+
+Aplikację można usunąć za pomocą:
+
+```bash
+helm uninstall my-app
+```
+
+Helm usunie zasoby należące do danego Release zgodnie z konfiguracją i zachowaniem danego Chart.
+
+## 18. Namespace
+
+Helm może wdrażać aplikacje do określonego namespace.
+
+Przykład:
+
+```bash
+helm install my-app ./my-chart \
+  --namespace production \
+  --create-namespace
+```
+
+Jeżeli namespace nie istnieje, opcja `--create-namespace` może go utworzyć.
+
+## 19. Przekazywanie wartości
+
+Wartości można zmieniać za pomocą `--set`.
+
+Przykład:
+
+```bash
+helm install my-app ./my-chart \
+  --set replicaCount=3
+```
+
+Możemy również przekazać własny plik:
+
+```bash
+helm install my-app ./my-chart \
+  -f values-production.yaml
+```
+
+Jest to bardzo przydatne w przypadku wielu środowisk.
+
+## 20. Development, Test i Production
+
+Możemy posiadać jeden Chart i różne pliki wartości.
+
+```text
+values.yaml
+values-dev.yaml
+values-test.yaml
+values-prod.yaml
+```
+
+Przykładowo:
+
+```bash
+helm upgrade --install my-app ./my-chart \
+  -f values-prod.yaml
+```
+
+Dzięki temu ta sama aplikacja może być wdrażana na różne środowiska przy użyciu różnych konfiguracji.
+
+## 21. Helm i Kubernetes
+
+Helm nie zastępuje Kubernetes.
+
+Kubernetes jest platformą orkiestracji kontenerów.
+
+Helm jest narzędziem pomagającym zarządzać aplikacjami wdrażanymi do Kubernetes.
+
+Można przedstawić to w uproszczeniu:
+
+```text
+Helm
+  │
+  ▼
+Manifesty Kubernetes
+  │
+  ▼
+Kubernetes API
+  │
+  ▼
+Kubernetes Cluster
+  │
+  ├── Pod
+  ├── Service
+  ├── Deployment
+  └── Ingress
+```
+
+## 22. Helm i Docker
+
+Docker służy przede wszystkim do budowania i uruchamiania kontenerów.
+
+Helm służy do zarządzania wdrażaniem aplikacji w Kubernetes.
+
+Typowy przepływ może wyglądać następująco:
+
+```text
+Kod aplikacji
+     │
+     ▼
+Docker Image
+     │
+     ▼
+Container Registry
+     │
+     ▼
+Helm
+     │
+     ▼
+Kubernetes
+```
+
+Helm może wskazywać obraz kontenera, który ma zostać uruchomiony przez Kubernetes.
+
+## 23. Helm i Docker Compose
+
+Docker Compose pozwala definiować aplikacje składające się z wielu kontenerów.
+
+Helm służy do definiowania wdrożeń aplikacji w Kubernetes.
+
+Docker Compose może być bardzo wygodny podczas lokalnego developmentu.
+
+Helm jest szczególnie przydatny podczas wdrażania aplikacji do klastra Kubernetes.
+
+## 24. Helm i CI/CD
+
+Helm jest często wykorzystywany w procesach CI/CD.
+
+Przykładowy pipeline może wyglądać tak:
+
+```text
+Git
+ │
+ ▼
+CI
+ │
+ ├── Build
+ ├── Test
+ ├── Docker Image
+ └── Push Image
+       │
+       ▼
+     Helm
+       │
+       ▼
+  Kubernetes
+```
+
+Pipeline może automatycznie wykonać:
+
+```bash
+helm upgrade --install
+```
+
+i wdrożyć nową wersję aplikacji.
+
+## 25. Helm i GitOps
+
+Helm jest często wykorzystywany razem z podejściem GitOps.
+
+W Git przechowywane są między innymi:
+
+```text
+Helm Charts
+values.yaml
+konfiguracja środowisk
+```
+
+Narzędzia takie jak Argo CD mogą obserwować repozytorium Git i automatycznie synchronizować konfigurację z Kubernetes.
+
+## 26. Helm Dependency
+
+Chart może posiadać zależności od innych Charts.
+
+Przykładowo nasza aplikacja może wymagać:
+
+```text
+PostgreSQL
+Redis
+RabbitMQ
+```
+
+Zależności można definiować w `Chart.yaml`.
+
+Przykładowo:
+
+```yaml
+dependencies:
+  - name: postgresql
+    version: "..."
+    repository: "..."
+```
+
+Helm może następnie pobrać wymagane zależności.
+
+## 27. Helm Lint
+
+Helm posiada polecenie `lint`.
+
+Pozwala ono sprawdzić Chart pod kątem typowych problemów.
+
+Przykład:
+
+```bash
+helm lint ./my-chart
+```
+
+Jest to przydatne przed wdrożeniem aplikacji.
+
+## 28. Helm Template
+
+Polecenie:
+
+```bash
+helm template my-app ./my-chart
+```
+
+generuje manifesty Kubernetes bez instalowania ich w klastrze.
+
+Jest to bardzo przydatne do sprawdzenia, co dokładnie wygeneruje Helm.
+
+Możemy więc zobaczyć wynik działania szablonów przed wykonaniem wdrożenia.
+
+## 29. Helm Dry Run
+
+Możemy również użyć:
+
+```bash
+helm install my-app ./my-chart --dry-run
+```
+
+Tryb dry run pozwala sprawdzić planowane wdrożenie bez wykonywania go w normalny sposób.
+
+Jest to przydatne podczas testowania konfiguracji.
+
+## 30. Helm Package
+
+Chart można spakować:
+
+```bash
+helm package ./my-chart
+```
+
+Wynikiem będzie pakiet:
+
+```text
+my-chart-1.0.0.tgz
+```
+
+Taki pakiet może zostać udostępniony w repozytorium Helm.
+
+## 31. Helm Dependency Update
+
+Jeżeli Chart posiada zależności, możemy wykonać:
+
+```bash
+helm dependency update
+```
+
+Helm pobierze wymagane zależności określone w Chart.
+
+## 32. Helm Secrets
+
+Helm może wdrażać zasoby Kubernetes typu `Secret`.
+
+Należy jednak uważać na przechowywanie poufnych danych.
+
+Umieszczanie haseł w zwykłym `values.yaml` w repozytorium Git może stanowić problem bezpieczeństwa.
+
+W praktycznych środowiskach można wykorzystywać rozwiązania takie jak:
+
+```text
+External Secrets
+HashiCorp Vault
+Sealed Secrets
+cloud secret managers
+```
+
+Helm sam w sobie nie powinien być traktowany jako kompletny system zarządzania sekretami.
+
+## 33. Helm Hooks
+
+Helm posiada mechanizm Hooks.
+
+Hooks pozwalają uruchamiać określone zasoby Kubernetes w konkretnych momentach cyklu życia Release.
+
+Można wykorzystać je między innymi do wykonywania określonych operacji przed lub po instalacji albo aktualizacji.
+
+Przykładowo można przygotować Job uruchamiany podczas wdrożenia.
+
+## 34. Helm Test
+
+Helm pozwala definiować testy Chart.
+
+Możemy uruchomić:
+
+```bash
+helm test my-app
+```
+
+Test może sprawdzić, czy wdrożona aplikacja działa prawidłowo.
+
+## 35. Helm Secrets a ConfigMap
+
+`ConfigMap` służy do przechowywania konfiguracji, która nie jest poufna.
+
+`Secret` służy do przechowywania danych wrażliwych.
+
+Przykładowo:
+
+```text
+ConfigMap
+├── application.properties
+├── LOG_LEVEL
+└── API_URL
+
+Secret
+├── DB_PASSWORD
+├── JWT_SECRET
+└── API_KEY
+```
+
+W praktycznych systemach sekrety powinny być odpowiednio chronione.
+
+## 36. Helm w mikroserwisach
+
+Helm bardzo dobrze sprawdza się w architekturze mikroserwisowej.
+
+Każdy mikroserwis może posiadać własny Chart.
+
+Przykładowo:
+
+```text
+helm/
+├── user-service/
+├── order-service/
+├── payment-service/
+└── notification-service/
+```
+
+Każdy Chart może definiować własny Deployment, Service, ConfigMap oraz inne zasoby.
+
+## 37. Helm w projekcie Spring Boot
+
+Helm może być używany do wdrażania aplikacji Spring Boot.
+
+Przykładowy przepływ:
+
+```text
+Spring Boot
+     │
+     ▼
+Maven
+     │
+     ▼
+JAR
+     │
+     ▼
+Docker Image
+     │
+     ▼
+Registry
+     │
+     ▼
+Helm
+     │
+     ▼
+Kubernetes
+```
+
+Helm może następnie ustawić między innymi:
+
+```yaml
+image:
+  repository: myregistry/backend
+  tag: "1.0.0"
+
+replicaCount: 3
+
+service:
+  port: 8080
+```
+
+## 38. Helm i PostgreSQL
+
+Helm może również ułatwiać wdrażanie PostgreSQL w Kubernetes.
+
+Można wykorzystać gotowy Chart PostgreSQL.
+
+Należy jednak pamiętać, że uruchamianie baz danych w Kubernetes wymaga odpowiedniego podejścia do trwałości danych, backupów, storage oraz wysokiej dostępności.
+
+W środowiskach produkcyjnych często korzysta się również z zarządzanych usług bazodanowych.
+
+## 39. Zalety Helm
+
+Helm upraszcza wdrażanie aplikacji do Kubernetes.
+
+Pozwala wykorzystać szablony.
+
+Pozwala parametryzować konfigurację.
+
+Ułatwia zarządzanie różnymi środowiskami.
+
+Pozwala wersjonować wdrożenia.
+
+Obsługuje rollback.
+
+Pozwala korzystać z gotowych Charts.
+
+Może być wykorzystywany w CI/CD.
+
+Dobrze współpracuje z GitOps.
+
+## 40. Wady Helm
+
+Helm dodaje kolejną warstwę abstrakcji nad Kubernetes.
+
+Rozbudowane szablony mogą być trudne do zrozumienia.
+
+Debugowanie błędów w templatingu może być czasochłonne.
+
+Nieprawidłowo zaprojektowane Charts mogą stać się bardzo skomplikowane.
+
+Helm nie zastępuje znajomości Kubernetes.
+
+Aby dobrze korzystać z Helm, warto najpierw rozumieć podstawowe zasoby Kubernetes.
+
+## 41. Najważniejsze polecenia Helm
+
+```bash
+helm version
+```
+
+Wyświetla wersję Helm.
+
+```bash
+helm repo add
+```
+
+Dodaje repozytorium.
+
+```bash
+helm repo update
+```
+
+Aktualizuje informacje o repozytoriach.
+
+```bash
+helm search repo
+```
+
+Wyszukuje Charts.
+
+```bash
+helm install
+```
+
+Instaluje Release.
+
+```bash
+helm upgrade
+```
+
+Aktualizuje Release.
+
+```bash
+helm upgrade --install
+```
+
+Instaluje Release, jeśli nie istnieje, albo aktualizuje go, jeśli istnieje.
+
+```bash
+helm list
+```
+
+Wyświetla Release.
+
+```bash
+helm history
+```
+
+Wyświetla historię Release.
+
+```bash
+helm rollback
+```
+
+Cofa Release do wcześniejszej wersji.
+
+```bash
+helm uninstall
+```
+
+Usuwa Release.
+
+```bash
+helm template
+```
+
+Generuje manifesty bez wdrażania.
+
+```bash
+helm lint
+```
+
+Sprawdza Chart.
+
+```bash
+helm package
+```
+
+Pakuje Chart.
+
+```bash
+helm test
+```
+
+Uruchamia testy Chart.
+
+## 42. Helm w jednym przykładzie
+
+Załóżmy, że mamy aplikację:
+
+```text
+AgriMind Backend
+```
+
+Tworzymy Chart:
+
+```text
+agrimind/
+├── Chart.yaml
+├── values.yaml
+└── templates/
+    ├── deployment.yaml
+    ├── service.yaml
+    └── ingress.yaml
+```
+
+W `values.yaml` określamy:
+
+```yaml
+replicaCount: 3
+
+image:
+  repository: agrimind/backend
+  tag: "1.0.0"
+```
+
+Następnie wykonujemy:
+
+```bash
+helm upgrade --install agrimind ./agrimind
+```
+
+Helm generuje manifesty Kubernetes.
+
+Manifesty są przesyłane do API Kubernetes.
+
+Kubernetes tworzy wymagane zasoby.
+
+Powstają odpowiednie Pody, Service oraz pozostałe elementy aplikacji.
+
+Jeżeli zmienimy wersję obrazu:
+
+```yaml
+image:
+  repository: agrimind/backend
+  tag: "1.1.0"
+```
+
+możemy wykonać ponownie:
+
+```bash
+helm upgrade agrimind ./agrimind
+```
+
+Helm zaktualizuje Release.
+
+Jeżeli nowa wersja będzie wadliwa, możemy wykorzystać:
+
+```bash
+helm rollback agrimind 1
+```
+
+## 43. Najważniejsze pojęcia do zapamiętania
+
+**Helm** — menedżer pakietów i narzędzie wdrożeniowe dla Kubernetes.
+
+**Chart** — pakiet opisujący sposób wdrożenia aplikacji.
+
+**Release** — konkretna instalacja Chart w Kubernetes.
+
+**Chart.yaml** — podstawowe informacje o Chart.
+
+**values.yaml** — wartości konfiguracyjne używane przez szablony.
+
+**templates/** — szablony manifestów Kubernetes.
+
+**Repository** — miejsce przechowywania Charts.
+
+**OCI Registry** — rejestr mogący przechowywać między innymi Helm Charts.
+
+**Helm Template** — mechanizm generowania manifestów na podstawie szablonów.
+
+**Helm Upgrade** — aktualizacja Release.
+
+**Helm Rollback** — cofnięcie Release do wcześniejszej wersji.
+
+**Helm Hook** — mechanizm wykonywania określonych operacji podczas cyklu życia Release.
+
+**Helm Dependency** — zależność Chart od innych Charts.
+
+**Helm Lint** — sprawdzanie poprawności Chart.
+
+**Helm Test** — uruchamianie testów wdrożonego Chart.
+
+## 44. Helm w jednym zdaniu
+
+Helm to **menedżer pakietów dla Kubernetes, który wykorzystuje Charts, szablony i pliki wartości do łatwego wdrażania, konfigurowania, aktualizowania oraz wersjonowania aplikacji działających w klastrze Kubernetes**.

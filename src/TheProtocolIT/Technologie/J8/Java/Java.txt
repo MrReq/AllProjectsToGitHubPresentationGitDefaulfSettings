@@ -1,0 +1,1348 @@
+# Java
+
+## 1. Czym jest Java?
+
+Java to obiektowy, wysokopoziomowy język programowania ogólnego przeznaczenia, rozwijany od lat 90. XX wieku.
+
+Java została stworzona przez firmę Sun Microsystems, a obecnie jest rozwijana głównie przez Oracle oraz społeczność skupioną wokół OpenJDK.
+
+Jedną z najważniejszych cech Javy jest zasada:
+
+**„Write Once, Run Anywhere” (WORA)**
+
+Oznacza to, że program skompilowany do kodu bajtowego może być uruchamiany na różnych systemach operacyjnych, jeśli posiadają odpowiednią maszynę wirtualną Java.
+
+Java jest szeroko wykorzystywana w aplikacjach backendowych, systemach biznesowych, bankowości, aplikacjach webowych, systemach rozproszonych, mikroserwisach, Androidzie oraz narzędziach programistycznych.
+
+## 2. Najważniejsze cechy Javy
+
+Java jest językiem:
+
+- obiektowym,
+- statycznie typowanym,
+- kompilowanym,
+- wieloplatformowym,
+- automatycznie zarządzającym pamięcią,
+- wielowątkowym,
+- bezpiecznym,
+- dojrzałym i szeroko stosowanym.
+
+Java wspiera między innymi:
+
+- klasy i obiekty,
+- dziedziczenie,
+- polimorfizm,
+- enkapsulację,
+- abstrakcję,
+- interfejsy,
+- wyjątki,
+- generyki,
+- kolekcje,
+- lambdy,
+- Stream API,
+- wielowątkowość,
+- programowanie funkcyjne,
+- programowanie sieciowe,
+- JDBC,
+- programowanie bazodanowe.
+
+## 3. JDK, JRE i JVM
+
+To jedne z najważniejszych pojęć związanych z Javą.
+
+### JVM – Java Virtual Machine
+
+JVM jest maszyną wirtualną, która wykonuje kod bajtowy Javy.
+
+Kod Java:
+
+```text
+plik .java
+   ↓
+kompilacja
+   ↓
+plik .class
+   ↓
+JVM
+   ↓
+wykonanie programu
+```
+
+JVM odpowiada między innymi za:
+
+- wykonywanie bytecode,
+- zarządzanie pamięcią,
+- Garbage Collection,
+- obsługę wyjątków,
+- ładowanie klas,
+- bezpieczeństwo wykonywania kodu.
+
+### JRE – Java Runtime Environment
+
+JRE zapewnia środowisko potrzebne do uruchamiania aplikacji Java.
+
+W uproszczeniu:
+
+```text
+JRE = JVM + biblioteki potrzebne do uruchamiania programów
+```
+
+### JDK – Java Development Kit
+
+JDK jest zestawem narzędzi przeznaczonych do tworzenia programów Java.
+
+W uproszczeniu:
+
+```text
+JDK = JRE + narzędzia programistyczne
+```
+
+Przykładowe narzędzia JDK:
+
+```text
+javac
+java
+javadoc
+jar
+jdb
+jlink
+```
+
+`javac` służy do kompilowania kodu Java.
+
+Przykład:
+
+```bash
+javac Main.java
+```
+
+Uruchomienie:
+
+```bash
+java Main
+```
+
+## 4. Jak działa Java?
+
+Przykładowy program:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+```
+
+Kod zapisujemy w pliku:
+
+```text
+Main.java
+```
+
+Następnie kompilujemy:
+
+```bash
+javac Main.java
+```
+
+Powstaje:
+
+```text
+Main.class
+```
+
+Plik `.class` zawiera **bytecode**.
+
+Następnie JVM wykonuje bytecode:
+
+```bash
+java Main
+```
+
+Dzięki temu ten sam bytecode może być uruchomiony na różnych systemach operacyjnych posiadających kompatybilną JVM.
+
+## 5. Garbage Collector
+
+Java posiada automatyczne zarządzanie pamięcią.
+
+Programista nie musi ręcznie zwalniać pamięci tak jak w języku C.
+
+Za usuwanie nieużywanych obiektów odpowiada **Garbage Collector (GC)**.
+
+Przykład:
+
+```java
+Person person = new Person();
+person = null;
+```
+
+Jeżeli obiekt `Person` nie ma już żadnego odwołania, może zostać w przyszłości usunięty przez Garbage Collector.
+
+## 6. Klasy i obiekty
+
+Java jest silnie związana z programowaniem obiektowym.
+
+Klasa definiuje strukturę i zachowanie obiektów.
+
+```java
+class Person {
+    String name;
+    int age;
+
+    void sayHello() {
+        System.out.println("Hello");
+    }
+}
+```
+
+Obiekt tworzymy za pomocą `new`:
+
+```java
+Person person = new Person();
+```
+
+Możemy ustawić wartości:
+
+```java
+person.name = "Jan";
+person.age = 25;
+```
+
+I wywołać metodę:
+
+```java
+person.sayHello();
+```
+
+## 7. Enkapsulacja
+
+Enkapsulacja polega na ukrywaniu wewnętrznego stanu obiektu i kontrolowaniu dostępu do niego.
+
+Najczęściej wykorzystuje się:
+
+```java
+private
+```
+
+oraz metody:
+
+```java
+getter
+setter
+```
+
+Przykład:
+
+```java
+class Person {
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+
+## 8. Dziedziczenie
+
+Java pozwala tworzyć klasy dziedziczące po innych klasach.
+
+Służy do tego:
+
+```java
+extends
+```
+
+Przykład:
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking");
+    }
+}
+```
+
+`Dog` posiada również metodę odziedziczoną po `Animal`.
+
+```java
+Dog dog = new Dog();
+
+dog.eat();
+dog.bark();
+```
+
+## 9. Polimorfizm
+
+Polimorfizm pozwala traktować różne obiekty poprzez wspólny typ.
+
+```java
+Animal animal = new Dog();
+```
+
+Pomimo że zmienna ma typ `Animal`, rzeczywistym obiektem jest `Dog`.
+
+Polimorfizm jest jednym z najważniejszych mechanizmów programowania obiektowego.
+
+## 10. Abstrakcja
+
+Abstrakcja pozwala przedstawić najważniejsze elementy obiektu, ukrywając szczegóły implementacji.
+
+Możemy wykorzystać:
+
+```java
+abstract
+```
+
+Przykład:
+
+```java
+abstract class Animal {
+
+    abstract void makeSound();
+}
+```
+
+Klasa dziedzicząca musi zaimplementować metodę:
+
+```java
+class Dog extends Animal {
+
+    @Override
+    void makeSound() {
+        System.out.println("Woof");
+    }
+}
+```
+
+## 11. Interfejsy
+
+Interfejs definiuje kontrakt, który może zostać zaimplementowany przez klasę.
+
+Służy do tego:
+
+```java
+interface
+```
+
+Przykład:
+
+```java
+interface Flyable {
+    void fly();
+}
+```
+
+Implementacja:
+
+```java
+class Bird implements Flyable {
+
+    @Override
+    public void fly() {
+        System.out.println("Flying");
+    }
+}
+```
+
+Jedna klasa może implementować wiele interfejsów:
+
+```java
+class Bird implements Flyable, Runnable {
+}
+```
+
+Jest to szczególnie ważne, ponieważ Java nie pozwala na wielodziedziczenie klas.
+
+## 12. Modyfikatory dostępu
+
+Java posiada cztery poziomy dostępu:
+
+```text
+public
+protected
+default
+private
+```
+
+### public
+
+Dostęp praktycznie z każdego miejsca.
+
+### protected
+
+Dostęp w obrębie pakietu oraz klas dziedziczących.
+
+### default
+
+Brak jawnego modyfikatora.
+
+Dostęp w obrębie tego samego pakietu.
+
+### private
+
+Dostęp tylko wewnątrz danej klasy.
+
+## 13. Najważniejsze słowa kluczowe
+
+Java posiada wiele słów kluczowych.
+
+Najważniejsze:
+
+```text
+class
+interface
+enum
+extends
+implements
+public
+private
+protected
+static
+final
+abstract
+new
+this
+super
+return
+if
+else
+switch
+case
+for
+while
+do
+break
+continue
+try
+catch
+finally
+throw
+throws
+instanceof
+synchronized
+volatile
+transient
+package
+import
+```
+
+Przykład:
+
+```java
+public static final int MAX = 100;
+```
+
+## 14. Typy danych
+
+Java posiada typy prymitywne:
+
+```text
+byte
+short
+int
+long
+float
+double
+char
+boolean
+```
+
+Przykład:
+
+```java
+int age = 25;
+double price = 19.99;
+boolean active = true;
+char letter = 'A';
+```
+
+Oprócz typów prymitywnych istnieją typy referencyjne:
+
+```java
+String
+Person
+ArrayList
+Object
+```
+
+## 15. String
+
+`String` służy do przechowywania tekstu.
+
+```java
+String name = "Marcin";
+```
+
+String jest obiektem i jest **niemutowalny (immutable)**.
+
+Przykładowe metody:
+
+```java
+length()
+charAt()
+substring()
+contains()
+equals()
+equalsIgnoreCase()
+toUpperCase()
+toLowerCase()
+replace()
+split()
+trim()
+```
+
+Przykład:
+
+```java
+String text = "Hello";
+
+System.out.println(text.length());
+System.out.println(text.toUpperCase());
+```
+
+## 16. Tablice
+
+Tablica przechowuje elementy tego samego typu.
+
+```java
+int[] numbers = {1, 2, 3, 4, 5};
+```
+
+Dostęp:
+
+```java
+System.out.println(numbers[0]);
+```
+
+Długość:
+
+```java
+numbers.length
+```
+
+Java posiada również tablice wielowymiarowe:
+
+```java
+int[][] matrix = {
+    {1, 2},
+    {3, 4}
+};
+```
+
+## 17. Kolekcje
+
+Java posiada bardzo rozbudowany framework kolekcji.
+
+Najważniejsze interfejsy:
+
+```text
+List
+Set
+Queue
+Deque
+Map
+```
+
+Popularne implementacje:
+
+```text
+ArrayList
+LinkedList
+HashSet
+TreeSet
+HashMap
+TreeMap
+PriorityQueue
+```
+
+Przykład:
+
+```java
+List<String> names = new ArrayList<>();
+
+names.add("Jan");
+names.add("Anna");
+names.add("Piotr");
+```
+
+## 18. ArrayList
+
+`ArrayList` jest dynamiczną tablicą.
+
+```java
+ArrayList<String> names = new ArrayList<>();
+```
+
+Dodawanie:
+
+```java
+names.add("Jan");
+```
+
+Pobieranie:
+
+```java
+names.get(0);
+```
+
+Usuwanie:
+
+```java
+names.remove(0);
+```
+
+Sprawdzanie rozmiaru:
+
+```java
+names.size();
+```
+
+## 19. HashMap
+
+`HashMap` przechowuje dane w postaci:
+
+```text
+klucz → wartość
+```
+
+Przykład:
+
+```java
+Map<Integer, String> users = new HashMap<>();
+
+users.put(1, "Jan");
+users.put(2, "Anna");
+```
+
+Pobranie:
+
+```java
+users.get(1);
+```
+
+Rezultat:
+
+```text
+Jan
+```
+
+## 20. Generics
+
+Generyki pozwalają określić typ danych, które mogą być przechowywane w klasie lub kolekcji.
+
+```java
+List<String> names = new ArrayList<>();
+```
+
+Oznacza to, że lista przechowuje `String`.
+
+Możemy tworzyć również własne klasy generyczne:
+
+```java
+class Box<T> {
+
+    private T value;
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+}
+```
+
+## 21. Wyjątki
+
+Java posiada mechanizm obsługi wyjątków.
+
+Podstawowa konstrukcja:
+
+```java
+try {
+    // kod
+}
+catch (Exception e) {
+    // obsługa błędu
+}
+finally {
+    // wykonywane na końcu
+}
+```
+
+Przykład:
+
+```java
+try {
+    int result = 10 / 0;
+}
+catch (ArithmeticException e) {
+    System.out.println("Nie można dzielić przez zero");
+}
+```
+
+Możemy również używać:
+
+```java
+throw
+```
+
+oraz:
+
+```java
+throws
+```
+
+## 22. Checked i unchecked exceptions
+
+Java rozróżnia między innymi:
+
+**Checked exceptions**
+
+Muszą zostać obsłużone lub zadeklarowane.
+
+Przykłady:
+
+```text
+IOException
+SQLException
+```
+
+**Unchecked exceptions**
+
+Dziedziczą po `RuntimeException`.
+
+Przykłady:
+
+```text
+NullPointerException
+IllegalArgumentException
+ArithmeticException
+IndexOutOfBoundsException
+```
+
+## 23. Lambda expressions
+
+Java od wersji 8 obsługuje wyrażenia lambda.
+
+Przykład:
+
+```java
+(a, b) -> a + b
+```
+
+Lambda jest często wykorzystywana razem z kolekcjami i Stream API.
+
+Przykład:
+
+```java
+List<String> names = List.of("Anna", "Jan", "Piotr");
+
+names.forEach(name -> System.out.println(name));
+```
+
+## 24. Stream API
+
+Stream API pozwala przetwarzać kolekcje w sposób deklaratywny.
+
+Przykład:
+
+```java
+List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+List<Integer> result = numbers.stream()
+        .filter(n -> n % 2 == 0)
+        .map(n -> n * 2)
+        .toList();
+```
+
+Tutaj:
+
+```text
+stream()
+↓
+filter()
+↓
+map()
+↓
+toList()
+```
+
+Stream API posiada między innymi:
+
+```text
+filter()
+map()
+flatMap()
+sorted()
+distinct()
+limit()
+skip()
+forEach()
+collect()
+reduce()
+count()
+anyMatch()
+allMatch()
+noneMatch()
+findFirst()
+findAny()
+```
+
+## 25. Optional
+
+`Optional` służy między innymi do bezpieczniejszego reprezentowania wartości, która może nie istnieć.
+
+```java
+Optional<String> name = Optional.of("Jan");
+```
+
+Możemy wykorzystać:
+
+```java
+isPresent()
+isEmpty()
+orElse()
+orElseGet()
+orElseThrow()
+ifPresent()
+```
+
+Przykład:
+
+```java
+String result = name.orElse("Unknown");
+```
+
+## 26. Programowanie wielowątkowe
+
+Java posiada rozbudowane mechanizmy współbieżności.
+
+Możemy tworzyć wątki:
+
+```java
+Thread thread = new Thread(() -> {
+    System.out.println("Hello");
+});
+
+thread.start();
+```
+
+Java posiada również:
+
+```text
+Runnable
+Callable
+ExecutorService
+Future
+CompletableFuture
+synchronized
+Lock
+Semaphore
+CountDownLatch
+AtomicInteger
+```
+
+Szczególnie ważny jest:
+
+```java
+ExecutorService
+```
+
+który pozwala zarządzać pulą wątków.
+
+## 27. Pakiety
+
+Pakiety służą do organizowania klas.
+
+Przykład:
+
+```java
+package pl.example.application;
+```
+
+Import:
+
+```java
+import java.util.ArrayList;
+```
+
+Dzięki pakietom można organizować duże aplikacje.
+
+## 28. Maven
+
+Maven jest jednym z najpopularniejszych narzędzi do budowania projektów Java.
+
+Wykorzystuje plik:
+
+```text
+pom.xml
+```
+
+W Mavenie możemy definiować:
+
+- zależności,
+- wersję Javy,
+- pluginy,
+- proces budowania,
+- testy,
+- pakowanie aplikacji.
+
+Przykładowa zależność:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+Podstawowe polecenia:
+
+```bash
+mvn clean
+mvn compile
+mvn test
+mvn package
+mvn install
+```
+
+## 29. Gradle
+
+Alternatywą dla Maven jest między innymi Gradle.
+
+Gradle wykorzystuje najczęściej:
+
+```text
+build.gradle
+```
+
+lub:
+
+```text
+build.gradle.kts
+```
+
+Gradle jest często wykorzystywany w projektach Java oraz Android.
+
+## 30. JDBC
+
+JDBC oznacza:
+
+**Java Database Connectivity**
+
+Jest to API pozwalające aplikacjom Java komunikować się z bazami danych.
+
+Przykładowy schemat:
+
+```text
+Java
+ ↓
+JDBC
+ ↓
+JDBC Driver
+ ↓
+Database
+```
+
+Przykładowy kod:
+
+```java
+Connection connection =
+        DriverManager.getConnection(url, username, password);
+```
+
+Następnie możemy wykonać zapytanie:
+
+```java
+PreparedStatement statement =
+        connection.prepareStatement(
+            "SELECT * FROM users"
+        );
+```
+
+JDBC jest często używane w aplikacjach backendowych.
+
+## 31. Spring
+
+Jednym z najważniejszych frameworków ekosystemu Java jest Spring.
+
+Spring jest szeroko wykorzystywany do tworzenia aplikacji backendowych.
+
+Najważniejsze elementy ekosystemu Spring:
+
+```text
+Spring Core
+Spring Boot
+Spring MVC
+Spring Data
+Spring Security
+Spring Cloud
+Spring Batch
+Spring Integration
+```
+
+Spring Boot znacząco upraszcza tworzenie aplikacji.
+
+Przykład:
+
+```java
+@SpringBootApplication
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+
+## 32. REST API w Javie
+
+Java jest bardzo często wykorzystywana do tworzenia REST API.
+
+Przykład ze Spring Boot:
+
+```java
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    @GetMapping
+    public List<User> getUsers() {
+        return users;
+    }
+}
+```
+
+Endpoint może wyglądać następująco:
+
+```text
+GET /users
+```
+
+Możemy również wykorzystać:
+
+```text
+POST
+PUT
+PATCH
+DELETE
+```
+
+## 33. Hibernate i JPA
+
+JPA to standard służący do mapowania obiektów Java na dane w bazie.
+
+Hibernate jest jedną z najpopularniejszych implementacji JPA.
+
+Przykład:
+
+```java
+@Entity
+public class User {
+
+    @Id
+    private Long id;
+
+    private String name;
+}
+```
+
+Pozwala to mapować klasę:
+
+```text
+User
+```
+
+na tabelę w bazie danych.
+
+Jest to przykład:
+
+**ORM – Object-Relational Mapping**
+
+## 34. Testowanie
+
+Java posiada bardzo rozbudowany ekosystem testów.
+
+Najpopularniejsze narzędzia to między innymi:
+
+```text
+JUnit
+Mockito
+AssertJ
+Testcontainers
+Selenium
+REST Assured
+```
+
+JUnit służy do tworzenia testów jednostkowych.
+
+Przykład:
+
+```java
+@Test
+void shouldAddNumbers() {
+
+    int result = 2 + 3;
+
+    assertEquals(5, result);
+}
+```
+
+## 35. Narzędzia i środowiska
+
+Do programowania w Javie często wykorzystuje się:
+
+- IntelliJ IDEA,
+- Eclipse,
+- Apache NetBeans,
+- Visual Studio Code.
+
+W przypadku większych projektów bardzo popularny jest IntelliJ IDEA.
+
+Do zarządzania kodem:
+
+```text
+Git
+GitHub
+GitLab
+Bitbucket
+```
+
+Do budowania:
+
+```text
+Maven
+Gradle
+```
+
+Do testów:
+
+```text
+JUnit
+Mockito
+Testcontainers
+```
+
+Do baz danych:
+
+```text
+JDBC
+JPA
+Hibernate
+Spring Data JPA
+```
+
+## 36. Java a JavaScript
+
+Java i JavaScript to **dwa różne języki programowania**.
+
+Java:
+
+```text
+Java
+JVM
+backend
+aplikacje biznesowe
+Spring
+Android
+```
+
+JavaScript:
+
+```text
+JavaScript
+Browser
+Node.js
+Frontend
+Backend
+Web
+```
+
+Nazwa JavaScript była częściowo związana z popularnością Javy, ale języki te mają różne zastosowania i architekturę.
+
+## 37. Java w praktyce
+
+Java jest wykorzystywana między innymi do tworzenia:
+
+```text
+REST API
+mikroserwisów
+aplikacji bankowych
+systemów ERP
+systemów e-commerce
+aplikacji biznesowych
+systemów rozproszonych
+aplikacji desktopowych
+oprogramowania serwerowego
+narzędzi developerskich
+systemów przetwarzania danych
+```
+
+W ekosystemie Java spotkasz również technologie takie jak:
+
+```text
+Spring Boot
+Hibernate
+Maven
+Gradle
+JUnit
+Mockito
+Kafka
+ActiveMQ
+JMS
+JDBC
+JPA
+Docker
+Kubernetes
+```
+
+## 38. Najważniejsze wersje Javy
+
+W historii Javy pojawiło się wiele wersji.
+
+Szczególnie istotne są:
+
+```text
+Java 8
+Java 11
+Java 17
+Java 21
+Java 25
+```
+
+Wśród nich występują wersje **LTS – Long-Term Support**, które mają dłuższy okres wsparcia.
+
+W praktyce warto znać szczególnie:
+
+```text
+Java 8
+Java 11
+Java 17
+Java 21
+Java 25
+```
+
+ponieważ są często spotykane w projektach i materiałach edukacyjnych.
+
+## 39. Najważniejsze rzeczy do nauki Javy
+
+Jeżeli chcesz naprawdę dobrze znać Javę, warto uczyć się jej w następującej kolejności:
+
+```text
+1. Składnia Javy
+2. Typy danych
+3. Operatory
+4. Instrukcje warunkowe
+5. Pętle
+6. Metody
+7. Tablice
+8. String
+9. Klasy i obiekty
+10. Enkapsulacja
+11. Dziedziczenie
+12. Polimorfizm
+13. Abstrakcja
+14. Interfejsy
+15. Enum
+16. Wyjątki
+17. Collections
+18. Generics
+19. Stream API
+20. Lambda
+21. Optional
+22. Date/Time API
+23. I/O
+24. Wielowątkowość
+25. JDBC
+26. Maven
+27. JUnit
+28. Git
+29. SQL
+30. Spring
+31. Spring Boot
+32. REST API
+33. JPA/Hibernate
+34. Spring Data
+35. Spring Security
+36. Mikroserwisy
+37. Docker
+38. Kubernetes
+```
+
+## 40. Java – najważniejszy schemat
+
+Można zapamiętać cały ekosystem w następujący sposób:
+
+```text
+JAVA
+│
+├── JDK
+│   ├── javac
+│   ├── java
+│   └── jar
+│
+├── JVM
+│   └── wykonuje bytecode
+│
+├── OOP
+│   ├── klasy
+│   ├── obiekty
+│   ├── dziedziczenie
+│   ├── polimorfizm
+│   ├── abstrakcja
+│   └── enkapsulacja
+│
+├── Collections
+│   ├── List
+│   ├── Set
+│   ├── Queue
+│   └── Map
+│
+├── Functional
+│   ├── Lambda
+│   ├── Stream API
+│   └── Optional
+│
+├── Concurrency
+│   ├── Thread
+│   ├── ExecutorService
+│   └── CompletableFuture
+│
+├── Database
+│   ├── JDBC
+│   ├── JPA
+│   └── Hibernate
+│
+├── Build
+│   ├── Maven
+│   └── Gradle
+│
+├── Testing
+│   ├── JUnit
+│   ├── Mockito
+│   └── Testcontainers
+│
+└── Backend
+    ├── Spring
+    ├── Spring Boot
+    ├── REST API
+    ├── Security
+    └── Microservices
+```
+
+**W skrócie:** Java to nie tylko sam język programowania, ale cały ogromny ekosystem technologii. Jeżeli uczysz się Javy pod kątem pracy w IT, szczególnie wartościowe jest połączenie **Java + OOP + Collections + Stream API + SQL + JDBC/JPA + Maven + JUnit + Spring Boot + REST API + Git + Docker**.

@@ -1,0 +1,1101 @@
+# Flask
+
+## Czym jest Flask?
+
+Flask to lekki i elastyczny framework webowy napisany w języku **Python**.
+
+Służy przede wszystkim do tworzenia:
+
+aplikacji internetowych.
+
+REST API.
+
+backendów.
+
+mikroserwisów.
+
+prototypów.
+
+aplikacji wykorzystujących bazy danych.
+
+Flask jest określany jako **microframework**, ponieważ sam w sobie dostarcza stosunkowo niewiele funkcji i pozwala programiście samodzielnie dobierać dodatkowe biblioteki.
+
+## Do czego służy Flask?
+
+Flask można wykorzystać do tworzenia:
+
+stron internetowych.
+
+REST API.
+
+backendów aplikacji frontendowych.
+
+mikroserwisów.
+
+aplikacji mobilnych posiadających backend.
+
+paneli administracyjnych.
+
+aplikacji wykorzystujących bazy danych.
+
+prototypów i MVP.
+
+aplikacji AI i Machine Learning.
+
+## Flask a Python
+
+Flask jest frameworkiem dla języka Python.
+
+Najprostsza aplikacja Flask może wyglądać tak:
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
+```
+
+Po uruchomieniu aplikacja będzie dostępna zazwyczaj pod:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Instalacja Flask
+
+Flask można zainstalować za pomocą `pip`:
+
+```bash
+pip install flask
+```
+
+Można sprawdzić instalację:
+
+```bash
+flask --version
+```
+
+## Uruchamianie aplikacji
+
+Jeżeli plik nazywa się:
+
+```text
+app.py
+```
+
+możemy uruchomić aplikację poleceniem:
+
+```bash
+flask --app app run
+```
+
+Podczas developmentu możemy użyć:
+
+```bash
+flask --app app run --debug
+```
+
+Tryb debugowania automatycznie przeładowuje aplikację po zmianach w kodzie i dostarcza dodatkowych informacji o błędach.
+
+Trybu debugowania nie należy używać jako konfiguracji produkcyjnej.
+
+## Route
+
+**Route** określa adres URL obsługiwany przez aplikację.
+
+Przykład:
+
+```python
+@app.route("/users")
+def users():
+    return "Users"
+```
+
+Po wejściu na:
+
+```text
+/users
+```
+
+wywołana zostanie funkcja `users()`.
+
+## HTTP Methods
+
+Flask pozwala określić, jakie metody HTTP może obsługiwać dany endpoint.
+
+Domyślnie `route()` obsługuje `GET`.
+
+Możemy określić inne metody:
+
+```python
+@app.route("/users", methods=["POST"])
+def create_user():
+    return "User created"
+```
+
+Możemy również obsługiwać kilka metod:
+
+```python
+@app.route("/users", methods=["GET", "POST"])
+def users():
+    pass
+```
+
+Najczęściej wykorzystywane metody to:
+
+`GET` – pobieranie danych.
+
+`POST` – tworzenie danych.
+
+`PUT` – pełna aktualizacja danych.
+
+`PATCH` – częściowa aktualizacja danych.
+
+`DELETE` – usuwanie danych.
+
+## Parametry URL
+
+Flask umożliwia definiowanie parametrów bezpośrednio w ścieżce.
+
+```python
+@app.route("/users/<int:user_id>")
+def get_user(user_id):
+    return f"User ID: {user_id}"
+```
+
+Dla:
+
+```text
+/users/15
+```
+
+Flask przekaże do funkcji:
+
+```python
+user_id = 15
+```
+
+Możemy określać również typ parametru.
+
+Przykładowo:
+
+```python
+<int:user_id>
+<string:name>
+<float:price>
+<path:file_path>
+<uuid:user_id>
+```
+
+## Query Parameters
+
+Flask pozwala odczytywać parametry znajdujące się po `?`.
+
+Przykład:
+
+```text
+/users?name=Jan
+```
+
+Kod:
+
+```python
+from flask import request
+
+@app.route("/users")
+def users():
+    name = request.args.get("name")
+
+    return {
+        "name": name
+    }
+```
+
+`request.args` zawiera parametry query string.
+
+## JSON
+
+Flask może obsługiwać dane JSON przesyłane przez klienta.
+
+Przykład:
+
+```python
+from flask import request
+
+@app.route("/users", methods=["POST"])
+def create_user():
+    data = request.get_json()
+
+    return {
+        "name": data["name"]
+    }
+```
+
+Klient może wysłać:
+
+```json
+{
+    "name": "Jan",
+    "age": 25
+}
+```
+
+## JSON Response
+
+Flask umożliwia zwracanie danych jako JSON.
+
+Przykład:
+
+```python
+@app.route("/api/users")
+def users():
+    return {
+        "id": 1,
+        "name": "Jan"
+    }
+```
+
+Flask automatycznie przekształci taki słownik na odpowiedź JSON.
+
+Możemy również wykorzystać `jsonify()`:
+
+```python
+from flask import jsonify
+
+@app.route("/api/users")
+def users():
+    return jsonify({
+        "id": 1,
+        "name": "Jan"
+    })
+```
+
+## Status Codes
+
+Możemy zwracać określone kody HTTP.
+
+Przykład:
+
+```python
+@app.route("/users", methods=["POST"])
+def create_user():
+    return {
+        "message": "Created"
+    }, 201
+```
+
+Najczęściej wykorzystywane kody to:
+
+`200 OK` – sukces.
+
+`201 Created` – utworzono zasób.
+
+`204 No Content` – sukces bez treści.
+
+`400 Bad Request` – nieprawidłowe żądanie.
+
+`401 Unauthorized` – brak uwierzytelnienia.
+
+`403 Forbidden` – brak uprawnień.
+
+`404 Not Found` – zasób nie istnieje.
+
+`409 Conflict` – konflikt danych.
+
+`500 Internal Server Error` – błąd serwera.
+
+## Response
+
+Możemy mieć pełną kontrolę nad odpowiedzią HTTP.
+
+Przykład:
+
+```python
+from flask import Response
+
+@app.route("/hello")
+def hello():
+    return Response(
+        "Hello",
+        status=200,
+        mimetype="text/plain"
+    )
+```
+
+Możemy ustawiać:
+
+status HTTP.
+
+nagłówki.
+
+typ MIME.
+
+treść odpowiedzi.
+
+## Templates
+
+Flask może również generować strony HTML.
+
+Do tego wykorzystuje przede wszystkim silnik szablonów **Jinja**.
+
+Przykład:
+
+```python
+from flask import render_template
+
+@app.route("/")
+def home():
+    return render_template(
+        "index.html",
+        name="Jan"
+    )
+```
+
+Struktura projektu:
+
+```text
+project/
+├── app.py
+└── templates/
+    └── index.html
+```
+
+W pliku HTML możemy użyć:
+
+```html
+<h1>Hello {{ name }}</h1>
+```
+
+Rezultat:
+
+```text
+Hello Jan
+```
+
+## Jinja
+
+**Jinja** to silnik szablonów wykorzystywany przez Flask.
+
+Pozwala między innymi:
+
+wyświetlać zmienne.
+
+wykonywać instrukcje warunkowe.
+
+wykonywać pętle.
+
+dziedziczyć szablony.
+
+tworzyć reusable components.
+
+Przykład:
+
+```html
+{% if user %}
+    <h1>Hello {{ user.name }}</h1>
+{% else %}
+    <h1>Hello Guest</h1>
+{% endif %}
+```
+
+## Static Files
+
+Flask umożliwia obsługę plików statycznych.
+
+Mogą to być:
+
+CSS.
+
+JavaScript.
+
+obrazy.
+
+ikony.
+
+Przykładowa struktura:
+
+```text
+project/
+├── app.py
+├── templates/
+│   └── index.html
+└── static/
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── app.js
+    └── images/
+        └── logo.png
+```
+
+## Sessions
+
+Flask posiada mechanizm **sessions**.
+
+Session pozwala przechowywać informacje związane z użytkownikiem pomiędzy kolejnymi żądaniami.
+
+Przykład:
+
+```python
+from flask import session
+
+app.secret_key = "secret-key"
+
+@app.route("/login")
+def login():
+    session["user_id"] = 123
+
+    return "Logged in"
+```
+
+Później:
+
+```python
+user_id = session.get("user_id")
+```
+
+W praktycznej aplikacji sekret powinien być przechowywany bezpiecznie, na przykład w zmiennej środowiskowej, a nie bezpośrednio w kodzie.
+
+## Cookies
+
+Flask umożliwia również pracę z cookies.
+
+Możemy ustawić cookie:
+
+```python
+from flask import make_response
+
+@app.route("/")
+def index():
+    response = make_response("Hello")
+    response.set_cookie("username", "Jan")
+
+    return response
+```
+
+Możemy je następnie odczytać:
+
+```python
+from flask import request
+
+username = request.cookies.get("username")
+```
+
+## Blueprints
+
+W większych projektach nie powinno się umieszczać wszystkich endpointów w jednym pliku.
+
+Flask posiada mechanizm **Blueprints**.
+
+Blueprint pozwala podzielić aplikację na logiczne moduły.
+
+Przykładowo:
+
+```text
+app/
+├── __init__.py
+├── users/
+│   └── routes.py
+├── auth/
+│   └── routes.py
+└── products/
+    └── routes.py
+```
+
+Możemy mieć osobny Blueprint dla:
+
+Users.
+
+Authentication.
+
+Products.
+
+Orders.
+
+Payments.
+
+## Przykład Blueprint
+
+```python
+from flask import Blueprint
+
+users_bp = Blueprint(
+    "users",
+    __name__,
+    url_prefix="/users"
+)
+
+@users_bp.route("/")
+def get_users():
+    return []
+```
+
+Następnie rejestrujemy go w aplikacji:
+
+```python
+app.register_blueprint(users_bp)
+```
+
+Dzięki temu aplikacja jest bardziej modularna.
+
+## Application Factory
+
+W większych projektach często wykorzystuje się wzorzec **Application Factory**.
+
+Zamiast tworzyć aplikację bezpośrednio:
+
+```python
+app = Flask(__name__)
+```
+
+tworzymy funkcję:
+
+```python
+def create_app():
+    app = Flask(__name__)
+
+    return app
+```
+
+Pozwala to łatwiej tworzyć różne konfiguracje aplikacji, na przykład:
+
+```text
+Development
+Testing
+Production
+```
+
+## Extensions
+
+Flask ma minimalistyczną architekturę.
+
+Dodatkowe funkcjonalności często dostarczają rozszerzenia.
+
+Popularne rozszerzenia to między innymi:
+
+**Flask-SQLAlchemy** – integracja z SQLAlchemy.
+
+**Flask-Migrate** – migracje baz danych.
+
+**Flask-JWT-Extended** – JWT.
+
+**Flask-CORS** – obsługa CORS.
+
+**Flask-Login** – zarządzanie sesjami użytkowników.
+
+**Flask-WTF** – formularze i walidacja.
+
+Można więc rozszerzyć Flask zgodnie z potrzebami projektu.
+
+## Flask i bazy danych
+
+Flask sam nie posiada własnego ORM.
+
+Możemy jednak używać zewnętrznych bibliotek.
+
+Najpopularniejszym rozwiązaniem jest **SQLAlchemy**.
+
+Przykładowa architektura:
+
+```text
+Flask
+ ↓
+Flask-SQLAlchemy
+ ↓
+SQLAlchemy
+ ↓
+PostgreSQL
+```
+
+Możemy również korzystać z:
+
+MySQL.
+
+SQLite.
+
+MariaDB.
+
+Microsoft SQL Server.
+
+Oracle.
+
+## Flask-SQLAlchemy
+
+Flask-SQLAlchemy ułatwia wykorzystanie SQLAlchemy w aplikacji Flask.
+
+Przykładowy model:
+
+```python
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(255))
+```
+
+Model może reprezentować tabelę w bazie danych.
+
+## Flask i REST API
+
+Flask bardzo często jest wykorzystywany do tworzenia REST API.
+
+Przykładowe API:
+
+```text
+GET    /api/users
+GET    /api/users/{id}
+POST   /api/users
+PUT    /api/users/{id}
+DELETE /api/users/{id}
+```
+
+Możemy stworzyć backend dla aplikacji React:
+
+```text
+React
+  ↓
+HTTP
+  ↓
+Flask REST API
+  ↓
+PostgreSQL
+```
+
+## Flask i JWT
+
+Flask może obsługiwać uwierzytelnianie za pomocą **JWT – JSON Web Token**.
+
+Typowy przepływ:
+
+```text
+POST /login
+      ↓
+Flask
+      ↓
+sprawdzenie loginu i hasła
+      ↓
+JWT
+      ↓
+Client
+      ↓
+Authorization: Bearer TOKEN
+      ↓
+Flask
+      ↓
+Protected Endpoint
+```
+
+Do obsługi JWT można wykorzystać między innymi Flask-JWT-Extended.
+
+## Flask i CORS
+
+Jeżeli frontend i backend działają na różnych domenach lub portach, może być potrzebna konfiguracja CORS.
+
+Przykładowo:
+
+```text
+Frontend
+localhost:3000
+
+Backend
+localhost:5000
+```
+
+Możemy wykorzystać rozszerzenie Flask-CORS:
+
+```python
+from flask_cors import CORS
+
+CORS(app)
+```
+
+W produkcji należy ograniczać dozwolone źródła zamiast bezwarunkowo zezwalać na wszystkie.
+
+## Middleware i WSGI
+
+Flask jest frameworkiem opartym na standardzie **WSGI – Web Server Gateway Interface**.
+
+WSGI definiuje sposób komunikacji pomiędzy aplikacją Python a serwerem webowym.
+
+Schemat:
+
+```text
+Client
+  ↓
+Web Server
+  ↓
+WSGI
+  ↓
+Flask
+  ↓
+Application
+```
+
+Popularnym serwerem WSGI dla aplikacji Flask jest **Gunicorn**.
+
+## Flask a ASGI
+
+Flask tradycyjnie opiera się na WSGI.
+
+Nowoczesne frameworki takie jak FastAPI są projektowane przede wszystkim z myślą o **ASGI**.
+
+Można to zapamiętać:
+
+```text
+Flask
+→ WSGI
+
+FastAPI
+→ ASGI
+```
+
+ASGI lepiej odpowiada potrzebom aplikacji wykorzystujących intensywnie programowanie asynchroniczne i WebSockety.
+
+## Flask i WebSocket
+
+Flask sam w sobie nie jest nastawiony na WebSockety.
+
+Można jednak wykorzystać rozszerzenia, takie jak **Flask-SocketIO**.
+
+Dzięki temu można tworzyć:
+
+czaty.
+
+powiadomienia czasu rzeczywistego.
+
+aplikacje współdzielone.
+
+systemy komunikacji.
+
+## Flask i Docker
+
+Flask bardzo dobrze nadaje się do uruchamiania w Dockerze.
+
+Przykładowy przepływ:
+
+```text
+Flask Application
+       ↓
+Dockerfile
+       ↓
+Docker Image
+       ↓
+Docker Container
+       ↓
+Web Server
+```
+
+W środowisku produkcyjnym aplikacja często działa za Gunicornem i reverse proxy.
+
+Przykład:
+
+```text
+Internet
+   ↓
+Nginx
+   ↓
+Gunicorn
+   ↓
+Flask
+```
+
+## Flask i mikroserwisy
+
+Flask jest często wykorzystywany do tworzenia małych mikroserwisów.
+
+Przykładowo:
+
+```text
+                  API Gateway
+                       ↓
+       ┌───────────────┼───────────────┐
+       ↓               ↓               ↓
+   User Service    Order Service    AI Service
+      Flask            Flask           Flask
+        ↓                ↓               ↓
+   PostgreSQL        PostgreSQL       ML Model
+```
+
+Jego niewielki rozmiar pozwala łatwo stworzyć mały serwis wykonujący konkretną funkcję.
+
+## Flask w Machine Learning i AI
+
+Flask może służyć do udostępniania modeli Machine Learning jako API.
+
+Przykładowo:
+
+```text
+Machine Learning Model
+          ↓
+        Flask
+          ↓
+      REST API
+          ↓
+       Client
+```
+
+Przykład:
+
+```python
+@app.route("/predict", methods=["POST"])
+def predict():
+    data = request.get_json()
+
+    prediction = model.predict(
+        data["features"]
+    )
+
+    return {
+        "prediction": prediction
+    }
+```
+
+Jest to prosty sposób na udostępnienie modelu ML aplikacjom zewnętrznym.
+
+## Flask vs FastAPI
+
+Flask i FastAPI są frameworkami Pythona do tworzenia backendów i API.
+
+**Flask** jest minimalistyczny i bardzo elastyczny.
+
+**FastAPI** jest bardziej nastawione na nowoczesne API, type hints, automatyczną walidację i programowanie asynchroniczne.
+
+Flask tradycyjnie wykorzystuje WSGI.
+
+FastAPI wykorzystuje ASGI.
+
+Flask posiada ogromny i dojrzały ekosystem.
+
+FastAPI automatycznie generuje dokumentację OpenAPI.
+
+Można to uprościć:
+
+```text
+Flask
+→ prosty, elastyczny, minimalistyczny
+
+FastAPI
+→ API, async, type hints, automatyczna dokumentacja
+```
+
+## Flask vs Django
+
+Flask jest mikroframeworkiem.
+
+Django jest rozbudowanym frameworkiem typu **batteries included**.
+
+Flask daje programiście większą swobodę w wyborze komponentów.
+
+Django posiada wiele funkcji dostępnych od razu.
+
+Można to zapamiętać:
+
+```text
+Flask
+→ wybierasz potrzebne komponenty
+
+Django
+→ wiele komponentów dostajesz od razu
+```
+
+## Typowa struktura projektu Flask
+
+Mała aplikacja:
+
+```text
+project/
+├── app.py
+├── templates/
+│   └── index.html
+└── static/
+    ├── css/
+    └── js/
+```
+
+Większa aplikacja:
+
+```text
+project/
+├── app/
+│   ├── __init__.py
+│   ├── routes/
+│   │   ├── users.py
+│   │   └── auth.py
+│   ├── models/
+│   │   └── user.py
+│   ├── services/
+│   │   └── user_service.py
+│   ├── templates/
+│   └── static/
+│
+├── tests/
+├── config.py
+├── requirements.txt
+└── run.py
+```
+
+## requirements.txt
+
+Zależności aplikacji można zapisać w pliku:
+
+```text
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-JWT-Extended
+Flask-Cors
+```
+
+Następnie można je zainstalować:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Testowanie Flask
+
+Flask posiada narzędzia ułatwiające testowanie aplikacji.
+
+Możemy tworzyć testy wykorzystujące między innymi:
+
+`pytest`.
+
+Flask test client.
+
+Przykładowo możemy sprawdzić:
+
+```text
+GET /users
+→ 200 OK
+```
+
+lub:
+
+```text
+GET /users/999
+→ 404 Not Found
+```
+
+Testowanie API można również wykonywać za pomocą Postmana.
+
+## Zalety Flask
+
+Jest prosty.
+
+Jest lekki.
+
+Jest elastyczny.
+
+Ma bardzo duży ekosystem.
+
+Jest łatwy do rozpoczęcia nauki.
+
+Daje programiście dużą kontrolę nad architekturą.
+
+Dobrze nadaje się do REST API.
+
+Dobrze sprawdza się w mikroserwisach.
+
+Może być wykorzystywany w projektach AI i Machine Learning.
+
+Dobrze współpracuje z SQLAlchemy.
+
+## Wady Flask
+
+Sam Flask dostarcza stosunkowo niewiele funkcji.
+
+Wiele funkcji wymaga dodatkowych bibliotek.
+
+Programista musi samodzielnie zdecydować o architekturze większej aplikacji.
+
+Obsługa asynchroniczności nie jest tak naturalna jak w frameworkach projektowanych wokół ASGI.
+
+Do stworzenia dużej aplikacji trzeba odpowiednio zaprojektować strukturę projektu.
+
+## Flask – najważniejsze pojęcia
+
+**Flask** – lekki framework webowy dla Pythona.
+
+**Route** – adres URL obsługiwany przez aplikację.
+
+**Request** – żądanie HTTP otrzymane przez aplikację.
+
+**Response** – odpowiedź HTTP zwracana klientowi.
+
+**Jinja** – silnik szablonów HTML.
+
+**Blueprint** – sposób organizowania aplikacji w moduły.
+
+**Session** – mechanizm przechowywania informacji o sesji użytkownika.
+
+**Cookie** – mała informacja przechowywana po stronie klienta.
+
+**WSGI** – standard komunikacji pomiędzy aplikacją Python a serwerem.
+
+**Flask-SQLAlchemy** – integracja Flask z SQLAlchemy.
+
+**Flask-JWT-Extended** – obsługa JWT.
+
+**Flask-CORS** – obsługa CORS.
+
+**Gunicorn** – popularny serwer WSGI.
+
+## Flask – najważniejsze do zapamiętania
+
+Flask jest lekkim frameworkiem webowym dla Pythona.
+
+Jest określany jako **microframework**.
+
+Służy do tworzenia stron internetowych, backendów i REST API.
+
+`@app.route()` definiuje endpoint.
+
+`request` pozwala odczytywać dane z żądania.
+
+`jsonify()` pozwala tworzyć odpowiedzi JSON.
+
+**Jinja** służy do generowania stron HTML.
+
+**Blueprints** pozwalają dzielić dużą aplikację na moduły.
+
+**SQLAlchemy** może być wykorzystywane do komunikacji z bazami danych.
+
+**JWT** może służyć do uwierzytelniania.
+
+**Gunicorn** może uruchamiać Flask w środowisku produkcyjnym.
+
+Flask tradycyjnie wykorzystuje **WSGI**.
+
+Flask jest bardzo dobrym wyborem, gdy chcemy mieć **lekki, prosty i elastyczny backend w Pythonie**.
+
+Najprościej zapamiętać:
+
+```text
+                    FLASK
+                      ↓
+               Python Web Framework
+                      ↓
+        ┌─────────────┼─────────────┐
+        ↓             ↓             ↓
+      Routes        Jinja        REST API
+        ↓             ↓             ↓
+     Request       HTML          JSON
+        │
+        ↓
+     Services
+        ↓
+    SQLAlchemy
+        ↓
+    PostgreSQL
+```
+
+**Flask = minimalistyczny i elastyczny framework webowy Pythona, który daje Ci podstawy backendu, a resztę komponentów dobierasz według potrzeb.**

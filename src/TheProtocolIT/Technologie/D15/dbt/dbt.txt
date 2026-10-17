@@ -1,0 +1,173 @@
+# dbt (data build tool)
+
+## 1. Czym jest dbt?
+
+dbt, czyli data build tool, to narzędzie wykorzystywane w inżynierii danych do transformowania, testowania i dokumentowania danych przechowywanych w hurtowniach danych oraz platformach analitycznych.
+
+Umożliwia tworzenie transformacji danych przy użyciu SQL, organizowanie ich w modele oraz zarządzanie zależnościami między poszczególnymi etapami przetwarzania.
+
+dbt jest szczególnie popularny w nowoczesnych rozwiązaniach analitycznych, w których dane są najpierw gromadzone w hurtowni danych, a następnie przekształcane do postaci gotowej do raportowania i analizy.
+
+## 2. Do czego służy dbt?
+
+- Transformowanie danych za pomocą SQL.
+- Budowanie modeli analitycznych w hurtowniach danych.
+- Automatyzowanie procesów ELT (Extract, Load, Transform).
+- Testowanie jakości i poprawności danych.
+- Dokumentowanie modeli danych i ich zależności.
+- Zarządzanie wersjami kodu transformacji za pomocą Git.
+- Współpraca zespołowa przy rozwijaniu projektów analitycznych.
+- Przygotowywanie danych dla raportów, dashboardów i systemów Business Intelligence.
+
+## 3. Jak działa dbt?
+
+dbt działa przede wszystkim na warstwie transformacji danych.
+
+1\. Źródła danych
+
+Bazy danych, pliki i systemy biznesowe
+
+2\. Ładowanie danych
+
+Dane trafiają do hurtowni danych
+
+3\. Transformacje dbt
+
+SQL, modele, testy i zależności
+
+4\. Gotowe dane analityczne
+
+Raporty, dashboardy i analizy biznesowe
+
+W przeciwieństwie do narzędzi, które samodzielnie pobierają dane z wielu systemów i ładują je do hurtowni, dbt koncentruje się na ich przekształcaniu już w środowisku docelowym.
+
+## 4. Najważniejsze cechy dbt
+
+Modele danych
+
+Modele to najczęściej pliki SQL definiujące sposób przekształcania danych w tabele lub widoki.
+
+Testowanie danych
+
+dbt umożliwia sprawdzanie między innymi unikalności wartości, braku wartości pustych oraz poprawności relacji między tabelami.
+
+Zarządzanie zależnościami
+
+Narzędzie rozpoznaje zależności między modelami i potrafi ustalić kolejność ich wykonywania.
+
+Dokumentacja
+
+Można generować dokumentację modeli, kolumn, źródeł danych i powiązań między elementami projektu.
+
+Makra i Jinja
+
+dbt obsługuje szablony Jinja, które pozwalają tworzyć wielokrotnie wykorzystywany kod SQL i parametryzować transformacje.
+
+Integracja z Git
+
+Projekty dbt mogą być wersjonowane i rozwijane zespołowo, podobnie jak projekty programistyczne.
+
+## 5. Przykład wykorzystania dbt
+
+Załóżmy, że w hurtowni danych znajduje się tabela `raw_orders` z zamówieniami klientów.
+
+Chcemy utworzyć model zawierający wyłącznie opłacone zamówienia o wartości większej niż zero.
+
+W projekcie dbt tworzymy plik `paid_orders.sql`:
+
+```
+SELECT
+    order_id,
+    customer_id,
+    order_date,
+    amount
+FROM {{ source('raw', 'orders') }}
+WHERE status = 'paid'
+  AND amount > 0
+```
+
+Instrukcja `source()` odwołuje się do źródła danych zdefiniowanego w konfiguracji projektu.
+
+Następnie uruchamiamy model poleceniem:
+
+```
+dbt run --select paid_orders
+```
+
+dbt wykona odpowiednią transformację w obsługiwanej hurtowni danych i utworzy skonfigurowany obiekt docelowy, na przykład widok lub tabelę.
+
+Ważne jest wcześniejsze skonfigurowanie połączenia z hurtownią oraz zdefiniowanie źródła `raw.orders`.
+
+## 6. Najważniejsze elementy projektu dbt
+
+- Models – pliki SQL definiujące transformacje danych.
+- Sources – deklaracje źródłowych tabel i widoków.
+- Seeds – niewielkie pliki CSV, które można załadować do hurtowni.
+- Tests – reguły weryfikujące jakość danych.
+- Snapshots – mechanizmy śledzenia zmian danych w czasie.
+- Macros – wielokrotnie wykorzystywane fragmenty logiki tworzone z użyciem Jinja.
+- Documentation – opisy modeli, kolumn i zależności.
+- dbt_project.yml – podstawowy plik konfiguracyjny projektu.
+
+## 7. Technologie współpracujące z dbt
+
+dbt współpracuje z wieloma platformami danych, w tym:
+
+- Snowflake – chmurowa platforma danych.
+- Google BigQuery – hurtownia danych Google Cloud.
+- Amazon Redshift – hurtownia danych AWS.
+- Databricks – platforma do analityki danych i AI.
+- PostgreSQL – relacyjna baza danych, przy odpowiednim adapterze.
+- Microsoft Fabric – platforma analityczna Microsoft, zależnie od dostępnego rozwiązania i konfiguracji.
+
+Do pracy z dbt przydają się również SQL, Git, podstawy modelowania danych oraz znajomość procesów ELT.
+
+## 8. Zalety i wady dbt
+
+Zalety:
+
+- Ułatwia organizowanie transformacji SQL w większych projektach.
+- Wspiera testowanie jakości danych.
+- Zapewnia przejrzyste zależności między modelami.
+- Umożliwia automatyczne generowanie dokumentacji.
+- Ułatwia wersjonowanie kodu i współpracę zespołową.
+- Pomaga budować powtarzalne i łatwiejsze w utrzymaniu procesy analityczne.
+
+Wady:
+
+- Wymaga znajomości SQL i podstaw hurtowni danych.
+- Nie zastępuje kompletnego systemu pobierania i ładowania danych.
+- Wykonanie transformacji zależy od możliwości platformy docelowej.
+- Zaawansowane projekty wymagają dobrej organizacji modeli, testów i konfiguracji.
+- Poszczególne adaptery mogą różnić się funkcjonalnością i obsługiwanymi możliwościami.
+
+## 9. dbt na rynku pracy
+
+Znajomość dbt jest przydatna przede wszystkim w nowoczesnej analityce danych i inżynierii danych.
+
+Narzędzie pojawia się w wymaganiach na stanowiskach takich jak:
+
+- Analytics Engineer.
+- Data Engineer.
+- Data Analyst.
+- BI Developer.
+- Data Warehouse Developer.
+
+Szczególnie wartościowe jest połączenie dbt z SQL, Git, modelowaniem danych, testowaniem oraz jedną z popularnych hurtowni danych.
+
+## 10. Jak zacząć naukę dbt?
+
+Najlepiej rozpocząć od zaawansowanego SQL, obejmującego złączenia tabel, funkcje agregujące, CTE i funkcje okienkowe.
+
+Następnie warto poznać modele dbt, źródła danych, testy, makra Jinja i zarządzanie zależnościami.
+
+Kolejnym krokiem jest stworzenie projektu, który przekształca dane sprzedażowe w modele klientów, zamówień i przychodów, a następnie sprawdza ich jakość.
+
+Materiały do nauki:
+
+- [Oficjalna strona dbt](https://www.getdbt.com/)
+- [Dokumentacja dbt](https://docs.getdbt.com/)
+- [Kursy i materiały edukacyjne dbt](https://learn.getdbt.com/)
+- [Projekty dbt na GitHubie](https://github.com/dbt-labs)
+
+Podsumowanie: dbt to narzędzie do transformowania i testowania danych w hurtowniach danych. Warto je poznać, jeśli interesujesz się SQL, Data Engineeringiem, analityką biznesową lub nowoczesnymi platformami danych, takimi jak Databricks.

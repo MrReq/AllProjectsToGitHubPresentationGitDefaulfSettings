@@ -1,0 +1,81 @@
+# CentOS
+
+## 1. Czym jest CentOS?
+
+CentOS (Community ENTerprise Operating System) to dystrybucja systemu operacyjnego Linux, przeznaczona przede wszystkim do zastosowań serwerowych, administracji systemami i obsługi infrastruktury IT.
+
+CentOS był znany z wysokiej stabilności oraz zgodności z Red Hat Enterprise Linux (RHEL), dzięki czemu często wykorzystywano go na serwerach firmowych.
+
+Obecnie najważniejszą wersją rozwijaną pod nazwą CentOS jest CentOS Stream, który znajduje się pomiędzy rozwojem Fedory a wydaniami Red Hat Enterprise Linux.
+
+## 2. Najważniejsze cechy CentOS
+
+- Stabilność – system zaprojektowany z myślą o długotrwałej pracy na serwerach.
+- Oprogramowanie open source – umożliwia korzystanie z wielu bezpłatnych narzędzi i aplikacji.
+- Bezpieczeństwo – oferuje mechanizmy kontroli dostępu, aktualizacje bezpieczeństwa i integrację z SELinux.
+- Obsługa serwerów – może działać jako serwer WWW, serwer baz danych, serwer plików lub serwer aplikacyjny.
+- Zarządzanie pakietami – wykorzystuje narzędzia RPM oraz DNF do instalowania i aktualizowania oprogramowania.
+- Automatyzacja administracji – współpracuje z narzędziami takimi jak Ansible, Bash i systemd.
+- Wirtualizacja i konteneryzacja – może być wykorzystywany do uruchamiania maszyn wirtualnych i kontenerów.
+
+## 3. CentOS Stream a klasyczny CentOS
+
+Warto rozróżniać dwie wersje systemu.
+
+- CentOS Linux – klasyczna dystrybucja zgodna z wydaniami RHEL; projekt zakończył rozwój CentOS Linux 8 w grudniu 2021 roku, a CentOS Linux 7 zakończył wsparcie w czerwcu 2024 roku.
+- CentOS Stream – dystrybucja rozwijana na bieżąco, zawierająca zmiany przygotowywane dla przyszłych wydań RHEL.
+
+CentOS Stream jest szczególnie przydatny dla administratorów i programistów, którzy chcą testować oprogramowanie w środowisku zbliżonym do Red Hat Enterprise Linux.
+
+## 4. Do czego wykorzystuje się CentOS?
+
+- Serwery WWW – uruchamianie stron internetowych i aplikacji przy użyciu Apache HTTP Server lub Nginx.
+- Bazy danych – obsługa systemów takich jak PostgreSQL i MariaDB.
+- Serwery aplikacyjne – uruchamianie aplikacji napisanych w Javie, Pythonie czy innych językach.
+- Administracja systemami – zarządzanie użytkownikami, uprawnieniami, usługami i siecią.
+- DevOps – automatyzacja wdrożeń oraz zarządzanie infrastrukturą.
+- Środowiska chmurowe – wykorzystanie w infrastrukturze serwerowej i rozwiązaniach wirtualizacyjnych.
+
+## 5. Przydatne polecenia CentOS
+
+| Polecenie                     | Zastosowanie                                      |
+| ----------------------------- | ------------------------------------------------- |
+| `cat /etc/centos-release`     | Sprawdza wersję CentOS, jeśli plik jest dostępny. |
+| `sudo dnf update`             | Aktualizuje pakiety w CentOS Stream.              |
+| `sudo dnf install nginx`      | Instaluje serwer Nginx.                           |
+| `sudo systemctl status nginx` | Sprawdza stan usługi Nginx.                       |
+| `sudo systemctl enable nginx` | Konfiguruje automatyczne uruchamianie usługi.     |
+| `ip addr`                     | Wyświetla informacje o interfejsach sieciowych.   |
+| `df -h`                       | Sprawdza wykorzystanie miejsca na dysku.          |
+| `free -h`                     | Wyświetla informacje o pamięci RAM.               |
+
+## 6. Zalety i wady CentOS
+
+Zalety:
+
+- Dobra stabilność i przydatność w środowiskach serwerowych.
+- Rozbudowane możliwości administracji i automatyzacji.
+- Zgodność ekosystemu z narzędziami przeznaczonymi dla RHEL.
+- Duży wybór oprogramowania serwerowego.
+
+Wady:
+
+- CentOS Stream może otrzymywać zmiany wcześniej niż klasyczne wydania RHEL, dlatego nie jest identycznym środowiskiem.
+- Klasyczny CentOS Linux 7 i 8 nie otrzymuje już standardowego wsparcia.
+- Administracja systemem wymaga znajomości terminala, sieci, uprawnień i usług systemowych.
+
+## 7. CentOS a inne dystrybucje Linux
+
+- CentOS Stream – dobry do poznawania ekosystemu Red Hat i testowania oprogramowania serwerowego.
+- Ubuntu Server – popularny wybór do nauki administracji serwerami, wdrażania aplikacji i pracy z chmurą.
+- Debian – ceniony za stabilność i szerokie zastosowanie serwerowe.
+- Red Hat Enterprise Linux (RHEL) – komercyjna dystrybucja przeznaczona dla przedsiębiorstw, z profesjonalnym wsparciem producenta.
+- Rocky Linux i AlmaLinux – alternatywy dla osób potrzebujących dystrybucji zgodnej z ekosystemem RHEL.
+
+## 8. Dlaczego warto znać CentOS?
+
+Znajomość CentOS pomaga zrozumieć administrację systemami Linux, zarządzanie serwerami, bezpieczeństwo infrastruktury oraz wdrażanie aplikacji.
+
+Jest to przydatna wiedza na stanowiskach takich jak Linux System Administrator, DevOps Engineer, Cloud Engineer i Backend Developer.
+
+Dla osoby uczącej się programowania w Javie i Spring Boot znajomość CentOS może być pomocna przy wdrażaniu aplikacji na serwerach Linux, konfiguracji środowiska produkcyjnego oraz uruchamianiu usług bazodanowych.

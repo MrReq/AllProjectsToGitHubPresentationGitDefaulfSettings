@@ -1,0 +1,185 @@
+# Cursor — notatka o technologii
+
+## 1. Czym jest Cursor?
+
+[Cursor 使い方完全ガイド 2026 — 料金・機能・実践活用 | Felo Search Blog](https://images.openai.com/static-rsc-4/LgPgtNTFOfYtxYDITDBqUJCVY0XP1UvQXRe-TKPeVAeqzaTAobuXe8b15SElYF2FjfACN3UljCFtzC5lfBX7tquUXTYtekbBYYmMwgT6YNe00FqwUxgSn2GUAFKJ7HLJAr5B45F8sPUnIZKdPOtSvmuLNsuEYMS7Wz1cbsmBXh0?purpose=inline)
+
+[felo.ai](https://felo.ai/ja/blog/cursor-ai-guide-2026/)
+
+Cursor to edytor kodu oparty na Visual Studio Code, rozwijany przez firmę Anysphere, który wykorzystuje sztuczną inteligencję do wspomagania programowania.
+
+Cursor pomaga pisać, analizować, wyjaśniać i refaktoryzować kod, a także wyszukiwać błędy oraz wprowadzać zmiany w wielu plikach projektu.
+
+Jego główną zaletą jest integracja AI bezpośrednio ze środowiskiem programistycznym, dzięki czemu programista może pracować z kodem i zadawać pytania w jednym miejscu.
+
+Cursor obsługuje wiele języków programowania, między innymi Java, Python, JavaScript, TypeScript, C++, C# i SQL.
+
+Może być wykorzystywany zarówno przez początkujących programistów, jak i doświadczonych developerów pracujących nad rozbudowanymi projektami.
+
+## 2. Najważniejsze funkcje Cursor
+
+[Cursor - AI-Powered Code Generator for Developers - Aitoolnet](https://images.openai.com/static-rsc-4/oTl7HrEg7oSqoH4okP3SMvtJmAqlT4cz2t8OSX9-CBsUrXo0-xaNVVAysKmhkP-PWGj0EJqbQMmMeOQ9Vy68aIWRoP1byWKc81gkWYqkx07IDev5QUuY_rrM-hsFcZAGrWRa8x3Bd6ByY168OoHySUDCPjA8lZkRww-ZgtF9W9M?purpose=inline)
+
+AI Code Completion
+
+Podpowiada fragmenty kodu podczas pisania, uzupełnia instrukcje i może przewidywać kolejne zmiany na podstawie kontekstu projektu.
+
+[Enterprise · Cursor](https://images.openai.com/static-rsc-4/6K7Mpy0p5wVZnzyPVY2WG1FxO0cyM1o9G6BQ01M4ldB-2yGZj4_GpWUqnszAlYuZrXbn4N-0ENve3YJ4fFjT64mH2RGDSN4BDv-YSJtp_s-LsMNtGA3G-ew6bRBsBWBwpLxBOpAFhE96KA2YK1y715sLV7hwuz_6F0molwXYOp0?purpose=inline)
+
+AI Chat
+
+Pozwala zadawać pytania dotyczące kodu, prosić o wyjaśnienie błędów i analizować sposób działania aplikacji.
+
+[🚀 First Look at Cursor 1.0: Background Agents, BugBot & Beyond](https://images.openai.com/static-rsc-4/gsg6_Ql_9sHhWwBXAXVvl48EkGW-HDNd9KyMo-7B3qz5MZHZGlZ83fval2ggoDu9S6KutXZ9GrskcFNRBY9j5X70eOvr_o8A2gq5YKjThCpKVZrEO-l3Co_PQ0XbyXosN_wlo07dIfdXIeWoYpivB4ltyRFqnUzdg-_A9bBLXjI?purpose=inline)
+
+Agent AI
+
+Może realizować bardziej złożone polecenia, modyfikować wiele plików, korzystać z narzędzi oraz pomagać w wykonywaniu zadań programistycznych.
+
+[Meet the new Cursor · Cursor](https://images.openai.com/static-rsc-4/KeLjc9mPRZbYgFG1c_JeyHjQy7wbej93nsVppXrISctairNkVFK50c-wYIwoRQnokFvR5U7U9T_fPTHFQNv35VwilN1x4Ft40HPzbx_7JPJCN-10HEJWUUts4JQQ2Q2uGhThsWUUrOZlRa6xb2bOlm9E1EkUgKLLlRCWQWJ8YMg?purpose=inline)
+
+Praca z istniejącym projektem
+
+Cursor może analizować kontekst repozytorium, uwzględniać powiązane pliki i proponować zmiany dopasowane do istniejącej architektury.
+
+## 3. Jak działa Cursor?
+
+Cursor analizuje kontekst projektu i wykorzystuje modele AI do proponowania lub wykonywania zmian w kodzie.
+
+Typowy proces pracy wygląda następująco:
+
+1. Otwierasz istniejący projekt lub tworzysz nowy.
+2. Opisujesz zadanie w języku naturalnym, np. „Dodaj endpoint do rejestracji użytkownika”.
+3. AI analizuje odpowiednie pliki i planuje zmiany.
+4. Cursor proponuje lub wprowadza modyfikacje w kodzie.
+5. Możesz uruchomić testy, komendy terminalowe i sprawdzić rezultaty.
+6. Przeglądasz zmiany, poprawiasz je i zatwierdzasz w Git.
+
+Tryb Agent potrafi wyszukiwać kod, edytować wiele plików i wykonywać polecenia terminalowe, dlatego nadaje się również do bardziej złożonych zadań.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://prod.cursor.com\&sz=32)
+
+Cursor Docs
+
++1
+
+
+
+## 4. Najważniejsze funkcje Cursor
+
+| Funkcja        | Zastosowanie                                                                |
+| -------------- | --------------------------------------------------------------------------- |
+| Tab Completion | Inteligentne uzupełnianie kodu podczas pisania                              |
+| Agent          | Realizowanie zadań programistycznych obejmujących wiele plików              |
+| Chat           | Zadawanie pytań dotyczących kodu                                            |
+| Inline Edit    | Modyfikowanie zaznaczonego fragmentu kodu                                   |
+| Plan Mode      | Przygotowanie planu przed wprowadzeniem zmian                               |
+| Debugging      | Pomoc w analizowaniu i naprawianiu błędów                                   |
+| Rules          | Definiowanie instrukcji, których AI ma przestrzegać w projekcie             |
+| MCP            | Łączenie zewnętrznych narzędzi i źródeł danych przez Model Context Protocol |
+| Code Review    | Wspomaganie przeglądu zmian i wykrywania problemów                          |
+
+Dostępność poszczególnych funkcji może zależeć od wersji aplikacji i planu.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://cursor.com\&sz=32)
+
+Agent, Rules, MCP, Skills & CLI
+
++2
+
+
+
+## 5. Przykład wykorzystania Cursor w projekcie Java
+
+Załóżmy, że pracujesz nad backendem Spring Boot połączonym z bazą PostgreSQL.
+
+Możesz poprosić Cursor o utworzenie endpointu rejestracji użytkownika, przygotowanie DTO, walidacji danych, serwisu, repozytorium i testów.
+
+Przykładowe polecenie dla AI:
+
+PRZYKŁADOWY PROMPT
+
+Utwórz w moim projekcie Spring Boot REST API do rejestracji użytkownika.
+
+Wykorzystaj istniejącą architekturę projektu, PostgreSQL, Spring Data JPA oraz Bean Validation.
+
+Przygotuj DTO, serwis, kontroler i testy jednostkowe.
+
+Nie zmieniaj istniejącej konfiguracji bezpieczeństwa ani migracji Flyway bez uzasadnienia.
+
+Najpierw przeanalizuj strukturę projektu i zaproponuj plan zmian.
+
+Po implementacji uruchom dostępne testy i przedstaw podsumowanie zmodyfikowanych plików.
+
+&#x20;Kopiuj prompt
+
+Takie podejście pozwala wykorzystać AI do przyspieszenia pracy, jednocześnie zachowując kontrolę nad architekturą aplikacji.
+
+## 6. Cursor w testowaniu oprogramowania
+
+Cursor może być przydatny również w pracy testera QA.
+
+- Generowanie testów jednostkowych dla JUnit, Mockito, Jest lub innych frameworków.
+- Przygotowywanie testów API dla endpointów REST.
+- Tworzenie scenariuszy testowych na podstawie wymagań.
+- Wyszukiwanie potencjalnych błędów i przypadków brzegowych.
+- Analizowanie logów i komunikatów błędów.
+- Pomoc w tworzeniu automatyzacji z Selenium, Playwright lub Cucumber.js.
+
+Przykładowe polecenie:
+
+> Przeanalizuj klasę UserService i przygotuj testy jednostkowe dla poprawnej rejestracji, istniejącego adresu e-mail, niepoprawnych danych oraz błędów repozytorium. Użyj JUnit 5 i Mockito. Nie modyfikuj kodu produkcyjnego bez wyraźnej potrzeby.
+
+Wygenerowane testy należy uruchomić i sprawdzić, czy rzeczywiście weryfikują oczekiwane zachowanie, zamiast jedynie przechodzić bez błędów.
+
+## 7. Cursor a inne narzędzia AI
+
+| Narzędzie          | Główne zastosowanie                                                |
+| ------------------ | ------------------------------------------------------------------ |
+| Cursor             | Edytor kodu z funkcjami AI i agentami                              |
+| Visual Studio Code | Uniwersalny edytor z rozbudowanym systemem rozszerzeń              |
+| GitHub Copilot     | Asystent programowania z uzupełnianiem kodu i funkcjami agentowymi |
+| Claude Code        | Agent programistyczny działający m.in. w terminalu                 |
+| IntelliJ IDEA      | IDE szczególnie popularne w projektach Java i Spring               |
+| JetBrains AI       | Funkcje AI zintegrowane ze środowiskami JetBrains                  |
+
+Cursor jest szczególnie atrakcyjny, gdy chcesz pracować z AI bezpośrednio w edytorze i zlecać mu zmiany w wielu plikach. Jeśli większość pracy wykonujesz w IntelliJ IDEA, warto natomiast rozważyć narzędzia zintegrowane z tym środowiskiem.
+
+## 8. Zalety i wady Cursor
+
+Zalety:
+
+- Przyspiesza pisanie powtarzalnego kodu.
+- Pomaga poznawać nieznane projekty.
+- Ułatwia refaktoryzację i generowanie testów.
+- Potrafi pracować na wielu plikach jednocześnie.
+- Obsługuje popularne języki i technologie.
+
+Wady:
+
+- Może generować błędny lub niebezpieczny kod.
+- Złożone zmiany wymagają dokładnego przeglądu.
+- Intensywne korzystanie z agentów może wiązać się z dodatkowymi kosztami.
+- AI nie zastępuje znajomości architektury, baz danych, bezpieczeństwa ani testowania.
+- Należy zwracać uwagę na prywatność kodu, klucze API i dane dostępne w projekcie.
+
+## 9. Jak zacząć naukę Cursor?
+
+1. Pobierz edytor z oficjalnej strony [Cursor](https://cursor.com/).
+2. Otwórz istniejący projekt przez `File → Open Folder`.
+3. Poproś AI o wyjaśnienie struktury projektu, bez wprowadzania zmian.
+4. Przećwicz uzupełnianie kodu za pomocą Tab.
+5. Użyj Agent Mode do wykonania niewielkiego zadania.
+6. Naucz się przeglądać różnice w plikach i cofać niepożądane zmiany.
+7. Uruchamiaj testy po każdej większej modyfikacji.
+8. Poznaj reguły projektu, Git i bezpieczne korzystanie z terminala.
+
+Dokumentacja: [Oficjalna dokumentacja Cursor](https://cursor.com/docs).
+
+## 10. Czy warto uczyć się Cursor?
+
+Tak, szczególnie jeśli chcesz szybciej rozwijać projekty IT i uczyć się programowania przez praktyczne zadania.
+
+W przypadku backendu Java i Spring Boot Cursor może pomóc w tworzeniu endpointów, DTO, testów JUnit, migracji bazodanowych i dokumentacji.
+
+Najlepiej traktować go jako asystenta programisty, a nie zamiennik wiedzy technicznej — samodzielne rozumienie wygenerowanego kodu pozostaje kluczowe.

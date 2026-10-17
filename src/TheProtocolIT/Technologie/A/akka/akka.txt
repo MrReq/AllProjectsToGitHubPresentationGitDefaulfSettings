@@ -1,0 +1,356 @@
+1. Czym jest Akka?
+
+Akka to zestaw narzędzi i bibliotek służących do tworzenia współbieżnych, rozproszonych i odpornych na awarie aplikacji.
+
+Technologia ta jest szczególnie znana z wykorzystania modelu aktorów (Actor Model), który umożliwia organizowanie pracy programu w postaci niezależnych jednostek komunikujących się za pomocą wiadomości.
+
+Akka została pierwotnie opracowana z myślą o języku Scala, ale udostępniała również API dla Javy.
+
+Jest wykorzystywana między innymi w systemach przetwarzających dużą liczbę wiadomości, aplikacjach czasu rzeczywistego i architekturach rozproszonych.
+
+2. Model aktorów — Actor Model
+
+Model aktorów to sposób projektowania systemów współbieżnych, w którym program składa się z niezależnych aktorów.
+
+Każdy aktor może otrzymywać wiadomości, przetwarzać je, zmieniać swój wewnętrzny stan oraz wysyłać wiadomości do innych aktorów.
+
+Aktorzy komunikują się przede wszystkim za pomocą wiadomości zamiast bezpośrednio modyfikować swoje dane.
+
+Takie podejście ogranicza potrzebę współdzielenia zmiennych pomiędzy wątkami.
+
+Model aktorów ułatwia budowanie systemów, w których wiele zadań jest wykonywanych równocześnie.
+
+3. Aktor — Actor
+
+Aktor jest podstawową jednostką obliczeniową w modelu aktorów.
+
+Może reprezentować na przykład użytkownika, zamówienie, urządzenie, proces biznesowy lub zadanie wykonywane w tle.
+
+Aktor posiada własny stan, odbiera wiadomości i wykonuje przypisane mu operacje.
+
+W typowej implementacji Akka wiadomości są przetwarzane kolejno przez danego aktora, co upraszcza zarządzanie jego stanem.
+
+Różni aktorzy mogą natomiast przetwarzać wiadomości współbieżnie.
+
+4. Wiadomości — Messages
+
+Wiadomości są podstawowym mechanizmem komunikacji pomiędzy aktorami.
+
+Aktor wysyła wiadomość do innego aktora, a odbiorca przetwarza ją w odpowiednim momencie.
+
+Wiadomość może zawierać dane, polecenie wykonania operacji albo informację o zdarzeniu.
+
+W dobrze zaprojektowanym systemie wiadomości są niemodyfikowalne (immutable), co zmniejsza ryzyko problemów związanych ze współbieżnością.
+
+Przykładem wiadomości może być `CreateOrder`, `ProcessPayment` lub `UserRegistered`.
+
+5. ActorSystem
+
+ActorSystem jest środowiskiem, w którym tworzy się i zarządza aktorami w Akka.
+
+Odpowiada między innymi za organizację infrastruktury aktorów i ich wykonywanie.
+
+W zależności od używanej wersji i modułów ActorSystem może również uczestniczyć w konfiguracji komunikacji oraz integracji z innymi mechanizmami biblioteki.
+
+W większych aplikacjach system aktorów może być podzielony na hierarchie odpowiedzialne za różne części logiki biznesowej.
+
+6. ActorRef
+
+ActorRef jest referencją umożliwiającą komunikację z aktorem.
+
+Zamiast bezpośrednio wywoływać metody obiektu aktora, kod wysyła wiadomości za pośrednictwem jego ActorRef.
+
+Takie rozwiązanie oddziela nadawcę wiadomości od szczegółów implementacji odbiorcy.
+
+ActorRef może również reprezentować aktora działającego w innym procesie lub na innym węźle, jeśli używana architektura obsługuje taką komunikację.
+
+7. Mailbox
+
+Mailbox jest kolejką, do której trafiają wiadomości przeznaczone dla danego aktora.
+
+Wiadomości oczekują w kolejce, aż aktor będzie mógł je przetworzyć.
+
+Aktor przetwarza wiadomości zgodnie z zasadami danego typu kolejki i konfiguracji systemu.
+
+W praktyce Mailbox pozwala oddzielić moment wysłania wiadomości od momentu jej obsłużenia.
+
+Odpowiednia konfiguracja kolejek ma znaczenie dla wydajności i odporności aplikacji na przeciążenia.
+
+8. Współbieżność — Concurrency
+
+Współbieżność oznacza możliwość obsługi wielu zadań w nakładających się na siebie okresach czasu.
+
+Akka pozwala organizować taką pracę poprzez niezależnych aktorów i mechanizmy wykonywania ich zadań.
+
+Nie oznacza to jednak, że każdy aktor musi mieć własny wątek systemowy.
+
+Wątki są zazwyczaj współdzielone przez wiele aktorów za pośrednictwem mechanizmu wykonawczego.
+
+Takie podejście umożliwia obsługę dużej liczby aktorów bez tworzenia osobnego wątku dla każdego z nich.
+
+9. Dispatcher
+
+Dispatcher odpowiada za wykonywanie zadań aktorów na dostępnych wątkach.
+
+Przydziela pracę do mechanizmu wykonawczego i pomaga zarządzać zasobami potrzebnymi do przetwarzania wiadomości.
+
+Właściwy dobór konfiguracji dispatchera ma znaczenie dla wydajności aplikacji.
+
+Długotrwałe operacje blokujące mogą ograniczać działanie innych aktorów korzystających z tych samych zasobów wykonawczych.
+
+Dlatego operacje blokujące powinny być odpowiednio izolowane od zwykłego przetwarzania wiadomości.
+
+10. Hierarchia aktorów
+
+Aktorzy mogą tworzyć hierarchię, w której jedni aktorzy nadzorują innych.
+
+Aktor nadrzędny może odpowiadać za tworzenie aktorów podrzędnych i reagowanie na ich awarie.
+
+Taka struktura ułatwia organizację większych systemów.
+
+Hierarchia może odzwierciedlać podział aplikacji na moduły lub procesy biznesowe.
+
+Jest również podstawą mechanizmów nadzoru i odzyskiwania po błędach.
+
+11. Supervision — nadzorowanie aktorów
+
+Supervision to mechanizm pozwalający reagować na błędy występujące podczas wykonywania zadań aktorów.
+
+Aktor nadrzędny może zdecydować, jak postąpić po awarii aktora podrzędnego.
+
+W zależności od konfiguracji może dojść między innymi do ponownego uruchomienia aktora, wznowienia jego działania lub zatrzymania go.
+
+Dzięki temu błędy można obsługiwać na poziomie architektury zamiast rozbudowywać każdy fragment programu o osobne mechanizmy zarządzania awariami.
+
+Supervision nie zastępuje jednak walidacji danych, obsługi błędów biznesowych ani trwałego zapisywania ważnych informacji.
+
+12. Odporność na awarie — Fault Tolerance
+
+Fault Tolerance oznacza zdolność systemu do kontynuowania działania pomimo wystąpienia określonych błędów.
+
+Akka wspiera budowanie takich systemów poprzez hierarchię aktorów, nadzorowanie i kontrolowane odtwarzanie komponentów.
+
+W architekturze rozproszonej należy również uwzględnić awarie sieci, niedostępność usług i utratę połączeń.
+
+Samo ponowne uruchomienie aktora nie gwarantuje odzyskania utraconego stanu.
+
+Jeżeli dane muszą przetrwać restart procesu, konieczne jest zastosowanie odpowiednich mechanizmów trwałego przechowywania.
+
+13. Akka Classic i Akka Typed
+
+Akka Classic to starszy interfejs programistyczny, w którym obsługa wiadomości opiera się między innymi na metodzie `receive`.
+
+Akka Typed to interfejs wykorzystujący typowane wiadomości i mocniejsze sprawdzanie poprawności kodu przez kompilator.
+
+W Akka Typed typ wiadomości aktora jest określany w jego definicji.
+
+Dzięki temu łatwiej wykrywać niektóre błędy związane z przesyłaniem nieprawidłowych wiadomości.
+
+Przy rozpoczynaniu nowego projektu warto rozważyć Akka Typed, o ile jest odpowiednia dla wybranej wersji i licencji.
+
+14. Akka Streams
+
+Akka Streams to biblioteka przeznaczona do przetwarzania strumieni danych.
+
+Umożliwia budowanie potoków, w których dane przechodzą przez kolejne etapy przetwarzania.
+
+Można na przykład odczytywać dane, filtrować je, przekształcać i przekazywać do kolejnego systemu.
+
+Ważną funkcją jest backpressure, czyli mechanizm regulowania przepływu danych, gdy odbiorca nie nadąża z ich przetwarzaniem.
+
+Akka Streams jest przydatna w systemach przetwarzających duże ilości zdarzeń lub dane napływające w sposób ciągły.
+
+15. Akka Cluster
+
+Akka Cluster umożliwia organizowanie aktorów w systemie składającym się z wielu węzłów.
+
+Węzeł to proces lub instancja aplikacji uczestnicząca w klastrze.
+
+Rozłożenie pracy na wiele węzłów może zwiększyć skalowalność i umożliwić rozproszenie obciążenia.
+
+W architekturze klastrowej trzeba uwzględnić między innymi wykrywanie niedostępnych węzłów, komunikację sieciową i zmiany członkostwa klastra.
+
+Szczegółowe możliwości klastra zależą od wykorzystywanych modułów i wersji Akka.
+
+16. Akka Persistence
+
+Akka Persistence służy do tworzenia aktorów, których stan może być odtwarzany na podstawie trwale zapisanych zdarzeń lub danych.
+
+Podejście oparte na zdarzeniach pozwala zapisywać kolejne zmiany stanu i odtwarzać je po ponownym uruchomieniu aplikacji.
+
+Mechanizm ten jest przydatny w systemach, w których ważne jest zachowanie historii operacji.
+
+Przykładem może być system zamówień, rachunków lub procesów biznesowych.
+
+Trwałość danych wymaga odpowiednio skonfigurowanego magazynu i przemyślanej strategii obsługi błędów.
+
+17. Akka HTTP
+
+Akka HTTP to zestaw narzędzi służących do tworzenia serwerów HTTP i obsługi komunikacji sieciowej.
+
+Może być wykorzystywany do budowania endpointów API i integracji z innymi systemami.
+
+W aplikacjach opartych na aktorach warstwa HTTP może odbierać żądania i przekazywać pracę do odpowiednich komponentów.
+
+Nie każda aplikacja wykorzystująca Akka musi jednak korzystać z Akka HTTP.
+
+Wybór warstwy sieciowej zależy od architektury projektu i wymagań technicznych.
+
+18. Zastosowania Akka
+
+Akka może być wykorzystywana w systemach obsługujących dużą liczbę równoczesnych połączeń.
+
+Sprawdza się w architekturach opartych na zdarzeniach i wiadomościach.
+
+Może wspierać systemy telekomunikacyjne, platformy przetwarzania danych i aplikacje czasu rzeczywistego.
+
+Jest również przydatna w systemach, w których trzeba rozdzielić odpowiedzialność pomiędzy niezależne komponenty.
+
+Wybór Akka ma największy sens wtedy, gdy model aktorów i mechanizmy współbieżności rzeczywiście upraszczają problem.
+
+19. Zalety Akka
+
+Akka umożliwia budowanie systemów z dużą liczbą niezależnych jednostek przetwarzających wiadomości.
+
+Model aktorów pomaga ograniczać problemy wynikające ze współdzielenia zmiennego stanu.
+
+Hierarchia nadzoru wspiera organizację obsługi awarii.
+
+Akka Streams zapewnia narzędzia do kontrolowanego przetwarzania strumieni danych.
+
+Dostępne moduły mogą ułatwiać budowanie systemów rozproszonych i skalowalnych.
+
+20. Wady i ograniczenia Akka
+
+Model aktorów wymaga innego sposobu myślenia niż tradycyjne wywoływanie metod pomiędzy obiektami.
+
+Debugowanie systemów asynchronicznych może być trudniejsze niż debugowanie prostych aplikacji sekwencyjnych.
+
+Nieprawidłowa konfiguracja dispatcherów i kolejek może prowadzić do problemów z wydajnością.
+
+Architektura rozproszona zwiększa złożoność wdrażania, monitorowania i diagnozowania awarii.
+
+Należy również sprawdzić warunki licencyjne konkretnej wersji Akka, ponieważ wpływają one na sposób jej wykorzystania w projektach komercyjnych.
+
+21. Akka w Javie — prosty przykład
+
+Poniższy przykład pokazuje ideę typowanego aktora w Akka Typed dla Javy.
+
+Aktor otrzymuje wiadomości tekstowe i wypisuje ich treść w konsoli.
+
+```java
+import akka.actor.typed.ActorSystem;
+import akka.actor.typed.Behavior;
+import akka.actor.typed.javadsl.AbstractBehavior;
+import akka.actor.typed.javadsl.ActorContext;
+import akka.actor.typed.javadsl.Behaviors;
+import akka.actor.typed.javadsl.Receive;
+
+public class AkkaExample {
+
+    public record Message(String text) {}
+
+    public static class Printer
+            extends AbstractBehavior<Message> {
+
+        private Printer(ActorContext<Message> context) {
+            super(context);
+        }
+
+        public static Behavior<Message> create() {
+            return Behaviors.setup(Printer::new);
+        }
+
+        @Override
+        public Receive<Message> createReceive() {
+            return newReceiveBuilder()
+                    .onMessage(
+                            Message.class,
+                            message -> {
+                                System.out.println(message.text());
+                                return this;
+                            }
+                    )
+                    .build();
+        }
+    }
+
+    public static void main(String[] args) {
+        ActorSystem<Message> system =
+                ActorSystem.create(
+                        Printer.create(),
+                        "PrinterSystem"
+                );
+
+        system.tell(new Message("Witaj w Akka!"));
+
+        system.terminate();
+    }
+}
+```
+
+W przykładzie `Message` reprezentuje typ wiadomości obsługiwanej przez aktora.
+
+`Printer` jest aktorem, który definiuje sposób reagowania na wiadomości.
+
+`ActorSystem` tworzy środowisko działania aktora.
+
+Metoda `tell()` wysyła wiadomość do systemu aktorów.
+
+Metoda `terminate()` rozpoczyna zamykanie systemu.
+
+W praktycznej aplikacji należy zadbać o to, aby system nie został zamknięty przed zakończeniem potrzebnych operacji asynchronicznych.
+
+Do uruchomienia przykładu potrzebne są odpowiednie zależności Akka Typed dla Javy i zgodna konfiguracja projektu.
+
+22. Jak uczyć się Akka?
+
+Na początku warto zrozumieć podstawy współbieżności, wątków i komunikacji asynchronicznej.
+
+Następnie należy poznać model aktorów, wiadomości, ActorSystem i ActorRef.
+
+Kolejnym krokiem jest opanowanie Akka Typed oraz hierarchii nadzoru.
+
+Później warto nauczyć się Akka Streams i podstaw architektury rozproszonej.
+
+Po opanowaniu podstaw można stworzyć projekt, w którym wielu aktorów przetwarza niezależne zadania.
+
+23. Najważniejsze pojęcia
+
+Actor Model — model obliczeń oparty na niezależnych aktorach komunikujących się wiadomościami.
+
+Actor — jednostka przetwarzająca wiadomości i zarządzająca własnym stanem.
+
+Message — wiadomość przekazywana między aktorami.
+
+ActorSystem — środowisko zarządzające systemem aktorów.
+
+ActorRef — referencja umożliwiająca wysyłanie wiadomości do aktora.
+
+Mailbox — kolejka wiadomości oczekujących na przetworzenie.
+
+Dispatcher — mechanizm organizujący wykonywanie zadań aktorów.
+
+Supervision — mechanizm nadzorowania aktorów i reagowania na ich awarie.
+
+Akka Typed — interfejs Akka wykorzystujący typowane wiadomości.
+
+Akka Streams — biblioteka do przetwarzania strumieni danych.
+
+Akka Cluster — mechanizmy organizowania aktorów w systemie wielowęzłowym.
+
+Akka Persistence — mechanizmy trwałego zapisywania i odtwarzania stanu aktorów.
+
+Backpressure — regulowanie przepływu danych, gdy odbiorca nie nadąża z ich przetwarzaniem.
+
+Fault Tolerance — zdolność systemu do kontynuowania działania pomimo określonych awarii.
+
+24. W skrócie
+
+Akka to zestaw narzędzi do budowania współbieżnych, rozproszonych i odpornych na awarie aplikacji.
+
+Jej najważniejszym elementem jest model aktorów, w którym niezależne jednostki komunikują się za pomocą wiadomości.
+
+Akka oferuje również narzędzia do przetwarzania strumieni danych, trwałego przechowywania stanu i budowania systemów wielowęzłowych.
+
+Najwięcej korzyści przynosi w systemach, w których istotne są asynchroniczność, skalowalność i kontrolowana obsługa awarii.

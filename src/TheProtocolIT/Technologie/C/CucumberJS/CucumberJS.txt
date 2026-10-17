@@ -1,0 +1,290 @@
+# Cucumber.js — notatka o technologii
+
+## 1. Czym jest Cucumber.js?
+
+[CucumberJS Basics In Depth (Visual Studio Code Editor)](https://images.openai.com/static-rsc-4/2rnV8vqPQ8K73KtkVOwqUhNTftajrTiAZO3bi-cs9W1Of5ozwEu4eNU6AMCO0sRC8sBgPXAze2ylg33HrTZYPmPVqjLCKnf16ucZoeQtSTw2eLvmwOcyuKCylZutUxVsJsngOYEYbDuatBF0gaFgzrrtf7Evgw7SKVRoeZ1vZyY?purpose=inline)
+
+[c-sharpcorner.com](https://www.c-sharpcorner.com/article/cucumber-tests-in-protractor/)
+
+Cucumber.js to narzędzie do automatyzacji testów oprogramowania w języku JavaScript, oparte na podejściu BDD (Behavior-Driven Development), czyli tworzeniu oprogramowania zorientowanego na zachowanie systemu.
+
+Cucumber.js pozwala opisywać wymagania i scenariusze testowe w języku zrozumiałym dla testerów, programistów oraz osób biznesowych.
+
+Do zapisywania scenariuszy wykorzystuje się język Gherkin, który korzysta z prostych słów kluczowych, takich jak `Feature`, `Scenario`, `Given`, `When` i `Then`.
+
+Przykładowo można opisać proces logowania użytkownika, rejestracji konta albo dodawania produktu do koszyka, a następnie połączyć opis z kodem wykonującym rzeczywiste działania testowe.
+
+Cucumber.js nie jest samodzielną przeglądarką ani narzędziem do automatyzacji interfejsu użytkownika — często współpracuje z bibliotekami takimi jak Playwright lub Selenium.
+
+## 2. Najważniejsze cechy Cucumber.js
+
+Behavior-Driven Development (BDD)
+
+Umożliwia opisywanie oczekiwanego zachowania aplikacji przed implementacją lub podczas jej testowania.
+
+Język Gherkin
+
+Pozwala tworzyć czytelne scenariusze testowe zapisane w plikach `.feature`.
+
+Współpraca zespołowa
+
+Scenariusze mogą być analizowane przez testerów, programistów, analityków biznesowych i właścicieli produktu.
+
+Automatyzacja testów
+
+Scenariusze można połączyć z kodem JavaScript lub TypeScript, który wykonuje odpowiednie działania i sprawdza wyniki.
+
+Integracja z narzędziami
+
+Cucumber.js może współpracować z bibliotekami automatyzującymi przeglądarkę, API i inne elementy systemu.
+
+Raportowanie
+
+Po wykonaniu testów można generować raporty zawierające wyniki scenariuszy oraz informacje o błędach.
+
+## 3. Jak działa Cucumber.js?
+
+Proces testowania zazwyczaj przebiega w kilku etapach.
+
+1\. Wymaganie biznesowe
+
+Użytkownik może zalogować się poprawnymi danymi
+
+2\. Scenariusz Gherkin
+
+Plik .feature opisujący zachowanie aplikacji
+
+3\. Step definitions
+
+Kod JavaScript realizujący kroki scenariusza
+
+4\. Wykonanie testu
+
+Np. przez Playwright, Selenium lub klienta API
+
+5\. Wynik
+
+Scenariusz zaliczony lub niezaliczony
+
+Cucumber.js odczytuje scenariusze z plików `.feature` i dopasowuje ich kroki do zdefiniowanych funkcji.
+
+Następnie wykonuje odpowiedni kod i ustala, czy scenariusz zakończył się powodzeniem.
+
+## 4. Gherkin — język scenariuszy testowych
+
+Gherkin jest językiem przeznaczonym do opisywania zachowania systemu w ustrukturyzowanej formie.
+
+Przykładowy plik `login.feature`:
+
+```
+Feature: Logowanie użytkownika
+
+  Scenario: Logowanie poprawnymi danymi
+    Given użytkownik znajduje się na stronie logowania
+    When wpisuje poprawny login i hasło
+    And klika przycisk logowania
+    Then powinien zobaczyć stronę główną
+```
+
+Najważniejsze słowa kluczowe:
+
+| Słowo kluczowe     | Znaczenie                                             |
+| ------------------ | ----------------------------------------------------- |
+| `Feature`          | Funkcjonalność, którą testujemy                       |
+| `Scenario`         | Pojedynczy scenariusz testowy                         |
+| `Given`            | Stan początkowy lub warunki wstępne                   |
+| `When`             | Akcja wykonywana w scenariuszu                        |
+| `Then`             | Oczekiwany rezultat                                   |
+| `And`              | Dodatkowy krok                                        |
+| `But`              | Dodatkowy krok wyrażający wyjątek lub ograniczenie    |
+| `Scenario Outline` | Scenariusz wykonywany dla wielu zestawów danych       |
+| `Examples`         | Zestawy danych dla `Scenario Outline`                 |
+| `Background`       | Kroki wspólne dla scenariuszy w danej funkcjonalności |
+
+Dzięki Gherkin scenariusz może być zrozumiały również dla osób, które nie programują.
+
+## 5. Przykład automatyzacji w JavaScript
+
+Załóżmy, że chcemy przetestować prostą funkcję sprawdzającą poprawność danych logowania.
+
+Najpierw instalujemy Cucumber.js:
+
+```
+npm init -y
+npm install --save-dev @cucumber/cucumber
+```
+
+Przykładowa struktura projektu:
+
+```
+projekt/
+├── features/
+│   ├── login.feature
+│   └── step_definitions/
+│       └── login.steps.js
+└── package.json
+```
+
+Plik `features/login.feature`:
+
+```
+Feature: Logowanie użytkownika
+
+  Scenario: Poprawne dane logowania
+    Given użytkownik podaje login "admin" i hasło "12345"
+    When system sprawdza dane logowania
+    Then wynik logowania powinien być poprawny
+```
+
+Plik `features/step_definitions/login.steps.js`:
+
+```
+const {
+  Given,
+  When,
+  Then
+} = require("@cucumber/cucumber");
+
+const assert = require("node:assert/strict");
+
+let login;
+let haslo;
+let wynik;
+
+function sprawdzLogowanie(login, haslo) {
+  return login === "admin" && haslo === "12345";
+}
+
+Given(
+  "użytkownik podaje login {string} i hasło {string}",
+  function (podanyLogin, podaneHaslo) {
+    login = podanyLogin;
+    haslo = podaneHaslo;
+  }
+);
+
+When("system sprawdza dane logowania", function () {
+  wynik = sprawdzLogowanie(login, haslo);
+});
+
+Then("wynik logowania powinien być poprawny", function () {
+  assert.equal(wynik, true);
+});
+```
+
+Aby uruchomić test:
+
+```
+npx cucumber-js
+```
+
+W tym przykładzie Cucumber.js wykonuje prostą funkcję testową, a nie rzeczywiste logowanie do aplikacji.
+
+W praktyce funkcję `sprawdzLogowanie()` można zastąpić wywołaniem API lub działaniami w przeglądarce.
+
+## 6. Cucumber.js a testowanie interfejsu i API
+
+Cucumber.js odpowiada przede wszystkim za organizację i wykonanie scenariuszy BDD.
+
+Do rzeczywistych działań testowych można wykorzystać inne biblioteki.
+
+| Narzędzie          | Zastosowanie                               |
+| ------------------ | ------------------------------------------ |
+| Cucumber.js        | Scenariusze BDD i dopasowywanie kroków     |
+| Playwright         | Automatyzacja przeglądarki i testowanie UI |
+| Selenium WebDriver | Automatyzacja przeglądarek                 |
+| Supertest          | Testowanie HTTP API w Node.js              |
+| Axios              | Wysyłanie żądań HTTP                       |
+| Jest               | Testy jednostkowe i integracyjne           |
+| Mocha              | Framework testowy dla JavaScript           |
+
+Cucumber.js nie zastępuje wszystkich tych narzędzi — może je uzupełniać.
+
+## 7. Do czego wykorzystuje się Cucumber.js?
+
+[Gherkin in Testing: A Beginner’s Guide | by Rafał Buczyński | Medium](https://images.openai.com/static-rsc-4/HA4cZbowfqw2zkqP9yvKpciYXcsdbws8qir9OyDDTt0OocmEYbx7V4B12EyCAy1Y0b6QWhI2EUlNovSByS5u7FHOmOGTfX6SeBhXOofWhEsbCkbkXOtCJcAqTU3YmDY_OeG-AuxutenAKHyjDIBJmvnKdhp4mUJsuT7wE1uiV_E?purpose=inline)
+
+Testy aplikacji webowych
+
+Automatyzowanie scenariuszy rejestracji, logowania, zakupów i nawigacji, często z wykorzystaniem Playwright lub Selenium.
+
+[REST API Test Automation: Postman Collections | by Andrei Dobra | Medium](https://images.openai.com/static-rsc-4/0T-3Jl5Bhnx-5LakouMRE3G_-IbimGimUfp0IhfWpvJA68Uv_oewjhRXij_7GNBBTuE8Kj2EuSQXpaCtM92XBE-JbHuSsZx1iPub-kfA3pYcq7r6z7om143XhVb0ByD3t72r6DwXvSw8ZytGvi-aBttozVwnIwWDbKW3UVTgLp0?purpose=inline)
+
+Testowanie API
+
+Sprawdzanie, czy endpointy zwracają oczekiwane dane i odpowiednie kody HTTP dla określonych scenariuszy.
+
+[UX GIRL Blog | UX Design Tips, Case Studies & Insights](https://images.openai.com/static-rsc-4/d60KmsS5AvdYflkW40ppZENELq97s2fb730XEttqwaNX6bRmp-YH3d1s77tIT0wUUxbiIgScjFWplbk-u4hDvYdlbDD6OX1lyv5ExepSYNE4H_YtKCa-_DItXvl2sxvIlXrEBk0M-bTVg5_EkKGskOp0lU4ZzuJT1rcmYddB4Nk?purpose=inline)
+
+Testy akceptacyjne
+
+Weryfikowanie, czy funkcjonalności spełniają wymagania biznesowe i kryteria akceptacji.
+
+[GitHub Actions Test Automation CI Pipeline & Reporting - Testmo](https://images.openai.com/static-rsc-4/XQX6mgaDRu7oJlGUGsNahEt0eKDL_G_PUxK3smv1s6567EgYqqFTMYEtY9DHlb8w5ub0YKXnWf4mpTkdoc_JiC-iMyKst_WI8qFzpdJpnnCu8PFdyUalQHAR5iMn7eYi5-hxaDijbCvjUKiJwRPOhqc-eNzZU89C8aSO1vSHKps?purpose=inline)
+
+Automatyzacja w CI/CD
+
+Uruchamianie scenariuszy testowych podczas budowania i wdrażania oprogramowania, np. w GitHub Actions lub Jenkinsie.
+
+## 8. Zalety i wady Cucumber.js
+
+Zalety:
+
+- Scenariusze testowe są czytelne dla osób technicznych i nietechnicznych.
+- Ułatwia powiązanie wymagań biznesowych z testami automatycznymi.
+- Pozwala wielokrotnie wykorzystywać definicje kroków.
+- Integruje się z ekosystemem JavaScript.
+- Może być stosowany do testów UI, API i procesów biznesowych.
+
+Wady:
+
+- Wymaga napisania i utrzymywania dodatkowych definicji kroków.
+- Przy nieodpowiednim projekcie scenariusze mogą stać się zbyt skomplikowane.
+- Nie zawsze jest potrzebny w małych projektach lub prostych testach jednostkowych.
+- Sam język Gherkin nie gwarantuje dobrych testów — ważne są jakość scenariuszy i ich implementacji.
+- Automatyzacja interfejsu nadal wymaga odpowiedniego narzędzia, konfiguracji i stabilnych testów.
+
+## 9. Cucumber.js a inne narzędzia BDD
+
+| Narzędzie    | Język lub środowisko                 | Główne zastosowanie                                                                       |
+| ------------ | ------------------------------------ | ----------------------------------------------------------------------------------------- |
+| Cucumber.js  | JavaScript                           | Testy BDD w ekosystemie JavaScript                                                        |
+| Cucumber-JVM | Java i JVM                           | Testy BDD w projektach Java                                                               |
+| SpecFlow     | C# / .NET                            | BDD w projektach .NET; projekt zakończył rozwój jako aktywnie wspierany produkt w 2025 r. |
+| Behave       | Python                               | Testy BDD w Pythonie                                                                      |
+| Playwright   | JavaScript, TypeScript i inne języki | Automatyzacja przeglądarek, bez wymogu stosowania BDD                                     |
+
+Jeśli tworzysz aplikację w Javie i Spring Boot, możesz rozważyć Cucumber-JVM.
+
+Jeśli testujesz aplikację JavaScript lub TypeScript, Cucumber.js może być naturalnym wyborem.
+
+Jeśli zależy Ci przede wszystkim na automatyzacji przeglądarki, Playwright może wystarczyć bez dodatkowej warstwy BDD.
+
+## 10. Jak zacząć naukę Cucumber.js?
+
+Proponowana kolejność nauki:
+
+1. Poznaj podstawy JavaScript i Node.js.
+2. Naucz się tworzyć testy jednostkowe i korzystać z asercji.
+3. Poznaj BDD oraz zasady pisania kryteriów akceptacji.
+4. Opanuj składnię Gherkin.
+5. Zainstaluj Cucumber.js i utwórz pierwszy plik `.feature`.
+6. Napisz definicje kroków i uruchom scenariusze.
+7. Dodaj scenariusze negatywne oraz różne zestawy danych.
+8. Naucz się testować API lub zintegrować Cucumber.js z Playwright.
+9. Dodaj raportowanie i uruchamianie testów w CI/CD.
+10. Zbuduj mały projekt automatyzacji testów dla przykładowej aplikacji.
+
+Przydatne materiały:
+
+- [Oficjalna dokumentacja instalacji Cucumber.js](https://cucumber.io/docs/installation/javascript/)
+- [Dokumentacja Gherkin](https://cucumber.io/docs/gherkin/)
+- [Dokumentacja Playwright](https://playwright.dev/)
+
+## 11. Czy warto uczyć się Cucumber.js?
+
+Tak, szczególnie jeśli chcesz rozwijać się w kierunku QA Automation, testowania aplikacji webowych i API oraz współpracy przy definiowaniu wymagań biznesowych.
+
+W nauce testowania warto jednak najpierw opanować podstawy testów, asercji, HTTP, API i JavaScript, a następnie przejść do Cucumber.js.
+
+Jeśli Twoim celem jest zdobycie umiejętności przydatnych w pracy testera automatyzującego, dobrym projektem będzie zestaw testów rejestracji i logowania z wykorzystaniem Cucumber.js + Playwright, wraz z raportem z wykonania scenariuszy.

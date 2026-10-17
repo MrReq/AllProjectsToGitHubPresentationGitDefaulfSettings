@@ -1,0 +1,306 @@
+AWS — notatka
+
+1. Czym jest AWS?
+
+AWS (Amazon Web Services) to platforma usług chmurowych rozwijana przez firmę Amazon.
+
+Umożliwia tworzenie, uruchamianie i utrzymywanie aplikacji bez konieczności samodzielnego kupowania oraz konfigurowania fizycznych serwerów.
+
+AWS oferuje usługi związane z serwerami, bazami danych, przechowywaniem plików, sieciami, bezpieczeństwem, analizą danych i sztuczną inteligencją.
+
+Usługi można uruchamiać na żądanie i rozliczać zgodnie z wybranym modelem cenowym.
+
+2. Do czego służy AWS?
+
+AWS jest wykorzystywany do budowania i utrzymywania nowoczesnych systemów informatycznych.
+
+Najważniejsze zastosowania to:
+
+- Hostowanie stron internetowych i aplikacji internetowych.
+- Uruchamianie aplikacji Java, Spring Boot, Python, Node.js i innych.
+- Przechowywanie plików, zdjęć, dokumentów i kopii zapasowych.
+- Tworzenie baz danych SQL i NoSQL.
+- Uruchamianie kontenerów Docker i klastrów Kubernetes.
+- Automatyzacja wdrażania aplikacji i procesów CI/CD.
+- Przetwarzanie dużych zbiorów danych.
+- Budowanie rozwiązań wykorzystujących sztuczną inteligencję.
+- Monitorowanie aplikacji i infrastruktury.
+- Tworzenie skalowalnych systemów dostępnych dla użytkowników na całym świecie.
+
+3. Jak działa AWS?
+
+AWS udostępnia zasoby informatyczne za pośrednictwem internetu i interfejsów API.
+
+Użytkownik wybiera potrzebne usługi, konfiguruje je i uruchamia w odpowiednim regionie geograficznym.
+
+AWS zarządza fizyczną infrastrukturą centrów danych, natomiast zakres odpowiedzialności użytkownika zależy od wybranej usługi.
+
+Przykładowo, korzystając z Amazon EC2, użytkownik zarządza systemem operacyjnym maszyny wirtualnej.
+
+W przypadku Amazon RDS AWS przejmuje znaczną część zadań związanych z utrzymaniem silnika bazy danych.
+
+Zasoby można konfigurować przez AWS Management Console, AWS CLI, SDK lub narzędzia Infrastructure as Code.
+
+4. Najważniejsze usługi AWS
+
+4.1. Amazon EC2
+
+Amazon EC2 umożliwia uruchamianie maszyn wirtualnych w chmurze.
+
+Można na nich instalować systemy operacyjne, serwery aplikacyjne, narzędzia i własne oprogramowanie.
+
+Przykładowo, możesz uruchomić serwer Linux i umieścić na nim aplikację Spring Boot.
+
+4.2. Amazon S3
+
+Amazon S3 to usługa przechowywania danych w postaci obiektów.
+
+Można w niej przechowywać obrazy, dokumenty, pliki użytkowników, logi i kopie zapasowe.
+
+Dane są organizowane w zasobnikach nazywanych bucketami.
+
+4.3. Amazon RDS
+
+Amazon RDS to zarządzana usługa relacyjnych baz danych.
+
+Obsługuje między innymi PostgreSQL, MySQL, MariaDB, Oracle i Microsoft SQL Server, przy czym dostępność konkretnych silników zależy od konfiguracji usługi.
+
+AWS upraszcza wykonywanie kopii zapasowych, aktualizacji i zarządzanie infrastrukturą bazy danych.
+
+4.4. AWS Lambda
+
+AWS Lambda umożliwia uruchamianie kodu bez samodzielnego zarządzania serwerami.
+
+Kod wykonywany jest w odpowiedzi na zdarzenia, na przykład żądania API, zmiany w S3 lub komunikaty z innych usług.
+
+Jest to przykład architektury serverless.
+
+4.5. Amazon ECS i Amazon EKS
+
+Amazon ECS służy do uruchamiania i zarządzania aplikacjami kontenerowymi.
+
+Amazon EKS to zarządzana usługa Kubernetes.
+
+Obie usługi pomagają wdrażać aplikacje w kontenerach, ale różnią się sposobem orkiestracji i poziomem kontroli nad środowiskiem.
+
+4.6. Amazon CloudFront
+
+Amazon CloudFront to usługa CDN, która dostarcza treści użytkownikom z lokalizacji brzegowych rozmieszczonych w różnych regionach świata.
+
+Może przyspieszać ładowanie stron, obrazów, plików i innych zasobów.
+
+4.7. Amazon VPC
+
+Amazon VPC umożliwia tworzenie logicznie odizolowanych sieci w AWS.
+
+Pozwala konfigurować podsieci, tablice routingu, bramy sieciowe oraz reguły dostępu.
+
+4.8. Amazon CloudWatch
+
+Amazon CloudWatch służy do monitorowania zasobów, zbierania metryk, analizowania logów i konfigurowania alarmów.
+
+Może pomagać wykrywać problemy z wydajnością oraz dostępnością aplikacji.
+
+4.9. AWS IAM
+
+AWS Identity and Access Management umożliwia zarządzanie użytkownikami, rolami i uprawnieniami.
+
+Pozwala określić, kto i w jaki sposób może korzystać z poszczególnych usług oraz zasobów.
+
+4.10. Amazon Bedrock
+
+Amazon Bedrock umożliwia korzystanie z wybranych modeli generatywnej sztucznej inteligencji za pośrednictwem zarządzanej usługi AWS.
+
+Może służyć do budowania chatbotów, systemów RAG, asystentów i innych aplikacji wykorzystujących modele AI.
+
+5. Regiony i strefy dostępności
+
+AWS dzieli infrastrukturę na regiony geograficzne.
+
+Region to określony obszar geograficzny, w którym dostępne są usługi AWS.
+
+Każdy region może zawierać kilka stref dostępności, czyli Availability Zones (AZ).
+
+Strefy dostępności są odrębnymi lokalizacjami infrastruktury zaprojektowanymi z myślą o zwiększaniu odporności systemów.
+
+Rozmieszczenie aplikacji w kilku strefach może ograniczyć ryzyko przerwy w działaniu w przypadku awarii pojedynczej strefy.
+
+Wybór regionu wpływa między innymi na opóźnienia, dostępność usług, wymagania dotyczące lokalizacji danych i koszty.
+
+6. AWS w pracy programisty Java
+
+AWS jest szczególnie przydatny dla programistów tworzących aplikacje backendowe w Javie i Spring Boot.
+
+Przykładowa aplikacja może wykorzystywać następujące usługi:
+
+- Spring Boot — logika biznesowa i REST API.
+- Amazon EC2 — uruchamianie aplikacji na maszynie wirtualnej.
+- Amazon RDS for PostgreSQL — relacyjna baza danych.
+- Amazon S3 — przechowywanie plików.
+- Amazon SQS — asynchroniczna komunikacja między komponentami.
+- AWS IAM — kontrola uprawnień.
+- Amazon CloudWatch — logi i monitoring.
+
+W bardziej zarządzanej architekturze aplikację można uruchomić również w kontenerach lub na platformie serverless.
+
+7. Przykład działania aplikacji w AWS
+
+Wyobraź sobie aplikację internetową do zarządzania gospodarstwem rolnym.
+
+Użytkownik przesyła zdjęcie rośliny przez frontend.
+
+Backend Spring Boot odbiera żądanie i zapisuje zdjęcie w Amazon S3.
+
+Informacje o użytkowniku i analizie są przechowywane w PostgreSQL działającym w Amazon RDS.
+
+Backend może przekazać zadanie analizy do kolejki Amazon SQS.
+
+Osobny komponent przetwarza zadanie, a wynik zostaje zapisany w bazie danych.
+
+CloudWatch zbiera logi i metryki, natomiast IAM kontroluje dostęp poszczególnych komponentów do zasobów.
+
+Taka architektura pozwala rozdzielić odpowiedzialności i rozwijać poszczególne elementy systemu niezależnie.
+
+8. AWS CLI i SDK
+
+AWS CLI to narzędzie wiersza poleceń, które pozwala zarządzać usługami AWS z terminala.
+
+AWS SDK to zestawy bibliotek umożliwiające korzystanie z usług AWS bezpośrednio z kodu aplikacji.
+
+Przykładowa komenda AWS CLI do wyświetlenia listy bucketów S3 wygląda następująco:
+
+```
+aws s3 ls
+```
+
+Przed wykonaniem komendy należy skonfigurować odpowiedni dostęp do konta AWS.
+
+W aplikacji Java można wykorzystać AWS SDK for Java 2.x do komunikacji z usługami takimi jak S3, SQS czy DynamoDB.
+
+Dane uwierzytelniające należy przechowywać bezpiecznie i nie umieszczać ich bezpośrednio w kodzie źródłowym.
+
+9. AWS a DevOps i CI/CD
+
+AWS oferuje usługi wspierające automatyzację budowania, testowania i wdrażania oprogramowania.
+
+AWS CodeBuild służy do budowania i testowania kodu w zarządzanym środowisku.
+
+AWS CodePipeline umożliwia tworzenie i automatyzację potoków dostarczania oprogramowania.
+
+AWS CodeDeploy wspiera wdrażanie aplikacji na obsługiwanych platformach.
+
+W praktyce AWS można również integrować z GitHub Actions, Jenkins, GitLab CI/CD, Dockerem, Terraformem i Kubernetesem.
+
+Dzięki temu po przesłaniu zmian do repozytorium aplikacja może zostać automatycznie zbudowana, przetestowana i wdrożona.
+
+10. AWS a bezpieczeństwo
+
+Bezpieczeństwo w AWS opiera się między innymi na modelu współdzielonej odpowiedzialności.
+
+AWS odpowiada za bezpieczeństwo infrastruktury chmurowej, natomiast użytkownik odpowiada za odpowiednie zabezpieczenie wykorzystywanych usług i danych w zakresie określonym przez dany model usługi.
+
+Najważniejsze praktyki bezpieczeństwa to:
+
+- Stosowanie zasady najmniejszych uprawnień w IAM.
+- Włączanie uwierzytelniania wieloskładnikowego (MFA).
+- Unikanie udostępniania kluczy dostępowych w kodzie.
+- Ograniczanie publicznego dostępu do baz danych i zasobów.
+- Szyfrowanie danych podczas przesyłania i przechowywania.
+- Monitorowanie logów oraz zdarzeń bezpieczeństwa.
+- Regularne kontrolowanie kosztów i uprawnień.
+- Korzystanie z ról IAM zamiast stałych kluczy tam, gdzie to możliwe.
+
+11. Koszty AWS
+
+AWS korzysta z różnych modeli rozliczeń zależnych od konkretnej usługi.
+
+Niektóre usługi są rozliczane na podstawie czasu działania, inne na podstawie liczby żądań, ilości przechowywanych danych, transferu sieciowego lub wykorzystanych zasobów.
+
+Nie wszystkie usługi są bezpłatne.
+
+Przed uruchomieniem infrastruktury warto sprawdzić aktualny cennik i zasady AWS Free Tier.
+
+AWS Budgets pozwala ustawiać budżety i powiadomienia o kosztach.
+
+AWS Cost Explorer pomaga analizować wydatki.
+
+Usunięcie aplikacji nie zawsze oznacza usunięcie wszystkich zasobów generujących koszty, dlatego po zakończeniu eksperymentów należy sprawdzić aktywne zasoby.
+
+12. AWS a inne platformy chmurowe
+
+Amazon Web Services jest jednym z głównych dostawców chmury obliczeniowej.
+
+Microsoft Azure jest często wykorzystywany w środowiskach opartych na technologiach Microsoftu i integracjach korporacyjnych.
+
+Google Cloud Platform oferuje między innymi usługi infrastrukturalne, analityczne i związane ze sztuczną inteligencją.
+
+Wszystkie trzy platformy umożliwiają uruchamianie aplikacji, korzystanie z baz danych, przechowywanie plików i automatyzację infrastruktury.
+
+Wybór zależy od wymagań technicznych, kosztów, kompetencji zespołu i integracji z istniejącymi systemami.
+
+13. Zalety AWS
+
+AWS oferuje szeroki wybór usług infrastrukturalnych i zarządzanych.
+
+Umożliwia skalowanie zasobów wraz ze wzrostem obciążenia aplikacji.
+
+Pozwala korzystać z infrastruktury w wielu regionach geograficznych.
+
+Ułatwia automatyzację wdrażania, monitorowania i zarządzania systemami.
+
+Zapewnia integrację z wieloma językami programowania, bazami danych i narzędziami DevOps.
+
+Pozwala rozpocząć pracę bez kupowania własnych serwerów.
+
+14. Wady i ograniczenia AWS
+
+Duża liczba usług może utrudniać początkującym wybór odpowiedniej architektury.
+
+Nieprawidłowa konfiguracja może prowadzić do wysokich kosztów.
+
+Zarządzanie uprawnieniami, sieciami i bezpieczeństwem wymaga odpowiedniej wiedzy.
+
+Niektóre usługi i funkcje różnią się dostępnością pomiędzy regionami.
+
+Migracja pomiędzy dostawcami chmury może wymagać zmian w architekturze aplikacji.
+
+15. Jak zacząć naukę AWS?
+
+Na początku warto poznać podstawy chmury obliczeniowej, regiony, strefy dostępności oraz model współdzielonej odpowiedzialności.
+
+Następnie naucz się IAM, Amazon EC2, Amazon S3 i Amazon RDS.
+
+Kolejnym krokiem powinno być poznanie VPC, CloudWatch i podstaw zarządzania kosztami.
+
+Później warto przejść do Dockera, Amazon ECS lub EKS oraz automatyzacji CI/CD.
+
+Jako programista Java możesz zbudować prostą aplikację Spring Boot, wdrożyć ją w chmurze i połączyć z bazą PostgreSQL oraz magazynem plików S3.
+
+Do nauki przydatna jest oficjalna dokumentacja AWS oraz materiały przygotowujące do certyfikacji AWS Certified Cloud Practitioner.
+
+16. Najważniejsze pojęcia
+
+- **Cloud Computing** — korzystanie z zasobów informatycznych udostępnianych przez chmurę.
+- **EC2** — usługa maszyn wirtualnych.
+- **S3** — obiektowy magazyn danych.
+- **RDS** — zarządzane relacyjne bazy danych.
+- **Lambda** — uruchamianie kodu bez samodzielnego zarządzania serwerami.
+- **ECS** — zarządzanie aplikacjami kontenerowymi.
+- **EKS** — zarządzana usługa Kubernetes.
+- **IAM** — zarządzanie tożsamością i uprawnieniami.
+- **VPC** — logicznie odizolowana sieć w AWS.
+- **CloudWatch** — monitoring, metryki i logi.
+- **Region** — geograficzny obszar infrastruktury AWS.
+- **Availability Zone** — odrębna strefa dostępności w regionie.
+- **AWS CLI** — narzędzie do obsługi AWS z wiersza poleceń.
+- **SDK** — biblioteka pozwalająca korzystać z usług AWS w kodzie.
+- **CI/CD** — automatyzacja budowania, testowania i wdrażania aplikacji.
+- **Serverless** — model uruchamiania kodu lub usług bez samodzielnego zarządzania serwerami.
+
+17. W skrócie
+
+AWS to rozbudowana platforma chmurowa, która pozwala uruchamiać aplikacje, zarządzać bazami danych, przechowywać pliki i automatyzować infrastrukturę.
+
+Najważniejsze usługi na początek to EC2, S3, RDS, Lambda, IAM i CloudWatch.
+
+Dla programisty Java i Spring Boot AWS jest przydatny do wdrażania aplikacji, integracji z bazami danych oraz budowania skalowalnych systemów produkcyjnych.

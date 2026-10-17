@@ -1,0 +1,259 @@
+Apache Hive — notatka
+
+1. Czym jest Apache Hive?
+
+Apache Hive to narzędzie do analizowania i przetwarzania dużych zbiorów danych przechowywanych w rozproszonych systemach plików, przede wszystkim w środowisku Apache Hadoop.
+
+Umożliwia wykonywanie zapytań w języku HiveQL, który jest podobny do SQL.
+
+Hive pozwala analizować dane bez konieczności pisania skomplikowanych programów przetwarzających każdy rekord osobno.
+
+Jest wykorzystywany przede wszystkim w obszarze Big Data, analityki danych i hurtowni danych.
+
+2. Do czego służy Apache Hive?
+
+Apache Hive służy do wykonywania zapytań analitycznych na dużych zbiorach danych.
+
+Można go wykorzystywać do generowania raportów, obliczania statystyk, agregowania danych i analizowania historii transakcji.
+
+Sprawdza się również podczas przetwarzania danych pochodzących z logów aplikacji, systemów sprzedażowych, urządzeń IoT i innych źródeł.
+
+Hive jest przeznaczony głównie do przetwarzania analitycznego, a nie do obsługi dużej liczby małych zapytań wykonywanych w czasie rzeczywistym.
+
+3. Jak działa Apache Hive?
+
+Hive umożliwia użytkownikowi zapisanie zapytania w języku HiveQL.
+
+Następnie analizuje zapytanie, sprawdza strukturę danych i przygotowuje plan wykonania.
+
+Plan jest realizowany przez odpowiedni silnik przetwarzania, na przykład Apache Tez lub Apache Spark, zależnie od konfiguracji środowiska.
+
+W klasycznych środowiskach Hadoop Hive może również korzystać z MapReduce.
+
+Dane są zwykle przechowywane w rozproszonym systemie plików, takim jak HDFS, lub w kompatybilnym magazynie obiektowym.
+
+Wyniki przetwarzania są zwracane użytkownikowi albo zapisywane w kolejnej tabeli lub pliku.
+
+4. Czym jest HiveQL?
+
+HiveQL to język zapytań wykorzystywany w Apache Hive.
+
+Jest podobny do SQL, dlatego osoby znające relacyjne bazy danych mogą stosunkowo łatwo rozpocząć pracę z Hive.
+
+HiveQL umożliwia wybieranie danych, filtrowanie rekordów, grupowanie wyników, łączenie tabel oraz wykonywanie agregacji.
+
+Przykładowe zapytanie:
+
+```
+SELECT category, COUNT(*) AS number_of_products
+FROM products
+GROUP BY category;
+```
+
+Zapytanie zlicza liczbę produktów w każdej kategorii.
+
+HiveQL przypomina SQL, ale nie wszystkie funkcje i zachowania są identyczne jak w tradycyjnych systemach bazodanowych.
+
+5. Tabele w Apache Hive
+
+Hive organizuje dane za pomocą tabel, które mogą przypominać tabele znane z relacyjnych baz danych.
+
+Tabela zawiera definicję kolumn i ich typów, ale dane mogą być przechowywane poza samą definicją tabeli.
+
+Metadane tabel są przechowywane w komponencie nazywanym Hive Metastore.
+
+Hive obsługuje między innymi tabele zarządzane oraz tabele zewnętrzne.
+
+Tabela zarządzana jest kontrolowana przez Hive, w tym w zakresie zarządzania jej danymi zgodnie z konfiguracją i wersją systemu.
+
+Tabela zewnętrzna opisuje dane, których cykl życia może być zarządzany niezależnie od Hive.
+
+Przykład utworzenia tabeli:
+
+```
+CREATE TABLE products (
+    id INT,
+    name STRING,
+    category STRING,
+    price DOUBLE
+);
+```
+
+Przykład dodania danych z pliku CSV wymaga odpowiedniej konfiguracji lokalizacji i formatu danych.
+
+6. Partycjonowanie i bucketing
+
+Partycjonowanie polega na podziale danych tabeli na części według wartości wybranych kolumn.
+
+Przykładowo dane sprzedażowe można podzielić według roku, miesiąca lub kraju.
+
+Dzięki partycjonowaniu Hive może odczytywać tylko potrzebne części danych, jeśli zapytanie zawiera odpowiednie warunki.
+
+Przykład utworzenia tabeli partycjonowanej:
+
+```
+CREATE TABLE sales (
+    product_id INT,
+    amount DOUBLE
+)
+PARTITIONED BY (sale_year INT);
+```
+
+Bucketing polega na rozdzielaniu rekordów do określonej liczby zbiorów na podstawie wartości wybranej kolumny.
+
+Może ułatwiać niektóre operacje, takie jak łączenie tabel, ale jego skuteczność zależy od danych i planu zapytania.
+
+7. Formaty danych
+
+Apache Hive może pracować z różnymi formatami danych.
+
+CSV i tekst rozdzielany separatorami są proste w użyciu, ale zwykle mniej wydajne przy dużych analizach.
+
+Apache Parquet to kolumnowy format danych, który dobrze sprawdza się w analityce i pozwala ograniczyć ilość odczytywanych danych.
+
+Apache ORC to kolejny kolumnowy format zaprojektowany z myślą o wydajnym przetwarzaniu danych w ekosystemie Hadoop.
+
+Avro jest formatem obsługującym dane z opisem schematu, często wykorzystywanym w systemach przetwarzania danych.
+
+Dobór formatu wpływa na wydajność zapytań, rozmiar danych i czas ich odczytu.
+
+8. Hive Metastore
+
+Hive Metastore to komponent przechowujący metadane dotyczące tabel i innych obiektów Hive.
+
+Zawiera informacje o nazwach tabel, kolumnach, typach danych, partycjach oraz lokalizacjach plików.
+
+Dzięki metadanym Hive wie, jak interpretować dane zapisane w plikach.
+
+Metastore może być wykorzystywany również przez inne narzędzia ekosystemu Big Data, jeśli obsługują odpowiednią integrację.
+
+Metadane są zazwyczaj przechowywane w relacyjnej bazie danych.
+
+9. Integracja z Hadoop i innymi narzędziami
+
+Apache Hive jest historycznie silnie związany z ekosystemem Apache Hadoop.
+
+Może korzystać z HDFS jako rozproszonego systemu plików.
+
+YARN może zarządzać zasobami klastra, zależnie od zastosowanego silnika wykonawczego i konfiguracji.
+
+Apache Tez umożliwia wykonywanie złożonych planów przetwarzania danych w środowisku Hadoop.
+
+Apache Spark może być wykorzystywany jako silnik przetwarzania w odpowiednio skonfigurowanych środowiskach.
+
+Apache HBase jest odmiennym rodzajem systemu przechowywania danych, ale może współpracować z Hive przez odpowiednią integrację.
+
+Apache Kafka może dostarczać dane do środowiska analitycznego, jednak integracja wymaga skonfigurowania odpowiednich mechanizmów pobierania i przetwarzania.
+
+10. Przykład zastosowania Apache Hive
+
+Załóżmy, że sklep internetowy przechowuje miliardy rekordów dotyczących zamówień.
+
+Dane są zapisywane w rozproszonym magazynie i zawierają informacje o produktach, cenach, datach oraz klientach.
+
+Zespół analityczny chce obliczyć wartość sprzedaży w poszczególnych latach.
+
+Może wykonać zapytanie podobne do poniższego:
+
+```
+SELECT sale_year, SUM(amount) AS total_sales
+FROM sales
+GROUP BY sale_year
+ORDER BY sale_year;
+```
+
+Hive przetwarza dane zgodnie z przygotowanym planem i zwraca sumę sprzedaży dla każdego roku.
+
+Takie rozwiązanie pozwala analizować duże zbiory danych bez konieczności ręcznego pisania rozproszonego algorytmu.
+
+11. Apache Hive a relacyjne bazy danych
+
+Relacyjne bazy danych, takie jak PostgreSQL, Oracle i MySQL, są często wykorzystywane do obsługi aplikacji oraz transakcji.
+
+Apache Hive jest przeznaczony przede wszystkim do analizy dużych zbiorów danych.
+
+W tradycyjnej bazie danych można często wykonywać niewielkie zapytania z małym opóźnieniem.
+
+W Hive zapytania analityczne mogą wymagać odczytania i przetworzenia bardzo dużej ilości danych.
+
+Hive nie powinien być traktowany jako bezpośredni zamiennik typowej bazy transakcyjnej.
+
+12. Apache Hive a Apache Spark
+
+Apache Hive jest przede wszystkim warstwą hurtowni danych i językiem zapytań analitycznych.
+
+Apache Spark jest silnikiem rozproszonego przetwarzania danych, który udostępnia między innymi API do pracy z SQL, Pythonem, Javą i Scalą.
+
+Hive może korzystać z różnych silników wykonawczych, natomiast Spark może samodzielnie realizować wiele zadań analitycznych.
+
+Oba narzędzia mogą współpracować w jednym środowisku Big Data.
+
+Wybór zależy od architektury systemu, wymagań dotyczących wydajności i rodzaju wykonywanych operacji.
+
+13. Zalety Apache Hive
+
+Hive pozwala analizować bardzo duże zbiory danych przy użyciu języka podobnego do SQL.
+
+Ułatwia pracę analitykom, którzy znają już podstawy baz danych i języka SQL.
+
+Obsługuje partycjonowanie oraz popularne formaty danych wykorzystywane w analityce.
+
+Może współpracować z wieloma narzędziami ekosystemu Big Data.
+
+Oddziela opis danych od ich fizycznego przechowywania, co ułatwia organizację środowiska analitycznego.
+
+14. Wady Apache Hive
+
+Hive nie jest optymalnym wyborem do aplikacji wymagających bardzo krótkiego czasu odpowiedzi na każde zapytanie.
+
+Konfiguracja i utrzymanie środowiska Big Data mogą być skomplikowane.
+
+Wydajność zależy od silnika wykonawczego, formatu danych, partycjonowania i konfiguracji klastra.
+
+Przy mniejszych zbiorach danych prostsza baza danych lub narzędzie analityczne może okazać się wygodniejsze.
+
+Niektóre funkcje i zachowania HiveQL różnią się od standardowego SQL i wymagają poznania specyfiki tego narzędzia.
+
+15. Plan nauki Apache Hive
+
+Na początku warto poznać podstawy Big Data, Hadoop oraz ideę rozproszonego przechowywania danych.
+
+Następnie należy nauczyć się tworzyć bazy i tabele oraz wykonywać podstawowe zapytania HiveQL.
+
+Kolejnym krokiem powinno być ćwiczenie filtrowania, grupowania, agregacji i łączenia tabel.
+
+Warto również poznać partycjonowanie, bucketing oraz formaty Parquet i ORC.
+
+Na koniec dobrze jest wykonać mały projekt, w którym dane sprzedażowe są przechowywane w plikach, a Hive służy do generowania raportów.
+
+16. Najważniejsze pojęcia
+
+Apache Hive — narzędzie do analizy dużych zbiorów danych.
+
+HiveQL — język zapytań podobny do SQL.
+
+Hadoop — ekosystem technologii do rozproszonego przechowywania i przetwarzania danych.
+
+HDFS — rozproszony system plików wykorzystywany w Hadoop.
+
+Hive Metastore — komponent przechowujący metadane tabel i partycji.
+
+Tabela zarządzana — tabela, której danymi zarządza Hive zgodnie z jego zasadami.
+
+Tabela zewnętrzna — tabela opisująca dane, których cykl życia może być zarządzany poza Hive.
+
+Partycjonowanie — podział danych na części według wartości wybranych kolumn.
+
+Bucketing — podział rekordów na określoną liczbę zbiorów na podstawie wybranej kolumny.
+
+Apache Parquet — kolumnowy format danych wykorzystywany w analityce.
+
+Apache ORC — kolumnowy format danych zoptymalizowany pod kątem przetwarzania analitycznego.
+
+17. W skrócie
+
+Apache Hive to narzędzie Big Data, które umożliwia analizowanie ogromnych zbiorów danych przy użyciu języka podobnego do SQL.
+
+Współpracuje z rozproszonymi magazynami danych i silnikami przetwarzania, a jego ważnymi elementami są HiveQL, Hive Metastore, tabele, partycjonowanie oraz obsługa formatów takich jak Parquet i ORC.
+
+Najważniejsze zastosowanie Hive to analityka danych i przetwarzanie zapytań hurtownianych, a nie obsługa typowych transakcji aplikacyjnych.

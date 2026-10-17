@@ -1,0 +1,695 @@
+# Unity3D
+
+## 1. Czym jest Unity3D?
+
+Unity3D, najczęściej nazywane po prostu **Unity**, jest silnikiem do tworzenia gier oraz aplikacji interaktywnych.
+
+Unity jest rozwijane przez firmę Unity Technologies.
+
+Unity pozwala tworzyć aplikacje wykorzystujące grafikę 2D, 3D, fizykę, dźwięk, animacje, sztuczną inteligencję oraz interakcję z użytkownikiem.
+
+Unity jest szczególnie popularne w tworzeniu gier komputerowych, mobilnych oraz aplikacji wykorzystujących technologie VR i AR.
+
+## 2. Unity a języki programowania
+
+Podstawowym językiem programowania wykorzystywanym w Unity jest **C#**.
+
+Skrypty C# pozwalają definiować zachowanie obiektów znajdujących się w grze.
+
+Przykładowy skrypt może wyglądać tak:
+
+```csharp
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    void Start()
+    {
+        Debug.Log("Game started");
+    }
+
+    void Update()
+    {
+        // Kod wykonywany co klatkę
+    }
+}
+```
+
+Unity wykorzystuje C# między innymi do obsługi ruchu postaci, kolizji, interakcji, AI oraz logiki gry.
+
+## 3. Unity Editor
+
+Unity posiada graficzne środowisko programistyczne nazywane **Unity Editor**.
+
+Unity Editor pozwala tworzyć sceny, dodawać obiekty, ustawiać ich właściwości oraz testować aplikację.
+
+Najważniejsze elementy interfejsu Unity Editor to między innymi:
+
+```text
+Scene
+Game
+Hierarchy
+Inspector
+Project
+Console
+```
+
+## 4. Scene
+
+**Scene** reprezentuje określone środowisko lub poziom aplikacji.
+
+Scena może zawierać między innymi:
+
+```text
+Player
+Camera
+Lights
+Enemies
+Environment
+UI
+Audio
+```
+
+Gra może posiadać wiele scen.
+
+Przykładowo można mieć:
+
+```text
+MainMenu
+Level1
+Level2
+GameOver
+```
+
+## 5. GameObject
+
+**GameObject** jest podstawowym obiektem występującym w Unity.
+
+GameObject może reprezentować praktycznie dowolny element gry.
+
+Może to być:
+
+```text
+Player
+Enemy
+Camera
+Light
+Weapon
+Tree
+Car
+Button
+```
+
+Sam GameObject jest przede wszystkim kontenerem, do którego można dodawać komponenty.
+
+## 6. Components
+
+Unity wykorzystuje architekturę opartą na komponentach.
+
+GameObject może posiadać wiele komponentów.
+
+Typowe komponenty to:
+
+```text
+Transform
+Mesh Renderer
+Collider
+Rigidbody
+Audio Source
+Camera
+Light
+Animator
+Script
+```
+
+Komponenty określają właściwości oraz zachowanie GameObjectu.
+
+## 7. Transform
+
+Każdy GameObject posiada komponent **Transform**.
+
+Transform określa między innymi:
+
+```text
+Position
+Rotation
+Scale
+```
+
+Pozycja określa miejsce obiektu w przestrzeni.
+
+Rotation określa jego obrót.
+
+Scale określa jego rozmiar.
+
+W przypadku scen 3D wartości są określane dla osi:
+
+```text
+X
+Y
+Z
+```
+
+## 8. Hierarchy
+
+Panel **Hierarchy** pokazuje wszystkie GameObjecty znajdujące się w aktualnej scenie.
+
+GameObjecty mogą tworzyć strukturę rodzic–dziecko.
+
+Przykładowo:
+
+```text
+Player
+ ├── Camera
+ ├── Weapon
+ └── CharacterModel
+```
+
+Obiekty potomne mogą dziedziczyć transformację obiektu nadrzędnego.
+
+## 9. Inspector
+
+Panel **Inspector** pozwala przeglądać i modyfikować właściwości zaznaczonego GameObjectu.
+
+Można tam między innymi zmieniać:
+
+```text
+Position
+Rotation
+Scale
+Materials
+Scripts
+Colliders
+Rigidbody
+Audio
+```
+
+Inspector jest jednym z najważniejszych elementów Unity Editor.
+
+## 10. Prefab
+
+**Prefab** jest gotowym szablonem GameObjectu wraz z jego komponentami i konfiguracją.
+
+Prefab pozwala wielokrotnie wykorzystywać ten sam obiekt.
+
+Przykładowo można stworzyć prefab przeciwnika:
+
+```text
+Enemy
+ ├── Model
+ ├── Collider
+ ├── Rigidbody
+ └── EnemyScript
+```
+
+Następnie można umieścić wiele instancji tego prefabu w scenie.
+
+## 11. Assets
+
+**Asset** oznacza zasób wykorzystywany przez projekt Unity.
+
+Assetami mogą być między innymi:
+
+```text
+Models
+Textures
+Materials
+Audio
+Animations
+Scripts
+Prefabs
+Scenes
+Fonts
+```
+
+Zasoby projektu są przechowywane w folderze `Assets`.
+
+## 12. Project
+
+Panel **Project** pozwala przeglądać zasoby znajdujące się w projekcie.
+
+Można w nim organizować pliki w folderach.
+
+Przykładowa struktura może wyglądać tak:
+
+```text
+Assets
+ ├── Scripts
+ ├── Scenes
+ ├── Materials
+ ├── Models
+ ├── Textures
+ ├── Prefabs
+ ├── Audio
+ └── UI
+```
+
+## 13. C# MonoBehaviour
+
+Skrypty Unity często dziedziczą po klasie `MonoBehaviour`.
+
+Przykład:
+
+```csharp
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+}
+```
+
+Dzięki dziedziczeniu po `MonoBehaviour` skrypt może zostać dodany jako komponent do GameObjectu.
+
+## 14. Start()
+
+Metoda `Start()` jest wywoływana podczas uruchamiania odpowiedniego komponentu.
+
+Może służyć do inicjalizacji danych.
+
+Przykład:
+
+```csharp
+void Start()
+{
+    Debug.Log("Player initialized");
+}
+```
+
+## 15. Update()
+
+Metoda `Update()` jest wykonywana raz na klatkę.
+
+Często wykorzystuje się ją do obsługi logiki zależnej od czasu rzeczywistego.
+
+Przykład:
+
+```csharp
+void Update()
+{
+    transform.Translate(Vector3.forward * Time.deltaTime);
+}
+```
+
+`Time.deltaTime` pomaga uzależnić ruch od czasu, a nie bezpośrednio od liczby klatek na sekundę.
+
+## 16. FixedUpdate()
+
+`FixedUpdate()` jest wykonywane w stałych odstępach czasu.
+
+Metoda jest szczególnie często wykorzystywana przy operacjach związanych z fizyką.
+
+Przykład:
+
+```csharp
+void FixedUpdate()
+{
+    // Operacje związane z fizyką
+}
+```
+
+## 17. LateUpdate()
+
+`LateUpdate()` jest wykonywane po zakończeniu `Update()`.
+
+Może być przydatne między innymi do obsługi kamery podążającej za graczem.
+
+Przykładowo kamera może zostać przesunięta dopiero po zakończeniu ruchu gracza.
+
+## 18. Rigidbody
+
+`Rigidbody` pozwala obiektowi uczestniczyć w symulacji fizyki Unity.
+
+Można dzięki niemu obsługiwać między innymi:
+
+```text
+Gravity
+Velocity
+Forces
+Collisions
+```
+
+Przykładowo:
+
+```csharp
+Rigidbody rb;
+```
+
+może przechowywać referencję do komponentu Rigidbody.
+
+## 19. Collider
+
+Collider definiuje obszar wykorzystywany do wykrywania kolizji.
+
+Popularne typy colliderów to:
+
+```text
+Box Collider
+Sphere Collider
+Capsule Collider
+Mesh Collider
+```
+
+Collider może być wykorzystywany między innymi do wykrywania kontaktu pomiędzy graczem a przeszkodą.
+
+## 20. Trigger
+
+Collider może działać jako **Trigger**.
+
+Trigger pozwala wykrywać wejście obiektu w określony obszar bez konieczności fizycznego blokowania tego obiektu.
+
+Przykład:
+
+```csharp
+void OnTriggerEnter(Collider other)
+{
+    Debug.Log("Object entered trigger");
+}
+```
+
+Trigger może być wykorzystany na przykład jako strefa końca poziomu.
+
+## 21. Fizyka
+
+Unity posiada system fizyki pozwalający symulować zachowanie obiektów.
+
+Można obsługiwać między innymi:
+
+```text
+Gravity
+Collisions
+Forces
+Friction
+Mass
+Velocity
+Joints
+```
+
+W projektach 3D Unity wykorzystuje system fizyki oparty na rozwiązaniach PhysX.
+
+## 22. Grafika 3D
+
+Unity pozwala tworzyć sceny wykorzystujące modele 3D.
+
+Modele mogą być importowane z zewnętrznych programów do modelowania.
+
+Unity obsługuje między innymi popularne formaty modeli i materiałów.
+
+Model 3D może posiadać:
+
+```text
+Mesh
+Material
+Texture
+Animation
+Collider
+```
+
+## 23. Mesh
+
+**Mesh** określa geometrię obiektu 3D.
+
+Mesh składa się między innymi z wierzchołków oraz powierzchni.
+
+Może reprezentować takie obiekty jak:
+
+```text
+Character
+Car
+Building
+Weapon
+Environment
+```
+
+## 24. Material
+
+Material określa sposób, w jaki powierzchnia obiektu jest renderowana.
+
+Może definiować między innymi:
+
+```text
+Color
+Texture
+Metallic
+Smoothness
+Transparency
+```
+
+Material jest przypisywany między innymi do komponentu odpowiedzialnego za renderowanie modelu.
+
+## 25. Texture
+
+Texture jest obrazem wykorzystywanym do nadawania powierzchni szczegółów.
+
+Texture może przedstawiać na przykład:
+
+```text
+Wood
+Metal
+Stone
+Skin
+Clothing
+Ground
+```
+
+Texture może być nakładana na model za pomocą materiału.
+
+## 26. Lighting
+
+Unity posiada system oświetlenia scen.
+
+Można korzystać między innymi z:
+
+```text
+Directional Light
+Point Light
+Spot Light
+Area Light
+```
+
+Oświetlenie wpływa na wygląd obiektów oraz całej sceny.
+
+## 27. Camera
+
+Camera określa punkt widzenia użytkownika.
+
+Gra 3D może wykorzystywać kamerę pierwszoosobową, trzecioosobową lub inne rozwiązania.
+
+Przykładowo kamera może podążać za graczem.
+
+## 28. Animator
+
+`Animator` pozwala zarządzać animacjami obiektów.
+
+Może być wykorzystywany między innymi do animowania postaci.
+
+Przykładowe stany animacji:
+
+```text
+Idle
+Walk
+Run
+Jump
+Attack
+Death
+```
+
+Animator może przełączać się pomiędzy stanami na podstawie określonych parametrów.
+
+## 29. Animation
+
+Unity pozwala tworzyć oraz odtwarzać animacje.
+
+Animacje mogą dotyczyć między innymi:
+
+```text
+Character movement
+Object rotation
+Doors
+UI
+Camera
+Transforms
+```
+
+## 30. Audio
+
+Unity posiada system obsługi dźwięku.
+
+Do odtwarzania dźwięku można wykorzystać komponent `Audio Source`.
+
+Dźwięk może być odtwarzany z określonej pozycji w świecie 3D.
+
+Komponent `Audio Listener` reprezentuje punkt, z którego odbierany jest dźwięk.
+
+W typowej konfiguracji `Audio Listener` znajduje się na głównej kamerze.
+
+## 31. UI
+
+Unity posiada system tworzenia interfejsu użytkownika.
+
+Można tworzyć między innymi:
+
+```text
+Button
+Text
+Image
+Slider
+Toggle
+Input Field
+Panel
+Canvas
+```
+
+Interfejs gry może zawierać między innymi pasek zdrowia, wynik, mapę oraz menu.
+
+## 32. Canvas
+
+`Canvas` jest kontenerem dla elementów UI.
+
+Elementy takie jak przyciski, teksty oraz obrazy mogą znajdować się wewnątrz Canvas.
+
+Canvas może działać w różnych trybach renderowania zależnie od potrzeb projektu.
+
+## 33. Input
+
+Unity pozwala obsługiwać wejście użytkownika.
+
+Można reagować między innymi na:
+
+```text
+Keyboard
+Mouse
+Gamepad
+Touch
+Controllers
+```
+
+We współczesnych projektach Unity dostępny jest między innymi **Input System**, który zapewnia bardziej rozbudowane zarządzanie urządzeniami wejściowymi.
+
+## 34. Scene Management
+
+Unity pozwala przełączać się pomiędzy scenami.
+
+Można przykładowo przejść z menu głównego do pierwszego poziomu.
+
+Do zarządzania scenami można wykorzystać:
+
+```csharp
+using UnityEngine.SceneManagement;
+```
+
+Przykładowo:
+
+```csharp
+SceneManager.LoadScene("Level1");
+```
+
+## 35. Debugowanie
+
+Unity posiada panel **Console**, w którym można wyświetlać komunikaty oraz błędy.
+
+Przykład:
+
+```csharp
+Debug.Log("Player spawned");
+```
+
+Można również wykorzystywać:
+
+```csharp
+Debug.LogWarning("Warning");
+Debug.LogError("Error");
+```
+
+Console jest bardzo przydatna podczas znajdowania błędów w kodzie.
+
+## 36. Build
+
+Projekt Unity można skompilować i przygotować do uruchomienia na różnych platformach.
+
+Unity wspiera między innymi:
+
+```text
+Windows
+macOS
+Linux
+Android
+iOS
+Web
+```
+
+Unity jest również wykorzystywane do tworzenia aplikacji na urządzenia VR i AR.
+
+Dostępność konkretnych platform i funkcji zależy od aktualnej wersji Unity oraz używanych narzędzi.
+
+## 37. Unity i VR/AR
+
+Unity jest często wykorzystywane do tworzenia aplikacji wykorzystujących rzeczywistość wirtualną i rozszerzoną.
+
+VR oznacza **Virtual Reality**.
+
+AR oznacza **Augmented Reality**.
+
+Unity może być wykorzystywane do tworzenia interaktywnych środowisk 3D dla gogli VR oraz aplikacji AR.
+
+## 38. Unity Asset Store
+
+**Unity Asset Store** jest platformą, na której można znaleźć gotowe zasoby oraz narzędzia do projektów Unity.
+
+Można znaleźć między innymi:
+
+```text
+Models
+Textures
+Animations
+Sounds
+Shaders
+Scripts
+Tools
+Templates
+```
+
+Dzięki temu twórca gry nie musi tworzyć wszystkich elementów projektu od podstaw.
+
+## 39. Unity i Git
+
+Projekty Unity mogą być przechowywane w systemach kontroli wersji, takich jak Git.
+
+Kontrola wersji pozwala śledzić zmiany w kodzie i innych plikach projektu.
+
+Jest szczególnie przydatna podczas pracy zespołowej.
+
+W dużych projektach warto odpowiednio skonfigurować `.gitignore`, aby nie przechowywać niepotrzebnych plików generowanych przez Unity.
+
+## 40. Unity – najważniejsze informacje do zapamiętania
+
+Unity jest silnikiem do tworzenia gier i aplikacji interaktywnych.
+
+Unity wykorzystuje przede wszystkim język C#.
+
+Podstawowym obiektem w scenie jest `GameObject`.
+
+`Component` określa właściwości lub zachowanie GameObjectu.
+
+`Transform` określa pozycję, obrót i skalę obiektu.
+
+`Scene` reprezentuje środowisko lub poziom.
+
+`Prefab` jest szablonem GameObjectu, który można wielokrotnie wykorzystywać.
+
+`Rigidbody` pozwala korzystać z fizyki.
+
+`Collider` definiuje obszar wykorzystywany do kolizji.
+
+`Animator` zarządza animacjami.
+
+`Camera` określa punkt widzenia.
+
+`Canvas` jest kontenerem dla elementów interfejsu użytkownika.
+
+`Update()` jest wykonywane co klatkę.
+
+`FixedUpdate()` jest przeznaczone między innymi do operacji związanych z fizyką.
+
+`Start()` służy między innymi do inicjalizacji.
+
+Unity może być wykorzystywane do tworzenia aplikacji na PC, urządzenia mobilne, Web oraz platformy VR i AR.

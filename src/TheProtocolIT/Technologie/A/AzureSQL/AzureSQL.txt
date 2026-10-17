@@ -1,0 +1,280 @@
+Azure SQL — notatka
+
+1. Czym jest Azure SQL?
+
+Azure SQL to rodzina zarządzanych usług relacyjnych baz danych firmy Microsoft działających w chmurze Azure.
+
+Technologia ta bazuje na silniku Microsoft SQL Server i umożliwia przechowywanie, przetwarzanie oraz analizowanie danych za pomocą języka SQL.
+
+Azure SQL pozwala tworzyć bazy danych bez konieczności samodzielnego zarządzania całą infrastrukturą serwerową.
+
+Jest wykorzystywana w aplikacjach internetowych, systemach biznesowych, aplikacjach mobilnych oraz rozwiązaniach korporacyjnych.
+
+2. Do czego służy Azure SQL?
+
+Azure SQL służy do przechowywania danych, które mają określoną strukturę i relacje między sobą.
+
+Najważniejsze zastosowania to:
+
+- Przechowywanie danych użytkowników i klientów.
+- Obsługa aplikacji internetowych i systemów backendowych.
+- Zarządzanie zamówieniami, płatnościami i produktami.
+- Przechowywanie danych w systemach CRM i ERP.
+- Obsługa transakcji biznesowych.
+- Wykonywanie zapytań SQL i generowanie raportów.
+- Integracja z aplikacjami .NET, Java i Spring Boot.
+- Tworzenie skalowalnych systemów bazodanowych w chmurze.
+
+3. Najważniejsze warianty Azure SQL
+
+Azure SQL obejmuje kilka usług, które różnią się sposobem działania i poziomem kontroli nad infrastrukturą.
+
+**Azure SQL Database** to zarządzana usługa relacyjnej bazy danych przeznaczona przede wszystkim dla aplikacji chmurowych.
+
+**Azure SQL Managed Instance** zapewnia większą zgodność z funkcjami i sposobem działania SQL Server, co może ułatwiać migrację istniejących baz danych.
+
+**SQL Server na maszynach wirtualnych Azure** pozwala uruchamiać SQL Server na maszynie wirtualnej, zapewniając większą kontrolę nad systemem operacyjnym i konfiguracją serwera.
+
+Wybór wariantu zależy od wymagań aplikacji, potrzebnej zgodności, kosztów oraz zakresu odpowiedzialności administracyjnej.
+
+4. Jak działa Azure SQL?
+
+Azure SQL przechowuje dane w tabelach składających się z wierszy i kolumn.
+
+Tabele mogą być połączone relacjami, które pomagają zachować spójność danych.
+
+Programista komunikuje się z bazą za pomocą języka SQL.
+
+Baza może wykonywać operacje odczytu, dodawania, aktualizowania i usuwania rekordów.
+
+W zarządzanych wariantach Azure SQL Microsoft odpowiada za znaczną część zadań infrastrukturalnych, takich jak obsługa sprzętu i wybrane operacje utrzymaniowe.
+
+Użytkownik nadal odpowiada między innymi za projekt danych, uprawnienia, konfigurację dostępu oraz właściwe wykorzystanie zasobów.
+
+5. Najważniejsze pojęcia SQL
+
+- **Database** — baza danych przechowująca powiązane informacje.
+- **Table** — tabela składająca się z wierszy i kolumn.
+- **Row** — pojedynczy rekord w tabeli.
+- **Column** — kolumna określająca rodzaj przechowywanej wartości.
+- **Primary Key** — klucz główny jednoznacznie identyfikujący rekord.
+- **Foreign Key** — klucz obcy tworzący relację między tabelami.
+- **Index** — struktura przyspieszająca wyszukiwanie danych.
+- **View** — widok przedstawiający wynik zapytania jako wirtualną tabelę.
+- **Stored Procedure** — procedura przechowywana w bazie danych.
+- **Transaction** — zestaw operacji traktowanych jako jedna logiczna całość.
+
+6. Przykład tabeli w Azure SQL
+
+Załóżmy, że tworzysz aplikację do zarządzania użytkownikami.
+
+Możesz utworzyć tabelę `Users` za pomocą następującego polecenia:
+
+```
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(255) NOT NULL UNIQUE,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME()
+);
+```
+
+Pole `Id` jest automatycznie zwiększanym kluczem głównym.
+
+Pole `Name` przechowuje nazwę użytkownika.
+
+Pole `Email` przechowuje adres e-mail i nie pozwala na powtórzenie tej samej wartości.
+
+Pole `CreatedAt` zapisuje datę i czas utworzenia rekordu.
+
+7. Najważniejsze operacje SQL
+
+Azure SQL obsługuje standardowe operacje SQL oraz rozszerzenia charakterystyczne dla T-SQL.
+
+Dodawanie danych:
+
+```
+INSERT INTO Users (Name, Email)
+VALUES ('Jan Kowalski', 'jan@example.com');
+```
+
+Odczytywanie danych:
+
+```
+SELECT Id, Name, Email
+FROM Users;
+```
+
+Aktualizowanie danych:
+
+```
+UPDATE Users
+SET Name = 'Jan Nowak'
+WHERE Id = 1;
+```
+
+Usuwanie danych:
+
+```
+DELETE FROM Users
+WHERE Id = 1;
+```
+
+Warunek `WHERE` jest szczególnie ważny w operacjach aktualizacji i usuwania, ponieważ bez niego można zmodyfikować lub usunąć wszystkie rekordy w tabeli.
+
+8. T-SQL w Azure SQL
+
+T-SQL (Transact-SQL) to rozszerzenie języka SQL wykorzystywane w Microsoft SQL Server oraz Azure SQL.
+
+Oprócz podstawowych zapytań obsługuje między innymi zmienne, procedury składowane, funkcje, obsługę błędów i transakcje.
+
+Przykładowa procedura:
+
+```
+CREATE PROCEDURE GetUsers
+AS
+BEGIN
+    SELECT Id, Name, Email
+    FROM Users
+    ORDER BY Name;
+END;
+```
+
+Procedurę można uruchomić poleceniem:
+
+```
+EXEC GetUsers;
+```
+
+T-SQL jest przydatny przy tworzeniu bardziej rozbudowanej logiki bazodanowej.
+
+9. Azure SQL w aplikacji Java i Spring Boot
+
+Azure SQL może pełnić funkcję relacyjnej bazy danych dla aplikacji napisanych w Javie.
+
+Spring Boot może łączyć się z bazą za pomocą sterownika JDBC dla Microsoft SQL Server.
+
+W aplikacji można wykorzystać Spring Data JPA, Hibernate lub bezpośrednie zapytania JDBC.
+
+Przykładowa konfiguracja w pliku `application.properties`:
+
+```
+spring.datasource.url=jdbc:sqlserver://SERVER_NAME.database.windows.net:1433;databaseName=APP_DB;encrypt=true;trustServerCertificate=false
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+```
+
+Wartości `SERVER_NAME`, `APP_DB` oraz zmienne środowiskowe należy zastąpić właściwymi danymi.
+
+Projekt Maven musi zawierać odpowiednią zależność JDBC dla Microsoft SQL Server.
+
+W środowisku produkcyjnym należy preferować bezpieczne metody uwierzytelniania i przechowywania sekretów zamiast umieszczania haseł bezpośrednio w plikach konfiguracyjnych.
+
+10. Bezpieczeństwo Azure SQL
+
+Azure SQL oferuje mechanizmy pomagające chronić dane i kontrolować dostęp.
+
+Najważniejsze praktyki to:
+
+- Ograniczanie dostępu sieciowego do zaufanych źródeł.
+- Stosowanie odpowiednich uprawnień użytkowników i aplikacji.
+- Wykorzystywanie szyfrowania połączeń.
+- Korzystanie z Microsoft Entra ID, jeśli odpowiada to architekturze systemu.
+- Przechowywanie sekretów w Azure Key Vault lub innym bezpiecznym magazynie.
+- Regularne wykonywanie kopii zapasowych i sprawdzanie możliwości odtworzenia danych.
+- Monitorowanie logowania, zapytań i zdarzeń bezpieczeństwa.
+
+Samo korzystanie z zarządzanej bazy danych nie zwalnia zespołu z odpowiedzialności za poprawną konfigurację dostępu i ochronę informacji.
+
+11. Skalowanie i wydajność
+
+Azure SQL pozwala dostosować zasoby bazy danych do obciążenia aplikacji.
+
+W zależności od wariantu usługi dostępne są różne modele zakupu zasobów i skalowania.
+
+W Azure SQL Database można spotkać między innymi modele vCore oraz DTU, przy czym dostępność konkretnego modelu zależy od wybranego wariantu.
+
+Wydajność można poprawiać przez odpowiednie indeksy, analizę planów wykonania, optymalizację zapytań i monitorowanie obciążenia.
+
+Przy dużych systemach warto również analizować liczbę jednoczesnych połączeń, czas odpowiedzi i zużycie zasobów.
+
+12. Azure SQL a SQL Server i PostgreSQL
+
+**Azure SQL** to zarządzana rodzina usług bazodanowych opartych na technologii Microsoft SQL Server.
+
+**Microsoft SQL Server** może być instalowany na własnych serwerach lub uruchamiany na maszynach wirtualnych, co daje większą kontrolę nad środowiskiem.
+
+**PostgreSQL** to niezależny system relacyjnej bazy danych dostępny również w postaci zarządzanych usług chmurowych.
+
+Wszystkie te rozwiązania obsługują relacyjne dane i transakcje, ale różnią się składnią, funkcjami, narzędziami oraz kosztami.
+
+Jeśli uczysz się T-SQL, Azure SQL jest naturalnym rozszerzeniem wiedzy zdobytej podczas pracy z Microsoft SQL Server.
+
+13. Azure SQL a inne usługi Azure
+
+Azure SQL Database koncentruje się na relacyjnych danych i zapytaniach SQL.
+
+Azure Cosmos DB jest usługą bazodanową przeznaczoną między innymi do pracy z dokumentami i innych modeli NoSQL.
+
+Azure Storage służy do przechowywania obiektów, plików i innych typów danych, a nie do zastępowania pełnej relacyjnej bazy danych.
+
+Azure Functions może wykonywać kod reagujący na zdarzenia, na przykład na podstawie zmian w innych usługach.
+
+Usługi te mogą współpracować w jednej aplikacji, jeśli każda odpowiada za odpowiedni rodzaj danych lub zadania.
+
+14. Zalety Azure SQL
+
+- Nie wymaga samodzielnego utrzymywania całej infrastruktury bazodanowej w wariantach zarządzanych.
+- Obsługuje relacje, transakcje i język T-SQL.
+- Integruje się z usługami Microsoft Azure.
+- Oferuje mechanizmy kopii zapasowych i odzyskiwania danych.
+- Udostępnia narzędzia do monitorowania i optymalizacji wydajności.
+- Może obsługiwać aplikacje o różnej skali.
+- Ułatwia wdrażanie aplikacji korzystających z ekosystemu Microsoftu.
+
+15. Wady i ograniczenia Azure SQL
+
+- Koszty zależą od wybranego wariantu, zasobów i sposobu wykorzystania.
+- Nie wszystkie funkcje SQL Server są dostępne identycznie we wszystkich wariantach Azure SQL.
+- Migracja istniejącej bazy może wymagać zmian w zapytaniach, konfiguracji lub architekturze.
+- Konfiguracja sieci i uprawnień może być trudna dla początkujących.
+- Uzależnienie od specyficznych funkcji platformy może utrudnić późniejszą migrację do innego środowiska.
+
+16. Jak zacząć naukę Azure SQL?
+
+Najpierw poznaj podstawy relacyjnych baz danych i języka SQL.
+
+Następnie naucz się tworzyć tabele, klucze główne, klucze obce i indeksy.
+
+Kolejnym krokiem jest opanowanie zapytań `SELECT`, `INSERT`, `UPDATE`, `DELETE` oraz operacji `JOIN`.
+
+Później poznaj T-SQL, transakcje, procedury składowane i analizę wydajności.
+
+Następnie utwórz testową bazę w Azure SQL i połącz ją z aplikacją Java lub Spring Boot.
+
+Na końcu warto nauczyć się zarządzania uprawnieniami, monitorowania kosztów, kopii zapasowych i bezpiecznego wdrażania aplikacji.
+
+17. Najważniejsze pojęcia
+
+- **Azure SQL Database** — zarządzana relacyjna baza danych w Azure.
+- **SQL Managed Instance** — zarządzana instancja SQL Server z szeroką zgodnością z jego funkcjami.
+- **T-SQL** — rozszerzenie SQL stosowane w technologiach Microsoftu.
+- **JDBC** — interfejs umożliwiający aplikacjom Java komunikację z bazami danych.
+- **Spring Data JPA** — biblioteka upraszczająca dostęp do danych w aplikacjach Spring.
+- **Primary Key** — klucz główny rekordu.
+- **Foreign Key** — klucz obcy łączący tabele.
+- **Index** — struktura wspierająca szybsze wyszukiwanie danych.
+- **Transaction** — logiczna całość obejmująca operacje bazodanowe.
+- **DTU** — model jednostek łączących wybrane zasoby bazy danych.
+- **vCore** — model zakupu zasobów oparty na rdzeniach wirtualnych.
+- **Backup** — kopia zapasowa danych.
+- **Azure Key Vault** — usługa do bezpiecznego przechowywania sekretów i kluczy.
+
+18. W skrócie
+
+Azure SQL to rodzina relacyjnych usług bazodanowych Microsoft Azure opartych na technologii SQL Server.
+
+Umożliwia przechowywanie danych w tabelach, wykonywanie zapytań T-SQL i obsługę transakcji bez konieczności samodzielnego utrzymywania całej infrastruktury w wariantach zarządzanych.
+
+Najważniejsze zagadnienia to Azure SQL Database, T-SQL, indeksowanie, transakcje, bezpieczeństwo oraz integracja z aplikacjami Java i Spring Boot.

@@ -1,0 +1,133 @@
+# GitHub
+
+## 1. Czym jest GitHub?
+
+GitHub to internetowa platforma do przechowywania repozytoriów Git, współpracy nad kodem źródłowym oraz zarządzania projektami informatycznymi.
+
+Umożliwia programistom publikowanie kodu, śledzenie zmian, przeglądanie historii projektu i wspólną pracę nad oprogramowaniem.
+
+GitHub oferuje również narzędzia do zgłaszania błędów, przeglądania zmian w kodzie, automatyzacji testów i wdrażania aplikacji.
+
+## 2. Do czego służy GitHub?
+
+GitHub służy do przechowywania projektów programistycznych w repozytoriach zdalnych.
+
+Umożliwia współpracę wielu osób nad tym samym projektem oraz łączenie zmian wprowadzanych przez różnych programistów.
+
+Pozwala udostępniać własne projekty innym użytkownikom, budować portfolio i uczestniczyć w projektach open source.
+
+Ułatwia również zarządzanie zadaniami, dokumentacją, błędami i procesami automatyzacji.
+
+## 3. Najważniejsze elementy GitHuba
+
+Repository (repozytorium) to miejsce przechowywania plików projektu, kodu źródłowego i historii zmian.
+
+README.md to plik opisujący projekt, jego przeznaczenie, sposób instalacji i uruchamiania.
+
+Issues służą do zgłaszania błędów, proponowania nowych funkcji i organizowania zadań.
+
+Pull Request umożliwia przedstawienie zmian do przeglądu przed ich połączeniem z inną gałęzią.
+
+GitHub Actions pozwala automatyzować testowanie, budowanie i wdrażanie oprogramowania.
+
+Projects umożliwia organizowanie pracy za pomocą tablic, zadań i widoków planowania.
+
+Releases służą do publikowania oznaczonych wersji oprogramowania i udostępniania powiązanych z nimi plików.
+
+## 4. Jak działa GitHub?
+
+Programista tworzy projekt na swoim komputerze i zarządza zmianami za pomocą Gita.
+
+Następnie przesyła lokalne repozytorium do GitHuba za pomocą polecenia `git push`.
+
+Inni użytkownicy mogą pobrać projekt, analizować jego kod i proponować własne zmiany.
+
+Zmiany mogą być przekazywane za pomocą pull requestów, które pozwalają sprawdzić kod przed jego połączeniem z główną gałęzią projektu.
+
+Dzięki temu GitHub wspiera zarówno indywidualną naukę programowania, jak i pracę dużych zespołów informatycznych.
+
+## 5. Najważniejsze operacje na GitHubie
+
+`git clone` pozwala pobrać repozytorium z GitHuba na komputer.
+
+`git pull` pobiera i integruje zmiany z repozytorium zdalnego.
+
+`git add` przygotowuje zmiany w plikach do zapisania.
+
+`git commit` zapisuje zmiany w lokalnej historii repozytorium.
+
+`git push` wysyła lokalne commity do repozytorium zdalnego.
+
+`git branch` pozwala zarządzać gałęziami projektu.
+
+`git switch -c feature/login` tworzy nową gałąź i przełącza na nią.
+
+Warto pamiętać, że są to polecenia Gita używane do pracy z repozytoriami, a nie osobne polecenia samej platformy GitHub.
+
+## 6. GitHub a Git
+
+Git jest rozproszonym systemem kontroli wersji, który działa lokalnie na komputerze i przechowuje historię zmian w plikach.
+
+GitHub jest platformą internetową, która hostuje repozytoria Git i udostępnia dodatkowe funkcje współpracy.
+
+Git może działać bez GitHuba, natomiast GitHub wykorzystuje Gita do zarządzania historią kodu.
+
+## 7. GitHub a GitHub Actions
+
+GitHub Actions to wbudowana w GitHuba platforma automatyzacji.
+
+Umożliwia uruchamianie testów, kompilowanie aplikacji i wykonywanie wdrożeń po określonych zdarzeniach w repozytorium.
+
+Przykładowo po przesłaniu zmian do projektu Java GitHub Actions może automatycznie uruchomić Maven, skompilować aplikację i wykonać testy jednostkowe.
+
+Dzięki temu programista szybciej wykrywa błędy i może sprawdzić poprawność zmian przed ich połączeniem z główną gałęzią.
+
+## 8. Publiczne i prywatne repozytoria
+
+Publiczne repozytorium jest dostępne dla innych użytkowników GitHuba i może służyć do publikowania projektów open source oraz budowania portfolio.
+
+Prywatne repozytorium ogranicza dostęp do osób, którym przyznano odpowiednie uprawnienia.
+
+Wybór rodzaju repozytorium zależy od przeznaczenia projektu i wymagań dotyczących poufności kodu.
+
+## 9. Zalety GitHuba
+
+GitHub ułatwia przechowywanie projektów i współpracę nad kodem.
+
+Umożliwia prezentowanie umiejętności programistycznych potencjalnym pracodawcom.
+
+Zapewnia narzędzia do zarządzania zadaniami, dokumentacją, zgłoszeniami błędów i przeglądami kodu.
+
+Integruje się z narzędziami programistycznymi, środowiskami IDE oraz platformami CI/CD.
+
+Pozwala korzystać z ogromnej liczby publicznych projektów, bibliotek i przykładów kodu.
+
+## 10. Wady i ograniczenia GitHuba
+
+Efektywna praca zespołowa wymaga znajomości Gita, gałęzi, commitów i pull requestów.
+
+Nieprawidłowo zarządzane uprawnienia mogą prowadzić do nieautoryzowanego dostępu do repozytorium.
+
+Przypadkowe opublikowanie kluczy API, haseł lub innych sekretów w publicznym repozytorium może narazić projekt na zagrożenia bezpieczeństwa.
+
+Niektóre funkcje oraz limity zależą od aktualnego planu i rodzaju wykorzystywanych usług.
+
+## 11. Znaczenie GitHuba w pracy informatyka
+
+GitHub jest powszechnie wykorzystywany przez programistów, testerów QA, inżynierów DevOps i administratorów systemów.
+
+Testerzy mogą przechowywać na nim automatyczne testy, dokumentację testową i skrypty.
+
+Programiści mogą publikować aplikacje w Javie, Pythonie, JavaScript, C++ i wielu innych językach.
+
+Osoby uczące się informatyki mogą wykorzystywać GitHuba do prezentowania projektów uczelnianych, własnych aplikacji i rozwiązań technicznych.
+
+Dobrze przygotowane repozytorium z plikiem README, czytelną historią commitów i działającymi testami może być wartościowym elementem portfolio rekrutacyjnego.
+
+## 12. Podsumowanie
+
+GitHub to platforma do hostowania repozytoriów Git, współpracy programistycznej i zarządzania projektami informatycznymi.
+
+Najważniejsze funkcje GitHuba to repozytoria, pull requesty, issues, projekty, releases oraz automatyzacja za pomocą GitHub Actions.
+
+Znajomość GitHuba i Gita jest jedną z podstawowych umiejętności przydatnych w nauce programowania i pracy w branży IT.

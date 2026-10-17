@@ -1,0 +1,103 @@
+# Clarity Design System
+
+## 1. Czym jest Clarity Design System?
+
+Clarity Design System to system projektowania interfejsów użytkownika (Design System), rozwijany przez firmę Broadcom i pierwotnie stworzony przez VMware.
+
+Clarity łączy zasady projektowania UI/UX, gotowe komponenty interfejsu oraz wytyczne dotyczące tworzenia aplikacji internetowych, szczególnie aplikacji biznesowych i paneli administracyjnych.
+
+Jego celem jest ujednolicenie wyglądu aplikacji, poprawa dostępności oraz przyspieszenie pracy projektantów i programistów.
+
+## 2. Najważniejsze elementy Clarity
+
+- Clarity Core – podstawowe zasady projektowania, wzorce interfejsu i wytyczne UX.
+- Clarity Angular – komponenty interfejsu przeznaczone dla aplikacji wykorzystujących framework Angular.
+- Clarity Design Tokens – wartości projektowe, takie jak kolory, odstępy, typografia i inne parametry wizualne.
+- Komponenty UI – gotowe elementy, takie jak przyciski, formularze, tabele, okna dialogowe, menu i nawigacja.
+- Ikony – zestaw ikon wykorzystywanych do przedstawiania akcji, stanów i informacji.
+- Dokumentacja i przykłady – materiały ułatwiające stosowanie komponentów i wzorców projektowych.
+
+Zakres i sposób udostępniania poszczególnych elementów zależą od wersji Clarity.
+
+## 3. Jak działa Clarity Design System?
+
+Clarity pozwala budować interfejsy z wykorzystaniem wcześniej zaprojektowanych i ustandaryzowanych komponentów.
+
+Zamiast samodzielnie tworzyć każdy przycisk, formularz czy tabelę, programista korzysta z gotowych elementów, które mają spójny wygląd i określone zachowanie.
+
+Typowy proces pracy wygląda następująco:
+
+1. Projektant określa strukturę interfejsu i wykorzystuje wzorce Clarity.
+2. Programista wybiera odpowiednie komponenty biblioteki.
+3. Komponenty zostają połączone z logiką aplikacji.
+4. Style i tokeny projektowe pomagają zachować spójność wizualną.
+5. Interfejs jest testowany pod kątem funkcjonalności, responsywności i dostępności.
+
+## 4. Przykład wykorzystania Clarity w Angularze
+
+Clarity można wykorzystywać do tworzenia paneli administracyjnych z tabelami, formularzami i nawigacją.
+
+Przykładowy komponent Angular z przyciskiem Clarity:
+
+```
+<button class="btn btn-primary" (click)="save()">
+  Zapisz zmiany
+</button>
+```
+
+Przykładowa logika komponentu w TypeScript:
+
+```
+export class ExampleComponent {
+  save(): void {
+    console.log('Zapisano zmiany');
+  }
+}
+```
+
+Powyższy przykład pokazuje sposób użycia klasy stylu przycisku i obsługi zdarzenia Angulara. Aby przycisk wyglądał zgodnie z Clarity, projekt musi mieć prawidłowo zainstalowane i skonfigurowane odpowiednie style biblioteki.
+
+## 5. Do czego wykorzystuje się Clarity Design System?
+
+- Panele administracyjne – zarządzanie użytkownikami, uprawnieniami i konfiguracją systemów.
+- Aplikacje biznesowe – budowanie interfejsów do obsługi procesów organizacyjnych.
+- Dashboardy – prezentowanie danych, tabel, wskaźników i statusów.
+- Aplikacje infrastrukturalne – interfejsy do zarządzania środowiskami IT i usługami.
+- Formularze i konfiguratory – tworzenie spójnych formularzy oraz ekranów ustawień.
+- Duże aplikacje internetowe – utrzymywanie jednolitego wyglądu wielu modułów.
+
+## 6. Clarity a inne biblioteki UI
+
+| Technologia           | Charakterystyka                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| Clarity Design System | System projektowania i komponenty szczególnie przydatne w aplikacjach biznesowych.                      |
+| Angular Material      | Biblioteka komponentów Angular oparta na Material Design.                                               |
+| Bootstrap             | Framework CSS do budowania responsywnych interfejsów internetowych.                                     |
+| Tailwind CSS          | Framework CSS wykorzystujący klasy narzędziowe do stylowania interfejsu.                                |
+| Material UI (MUI)     | Biblioteka komponentów React oparta na Material Design.                                                 |
+| Ant Design            | System projektowania i biblioteka komponentów popularna w aplikacjach biznesowych, szczególnie z React. |
+
+## 7. Zalety i wady Clarity Design System
+
+Zalety:
+
+- Spójny wygląd aplikacji.
+- Gotowe komponenty ograniczające ilość kodu potrzebnego do budowy interfejsu.
+- Wsparcie projektowania dostępnych interfejsów.
+- Przydatność przy tworzeniu rozbudowanych aplikacji biznesowych.
+- Łatwiejsze utrzymywanie wspólnych standardów wizualnych w zespole.
+
+Wady:
+
+- Największe korzyści uzyskuje się przy dopasowaniu technologii aplikacji do obsługiwanych bibliotek Clarity.
+- Konieczność poznania dokumentacji i zasad projektowania systemu.
+- Dostosowanie komponentów do niestandardowego wyglądu może wymagać dodatkowej pracy.
+- Wybór biblioteki UI powinien uwzględniać jej aktualne wsparcie, wersję frameworka oraz potrzeby projektu.
+
+## 8. Dlaczego warto znać Clarity Design System?
+
+Clarity jest przydatny dla frontend developerów, projektantów UI/UX i zespołów tworzących aplikacje biznesowe.
+
+Jego znajomość pozwala szybciej budować spójne interfejsy, korzystać z gotowych komponentów oraz stosować dobre praktyki projektowania dostępnych aplikacji.
+
+Jeśli rozwijasz backend w Javie i Spring Boot, możesz również wykorzystać Clarity w osobnym frontendzie Angular, który komunikuje się z backendem za pomocą REST API. W takim rozwiązaniu Spring Boot odpowiada za logikę biznesową i dane, natomiast Angular wraz z Clarity odpowiada za interfejs użytkownika.

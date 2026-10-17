@@ -1,0 +1,378 @@
+ASP.NET Core MVC — notatka
+
+1. Czym jest ASP.NET Core MVC?
+
+ASP.NET Core MVC to framework służący do tworzenia aplikacji internetowych w technologii .NET, wykorzystujący wzorzec architektoniczny Model-View-Controller.
+
+Pozwala budować strony internetowe, aplikacje biznesowe oraz systemy, w których serwer przetwarza żądania i generuje widoki HTML.
+
+Technologia wykorzystuje najczęściej język C# oraz platformę ASP.NET Core.
+
+MVC dzieli aplikację na trzy główne elementy: Model, View i Controller.
+
+Dzięki temu kod odpowiedzialny za dane, logikę aplikacji i prezentację informacji jest łatwiejszy do organizowania, testowania i rozwijania.
+
+2. Czym jest wzorzec MVC?
+
+MVC to wzorzec projektowy, który rozdziela odpowiedzialność za różne części aplikacji.
+
+Model reprezentuje dane aplikacji oraz logikę związaną z ich przetwarzaniem.
+
+View odpowiada za prezentowanie informacji użytkownikowi, najczęściej w postaci strony HTML.
+
+Controller odbiera żądania użytkownika, wywołuje odpowiednią logikę i wybiera sposób przygotowania odpowiedzi.
+
+Przykładowo w sklepie internetowym Model może reprezentować produkt, Controller obsługiwać żądanie wyświetlenia produktu, a View prezentować jego nazwę, cenę i opis.
+
+3. Jak działa ASP.NET Core MVC?
+
+Użytkownik otwiera adres strony internetowej w przeglądarce.
+
+Żądanie HTTP trafia do aplikacji ASP.NET Core.
+
+Mechanizm routingu ustala, który kontroler i która metoda powinny obsłużyć żądanie.
+
+Kontroler pobiera potrzebne dane, na przykład z bazy danych za pośrednictwem serwisu.
+
+Następnie przekazuje dane do widoku.
+
+Widok generuje kod HTML, który jest zwracany do przeglądarki użytkownika.
+
+Przykładowy przepływ wygląda następująco:
+
+Przeglądarka → Routing → Controller → Model lub serwis → View → HTML.
+
+4. Model
+
+Model reprezentuje dane wykorzystywane w aplikacji.
+
+Może zawierać właściwości opisujące obiekty biznesowe, takie jak użytkownik, produkt, zamówienie lub pracownik.
+
+W prostych aplikacjach model może być zwykłą klasą C#.
+
+W większych projektach warto oddzielać modele domenowe, modele wykorzystywane do komunikacji z bazą danych oraz modele przekazywane do widoków.
+
+Przykładowy model produktu:
+
+```
+public class Product
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; } = "";
+
+    public decimal Price { get; set; }
+}
+```
+
+Klasa `Product` opisuje produkt za pomocą identyfikatora, nazwy i ceny.
+
+5. View
+
+View to część aplikacji odpowiedzialna za prezentację danych użytkownikowi.
+
+W ASP.NET Core MVC widoki są zazwyczaj tworzone za pomocą plików `.cshtml`, które wykorzystują składnię Razor.
+
+Razor pozwala łączyć kod HTML z wyrażeniami C#.
+
+Widok może otrzymywać dane z kontrolera i wyświetlać je na stronie.
+
+Przykładowy widok `Details.cshtml`:
+
+```
+@model Product
+
+<h1>@Model.Name</h1>
+
+<p>Cena: @Model.Price zł</p>
+```
+
+W tym przykładzie widok otrzymuje obiekt `Product` i wyświetla nazwę oraz cenę produktu.
+
+Widok powinien przede wszystkim odpowiadać za prezentację, a nie za realizację całej logiki biznesowej.
+
+6. Controller
+
+Controller obsługuje żądania HTTP i koordynuje działanie aplikacji.
+
+Zawiera metody nazywane akcjami, które mogą zwracać widoki, przekierowania, dane lub inne odpowiedzi HTTP.
+
+Kontrolery MVC zazwyczaj dziedziczą po klasie `Controller`.
+
+Przykładowy kontroler:
+
+```
+using Microsoft.AspNetCore.Mvc;
+
+public class ProductsController : Controller
+{
+    public IActionResult Details()
+    {
+        var product = new Product
+        {
+            Id = 1,
+            Name = "Laptop",
+            Price = 3500
+        };
+
+        return View(product);
+    }
+}
+```
+
+Akcja `Details()` tworzy przykładowy obiekt produktu i przekazuje go do widoku.
+
+Jeżeli widok znajduje się w lokalizacji `Views/Products/Details.cshtml`, aplikacja może automatycznie odnaleźć go na podstawie konwencji nazw.
+
+7. Routing
+
+Routing określa, która akcja kontrolera ma zostać wykonana dla danego adresu URL.
+
+W ASP.NET Core MVC można korzystać z routingu konwencjonalnego oraz routingu opartego na atrybutach.
+
+Przykładowa konfiguracja routingu konwencjonalnego:
+
+```
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+```
+
+Adres `/Products/Details/5` może wskazywać kontroler `ProductsController`, akcję `Details` i parametr `id` o wartości `5`.
+
+Znak zapytania w `{id?}` oznacza, że parametr jest opcjonalny.
+
+Routing umożliwia tworzenie czytelnych adresów i kierowanie żądań do odpowiednich części aplikacji.
+
+8. Razor i składnia widoków
+
+Razor to mechanizm tworzenia dynamicznych stron internetowych z wykorzystaniem HTML i C#.
+
+Pliki Razor mają zazwyczaj rozszerzenie `.cshtml`.
+
+Znak `@` pozwala przechodzić od kodu HTML do wyrażeń lub instrukcji C#.
+
+Przykładowy kod:
+
+```
+@model List<Product>
+
+<h1>Lista produktów</h1>
+
+<ul>
+@foreach (var product in Model)
+{
+    <li>@product.Name — @product.Price zł</li>
+}
+</ul>
+```
+
+Widok wyświetla listę produktów przekazaną przez kontroler.
+
+Razor automatycznie koduje typowe wyrażenia wyjściowe, co pomaga ograniczać ryzyko ataków XSS, jeżeli dane są renderowane w standardowy sposób.
+
+9. Layouts, Partial Views i View Components
+
+Layout to wspólny szablon strony, który może zawierać nagłówek, menu, stopkę i odwołania do plików CSS.
+
+Dzięki layoutom wiele widoków może korzystać z tego samego układu strony.
+
+Partial View to fragment widoku, który można ponownie wykorzystać w różnych miejscach aplikacji.
+
+View Component pozwala tworzyć bardziej niezależne komponenty prezentacyjne, które mogą wykonywać własną logikę i pobierać dane.
+
+Elementy te ułatwiają organizowanie interfejsu i ograniczają powielanie kodu HTML.
+
+10. ViewModel
+
+ViewModel to obiekt przygotowany specjalnie do przekazania danych do widoku.
+
+Pozwala połączyć informacje z kilku źródeł lub udostępnić tylko te dane, które są potrzebne do wyświetlenia strony.
+
+Jest szczególnie przydatny, gdy pojedynczy widok prezentuje informacje pochodzące z kilku różnych modeli.
+
+Przykład:
+
+```
+public class ProductDetailsViewModel
+{
+    public string ProductName { get; set; } = "";
+
+    public decimal Price { get; set; }
+
+    public string CategoryName { get; set; } = "";
+}
+```
+
+ViewModel pomaga oddzielić sposób prezentowania danych od struktury encji zapisanych w bazie danych.
+
+11. Formularze i walidacja danych
+
+ASP.NET Core MVC umożliwia obsługę formularzy HTML i przesyłanie danych do kontrolerów.
+
+Dane można odbierać za pomocą parametrów akcji lub obiektów modelu.
+
+Walidację można definiować za pomocą atrybutów, takich jak `[Required]`, `[StringLength]` i `[Range]`.
+
+Przykładowy model:
+
+```
+using System.ComponentModel.DataAnnotations;
+
+public class ProductInputModel
+{
+    [Required]
+    public string Name { get; set; } = "";
+
+    [Range(0.01, 100000)]
+    public decimal Price { get; set; }
+}
+```
+
+W kontrolerze należy sprawdzić `ModelState.IsValid` przed zapisaniem danych.
+
+Walidację po stronie serwera należy stosować nawet wtedy, gdy formularz dodatkowo sprawdza dane w przeglądarce.
+
+12. Dependency Injection i serwisy
+
+ASP.NET Core posiada wbudowany mechanizm Dependency Injection, który umożliwia przekazywanie kontrolerom potrzebnych zależności.
+
+Logikę biznesową warto umieszczać w serwisach, zamiast rozbudowywać kontrolery o wszystkie operacje.
+
+Serwisy mogą odpowiadać za pobieranie danych, realizację reguł biznesowych i współpracę z innymi systemami.
+
+Przykładowa rejestracja serwisu:
+
+```
+builder.Services.AddScoped<IProductService, ProductService>();
+```
+
+Następnie serwis można wstrzyknąć przez konstruktor kontrolera.
+
+Takie rozwiązanie ułatwia testowanie, utrzymywanie kodu i wymienianie implementacji.
+
+13. Bazy danych i Entity Framework Core
+
+ASP.NET Core MVC może współpracować z bazami danych za pośrednictwem Entity Framework Core lub innych bibliotek dostępu do danych.
+
+Entity Framework Core pozwala mapować obiekty C# na tabele i rekordy bazy danych.
+
+Typowe operacje obejmują dodawanie, pobieranie, aktualizowanie i usuwanie danych.
+
+W aplikacji sklepowej kontroler może wywołać serwis, serwis może użyć kontekstu EF Core, a kontekst wykona odpowiednie zapytanie do bazy danych.
+
+Dane pobrane z bazy są następnie przekazywane do widoku za pomocą modelu lub ViewModelu.
+
+14. Uwierzytelnianie i autoryzacja
+
+Uwierzytelnianie określa tożsamość użytkownika.
+
+Autoryzacja określa, czy użytkownik ma prawo wykonać określoną operację.
+
+ASP.NET Core MVC może korzystać między innymi z uwierzytelniania opartego na plikach cookie oraz z ASP.NET Core Identity.
+
+Dostęp do kontrolera lub akcji można ograniczać atrybutem `[Authorize]`.
+
+Przykładowo panel administracyjny może być dostępny wyłącznie dla zalogowanych użytkowników z odpowiednimi uprawnieniami.
+
+15. Testowanie aplikacji MVC
+
+Aplikacje ASP.NET Core MVC można testować za pomocą testów jednostkowych i integracyjnych.
+
+Testy jednostkowe mogą sprawdzać logikę serwisów oraz zachowanie poszczególnych akcji kontrolerów.
+
+Testy integracyjne pozwalają weryfikować współpracę routingu, middleware, kontrolerów i innych elementów aplikacji.
+
+Popularne biblioteki testowe w .NET to xUnit, NUnit i MSTest.
+
+Do testowania działania aplikacji przez HTTP można wykorzystać `WebApplicationFactory`.
+
+Testy pomagają wykrywać błędy i ograniczać ryzyko regresji po zmianach w kodzie.
+
+16. ASP.NET Core MVC a Web API, Razor Pages i Blazor
+
+ASP.NET Core MVC jest szczególnie przydatny w aplikacjach, w których kontrolery współpracują z widokami generującymi HTML.
+
+ASP.NET Core Web API koncentruje się na udostępnianiu endpointów, które zwracają dane innym aplikacjom, często w formacie JSON.
+
+Razor Pages organizuje obsługę aplikacji wokół poszczególnych stron zamiast klasycznego podziału na kontrolery i widoki MVC.
+
+Blazor pozwala tworzyć interaktywne interfejsy użytkownika z wykorzystaniem komponentów i języka C#.
+
+Wybór rozwiązania zależy od tego, czy aplikacja ma generować strony na serwerze, udostępniać API czy oferować bogaty interfejs komponentowy.
+
+17. Zalety ASP.NET Core MVC
+
+ASP.NET Core MVC zapewnia wyraźny podział odpowiedzialności pomiędzy Model, View i Controller.
+
+Ułatwia organizowanie większych aplikacji internetowych.
+
+Integruje się z językiem C#, platformą .NET, systemami baz danych i narzędziami Microsoftu.
+
+Udostępnia mechanizmy routingu, walidacji, Dependency Injection i obsługi bezpieczeństwa.
+
+Pozwala tworzyć strony internetowe generowane na serwerze i korzystać z dojrzałego ekosystemu bibliotek.
+
+18. Wady ASP.NET Core MVC
+
+Poznanie technologii wymaga znajomości C#, .NET, HTTP i podstaw tworzenia stron internetowych.
+
+W większych projektach niewłaściwy podział odpowiedzialności może prowadzić do rozbudowanych kontrolerów i trudnego w utrzymaniu kodu.
+
+Tworzenie bardzo interaktywnych interfejsów może wymagać dodatkowego JavaScriptu lub zastosowania innych technologii frontendowych.
+
+Osoby pracujące wcześniej wyłącznie z frameworkami JavaScript muszą poznać konwencje i narzędzia ekosystemu .NET.
+
+19. Plan nauki ASP.NET Core MVC
+
+Na początku warto opanować podstawy C#, klas, interfejsów i Dependency Injection.
+
+Następnie należy poznać routing, kontrolery, akcje, widoki Razor i przekazywanie modeli.
+
+Kolejnym krokiem jest stworzenie formularzy z walidacją danych oraz obsługa błędów.
+
+Później warto dodać Entity Framework Core i bazę danych, a następnie nauczyć się migracji oraz operacji CRUD.
+
+Na koniec należy poznać uwierzytelnianie, autoryzację, testy i wdrażanie aplikacji.
+
+Dobrym projektem praktycznym jest system zarządzania produktami z listą, szczegółami, formularzem dodawania, edycją, usuwaniem i bazą danych.
+
+20. Najważniejsze pojęcia
+
+ASP.NET Core MVC — framework do tworzenia aplikacji internetowych oparty na wzorcu Model-View-Controller.
+
+Model — obiekt reprezentujący dane lub elementy logiki domenowej.
+
+View — widok odpowiedzialny za prezentowanie danych użytkownikowi.
+
+Controller — komponent obsługujący żądania i koordynujący działanie aplikacji.
+
+Routing — mechanizm kierujący żądania HTTP do odpowiednich endpointów lub akcji.
+
+Razor — składnia i mechanizm tworzenia dynamicznych widoków HTML z wykorzystaniem C#.
+
+ViewModel — obiekt przygotowany do przekazywania danych do widoku.
+
+Middleware — komponent przetwarzający żądania i odpowiedzi HTTP.
+
+Dependency Injection — mechanizm dostarczania klasom ich zależności.
+
+Entity Framework Core — biblioteka ORM służąca do pracy z bazami danych.
+
+CRUD — podstawowe operacje tworzenia, odczytywania, aktualizowania i usuwania danych.
+
+Data Annotations — atrybuty wykorzystywane między innymi do walidacji danych.
+
+Authentication — proces ustalania tożsamości użytkownika.
+
+Authorization — określanie uprawnień użytkownika.
+
+21. W skrócie
+
+ASP.NET Core MVC to framework do tworzenia aplikacji internetowych w C# z wykorzystaniem wzorca Model-View-Controller.
+
+Umożliwia obsługę żądań HTTP, generowanie stron HTML, walidację formularzy i integrację z bazami danych.
+
+Warto go poznać, jeśli chcesz rozwijać się jako programista backendu .NET i budować aplikacje biznesowe działające w przeglądarce.
+
+Dodaj kompletny przykład CRUDPokaż pełną strukturę projektu

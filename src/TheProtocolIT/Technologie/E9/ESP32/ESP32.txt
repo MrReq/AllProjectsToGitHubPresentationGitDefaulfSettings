@@ -1,0 +1,626 @@
+# ESP32
+
+## 1. Czym jest ESP32?
+
+ESP32 to rodzina tanich, energooszczędnych mikrokontrolerów firmy Espressif Systems.
+
+ESP32 jest przeznaczony przede wszystkim do projektów IoT, elektroniki, automatyki, robotyki oraz urządzeń embedded.
+
+Najważniejszą cechą ESP32 jest wbudowana komunikacja bezprzewodowa Wi-Fi oraz Bluetooth.
+
+ESP32 nie jest klasycznym komputerem PC, lecz mikrokontrolerem przeznaczonym do sterowania urządzeniami i wykonywania konkretnych zadań.
+
+
+
+## 2. ESP32 jako mikrokontroler
+
+Mikrokontroler to układ scalony zawierający procesor, pamięć oraz wiele interfejsów wejścia/wyjścia.
+
+ESP32 może odczytywać dane z czujników, sterować silnikami, diodami, przekaźnikami oraz komunikować się z innymi urządzeniami.
+
+Program wykonywany jest bezpośrednio na mikrokontrolerze.
+
+Dzięki temu ESP32 może działać samodzielnie bez komputera po zaprogramowaniu urządzenia.
+
+## 3. Procesor
+
+ESP32 wykorzystuje rodzinę procesorów opartych na architekturze Xtensa lub RISC-V, zależnie od konkretnego wariantu układu.
+
+Klasyczny ESP32 posiadał dwurdzeniowy procesor Xtensa LX6.
+
+Nowsze układy z rodziny ESP32 mogą wykorzystywać między innymi Xtensa LX7 albo RISC-V.
+
+Dlatego określenie „ESP32” odnosi się obecnie do całej rodziny mikrokontrolerów, a nie tylko jednego układu.
+
+## 4. Wi-Fi
+
+Jedną z najważniejszych funkcji ESP32 jest wbudowane Wi-Fi.
+
+ESP32 może połączyć się z domową lub firmową siecią bezprzewodową.
+
+Może następnie komunikować się z serwerem, API, bazą danych lub usługą chmurową.
+
+Przykładowo ESP32 może wysyłać temperaturę z czujnika do serwera co kilka sekund.
+
+## 5. Bluetooth
+
+ESP32 może również komunikować się przez Bluetooth.
+
+W zależności od modelu obsługiwany jest Bluetooth Classic oraz Bluetooth Low Energy, czyli BLE.
+
+BLE jest szczególnie przydatny w urządzeniach IoT i urządzeniach zasilanych bateryjnie.
+
+Przykładem może być czujnik wysyłający dane do smartfona przez Bluetooth Low Energy.
+
+## 6. GPIO
+
+GPIO oznacza General Purpose Input/Output.
+
+Są to programowalne piny, które mogą służyć jako wejścia lub wyjścia cyfrowe.
+
+ESP32 może dzięki GPIO odczytywać stan przycisku.
+
+Może również sterować diodą LED, przekaźnikiem albo innym modułem elektronicznym.
+
+Przykładowo:
+
+```cpp
+digitalWrite(2, HIGH);
+```
+
+może ustawić odpowiedni pin w stan wysoki.
+
+## 7. ADC
+
+ESP32 posiada wejścia ADC, czyli Analog-to-Digital Converter.
+
+ADC pozwala odczytywać napięcie analogowe i przekształcać je na wartość cyfrową.
+
+Dzięki temu ESP32 może współpracować z analogowymi czujnikami.
+
+Można na przykład mierzyć napięcie z potencjometru albo sygnał z określonego czujnika.
+
+## 8. PWM
+
+ESP32 obsługuje PWM, czyli Pulse Width Modulation.
+
+PWM pozwala między innymi regulować jasność diody LED.
+
+Może również służyć do sterowania niektórymi silnikami i serwomechanizmami.
+
+Przykładowo zwiększenie współczynnika wypełnienia PWM może zwiększyć jasność LED.
+
+## 9. Interfejsy komunikacyjne
+
+ESP32 posiada wiele interfejsów komunikacyjnych.
+
+Najważniejsze z nich to:
+
+- UART
+- SPI
+- I²C
+- I²S
+- CAN w wybranych wariantach
+- USB w wybranych nowszych układach
+
+Dzięki nim ESP32 może komunikować się z czujnikami, wyświetlaczami, modułami GPS, kartami pamięci i innymi mikrokontrolerami.
+
+## 10. UART
+
+UART jest popularnym interfejsem szeregowym.
+
+Może służyć do komunikacji ESP32 z komputerem lub innym urządzeniem.
+
+UART jest również bardzo często wykorzystywany do debugowania programu.
+
+Przykładowo komunikat:
+
+```cpp
+Serial.println("Hello ESP32");
+```
+
+może zostać wyświetlony w monitorze portu szeregowego.
+
+## 11. I²C
+
+I²C jest bardzo popularnym interfejsem używanym do komunikacji z czujnikami i modułami.
+
+Do komunikacji wykorzystuje zazwyczaj dwie linie:
+
+```text
+SDA
+SCL
+```
+
+Do jednej magistrali I²C można podłączyć wiele urządzeń.
+
+Przykładowo ESP32 może jednocześnie komunikować się z czujnikiem temperatury, wyświetlaczem OLED i innym modułem.
+
+## 12. SPI
+
+SPI jest szybką magistralą komunikacyjną.
+
+Jest często używana do komunikacji z kartami SD, wyświetlaczami oraz niektórymi czujnikami.
+
+SPI zazwyczaj wykorzystuje linie takie jak:
+
+```text
+MOSI
+MISO
+SCK
+CS
+```
+
+## 13. Pamięć
+
+ESP32 posiada pamięć RAM wykorzystywaną podczas działania programu.
+
+Program może być przechowywany w pamięci Flash.
+
+Wiele płytek ESP32 posiada dodatkową pamięć Flash zamontowaną na module.
+
+Niektóre warianty mogą również posiadać PSRAM.
+
+## 14. Deep Sleep
+
+ESP32 posiada tryby oszczędzania energii.
+
+Jednym z najważniejszych jest Deep Sleep.
+
+W tym trybie większość układu jest wyłączona lub ograniczona, dzięki czemu zużycie energii może być bardzo małe.
+
+Jest to szczególnie ważne dla urządzeń zasilanych baterią.
+
+Przykładem może być czujnik temperatury, który budzi się co kilka minut, wykonuje pomiar, wysyła dane przez Wi-Fi i ponownie przechodzi w Deep Sleep.
+
+## 15. ESP32 i IoT
+
+ESP32 jest bardzo popularny w projektach Internet of Things.
+
+Urządzenie może zbierać informacje z czujników i przesyłać je przez Internet.
+
+Może również odbierać polecenia z serwera.
+
+Przykładowa architektura może wyglądać tak:
+
+```text
+Czujnik
+   ↓
+ESP32
+   ↓
+Wi-Fi
+   ↓
+Internet
+   ↓
+API / MQTT Broker
+   ↓
+Baza danych
+   ↓
+Aplikacja WWW
+```
+
+## 16. MQTT
+
+ESP32 bardzo często współpracuje z protokołem MQTT.
+
+MQTT jest lekkim protokołem komunikacyjnym popularnym w IoT.
+
+Urządzenie może publikować dane do określonego topicu.
+
+Inne urządzenie może subskrybować ten topic.
+
+Przykładowo:
+
+```text
+home/livingroom/temperature
+```
+
+może zawierać aktualną temperaturę.
+
+## 17. ESP32 i HTTP
+
+ESP32 może również komunikować się z serwerami wykorzystując HTTP lub HTTPS.
+
+Może wykonywać żądania:
+
+```text
+GET
+POST
+PUT
+DELETE
+```
+
+Dzięki temu ESP32 może współpracować z REST API.
+
+Przykładowo urządzenie może wysłać:
+
+```json
+{
+  "temperature": 23.5,
+  "humidity": 48
+}
+```
+
+do aplikacji backendowej.
+
+## 18. Programowanie ESP32
+
+ESP32 można programować na wiele sposobów.
+
+Jednym z najpopularniejszych jest Arduino Framework.
+
+Można również korzystać z ESP-IDF, czyli oficjalnego frameworka firmy Espressif.
+
+Dostępne są również rozwiązania takie jak MicroPython.
+
+## 19. Arduino IDE
+
+Arduino IDE jest bardzo popularnym środowiskiem dla początkujących użytkowników ESP32.
+
+Można w nim pisać programy, kompilować je i przesyłać do płytki.
+
+Przykładowy program:
+
+```cpp
+void setup() {
+    pinMode(2, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(2, HIGH);
+    delay(1000);
+
+    digitalWrite(2, LOW);
+    delay(1000);
+}
+```
+
+Taki program może powodować cykliczne włączanie i wyłączanie diody.
+
+## 20. ESP-IDF
+
+ESP-IDF oznacza Espressif IoT Development Framework.
+
+Jest to oficjalne środowisko programistyczne firmy Espressif.
+
+Zapewnia znacznie większą kontrolę nad sprzętem niż typowe środowisko Arduino.
+
+ESP-IDF jest często wykorzystywany w bardziej profesjonalnych projektach embedded.
+
+## 21. PlatformIO
+
+PlatformIO jest popularnym narzędziem do tworzenia projektów embedded.
+
+Może współpracować między innymi z Visual Studio Code.
+
+PlatformIO ułatwia zarządzanie bibliotekami, środowiskami, kompilacją i różnymi płytkami.
+
+Jest często wygodniejszą alternatywą dla klasycznego Arduino IDE przy większych projektach.
+
+## 22. MicroPython
+
+MicroPython pozwala programować ESP32 przy użyciu języka Python.
+
+Przykład:
+
+```python
+from machine import Pin
+import time
+
+led = Pin(2, Pin.OUT)
+
+while True:
+    led.on()
+    time.sleep(1)
+    led.off()
+    time.sleep(1)
+```
+
+Jest to szczególnie interesujące dla osób znających Pythona.
+
+MicroPython jest jednak innym środowiskiem niż klasyczne programowanie ESP32 w C/C++.
+
+## 23. ESP32 jako Web Server
+
+ESP32 może samodzielnie uruchomić prosty serwer HTTP.
+
+Telefon lub komputer może połączyć się z ESP32 przez sieć.
+
+Następnie można sterować urządzeniem za pomocą strony internetowej.
+
+Przykładowo strona może zawierać przyciski:
+
+```text
+[ Włącz światło ]
+[ Wyłącz światło ]
+[ Odczytaj temperaturę ]
+```
+
+## 24. ESP32 i czujniki
+
+ESP32 może współpracować z ogromną liczbą czujników.
+
+Przykładami są:
+
+- temperatura
+- wilgotność
+- ciśnienie
+- światło
+- ruch
+- odległość
+- jakość powietrza
+- dźwięk
+- gaz
+- poziom wody
+
+Dane z czujników mogą następnie zostać przetworzone lub wysłane do Internetu.
+
+## 25. ESP32 i wyświetlacze
+
+ESP32 może sterować różnymi wyświetlaczami.
+
+Popularne są między innymi wyświetlacze OLED oraz TFT.
+
+Można na nich prezentować:
+
+```text
+Temperatura: 23.4°C
+Wilgotność: 48%
+Wi-Fi: OK
+```
+
+## 26. ESP32 i robotyka
+
+ESP32 jest również wykorzystywany w robotyce.
+
+Może sterować silnikami, serwomechanizmami i czujnikami.
+
+Dzięki Wi-Fi lub Bluetooth robot może być sterowany bezprzewodowo.
+
+Przykładowo smartfon może wysyłać do robota polecenia:
+
+```text
+FORWARD
+BACKWARD
+LEFT
+RIGHT
+STOP
+```
+
+## 27. ESP32 i automatyka domowa
+
+ESP32 jest często wykorzystywany w systemach Smart Home.
+
+Może sterować między innymi:
+
+- oświetleniem
+- roletami
+- wentylatorami
+- zamkami
+- przekaźnikami
+- ogrzewaniem
+- czujnikami
+
+Może również współpracować z systemami automatyki domowej.
+
+## 28. ESP32 i Home Assistant
+
+ESP32 może być integrowany z Home Assistant.
+
+Jednym z popularnych rozwiązań jest ESPHome.
+
+ESPHome pozwala konfigurować urządzenia ESP32 przy użyciu stosunkowo prostych plików YAML.
+
+Dzięki temu można tworzyć własne czujniki i urządzenia Smart Home.
+
+## 29. ESP32 i FreeRTOS
+
+ESP-IDF wykorzystuje FreeRTOS.
+
+FreeRTOS jest systemem operacyjnym czasu rzeczywistego przeznaczonym dla mikrokontrolerów.
+
+Pozwala tworzyć zadania wykonywane współbieżnie.
+
+Można na przykład mieć osobne zadania odpowiedzialne za:
+
+```text
+odczyt czujnika
+komunikację Wi-Fi
+obsługę przycisków
+wysyłanie danych
+```
+
+## 30. Zadania i wielowątkowość
+
+ESP32 pozwala wykonywać wiele zadań współbieżnie.
+
+W zależności od konkretnego układu i konfiguracji zadania mogą być wykonywane na różnych rdzeniach.
+
+Jest to szczególnie przydatne w bardziej rozbudowanych projektach.
+
+## 31. ESP32 a Raspberry Pi
+
+ESP32 i Raspberry Pi to zupełnie różne klasy urządzeń.
+
+ESP32 jest mikrokontrolerem.
+
+Raspberry Pi jest komputerem jednopłytkowym.
+
+ESP32 jest znacznie bardziej energooszczędny.
+
+Raspberry Pi oferuje znacznie większą moc obliczeniową i może uruchamiać pełny system operacyjny, taki jak Linux.
+
+Można je również połączyć w jednym projekcie.
+
+Przykładowo ESP32 może zbierać dane z czujników, a Raspberry Pi może przechowywać je w bazie danych i udostępniać aplikację WWW.
+
+## 32. ESP32 a Arduino
+
+Arduino to przede wszystkim platforma i rodzina płytek oraz ekosystem programistyczny.
+
+ESP32 to rodzina mikrokontrolerów firmy Espressif.
+
+ESP32 może być programowany za pomocą Arduino Framework.
+
+ESP32 oferuje znacznie bardziej rozbudowane możliwości komunikacji bezprzewodowej niż wiele klasycznych płytek Arduino.
+
+## 33. ESP32 a ESP8266
+
+ESP8266 jest starszym i prostszym układem firmy Espressif.
+
+ESP32 jest bardziej rozbudowaną rodziną.
+
+ESP32 oferuje między innymi Bluetooth, większą liczbę funkcji oraz większe możliwości sprzętowe.
+
+ESP8266 nadal może być użyteczny w prostych projektach Wi-Fi.
+
+## 34. Typowe projekty z ESP32
+
+Popularne projekty obejmują:
+
+```text
+stację pogodową
+inteligentny termometr
+system Smart Home
+zamek elektroniczny
+sterowanie oświetleniem
+monitor jakości powietrza
+robot Wi-Fi
+monitor energii
+system alarmowy
+czujnik ruchu
+serwer WWW
+sterownik silników
+```
+
+## 35. Zalety ESP32
+
+ESP32 jest stosunkowo tani.
+
+Posiada Wi-Fi.
+
+Posiada Bluetooth w odpowiednich wariantach.
+
+Ma dużą liczbę interfejsów GPIO i peryferiów.
+
+Ma bardzo duży ekosystem bibliotek.
+
+Można go programować w C/C++, Pythonie i innych środowiskach.
+
+Jest dobrze przystosowany do projektów IoT.
+
+Ma niskie zużycie energii w odpowiednich trybach pracy.
+
+## 36. Wady ESP32
+
+ESP32 ma znacznie mniejszą moc obliczeniową niż pełnoprawny komputer.
+
+Nie jest przeznaczony do uruchamiania dużych aplikacji desktopowych.
+
+Programowanie bardziej zaawansowanych funkcji wymaga znajomości zagadnień embedded.
+
+Należy uważać na napięcia elektryczne i ograniczenia prądowe GPIO.
+
+Różne warianty ESP32 mogą posiadać różne możliwości sprzętowe.
+
+Dlatego przed rozpoczęciem projektu należy sprawdzić dokumentację konkretnego modelu.
+
+## 37. Najważniejsze pojęcia
+
+**ESP32** – rodzina mikrokontrolerów firmy Espressif.
+
+**GPIO** – programowalne wejścia i wyjścia cyfrowe.
+
+**ADC** – przetwornik analogowo-cyfrowy.
+
+**PWM** – metoda sterowania wykorzystująca modulację szerokości impulsu.
+
+**Wi-Fi** – bezprzewodowa komunikacja sieciowa.
+
+**BLE** – Bluetooth Low Energy.
+
+**UART** – interfejs komunikacji szeregowej.
+
+**I²C** – dwuprzewodowa magistrala komunikacyjna.
+
+**SPI** – szybka magistrala komunikacyjna.
+
+**MQTT** – lekki protokół komunikacyjny popularny w IoT.
+
+**ESP-IDF** – oficjalny framework Espressif.
+
+**Arduino Framework** – popularne środowisko programistyczne dla mikrokontrolerów.
+
+**FreeRTOS** – system operacyjny czasu rzeczywistego dla urządzeń embedded.
+
+**Deep Sleep** – tryb bardzo niskiego zużycia energii.
+
+**IoT** – Internet of Things.
+
+**ESPHome** – narzędzie ułatwiające tworzenie urządzeń ESP dla automatyki domowej.
+
+## 38. Gdzie używa się ESP32?
+
+ESP32 znajduje zastosowanie w IoT.
+
+Jest wykorzystywany w automatyce domowej.
+
+Jest wykorzystywany w robotyce.
+
+Jest wykorzystywany w systemach monitoringu.
+
+Jest wykorzystywany w urządzeniach przemysłowych.
+
+Jest wykorzystywany w urządzeniach pomiarowych.
+
+Jest wykorzystywany w projektach edukacyjnych i prototypowaniu.
+
+Jest również stosowany w komercyjnych urządzeniach embedded.
+
+## 39. ESP32 w praktycznym projekcie
+
+Przykładowy projekt może składać się z ESP32, czujnika temperatury oraz serwera.
+
+ESP32 odczytuje temperaturę.
+
+ESP32 łączy się z Wi-Fi.
+
+ESP32 wysyła temperaturę do API.
+
+Backend zapisuje dane w bazie danych.
+
+Aplikacja WWW prezentuje wykres temperatury.
+
+Całość może wyglądać następująco:
+
+```text
+[Czujnik temperatury]
+          ↓
+        [ESP32]
+          ↓
+        [Wi-Fi]
+          ↓
+      [REST API]
+          ↓
+      [Backend]
+          ↓
+      [Database]
+          ↓
+      [Web App]
+```
+
+## 40. Podsumowanie
+
+ESP32 to jeden z najważniejszych mikrokontrolerów wykorzystywanych w nowoczesnych projektach IoT i embedded.
+
+Łączy możliwości mikrokontrolera z komunikacją Wi-Fi i Bluetooth.
+
+Może współpracować z czujnikami, silnikami, wyświetlaczami, serwerami, bazami danych oraz usługami chmurowymi.
+
+Do prostych projektów można wykorzystać Arduino Framework.
+
+Do bardziej profesjonalnych projektów warto poznać ESP-IDF oraz FreeRTOS.
+
+ESP32 jest szczególnie dobrym przykładem połączenia programowania, elektroniki, sieci komputerowych i Internetu rzeczy.
+
+**W skrócie: ESP32 = mikrokontroler + Wi-Fi + Bluetooth + GPIO + IoT + czujniki + automatyka + ESP-IDF/Arduino + FreeRTOS + embedded.**

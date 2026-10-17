@@ -1,295 +1,979 @@
-Kubernetes jest platformą służącą do orkiestracji kontenerów.
+# Kubernetes
 
-Nazwa Kubernetes pochodzi z języka greckiego i oznacza sternika lub nawigatora.
+## 1. Czym jest Kubernetes?
 
-Kubernetes często określany jest skrótem K8s.
+**Kubernetes** to platforma typu **open source służąca do automatyzacji wdrażania, skalowania i zarządzania aplikacjami uruchamianymi w kontenerach**.
 
-Skrót K8s oznacza, że pomiędzy literami K i s znajduje się osiem znaków.
+Kubernetes jest często skracany do:
 
-Projekt został stworzony przez Google.
+**K8s**
 
-Obecnie rozwijany jest przez Cloud Native Computing Foundation.
+Nazwa „K8s” pochodzi od tego, że pomiędzy literą **K** i **s** znajduje się 8 liter.
 
-Kubernetes jest oprogramowaniem otwartoźródłowym.
+Najprościej można zapamiętać:
 
-Platforma umożliwia automatyczne wdrażanie aplikacji.
+**Docker uruchamia kontenery, a Kubernetes zarządza dużą liczbą kontenerów.**
 
-Platforma umożliwia automatyczne skalowanie aplikacji.
+## 2. Do czego służy Kubernetes?
 
-Platforma umożliwia automatyczne zarządzanie kontenerami.
+Kubernetes pomaga między innymi w:
 
-Kubernetes jest standardem w nowoczesnych środowiskach Cloud Native.
+- uruchamianiu kontenerów,
+- zarządzaniu kontenerami,
+- skalowaniu aplikacji,
+- automatycznym odtwarzaniu kontenerów,
+- zapewnianiu dostępności aplikacji,
+- rozdzielaniu ruchu,
+- aktualizowaniu aplikacji,
+- zarządzaniu konfiguracją,
+- zarządzaniu sekretami,
+- wdrażaniu mikroserwisów,
+- zarządzaniu aplikacjami w chmurze.
 
-Kubernetes najczęściej współpracuje z kontenerami Docker.
+Przykładowo:
 
-Obecnie może współpracować również z innymi środowiskami zgodnymi z Container Runtime Interface.
+```text id="9p0m3f"
+Aplikacja
+   │
+   ▼
+Kubernetes
+   │
+   ├── Container 1
+   ├── Container 2
+   ├── Container 3
+   └── Container 4
+```
 
-Kubernetes nie tworzy kontenerów.
+## 3. Kubernetes a Docker
 
-Jego zadaniem jest zarządzanie już istniejącymi kontenerami.
+Docker i Kubernetes nie są tym samym.
 
-Jedną z najważniejszych zalet Kubernetes jest automatyzacja.
+**Docker** służy między innymi do tworzenia i uruchamiania kontenerów.
 
-Administrator nie musi ręcznie uruchamiać każdego kontenera.
+**Kubernetes** zarządza kontenerami uruchomionymi w większym środowisku.
 
-Platforma sama decyduje, gdzie uruchomić aplikację.
+Można to zapamiętać:
 
-Platforma monitoruje stan uruchomionych aplikacji.
+```text id="6r8z2h"
+Docker
+→ "Uruchom ten kontener."
 
-Platforma automatycznie restartuje uszkodzone kontenery.
+Kubernetes
+→ "Uruchom 10 instancji tej aplikacji,
+   kontroluj ich stan i odtwórz je,
+   jeżeli któraś przestanie działać."
+```
 
-Platforma automatycznie przenosi aplikacje pomiędzy serwerami.
+Współczesny Kubernetes korzysta z **container runtime**, np. `containerd`, zamiast wymagać bezpośrednio Dockera jako runtime.
 
-Platforma automatycznie zwiększa lub zmniejsza liczbę uruchomionych instancji.
+## 4. Kubernetes Cluster
 
-Podstawowym elementem Kubernetes jest Cluster.
+Podstawą Kubernetes jest **cluster**, czyli klaster.
 
-Cluster oznacza grupę serwerów współpracujących jako jeden system.
+Klaster składa się z węzłów:
 
-Klaster składa się z Control Plane oraz Worker Nodes.
+```text id="r2j1h4"
+Kubernetes Cluster
+│
+├── Control Plane
+│
+├── Worker Node
+├── Worker Node
+└── Worker Node
+```
 
-Control Plane zarządza całym klastrem.
+Control Plane zarządza klastrem.
 
-Worker Nodes wykonują rzeczywistą pracę.
+Worker Nodes wykonują pracę aplikacji.
 
-Na Worker Nodes uruchamiane są kontenery.
+## 5. Node
 
-Najważniejszym elementem aplikacji jest Pod.
+**Node** to maszyna, na której Kubernetes może uruchamiać workloady.
 
-Pod jest najmniejszą jednostką wykonywaną przez Kubernetes.
+Node może być:
 
-Pod może zawierać jeden kontener.
+- fizycznym serwerem,
+- maszyną wirtualną,
+- maszyną w chmurze.
 
-Pod może zawierać wiele współpracujących kontenerów.
+Przykładowo:
 
-Kontenery znajdujące się w jednym Podzie współdzielą sieć.
+```text id="z1v9mx"
+Cluster
+│
+├── Node 1
+│   └── Pods
+│
+├── Node 2
+│   └── Pods
+│
+└── Node 3
+    └── Pods
+```
 
-Kontenery współdzielą również przestrzeń dyskową.
+## 6. Control Plane
 
-Pod jest tworzony oraz usuwany automatycznie.
+**Control Plane** jest odpowiedzialny za zarządzanie klastrem.
 
-Programista zazwyczaj nie zarządza Podami bezpośrednio.
+Można powiedzieć, że jest to „centrum zarządzania” Kubernetes.
 
-Do zarządzania Podami wykorzystywany jest Deployment.
+Do najważniejszych komponentów należą:
 
-Deployment odpowiada za utrzymywanie odpowiedniej liczby Podów.
+```text id="5g4y7b"
+Control Plane
+│
+├── kube-apiserver
+├── etcd
+├── kube-scheduler
+└── kube-controller-manager
+```
 
-Jeżeli jeden Pod ulegnie awarii, Deployment automatycznie utworzy nowy.
+W większych środowiskach mogą występować również inne komponenty.
 
-Deployment umożliwia wykonywanie aktualizacji aplikacji.
+## 7. kube-apiserver
 
-Deployment umożliwia wykonywanie Rollback.
+**kube-apiserver** jest głównym punktem komunikacji z Kubernetes API.
 
-Rollback oznacza powrót do poprzedniej wersji aplikacji.
+Przykładowo:
 
-Kubernetes wykorzystuje ReplicaSet.
+```text id="3xj4as"
+kubectl
+   │
+   ▼
+kube-apiserver
+   │
+   ▼
+Kubernetes Cluster
+```
 
-ReplicaSet odpowiada za utrzymanie określonej liczby identycznych Podów.
+Kiedy wykonujesz:
 
-Pozwala to zwiększyć dostępność aplikacji.
+```bash id="yq8w2a"
+kubectl get pods
+```
 
-Kubernetes wykorzystuje Service.
+`kubectl` komunikuje się z API Serverem.
 
-Service zapewnia stały adres sieciowy dla aplikacji.
+## 8. etcd
 
-Adres Podów może się zmieniać.
+**etcd** to rozproszony magazyn klucz-wartość używany przez Kubernetes do przechowywania stanu klastra i danych konfiguracyjnych.
 
-Adres Service pozostaje niezmienny.
+Można go traktować jako ważny magazyn informacji o stanie Kubernetes.
 
-Dzięki temu inne aplikacje zawsze wiedzą, gdzie wysłać żądanie.
+```text id="9uwx3w"
+Kubernetes
+     │
+     ▼
+   etcd
+     │
+     ├── konfiguracja
+     ├── stan zasobów
+     └── informacje o klastrze
+```
 
-Najczęściej wykorzystywane typy Service to ClusterIP.
+## 9. kube-scheduler
 
-ClusterIP udostępnia aplikację wyłącznie wewnątrz klastra.
+**kube-scheduler** decyduje, na którym Node powinien zostać uruchomiony nowy Pod.
 
-NodePort udostępnia aplikację na porcie serwera.
+Przykładowo:
 
-LoadBalancer wykorzystuje zewnętrzny Load Balancer.
+```text id="2d9x8z"
+Pod
+ │
+ ▼
+Scheduler
+ │
+ ├── Node 1
+ ├── Node 2
+ └── Node 3
+       ↓
+    wybrany Node
+```
 
-ExternalName mapuje usługę na zewnętrzną nazwę DNS.
+Scheduler bierze pod uwagę między innymi dostępne zasoby i reguły określone przez użytkownika.
 
-Kubernetes wykorzystuje Ingress.
+## 10. kube-controller-manager
 
-Ingress zarządza ruchem HTTP oraz HTTPS.
+**kube-controller-manager** uruchamia kontrolery odpowiedzialne za utrzymywanie pożądanego stanu klastra.
 
-Ingress umożliwia publikowanie aplikacji w Internecie.
+Przykładowo użytkownik określa:
 
-Ingress może kierować ruch do wielu różnych usług.
+```yaml id="b8p6gx"
+replicas: 3
+```
 
-Kubernetes wykorzystuje Namespace.
+Kubernetes powinien dążyć do tego, aby działały 3 repliki.
 
-Namespace umożliwia logiczne oddzielenie aplikacji.
+Jeżeli jedna przestanie działać, odpowiedni kontroler może doprowadzić do ponownego uruchomienia brakującej repliki.
 
-Kilka zespołów może korzystać z jednego klastra.
+## 11. Worker Node
 
-Każdy zespół może posiadać własny Namespace.
+Worker Node wykonuje właściwe workloady.
 
-Kubernetes wykorzystuje ConfigMap.
+Na Node znajdują się między innymi:
 
-ConfigMap przechowuje konfigurację aplikacji.
+```text id="7k7l7m"
+Worker Node
+│
+├── kubelet
+├── kube-proxy
+└── Container Runtime
+       │
+       └── Pods
+```
 
-Pozwala oddzielić konfigurację od kodu programu.
+## 12. Pod
 
-Kubernetes wykorzystuje Secret.
+**Pod** jest podstawową jednostką uruchamiania workloadów w Kubernetes.
 
-Secret przechowuje poufne informacje.
+Najczęściej jeden Pod zawiera jeden główny kontener.
 
-Najczęściej przechowywane są hasła.
+```text id="p2t9k8"
+Pod
+│
+└── Container
+```
 
-Przechowywane są również klucze API.
+Pod może jednak zawierać wiele kontenerów, które współdzielą określone zasoby.
 
-Przechowywane są certyfikaty.
+```text id="w2p7q3"
+Pod
+│
+├── Application Container
+└── Sidecar Container
+```
 
-Kubernetes wykorzystuje Volume.
+## 13. Container
 
-Volume umożliwia trwałe przechowywanie danych.
+Kontener zawiera aplikację wraz z jej zależnościami potrzebnymi do uruchomienia.
 
-Dane nie są tracone po ponownym uruchomieniu kontenera.
+Przykładowo:
 
-Persistent Volume oznacza trwały zasób dyskowy.
+```text id="2k2e9p"
+Pod
+ │
+ └── Java Application
+```
 
-Persistent Volume Claim oznacza żądanie przydzielenia przestrzeni dyskowej.
+Kubernetes nie zarządza aplikacją bezpośrednio tak jak system operacyjny.
 
-StorageClass definiuje sposób tworzenia przestrzeni dyskowej.
+Zarządza jej kontenerami i zasobami związanymi z ich uruchamianiem.
 
-Kubernetes wykorzystuje Scheduler.
+## 14. Deployment
 
-Scheduler wybiera serwer, na którym zostanie uruchomiony Pod.
+**Deployment** jest jednym z najważniejszych obiektów Kubernetes.
 
-Pod uwagę brane są dostępne zasoby.
+Służy między innymi do deklaratywnego zarządzania aplikacją uruchamianą w Podach.
 
-Pod uwagę brane jest obciążenie serwerów.
+Przykładowo:
 
-Pod uwagę brane są reguły administratora.
+```yaml id="8i7h2b"
+apiVersion: apps/v1
+kind: Deployment
 
-Kubernetes wykorzystuje kubelet.
+spec:
+  replicas: 3
+```
 
-Kubelet działa na każdym Worker Node.
+Oznacza to, że chcemy mieć **3 repliki** aplikacji.
 
-Kubelet komunikuje się z Control Plane.
+Schemat:
 
-Kubelet uruchamia kontenery.
+```text id="z2f6d4"
+Deployment
+    │
+    ├── Pod
+    ├── Pod
+    └── Pod
+```
 
-Kubelet monitoruje ich działanie.
+## 15. ReplicaSet
 
-Kubernetes wykorzystuje kube-proxy.
+**ReplicaSet** zapewnia określoną liczbę Podów.
 
-kube-proxy odpowiada za komunikację sieciową pomiędzy Podami.
+Deployment zazwyczaj zarządza ReplicaSetem.
 
-kube-proxy zarządza regułami sieciowymi.
+```text id="b1r8e0"
+Deployment
+     │
+     ▼
+ ReplicaSet
+     │
+ ┌───┼───┐
+ ▼   ▼   ▼
+Pod Pod Pod
+```
 
-Control Plane składa się z kilku podstawowych komponentów.
+Dlatego w praktyce najczęściej tworzysz **Deployment**, a Kubernetes zajmuje się ReplicaSetem.
 
-API Server stanowi główny interfejs komunikacyjny klastra.
+## 16. Service
 
-Scheduler przydziela zadania do odpowiednich Worker Nodes.
+Pody są zasobami dynamicznymi.
 
-Controller Manager nadzoruje stan klastra.
+Ich adresy IP mogą się zmieniać.
 
-etcd przechowuje konfigurację całego klastra.
+Dlatego Kubernetes posiada obiekt **Service**.
 
-etcd jest rozproszoną bazą danych typu Key-Value.
+Service zapewnia stabilny sposób dostępu do grupy Podów.
 
-Kubernetes wspiera automatyczne skalowanie.
+```text id="p8a0b7"
+              Service
+                 │
+        ┌────────┼────────┐
+        ▼        ▼        ▼
+      Pod 1    Pod 2    Pod 3
+```
 
-Horizontal Pod Autoscaler zwiększa liczbę Podów.
+## 17. Service Types
 
-Vertical Pod Autoscaler zmienia ilość przydzielonych zasobów.
+Najważniejsze typy Service to:
 
-Cluster Autoscaler dodaje nowe serwery do klastra.
+**ClusterIP**
 
-Kubernetes umożliwia Rolling Update.
+**NodePort**
 
-Nowa wersja aplikacji wdrażana jest stopniowo.
+**LoadBalancer**
 
-Pozwala to uniknąć przestojów.
+### ClusterIP
 
-Kubernetes umożliwia Canary Deployment.
+Domyślny typ.
 
-Nowa wersja trafia najpierw do niewielkiej grupy użytkowników.
+Service jest dostępny wewnątrz klastra.
 
-Po pozytywnych testach wdrażana jest dla wszystkich.
+```text id="d4d7r0"
+Service
+   │
+   ├── Pod
+   ├── Pod
+   └── Pod
+```
 
-Kubernetes umożliwia Blue-Green Deployment.
+### NodePort
 
-Dwie wersje aplikacji działają równolegle.
+Udostępnia Service poprzez port na Node.
 
-Przełączenie użytkowników następuje w wybranym momencie.
+### LoadBalancer
 
-Kubernetes wykorzystuje pliki YAML.
+Pozwala wystawić usługę za pomocą load balancera, szczególnie w środowiskach chmurowych.
 
-Pliki YAML opisują konfigurację klastra.
+## 18. Namespace
 
-Pliki YAML opisują Deployment.
+**Namespace** pozwala logicznie podzielić zasoby klastra.
 
-Pliki YAML opisują Service.
+Przykładowo:
 
-Pliki YAML opisują ConfigMap.
+```text id="f4s7j0"
+Cluster
+│
+├── development
+│   ├── Pods
+│   └── Services
+│
+├── testing
+│   ├── Pods
+│   └── Services
+│
+└── production
+    ├── Pods
+    └── Services
+```
 
-Pliki YAML opisują Secret.
+Jest to bardzo przydatne w większych środowiskach.
 
-Najczęściej używanym narzędziem do komunikacji z Kubernetes jest **kubectl**.
+## 19. ConfigMap
 
-kubectl umożliwia tworzenie zasobów.
+**ConfigMap** służy do przechowywania konfiguracji, która nie jest tajna.
 
-kubectl umożliwia usuwanie zasobów.
+Przykładowo:
 
-kubectl umożliwia monitorowanie klastra.
+```text id="v6r5e1"
+DATABASE_HOST=db
+DATABASE_PORT=5432
+APP_MODE=production
+```
 
-kubectl umożliwia pobieranie logów.
+Aplikacja może pobierać te wartości z ConfigMap.
 
-Kubernetes bardzo dobrze współpracuje z kontenerami.
+## 20. Secret
 
-Może współpracować z Docker.
+**Secret** służy do przechowywania danych wrażliwych, takich jak:
 
-Może współpracować z containerd.
+- hasła,
+- tokeny,
+- klucze,
+- dane uwierzytelniające.
 
-Może współpracować z CRI-O.
+Przykładowo:
 
-Kubernetes bardzo dobrze współpracuje z narzędziami DevOps.
+```text id="q5u8a2"
+Secret
+│
+├── DB_USERNAME
+├── DB_PASSWORD
+└── API_TOKEN
+```
 
-Może współpracować z Helm.
+Warto pamiętać, że Kubernetes Secret nie powinien być automatycznie utożsamiany z pełnym szyfrowaniem danych — bezpieczeństwo sekretów zależy również od konfiguracji klastra i sposobu ich przechowywania.
 
-Może współpracować z Argo CD.
+## 21. Volume
 
-Może współpracować z Jenkins.
+Kontenery mają własny system plików, którego cykl życia może być związany z kontenerem.
 
-Może współpracować z GitHub Actions.
+Kubernetes udostępnia mechanizmy **Volume**, aby zapewnić przechowywanie danych poza cyklem życia konkretnego kontenera.
 
-Może współpracować z GitLab CI/CD.
+Przykładowo:
 
-Może współpracować z Terraform.
+```text id="f5e4f8"
+Pod
+ │
+ ▼
+Volume
+ │
+ ▼
+Persistent Storage
+```
 
-Kubernetes bardzo dobrze współpracuje z platformami chmurowymi.
+## 22. PersistentVolume
 
-Może współpracować z Amazon Elastic Kubernetes Service.
+**PersistentVolume (PV)** reprezentuje zasób pamięci masowej dostępny dla klastra.
 
-Może współpracować z Azure Kubernetes Service.
+Przykładowo:
 
-Może współpracować z Google Kubernetes Engine.
+```text id="e4s7g1"
+PersistentVolume
+       │
+       ▼
+Storage
+```
 
-Może współpracować z Oracle Container Engine for Kubernetes.
+## 23. PersistentVolumeClaim
 
-Może współpracować z Red Hat OpenShift.
+**PersistentVolumeClaim (PVC)** jest żądaniem wykorzystania odpowiedniej przestrzeni dyskowej.
 
-Kubernetes znajduje zastosowanie w architekturze mikroserwisów.
+Schemat:
 
-Jest wykorzystywany w aplikacjach internetowych.
+```text id="t7n6x2"
+Pod
+ │
+ ▼
+PVC
+ │
+ ▼
+PV
+ │
+ ▼
+Storage
+```
 
-Jest wykorzystywany w platformach SaaS.
+Można zapamiętać:
 
-Jest wykorzystywany w systemach finansowych.
+**PV = dostępny zasób**
 
-Jest wykorzystywany w systemach Internetu Rzeczy.
+**PVC = żądanie wykorzystania zasobu**
 
-Jest wykorzystywany w rozwiązaniach Big Data.
+## 24. Ingress
 
-Jest wykorzystywany w platformach sztucznej inteligencji.
+**Ingress** umożliwia zarządzanie dostępem HTTP/HTTPS do usług znajdujących się w klastrze.
 
-Jest wykorzystywany praktycznie we wszystkich nowoczesnych środowiskach Cloud Native.
+Przykładowo:
 
-Największą zaletą Kubernetes jest automatyzacja wdrażania, skalowania oraz zarządzania kontenerami przy jednoczesnym zapewnieniu wysokiej dostępności, odporności na awarie oraz łatwego przenoszenia aplikacji pomiędzy różnymi środowiskami.
+```text id="e2v5s1"
+Internet
+   │
+   ▼
+Ingress
+   │
+   ├── /api/users → User Service
+   ├── /api/orders → Order Service
+   └── /api/products → Product Service
+```
 
-Dzięki rozproszonej architekturze, bogatemu ekosystemowi narzędzi oraz integracji z niemal wszystkimi platformami chmurowymi Kubernetes stał się światowym standardem orkiestracji kontenerów i jedną z najważniejszych technologii współczesnego DevOps oraz Cloud Computing.
+Ingress może wykonywać między innymi routing ruchu na podstawie domeny lub ścieżki.
 
-Znajomość Kubernetes jest szczególnie ceniona na stanowiskach związanych z DevOps, Cloud Engineering, Platform Engineering, Site Reliability Engineering, backend development, administracją systemami, architekturą mikroserwisów oraz projektowaniem nowoczesnych aplikacji chmurowych.
+Współczesne klastry mogą również korzystać z **Gateway API** jako bardziej rozbudowanego mechanizmu zarządzania ruchem.
+
+## 25. kubelet
+
+**kubelet** działa na każdym Worker Node.
+
+Odpowiada między innymi za zapewnienie, że kontenery opisane przez PodSpec są uruchomione i działają zgodnie z oczekiwaniami.
+
+```text id="5z5z7s"
+Worker Node
+│
+├── kubelet
+│
+└── Pods
+```
+
+## 26. kube-proxy
+
+**kube-proxy** jest komponentem odpowiedzialnym za część funkcji związanych z obsługą ruchu sieciowego dla Service.
+
+Warto jednak wiedzieć, że współczesne implementacje Kubernetes mogą realizować część tych funkcji również za pomocą innych mechanizmów sieciowych.
+
+## 27. Container Runtime
+
+Kubernetes potrzebuje **container runtime**, czyli komponentu odpowiedzialnego za uruchamianie kontenerów.
+
+Przykładem jest:
+
+**containerd**
+
+Innym przykładem jest **CRI-O**.
+
+Kubernetes komunikuje się z runtime poprzez **CRI — Container Runtime Interface**.
+
+## 28. kubectl
+
+**kubectl** to podstawowe narzędzie wiersza poleceń do komunikacji z Kubernetes.
+
+Przykładowo:
+
+```bash id="52e3t5"
+kubectl get nodes
+```
+
+pokazuje Node'y.
+
+```bash id="j0n4k4"
+kubectl get pods
+```
+
+pokazuje Pody.
+
+```bash id="y6m7m0"
+kubectl get services
+```
+
+pokazuje Service.
+
+```bash id="6zv3cw"
+kubectl get deployments
+```
+
+pokazuje Deploymenty.
+
+## 29. Tworzenie Deploymentu
+
+Możemy opisać aplikację w pliku YAML.
+
+Przykład:
+
+```yaml id="8hbr9s"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+
+  template:
+    metadata:
+      labels:
+        app: my-app
+
+    spec:
+      containers:
+        - name: my-app
+          image: nginx
+```
+
+Następnie:
+
+```bash id="w7g8q7"
+kubectl apply -f deployment.yaml
+```
+
+Kubernetes odczyta deklarację i będzie dążył do jej realizacji.
+
+## 30. Deklaratywność
+
+Jedną z najważniejszych idei Kubernetes jest **declarative configuration**.
+
+Zamiast mówić:
+
+> Uruchom teraz kontener A, potem B, potem C.
+
+opisujemy:
+
+> Chcę mieć trzy repliki aplikacji A.
+
+Kubernetes sam stara się doprowadzić system do takiego stanu.
+
+```text id="0r5k2j"
+Desired State
+      │
+      ▼
+Kubernetes
+      │
+      ▼
+Actual State
+```
+
+Kubernetes stale porównuje stan rzeczywisty z pożądanym i podejmuje działania korygujące.
+
+## 31. Self-Healing
+
+Kubernetes posiada mechanizmy **self-healing**.
+
+Jeżeli Pod przestanie działać, Kubernetes może uruchomić nowy.
+
+```text id="5l9g0e"
+Pod 1
+  │
+  X
+Crash
+  │
+  ▼
+Kubernetes
+  │
+  ▼
+New Pod
+```
+
+Dzięki temu aplikacja może automatycznie odzyskać działanie.
+
+## 32. Skalowanie
+
+Kubernetes pozwala zwiększać liczbę replik aplikacji.
+
+Przykładowo:
+
+```bash id="x8a8pl"
+kubectl scale deployment my-app --replicas=5
+```
+
+Możemy przejść z:
+
+```text id="7x0l6g"
+2 Pody
+```
+
+do:
+
+```text id="3y1v7n"
+5 Podów
+```
+
+## 33. Horizontal Pod Autoscaler
+
+**HPA — Horizontal Pod Autoscaler** może automatycznie zmieniać liczbę replik w zależności od określonych metryk.
+
+Przykładowo:
+
+```text id="f4v4eq"
+CPU ↑
+ │
+ ▼
+HPA
+ │
+ ▼
+więcej Podów
+```
+
+Kiedy obciążenie spada:
+
+```text id="g3t3q1"
+CPU ↓
+ │
+ ▼
+HPA
+ │
+ ▼
+mniej Podów
+```
+
+## 34. Rolling Update
+
+Kubernetes może aktualizować aplikację stopniowo.
+
+Przykładowo mamy:
+
+```text id="k1c4xe"
+Version 1
+Pod 1
+Pod 2
+Pod 3
+```
+
+Chcemy przejść do:
+
+```text id="e0m2qb"
+Version 2
+Pod 1
+Pod 2
+Pod 3
+```
+
+Kubernetes może stopniowo wymieniać stare Pody na nowe.
+
+Jest to **Rolling Update**.
+
+## 35. Rollback
+
+Jeżeli nowa wersja aplikacji powoduje problemy, Deployment może zostać cofnięty do wcześniejszej wersji.
+
+Przykładowo:
+
+```bash id="0i8g4n"
+kubectl rollout undo deployment my-app
+```
+
+## 36. Health Checks
+
+Kubernetes może sprawdzać stan aplikacji za pomocą probe'ów.
+
+Najważniejsze:
+
+**Liveness Probe**
+
+**Readiness Probe**
+
+**Startup Probe**
+
+### Liveness Probe
+
+Sprawdza, czy kontener nadal działa poprawnie.
+
+### Readiness Probe
+
+Sprawdza, czy aplikacja jest gotowa do przyjmowania ruchu.
+
+### Startup Probe
+
+Pomaga obsługiwać aplikacje, które potrzebują dużo czasu na uruchomienie.
+
+## 37. Labels
+
+**Labels** to etykiety przypisywane zasobom.
+
+Przykład:
+
+```yaml id="6spnzw"
+labels:
+  app: backend
+  environment: production
+```
+
+Labels są wykorzystywane między innymi do organizowania i wybierania zasobów.
+
+## 38. Selectors
+
+**Selectors** pozwalają wybierać zasoby posiadające określone labels.
+
+Przykładowo Service może wskazywać:
+
+```yaml id="5xsh1h"
+selector:
+  app: backend
+```
+
+Wtedy Service kieruje ruch do Podów oznaczonych:
+
+```text id="q9kq6y"
+app=backend
+```
+
+## 39. Kubernetes i mikroserwisy
+
+Kubernetes bardzo dobrze pasuje do architektury mikroserwisowej.
+
+Przykładowo:
+
+```text id="v5e4o6"
+Kubernetes
+│
+├── User Service
+│   ├── Pod
+│   └── Pod
+│
+├── Order Service
+│   ├── Pod
+│   └── Pod
+│
+├── Payment Service
+│   ├── Pod
+│   └── Pod
+│
+└── Notification Service
+    ├── Pod
+    └── Pod
+```
+
+Każdy mikroserwis może mieć własny Deployment i Service.
+
+## 40. Kubernetes i Cloud
+
+Kubernetes jest bardzo często wykorzystywany w chmurze.
+
+Popularne zarządzane usługi Kubernetes obejmują:
+
+**Amazon EKS**
+
+**Azure AKS**
+
+**Google Kubernetes Engine (GKE)**
+
+Dzięki usługom zarządzanym dostawca chmury może przejąć część obowiązków związanych z zarządzaniem Control Plane.
+
+## 41. Kubernetes lokalnie
+
+Kubernetes można uruchomić lokalnie.
+
+Popularne rozwiązania to:
+
+**Minikube**
+
+**kind**
+
+**Docker Desktop Kubernetes**
+
+Można dzięki nim stworzyć środowisko do nauki bez potrzeby posiadania dużego klastra produkcyjnego.
+
+## 42. Typowy workflow
+
+Praca z Kubernetes często wygląda tak:
+
+```text id="m7x9c3"
+Kod aplikacji
+      ↓
+Dockerfile
+      ↓
+Docker Image
+      ↓
+Container Registry
+      ↓
+Kubernetes Deployment
+      ↓
+Pod
+      ↓
+Service
+      ↓
+Użytkownik
+```
+
+## 43. Kubernetes i CI/CD
+
+Kubernetes jest często elementem procesu **CI/CD**.
+
+Przykładowo:
+
+```text id="0i7r9b"
+Git
+ ↓
+Build
+ ↓
+Tests
+ ↓
+Docker Image
+ ↓
+Registry
+ ↓
+Kubernetes
+ ↓
+Deployment
+```
+
+Pipeline może automatycznie wdrażać nową wersję aplikacji do klastra.
+
+## 44. Zalety Kubernetes
+
+Najważniejsze zalety:
+
+- automatyzacja,
+- skalowanie,
+- self-healing,
+- deklaratywna konfiguracja,
+- rolling updates,
+- rollback,
+- obsługa mikroserwisów,
+- service discovery,
+- load balancing,
+- możliwość pracy w chmurze,
+- duży ekosystem,
+- możliwość działania na różnych infrastrukturach.
+
+## 45. Wady Kubernetes
+
+Kubernetes jest bardzo potężny, ale również skomplikowany.
+
+Trzeba zrozumieć między innymi:
+
+- Pods,
+- Deployments,
+- Services,
+- Networking,
+- Storage,
+- ConfigMaps,
+- Secrets,
+- Namespaces,
+- Ingress,
+- RBAC,
+- Helm,
+- monitoring,
+- bezpieczeństwo klastra.
+
+Dla jednej prostej aplikacji Kubernetes może być przesadą.
+
+## 46. Kubernetes — najważniejsze pojęcia
+
+**Kubernetes / K8s** → platforma do zarządzania kontenerami.
+
+**Cluster** → cały klaster Kubernetes.
+
+**Control Plane** → komponenty zarządzające klastrem.
+
+**Node** → maszyna należąca do klastra.
+
+**Worker Node** → Node wykonujący workloady.
+
+**Pod** → podstawowa jednostka uruchamiania workloadów.
+
+**Container** → kontener z aplikacją.
+
+**Deployment** → deklaratywne zarządzanie aplikacją i jej replikami.
+
+**ReplicaSet** → utrzymuje określoną liczbę Podów.
+
+**Service** → stabilny dostęp do grupy Podów.
+
+**Ingress** → routing HTTP/HTTPS do usług.
+
+**Namespace** → logiczne wydzielenie zasobów.
+
+**ConfigMap** → konfiguracja niesekretna.
+
+**Secret** → dane wrażliwe.
+
+**Volume** → mechanizm udostępniania pamięci dla Podów.
+
+**PV** → PersistentVolume, zasób storage.
+
+**PVC** → PersistentVolumeClaim, żądanie storage.
+
+**kubectl** → narzędzie CLI do zarządzania Kubernetes.
+
+**kubelet** → agent działający na Node.
+
+**etcd** → magazyn stanu klastra.
+
+**Scheduler** → wybiera Node dla nowych Podów.
+
+**HPA** → automatyczne skalowanie liczby Podów.
+
+**Rolling Update** → stopniowe wdrażanie nowej wersji.
+
+**Rollback** → cofnięcie wdrożenia.
+
+**Liveness Probe** → sprawdza, czy aplikacja nadal działa.
+
+**Readiness Probe** → sprawdza, czy aplikacja jest gotowa przyjmować ruch.
+
+## 47. Kubernetes w jednym zdaniu
+
+**Kubernetes to otwartoźródłowa platforma do automatyzacji wdrażania, skalowania, aktualizowania i zarządzania aplikacjami uruchamianymi w kontenerach, szczególnie popularna w środowiskach mikroserwisowych i chmurowych.**

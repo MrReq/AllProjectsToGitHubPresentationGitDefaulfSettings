@@ -1,0 +1,199 @@
+Android SDK — notatka
+
+1. Czym jest Android SDK?
+
+Android SDK (Software Development Kit) to zestaw narzędzi, bibliotek i komponentów potrzebnych do tworzenia, testowania oraz debugowania aplikacji na system Android.
+
+SDK umożliwia programistom korzystanie z funkcji systemu Android, takich jak aparat, lokalizacja GPS, powiadomienia, Bluetooth czy pamięć urządzenia.
+
+Android SDK jest najczęściej używany razem z Android Studio, czyli oficjalnym środowiskiem programistycznym do tworzenia aplikacji na Androida.
+
+2. Do czego służy Android SDK?
+
+Android SDK pozwala tworzyć aplikacje mobilne, które działają na telefonach, tabletach, telewizorach i innych urządzeniach z systemem Android.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie aplikacji w językach Kotlin i Java.
+- Korzystanie z funkcji systemu Android.
+- Kompilowanie kodu źródłowego do postaci aplikacji.
+- Uruchamianie aplikacji na emulatorze lub fizycznym urządzeniu.
+- Testowanie i debugowanie aplikacji.
+- Sprawdzanie zgodności aplikacji z różnymi wersjami Androida.
+- Przygotowywanie aplikacji do publikacji w Google Play.
+
+3. Z czego składa się Android SDK?
+
+Android SDK składa się z kilku ważnych elementów.
+
+- **SDK Platforms** — biblioteki i interfejsy API dla konkretnych wersji systemu Android.
+- **SDK Build-Tools** — narzędzia służące do budowania, pakowania i przygotowywania aplikacji.
+- **Android SDK Platform-Tools** — narzędzia do komunikacji z urządzeniem, w tym ADB.
+- **Android Emulator** — program symulujący urządzenie z systemem Android na komputerze.
+- **Command-line Tools** — narzędzia umożliwiające zarządzanie SDK za pomocą terminala.
+- **System Images** — obrazy systemu Android wykorzystywane przez emulator.
+- **SDK Manager** — narzędzie do instalowania, aktualizowania i usuwania komponentów SDK.
+
+4. Android SDK a Android Studio
+
+Android SDK i Android Studio to dwa różne elementy, które współpracują ze sobą.
+
+Android Studio jest środowiskiem programistycznym, w którym piszesz kod, zarządzasz projektem i uruchamiasz aplikację.
+
+Android SDK dostarcza bibliotek i narzędzi, których Android Studio używa do kompilowania, uruchamiania i testowania aplikacji.
+
+Android Studio może automatycznie pobierać i aktualizować wymagane komponenty SDK.
+
+5. Języki programowania
+
+Android SDK umożliwia tworzenie aplikacji przede wszystkim w językach Kotlin i Java.
+
+**Kotlin** jest obecnie rekomendowanym przez Google językiem do tworzenia natywnych aplikacji na Androida.
+
+**Java** jest nadal szeroko wykorzystywana, szczególnie w starszych projektach i aplikacjach korzystających z istniejących bibliotek.
+
+Do budowania aplikacji wykorzystywany jest również Gradle, który zarządza zależnościami i procesem kompilacji.
+
+6. Android API i wersje systemu
+
+Android API to zestaw interfejsów umożliwiających aplikacji korzystanie z funkcji systemu operacyjnego.
+
+Każda wersja Androida odpowiada określonemu poziomowi API, który pomaga określić dostępność funkcji systemowych.
+
+W projekcie Androida istotne są trzy ustawienia:
+
+- **compileSdk** — wersja API używana podczas kompilowania aplikacji.
+- **minSdk** — najstarsza wersja Androida, na której aplikacja może działać.
+- **targetSdk** — wersja API, dla której aplikacja została przygotowana i której zachowania systemowe deklaruje obsługiwać.
+
+Przykładowo, jeśli aplikacja ma ustawione `minSdk = 26`, nie będzie przeznaczona do instalacji na urządzeniach z wersją Androida odpowiadającą API niższemu niż 26.
+
+Wysoki poziom `compileSdk` nie oznacza automatycznie, że aplikacja działa wyłącznie na najnowszych urządzeniach.
+
+7. Instalacja i konfiguracja Android SDK
+
+Android SDK najłatwiej zainstalować za pomocą Android Studio.
+
+Podstawowy proces wygląda następująco:
+
+1. Pobierz i zainstaluj Android Studio.
+2. Otwórz SDK Manager.
+3. Zainstaluj wymaganą platformę Android SDK.
+4. Zainstaluj Android SDK Build-Tools oraz Platform-Tools.
+5. W razie potrzeby pobierz obraz systemu Android dla emulatora.
+6. Utwórz projekt i skonfiguruj jego wersje SDK.
+
+W systemie Windows typowa lokalizacja SDK to `%LOCALAPPDATA%\Android\Sdk`, chociaż podczas instalacji można wybrać inną ścieżkę.
+
+8. Android SDK Platform-Tools i ADB
+
+Platform-Tools to zestaw narzędzi wykorzystywanych do komunikacji z urządzeniami z Androidem.
+
+Jednym z najważniejszych narzędzi jest **ADB (Android Debug Bridge)**.
+
+ADB umożliwia między innymi:
+
+- Sprawdzanie, czy komputer widzi urządzenie.
+- Instalowanie aplikacji na telefonie.
+- Uruchamianie poleceń na urządzeniu.
+- Pobieranie logów aplikacji.
+- Kopiowanie plików między komputerem a urządzeniem.
+
+Przykładowe polecenia:
+
+`adb devices` — wyświetla urządzenia dostępne do debugowania.
+
+`adb install app-debug.apk` — instaluje aplikację z pliku APK.
+
+`adb logcat` — wyświetla logi systemowe i aplikacyjne.
+
+Aby korzystać z ADB na fizycznym telefonie, zazwyczaj trzeba włączyć opcje programistyczne i debugowanie USB oraz zaakceptować autoryzację komputera.
+
+9. Android Emulator
+
+Android Emulator pozwala uruchamiać wirtualne urządzenia z systemem Android bez konieczności posiadania fizycznego telefonu.
+
+Emulator przydaje się do testowania różnych rozmiarów ekranu, wersji systemu i konfiguracji urządzeń.
+
+Można w nim sprawdzać między innymi działanie interfejsu, obsługę obrotu ekranu, uprawnienia oraz zachowanie aplikacji przy różnych ustawieniach systemowych.
+
+Emulator jest szczególnie przydatny podczas nauki programowania i automatyzacji testów.
+
+10. Android SDK w praktyce
+
+Przykładowy proces tworzenia aplikacji wygląda następująco:
+
+1. Programista pisze kod w Kotlinie lub Javie.
+2. Gradle pobiera wymagane biblioteki i uruchamia proces budowania.
+3. Narzędzia Android SDK kompilują i przygotowują aplikację.
+4. Aplikacja jest instalowana na emulatorze lub fizycznym urządzeniu.
+5. Programista sprawdza działanie aplikacji i analizuje logi.
+6. Po testach przygotowuje wersję do publikacji.
+
+Android SDK może być również wykorzystywany w procesach CI/CD, aby automatycznie budować aplikacje i uruchamiać testy.
+
+11. Android SDK a inne narzędzia
+
+- **Android SDK** — zestaw bibliotek i narzędzi do tworzenia aplikacji na Androida.
+- **Android Studio** — środowisko programistyczne korzystające z Android SDK.
+- **ADB** — narzędzie do komunikacji z urządzeniem.
+- **Gradle** — system automatyzujący budowanie projektu.
+- **JDK** — zestaw narzędzi Java wykorzystywany między innymi przez proces budowania.
+- **Android Emulator** — wirtualne urządzenie do uruchamiania i testowania aplikacji.
+- **Android NDK** — zestaw narzędzi umożliwiający tworzenie części aplikacji w C i C++.
+
+12. Zalety Android SDK
+
+- Udostępnia narzędzia potrzebne do tworzenia natywnych aplikacji mobilnych.
+- Pozwala korzystać z funkcji systemu Android.
+- Umożliwia testowanie aplikacji bez fizycznego telefonu.
+- Obsługuje języki Kotlin i Java.
+- Integruje się z Android Studio oraz Gradle.
+- Ułatwia debugowanie i automatyzację procesu budowania.
+- Jest dostępny bezpłatnie do typowego wykorzystania programistycznego.
+
+13. Wady i ograniczenia Android SDK
+
+- Konfiguracja środowiska może być skomplikowana dla początkujących.
+- Emulator może zużywać dużo pamięci RAM i mocy procesora.
+- Różnice między wersjami Androida mogą wymagać dodatkowych testów.
+- Instalacja wielu platform i obrazów systemu zajmuje miejsce na dysku.
+- Niektóre funkcje wymagają testowania na rzeczywistym urządzeniu.
+- Zmiany w systemie uprawnień i wymaganiach publikacyjnych mogą wymagać aktualizacji aplikacji.
+
+14. Plan nauki Android SDK
+
+Na początku warto zainstalować Android Studio i zapoznać się z SDK Managerem.
+
+Następnie należy utworzyć prostą aplikację w Kotlinie lub Javie i uruchomić ją na emulatorze.
+
+Kolejnym krokiem jest poznanie ustawień `minSdk`, `targetSdk` i `compileSdk`, a także podstaw Gradle.
+
+Później warto nauczyć się korzystania z ADB, analizowania logów przez Logcat oraz instalowania aplikacji na telefonie.
+
+Na koniec dobrze jest poznać testy jednostkowe, testy instrumentacyjne i podstawy automatycznego budowania aplikacji.
+
+15. Najważniejsze pojęcia
+
+- **Android SDK** — zestaw narzędzi i bibliotek do tworzenia aplikacji na Androida.
+- **API** — interfejs umożliwiający korzystanie z funkcji systemu.
+- **SDK Manager** — narzędzie do zarządzania komponentami SDK.
+- **Build-Tools** — narzędzia do budowania aplikacji.
+- **Platform-Tools** — narzędzia do komunikacji z urządzeniami.
+- **ADB** — Android Debug Bridge.
+- **Emulator** — wirtualne urządzenie z Androidem.
+- **compileSdk** — poziom API wykorzystywany podczas kompilacji.
+- **minSdk** — minimalny poziom API obsługiwany przez aplikację.
+- **targetSdk** — poziom API, do którego aplikacja deklaruje dostosowanie.
+- **Gradle** — system automatyzacji budowania projektu.
+- **Android NDK** — narzędzia do tworzenia kodu natywnego w C i C++.
+
+16. W skrócie
+
+Android SDK to podstawowy zestaw narzędzi wykorzystywany podczas tworzenia, kompilowania, testowania i debugowania aplikacji na Androida.
+
+Współpracuje z Android Studio, Kotlinem, Javą i Gradle.
+
+Znajomość SDK jest ważna dla programistów aplikacji mobilnych, testerów Androida oraz osób automatyzujących budowanie i testowanie aplikacji.
+
+Dodaj praktyczny projekt w KotlinieUtwórz tabelę najważniejszych komponentów

@@ -1,0 +1,389 @@
+1. Czym jest Affinity Photo?
+
+Affinity Photo to profesjonalny program graficzny służący do edycji zdjęć, retuszu fotografii, fotomontażu oraz pracy z grafiką rastrową.
+
+Program został opracowany przez firmę Serif i stanowi alternatywę dla Adobe Photoshopa.
+
+Affinity Photo umożliwia poprawianie kolorów, usuwanie niedoskonałości, łączenie wielu zdjęć, pracę z warstwami oraz tworzenie zaawansowanych kompozycji graficznych.
+
+Jest wykorzystywany przez fotografów, grafików, projektantów i osoby zajmujące się cyfrową obróbką obrazów.
+
+2. Affinity Photo a Affinity Designer i Adobe Photoshop
+
+Affinity Photo koncentruje się przede wszystkim na edycji fotografii i grafice rastrowej.
+
+Affinity Designer służy głównie do tworzenia grafiki wektorowej, takiej jak logo, ikony i ilustracje.
+
+Adobe Photoshop oferuje podobny zakres zastosowań do Affinity Photo i jest szeroko wykorzystywany w profesjonalnej obróbce zdjęć.
+
+Affinity Photo może być dobrym wyborem dla osób, które potrzebują zaawansowanych narzędzi graficznych bez konieczności korzystania z całego pakietu Adobe.
+
+3. Grafika rastrowa
+
+Grafika rastrowa składa się z pikseli, czyli małych elementów obrazu zawierających informacje o kolorze.
+
+Każde zdjęcie cyfrowe jest przykładem grafiki rastrowej.
+
+Podczas edycji fotografii program modyfikuje wygląd pikseli, aby poprawić kolory, kontrast, ostrość lub inne właściwości obrazu.
+
+Znaczne powiększanie grafiki rastrowej może powodować utratę ostrości i widoczne piksele.
+
+Z tego powodu podczas pracy należy uwzględniać rozdzielczość zdjęcia oraz jego docelowe zastosowanie.
+
+4. Interfejs programu
+
+Interfejs Affinity Photo składa się z obszaru roboczego, paska narzędzi oraz paneli służących do edycji obrazu.
+
+Obszar roboczy wyświetla aktualnie otwarte zdjęcie lub projekt graficzny.
+
+Pasek narzędzi zawiera funkcje zaznaczania, malowania, retuszu, kadrowania i transformacji.
+
+Panel Layers umożliwia zarządzanie warstwami oraz kolejnością elementów projektu.
+
+Panel Colour służy do wybierania kolorów wykorzystywanych podczas edycji.
+
+Panel Adjustments pozwala dodawać korekty obrazu, takie jak zmiana jasności, kontrastu i nasycenia.
+
+Panel History umożliwia przeglądanie wcześniejszych operacji wykonanych podczas pracy.
+
+5. Otwieranie i tworzenie dokumentów
+
+Affinity Photo pozwala otwierać istniejące zdjęcia oraz tworzyć nowe dokumenty graficzne.
+
+Program obsługuje popularne formaty obrazów, takie jak JPEG, PNG i TIFF.
+
+Podczas tworzenia dokumentu można określić jego wymiary, rozdzielczość i profil kolorów.
+
+Rozdzielczość ma szczególne znaczenie w przypadku zdjęć przeznaczonych do druku.
+
+Przed rozpoczęciem pracy warto sprawdzić, czy obraz ma odpowiednią jakość i proporcje.
+
+6. Warstwy — Layers
+
+Warstwy pozwalają edytować różne elementy projektu niezależnie od siebie.
+
+Można na przykład umieścić zdjęcie na jednej warstwie, tekst na drugiej, a dodatkowe efekty na kolejnych.
+
+Warstwy można przesuwać, ukrywać, blokować, grupować i zmieniać ich kolejność.
+
+Element znajdujący się wyżej w panelu warstw może zasłaniać element położony niżej.
+
+Dzięki warstwom można wprowadzać zmiany bez konieczności przebudowywania całego projektu.
+
+7. Maski warstw — Layer Masks
+
+Maski warstw pozwalają kontrolować, które fragmenty warstwy są widoczne.
+
+Biały kolor maski odsłania obraz, czarny go ukrywa, a odcienie szarości zapewniają częściową widoczność.
+
+Maski są szczególnie przydatne podczas łączenia zdjęć i wykonywania fotomontaży.
+
+Pozwalają również stopniowo usuwać fragmenty obrazu bez trwałego kasowania pikseli.
+
+Jest to ważny element niedestrukcyjnej edycji fotografii.
+
+8. Narzędzia zaznaczania
+
+Narzędzia zaznaczania pozwalają wybrać konkretny fragment obrazu, który ma zostać poddany edycji.
+
+Marquee Tool umożliwia tworzenie zaznaczeń o określonych kształtach geometrycznych.
+
+Lasso Tool pozwala zaznaczać obszary poprzez ręczne rysowanie konturu.
+
+Selection Brush Tool służy do zaznaczania fragmentów obrazu za pomocą pędzla.
+
+Flood Select Tool umożliwia zaznaczanie obszarów o podobnych właściwościach kolorystycznych.
+
+Dokładne zaznaczenie jest szczególnie ważne podczas retuszu, zmiany tła i fotomontażu.
+
+9. Wycinanie obiektów i usuwanie tła
+
+Affinity Photo umożliwia oddzielanie obiektów od tła za pomocą narzędzi zaznaczania i masek.
+
+Można na przykład wyciąć osobę ze zdjęcia i umieścić ją na innym tle.
+
+W przypadku skomplikowanych krawędzi, takich jak włosy, należy poświęcić więcej czasu na dopracowanie zaznaczenia.
+
+Maska pozwala poprawiać efekt wycinania bez trwałego usuwania fragmentów zdjęcia.
+
+Jakość rezultatu zależy między innymi od kontrastu pomiędzy obiektem a tłem oraz rozdzielczości fotografii.
+
+10. Retusz zdjęć
+
+Retusz polega na poprawianiu wyglądu fotografii i usuwaniu niepożądanych elementów.
+
+Affinity Photo udostępnia narzędzia umożliwiające usuwanie plam, niedoskonałości skóry i innych drobnych defektów.
+
+Retusz może również obejmować poprawianie tła, wygładzanie przejść tonalnych i korygowanie wybranych fragmentów obrazu.
+
+Ważne jest zachowanie naturalnego wyglądu fotografii.
+
+Zbyt intensywny retusz może powodować utratę szczegółów i nienaturalny wygląd skóry.
+
+11. Inpainting Brush Tool
+
+Inpainting Brush Tool umożliwia usuwanie niepożądanych elementów zdjęcia poprzez automatyczne uzupełnianie zaznaczonego obszaru na podstawie otoczenia.
+
+Narzędzie może być wykorzystywane do usuwania drobnych obiektów, plam, przewodów i innych rozpraszających elementów.
+
+Rezultat zależy od złożoności tła oraz wielkości usuwanego fragmentu.
+
+W przypadku trudniejszych obszarów może być konieczne dodatkowe poprawianie obrazu innymi narzędziami.
+
+12. Clone Brush Tool
+
+Clone Brush Tool służy do kopiowania fragmentu obrazu i przenoszenia go w inne miejsce.
+
+Narzędzie jest przydatne podczas usuwania defektów i odtwarzania fragmentów tekstur.
+
+Przykładem zastosowania jest usunięcie drobnego obiektu poprzez zastąpienie go fragmentem otaczającego tła.
+
+Aby uzyskać naturalny efekt, należy odpowiednio dobierać obszar źródłowy i wielkość pędzla.
+
+13. Healing Brush Tool
+
+Healing Brush Tool służy do retuszu poprzez łączenie pobranych informacji z otoczeniem poprawianego obszaru.
+
+Narzędzie pomaga usuwać drobne niedoskonałości skóry, plamy i inne defekty fotografii.
+
+W przeciwieństwie do zwykłego klonowania narzędzie stara się dopasować teksturę i wygląd poprawianego miejsca do otoczenia.
+
+Jest szczególnie przydatne podczas retuszu portretów i zdjęć produktowych.
+
+14. Kadrowanie — Crop Tool
+
+Crop Tool umożliwia zmianę kadru i proporcji fotografii.
+
+Można dzięki niemu usunąć niepotrzebne fragmenty obrazu oraz poprawić kompozycję zdjęcia.
+
+Kadrowanie pozwala również przygotować fotografię do określonego formatu publikacji.
+
+Przy wyborze kadru warto zwrócić uwagę na położenie głównego obiektu oraz równowagę kompozycji.
+
+15. Jasność i kontrast
+
+Jasność określa ogólny poziom światła na zdjęciu.
+
+Kontrast opisuje różnicę pomiędzy jaśniejszymi i ciemniejszymi obszarami obrazu.
+
+Zwiększenie kontrastu może sprawić, że fotografia będzie wyglądała bardziej wyraziście.
+
+Zbyt duży kontrast może jednak powodować utratę szczegółów w jasnych i ciemnych partiach zdjęcia.
+
+Podczas edycji warto dążyć do zachowania odpowiedniej równowagi tonalnej.
+
+16. Levels i Curves
+
+Levels pozwala kontrolować poziomy czerni, bieli oraz półtonów na zdjęciu.
+
+Narzędzie pomaga poprawiać kontrast i dostosowywać zakres tonalny obrazu.
+
+Curves umożliwia bardziej precyzyjne modyfikowanie jasności i kontrastu za pomocą krzywej tonalnej.
+
+Dzięki krzywej można rozjaśniać wybrane zakresy tonalne i przyciemniać inne.
+
+Levels i Curves są ważnymi narzędziami zaawansowanej obróbki fotografii.
+
+17. Balans bieli
+
+Balans bieli odpowiada za prawidłowe odwzorowanie neutralnych kolorów na zdjęciu.
+
+Nieprawidłowy balans bieli może powodować nadmiernie żółty, niebieski lub zielony odcień fotografii.
+
+Korekta temperatury barwowej pozwala ocieplić lub ochłodzić wygląd obrazu.
+
+Dostosowanie balansu bieli jest szczególnie ważne przy zdjęciach wykonywanych w sztucznym oświetleniu.
+
+18. Hue, Saturation i Lightness
+
+Hue określa odcień koloru.
+
+Saturation określa intensywność koloru.
+
+Lightness odpowiada za jego jasność.
+
+Za pomocą tych parametrów można zmieniać wygląd kolorów i dopasowywać je do zamierzonego efektu.
+
+Narzędzia te są wykorzystywane przy poprawianiu kolorystyki fotografii i tworzeniu stylizowanych obrazów.
+
+19. Adjustment Layers
+
+Adjustment Layers to warstwy korekcyjne umożliwiające modyfikowanie wyglądu obrazu bez bezpośredniego zmieniania oryginalnych pikseli zdjęcia.
+
+Za ich pomocą można regulować jasność, kontrast, kolory i inne parametry obrazu.
+
+Korekty można w dowolnym momencie zmienić, wyłączyć lub usunąć.
+
+Warstwy korekcyjne mogą być również ograniczane za pomocą masek, dzięki czemu zmiany dotyczą tylko wybranych fragmentów fotografii.
+
+Jest to jedna z najważniejszych technik niedestrukcyjnej edycji.
+
+20. Filtry i efekty
+
+Filtry pozwalają zmieniać wygląd obrazu poprzez stosowanie określonych efektów.
+
+Mogą służyć między innymi do rozmywania, wyostrzania i modyfikowania tekstury fotografii.
+
+Gaussian Blur to filtr rozmycia wykorzystywany do zmiękczania obrazu lub tworzenia efektów głębi.
+
+Wyostrzanie pozwala zwiększać widoczność krawędzi i szczegółów.
+
+Filtry należy stosować z umiarem, aby nie pogorszyć jakości fotografii.
+
+21. Warstwy tekstowe i grafika
+
+Affinity Photo umożliwia dodawanie tekstu oraz elementów graficznych do zdjęć.
+
+Tekst można wykorzystywać do tworzenia plakatów, banerów, reklam i grafik na media społecznościowe.
+
+Można zmieniać krój pisma, rozmiar, kolor i położenie napisu.
+
+Tekst można łączyć z fotografiami, kształtami i efektami, tworząc bardziej rozbudowane kompozycje.
+
+22. Tryby mieszania — Blend Modes
+
+Blend Modes określają sposób łączenia kolorów i pikseli jednej warstwy z warstwami znajdującymi się poniżej.
+
+Multiply przyciemnia obraz i jest często wykorzystywany przy pracy z cieniami.
+
+Screen rozjaśnia obraz i może być używany do tworzenia efektów świetlnych.
+
+Overlay zwiększa kontrast poprzez połączenie rozjaśniania i przyciemniania.
+
+Tryby mieszania są przydatne przy tworzeniu fotomontaży, tekstur i efektów specjalnych.
+
+23. Smart Objects i niedestrukcyjna edycja
+
+W Adobe Photoshop funkcję zachowywania zawartości źródłowej w edytowalnym obiekcie zapewniają Smart Objects.
+
+W Affinity Photo podobny cel można osiągać za pomocą odpowiednich warstw, osadzonych dokumentów i filtrów niedestrukcyjnych dostępnych w danej wersji programu.
+
+Niedestrukcyjna edycja polega na wprowadzaniu zmian w taki sposób, aby można było je później modyfikować lub cofnąć bez konieczności odtwarzania całego projektu.
+
+Warto zachowywać oryginalne zdjęcie i wykonywać kolejne korekty na oddzielnych warstwach.
+
+Taki sposób pracy ułatwia poprawianie projektu oraz eksperymentowanie z różnymi efektami.
+
+24. Praca z plikami RAW
+
+Pliki RAW zawierają dane obrazu zapisane przez aparat przed standardowym przetworzeniem do formatu takiego jak JPEG.
+
+Dają one większe możliwości korekty ekspozycji, balansu bieli i innych parametrów fotografii.
+
+Affinity Photo umożliwia wywoływanie obsługiwanych plików RAW przed przejściem do dalszej edycji.
+
+Podczas wywoływania zdjęcia można poprawić jasność, kolory, kontrast i szczegóły.
+
+Dostępne opcje zależą między innymi od aparatu, formatu pliku i wersji programu.
+
+25. Panorama i HDR
+
+Panorama powstaje przez połączenie kilku zdjęć przedstawiających sąsiadujące fragmenty sceny.
+
+Affinity Photo oferuje funkcje łączenia zdjęć panoramicznych.
+
+HDR, czyli High Dynamic Range, pozwala łączyć informacje z kilku ujęć o różnej ekspozycji, aby uzyskać szerszy zakres tonalny.
+
+Techniki te są przydatne w fotografii krajobrazowej, architektonicznej i wnętrzarskiej.
+
+Najlepsze rezultaty zazwyczaj uzyskuje się przy odpowiednio przygotowanych zdjęciach źródłowych.
+
+26. Historia zmian
+
+Panel History umożliwia przeglądanie kolejnych operacji wykonywanych podczas edycji obrazu.
+
+Dzięki niemu można wrócić do wcześniejszego etapu pracy.
+
+Historia zmian jest przydatna podczas testowania różnych ustawień i efektów.
+
+W przypadku większych projektów warto również regularnie zapisywać kolejne wersje dokumentu.
+
+27. Zapisywanie i eksportowanie plików
+
+Projekt należy zapisywać w natywnym formacie Affinity Photo, aby zachować edytowalne warstwy i strukturę dokumentu.
+
+JPEG jest przydatny do zapisywania gotowych fotografii i publikowania ich w internecie.
+
+PNG obsługuje przezroczystość i sprawdza się w przypadku grafiki ekranowej.
+
+TIFF jest często wykorzystywany w profesjonalnych procesach fotograficznych i poligraficznych.
+
+PSD jest formatem programu Adobe Photoshop, ale zgodność z nim może być ograniczona w przypadku niektórych funkcji i efektów.
+
+Przed przekazaniem pliku innej osobie należy sprawdzić, czy wybrany format zachowuje wszystkie potrzebne elementy projektu.
+
+28. Typowy workflow fotografa
+
+Pracę rozpoczyna się od otwarcia zdjęcia i oceny jego jakości oraz kompozycji.
+
+Następnie wykonuje się podstawową korektę ekspozycji, balansu bieli i kolorów.
+
+Kolejnym krokiem jest kadrowanie oraz usuwanie niepożądanych elementów.
+
+W razie potrzeby stosuje się retusz, maski, warstwy korekcyjne i dodatkowe efekty.
+
+Po zakończeniu edycji należy sprawdzić szczegóły zdjęcia i zapisać projekt w formacie edytowalnym.
+
+Na końcu eksportuje się gotową fotografię do formatu odpowiedniego dla internetu, klienta lub drukarni.
+
+29. Jak uczyć się Affinity Photo?
+
+Na początku warto poznać interfejs programu, warstwy i podstawowe narzędzia zaznaczania.
+
+Następnie należy nauczyć się kadrowania, poprawiania ekspozycji i regulowania kolorów.
+
+Kolejnym etapem jest opanowanie masek, warstw korekcyjnych i narzędzi retuszu.
+
+Później warto ćwiczyć wycinanie obiektów, fotomontaż i pracę z plikami RAW.
+
+Po opanowaniu podstaw można przejść do bardziej zaawansowanych projektów, takich jak retusz portretów i kompozycje reklamowe.
+
+Najlepszym sposobem nauki jest regularna praca na własnych zdjęciach i porównywanie efektów przed edycją oraz po niej.
+
+30. Najważniejsze pojęcia
+
+Raster Graphics — grafika rastrowa zbudowana z pikseli.
+
+Layers — warstwy pozwalające organizować elementy projektu.
+
+Layer Mask — maska kontrolująca widoczność fragmentów warstwy.
+
+Selection — zaznaczenie fragmentu obrazu.
+
+Retouching — poprawianie wyglądu fotografii i usuwanie niedoskonałości.
+
+Clone Brush Tool — narzędzie do kopiowania fragmentów obrazu.
+
+Inpainting Brush Tool — narzędzie do usuwania obiektów przez uzupełnianie obszaru na podstawie otoczenia.
+
+Crop Tool — narzędzie do kadrowania zdjęć.
+
+Levels — narzędzie do regulowania zakresu tonalnego obrazu.
+
+Curves — narzędzie do precyzyjnej korekty jasności i kontrastu.
+
+Adjustment Layers — warstwy korekcyjne umożliwiające niedestrukcyjną edycję.
+
+Blend Modes — tryby określające sposób łączenia warstw.
+
+RAW — format danych obrazu z aparatu fotograficznego.
+
+HDR — technika łączenia ujęć w celu uzyskania szerszego zakresu tonalnego.
+
+JPEG — format obrazu często wykorzystywany do publikowania zdjęć.
+
+PNG — format obrazu obsługujący przezroczystość.
+
+TIFF — format wykorzystywany między innymi w profesjonalnej fotografii i druku.
+
+31. W skrócie
+
+Affinity Photo to profesjonalny program do edycji zdjęć, retuszu, fotomontażu i pracy z grafiką rastrową.
+
+Najważniejsze funkcje obejmują korektę kolorów, warstwy, maski, narzędzia retuszu, filtry i obsługę plików RAW.
+
+Najważniejsze umiejętności to praca z warstwami, zaznaczeniami, maskami i korektami obrazu.
+
+Opanowanie tych podstaw pozwala poprawiać fotografie, tworzyć fotomontaże i przygotowywać profesjonalne materiały graficzne.
+
+Dodaj praktyczny projekt krok po krokuUporządkuj notatkę według poziomów trudności

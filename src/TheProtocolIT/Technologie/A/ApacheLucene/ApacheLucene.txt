@@ -1,0 +1,300 @@
+Apache Lucene — notatka
+
+1. Czym jest Apache Lucene?
+
+Apache Lucene to biblioteka programistyczna typu open source służąca do indeksowania i wyszukiwania informacji w dużych zbiorach danych tekstowych.
+
+Jest rozwijana przez Apache Software Foundation i została napisana w języku Java.
+
+Lucene umożliwia szybkie wyszukiwanie słów, fraz oraz dokumentów spełniających określone kryteria.
+
+Nie jest samodzielną bazą danych ani kompletną wyszukiwarką internetową, lecz silnikiem wyszukiwania, który można zintegrować z własną aplikacją.
+
+2. Do czego służy Apache Lucene?
+
+Apache Lucene jest wykorzystywany w aplikacjach, które muszą szybko wyszukiwać informacje w dużej liczbie dokumentów.
+
+Można go wykorzystać do wyszukiwania produktów w sklepie internetowym, przeszukiwania dokumentacji technicznej, wyszukiwania artykułów oraz analizowania treści wiadomości.
+
+Sprawdza się również w systemach zarządzania dokumentami, aplikacjach biznesowych i rozwiązaniach wykorzystujących wyszukiwanie pełnotekstowe.
+
+Dzięki indeksowaniu nie trzeba za każdym razem przeglądać całej kolekcji dokumentów, aby znaleźć pasujące wyniki.
+
+3. Jak działa Apache Lucene?
+
+Lucene działa przede wszystkim na podstawie indeksu wyszukiwania.
+
+Najpierw aplikacja przekazuje tekst i inne informacje do zindeksowania.
+
+Lucene analizuje tekst, dzieli go na odpowiednie elementy i zapisuje informacje potrzebne do wyszukiwania.
+
+Gdy użytkownik wpisuje zapytanie, silnik przeszukuje indeks zamiast odczytywać wszystkie dokumenty od początku.
+
+Następnie zwraca dokumenty pasujące do zapytania, które można uporządkować według trafności.
+
+Proces ten można przedstawić następująco:
+
+Dane → analiza tekstu → indeks → zapytanie → wyniki wyszukiwania.
+
+4. Czym jest indeks wyszukiwania?
+
+Indeks to struktura danych przygotowana w taki sposób, aby umożliwiać szybkie odnajdywanie informacji.
+
+Lucene wykorzystuje między innymi indeks odwrócony (inverted index).
+
+Indeks odwrócony przechowuje informacje o tym, w których dokumentach występują poszczególne terminy.
+
+Przykładowo, jeśli dokument A zawiera słowa „Java” i „Spring”, a dokument B zawiera słowa „Java” i „Docker”, indeks pozwala szybko znaleźć oba dokumenty po słowie „Java”.
+
+Dzięki temu wyszukiwanie jest znacznie wydajniejsze niż sprawdzanie każdego dokumentu osobno.
+
+5. Dokumenty i pola
+
+W Lucene podstawową jednostką indeksowania jest dokument (Document).
+
+Dokument składa się z pól (Field), które przechowują określone informacje.
+
+Przykładowy dokument produktu może zawierać nazwę, opis, kategorię i cenę.
+
+Każde pole można skonfigurować w zależności od tego, czy ma być wyszukiwalne, przechowywane, analizowane lub wykorzystywane do filtrowania.
+
+Przykładowe pola:
+
+- `name` — nazwa produktu.
+- `description` — opis produktu.
+- `category` — kategoria produktu.
+- `price` — cena produktu.
+
+Odpowiednia konfiguracja pól ma duży wpływ na możliwości wyszukiwania i wydajność indeksu.
+
+6. Analizatory tekstu
+
+Analyzer to komponent, który przygotowuje tekst do indeksowania i wyszukiwania.
+
+Zazwyczaj dzieli tekst na tokeny, czyli jednostki wykorzystywane podczas wyszukiwania.
+
+Może również normalizować wielkość liter, usuwać niektóre popularne słowa oraz wykonywać inne operacje językowe.
+
+Przykładowo tekst „Java jest popularna” może zostać przekształcony na tokeny „java”, „jest” i „popularna”.
+
+Wybór analizatora zależy od języka tekstu oraz potrzeb aplikacji.
+
+W przypadku języka polskiego warto uwzględnić odmianę wyrazów, znaki diakrytyczne i specyfikę polskiego słownictwa.
+
+7. Rodzaje wyszukiwania
+
+Apache Lucene udostępnia różne mechanizmy wyszukiwania.
+
+Term Query pozwala wyszukiwać dokumenty zawierające określony termin w konkretnym polu.
+
+Boolean Query umożliwia łączenie kilku warunków za pomocą operatorów logicznych.
+
+Phrase Query służy do wyszukiwania określonej sekwencji słów.
+
+Prefix Query pozwala znaleźć terminy rozpoczynające się od określonego ciągu znaków.
+
+Fuzzy Query umożliwia wyszukiwanie przybliżone, uwzględniające ograniczone różnice między zapytaniem a terminem w indeksie.
+
+Range Query pozwala wyszukiwać wartości należące do określonego zakresu, jeśli pole zostało odpowiednio zindeksowane.
+
+8. Trafność wyników
+
+Lucene może ustalać kolejność wyników na podstawie ich trafności względem zapytania.
+
+Ważne jest między innymi to, czy wyszukiwane słowa występują w dokumencie oraz jak często pojawiają się w jego treści i w całym zbiorze dokumentów.
+
+Lucene oferuje mechanizmy punktacji, w tym model BM25, który jest często wykorzystywany do rankingu wyników tekstowych.
+
+Dokumenty uznane za bardziej trafne mogą pojawić się wyżej na liście wyników.
+
+Wynik można również dostosować do specyfiki aplikacji, na przykład nadając większe znaczenie nazwie produktu niż jego opisowi.
+
+9. Przykład zastosowania Apache Lucene w Javie
+
+Załóżmy, że tworzysz aplikację, która przechowuje dokumentację techniczną.
+
+Chcesz umożliwić użytkownikowi wyszukiwanie dokumentów zawierających określone słowo.
+
+Lucene pozwala utworzyć indeks i przeszukiwać go bez konieczności budowania własnego silnika wyszukiwania od podstaw.
+
+Przykładowa zależność Maven dla biblioteki Lucene Core:
+
+```
+<dependency>
+    <groupId>org.apache.lucene</groupId>
+    <artifactId>lucene-core</artifactId>
+    <version>10.3.1</version>
+</dependency>
+```
+
+Numer wersji jest przykładowy, dlatego przy tworzeniu nowego projektu należy sprawdzić aktualną wersję oraz zgodność z używanym JDK.
+
+Poniższy przykład pokazuje podstawowy schemat indeksowania dokumentu i wyszukiwania terminu.
+
+```
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.TextField;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.store.ByteBuffersDirectory;
+
+public class LuceneExample {
+    public static void main(String[] args) throws Exception {
+        try (var directory = new ByteBuffersDirectory();
+             var analyzer = new StandardAnalyzer()) {
+
+            var config = new IndexWriterConfig(analyzer);
+
+            try (var writer = new IndexWriter(directory, config)) {
+                Document document = new Document();
+                document.add(new TextField(
+                        "content",
+                        "Java and Spring Boot",
+                        TextField.Store.YES
+                ));
+
+                writer.addDocument(document);
+            }
+
+            try (var reader = DirectoryReader.open(directory)) {
+                var searcher = new IndexSearcher(reader);
+
+                Query query = new QueryParser(
+                        "content", analyzer
+                ).parse("Java");
+
+                ScoreDoc[] hits = searcher.search(query, 10).scoreDocs;
+
+                for (ScoreDoc hit : hits) {
+                    Document result = searcher.storedFields()
+                            .document(hit.doc);
+
+                    System.out.println(
+                            result.get("content")
+                    );
+                }
+            }
+        }
+    }
+}
+```
+
+Przykład tworzy indeks w pamięci, dodaje dokument i wyszukuje słowo „Java”.
+
+Do korzystania z `QueryParser` potrzebna jest również zależność `lucene-queryparser` w tej samej wersji co `lucene-core`.
+
+Indeks w pamięci jest odpowiedni do demonstracji, natomiast w rzeczywistej aplikacji można wykorzystać indeks przechowywany na dysku.
+
+10. Apache Lucene a Apache Solr
+
+Apache Lucene jest biblioteką stanowiącą silnik wyszukiwania.
+
+Apache Solr to osobny serwer wyszukiwania zbudowany na podstawie Lucene.
+
+Solr udostępnia między innymi interfejs HTTP, konfigurację kolekcji, mechanizmy administracyjne i funkcje ułatwiające wdrażanie wyszukiwarki.
+
+Jeżeli chcesz zbudować własny silnik wyszukiwania wewnątrz aplikacji Java, możesz wykorzystać bezpośrednio Lucene.
+
+Jeżeli potrzebujesz gotowego serwera wyszukiwania z API, Solr może być wygodniejszym rozwiązaniem.
+
+11. Apache Lucene a Elasticsearch
+
+Elasticsearch jest rozproszonym silnikiem wyszukiwania i analizy danych, który wykorzystuje Apache Lucene jako podstawę wyszukiwania.
+
+Lucene dostarcza mechanizmy indeksowania, zapytań i oceniania trafności.
+
+Elasticsearch dodaje warstwę serwerową, API HTTP, zarządzanie klastrem i mechanizmy dystrybucji danych.
+
+Bezpośrednie użycie Lucene daje programiście większą kontrolę nad integracją z aplikacją.
+
+Elasticsearch jest zwykle wygodniejszy, gdy potrzebne jest niezależne, skalowalne środowisko wyszukiwania dostępne przez API.
+
+12. Apache Lucene a relacyjne bazy danych
+
+Relacyjne bazy danych, takie jak PostgreSQL, MySQL i Oracle, służą do przechowywania danych i wykonywania zapytań dotyczących ich struktury.
+
+Lucene koncentruje się na indeksowaniu i wyszukiwaniu informacji.
+
+Baza danych dobrze sprawdza się w obsłudze transakcji, relacji, ograniczeń i aktualizacji danych.
+
+Lucene jest szczególnie przydatny w wyszukiwaniu pełnotekstowym, wyszukiwaniu przybliżonym i ustalaniu trafności wyników.
+
+W wielu aplikacjach oba rozwiązania współpracują ze sobą: baza danych przechowuje dane źródłowe, a Lucene zapewnia zaawansowane wyszukiwanie.
+
+13. Zalety Apache Lucene
+
+Lucene umożliwia szybkie wyszukiwanie w dużych zbiorach dokumentów.
+
+Obsługuje wiele rodzajów zapytań oraz ranking wyników.
+
+Jest biblioteką open source i można go bezpośrednio zintegrować z aplikacjami Java.
+
+Pozwala konfigurować analizę tekstu, strukturę indeksu i sposób oceniania trafności.
+
+Nie wymaga uruchamiania oddzielnego serwera wyszukiwania, jeśli indeks i wyszukiwanie mają działać wewnątrz aplikacji.
+
+14. Wady Apache Lucene
+
+Lucene jest biblioteką, a nie kompletnym serwerem wyszukiwania.
+
+Programista musi samodzielnie zaprojektować integrację z aplikacją oraz zarządzanie cyklem życia indeksu.
+
+Indeks musi być aktualizowany, gdy zmieniają się dane źródłowe.
+
+Wyszukiwanie w językach o rozbudowanej odmianie wyrazów może wymagać starannego doboru analizatorów.
+
+Obsługa rozproszonego wyszukiwania i wysokiej dostępności wymaga dodatkowej architektury lub wykorzystania rozwiązania takiego jak Solr albo Elasticsearch.
+
+15. Plan nauki Apache Lucene
+
+Na początku warto poznać pojęcia dokumentu, pola, indeksu i indeksu odwróconego.
+
+Następnie należy utworzyć prosty indeks w Javie i dodać do niego kilka dokumentów.
+
+Kolejnym krokiem powinno być wykonywanie zapytań za pomocą Term Query, Boolean Query i Phrase Query.
+
+Później warto poznać analizatory tekstu, punktację wyników oraz indeksowanie danych na dysku.
+
+Na koniec dobrze jest stworzyć prostą wyszukiwarkę dokumentów lub produktów, a następnie porównać bezpośrednie wykorzystanie Lucene z użyciem Elasticsearch albo Solr.
+
+16. Najważniejsze pojęcia
+
+Apache Lucene — biblioteka do indeksowania i wyszukiwania informacji.
+
+Index — struktura danych umożliwiająca szybkie wyszukiwanie.
+
+Inverted Index — indeks odwrócony, który mapuje terminy na dokumenty.
+
+Document — dokument składający się z pól.
+
+Field — pole zawierające konkretną informację o dokumencie.
+
+Analyzer — komponent przygotowujący tekst do indeksowania i wyszukiwania.
+
+Token — jednostka tekstu uzyskana podczas analizy.
+
+Query — zapytanie wyszukujące dokumenty spełniające określone warunki.
+
+BM25 — model wykorzystywany do oceniania trafności wyników wyszukiwania.
+
+Apache Solr — serwer wyszukiwania zbudowany na podstawie Lucene.
+
+Elasticsearch — rozproszony silnik wyszukiwania wykorzystujący Lucene.
+
+Full-text Search — wyszukiwanie pełnotekstowe w treści dokumentów.
+
+17. W skrócie
+
+Apache Lucene to biblioteka Java umożliwiająca budowanie wydajnych mechanizmów wyszukiwania informacji.
+
+Najważniejsze elementy to indeksowanie, dokumenty, pola, analizatory tekstu, zapytania i ranking wyników.
+
+Lucene jest podstawą technologii takich jak Apache Solr i Elasticsearch, a jego bezpośrednie wykorzystanie sprawdza się wtedy, gdy chcesz zintegrować wyszukiwanie z własną aplikacją.
+
+Dodaj prosty projekt MavenUzupełnij brakującą zależność Maven

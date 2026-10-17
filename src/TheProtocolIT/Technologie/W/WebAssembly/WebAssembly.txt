@@ -1,0 +1,772 @@
+# WebAssembly
+
+## 1. Czym jest WebAssembly?
+
+**WebAssembly (Wasm)** to niskopoziomowy, binarny format wykonywalny przeznaczony przede wszystkim do uruchamiania kodu w środowisku przeglądarki internetowej.
+
+WebAssembly pozwala uruchamiać kod napisany w językach innych niż JavaScript, osiągając bardzo wysoką wydajność.
+
+Najczęściej spotykane języki używane do tworzenia WebAssembly to:
+
+- C,
+- C++,
+- Rust,
+- Go,
+- C#,
+- Kotlin,
+- AssemblyScript.
+
+WebAssembly nie miał zastąpić JavaScriptu.
+
+Najczęściej oba rozwiązania działają razem:
+
+```text
+JavaScript
+    ↓
+WebAssembly
+    ↓
+szybkie wykonywanie kodu
+```
+
+## 2. Dlaczego powstał WebAssembly?
+
+JavaScript jest bardzo dobrym językiem do tworzenia aplikacji internetowych, ale niektóre zadania wymagają większej wydajności.
+
+Przykładowo:
+
+- gry 3D,
+- edycja zdjęć,
+- edycja wideo,
+- obliczenia matematyczne,
+- symulacje,
+- szyfrowanie,
+- przetwarzanie dużych ilości danych,
+- aplikacje CAD.
+
+WebAssembly pozwala wykorzystać kod napisany w językach takich jak C++, Rust czy C.
+
+Przykładowo:
+
+```text
+C++ application
+       ↓
+    Compiler
+       ↓
+ WebAssembly
+       ↓
+    Browser
+```
+
+## 3. WebAssembly nie jest językiem programowania
+
+Ważne jest rozróżnienie:
+
+**WebAssembly nie jest typowym językiem programowania.**
+
+Jest to przede wszystkim **format instrukcji oraz środowisko uruchomieniowe**.
+
+Można go porównać do pewnego rodzaju kodu pośredniego, który może być wykonywany przez środowisko obsługujące WebAssembly.
+
+Przykładowo:
+
+```text
+Rust
+ ↓
+Compiler
+ ↓
+WASM
+ ↓
+Browser
+```
+
+## 4. WebAssembly i JavaScript
+
+WebAssembly oraz JavaScript często współpracują ze sobą.
+
+JavaScript może wywoływać funkcje WebAssembly.
+
+Przykładowa architektura:
+
+```text
+           Browser
+              |
+       +------+------+
+       |             |
+ JavaScript       WebAssembly
+       |             |
+       +------+------+
+              |
+           Web API
+```
+
+JavaScript może odpowiadać za:
+
+- interfejs użytkownika,
+- obsługę DOM,
+- zdarzenia,
+- komunikację z API.
+
+WebAssembly może odpowiadać za:
+
+- intensywne obliczenia,
+- algorytmy,
+- przetwarzanie grafiki,
+- kod wymagający wysokiej wydajności.
+
+## 5. Jak działa WebAssembly?
+
+Kod napisany w języku wysokiego poziomu jest kompilowany do formatu WebAssembly.
+
+Przykładowo:
+
+```text
+C / C++ / Rust
+      ↓
+   Compiler
+      ↓
+    .wasm
+      ↓
+WebAssembly Runtime
+      ↓
+    Browser
+```
+
+Plik WebAssembly często posiada rozszerzenie:
+
+```text
+.wasm
+```
+
+## 6. WASM
+
+Skrót **WASM** jest często używany jako skrócona nazwa WebAssembly.
+
+Możemy więc spotkać:
+
+```text
+WebAssembly
+WASM
+.wasm
+```
+
+W praktyce wszystkie odnoszą się do ekosystemu WebAssembly.
+
+## 7. WebAssembly Module
+
+Kod WebAssembly jest dostarczany jako **moduł**.
+
+Moduł może zawierać:
+
+- funkcje,
+- pamięć,
+- dane,
+- eksportowane funkcje,
+- importowane funkcje.
+
+JavaScript może załadować moduł WebAssembly i korzystać z jego funkcji.
+
+## 8. Przykład
+
+Załóżmy, że mamy funkcję:
+
+```text
+add(10, 20)
+```
+
+Może ona zostać zaimplementowana w języku C++:
+
+```cpp
+int add(int a, int b)
+{
+    return a + b;
+}
+```
+
+Następnie kod zostaje skompilowany do WebAssembly.
+
+JavaScript może później wywołać tę funkcję.
+
+Schemat:
+
+```text
+C++
+ ↓
+WebAssembly
+ ↓
+JavaScript
+ ↓
+add(10, 20)
+ ↓
+30
+```
+
+## 9. WebAssembly Text Format
+
+WebAssembly posiada również tekstową reprezentację nazywaną **WAT (WebAssembly Text Format)**.
+
+Przykładowy kod może wyglądać tak:
+
+```text
+(module
+  (func $add (param i32 i32) (result i32)
+    local.get 0
+    local.get 1
+    i32.add
+  )
+)
+```
+
+WAT jest bardziej czytelny dla człowieka.
+
+Natomiast przeglądarka może wykonywać binarny format `.wasm`.
+
+Można więc przedstawić to:
+
+```text
+WAT
+ ↓
+Compiler
+ ↓
+WASM
+```
+
+## 10. Typy danych
+
+WebAssembly posiada stosunkowo prosty zestaw podstawowych typów danych.
+
+Najważniejsze z nich to:
+
+```text
+i32
+i64
+f32
+f64
+```
+
+Czyli:
+
+```text
+i32 → 32-bitowa liczba całkowita
+i64 → 64-bitowa liczba całkowita
+f32 → 32-bitowa liczba zmiennoprzecinkowa
+f64 → 64-bitowa liczba zmiennoprzecinkowa
+```
+
+Nowsze możliwości WebAssembly obejmują również bardziej zaawansowane mechanizmy i typy.
+
+## 11. WebAssembly Memory
+
+WebAssembly posiada własny model pamięci.
+
+Można sobie go uprościć jako:
+
+```text
+WebAssembly Module
+       |
+       ↓
+    Memory
+       |
++------+------+------+
+|      |      |      |
+data   data   data
+```
+
+Kod WebAssembly może odczytywać i zapisywać dane w swojej pamięci.
+
+JavaScript może również uzyskiwać dostęp do pamięci WebAssembly poprzez odpowiednie mechanizmy API.
+
+## 12. Stack
+
+WebAssembly wykorzystuje między innymi model wykonywania oparty na **stosie**.
+
+Instrukcje operują na wartościach znajdujących się na stosie.
+
+Przykładowo:
+
+```text
+5
+3
+↓
+i32.add
+↓
+8
+```
+
+Jest to jeden z charakterystycznych elementów architektury WebAssembly.
+
+## 13. WebAssembly w przeglądarce
+
+Nowoczesne przeglądarki internetowe obsługują WebAssembly.
+
+Przykładowo:
+
+- Chrome,
+- Firefox,
+- Edge,
+- Safari.
+
+Schemat:
+
+```text
+       Browser
+          |
+    WebAssembly Engine
+          |
+       .wasm
+          |
+       Program
+```
+
+WebAssembly jest wykonywany w środowisku przeglądarki z wykorzystaniem mechanizmów bezpieczeństwa przeglądarki.
+
+## 14. WebAssembly poza przeglądarką
+
+WebAssembly nie jest ograniczony wyłącznie do przeglądarek.
+
+Może być wykonywany również poza nimi przy wykorzystaniu odpowiednich runtime'ów.
+
+Przykładowo istnieją środowiska takie jak:
+
+- Wasmtime,
+- Wasmer,
+- WAMR.
+
+Dzięki temu WebAssembly może być wykorzystywany również na serwerach oraz w aplikacjach lokalnych.
+
+## 15. WebAssembly i Rust
+
+**Rust** jest jednym z najpopularniejszych języków wykorzystywanych do tworzenia WebAssembly.
+
+Schemat:
+
+```text
+Rust
+ ↓
+wasm-bindgen / toolchain
+ ↓
+.wasm
+ ↓
+Browser
+```
+
+Rust jest szczególnie interesujący ze względu na:
+
+- wysoką wydajność,
+- bezpieczeństwo pamięci,
+- brak garbage collectora,
+- dobrą integrację z WebAssembly.
+
+## 16. WebAssembly i C/C++
+
+C oraz C++ były jednymi z pierwszych języków szczególnie interesujących w kontekście WebAssembly.
+
+Można wykorzystać między innymi **Emscripten**.
+
+Schemat:
+
+```text
+C/C++
+  ↓
+Emscripten
+  ↓
+WASM + JavaScript glue code
+  ↓
+Browser
+```
+
+Dzięki temu istniejące biblioteki i aplikacje napisane w C/C++ mogą zostać przeniesione do środowiska webowego.
+
+## 17. WebAssembly i C#
+
+WebAssembly jest również wykorzystywany przez ekosystem .NET.
+
+Jednym z najważniejszych przykładów jest **Blazor WebAssembly**.
+
+Blazor pozwala tworzyć aplikacje webowe przy użyciu:
+
+```text
+C#
++
+.NET
++
+HTML
++
+CSS
+```
+
+zamiast pisania całej logiki aplikacji w JavaScript.
+
+Schemat:
+
+```text
+C#
+ ↓
+.NET
+ ↓
+WebAssembly
+ ↓
+Browser
+```
+
+Jest to szczególnie interesujące dla programistów .NET.
+
+## 18. Blazor WebAssembly
+
+W przypadku Blazor WebAssembly aplikacja .NET może być uruchamiana po stronie klienta.
+
+Przykładowa architektura:
+
+```text
+Browser
+   |
+   ↓
+Blazor WebAssembly
+   |
+   ↓
+.NET / C#
+   |
+   ↓
+UI
+```
+
+Dzięki temu można budować aplikacje SPA wykorzystując C#.
+
+## 19. WebAssembly i gry
+
+WebAssembly jest bardzo interesujące w przypadku gier uruchamianych w przeglądarce.
+
+Można wykorzystać między innymi:
+
+```text
+C++
+Rust
+Unity
+Godot
+```
+
+Kod odpowiedzialny za intensywne obliczenia może działać jako WebAssembly.
+
+Przykładowo:
+
+```text
+Game Engine
+     ↓
+WebAssembly
+     ↓
+Browser
+     ↓
+GPU
+```
+
+## 20. WebAssembly i grafika
+
+WebAssembly może współpracować z webowymi API graficznymi.
+
+Przykładowo:
+
+```text
+WebAssembly
+     ↓
+WebGL
+     ↓
+GPU
+```
+
+oraz nowocześniejszym:
+
+```text
+WebAssembly
+     ↓
+WebGPU
+     ↓
+GPU
+```
+
+Pozwala to tworzyć zaawansowane aplikacje graficzne działające w przeglądarce.
+
+## 21. WebAssembly i AI
+
+WebAssembly może być również wykorzystywany w aplikacjach związanych ze sztuczną inteligencją.
+
+Przykładowo:
+
+```text
+AI Model
+   ↓
+WebAssembly
+   ↓
+Browser
+```
+
+Może to pozwolić wykonywać niektóre modele lub operacje ML lokalnie na urządzeniu użytkownika.
+
+Zaletą jest możliwość ograniczenia przesyłania danych na serwer.
+
+## 22. WebAssembly i prywatność
+
+Jeżeli model AI lub określony algorytm działa lokalnie w przeglądarce:
+
+```text
+User Data
+   ↓
+Browser
+   ↓
+WebAssembly
+```
+
+dane mogą pozostać na urządzeniu.
+
+Nie zawsze jest to możliwe lub optymalne, ale WebAssembly może być elementem architektury wykorzystującej **local/on-device processing**.
+
+## 23. WebAssembly i bezpieczeństwo
+
+WebAssembly został zaprojektowany z myślą o bezpiecznym wykonywaniu kodu.
+
+W przeglądarce działa w kontrolowanym środowisku.
+
+Nie oznacza to jednak, że każdy kod WebAssembly jest automatycznie bezpieczny.
+
+Bezpieczeństwo zależy również od:
+
+- samego kodu,
+- biblioteki,
+- sposobu komunikacji z JavaScriptem,
+- obsługi pamięci,
+- źródła modułu.
+
+## 24. WebAssembly System Interface – WASI
+
+**WASI (WebAssembly System Interface)** to zestaw standardowych interfejsów umożliwiających WebAssembly komunikowanie się z funkcjami systemowymi poza typową przeglądarką.
+
+Można to przedstawić:
+
+```text
+WebAssembly
+     ↓
+    WASI
+     ↓
+Operating System
+```
+
+WASI jest szczególnie ważne dla rozwoju WebAssembly poza przeglądarką.
+
+## 25. WebAssembly Component Model
+
+Ekosystem WebAssembly rozwija się również w kierunku **Component Model**.
+
+Jego celem jest ułatwienie tworzenia modułowych komponentów WebAssembly, które mogą współpracować ze sobą niezależnie od języka programowania, w którym zostały stworzone.
+
+Można to wyobrazić sobie:
+
+```text
+Rust Component
+       +
+C# Component
+       +
+Go Component
+       ↓
+WebAssembly Components
+```
+
+## 26. WebAssembly a JavaScript
+
+Najważniejsza różnica:
+
+| WebAssembly | JavaScript |
+|---|---|
+| format wykonywalny | język programowania |
+| bardzo wydajny kod | język wysokiego poziomu |
+| często C/C++/Rust | natywny język webowy |
+| `.wasm` | `.js` |
+| dobry do obliczeń | dobry do logiki aplikacji |
+| współpracuje z JS | obsługuje DOM |
+| działa w browserze | działa w browserze |
+
+Najważniejsze:
+
+**WebAssembly nie ma zastąpić JavaScriptu.**
+
+Najczęściej technologie te się uzupełniają.
+
+## 27. WebAssembly a Web Workers
+
+WebAssembly może być wykorzystywany razem z **Web Workers**.
+
+Przykładowo ciężkie obliczenia można przenieść do osobnego workera:
+
+```text
+Main Thread
+     |
+     ↓
+Web Worker
+     |
+     ↓
+WebAssembly
+     |
+     ↓
+Heavy Computation
+```
+
+Dzięki temu główny interfejs użytkownika może pozostać responsywny.
+
+## 28. Zalety WebAssembly
+
+Najważniejsze zalety WebAssembly:
+
+- wysoka wydajność,
+- możliwość wykorzystania C/C++/Rust i innych języków,
+- uruchamianie w przeglądarkach,
+- przenośność,
+- mały binarny format,
+- możliwość wykorzystania istniejącego kodu,
+- współpraca z JavaScript,
+- zastosowanie w grach,
+- zastosowanie w AI,
+- zastosowanie w obliczeniach naukowych,
+- możliwość działania poza przeglądarką,
+- rozwijający się ekosystem WASI.
+
+## 29. Wady WebAssembly
+
+WebAssembly ma również pewne ograniczenia.
+
+Nie jest bezpośrednim zamiennikiem JavaScriptu.
+
+Integracja z DOM nadal zwykle wymaga JavaScriptu lub odpowiednich frameworków.
+
+Debugowanie może być bardziej skomplikowane.
+
+Programista musi znać dodatkowy toolchain.
+
+Przenoszenie istniejących aplikacji C/C++ do przeglądarki może wymagać zmian w kodzie.
+
+Wydajność nie zawsze będzie automatycznie lepsza od dobrze zoptymalizowanego JavaScriptu.
+
+## 30. Kiedy warto używać WebAssembly?
+
+WebAssembly warto rozważyć, gdy aplikacja wymaga dużej wydajności.
+
+Przykłady:
+
+**Gry**
+
+```text
+Game Engine → WASM → Browser
+```
+
+**Edytory grafiki**
+
+```text
+Image → WASM → Processing
+```
+
+**Edytory wideo**
+
+```text
+Video → WASM → Encoding/Processing
+```
+
+**Obliczenia naukowe**
+
+```text
+Data → WASM → Calculations
+```
+
+**AI**
+
+```text
+Model → WASM → Browser
+```
+
+**CAD**
+
+```text
+3D Model → WASM → Browser
+```
+
+## 31. Przykładowa architektura aplikacji
+
+Nowoczesna aplikacja może wyglądać tak:
+
+```text
+                    WEB APPLICATION
+                           |
+             +-------------+-------------+
+             |                           |
+        JavaScript                  WebAssembly
+             |                           |
+             |                    Heavy Computation
+             |                           |
+             +-------------+-------------+
+                           |
+                       Browser
+                           |
+                        Web APIs
+```
+
+## 32. WebAssembly w ekosystemie .NET
+
+Dla Ciebie szczególnie ważny jest związek:
+
+```text
+C#
+ ↓
+.NET
+ ↓
+Blazor WebAssembly
+ ↓
+Browser
+```
+
+Jeżeli uczysz się **C#, ASP.NET Core i .NET**, WebAssembly jest ważne przede wszystkim ze względu na **Blazor WebAssembly**.
+
+W takim przypadku aplikacja może wykorzystywać C# zarówno do logiki frontendowej, jak i backendowej.
+
+## 33. Najważniejsze pojęcia
+
+Jeżeli chcesz zapamiętać WebAssembly, zapamiętaj:
+
+**WebAssembly (WASM)** – niskopoziomowy format wykonywalny przeznaczony między innymi do uruchamiania wydajnego kodu w przeglądarce.
+
+**`.wasm`** – binarny plik WebAssembly.
+
+**WAT** – tekstowa reprezentacja WebAssembly.
+
+**WebAssembly Module** – moduł zawierający kod WebAssembly.
+
+**Memory** – pamięć dostępna dla modułu WebAssembly.
+
+**WASI** – standard interfejsów systemowych dla WebAssembly.
+
+**Blazor WebAssembly** – technologia .NET pozwalająca uruchamiać aplikacje C# w przeglądarce z wykorzystaniem WebAssembly.
+
+**Emscripten** – narzędzie pozwalające między innymi kompilować kod C/C++ do WebAssembly.
+
+**wasm-bindgen** – narzędzie wykorzystywane między innymi w ekosystemie Rust do integracji Rust/WebAssembly z JavaScriptem.
+
+## 34. WebAssembly – najważniejszy schemat
+
+```text
+             C / C++ / Rust / C#
+                       |
+                       ↓
+                   COMPILER
+                       |
+                       ↓
+                     WASM
+                       |
+          +------------+------------+
+          |                         |
+          ↓                         ↓
+       Browser                  WASI Runtime
+          |                         |
+          ↓                         ↓
+     JavaScript                 System
+          |
+          ↓
+       Web APIs
+```
+
+Najważniejsze zdanie do zapamiętania:
+
+**WebAssembly to przenośny, niskopoziomowy format wykonywalny, który pozwala uruchamiać wydajny kod w przeglądarce i innych środowiskach, często współpracując z JavaScriptem.**

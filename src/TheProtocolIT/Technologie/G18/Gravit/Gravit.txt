@@ -1,0 +1,74 @@
+# Gravit Designer
+
+## 1. Czym jest Gravit Designer?
+
+Gravit Designer to narzędzie do projektowania grafiki wektorowej, które było wykorzystywane do tworzenia ilustracji, ikon, logo, materiałów reklamowych i projektów interfejsów użytkownika.
+
+Aplikacja była rozwijana przez firmę Gravit GmbH, a następnie związana z ekosystemem CorelDRAW, w którym funkcjonowała również pod nazwą Corel Vector.
+
+Warto pamiętać, że nazwa Gravit Designer odnosi się do starszego produktu, dlatego przed rozpoczęciem pracy należy sprawdzić aktualną dostępność i status jego usług.
+
+## 2. Do czego służy Gravit Designer?
+
+Gravit Designer służy do tworzenia i edytowania grafiki wektorowej, która może być skalowana bez utraty jakości.
+
+Umożliwia projektowanie logo, ikon, ilustracji, plakatów i materiałów marketingowych.
+
+Pozwala tworzyć elementy graficzne na potrzeby stron internetowych, aplikacji mobilnych oraz interfejsów użytkownika.
+
+Jest przydatny zarówno dla początkujących projektantów, jak i osób przygotowujących materiały do publikacji cyfrowej.
+
+## 3. Najważniejsze funkcje
+
+Grafika wektorowa pozwala tworzyć obrazy z wykorzystaniem ścieżek, krzywych, punktów i kształtów.
+
+Narzędzia do rysowania umożliwiają tworzenie własnych ilustracji, ikon i elementów graficznych.
+
+Warstwy pomagają organizować poszczególne elementy projektu i ułatwiają ich edycję.
+
+Typografia pozwala dodawać tekst, zmieniać jego wygląd i komponować go z grafiką.
+
+Eksport plików umożliwia przygotowywanie materiałów w formatach graficznych odpowiednich do dalszego wykorzystania.
+
+## 4. Przykładowe zastosowania
+
+Gravit Designer można było wykorzystywać do projektowania logo i identyfikacji wizualnej marki.
+
+Narzędzie nadawało się do tworzenia ikon, ilustracji oraz grafik na strony internetowe.
+
+Mogło służyć do przygotowywania prostych makiet interfejsów aplikacji i materiałów prezentacyjnych.
+
+Sprawdzało się również przy projektowaniu plakatów, wizytówek i grafik do mediów społecznościowych.
+
+## 5. Grafika wektorowa a rastrowa
+
+Grafika wektorowa opiera się na matematycznym opisie kształtów i ścieżek, dzięki czemu można ją skalować bez typowej utraty ostrości.
+
+Grafika rastrowa składa się z pikseli i jest stosowana między innymi w fotografiach oraz obrazach o dużej liczbie szczegółów.
+
+Gravit Designer koncentrował się na grafice wektorowej, podczas gdy programy takie jak Adobe Photoshop są przede wszystkim kojarzone z edycją grafiki rastrowej.
+
+## 6. Alternatywy dla Gravit Designer
+
+Do podobnych zastosowań można wykorzystać następujące narzędzia:
+
+- Inkscape – bezpłatny edytor grafiki wektorowej typu open source.
+- Figma – narzędzie do projektowania interfejsów użytkownika i współpracy nad projektami.
+- Adobe Illustrator – profesjonalny program do projektowania grafiki wektorowej.
+- CorelDRAW – pakiet graficzny wykorzystywany między innymi w projektowaniu i przygotowywaniu materiałów do druku.
+
+## 7. Zalety i ograniczenia
+
+Gravit Designer oferował intuicyjne narzędzia do grafiki wektorowej i możliwość tworzenia różnorodnych projektów bez konieczności korzystania z rozbudowanych programów graficznych.
+
+Jego ograniczeniem jest status starszego produktu oraz konieczność zweryfikowania dostępności dawnych wersji i funkcji.
+
+Przy wyborze narzędzia do nowego projektu warto uwzględnić dostępność aktualizacji, formaty eksportu, współpracę zespołową i możliwość przenoszenia plików do innych programów.
+
+## 8. Podsumowanie
+
+Gravit Designer to narzędzie do projektowania grafiki wektorowej, wykorzystywane do tworzenia logo, ikon, ilustracji i materiałów cyfrowych.
+
+Jest przykładem aplikacji z kategorii grafiki komputerowej i projektowania wizualnego.
+
+Jeśli chcesz obecnie uczyć się grafiki wektorowej, warto rozważyć Inkscape, natomiast do projektowania interfejsów aplikacji i stron internetowych szczególnie przydatna może być Figma.

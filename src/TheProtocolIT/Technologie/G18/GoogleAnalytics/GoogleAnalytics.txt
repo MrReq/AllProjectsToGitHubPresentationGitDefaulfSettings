@@ -1,0 +1,117 @@
+# Google Analytics
+
+## 1. Czym jest Google Analytics?
+
+Google Analytics to narzędzie analityczne firmy Google, które umożliwia zbieranie i analizowanie danych dotyczących ruchu na stronach internetowych oraz w aplikacjach mobilnych.
+
+Pozwala sprawdzać, ilu użytkowników odwiedza witrynę, skąd pochodzą, jakie podstrony przeglądają i jakie działania wykonują.
+
+Obecnie najważniejszą wersją produktu jest Google Analytics 4 (GA4), który wykorzystuje model danych oparty na zdarzeniach.
+
+## 2. Do czego służy Google Analytics?
+
+Google Analytics służy do mierzenia skuteczności stron internetowych, aplikacji i działań marketingowych.
+
+Umożliwia analizowanie liczby użytkowników, sesji, odsłon oraz interakcji z treściami.
+
+Pozwala sprawdzać, które kanały marketingowe przyciągają użytkowników i które kampanie przynoszą najlepsze rezultaty.
+
+Pomaga identyfikować problemy na ścieżce zakupowej oraz oceniać, czy użytkownicy wykonują oczekiwane działania, takie jak rejestracja, wysłanie formularza lub zakup produktu.
+
+## 3. Najważniejsze funkcje Google Analytics
+
+Raporty dotyczące użytkowników przedstawiają informacje o aktywności odwiedzających, ich zaangażowaniu i dostępnych danych demograficznych.
+
+Analiza ruchu umożliwia sprawdzanie, czy użytkownicy trafiają na stronę z wyszukiwarki, reklam, mediów społecznościowych czy innych źródeł.
+
+Zdarzenia (Events) pozwalają mierzyć konkretne działania, takie jak kliknięcia, przewijanie strony, pobrania plików i odtwarzanie filmów.
+
+Konwersje i zdarzenia kluczowe umożliwiają ocenianie, czy użytkownicy wykonują najważniejsze działania z punktu widzenia biznesu.
+
+Analiza ścieżek użytkowników pomaga zrozumieć, jakie kroki prowadzą do rejestracji, zakupu lub innego celu.
+
+Integracja z Google Ads umożliwia analizowanie wyników kampanii reklamowych i wspiera optymalizację marketingu.
+
+## 4. Jak działa Google Analytics?
+
+Właściciel strony internetowej konfiguruje usługę Google Analytics i dodaje odpowiedni kod pomiarowy lub wdraża go za pomocą Google Tag Managera.
+
+Po prawidłowym wdrożeniu system zbiera obsługiwane dane o interakcjach użytkowników ze stroną lub aplikacją.
+
+Dane są przesyłane do Google Analytics, gdzie zostają przetworzone i przedstawione w raportach.
+
+Analityk może następnie sprawdzić ruch na stronie, aktywność użytkowników oraz skuteczność określonych działań marketingowych.
+
+Zakres pomiarów zależy od konfiguracji, zgód użytkowników, ustawień prywatności i ograniczeń technicznych.
+
+## 5. Najważniejsze pojęcia
+
+Users (użytkownicy) oznacza użytkowników rozpoznawanych przez system zgodnie z zastosowaną metodą identyfikacji.
+
+Sessions (sesje) to okresy aktywności użytkowników w witrynie lub aplikacji.
+
+Events (zdarzenia) reprezentują poszczególne interakcje, takie jak wyświetlenie strony lub kliknięcie.
+
+Engagement Rate (współczynnik zaangażowania) przedstawia udział sesji uznanych za zaangażowane według zasad GA4.
+
+Conversions / Key Events to działania istotne dla celów biznesowych, na przykład zakup lub wysłanie formularza.
+
+Traffic Source (źródło ruchu) określa, skąd użytkownik trafił na stronę, na przykład z wyszukiwarki lub kampanii reklamowej.
+
+## 6. Przykład zastosowania
+
+Załóżmy, że prowadzisz sklep internetowy sprzedający produkty rolnicze.
+
+Dzięki Google Analytics możesz sprawdzić, ile osób odwiedza stronę produktów, ile dodaje produkty do koszyka i ile finalizuje zakup.
+
+Możesz również porównać ruch pochodzący z reklam, wyszukiwarki Google i mediów społecznościowych.
+
+Na podstawie tych danych można ustalić, które kanały przyciągają wartościowych użytkowników i na których etapach procesu zakupowego klienci najczęściej rezygnują.
+
+## 7. Google Analytics a Google Tag Manager
+
+Google Analytics służy przede wszystkim do analizowania danych i prezentowania wyników.
+
+Google Tag Manager jest narzędziem do zarządzania tagami pomiarowymi i skryptami marketingowymi na stronie internetowej.
+
+Dzięki Google Tag Managerowi można konfigurować część zdarzeń, na przykład kliknięcia przycisków, bez konieczności każdorazowego modyfikowania kodu strony.
+
+Oba narzędzia często współpracują ze sobą podczas wdrażania analityki internetowej.
+
+## 8. Zalety Google Analytics
+
+Google Analytics umożliwia podejmowanie decyzji biznesowych na podstawie danych, a nie wyłącznie intuicji.
+
+Oferuje raporty dotyczące ruchu, zaangażowania, konwersji i skuteczności kampanii.
+
+Integruje się z wybranymi usługami Google, w tym Google Ads i Looker Studio.
+
+Może być stosowany zarówno w małych witrynach, jak i w rozbudowanych serwisach internetowych oraz aplikacjach.
+
+## 9. Wady i ograniczenia Google Analytics
+
+Interpretacja raportów wymaga znajomości podstaw analityki internetowej i prawidłowej konfiguracji pomiarów.
+
+Dane mogą być niepełne z powodu blokowania skryptów, ograniczeń przeglądarek, braku zgody na określone pomiary lub innych czynników technicznych.
+
+Nieprawidłowe ustawienie zdarzeń może prowadzić do błędnych wniosków dotyczących skuteczności strony.
+
+Korzystanie z narzędzia wymaga również uwzględnienia przepisów dotyczących ochrony danych osobowych i prywatności, w tym odpowiednich zasad uzyskiwania zgód na stosowanie technologii śledzących.
+
+## 10. Znaczenie Google Analytics w pracy informatyka i biznesie
+
+Google Analytics jest przydatny dla analityków danych, specjalistów marketingu internetowego, właścicieli sklepów internetowych, projektantów UX oraz programistów.
+
+Analitycy wykorzystują go do badania zachowań użytkowników i przygotowywania raportów.
+
+Specjaliści marketingu mierzą skuteczność kampanii i źródeł ruchu.
+
+Programiści mogą wdrażać zdarzenia analityczne i integrować pomiary z witrynami oraz aplikacjami.
+
+## 11. Podsumowanie
+
+Google Analytics to narzędzie do analizy ruchu internetowego i zachowań użytkowników, które pomaga mierzyć skuteczność stron, aplikacji i kampanii marketingowych.
+
+Jego najważniejsze funkcje obejmują analizę użytkowników, sesji, zdarzeń, źródeł ruchu oraz konwersji.
+
+Warto poznać Google Analytics, jeśli interesujesz się tworzeniem stron internetowych, marketingiem cyfrowym, analizą danych lub rozwojem produktów internetowych.

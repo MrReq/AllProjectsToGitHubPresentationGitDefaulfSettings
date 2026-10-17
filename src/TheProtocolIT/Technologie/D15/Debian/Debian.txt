@@ -1,0 +1,186 @@
+# Debian
+
+## 1. Czym jest Debian?
+
+Debian to darmowy system operacyjny typu open source oparty na jądrze Linux, rozwijany przez międzynarodową społeczność programistów.
+
+Jest jedną z najstarszych i najbardziej znanych dystrybucji Linuksa, cenioną za stabilność, bezpieczeństwo oraz rozbudowany system zarządzania pakietami.
+
+Debian może być wykorzystywany na komputerach osobistych, serwerach, maszynach wirtualnych oraz w środowiskach programistycznych i infrastrukturalnych.
+
+Stanowi również podstawę wielu innych dystrybucji Linuksa, w tym Ubuntu.
+
+## 2. Do czego służy Debian?
+
+- Uruchamianie serwerów internetowych i aplikacyjnych.
+- Tworzenie środowisk programistycznych.
+- Zarządzanie bazami danych.
+- Hosting stron internetowych i API.
+- Obsługa kontenerów Docker i środowisk DevOps.
+- Automatyzacja zadań administracyjnych za pomocą skryptów.
+- Nauka administracji systemami Linux.
+- Uruchamianie aplikacji Java, Python, C++ i wielu innych języków programowania.
+
+## 3. Najważniejsze cechy Debiana
+
+Open source
+
+Kod systemu jest dostępny publicznie, a jego rozwój odbywa się przy udziale społeczności.
+
+Stabilność
+
+Debian Stable stawia na sprawdzone wersje oprogramowania, dzięki czemu jest popularny w środowiskach serwerowych.
+
+APT i pakiety DEB
+
+System wykorzystuje pakiety `.deb` oraz menedżer pakietów APT do instalowania, aktualizowania i usuwania programów.
+
+Bezpieczeństwo
+
+Projekt publikuje aktualizacje bezpieczeństwa i utrzymuje informacje o podatnościach w obsługiwanych wydaniach.
+
+Elastyczność
+
+Debian może działać zarówno jako system bez graficznego interfejsu użytkownika, jak i komputer z pełnym środowiskiem graficznym.
+
+Wiele architektur
+
+Obsługuje liczne architektury procesorów, w tym popularne x86-64 i ARM64, zależnie od wydania i dostępności pakietów.
+
+## 4. Jak wygląda architektura systemu Debian?
+
+Aplikacje
+
+Przeglądarki, IDE, serwery WWW, bazy danych
+
+Narzędzia systemowe i biblioteki
+
+APT, systemd, powłoka Bash, biblioteki systemowe
+
+Jądro Linux
+
+Procesy, pamięć, sterowniki, system plików i sieć
+
+Sprzęt komputerowy lub maszyna wirtualna
+
+Jądro Linux zarządza zasobami sprzętowymi, a pozostałe elementy systemu umożliwiają uruchamianie aplikacji, instalowanie oprogramowania i administrowanie komputerem.
+
+## 5. Najważniejsze polecenia Debiana
+
+Instalowanie pakietów:
+
+```
+sudo apt update
+sudo apt install git
+```
+
+Pierwsze polecenie odświeża informacje o dostępnych pakietach, a drugie instaluje Git.
+
+Aktualizacja zainstalowanych pakietów:
+
+```
+sudo apt upgrade
+```
+
+Sprawdzanie wersji systemu:
+
+```
+cat /etc/os-release
+```
+
+Wyświetlanie plików w katalogu:
+
+```
+ls -la
+```
+
+Sprawdzanie adresów IP:
+
+```
+ip addr
+```
+
+Wyszukiwanie pakietu:
+
+```
+apt search nginx
+```
+
+Polecenia te są przydatne podczas codziennej pracy z Debianem oraz przy konfigurowaniu serwerów.
+
+## 6. Najważniejsze narzędzia związane z Debianem
+
+- APT – menedżer pakietów służący do instalowania i aktualizowania oprogramowania.
+- dpkg – narzędzie do zarządzania pakietami w formacie DEB.
+- Bash – powłoka poleceń umożliwiająca pracę w terminalu i tworzenie skryptów.
+- systemd – system inicjalizacji oraz zarządzania usługami.
+- SSH – protokół umożliwiający zdalne zarządzanie komputerami i serwerami.
+- Docker – platforma do uruchamiania aplikacji w kontenerach.
+- systemctl – polecenie do zarządzania usługami systemowymi.
+- journalctl – narzędzie do przeglądania dzienników systemowych.
+
+## 7. Debian a inne systemy operacyjne
+
+| System         | Charakterystyka                                                     |
+| -------------- | ------------------------------------------------------------------- |
+| Debian         | Stabilna dystrybucja Linux z dużym repozytorium pakietów            |
+| Ubuntu         | Dystrybucja oparta na Debianie, popularna na desktopach i serwerach |
+| Fedora         | Dystrybucja oferująca stosunkowo nowe wersje oprogramowania         |
+| Arch Linux     | Dystrybucja nastawiona na elastyczność i samodzielną konfigurację   |
+| Windows Server | System serwerowy Microsoftu                                         |
+| macOS          | System operacyjny Apple dla komputerów Mac                          |
+
+Debian jest szczególnie dobrym wyborem, jeśli zależy Ci na stabilnym środowisku serwerowym i poznaniu technologii wykorzystywanych w administracji systemami Linux.
+
+## 8. Zalety i wady Debiana
+
+Zalety:
+
+- Jest darmowy i rozwijany jako projekt open source.
+- Charakteryzuje się dużą stabilnością.
+- Oferuje ogromne repozytorium oprogramowania.
+- Ma rozbudowaną dokumentację i aktywną społeczność.
+- Sprawdza się w serwerach, kontenerach i środowiskach programistycznych.
+- Pozwala precyzyjnie konfigurować system i usługi.
+
+Wady:
+
+- W wydaniu Stable część pakietów może być starsza niż w dystrybucjach nastawionych na najnowsze oprogramowanie.
+- Niektóre sterowniki i komponenty sprzętowe mogą wymagać dodatkowej konfiguracji.
+- Administracja serwerem wymaga znajomości terminala, uprawnień i konfiguracji systemu.
+- Początkujący użytkownicy mogą potrzebować czasu na poznanie struktury systemu Linux.
+
+## 9. Debian na rynku pracy
+
+Znajomość Debiana przydaje się w pracy związanej z administracją systemami, programowaniem backendowym i utrzymywaniem infrastruktury IT.
+
+Najbardziej związane z nim stanowiska to:
+
+- Linux System Administrator.
+- DevOps Engineer.
+- System Engineer.
+- Backend Developer.
+- Site Reliability Engineer (SRE).
+- Cloud Engineer.
+- Cybersecurity Specialist.
+
+Warto połączyć naukę Debiana z Dockerem, Git, Bash, SSH, sieciami komputerowymi, serwerami WWW oraz podstawami CI/CD.
+
+## 10. Jak zacząć naukę Debiana?
+
+Najlepiej zainstalować Debiana na maszynie wirtualnej, na przykład w VirtualBox, aby bezpiecznie eksperymentować z systemem.
+
+Następnie warto poznać strukturę katalogów Linux, terminal, uprawnienia plików, użytkowników, procesy, usługi i instalowanie pakietów.
+
+Kolejnym krokiem może być uruchomienie serwera Nginx, aplikacji Java Spring Boot i bazy danych PostgreSQL.
+
+Dzięki temu nauczysz się wykorzystywać Debiana jako praktyczne środowisko do uruchamiania i testowania aplikacji backendowych.
+
+Materiały do nauki:
+
+- [Oficjalna strona Debiana](https://www.debian.org/)
+- [Oficjalna dokumentacja](https://www.debian.org/doc/)
+- [Wydania Debiana](https://www.debian.org/releases/)
+- [Debian Wiki](https://wiki.debian.org/)
+
+Podsumowanie: Debian to stabilny system operacyjny Linux wykorzystywany na komputerach osobistych i serwerach. Jego znajomość jest szczególnie przydatna w backendzie, administracji systemami, Dockerze i DevOps.

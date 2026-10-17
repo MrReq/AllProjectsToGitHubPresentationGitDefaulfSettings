@@ -1,0 +1,296 @@
+# Cypress — notatka o technologii
+
+## 1. Czym jest Cypress?
+
+[Cypress: Write Automated Tests to Validate Web Applications](https://images.openai.com/static-rsc-4/7YJdqM8pCLQRC_VECAJzfRyHPPWcoj5aWPauqE-ShcmOmr3mpuFHij-RAL27xLnOCToQNtrK4ga7tvfMJhQhOqCZWYRwdRqD5nF_AUQFSCbhdgayX_2lw_U0NWkehYc-aiBontFXL7qyFpVgTCrro7-VtoJJjBCMio2GV-1qiMg?purpose=inline)
+
+[auth0.com](https://auth0.com/blog/cypress-write-automated-tests-to-validate-web-applications/)
+
+Cypress to narzędzie do automatyzacji testów aplikacji internetowych, wykorzystywane przede wszystkim do testowania interfejsów użytkownika oraz integracji z backendem.
+
+Pozwala pisać testy w JavaScript lub TypeScript, które sprawdzają, czy aplikacja działa zgodnie z wymaganiami.
+
+Cypress jest szczególnie popularny w testowaniu frontendów tworzonych w technologiach takich jak React, Angular i Vue.
+
+Umożliwia automatyczne wykonywanie działań w przeglądarce, na przykład wpisywanie danych do formularzy, klikanie przycisków, sprawdzanie komunikatów oraz weryfikowanie odpowiedzi aplikacji.
+
+Cypress udostępnia również narzędzia do testowania komponentów, debugowania i analizowania przebiegu testów.
+
+Oficjalna strona: [Cypress — oficjalna strona](https://www.cypress.io/).
+
+## 2. Najważniejsze cechy Cypress
+
+Testy end-to-end (E2E)
+
+Pozwalają sprawdzać całe ścieżki użytkownika, np. rejestrację, logowanie czy złożenie zamówienia.
+
+Testy komponentów
+
+Umożliwiają uruchamianie i testowanie komponentów frontendowych w przeglądarce, bez konieczności uruchamiania całej aplikacji.
+
+Automatyczne ponawianie sprawdzeń
+
+Cypress ponawia wiele zapytań o elementy i asercji do momentu spełnienia warunku lub upłynięcia limitu czasu.
+
+Debugowanie
+
+Test Runner umożliwia obserwowanie kroków testu, sprawdzanie błędów oraz analizowanie stanu aplikacji.
+
+Obsługa JavaScript i TypeScript
+
+Testy można pisać w obu językach, wykorzystując typowe konstrukcje programistyczne.
+
+Przechwytywanie żądań HTTP
+
+Cypress może obserwować, przechwytywać i modyfikować wybrane żądania sieciowe, co ułatwia testowanie integracji z API.
+
+## 3. Jak działa Cypress?
+
+Typowy proces automatyzacji testów wygląda następująco:
+
+1\. Aplikacja internetowa
+
+Np. formularz logowania
+
+2\. Test Cypress
+
+Scenariusz zapisany w JavaScript lub TypeScript
+
+3\. Interakcje z aplikacją
+
+Wpisywanie tekstu, kliknięcia i sprawdzanie elementów
+
+4\. Asercje
+
+Weryfikacja oczekiwanych rezultatów
+
+5\. Wynik testu
+
+Pass lub Fail
+
+Cypress wykonuje polecenia testowe w kontekście przeglądarki i udostępnia własne mechanizmy oczekiwania na elementy oraz sprawdzania stanu aplikacji.
+
+W porównaniu z wieloma starszymi narzędziami do automatyzacji przeglądarek oferuje zintegrowany Test Runner, który ułatwia analizę przebiegu testów.
+
+## 4. Instalacja Cypress
+
+Cypress można zainstalować w projekcie Node.js za pomocą npm.
+
+Najpierw inicjalizujemy projekt:
+
+```
+npm init -y
+```
+
+Następnie instalujemy Cypress:
+
+```
+npm install --save-dev cypress
+```
+
+Uruchamiamy interfejs Cypress:
+
+```
+npx cypress open
+```
+
+Aby wykonać testy w trybie bez interfejsu graficznego:
+
+```
+npx cypress run
+```
+
+Cypress wymaga odpowiedniego środowiska Node.js oraz obsługiwanej przeglądarki.
+
+## 5. Podstawowy przykład testu Cypress
+
+Załóżmy, że chcemy sprawdzić, czy strona internetowa wyświetla poprawny nagłówek.
+
+Plik `cypress/e2e/home.cy.js`:
+
+```
+describe("Strona główna", () => {
+  it("wyświetla nagłówek strony", () => {
+    cy.visit("https://example.com");
+
+    cy.get("h1")
+      .should("be.visible")
+      .and("contain", "Example Domain");
+  });
+});
+```
+
+Wyjaśnienie:
+
+- `describe()` grupuje powiązane testy.
+- `it()` definiuje pojedynczy przypadek testowy.
+- `cy.visit()` otwiera wskazaną stronę.
+- `cy.get("h1")` wyszukuje element HTML.
+- `should("be.visible")` sprawdza, czy element jest widoczny.
+- `and("contain", ...)` weryfikuje, czy zawiera oczekiwany tekst.
+
+Cypress automatycznie ponawia wiele sprawdzeń, dlatego nie trzeba dodawać stałego opóźnienia po każdej operacji.
+
+## 6. Przykład testowania formularza logowania
+
+```
+describe("Logowanie użytkownika", () => {
+  beforeEach(() => {
+    cy.visit("/login");
+  });
+
+  it("pozwala wpisać dane logowania", () => {
+    cy.get('[data-testid="email"]')
+      .type("tester@example.com");
+
+    cy.get('[data-testid="password"]')
+      .type("ExamplePassword123");
+
+    cy.get('[data-testid="login-button"]')
+      .click();
+
+    cy.get('[data-testid="welcome-message"]')
+      .should("be.visible");
+  });
+});
+```
+
+Przykład zakłada, że aplikacja posiada stronę `/login` oraz elementy o wskazanych atrybutach `data-testid`.
+
+W rzeczywistym projekcie należy dostosować selektory i oczekiwany rezultat do implementacji aplikacji.
+
+W testach warto unikać prawdziwych haseł użytkowników oraz używać przeznaczonych do testów kont i danych.
+
+## 7. Najważniejsze polecenia Cypress
+
+| Polecenie         | Zastosowanie                                |
+| ----------------- | ------------------------------------------- |
+| `cy.visit()`      | Otwieranie strony                           |
+| `cy.get()`        | Wyszukiwanie elementów                      |
+| `cy.contains()`   | Wyszukiwanie elementów na podstawie tekstu  |
+| `cy.click()`      | Klikanie elementów                          |
+| `cy.type()`       | Wpisywanie tekstu                           |
+| `cy.clear()`      | Czyszczenie pola                            |
+| `cy.select()`     | Wybieranie opcji z listy                    |
+| `cy.check()`      | Zaznaczanie checkboxów                      |
+| `cy.should()`     | Sprawdzanie oczekiwanego stanu              |
+| `cy.intercept()`  | Obserwowanie lub przechwytywanie żądań HTTP |
+| `cy.request()`    | Wysyłanie żądań HTTP w testach              |
+| `cy.screenshot()` | Zapisywanie zrzutów ekranu                  |
+
+## 8. Testowanie API za pomocą Cypress
+
+Cypress nie służy wyłącznie do testowania interfejsu użytkownika.
+
+Może również wysyłać żądania HTTP i sprawdzać odpowiedzi API.
+
+Przykład:
+
+```
+describe("API użytkowników", () => {
+  it("zwraca poprawną odpowiedź", () => {
+    cy.request("GET", "/api/users")
+      .then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body).to.be.an("array");
+      });
+  });
+});
+```
+
+W tym przykładzie zakładamy, że aplikacja udostępnia endpoint `/api/users`, a odpowiedzią jest tablica użytkowników.
+
+Test API może działać niezależnie od interfejsu graficznego, co ułatwia lokalizowanie błędów.
+
+## 9. Do czego wykorzystuje się Cypress?
+
+[Modern Front-End Testing with Cypress | TestDriven.io](https://images.openai.com/static-rsc-4/ZDMCawcEO1LUpq03Zmkbhg493ZJ5D3dr5PVG0jGWPwL7OueHaUbRCMEf-3S4x-DKFudZgpg9jvF9QotEvJobFXzUOHOiDntuUEa39mrsTH7_NRhQVd_-Ej7-MxOeKJ98KiGpR-cBARk62FURvTifgrxBGZXfr1AAbIHHEWAL6XI?purpose=inline)
+
+Testy end-to-end
+
+Weryfikacja pełnych scenariuszy użytkownika, takich jak logowanie, zakup produktu czy wysłanie formularza.
+
+[Getting Started with Cypress Component Testing (React)](https://images.openai.com/static-rsc-4/vBNcOr68ZHhmLu26yBlaXahFrwBEAUOtjPF_VilsDGJ4v3TFie0uynYooj2MAkRjlXswl3UEnf19bXCOtKZnm0gzBqSe0nfPh-PrF56uOaG2OVbSV1g8oE3nEBhLg3ezbor63bzSxKZuiz3wzyD6XBXC_nwzEJJD-xWGOn1AbB4?purpose=inline)
+
+Testy komponentów
+
+Sprawdzanie działania komponentów interfejsu w izolacji, np. przycisków, formularzy i kart.
+
+[Add GUI to your E2E API tests](https://images.openai.com/static-rsc-4/vAv117TquKA00mzbPgZ7Zj9Akb_m_V1TOBpZfq_7EO8I_Fq_JfBZvJQVXCSIZcutyeMWnVJWQUnziRx35wyQQmLNN2osUouxSshhsnww0JGiGTCHUCvSOwRR3CZUMcqQNnPYl5VeZPMaKAFnPHDY9Gz6mDRDDemcVGR1VlTb7oY?purpose=inline)
+
+Testy integracyjne API
+
+Weryfikacja odpowiedzi serwera, kodów HTTP i danych zwracanych przez endpointy.
+
+[Testing mobile, tablet and desktop devices with Cypress – Max Schmitt](https://images.openai.com/static-rsc-4/9WCEvX1H7F5H-11q0_EPMeeS-WOtKQmStuX4cRdhruYulg7w_1h5Qu2AtFnGq6PX-f2CXu4d0qTIbpsD23WkilR2SwbULluJpWtfGoB41K3Lr9fhFmbjLredTZ2S3VU4LNq9ZLRz4gIJW5j965KDWK3seQstMjA9jsvv8X_xj00?purpose=inline)
+
+CI/CD
+
+Automatyczne wykonywanie testów po zmianach w kodzie, np. w GitHub Actions lub Jenkinsie.
+
+## 10. Cypress a Playwright i Selenium
+
+| Cecha                                | Cypress                    | Playwright                                      | Selenium                            |
+| ------------------------------------ | -------------------------- | ----------------------------------------------- | ----------------------------------- |
+| Główne zastosowanie                  | Testy webowe i komponentów | Testy webowe i automatyzacja przeglądarek       | Automatyzacja przeglądarek          |
+| Języki                               | JavaScript, TypeScript     | JavaScript, TypeScript, Python, Java, C#        | Java, Python, JavaScript, C# i inne |
+| Test Runner                          | Wbudowany                  | Wbudowany Playwright Test dla wybranych języków | Zależny od frameworka testowego     |
+| Testowanie API                       | Tak                        | Tak                                             | Zwykle przez dodatkowe biblioteki   |
+| Wsparcie dla wielu kart i kontekstów | Bardziej ograniczone       | Rozbudowane                                     | Zależne od implementacji            |
+| Integracja z frontendem              | Bardzo dobra               | Bardzo dobra                                    | Uniwersalna                         |
+
+Cypress jest dobrym wyborem dla zespołów frontendowych korzystających z JavaScript lub TypeScript.
+
+Playwright jest szczególnie przydatny, gdy ważne są scenariusze obejmujące wiele kart, kontekstów przeglądarki i różne silniki przeglądarek.
+
+Selenium pozostaje popularnym rozwiązaniem w dużych projektach testowych i środowiskach korzystających z wielu języków programowania.
+
+## 11. Zalety i wady Cypress
+
+Zalety:
+
+- Czytelna składnia i stosunkowo niski próg wejścia.
+- Wbudowany Test Runner i narzędzia debugowania.
+- Automatyczne ponawianie wielu sprawdzeń.
+- Możliwość testowania UI, komponentów i API.
+- Dobra integracja z nowoczesnym frontendem.
+- Obsługa JavaScript i TypeScript.
+
+Wady:
+
+- Skupia się przede wszystkim na aplikacjach internetowych.
+- Nie zastępuje pełnego frameworka do testowania backendu.
+- Niektóre scenariusze wielokartowe i wielokontekstowe są mniej wygodne niż w Playwright.
+- Wymaga znajomości JavaScript lub TypeScript.
+- Testy E2E mogą być podatne na niestabilność, jeśli aplikacja, dane testowe lub selektory są źle przygotowane.
+
+## 12. Jak zacząć naukę Cypress?
+
+Proponowana kolejność nauki:
+
+1. Poznaj podstawy HTML, CSS i JavaScript.
+2. Naucz się podstaw Node.js i npm.
+3. Zainstaluj Cypress i uruchom pierwszy test.
+4. Opanuj selektory, interakcje i asercje.
+5. Naucz się testować formularze i nawigację.
+6. Poznaj `beforeEach()`, fixtures i niestandardowe komendy.
+7. Naucz się testować API przy użyciu `cy.request()`.
+8. Poznaj `cy.intercept()` i kontrolowanie odpowiedzi sieciowych.
+9. Uruchamiaj testy w CI/CD.
+10. Zbuduj projekt automatyzacji dla aplikacji demonstracyjnej.
+
+Przydatne materiały:
+
+- [Oficjalna dokumentacja Cypress](https://docs.cypress.io/)
+- [Dlaczego warto korzystać z Cypress](https://docs.cypress.io/app/get-started/why-cypress)
+- [Dokumentacja Playwright](https://playwright.dev/)
+
+## 13. Czy warto uczyć się Cypress?
+
+Tak, szczególnie jeśli interesuje Cię QA Automation, testowanie aplikacji webowych oraz automatyzacja scenariuszy użytkownika.
+
+Warto połączyć naukę Cypress z podstawami JavaScript, testowania API, asercji, Git i CI/CD.
+
+Jeżeli planujesz testować aplikacje backendowe Java i Spring Boot, Cypress może sprawdzać frontend i wybrane endpointy, natomiast do testów jednostkowych backendu nadal przydadzą się JUnit i Mockito.
+
+Najlepszym ćwiczeniem będzie zbudowanie zestawu testów dla formularza logowania, rejestracji użytkownika i podstawowych operacji API.

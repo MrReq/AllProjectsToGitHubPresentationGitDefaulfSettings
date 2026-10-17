@@ -1,0 +1,367 @@
+# CSS — notatka o technologii
+
+## 1. Czym jest CSS?
+
+[Conquering Frontend Mentor — Challenge -5 | by Nabendu Biswas | Medium](https://images.openai.com/static-rsc-4/ko-dZCxUzTQtUPU0zhE_VxpQAasHFZA1fjtA-tgbBXcNK_YqwGuozHLiD5fYxyjNSS_tbeUdLoAE4N2dopO8NvhcucrHbI4z9LRrsBLLzZGsyOUW_di-Sv0V4VtEEmLTD5yNi2YLSwJ5dybkiBxzSr8GUEzB4bSpC-6fW77APXo?purpose=inline)
+
+[nabendu82.medium.com](https://nabendu82.medium.com/conquering-frontend-mentor-challenge-5-b695573be6bc)
+
+CSS (Cascading Style Sheets) to język arkuszy stylów wykorzystywany do określania wyglądu i układu stron internetowych.
+
+CSS odpowiada za kolory, czcionki, odstępy, rozmiary elementów, animacje, rozmieszczenie treści oraz dostosowanie strony do różnych rozmiarów ekranów.
+
+CSS współpracuje przede wszystkim z HTML, który definiuje strukturę strony, oraz JavaScriptem, który umożliwia dodawanie interaktywności.
+
+Przykładowo HTML tworzy przycisk, natomiast CSS określa jego kolor, kształt, rozmiar i wygląd po najechaniu kursorem.
+
+CSS nie jest językiem programowania ogólnego przeznaczenia, lecz deklaratywnym językiem stylów.
+
+## 2. Najważniejsze cechy CSS
+
+Oddzielenie wyglądu od struktury
+
+HTML opisuje zawartość strony, a CSS odpowiada za jej prezentację.
+
+Kaskadowość
+
+Jeśli kilka reguł określa styl tego samego elementu, przeglądarka rozstrzyga, które deklaracje mają zastosowanie, uwzględniając między innymi pochodzenie reguły, ważność, specyficzność i kolejność.
+
+Dziedziczenie
+
+Niektóre właściwości, takie jak kolor tekstu czy rodzina czcionki, mogą być dziedziczone przez elementy potomne.
+
+Responsywność
+
+CSS umożliwia dostosowanie wyglądu strony do telefonów, tabletów i komputerów.
+
+Animacje i przejścia
+
+Za pomocą `transition`, `transform` i `@keyframes` można tworzyć płynne efekty wizualne.
+
+Wielokrotne wykorzystanie stylów
+
+Jedna reguła CSS może być stosowana do wielu elementów na różnych stronach serwisu.
+
+## 3. Jak działa CSS?
+
+Przeglądarka pobiera HTML oraz powiązane arkusze CSS, a następnie ustala, jakie style mają zastosowanie do poszczególnych elementów.
+
+Typowy proces wygląda następująco:
+
+1. Przeglądarka analizuje strukturę dokumentu HTML.
+2. Odczytuje reguły CSS z arkuszy zewnętrznych, elementów `style` lub atrybutów `style`.
+3. Dopasowuje selektory CSS do elementów dokumentu.
+4. Rozstrzyga konflikty między regułami.
+5. Oblicza rozmiary i pozycje elementów.
+6. Renderuje stronę na ekranie.
+
+CSS może być zapisany w osobnym pliku `.css`, wewnątrz dokumentu HTML albo bezpośrednio w atrybucie elementu.
+
+Najczęściej zaleca się używanie zewnętrznych arkuszy stylów, ponieważ ułatwiają utrzymanie i ponowne wykorzystywanie kodu.
+
+## 4. Podstawowy przykład CSS
+
+HTML:
+
+```
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moja strona</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Witaj na mojej stronie!</h1>
+    <p>To jest przykładowy tekst.</p>
+    <button>Kliknij mnie</button>
+</body>
+</html>
+```
+
+Plik `style.css`:
+
+```
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    margin: 0;
+    padding: 30px;
+}
+
+h1 {
+    color: #2563eb;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+```
+
+W tym przykładzie CSS zmienia wygląd strony, ustawia kolor tła, określa typografię i nadaje przyciskowi własny styl.
+
+Selektor `body` wybiera element `body`, natomiast `button:hover` definiuje wygląd przycisku po najechaniu kursorem.
+
+## 5. Najważniejsze elementy składni CSS
+
+| Element                 | Zastosowanie                                   |
+| ----------------------- | ---------------------------------------------- |
+| Selektory               | Wybieranie elementów HTML                      |
+| Właściwości             | Określanie cech wyglądu                        |
+| Wartości                | Ustalanie wartości właściwości                 |
+| Klasy `.nazwa`          | Stylowanie grup elementów                      |
+| Identyfikatory `#nazwa` | Wybieranie elementu o określonym ID            |
+| Pseudoklasy             | Stylowanie stanów, np. `:hover`                |
+| Pseudoelementy          | Stylowanie części elementów, np. `::before`    |
+| Media queries           | Dopasowanie stylów do warunków ekranu          |
+| Zmienne CSS             | Przechowywanie wielokrotnie używanych wartości |
+| `@keyframes`            | Definiowanie animacji                          |
+
+## 6. Model pudełkowy — Box Model
+
+[Difference Between Margin and Padding: A CSS Guide](https://images.openai.com/static-rsc-4/drGB_mrLKWS5PLWqJQZN-YcGNRgPziTcqTHVYdEvuDlSGQt96rxNaJeOKF55aEnbMXXi5AmHQJrKwJvTeWOWfbdmyLZNkrR-W71gUywVK3DGkSvDK_NGGAzesGqyC55JFPQPRNOZArdcEB5C3hogfAiEJ2xN4uSA8Dj0LddVMxk?purpose=inline)
+
+[codedesign.ai](https://codedesign.ai/blog/difference-between-margin-and-padding/)
+
+W CSS każdy element jest traktowany w układzie strony jako prostokątny obszar.
+
+Model pudełkowy składa się z czterech podstawowych części:
+
+- Content — właściwa zawartość, np. tekst lub obraz.
+- Padding — odstęp między zawartością a obramowaniem.
+- Border — obramowanie elementu.
+- Margin — odstęp na zewnątrz obramowania.
+
+Przykład:
+
+```
+.card {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #2563eb;
+    margin: 16px;
+    box-sizing: border-box;
+}
+```
+
+Właściwość `box-sizing: border-box` sprawia, że zadeklarowana szerokość obejmuje zawartość, padding i obramowanie, co ułatwia kontrolowanie wymiarów elementów.
+
+## 7. Flexbox i CSS Grid
+
+Flexbox i Grid to dwa podstawowe mechanizmy układania elementów na stronie.
+
+[Using PHP and CSS Grid to Create a Recent Articles Section | by Daniel Pericich | Nerd For Tech | Medium](https://images.openai.com/static-rsc-4/SjDPCfMt_cnnzc-Q5H7n5IOpP9STBX4u-RlMBAung9m6D1o3V2YhaceesZ4MJfEHfTt29IUmMNemEHNE3B4CMoBzxjBqb_lrejB89FARO9yfapAMl_be2fh4yq8HIxHamr93VbapiSxxhvSU2jvxYF06bZJDHujG_nYwYN8BjCk?purpose=inline)
+
+Flexbox
+
+Najlepiej sprawdza się przy układach jednowymiarowych — w wierszu albo kolumnie. Umożliwia wyrównywanie elementów, rozdzielanie przestrzeni i kontrolowanie odstępów.
+
+[Flexbox VS Grid. One & Two Dimensions | by Byron Skoutaris | Medium](https://images.openai.com/static-rsc-4/sPThnp7-GEsACx-k4Fyyx7Gnbt5uJdGuIETeMjpzDtpOq1sGK_vzpqZRersQRsZT7hEth-ycFTDWoX8akrYWNTWJrVAa11uSukIgYtryPcbgyWTlutO3ZqAvohreiFXVoCWmH_nxXBA_wN0yaEYItB2R0E7m8O6hnqmEeSS5r0s?purpose=inline)
+
+CSS Grid
+
+Służy do budowania układów dwuwymiarowych, w których kontrolujesz jednocześnie wiersze i kolumny. Dobrze sprawdza się przy siatkach kart, panelach i układach całych stron.
+
+Przykład Flexbox:
+
+```
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+```
+
+Przykład CSS Grid:
+
+```
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+```
+
+Flexbox jest dobrym wyborem do menu nawigacyjnego lub grupy przycisków, natomiast Grid ułatwia tworzenie regularnych siatek kart i bardziej złożonych układów.
+
+## 8. Responsywność i Media Queries
+
+Responsywne strony dopasowują się do szerokości ekranu oraz innych właściwości urządzenia.
+
+CSS umożliwia tworzenie różnych reguł za pomocą `@media`.
+
+```
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+```
+
+Na większych ekranach elementy są rozmieszczane w trzech kolumnach, a na ekranach o szerokości do 768 pikseli układ przechodzi do jednej kolumny.
+
+W praktyce warto projektować interfejsy z myślą o różnych szerokościach ekranów, czytelności tekstu, dostępności i wygodzie obsługi dotykowej.
+
+## 9. Zaawansowane możliwości CSS
+
+Zmienne CSS
+
+Pozwalają przechowywać wspólne kolory, odstępy i inne wartości.
+
+```
+:root {
+    --primary-color: #2563eb;
+    --spacing: 16px;
+}
+
+.button {
+    background-color: var(--primary-color);
+    padding: var(--spacing);
+}
+```
+
+Animacje
+
+CSS pozwala animować właściwości elementów bez konieczności pisania własnej logiki animacji w JavaScripcie.
+
+```
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.panel {
+    animation: fadeIn 0.5s ease-in;
+}
+```
+
+Pseudoklasy
+
+Pseudoklasy takie jak `:hover`, `:focus`, `:checked` i `:disabled` pozwalają zmieniać wygląd elementów w zależności od ich stanu.
+
+Funkcje CSS
+
+Funkcje takie jak `calc()`, `min()`, `max()` i `clamp()` umożliwiają obliczanie wartości oraz tworzenie elastycznych rozmiarów.
+
+## 10. Frameworki i narzędzia związane z CSS
+
+| Technologia     | Zastosowanie                                              |
+| --------------- | --------------------------------------------------------- |
+| Bootstrap       | Gotowe komponenty i system siatki                         |
+| Tailwind CSS    | Stylowanie za pomocą klas narzędziowych                   |
+| Sass / SCSS     | Rozszerzenie CSS o m.in. zmienne, funkcje i zagnieżdżenia |
+| CSS Modules     | Izolowanie nazw klas w aplikacjach frontendowych          |
+| PostCSS         | Przetwarzanie CSS za pomocą wtyczek                       |
+| Stylelint       | Wykrywanie problemów i egzekwowanie zasad stylowania      |
+| Figma           | Projektowanie interfejsów przed implementacją             |
+| Chrome DevTools | Debugowanie stylów i analiza układu strony                |
+
+Warto pamiętać, że Tailwind CSS i Bootstrap nie zastępują CSS całkowicie — opierają się na nim i ułatwiają budowanie interfejsów.
+
+## 11. Do czego wykorzystuje się CSS?
+
+[Web Design & Development | Digital Marketing Services | Web Experts Greece](https://images.openai.com/static-rsc-4/YveZ_7zKNR71I0Nzl_wExwuyXlXjFmFRu8u5FuwxBe9jpGgHOONziwJE1Qwtk1nIEl8sK1pAVI1UIO14aBNPMxQOOyGFrmHrnGDGH8Eu2jfF4ZV9ZkP9VfqY4GaSEHmuV-H7MbGeUG7BfcNYRF0_GvlxAb83ZBX-36ZUWoydTCU?purpose=inline)
+
+Strony internetowe
+
+Stylowanie tekstu, nagłówków, linków, obrazów, menu, formularzy i całego układu witryny.
+
+[Analytics Dashboard — Clean SaaS Admin UI by Trifleck on Dribbble](https://images.openai.com/static-rsc-4/i02Ko6pa-unf775i7fjTR1qZUpYf594f9SVi80wZ5jGYBVzypa303woqYv_WovMN12Aa_pASbsFuyjjS73T09Yo5SHbQcUoKMMVxajmjElb-H5eD6nAApfGN0U1ocUgSEC_0jpRqgna7eUr1SV6GyIgjyXXKd3PnWCsAWVkXE3s?purpose=inline)
+
+Aplikacje webowe
+
+Tworzenie paneli administracyjnych, dashboardów, formularzy i interfejsów użytkownika.
+
+[✨ Day 8 of #100DaysOfDesign – Product Card UI ✨ by Srilatha on Dribbble](https://images.openai.com/static-rsc-4/dpTMsivBJgxz7dYoQimGn66M1S6MRkR0DXUhuRYhbNecU2HFWJuWTuZYf0FglKUS9PiQ2E3IDZ2WyeSslV9BYwpH-OSIfvczWf4vYVN7hEvjQYOYJtyVwo8U5AXCZ4iq-K9S67IY2yrNSQPauFnsQiZdpnVqpKgTJi5ksPZx5Mg?purpose=inline)
+
+Sklepy internetowe
+
+Projektowanie kart produktów, koszyków, filtrów, przycisków zakupu i responsywnych widoków.
+
+CSS jest również stosowany w interfejsach webowych aplikacji SaaS, systemach zarządzania treścią, dokumentacji online i wielu hybrydowych aplikacjach mobilnych.
+
+## 12. Zalety i wady CSS
+
+Zalety:
+
+- Oddziela prezentację od struktury dokumentu HTML.
+- Umożliwia tworzenie responsywnych interfejsów.
+- Pozwala ponownie wykorzystywać reguły stylów.
+- Oferuje zaawansowane narzędzia do układania elementów i animacji.
+- Jest obsługiwany przez wszystkie nowoczesne przeglądarki internetowe.
+
+Wady:
+
+- Kaskadowość i specyficzność mogą utrudniać debugowanie.
+- Niektóre właściwości mogą zachowywać się inaczej w starszych przeglądarkach.
+- Rozbudowane arkusze stylów mogą być trudne w utrzymaniu bez odpowiedniej organizacji.
+- Sam CSS nie obsługuje logiki biznesowej aplikacji.
+- Zaawansowane animacje i nieprzemyślane selektory mogą negatywnie wpływać na wydajność lub dostępność interfejsu.
+
+## 13. CSS a HTML i JavaScript
+
+| Technologia | Główna rola         | Przykład                               |
+| ----------- | ------------------- | -------------------------------------- |
+| HTML        | Struktura i treść   | Nagłówek, formularz, przycisk          |
+| CSS         | Wygląd i układ      | Kolory, odstępy, responsywność         |
+| JavaScript  | Logika i interakcje | Walidacja formularza, obsługa kliknięć |
+
+Te trzy technologie są podstawą współczesnego frontendu.
+
+HTML definiuje, co znajduje się na stronie, CSS określa, jak to wygląda, a JavaScript umożliwia reagowanie na działania użytkownika i zmianę zawartości.
+
+## 14. Jak zacząć naukę CSS?
+
+Proponowana kolejność nauki:
+
+1. Poznaj selektory, właściwości i wartości CSS.
+2. Naucz się kolorów, czcionek, marginesów, paddingu i obramowań.
+3. Opanuj model pudełkowy oraz `display`.
+4. Naucz się Flexbox i CSS Grid.
+5. Poznaj pseudoklasy, pseudoelementy i selektory złożone.
+6. Naucz się tworzyć responsywne układy przy użyciu media queries.
+7. Poznaj zmienne CSS, animacje i funkcje takie jak `clamp()`.
+8. Korzystaj z narzędzi deweloperskich przeglądarki do debugowania.
+9. Naucz się podstaw dostępności i dobrych praktyk projektowania interfejsów.
+10. Zbuduj własną stronę internetową lub panel administracyjny.
+
+Przydatne materiały znajdziesz na stronach:
+
+- [MDN Web Docs — CSS](https://developer.mozilla.org/pl/docs/Web/CSS)
+- [web.dev — Learn CSS](https://web.dev/learn/css)
+- [W3C — CSS](https://www.w3.org/Style/CSS/)
+
+## 15. Czy warto uczyć się CSS?
+
+Tak, CSS jest jedną z podstawowych technologii web developmentu i warto znać go niezależnie od tego, czy planujesz pracować jako frontend developer, full-stack developer czy backend developer.
+
+Jeżeli tworzysz backend w Javie i Spring Boot, CSS przyda Ci się do projektowania widoków HTML, na przykład w aplikacjach wykorzystujących Thymeleaf.
+
+Jeżeli planujesz rozwijać się w kierunku React, Angular lub Vue, dobra znajomość CSS pomoże Ci tworzyć czytelne, estetyczne i responsywne interfejsy użytkownika.

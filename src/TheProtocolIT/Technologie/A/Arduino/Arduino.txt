@@ -1,0 +1,277 @@
+Arduino — notatka
+
+1. Czym jest Arduino?
+
+Arduino to platforma elektroniczna typu open source, która umożliwia tworzenie urządzeń elektronicznych, systemów automatyki i projektów Internetu Rzeczy (IoT).
+
+Składa się z płytek wyposażonych w mikrokontrolery oraz środowiska programistycznego, które pozwala pisać i wgrywać programy na te płytki.
+
+Arduino jest popularne wśród początkujących programistów, elektroników, studentów i osób budujących własne urządzenia.
+
+Dzięki prostemu środowisku programistycznemu można szybko nauczyć się sterowania czujnikami, diodami, silnikami i innymi elementami elektronicznymi.
+
+2. Do czego służy Arduino?
+
+Arduino służy do tworzenia urządzeń, które odczytują informacje z otoczenia i reagują na określone zdarzenia.
+
+Można wykorzystać je do budowy systemów automatycznego oświetlenia, stacji pogodowych, alarmów, robotów i inteligentnych urządzeń domowych.
+
+Arduino może odczytywać temperaturę, wilgotność, odległość lub natężenie światła za pomocą odpowiednich czujników.
+
+Może również sterować silnikami, przekaźnikami, wyświetlaczami i innymi komponentami.
+
+Przykładowo można zbudować system, który automatycznie uruchamia wentylator, gdy temperatura przekroczy określony poziom.
+
+3. Z czego składa się platforma Arduino?
+
+Arduino obejmuje kilka elementów, które współpracują ze sobą podczas tworzenia projektów.
+
+Płytka Arduino zawiera mikrokontroler, złącza wejścia i wyjścia oraz układy potrzebne do komunikacji i zasilania.
+
+Arduino IDE jest środowiskiem programistycznym wykorzystywanym do pisania, kompilowania i wgrywania programów.
+
+Biblioteki udostępniają gotowe funkcje ułatwiające obsługę czujników, wyświetlaczy i innych urządzeń.
+
+Dodatkowe komponenty elektroniczne pozwalają rozszerzać możliwości płytki i tworzyć bardziej zaawansowane układy.
+
+4. Najpopularniejsze płytki Arduino
+
+Arduino Uno to jedna z najpopularniejszych płytek wykorzystywanych do nauki elektroniki i programowania mikrokontrolerów.
+
+Arduino Mega oferuje więcej pinów wejścia i wyjścia oraz większe zasoby w porównaniu z klasycznym Arduino Uno R3.
+
+Arduino Nano to kompaktowa płytka przydatna w niewielkich projektach elektronicznych.
+
+Arduino Leonardo wykorzystuje mikrokontroler umożliwiający między innymi emulowanie klawiatury lub myszy USB.
+
+Arduino Due jest płytką opartą na mikrokontrolerze 32-bitowym.
+
+Wybór płytki zależy od wymaganej liczby pinów, pamięci, wydajności, sposobu komunikacji i potrzeb projektu.
+
+5. Czym jest mikrokontroler?
+
+Mikrokontroler to niewielki układ scalony, który wykonuje program i steruje podłączonymi urządzeniami.
+
+Zawiera między innymi jednostkę obliczeniową, pamięć oraz układy wejścia i wyjścia.
+
+W wielu klasycznych płytkach Arduino mikrokontroler realizuje program zapisany w pamięci urządzenia.
+
+W przeciwieństwie do typowego komputera mikrokontroler jest przeznaczony przede wszystkim do sterowania konkretnymi funkcjami urządzenia.
+
+Dzięki temu może wykonywać proste zadania automatyki przy stosunkowo niskim zużyciu energii.
+
+6. Arduino IDE
+
+Arduino IDE to środowisko programistyczne umożliwiające tworzenie programów dla kompatybilnych płytek Arduino.
+
+Pozwala pisać kod, kompilować go, wgrywać na urządzenie oraz obserwować dane przesyłane przez port szeregowy.
+
+Programy Arduino są najczęściej pisane w języku C++, z wykorzystaniem funkcji i bibliotek udostępnianych przez platformę.
+
+W zależności od płytki wymagane mogą być odpowiednie pakiety obsługi sprzętu, nazywane board packages lub core packages.
+
+Arduino IDE jest dobrym punktem wyjścia dla osób, które dopiero zaczynają naukę programowania urządzeń elektronicznych.
+
+7. Struktura programu Arduino
+
+Typowy program Arduino zawiera dwie podstawowe funkcje.
+
+Funkcja `setup()` jest wykonywana raz po uruchomieniu lub zresetowaniu mikrokontrolera.
+
+Funkcja `loop()` jest wykonywana wielokrotnie, dopóki program działa.
+
+W funkcji `setup()` konfiguruje się między innymi piny i komunikację szeregową.
+
+W funkcji `loop()` umieszcza się instrukcje wykonywane cyklicznie.
+
+Przykładowy program:
+
+```
+void setup() {
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(1000);
+
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(1000);
+}
+```
+
+Program włącza i wyłącza wbudowaną diodę LED z odstępami wynoszącymi jedną sekundę.
+
+Funkcja `pinMode()` określa sposób wykorzystania pinu, a `digitalWrite()` ustawia jego stan logiczny.
+
+8. Piny cyfrowe i analogowe
+
+Piny cyfrowe pozwalają odczytywać lub ustawiać stany logiczne, zwykle HIGH i LOW.
+
+Piny analogowe mogą odczytywać napięcie za pomocą przetwornika analogowo-cyfrowego, jeśli dana płytka udostępnia taką funkcję.
+
+Funkcja `digitalRead()` odczytuje stan cyfrowy pinu.
+
+Funkcja `digitalWrite()` ustawia stan cyfrowy pinu.
+
+Funkcja `analogRead()` odczytuje wartość z wejścia analogowego, a jej zakres zależy od parametrów konkretnego mikrokontrolera.
+
+Nie wszystkie płytki Arduino mają identyczny układ pinów, zakresy napięć i możliwości sprzętowe.
+
+Przed podłączeniem komponentów należy sprawdzić dokumentację używanej płytki.
+
+9. Czujniki i moduły
+
+Czujniki pozwalają Arduino zbierać informacje z otoczenia.
+
+Czujnik temperatury może mierzyć temperaturę powietrza lub innego obiektu.
+
+Czujnik wilgotności może mierzyć wilgotność powietrza albo gleby, zależnie od rodzaju urządzenia.
+
+Czujnik ultradźwiękowy może służyć do pomiaru odległości od przeszkody.
+
+Czujnik światła pozwala określić natężenie oświetlenia.
+
+Moduły komunikacyjne umożliwiają rozszerzenie projektu o Bluetooth, Wi-Fi, GPS lub inne technologie.
+
+Przed użyciem modułu należy sprawdzić jego napięcie zasilania, sposób komunikacji i zgodność z płytką.
+
+10. Sterowanie urządzeniami
+
+Arduino może sterować różnymi urządzeniami elektronicznymi.
+
+Dioda LED pozwala zbudować prosty układ sygnalizacyjny.
+
+Serwomechanizm umożliwia precyzyjne ustawianie kąta obrotu.
+
+Silnik krokowy pozwala wykonywać kontrolowane ruchy obrotowe.
+
+Przekaźnik umożliwia sterowanie obwodem zewnętrznym za pomocą sygnału sterującego.
+
+Silników i innych elementów pobierających duży prąd nie należy zazwyczaj podłączać bezpośrednio do pinów mikrokontrolera.
+
+W takich przypadkach wykorzystuje się odpowiednie sterowniki, tranzystory, układy ochronne i zasilanie dostosowane do obciążenia.
+
+11. Komunikacja z innymi urządzeniami
+
+Arduino może komunikować się z czujnikami, komputerami i innymi mikrokontrolerami za pomocą różnych interfejsów.
+
+UART jest interfejsem szeregowym wykorzystywanym między innymi do komunikacji z komputerem i modułami zewnętrznymi.
+
+I2C pozwala podłączać wiele kompatybilnych urządzeń do wspólnej magistrali przy użyciu linii danych i zegara.
+
+SPI jest interfejsem szeregowym często wykorzystywanym w komunikacji z wyświetlaczami, pamięciami i innymi szybkimi urządzeniami peryferyjnymi.
+
+USB umożliwia komunikację z komputerem na płytkach wyposażonych w odpowiednią obsługę tego interfejsu.
+
+Wybór interfejsu zależy od wymagań sprzętowych i możliwości poszczególnych urządzeń.
+
+12. Arduino a Internet Rzeczy (IoT)
+
+Internet Rzeczy obejmuje urządzenia, które zbierają dane i komunikują się przez sieć.
+
+Arduino może stanowić część systemu IoT, jeżeli wybrana płytka lub dodatkowy moduł zapewnia odpowiednią komunikację.
+
+Na przykład płytka z Wi-Fi może odczytywać temperaturę i przesyłać dane do serwera.
+
+Dane mogą następnie trafiać do bazy danych, aplikacji internetowej lub platformy monitorującej.
+
+Do prostych projektów IoT często wykorzystuje się płytki z rodziny ESP32 lub inne kompatybilne rozwiązania.
+
+Nie każda płytka Arduino ma wbudowane Wi-Fi lub Bluetooth, dlatego przed rozpoczęciem projektu należy sprawdzić jej specyfikację.
+
+13. Arduino a ESP32 i Raspberry Pi
+
+Arduino jest platformą obejmującą płytki i narzędzia przeznaczone do programowania urządzeń elektronicznych.
+
+ESP32 to rodzina mikrokontrolerów i modułów oferujących między innymi komunikację Wi-Fi oraz Bluetooth w wielu wariantach.
+
+Raspberry Pi to przede wszystkim rodzina komputerów jednopłytkowych, które mogą uruchamiać pełny system operacyjny.
+
+Arduino i ESP32 są często wykorzystywane do sterowania sprzętem w czasie rzeczywistym i realizacji prostych zadań wbudowanych.
+
+Raspberry Pi sprawdza się w zadaniach wymagających większych zasobów obliczeniowych, systemu operacyjnego i uruchamiania wielu aplikacji.
+
+Wybór zależy od tego, czy projekt wymaga przede wszystkim sterowania urządzeniami, łączności sieciowej, czy funkcji typowych dla komputera.
+
+14. Przykładowe zastosowania Arduino
+
+Arduino może być wykorzystywane do budowania robotów i prostych systemów autonomicznych.
+
+Umożliwia tworzenie stacji pogodowych oraz systemów monitorowania temperatury i wilgotności.
+
+Może sterować oświetleniem, wentylatorami i wybranymi elementami automatyki domowej.
+
+Jest używane w projektach edukacyjnych, prototypach urządzeń oraz eksperymentach z elektroniką.
+
+Może także wspierać projekty związane z rolnictwem, takie jak monitorowanie wilgotności gleby i sterowanie nawadnianiem.
+
+15. Zalety Arduino
+
+Arduino ma stosunkowo niski próg wejścia i jest odpowiednie dla osób rozpoczynających naukę elektroniki.
+
+Udostępnia wiele bibliotek, przykładów i materiałów edukacyjnych.
+
+Pozwala szybko budować prototypy bez projektowania całej elektroniki od podstaw.
+
+Wspiera wiele popularnych czujników, modułów i interfejsów komunikacyjnych.
+
+Jest wykorzystywane w edukacji, projektach hobbystycznych i prototypowaniu urządzeń.
+
+16. Wady Arduino
+
+Możliwości obliczeniowe i pamięć klasycznych mikrokontrolerów Arduino są ograniczone w porównaniu z komputerami.
+
+Niektóre płytki wymagają dodatkowych modułów do komunikacji Wi-Fi, Bluetooth lub Ethernet.
+
+Błędne podłączenie komponentów może uszkodzić płytkę lub inne elementy układu.
+
+Zaawansowane projekty mogą wymagać znajomości elektroniki, systemów wbudowanych i komunikacji sprzętowej.
+
+W zastosowaniach przemysłowych należy dodatkowo uwzględnić niezawodność, odporność na zakłócenia i odpowiednie zabezpieczenia.
+
+17. Plan nauki Arduino
+
+Na początku warto poznać budowę płytki, zasady zasilania i podstawowe elementy elektroniczne.
+
+Następnie należy zainstalować Arduino IDE i uruchomić program migający diodą LED.
+
+Kolejnym krokiem powinno być odczytywanie danych z przycisków i czujników.
+
+Później warto nauczyć się korzystać z komunikacji szeregowej oraz interfejsów I2C i SPI.
+
+Na koniec dobrze jest stworzyć własny projekt, na przykład stację pogodową, alarm lub system automatycznego podlewania roślin.
+
+18. Najważniejsze pojęcia
+
+Arduino — platforma do tworzenia urządzeń elektronicznych i systemów wbudowanych.
+
+Mikrokontroler — układ scalony wykonujący program i sterujący urządzeniami.
+
+Arduino IDE — środowisko programistyczne do tworzenia i wgrywania programów.
+
+`setup()` — funkcja wykonywana podczas inicjalizacji programu.
+
+`loop()` — funkcja wykonywana cyklicznie podczas działania programu.
+
+Pin cyfrowy — wejście lub wyjście obsługujące stany logiczne.
+
+Pin analogowy — wejście umożliwiające pomiar napięcia analogowego, jeśli płytka obsługuje taką funkcję.
+
+UART — interfejs komunikacji szeregowej.
+
+I2C — magistrala komunikacyjna wykorzystująca linie danych i zegara.
+
+SPI — interfejs komunikacji szeregowej używany do wymiany danych z urządzeniami peryferyjnymi.
+
+IoT — Internet Rzeczy, czyli sieć komunikujących się urządzeń.
+
+ESP32 — rodzina mikrokontrolerów i modułów wykorzystywanych między innymi w projektach IoT.
+
+19. W skrócie
+
+Arduino to platforma umożliwiająca programowanie mikrokontrolerów i tworzenie urządzeń elektronicznych.
+
+Pozwala odczytywać dane z czujników, sterować urządzeniami i budować projekty związane z automatyką, robotyką oraz Internetem Rzeczy.
+
+Najlepiej rozpocząć naukę od Arduino IDE, podstaw C++, diody LED, przycisków i prostych czujników, a następnie rozwijać własne projekty elektroniczne.

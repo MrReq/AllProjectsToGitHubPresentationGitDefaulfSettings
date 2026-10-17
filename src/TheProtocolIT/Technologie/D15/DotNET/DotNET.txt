@@ -1,0 +1,205 @@
+# .NET
+
+## 1. Czym jest .NET?
+
+.NET to wieloplatformowa, otwartoźródłowa platforma programistyczna rozwijana przez firmę Microsoft, która służy do tworzenia różnego rodzaju aplikacji.
+
+Umożliwia budowanie aplikacji internetowych, desktopowych, mobilnych, usług backendowych, narzędzi konsolowych oraz systemów chmurowych.
+
+Najczęściej .NET jest wykorzystywany razem z językiem C#, ale obsługuje również inne języki, takie jak F# i Visual Basic .NET.
+
+Platforma zapewnia środowisko uruchomieniowe, biblioteki standardowe, kompilator oraz narzędzia wspierające rozwój i testowanie oprogramowania.
+
+## 2. Do czego służy .NET?
+
+- Tworzenie backendów i REST API za pomocą ASP.NET Core.
+- Budowanie aplikacji desktopowych dla Windows.
+- Tworzenie aplikacji mobilnych i wieloplatformowych za pomocą .NET MAUI.
+- Rozwijanie aplikacji internetowych i interaktywnych interfejsów.
+- Tworzenie gier, między innymi z wykorzystaniem silnika Unity.
+- Budowanie aplikacji biznesowych i systemów korporacyjnych.
+- Tworzenie usług działających w chmurze.
+- Automatyzacja zadań i tworzenie narzędzi konsolowych.
+
+## 3. Najważniejsze elementy platformy .NET
+
+[Grow Programming Proficiency: C# | Go1](https://images.openai.com/static-rsc-4/1j1EH8UEI6S8Ghr_WMk9NkuVMh-LxdIrG_o0oT6wrKHRnbjHw5Ha5OLMe0meAJytT3N__NI78x3PGR6Fb_3zGi-zqefUrC7_EIOOgmVFNnu10a6cm9BvAj2D_QHLTFg5Z8TqzM8kbj1tk5HMEmRYVdJsI-Q8sXIR0ZzaOpgBOo8?purpose=inline)
+
+C#
+
+Nowoczesny język programowania obsługujący programowanie obiektowe, typowanie statyczne, asynchroniczność i wiele innych mechanizmów.
+
+[.NET Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/MjV0b55yrtQOEGuuXr-74edHL4RMZOM5xppEg6U6Yh_Tt7A2lqvkwEZuXGJXL3Jh4o0jF6yczsdHB3E3yC_F3OGL0eW9jnhpp7wA07BaE76IpjfMEGnwvH_sQkrdXuBXTSO2eufaws7sAVqS0olem_YVcS0uZfCYqexeQe-Kh7U?purpose=inline)
+
+.NET Runtime
+
+Środowisko uruchomieniowe odpowiedzialne między innymi za wykonywanie kodu, zarządzanie pamięcią i obsługę wyjątków.
+
+[ASP.NET Core logo by columan | Redbubble](https://images.openai.com/static-rsc-4/w7CMg3SFks6kTXEFwMQ-RfiQLLF8BE367fkqIyJRjiLNmEMJXhPT20tc-6d8oo6uoeJblPUuNG0yKar8pKbv9OPPnUBtEkc9pjfYvqNzEtlZrpfdNaQ11_SWpbcThrJwjqHA8TkyWpiMVrUqj4nkUhI1g9uoeOEA3CdMwESOsTg?purpose=inline)
+
+ASP.NET Core
+
+Framework do tworzenia aplikacji internetowych, serwerów, usług backendowych i API.
+
+[Entity Framework Core Best Practices and Common Pitfalls | by Mina Abdo | Medium](https://images.openai.com/static-rsc-4/ULkF7jrSdh5U6iZ0Ll8c7ALW6xKiTpBSjW8kK3oJsySm91eH6FGyMhOxgDmVOBrFxD3-MIQI2h6pT7q8QJX-4rgomu-xtIxc2HCY7_Q-seLDaIoia4hrg8mnQ3yqHclf3eJGywUyaV1swHoSMIa_D_ankm3e6a93dAoZoGyYbpY?purpose=inline)
+
+Entity Framework Core
+
+ORM umożliwiający komunikację z bazami danych za pomocą obiektów i klas C#.
+
+Pozostałe istotne elementy to:
+
+- Base Class Library (BCL) – podstawowe biblioteki udostępniające kolekcje, operacje na plikach, sieć, daty i wiele innych funkcji.
+- CLR (Common Language Runtime) – środowisko wykonywania zarządzanego kodu .NET.
+- NuGet – menedżer pakietów i bibliotek.
+- LINQ – mechanizm umożliwiający wygodne filtrowanie, sortowanie i przetwarzanie danych.
+- Visual Studio – rozbudowane środowisko IDE do programowania w .NET.
+
+## 4. Jak działa .NET?
+
+Kod źródłowy
+
+C#, F# lub Visual Basic .NET
+
+Kompilator
+
+Kod jest zazwyczaj kompilowany do pośredniego języka IL
+
+.NET Runtime
+
+CLR i mechanizmy JIT lub inne obsługiwane tryby kompilacji
+
+Działająca aplikacja
+
+Windows, Linux, macOS lub inne obsługiwane środowisko
+
+Kod C# jest zwykle kompilowany do IL, a następnie wykonywany przez środowisko .NET, które może kompilować go do kodu maszynowego w czasie działania.
+
+W zależności od rodzaju projektu .NET obsługuje również inne modele wdrażania, w tym kompilację z wyprzedzeniem (Ahead-of-Time).
+
+## 5. Przykład programowania w C# i .NET
+
+Najprostszy program:
+
+```
+Console.WriteLine("Hello, .NET!");
+Console.WriteLine("Witaj w programowaniu!");
+```
+
+Przykład klasy:
+
+```
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    public void Introduce()
+    {
+        Console.WriteLine(
+            $"Mam na imię {Name} i mam {Age} lat."
+        );
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Person person = new Person("Adam", 25);
+        person.Introduce();
+    }
+}
+```
+
+Klasa `Person` reprezentuje osobę i przechowuje jej imię oraz wiek.
+
+Właściwości `Name` i `Age` umożliwiają dostęp do danych obiektu.
+
+Metoda `Introduce()` wyświetla informacje o osobie w konsoli.
+
+## 6. Najważniejsze technologie związane z .NET
+
+- ASP.NET Core – aplikacje webowe i backendy.
+- Entity Framework Core – obsługa relacyjnych baz danych przez ORM.
+- .NET MAUI – tworzenie aplikacji mobilnych i desktopowych.
+- Blazor – tworzenie interfejsów internetowych z wykorzystaniem C#.
+- WPF – tworzenie aplikacji desktopowych dla Windows.
+- Windows Forms (WinForms) – tworzenie aplikacji okienkowych dla Windows.
+- SignalR – komunikacja w czasie rzeczywistym między serwerem a klientami.
+- xUnit, NUnit i MSTest – frameworki do testowania aplikacji.
+- NuGet – zarządzanie zależnościami i bibliotekami.
+
+## 7. .NET a inne technologie
+
+| Technologia | Język                   | Główne zastosowanie                   |
+| ----------- | ----------------------- | ------------------------------------- |
+| .NET        | C#, F#, VB.NET          | Platforma do wielu rodzajów aplikacji |
+| Spring Boot | Java                    | Backend i aplikacje biznesowe         |
+| Node.js     | JavaScript / TypeScript | Backend i narzędzia serwerowe         |
+| Django      | Python                  | Aplikacje internetowe                 |
+| Laravel     | PHP                     | Aplikacje internetowe                 |
+| Flutter     | Dart                    | Aplikacje wieloplatformowe            |
+
+.NET i Spring Boot mają wiele wspólnych zastosowań w backendzie, jednak korzystają z innych języków, bibliotek i narzędzi.
+
+## 8. Zalety i wady .NET
+
+Zalety:
+
+- Wieloplatformowość nowoczesnego .NET.
+- Wysoka wydajność w wielu zastosowaniach.
+- Rozbudowany ekosystem bibliotek i narzędzi.
+- Silne wsparcie dla programowania obiektowego i asynchronicznego.
+- Dobre narzędzia do debugowania i testowania.
+- Integracja z usługami Microsoft Azure i SQL Server.
+- Możliwość tworzenia wielu rodzajów aplikacji w jednym ekosystemie.
+
+Wady:
+
+- Rozbudowany ekosystem może być trudny do opanowania na początku.
+- Niektóre technologie, szczególnie WPF i Windows Forms, są przeznaczone przede wszystkim dla Windows.
+- Zaawansowane rozwiązania korporacyjne mogą wymagać dodatkowej wiedzy o infrastrukturze i architekturze.
+- Niektóre produkty i usługi ekosystemu Microsoft mogą wiązać się z kosztami licencji.
+
+## 9. .NET na rynku pracy
+
+Znajomość .NET jest przydatna w firmach tworzących systemy biznesowe, aplikacje internetowe, usługi chmurowe i oprogramowanie dla przedsiębiorstw.
+
+Popularne stanowiska związane z tą technologią to:
+
+- .NET Developer.
+- C# Developer.
+- Backend Developer.
+- Full-Stack Developer.
+- Software Engineer.
+- Cloud Developer.
+- QA Automation Engineer.
+
+Warto łączyć naukę .NET z C#, SQL, REST API, Git, testami automatycznymi, Dockerem i podstawami CI/CD.
+
+## 10. Jak zacząć naukę .NET?
+
+Najlepiej rozpocząć od języka C#, obejmującego zmienne, instrukcje warunkowe, pętle, funkcje, klasy, interfejsy i kolekcje.
+
+Następnie warto poznać LINQ, obsługę wyjątków, programowanie asynchroniczne oraz podstawy pracy z NuGet.
+
+Kolejnym krokiem jest nauka ASP.NET Core i stworzenie REST API połączonego z bazą danych przy użyciu Entity Framework Core.
+
+Na dalszym etapie warto poznać testy automatyczne, Docker oraz wdrażanie aplikacji na serwerze lub w chmurze.
+
+Materiały do nauki:
+
+- [Oficjalna strona .NET](https://dotnet.microsoft.com/)
+- [Dokumentacja i materiały Microsoft Learn](https://learn.microsoft.com/dotnet/)
+- [Nauka języka C#](https://learn.microsoft.com/dotnet/csharp/)
+- [Dokumentacja ASP.NET Core](https://learn.microsoft.com/aspnet/core/)
+- [Visual Studio – środowisko programistyczne](https://visualstudio.microsoft.com/)
+
+Podsumowanie: .NET to rozbudowana platforma programistyczna, która pozwala tworzyć aplikacje backendowe, desktopowe, internetowe i mobilne. Jeśli chcesz rozwijać się jako programista, warto rozpocząć od C#, a następnie poznać ASP.NET Core, SQL i Entity Framework Core.

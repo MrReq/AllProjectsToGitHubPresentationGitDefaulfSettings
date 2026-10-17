@@ -1,0 +1,349 @@
+Angular — notatka
+
+1. Czym jest Angular?
+
+Angular to framework do tworzenia aplikacji internetowych, rozwijany przez Google.
+
+Umożliwia budowanie rozbudowanych interfejsów użytkownika oraz aplikacji działających w przeglądarce internetowej.
+
+Angular jest najczęściej wykorzystywany do tworzenia aplikacji typu SPA (Single Page Application), w których użytkownik może przechodzić między widokami bez konieczności przeładowywania całej strony.
+
+Głównym językiem programowania wykorzystywanym w Angularze jest TypeScript, czyli rozszerzenie JavaScriptu wyposażone między innymi w typowanie statyczne.
+
+2. Do czego służy Angular?
+
+Angular jest wykorzystywany przede wszystkim do tworzenia nowoczesnych aplikacji frontendowych.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie aplikacji internetowych.
+- Budowanie paneli administracyjnych i dashboardów.
+- Tworzenie systemów CRM i ERP.
+- Budowanie aplikacji biznesowych.
+- Tworzenie formularzy i interaktywnych interfejsów.
+- Komunikacja z backendem za pomocą API REST.
+- Tworzenie aplikacji wykorzystujących logowanie i autoryzację.
+- Organizowanie dużych projektów frontendowych.
+- Tworzenie aplikacji internetowych dla przedsiębiorstw.
+
+Angular sprawdza się szczególnie w większych projektach, w których ważne są uporządkowana architektura, testowanie i możliwość rozwijania kodu przez wiele osób.
+
+3. Angular a AngularJS
+
+Angular i AngularJS to dwie różne generacje technologii.
+
+**AngularJS** to starszy framework oparty na JavaScripcie, którego pierwsza wersja pochodzi z 2010 roku.
+
+**Angular** to nowsza platforma, której pierwsza wersja została wydana w 2016 roku i która wykorzystuje między innymi TypeScript oraz nowoczesną architekturę komponentową.
+
+Angular nie jest po prostu kolejną wersją AngularJS, ponieważ technologie te znacząco różnią się sposobem działania i strukturą projektów.
+
+Przy rozpoczynaniu nauki warto wybierać współczesnego Angulara, a AngularJS poznawać przede wszystkim wtedy, gdy trzeba utrzymywać starsze aplikacje.
+
+4. Najważniejsze technologie Angulara
+
+Angular korzysta z kilku technologii, które wspólnie umożliwiają tworzenie aplikacji internetowych.
+
+- **TypeScript** — podstawowy język programowania wykorzystywany w Angularze.
+- **HTML** — język opisujący strukturę interfejsu użytkownika.
+- **CSS** — język odpowiedzialny za wygląd aplikacji.
+- **JavaScript** — język, na którym opiera się środowisko przeglądarkowe i TypeScript.
+- **RxJS** — biblioteka służąca do pracy ze strumieniami danych i operacjami asynchronicznymi.
+- **Node.js** — środowisko potrzebne do uruchamiania narzędzi programistycznych Angulara.
+- **npm** — menedżer pakietów wykorzystywany do instalowania zależności.
+- **Angular CLI** — narzędzie wiersza poleceń do tworzenia i obsługi projektów Angular.
+
+5. Angular CLI
+
+Angular CLI (Command Line Interface) to narzędzie ułatwiające tworzenie, rozwijanie, testowanie i budowanie aplikacji Angular.
+
+Pozwala generować komponenty, serwisy, dyrektywy i inne elementy projektu bez konieczności ręcznego przygotowywania wszystkich plików.
+
+Po zainstalowaniu Node.js i npm można zainstalować Angular CLI poleceniem:
+
+`npm install -g @angular/cli`
+
+Aby utworzyć nowy projekt, można użyć polecenia:
+
+`ng new moja-aplikacja`
+
+Aby przejść do katalogu projektu:
+
+`cd moja-aplikacja`
+
+Aby uruchomić aplikację w trybie deweloperskim:
+
+`ng serve`
+
+Aby wygenerować komponent:
+
+`ng generate component user-list`
+
+Współczesne wersje Angular CLI mogą proponować różne opcje konfiguracji podczas tworzenia projektu.
+
+6. Komponenty
+
+Komponenty są podstawowymi elementami interfejsu użytkownika w Angularze.
+
+Każdy komponent odpowiada za określoną część aplikacji, na przykład pasek nawigacji, formularz logowania, listę produktów lub panel użytkownika.
+
+Komponent zazwyczaj składa się z klasy TypeScript, szablonu HTML oraz stylów CSS.
+
+Współczesny Angular często wykorzystuje komponenty standalone, które mogą być używane bez deklarowania ich w module NgModule.
+
+Przykładowy komponent:
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-welcome',
+  standalone: true,
+  template: `
+    <h1>Witaj w Angularze!</h1>
+    <p>To mój pierwszy komponent.</p>
+  `
+})
+export class WelcomeComponent {}
+```
+
+Dekorator `@Component` określa metadane komponentu, a `selector` wskazuje nazwę, pod którą można go wykorzystać w szablonie HTML.
+
+7. Szablony i wiązanie danych
+
+Szablon (template) określa, jak komponent ma być wyświetlany w przeglądarce.
+
+Angular umożliwia powiązanie danych z interfejsem, dzięki czemu widok może reagować na zmiany wartości w komponencie.
+
+Najważniejsze rodzaje wiązania danych to:
+
+- **Interpolation** — wyświetlanie wartości za pomocą składni `{{ }}`.
+- **Property binding** — przekazywanie wartości do właściwości elementu za pomocą składni `[ ]`.
+- **Event binding** — reagowanie na zdarzenia za pomocą składni `( )`.
+- **Two-way binding** — synchronizowanie wartości między widokiem a komponentem, często za pomocą `[(ngModel)]`.
+
+Przykładowy szablon:
+
+```
+<h2>{{ title }}</h2>
+
+<button (click)="increaseCounter()">
+  Kliknij
+</button>
+
+<p>Licznik: {{ counter }}</p>
+```
+
+W tym przykładzie Angular wyświetla wartość `title`, reaguje na kliknięcie przycisku i prezentuje aktualną wartość licznika.
+
+8. Dyrektywy
+
+Dyrektywy umożliwiają zmienianie sposobu wyświetlania elementów lub ich zachowania.
+
+Angular oferuje między innymi dyrektywy strukturalne i atrybutowe, a także mechanizm tworzenia własnych dyrektyw.
+
+Przykładowe zastosowania obejmują warunkowe wyświetlanie elementów, generowanie list i dynamiczne zmienianie klas CSS.
+
+Współczesny Angular udostępnia wbudowaną składnię sterującą, na przykład `@if` i `@for`.
+
+Przykład warunku:
+
+```
+@if (isLoggedIn) {
+  <p>Witaj ponownie!</p>
+} @else {
+  <p>Zaloguj się, aby kontynuować.</p>
+}
+```
+
+Przykład wyświetlania listy:
+
+```
+@for (user of users; track user.id) {
+  <p>{{ user.name }}</p>
+}
+```
+
+Składnia `track` pomaga Angularowi identyfikować elementy listy podczas aktualizacji widoku.
+
+9. Serwisy i Dependency Injection
+
+Serwisy służą do przechowywania logiki, którą można wykorzystywać w różnych częściach aplikacji.
+
+Mogą odpowiadać za pobieranie danych z API, obsługę logowania, przetwarzanie danych lub zarządzanie określonymi operacjami biznesowymi.
+
+Angular udostępnia mechanizm Dependency Injection (DI), który umożliwia dostarczanie komponentom wymaganych zależności.
+
+Przykład serwisu:
+
+```
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GreetingService {
+  getMessage(): string {
+    return 'Witaj w aplikacji!';
+  }
+}
+```
+
+Dekorator `@Injectable` umożliwia wykorzystanie mechanizmu wstrzykiwania zależności, a `providedIn: 'root'` udostępnia serwis w głównym zakresie aplikacji.
+
+10. Routing
+
+Routing umożliwia przechodzenie między różnymi widokami aplikacji bez przeładowywania całej strony.
+
+Angular Router pozwala definiować adresy URL, komponenty odpowiadające poszczególnym ścieżkom oraz reguły nawigacji.
+
+Przykładowe ścieżki w aplikacji mogą wyglądać następująco:
+
+- `/home` — strona główna.
+- `/products` — lista produktów.
+- `/products/15` — szczegóły produktu.
+- `/login` — formularz logowania.
+
+Routing pozwala również tworzyć trasy z parametrami, trasy zagnieżdżone i mechanizmy ochrony dostępu do określonych widoków.
+
+Należy pamiętać, że zabezpieczenia po stronie frontendu nie zastępują autoryzacji wykonywanej przez backend.
+
+11. Formularze
+
+Angular udostępnia narzędzia do tworzenia i obsługi formularzy.
+
+Formularze są wykorzystywane między innymi podczas rejestracji użytkowników, logowania, edycji profilu i wprowadzania danych biznesowych.
+
+Najważniejsze podejścia to:
+
+- **Template-driven forms** — formularze, których konfiguracja w dużej mierze znajduje się w szablonie HTML.
+- **Reactive forms** — formularze zarządzane programowo za pomocą klas i obiektów formularza.
+
+Reactive Forms są szczególnie przydatne przy bardziej rozbudowanych formularzach, walidacji i dynamicznie zmieniającej się strukturze danych.
+
+Angular umożliwia sprawdzanie poprawności danych i wyświetlanie komunikatów o błędach.
+
+12. Komunikacja z backendem
+
+Angular może komunikować się z backendem za pomocą żądań HTTP.
+
+Do tego celu wykorzystuje się między innymi `HttpClient`, który pozwala wysyłać żądania GET, POST, PUT, PATCH i DELETE.
+
+Przykładowe zastosowania obejmują pobieranie listy produktów, tworzenie kont użytkowników i aktualizowanie danych w bazie za pośrednictwem API.
+
+Przykładowa metoda serwisu:
+
+```
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+  private http = inject(HttpClient);
+
+  getProducts() {
+    return this.http.get('/api/products');
+  }
+}
+```
+
+Aby korzystać z `HttpClient`, należy skonfigurować go w aplikacji, na przykład za pomocą `provideHttpClient()`.
+
+Angular odpowiada za frontend, natomiast backend może być napisany między innymi w Javie i Spring Boot, C#, Pythonie lub Node.js.
+
+13. RxJS i operacje asynchroniczne
+
+RxJS to biblioteka wykorzystywana w Angularze do pracy ze strumieniami danych i operacjami asynchronicznymi.
+
+Jej ważnym elementem jest `Observable`, który reprezentuje strumień wartości pojawiających się w czasie.
+
+RxJS oferuje operatory takie jak `map`, `filter`, `switchMap` i `catchError`.
+
+Można je wykorzystać na przykład do przekształcania danych z API, obsługi wyszukiwania oraz reagowania na zmiany w formularzach.
+
+Angular wspiera również nowoczesne mechanizmy reaktywne, takie jak Signals, które ułatwiają zarządzanie stanem i aktualizowanie widoku.
+
+14. Testowanie aplikacji
+
+Testowanie pozwala sprawdzić, czy komponenty, serwisy i pozostałe elementy aplikacji działają prawidłowo.
+
+Angular wspiera testy jednostkowe oraz testy komponentów.
+
+W zależności od konfiguracji projektu można korzystać z narzędzi takich jak Vitest, Jasmine, Karma lub innych kompatybilnych rozwiązań.
+
+Do testowania zachowania aplikacji w przeglądarce można wykorzystać narzędzia automatyzacji, takie jak Playwright lub Cypress.
+
+Testy są szczególnie ważne w dużych projektach, w których zmiany w jednym komponencie mogą wpływać na inne części systemu.
+
+15. Angular a inne frameworki
+
+Angular konkuruje z innymi technologiami wykorzystywanymi do budowania frontendów.
+
+- **React** — biblioteka JavaScript służąca przede wszystkim do budowania interfejsów użytkownika, często łączona z dodatkowymi bibliotekami.
+- **Vue.js** — framework do tworzenia interfejsów, który jest często ceniony za stosunkowo łagodny próg wejścia.
+- **Angular** — rozbudowany framework oferujący wiele standardowych mechanizmów w ramach jednej platformy.
+- **Svelte** — narzędzie do tworzenia interfejsów, które przekształca komponenty podczas kompilacji.
+
+Angular może być dobrym wyborem dla rozbudowanych aplikacji biznesowych, szczególnie gdy zespół chce korzystać ze spójnej architektury i oficjalnych narzędzi.
+
+React i Vue również mogą obsługiwać duże projekty, ale często wymagają samodzielnego wyboru większej liczby dodatkowych bibliotek.
+
+16. Zalety Angulara
+
+- Zapewnia uporządkowaną architekturę aplikacji.
+- Wykorzystuje TypeScript, który ułatwia wykrywanie części błędów już podczas programowania.
+- Oferuje routing, formularze i mechanizm Dependency Injection.
+- Zapewnia narzędzia do testowania oraz budowania aplikacji.
+- Ułatwia dzielenie projektu na komponenty i serwisy.
+- Dobrze sprawdza się w rozbudowanych aplikacjach biznesowych.
+- Jest rozwijany przez Google i posiada oficjalną dokumentację.
+
+17. Wady i ograniczenia Angulara
+
+- Ma stosunkowo wysoki próg wejścia dla osób początkujących.
+- Wymaga poznania TypeScriptu oraz wielu mechanizmów frameworka.
+- Rozbudowana architektura może być niepotrzebna w bardzo małych projektach.
+- Niektóre zagadnienia, takie jak RxJS, routing i wstrzykiwanie zależności, wymagają dodatkowej nauki.
+- Aktualizacje głównych wersji mogą wymagać dostosowania kodu i zależności.
+- Duże projekty mogą wymagać świadomej optymalizacji wydajności i struktury aplikacji.
+
+18. Plan nauki Angulara
+
+Na początku warto poznać podstawy HTML, CSS, JavaScriptu i TypeScriptu.
+
+Następnie należy zainstalować Node.js oraz Angular CLI i utworzyć pierwszy projekt.
+
+Kolejnym krokiem jest nauka komponentów, szablonów, wiązania danych i dyrektyw.
+
+Później warto poznać serwisy, Dependency Injection, routing i formularze.
+
+Następnie należy nauczyć się komunikacji z API REST, obsługi błędów HTTP oraz podstaw RxJS i Signals.
+
+Na końcu warto stworzyć większy projekt, na przykład panel administracyjny z logowaniem, formularzami, listą danych i połączeniem z backendem Spring Boot.
+
+19. Najważniejsze pojęcia
+
+- **Angular** — framework do tworzenia aplikacji internetowych.
+- **TypeScript** — język programowania wykorzystywany w Angularze.
+- **Angular CLI** — narzędzie do tworzenia i obsługi projektów.
+- **Component** — podstawowy element interfejsu użytkownika.
+- **Template** — szablon określający wygląd komponentu.
+- **Directive** — mechanizm zmieniający zachowanie lub sposób wyświetlania elementów.
+- **Service** — klasa zawierająca współdzieloną logikę aplikacji.
+- **Dependency Injection** — mechanizm dostarczania zależności.
+- **Angular Router** — narzędzie do nawigacji między widokami.
+- **HttpClient** — narzędzie do komunikacji HTTP z backendem.
+- **RxJS** — biblioteka do obsługi strumieni danych i operacji asynchronicznych.
+- **Signals** — mechanizm reaktywnego zarządzania stanem.
+- **SPA** — aplikacja internetowa, która aktualizuje widoki bez przeładowywania całej strony.
+- **API REST** — interfejs umożliwiający komunikację między aplikacjami przez HTTP.
+
+20. W skrócie
+
+Angular to rozbudowany framework frontendowy służący do tworzenia nowoczesnych aplikacji internetowych.
+
+Wykorzystuje TypeScript i komponentową architekturę, a także oferuje narzędzia do routingu, obsługi formularzy, komunikacji z backendem i testowania.
+
+Najważniejsze elementy, których warto nauczyć się na początku, to komponenty, szablony, serwisy, Angular CLI, routing i HttpClient.

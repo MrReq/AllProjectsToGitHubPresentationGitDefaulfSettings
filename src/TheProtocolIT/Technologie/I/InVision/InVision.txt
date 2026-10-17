@@ -1,0 +1,95 @@
+# InVision – notatka
+
+## 1. Czym jest InVision?
+
+InVision to platforma służąca do projektowania interfejsów użytkownika (UI), tworzenia interaktywnych prototypów oraz współpracy między projektantami, programistami i innymi członkami zespołu.
+
+Narzędzie było wykorzystywane przede wszystkim w projektowaniu stron internetowych i aplikacji mobilnych, zanim rozpoczęto ich właściwe programowanie.
+
+InVision umożliwiał przekształcanie statycznych projektów graficznych w interaktywne prototypy, które pozwalały symulować działanie aplikacji i testować sposób poruszania się użytkownika po interfejsie.
+
+Ważne: InVision zakończył działalność swoich głównych usług produktowych w 2024 roku, dlatego obecnie należy traktować go przede wszystkim jako przykład narzędzia z historii projektowania UI/UX, a nie jako aktywną platformę do nowych projektów.
+
+## 2. Do czego służył InVision?
+
+- Prototypowanie – tworzenie interaktywnych modeli aplikacji przed rozpoczęciem programowania.
+- Projektowanie UI – prezentowanie wyglądu ekranów, przycisków, formularzy i menu.
+- Projektowanie UX – analizowanie sposobu, w jaki użytkownik porusza się po aplikacji.
+- Testowanie koncepcji – sprawdzanie pomysłów na interfejs przed wdrożeniem.
+- Współpraca zespołowa – zbieranie komentarzy i opinii od projektantów, programistów oraz klientów.
+- Prezentowanie projektów – udostępnianie prototypów interesariuszom w celu uzyskania akceptacji.
+
+## 3. Najważniejsze funkcje InVision
+
+Interaktywne prototypy umożliwiały łączenie ekranów za pomocą klikalnych obszarów, dzięki czemu można było symulować działanie aplikacji.
+
+Hotspoty pozwalały definiować obszary interfejsu, których kliknięcie powodowało przejście do kolejnego ekranu.
+
+Komentarze i współpraca umożliwiały przekazywanie uwag bezpośrednio w kontekście projektu.
+
+Prezentacja ekranów pozwalała demonstrować wygląd aplikacji bez konieczności tworzenia działającego kodu.
+
+Narzędzia dla projektantów i programistów wspierały przekazywanie informacji o projekcie oraz przygotowywanie materiałów do implementacji.
+
+InVision rozwijał także inne produkty, między innymi rozwiązania do współpracy i projektowania, jednak ich dostępność zmieniała się w czasie.
+
+## 4. UI i UX w kontekście InVision
+
+[UI/UX Design & Optimization - GrabnSmile](https://images.openai.com/static-rsc-4/uidjzL7XUXa8sbH8JsHk3CkkJgiGXIGUz_zlaDh62xhLVdj2TNZJQ8sbUKIwcQVsjHHfm5u7BshdFiIJTnFWiMb0Ve7UDTKo0ULSTjeqRipxtlhJ9qdqqV180zp9VepCYLk6UiyFvts6H8Tkx2BazGbvFgTr9nMkmrtGPd_Z5TM?purpose=inline)
+
+UI (User Interface)
+
+Dotyczy wyglądu interfejsu, w tym kolorów, typografii, przycisków, ikon i układu elementów.
+
+[Wire frame and user flow for E-scooter app by Ganesh Ram Sundararaman on Dribbble](https://images.openai.com/static-rsc-4/lQqN7RQD3lK892TZ6PRgkmotnoXpp7UGYKubfTgN8yX4mw3yo2lsLLYIj9Tz4ddSOxPXZnUk066GVj5c59vmI-3d69hbUIGxqxuu2m1DRHm3TeZK-sBRnQDcbv8gvmsLADxDK9Aql5CREPOLKb_up8MwW3tbp14MTBeRg_DG1j4?purpose=inline)
+
+UX (User Experience)
+
+Dotyczy całego doświadczenia użytkownika, w tym łatwości obsługi, nawigacji, dostępności i realizacji zadań.
+
+InVision pomagał łączyć oba obszary, ponieważ umożliwiał projektowanie wyglądu ekranów i symulowanie interakcji między nimi.
+
+## 5. Przykład zastosowania w praktyce
+
+Załóżmy, że projektujesz aplikację do zamawiania kawy w kawiarni.
+
+W InVision można było przygotować prototyp obejmujący ekran logowania, menu kaw, szczegóły produktu, koszyk oraz potwierdzenie zamówienia.
+
+Następnie można było połączyć ekrany tak, aby kliknięcie przycisku „Dodaj do koszyka” prowadziło do odpowiedniego widoku.
+
+Dzięki temu użytkownicy mogli przetestować sposób działania aplikacji jeszcze przed napisaniem kodu w Javie, JavaScript lub innym języku programowania.
+
+## 6. Zalety i ograniczenia
+
+Zalety, które wyróżniały InVision:
+
+- Ułatwiał prezentowanie pomysłów na aplikacje.
+- Pozwalał testować przepływy użytkownika przed implementacją.
+- Umożliwiał zbieranie komentarzy od zespołu i klientów.
+- Pomagał ograniczać koszty zmian wprowadzanych dopiero po napisaniu kodu.
+
+Ograniczenia:
+
+- Prototyp nie był równoznaczny z działającą aplikacją.
+- Zaawansowane funkcje wymagały współpracy z innymi narzędziami projektowymi.
+- Zakończenie działalności głównych usług produktowych w 2024 roku oznacza, że nie jest to obecnie standardowy wybór dla nowych projektów.
+
+## 7. InVision a inne narzędzia
+
+| Narzędzie | Główne zastosowanie                                                     |
+| --------- | ----------------------------------------------------------------------- |
+| InVision  | Historycznie: prototypowanie i współpraca projektowa                    |
+| Figma     | Projektowanie UI/UX, prototypowanie i współpraca zespołowa              |
+| Sketch    | Projektowanie interfejsów, głównie w środowisku macOS                   |
+| Adobe XD  | Projektowanie i prototypowanie UI/UX; rozwój produktu został zakończony |
+| Axure RP  | Zaawansowane prototypowanie i modelowanie interakcji                    |
+
+W przypadku nowych projektów warto rozważyć przede wszystkim Figmę lub Axure RP, zależnie od wymagań.
+
+## 8. Co warto zapamiętać?
+
+InVision był popularnym narzędziem do tworzenia interaktywnych prototypów stron internetowych i aplikacji mobilnych.
+
+Pomagał projektantom rozwijać interfejsy UI/UX, testować nawigację oraz konsultować pomysły z zespołem przed rozpoczęciem programowania.
+
+Najważniejsze pojęcia związane z InVision to prototypowanie, UI, UX, hotspoty i współpraca projektowa.

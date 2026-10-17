@@ -1,0 +1,260 @@
+# Notion – kompleksowa notatka
+
+## 1. Czym jest Notion?
+
+[Getting started with projects and tasks](https://images.openai.com/static-rsc-4/qB_ZIED3V_cbCrdvroE0dfxLwjdAge74ZQK1yljPZHmetZcpoWN8GQwTARBrLFVAVqVfRv6ufvo1BO3PoeBLQgNeI_uc5CnDXot7vt-0ap3sybo_t1-fouSvuFeY01Jrqhth7O2dRGW6NJHS96vYqwfgAerPYsZRtmL4-GE-jrY?purpose=inline)
+
+[a simple student dashboard Template | Notion Marketplace](https://images.openai.com/static-rsc-4/rDw53z2ka_KZ5zrBhzhvMZoGPtFM7bw4_X6RMgfsPuBdFGzmWckdiY6LTMhfDYXfQ8eq614b66BpS_i71H-H1kznJYg5qtE3sMHNgBYYZ1Hx5pXsI0BndlL9p9Nv0CY8zgmo4YDNu5TDbCk_L0jAMNUUUnQwsg0A4nAOhAgPSaY?purpose=inline)
+
+[Create streamlined project management workflows using database automations](https://images.openai.com/static-rsc-4/hsvaGXLY0aHj6S4QSF6a5TVb87M8fNMmDIgrYI4rBsPKXVkYr06RPXRgeaBMbHmOd_xE1acXKVQm2dRHKZ467ZQ-_sw6ScS-qgP7qVZfBvm3wYXIuFvtAPV-RXLctA_hv-1gWt-y3LfmZmooavab8fJVRZOEGcMCfC683eEJRR4?purpose=inline)
+
+12
+
+Notion to internetowa platforma do organizowania informacji, tworzenia notatek, zarządzania projektami i planowania pracy.
+
+Łączy w jednym narzędziu funkcje edytora tekstu, bazy wiedzy, listy zadań, kalendarza, systemu zarządzania projektami oraz współpracy zespołowej.
+
+Notion jest rozwijany przez firmę Notion Labs i może być używany w przeglądarce internetowej, aplikacji desktopowej oraz aplikacjach mobilnych.
+
+Platforma pozwala tworzyć własne przestrzenie robocze, w których można przechowywać dokumentację, planować naukę, prowadzić projekty i organizować codzienne obowiązki.
+
+Notion oferuje również funkcje oparte na sztucznej inteligencji, których dostępność zależy od aktualnego planu i konfiguracji konta.
+
+## 2. Do czego służy Notion?
+
+Notion może pełnić funkcję centralnego miejsca do przechowywania informacji i zarządzania zadaniami.
+
+Najważniejsze zastosowania Notion to:
+
+- Tworzenie notatek i dokumentacji.
+- Organizowanie materiałów do nauki.
+- Zarządzanie projektami i zadaniami.
+- Tworzenie baz wiedzy.
+- Planowanie celów i nawyków.
+- Prowadzenie dokumentacji technicznej.
+- Organizowanie pracy zespołowej.
+- Tworzenie harmonogramów i planów działania.
+- Zarządzanie listami książek, kursów i materiałów.
+- Współpraca nad dokumentami.
+- Wykorzystywanie AI do pracy z informacjami.
+
+Przykładowo można utworzyć w Notion bazę wiedzy o technologiach IT, w której każda technologia będzie miała własną stronę zawierającą opis, zastosowania, zalety, wady oraz przykłady kodu.
+
+## 3. Jak działa Notion?
+
+Podstawą Notion jest system stron (pages) i bloków (blocks).
+
+Każda strona może zawierać tekst, nagłówki, listy, obrazy, tabele, pliki, odnośniki, a także osadzone bazy danych.
+
+Bloki można swobodnie dodawać, przenosić i organizować, dzięki czemu użytkownik może dostosować strukturę przestrzeni roboczej do własnych potrzeb.
+
+Workspace
+
+Przestrzeń robocza
+
+Pages
+
+Strony, podstrony i dokumentacja
+
+Blocks
+
+Tekst, nagłówki, listy, obrazy i tabele
+
+Databases i widoki
+
+Zadania, projekty, kursy i harmonogramy
+
+Workspace to przestrzeń, w której organizowane są strony i współpraca.
+
+Page to dokument lub strona, która może zawierać kolejne podstrony.
+
+Block to podstawowy element treści, np. akapit, nagłówek, lista lub obraz.
+
+Database pozwala przechowywać informacje w uporządkowanej strukturze i prezentować je na różne sposoby.
+
+## 4. Najważniejsze funkcje Notion
+
+Pages umożliwiają tworzenie dokumentów, notatek i podstron.
+
+Blocks pozwalają budować treść z różnych elementów, takich jak tekst, listy, obrazy czy osadzone materiały.
+
+Databases umożliwiają przechowywanie informacji w postaci uporządkowanych rekordów z określonymi właściwościami.
+
+Views pozwalają prezentować te same dane w różnych układach, np. tabeli, tablicy Kanban, kalendarza lub listy.
+
+Templates umożliwiają tworzenie gotowych szablonów stron i rekordów, dzięki czemu nie trzeba za każdym razem budować struktury od początku.
+
+Relations pozwalają łączyć rekordy z różnych baz danych.
+
+Rollups umożliwiają pobieranie i agregowanie informacji z powiązanych rekordów.
+
+Search pozwala wyszukiwać strony i informacje w przestrzeni roboczej.
+
+Sharing and Collaboration umożliwia udostępnianie dokumentów, komentowanie i wspólną pracę.
+
+Notion AI wspiera między innymi tworzenie i streszczanie treści oraz pracę z informacjami, w zakresie zależnym od dostępnych funkcji.
+
+## 5. Bazy danych w Notion
+
+Bazy danych są jedną z najważniejszych funkcji Notion.
+
+Pozwalają przechowywać informacje w uporządkowanej formie, a następnie filtrować, sortować i prezentować je w różnych widokach.
+
+Przykładowo baza technologii IT może zawierać następujące właściwości:
+
+| Właściwość    | Typ    | Przykład             |
+| ------------- | ------ | -------------------- |
+| Name          | Title  | Java                 |
+| Category      | Select | Programming Language |
+| Difficulty    | Select | Intermediate         |
+| Status        | Status | In Progress          |
+| Learning Date | Date   | 2026-10-09           |
+| Documentation | URL    | Link do dokumentacji |
+| Notes         | Text   | Własne informacje    |
+
+Wszystkie rekordy mogą być prezentowane w tabeli, ale także jako karty na tablicy Kanban lub wpisy w kalendarzu, jeśli odpowiednie właściwości są dostępne.
+
+Dzięki temu Notion może pełnić funkcję katalogu technologii, systemu zarządzania kursami albo rejestru projektów.
+
+## 6. Widoki baz danych
+
+Notion umożliwia prezentowanie tej samej bazy w różnych formach.
+
+[Sharing & permissions settings – Notion Help Center](https://images.openai.com/static-rsc-4/VGfDmF2CzcRMjw8x03ugPcwNY2L5_i9_eHU0W-v6zktAom1MDoc7NXk1QpcaTus8UAx6x_M7JBVT87aWYwNoG83wBMkUVfg8YpzvPPltaE0HiI_eLOTz2757tlklVHbw5jNPHEDa3AG_y3VLzM5QM_7paPcGGCNVvXTbAqI8Bew?purpose=inline)
+
+Table View
+
+Widok tabelaryczny, przydatny do porównywania informacji, edycji właściwości i zarządzania większą liczbą rekordów.
+
+[Simple Roadmap 2026 Template | Notion Marketplace](https://images.openai.com/static-rsc-4/K6JlN7AC0G9KP5rlPrRT6RqpKB2WRN0vlamQRDVntR_44EifBAWtn1GMJTMKAAQsCzzVotxz7_9nrM_bGi-ts5dmF3E2OSSV71PVWKw5nIhm8Uhe_DoOgCOnuvGOEohdROfItAjJr_3T8w7gea5XP4hURAPjTAe5C0lP6Nh_-Xc?purpose=inline)
+
+Board View
+
+Tablica Kanban, na której zadania można grupować według statusu, np. To Do, In Progress i Done.
+
+[Calendar Planner Notion at Alice Pinard blog](https://images.openai.com/static-rsc-4/6JaC4I5t4cUjWEKMHajG3d5SYKfMpORa0xRHbOlxjKs0yVMJqPXEN_mZuNhgPJpawyDewjvyMXjpRaZ7oBsXtw72Ufg3eW_s5Sqpf3AJOX5ppIluUjiDBMhKn9QrYmZB4yC059kWLFlgGi3vc2OaIBRhYjTZvKpBxOtLQUbPntE?purpose=inline)
+
+Calendar View
+
+Widok kalendarza, który pozwala planować zadania i wydarzenia na podstawie właściwości daty.
+
+[Book Library - UX & Product Design  Template by Nastia | Notion Marketplace](https://images.openai.com/static-rsc-4/6JzdOiQljqF-HsKBfQBE_OKLsI7zCZra_gESQZuf56jr2dyqbvh8nod2cOhDWPglxH4a_YRn8Eq7-eT1r7N2_nb8F28OWJCdbwcedmNhKyEU7z06JhDq2Vb8Sw-4qpOXZpJPkIlJBzYQK4kVeyqFlxrYBC70qUw15fw4PcYvzEM?purpose=inline)
+
+Gallery View
+
+Widok kart, przydatny do katalogów kursów, książek, technologii i materiałów edukacyjnych.
+
+Dostępne są także inne sposoby prezentowania danych, zależnie od rodzaju bazy i funkcji platformy.
+
+## 7. Notion w nauce i rozwoju zawodowym
+
+Notion może służyć jako osobista baza wiedzy, w której wszystkie materiały edukacyjne są uporządkowane według tematów.
+
+Można utworzyć osobne strony dla języków obcych, technologii IT, kursów, projektów oraz celów zawodowych.
+
+Przykładowa struktura przestrzeni edukacyjnej:
+
+```
+My Knowledge Base
+├── Languages
+│   ├── English
+│   ├── German
+│   ├── Spanish
+│   └── Japanese
+├── IT Technologies
+│   ├── Java
+│   ├── Node.js
+│   ├── Docker
+│   └── Kubernetes
+├── Courses
+│   ├── QA Testing
+│   ├── Backend Development
+│   └── Databases
+├── Projects
+│   ├── AgriMind AI
+│   └── Portfolio
+└── Goals and Habits
+    ├── Daily Tasks
+    ├── Weekly Review
+    └── Progress Tracking
+```
+
+Każda strona może zawierać własne notatki, linki do dokumentacji, zadania praktyczne, quizy i podsumowania.
+
+## 8. Notion a inne narzędzia
+
+[Notion Logo & Brand Kit - SVG, PNG, Vector - Logo.dev](https://images.openai.com/static-rsc-4/6mCUUDdd-2R5W6jjCK4EwaKcY2dwArObMBW9xXO-dGIEniG1ddm7Ycp88yVklCtdwYfWl2knVK-3ogKYZeqbzSKtF1vInNcicHMy1BSu6BdRTud5yIev9VxR48b4duuIcnLSD6Z8N6QJJo3ree1yZhLquU2vTUI0G0mcpcOM8Do?purpose=inline)
+
+Notion
+
+Łączy dokumentację, notatki, bazy danych i zarządzanie projektami w elastycznej przestrzeni roboczej.
+
+[Kuwasidian | His Obsidian (note-taking app) notes](https://images.openai.com/static-rsc-4/Lvhp5cARWKyCbvkYAB8jFuQcYiMPGcbsX211Od9B2Hi2ALqtT0jqnKgniqXGpnst4G5hMXj8o__b2G6ur-dxb-nY5raXQ5F0l4_Oh-J1y_yJDSVCfECF4HvzE_68pKkFiFaBwiRQpTs5D20W_a1PraEgZuFAl8AFp6tI6biUsFw?purpose=inline)
+
+Obsidian
+
+Koncentruje się na lokalnych notatkach Markdown, powiązaniach między nimi i budowaniu osobistej bazy wiedzy.
+
+[Business Software and Services Reviews | G2](https://images.openai.com/static-rsc-4/cE8-ksEupT3AtejKuFa6AmiUeNV1W_umad1WFeVeYs1kocMOsxln7jqRe363KcAG-XpBU4SmhVWXTf9TXVCEVa0kcRO2wuvRJ52gGi9AlDYF9Gm2uLGBtX8FEOkfoRvTBxZqJ8jwSZ-aKehiLnqGULKqx8knAwSQ4ylMC8KokGQ?purpose=inline)
+
+Trello
+
+Narzędzie do zarządzania zadaniami i projektami, szczególnie za pomocą tablic Kanban.
+
+[File:Microsoft OneNote Logo (2013-2019).svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/AI4_flKUmD8hos1QlzobrX8MMidOo0Jc_dNwNe5wL9uRyh4ML2B6SkKqG7RFxmRpOuyofmJNKXrNYrHGlZVMRYan8Fb4k61zhtcd8hDMq8hogPS5pJyUiF4-57Z5fKxHe0R2AFPq8-_5EbLbwEClcYT7eVb_0c5w6rqQ-WpQ2tE?purpose=inline)
+
+Microsoft OneNote
+
+Cyfrowy notatnik do zapisywania informacji, organizowania notatek i gromadzenia materiałów.
+
+[MS Planner | About us](https://images.openai.com/static-rsc-4/tmUswEdrKPRrUZ0B3VsQkA8ym_6UaJ333XMbV3kldDQTXf3K-qlr82QZURUGOPnuxhlT0-WUgP7OivDxN2qdMTx18lQoPAXIlW7yeUidJlOl3LVxssHU7C1mvkqEv4tV7RGSJ_vfYAb_ZW2uBP2Bm7hLhnivyJi4mfQtyJBG3R0?purpose=inline)
+
+Microsoft Planner
+
+Narzędzie do zarządzania zadaniami i planami pracy, szczególnie w środowisku Microsoft 365.
+
+Notion jest dobrym wyborem, jeśli chcesz połączyć notatki, dokumentację, zadania i uporządkowane dane w jednym miejscu.
+
+Obsidian może być lepszy dla osób preferujących lokalne pliki Markdown i rozbudowaną sieć powiązanych notatek.
+
+Trello sprawdza się szczególnie wtedy, gdy najważniejsze jest wizualne śledzenie zadań i etapów projektu.
+
+## 9. Zalety Notion
+
+- Łączy wiele funkcji organizacyjnych w jednym narzędziu.
+- Umożliwia tworzenie elastycznych struktur stron i podstron.
+- Oferuje rozbudowane bazy danych i różne widoki.
+- Pozwala tworzyć własne szablony.
+- Ułatwia organizowanie dokumentacji technicznej.
+- Wspiera współpracę zespołową.
+- Pozwala łączyć informacje między bazami danych.
+- Może służyć zarówno do pracy indywidualnej, jak i zespołowej.
+- Oferuje integracje z innymi usługami.
+
+## 10. Wady Notion
+
+- Rozbudowane przestrzenie robocze wymagają przemyślanej organizacji.
+- Nadmierne tworzenie baz danych i szablonów może utrudniać korzystanie z systemu.
+- Pełna funkcjonalność zależy od dostępu do internetu i dostępności usługi, choć część funkcji może działać również z ograniczoną łącznością.
+- Niektóre zaawansowane funkcje są dostępne tylko w określonych planach.
+- Rozbudowane bazy danych nie zastępują w pełni wyspecjalizowanych systemów bazodanowych.
+- Przeniesienie całej organizacji pracy na jedną platformę może utrudnić migrację do innego rozwiązania.
+
+## 11. Najważniejsze pojęcia do zapamiętania
+
+- Workspace – przestrzeń robocza.
+- Page – strona lub dokument.
+- Block – podstawowy element treści.
+- Database – uporządkowany zbiór rekordów.
+- Property – właściwość opisująca rekord.
+- View – sposób prezentacji danych.
+- Template – szablon strony lub rekordu.
+- Relation – powiązanie między rekordami różnych baz.
+- Rollup – pobieranie lub agregowanie danych z powiązanych rekordów.
+- Kanban – sposób organizacji pracy za pomocą kolumn reprezentujących etapy.
+- Notion AI – funkcje sztucznej inteligencji wspomagające pracę z informacjami.
+- Collaboration – współpraca użytkowników w ramach wspólnej przestrzeni.
+
+Podsumowanie: Notion to wszechstronna platforma do organizowania wiedzy, tworzenia dokumentacji, planowania zadań i zarządzania projektami. Jej największą zaletą jest połączenie elastycznych stron, bloków i baz danych, dzięki czemu można zbudować własny system nauki, pracy i rozwoju zawodowego.
+
+Jeśli chcesz wykorzystywać Notion do organizowania swoich notatek o technologiach IT, możesz również skorzystać z integracji Notion w ChatGPT, aby tworzyć i porządkować dokumenty oraz bazy danych bezpośrednio w aplikacji.

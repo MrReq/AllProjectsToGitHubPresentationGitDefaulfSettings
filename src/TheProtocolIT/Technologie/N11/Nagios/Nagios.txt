@@ -1,0 +1,202 @@
+# Nagios – kompleksowa notatka
+
+## 1. Czym jest Nagios?
+
+Nagios to narzędzie informatyczne służące do monitorowania infrastruktury IT, serwerów, aplikacji, usług sieciowych oraz urządzeń sieciowych.
+
+Jego głównym zadaniem jest sprawdzanie, czy poszczególne elementy infrastruktury działają prawidłowo, oraz informowanie administratorów o awariach, błędach i przekroczeniu określonych parametrów.
+
+Nagios pozwala wykrywać problemy, zanim wpłyną one na działanie całego systemu lub dostępność usług dla użytkowników.
+
+Narzędzie jest szczególnie popularne w administracji systemami Linux, monitorowaniu sieci komputerowych oraz zarządzaniu serwerami.
+
+[Ubuntu 14.04 LTS : Nagios : Notification Setting : Server World](https://images.openai.com/static-rsc-4/9cg7K788CVwDtmALMEFl_6yIRJHXIeFSjSIV1xRyKsUZYPaTIxQB8tVUsC8Q4ybVcsHViJh-08D4295xhp-dPHVaCvJJBjxyIksFljApWK7M9Cew3a4uyNKW4xhgW-a5db8Z8VbBSX4UB_eWoC0QWR4RFWklJEUtZ_THnPGLytI?purpose=inline)
+
+[10 Best Infrastructure Monitoring Tools of 2026](https://images.openai.com/static-rsc-4/mp8z25FT-4LJm9FUFn3taLytJ4vihsQSXiKQ2wZfeIOUExIN3leEN6UXDSR_OvhRxgI87zju9G45z18tMxgRYiRTwzfkgVVmtJjnjGrUHCvwDg2X09AXCMTmiu7SdORSJGx8dKzU7wQcTzPdSQfu6w1xmYzOMXNZ4lw8OoZxlP8?purpose=inline)
+
+[Administrator Guide · Nagios XI](https://images.openai.com/static-rsc-4/0_16wOnCY-zmXg2lO34YS2TvpWb6ORG7nJQ7fLRvyvycGXlbdbWEEOM-uKTe8xTIuXjGoKNQiKn9bkNbGw2tPg57qNa0QayrL-SwjIjIXlQP6kzO51TSjLZfawvlOn7gvWGxFPLIcegyE1ZQH-kmO2iViPvURmpEdpASxvga-EM?purpose=inline)
+
+8
+
+## 2. Do czego służy Nagios?
+
+Nagios służy przede wszystkim do monitorowania dostępności i stanu technicznego infrastruktury informatycznej.
+
+Pozwala sprawdzać, czy serwery odpowiadają na żądania, czy strony internetowe są dostępne, czy usługi działają poprawnie oraz czy zasoby sprzętowe nie są nadmiernie wykorzystywane.
+
+Najważniejsze zastosowania Nagios to:
+
+- Monitorowanie serwerów Linux i Windows.
+- Sprawdzanie dostępności urządzeń sieciowych.
+- Monitorowanie usług HTTP, HTTPS, DNS, SSH i FTP.
+- Kontrolowanie wykorzystania procesora, pamięci RAM i przestrzeni dyskowej.
+- Wykrywanie awarii aplikacji oraz usług.
+- Wysyłanie powiadomień o problemach.
+- Tworzenie raportów dotyczących dostępności infrastruktury.
+- Monitorowanie wielu serwerów z jednego centralnego systemu.
+
+Przykładowo, administrator może skonfigurować Nagios tak, aby otrzymał powiadomienie, gdy serwer przestanie odpowiadać albo na dysku pozostanie mniej niż 10% wolnego miejsca.
+
+## 3. Jak działa Nagios?
+
+Nagios działa na podstawie cyklicznego wykonywania kontroli, nazywanych checks.
+
+Administrator definiuje hosty, usługi oraz warunki, które mają być sprawdzane.
+
+Hosty i usługi
+
+Serwery, aplikacje, sieć i bazy danych
+
+Kontrole Nagios
+
+Wtyczki, skrypty i testy dostępności
+
+Ocena stanu
+
+OK, WARNING, CRITICAL lub UNKNOWN
+
+Reakcja systemu
+
+Panel, logi, powiadomienia i działania naprawcze
+
+Nagios wykonuje testy zgodnie z konfiguracją, analizuje wyniki i przypisuje odpowiedni status monitorowanemu elementowi.
+
+Jeśli wystąpi problem, może zapisać zdarzenie, wyświetlić alarm w panelu i wysłać powiadomienie e-mail lub innym skonfigurowanym kanałem.
+
+W zależności od konfiguracji możliwe jest także uruchamianie skryptów reagujących na określone zdarzenia.
+
+## 4. Najważniejsze komponenty Nagios
+
+Nagios Core to podstawowy silnik monitorowania, który odpowiada za planowanie kontroli, przetwarzanie wyników i obsługę zdarzeń.
+
+Nagios XI to komercyjna platforma monitorowania oparta na Nagios Core, oferująca dodatkowe funkcje, takie jak rozbudowany interfejs, narzędzia konfiguracyjne i raportowanie.
+
+Wtyczki (plugins) to programy lub skrypty wykonujące konkretne testy monitorujące, na przykład sprawdzające dostępność serwera, wykorzystanie dysku lub odpowiedź usługi HTTP.
+
+NRPE (Nagios Remote Plugin Executor) to mechanizm pozwalający wykonywać określone kontrole na zdalnych komputerach, zwykle z wykorzystaniem agenta działającego na monitorowanym hoście.
+
+NSClient++ to agent używany przede wszystkim do monitorowania systemów Windows, umożliwiający między innymi sprawdzanie ich zasobów i usług.
+
+Interfejs WWW pozwala przeglądać aktualne statusy hostów i usług, historię zdarzeń oraz informacje o wykrytych problemach.
+
+## 5. Statusy monitorowania
+
+Nagios wykorzystuje określone statusy, aby informować o stanie monitorowanych elementów.
+
+| Status   | Znaczenie                                                 |
+| -------- | --------------------------------------------------------- |
+| OK       | Usługa działa prawidłowo.                                 |
+| WARNING  | Wystąpiło ostrzeżenie lub przekroczono próg ostrzegawczy. |
+| CRITICAL | Wystąpił poważny problem wymagający uwagi.                |
+| UNKNOWN  | Nie można jednoznacznie określić stanu usługi.            |
+
+W przypadku hostów stosowane są również statusy dotyczące ich dostępności, takie jak UP i DOWN.
+
+Przykładowo, jeżeli wykorzystanie procesora przekroczy ustalony próg, Nagios może zmienić status usługi na WARNING, a po przekroczeniu wyższego progu na CRITICAL.
+
+## 6. Konfiguracja Nagios
+
+Konfiguracja Nagios polega na określeniu, jakie elementy mają być monitorowane, jakie testy mają być wykonywane oraz jak system ma reagować na problemy.
+
+W Nagios Core wykorzystuje się między innymi pliki konfiguracyjne opisujące:
+
+- Hosty, czyli monitorowane urządzenia.
+- Usługi, czyli konkretne kontrole wykonywane na hostach.
+- Polecenia, czyli sposób uruchamiania wtyczek.
+- Kontakty, czyli osoby lub grupy otrzymujące powiadomienia.
+- Grupy hostów i usług.
+- Harmonogramy kontroli i reguły powiadamiania.
+
+Przykładowa definicja usługi monitorującej stronę internetową może wykorzystywać wtyczkę `check_http`, która sprawdza, czy serwer WWW odpowiada prawidłowo.
+
+Po zmianie konfiguracji należy ją zweryfikować i przeładować lub ponownie uruchomić odpowiednie usługi zgodnie z używaną wersją Nagios.
+
+## 7. Nagios a monitoring infrastruktury IT
+
+Nagios może monitorować wiele warstw infrastruktury.
+
+| Obszar             | Przykładowa kontrola                     |
+| ------------------ | ---------------------------------------- |
+| Serwery            | Dostępność systemu operacyjnego          |
+| Sieć               | Odpowiedź na żądania ping                |
+| Strony internetowe | Dostępność HTTP i HTTPS                  |
+| Bazy danych        | Dostępność usługi i możliwość połączenia |
+| Dyski              | Ilość wolnego miejsca                    |
+| Pamięć RAM         | Poziom wykorzystania pamięci             |
+| Procesor           | Obciążenie CPU                           |
+| Aplikacje          | Działanie określonych procesów i usług   |
+
+Zakres monitorowania zależy od dostępnych wtyczek, uprawnień, konfiguracji oraz sposobu komunikacji z monitorowanym systemem.
+
+## 8. Nagios a inne narzędzia monitorujące
+
+Nagios należy do kategorii narzędzi monitorowania infrastruktury IT, ale nie jest jedynym rozwiązaniem w tej dziedzinie.
+
+[Ubuntu 14.04 LTS : Nagios : Notification Setting : Server World](https://images.openai.com/static-rsc-4/9cg7K788CVwDtmALMEFl_6yIRJHXIeFSjSIV1xRyKsUZYPaTIxQB8tVUsC8Q4ybVcsHViJh-08D4295xhp-dPHVaCvJJBjxyIksFljApWK7M9Cew3a4uyNKW4xhgW-a5db8Z8VbBSX4UB_eWoC0QWR4RFWklJEUtZ_THnPGLytI?purpose=inline)
+
+Nagios
+
+Koncentruje się na kontrolach dostępności, statusach usług, wtyczkach i powiadomieniach o problemach.
+
+[Medium](https://images.openai.com/static-rsc-4/KA48Pec8jxeG22uUU_htKvTEtc5dWTJ7j7Dw9UitYEROJr3Rc7TGSleG18m0x34OmX6JEJE4xUZaLO5WT5ScDCgge00x3gFvKIlTZkWIoQzNJc0wjxD2F07NK3vKTKTxL-AEeYg0xW9-avGyAqvJ0hrQ1VHIq2QJyly5-953Fao?purpose=inline)
+
+Zabbix
+
+Oferuje rozbudowane monitorowanie infrastruktury, gromadzenie danych, wykresy i mechanizmy alarmowania.
+
+[Server Monitoring with Prometheus and Grafana - Virtualization Howto](https://images.openai.com/static-rsc-4/iOorZpMWXt7XTo9c6cvJXxpg_mkEmKZcTv9fznGV0nukHXfnHW2Dd-zy9n7Ek4mqrt7s3iqHsBGzcUSK2Or5asQlnXmqEJS6ZeFCFfHk7HnFEX_51kC2Ae4HtSo7AS686g0DeKCBtarypyb9Djb9ShjwFVqVJANSBlGliuysL2w?purpose=inline)
+
+Prometheus i Grafana
+
+Prometheus gromadzi i analizuje metryki, a Grafana pozwala prezentować dane w postaci wykresów i dashboardów.
+
+Nagios jest dobrym wyborem, gdy kluczowe znaczenie ma kontrolowanie dostępności usług i szybkie wykrywanie awarii.
+
+Zabbix może być wygodniejszy w środowiskach wymagających kompleksowego monitorowania z wykorzystaniem agentów i rozbudowanych wykresów.
+
+Prometheus i Grafana są często wybierane w nowoczesnych środowiskach aplikacyjnych, zwłaszcza gdy istotne są metryki, kontenery i systemy rozproszone.
+
+## 9. Zalety Nagios
+
+- Umożliwia centralne monitorowanie wielu elementów infrastruktury.
+- Pozwala szybko wykrywać awarie i niedostępność usług.
+- Obsługuje wiele wtyczek oraz własne skrypty.
+- Umożliwia konfigurowanie progów ostrzegawczych i krytycznych.
+- Pozwala definiować powiadomienia o problemach.
+- Może być rozszerzany o dodatkowe mechanizmy monitorowania.
+- Nagios Core jest dostępny jako oprogramowanie open source.
+
+## 10. Wady Nagios
+
+- Konfiguracja Nagios Core może wymagać znajomości plików konfiguracyjnych i administracji systemami.
+- Interfejs podstawowej wersji jest mniej rozbudowany niż w niektórych konkurencyjnych rozwiązaniach.
+- Niektóre funkcje wymagają dodatkowych wtyczek lub agentów.
+- Rozbudowane środowiska mogą wymagać znacznego nakładu pracy przy konfiguracji i utrzymaniu.
+- Sam Nagios Core nie jest przede wszystkim platformą do długoterminowej analizy dużych zbiorów metryk i tworzenia zaawansowanych dashboardów.
+
+## 11. Przykład praktycznego zastosowania
+
+Wyobraźmy sobie firmę, która posiada serwer aplikacyjny, bazę danych i stronę internetową.
+
+Administrator konfiguruje Nagios tak, aby co kilka minut sprawdzał dostępność serwera, działanie strony internetowej i możliwość połączenia z bazą danych.
+
+Jeżeli strona internetowa przestanie odpowiadać, Nagios wykryje problem i oznaczy odpowiednią usługę jako CRITICAL, zgodnie z wynikami kontroli i konfiguracją.
+
+Administrator otrzyma powiadomienie i będzie mógł sprawdzić przyczynę awarii.
+
+Dzięki temu firma może szybciej reagować na problemy oraz ograniczać czas niedostępności swoich usług.
+
+## 12. Najważniejsze pojęcia do zapamiętania
+
+- Nagios Core – podstawowy silnik monitorowania infrastruktury IT.
+- Nagios XI – komercyjna platforma z dodatkowymi funkcjami zarządzania i raportowania.
+- Host – monitorowane urządzenie lub system.
+- Service – konkretna usługa albo kontrola wykonywana w ramach monitorowania.
+- Plugin – program wykonujący określony test.
+- NRPE – mechanizm uruchamiania kontroli na zdalnych hostach.
+- Alert – powiadomienie o wykrytym problemie.
+- CRITICAL – status wskazujący na poważny problem.
+- Monitoring – ciągłe lub cykliczne sprawdzanie stanu infrastruktury.
+- Availability – dostępność systemu lub usługi.
+
+Podsumowanie: Nagios to narzędzie służące do monitorowania serwerów, sieci i usług informatycznych. Jego najważniejsze funkcje to wykonywanie kontroli, wykrywanie awarii, prezentowanie statusów oraz powiadamianie administratorów o problemach. Jest szczególnie przydatny w administracji IT, utrzymaniu infrastruktury i zapewnianiu dostępności usług.

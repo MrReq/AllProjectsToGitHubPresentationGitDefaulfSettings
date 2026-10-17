@@ -1,0 +1,273 @@
+Apache JMeter — notatka
+
+1. Czym jest Apache JMeter?
+
+Apache JMeter to darmowe narzędzie open source służące do testowania wydajności aplikacji, serwerów, interfejsów API i innych systemów informatycznych.
+
+Zostało stworzone przez Apache Software Foundation i jest rozwijane jako projekt Apache.
+
+JMeter pozwala symulować wielu użytkowników korzystających jednocześnie z aplikacji, aby sprawdzić jej zachowanie pod obciążeniem.
+
+Narzędzie jest szczególnie przydatne w testowaniu oprogramowania, automatyzacji testów oraz kontroli wydajności systemów.
+
+2. Do czego służy Apache JMeter?
+
+JMeter służy przede wszystkim do sprawdzania, jak system zachowuje się przy różnym poziomie obciążenia.
+
+Można go wykorzystać do testowania aplikacji internetowych, REST API, serwerów baz danych oraz usług sieciowych.
+
+Pozwala sprawdzić czas odpowiedzi serwera, liczbę obsługiwanych żądań, błędy występujące podczas obciążenia oraz stabilność aplikacji.
+
+JMeter jest również wykorzystywany do wykrywania wąskich gardeł, czyli elementów systemu ograniczających jego wydajność.
+
+3. Rodzaje testów wydajnościowych
+
+Test obciążeniowy (Load Testing) sprawdza działanie systemu przy przewidywanym, typowym obciążeniu.
+
+Test przeciążeniowy (Stress Testing) sprawdza, jak system zachowuje się po przekroczeniu oczekiwanego poziomu obciążenia.
+
+Test wytrzymałościowy (Soak Testing) polega na długotrwałym obciążaniu aplikacji, aby wykryć problemy pojawiające się z czasem.
+
+Test skokowy (Spike Testing) sprawdza reakcję systemu na nagły wzrost liczby użytkowników lub żądań.
+
+Test skalowalności (Scalability Testing) pomaga ocenić, czy zwiększenie zasobów systemu pozwala obsługiwać większe obciążenie.
+
+4. Jak działa Apache JMeter?
+
+JMeter wykonuje zaplanowane żądania do testowanego systemu, na przykład wysyła zapytania HTTP do aplikacji internetowej.
+
+Może symulować wielu wirtualnych użytkowników wykonujących określone czynności.
+
+Zbiera informacje o czasie odpowiedzi, liczbie żądań, błędach i innych metrykach.
+
+Na podstawie wyników można ocenić, czy aplikacja spełnia wymagania wydajnościowe.
+
+JMeter nie musi uruchamiać osobnej przeglądarki dla każdego wirtualnego użytkownika, ponieważ zazwyczaj generuje żądania bezpośrednio na poziomie protokołu.
+
+5. Interfejs Apache JMeter
+
+Apache JMeter oferuje graficzny interfejs użytkownika, w którym można budować i konfigurować scenariusze testowe.
+
+Test Plan to główny plan opisujący strukturę testu i jego ustawienia.
+
+Thread Group określa liczbę wirtualnych użytkowników, czas uruchamiania oraz liczbę powtórzeń testu.
+
+Sampler definiuje wykonywaną operację, na przykład wysłanie żądania HTTP.
+
+Listener służy do prezentowania i zapisywania wyników testu.
+
+Assertion sprawdza, czy otrzymana odpowiedź spełnia określone warunki.
+
+Timer wprowadza opóźnienia pomiędzy żądaniami, aby lepiej odwzorować zachowanie rzeczywistych użytkowników.
+
+6. Thread Group i wirtualni użytkownicy
+
+Thread Group jest jednym z najważniejszych elementów testu w JMeter.
+
+Pozwala określić liczbę wirtualnych użytkowników, którzy będą wykonywać zaplanowane czynności.
+
+Parametr Number of Threads określa liczbę wirtualnych użytkowników.
+
+Ramp-up Period określa czas, w którym użytkownicy mają zostać uruchomieni.
+
+Loop Count określa liczbę powtórzeń scenariusza przez każdego użytkownika.
+
+Przykładowo 100 wirtualnych użytkowników z czasem ramp-up równym 20 sekund oznacza planowe uruchamianie ich w ciągu tego okresu.
+
+Nie oznacza to jednak automatycznie, że serwer otrzyma dokładnie pięć żądań na sekundę, ponieważ użytkownicy mogą wykonywać wiele operacji, a ich tempo zależy od scenariusza i czasu odpowiedzi systemu.
+
+7. Testowanie REST API
+
+JMeter bardzo dobrze nadaje się do testowania interfejsów API.
+
+Może wysyłać żądania GET, POST, PUT, PATCH i DELETE.
+
+Pozwala ustawiać nagłówki HTTP, parametry zapytań, dane JSON oraz dane uwierzytelniające.
+
+Można sprawdzać kody odpowiedzi HTTP, zawartość odpowiedzi oraz czas wykonania żądania.
+
+Przykładowo można przetestować endpoint aplikacji Spring Boot, który zwraca listę użytkowników.
+
+8. Przykład testu REST API
+
+Załóżmy, że aplikacja udostępnia endpoint:
+
+```
+GET http://localhost:9999/api/users
+```
+
+W JMeter można utworzyć następującą strukturę testu:
+
+```
+Test Plan
+└── Thread Group
+    ├── HTTP Request
+    ├── Response Assertion
+    └── Summary Report
+```
+
+W elemencie HTTP Request należy ustawić metodę GET, adres serwera, port 9999 i ścieżkę `/api/users`.
+
+Response Assertion może sprawdzać, czy serwer zwraca oczekiwany kod HTTP, na przykład 200.
+
+Summary Report pozwala przeanalizować podstawowe statystyki wykonanych żądań.
+
+Jeśli endpoint wymaga uwierzytelnienia, należy skonfigurować odpowiedni nagłówek, na przykład `Authorization: Bearer ...`.
+
+9. Testowanie aplikacji Spring Boot
+
+JMeter może współpracować z aplikacjami napisanymi w Spring Boot.
+
+Pozwala testować kontrolery REST, logowanie, rejestrację, pobieranie danych i inne operacje udostępnione przez API.
+
+Można na przykład sprawdzić, jak backend reaguje na 50, 100 lub 500 wirtualnych użytkowników wykonujących żądania.
+
+Wyniki pomagają ustalić, czy ograniczeniem jest kod aplikacji, baza danych, pula połączeń, konfiguracja serwera czy infrastruktura.
+
+Przed testowaniem warto przygotować odpowiednie dane testowe i upewnić się, że operacje nie powodują niepożądanych zmian w rzeczywistych danych.
+
+10. Najważniejsze metryki
+
+Response Time określa czas, jaki upływa od wysłania żądania do otrzymania odpowiedzi.
+
+Throughput określa liczbę operacji obsługiwanych w jednostce czasu.
+
+Error Rate oznacza odsetek żądań zakończonych błędem.
+
+Latency opisuje opóźnienie związane z uzyskaniem odpowiedzi i może być mierzone różnie zależnie od narzędzia oraz definicji metryki.
+
+Percentyle, takie jak p90, p95 i p99, pokazują, jaki czas odpowiedzi nie został przekroczony przez odpowiednio 90%, 95% lub 99% próbek.
+
+Przykładowo p95 równy 800 ms oznacza, że 95% zmierzonych odpowiedzi trwało nie dłużej niż 800 ms.
+
+Przy analizie wydajności należy patrzeć na kilka metryk jednocześnie, ponieważ sam średni czas odpowiedzi nie opisuje całego zachowania systemu.
+
+11. Elementy dodatkowe
+
+CSV Data Set Config pozwala pobierać dane testowe z pliku CSV, na przykład różne nazwy użytkowników lub parametry zapytań.
+
+HTTP Header Manager umożliwia ustawianie nagłówków HTTP.
+
+HTTP Cookie Manager pozwala zarządzać ciasteczkami podczas testowania aplikacji wykorzystujących sesje.
+
+JSON Extractor umożliwia wyodrębnianie wartości z odpowiedzi JSON i wykorzystywanie ich w kolejnych żądaniach.
+
+Regular Expression Extractor pozwala pobierać wartości z odpowiedzi na podstawie wyrażeń regularnych.
+
+Assertions służą do sprawdzania poprawności odpowiedzi, a nie tylko samego faktu, że serwer zwrócił dane.
+
+12. Tryb graficzny i tryb bez interfejsu
+
+JMeter może działać w trybie graficznym, który ułatwia tworzenie i debugowanie scenariuszy testowych.
+
+Do większych testów obciążeniowych zalecany jest tryb bez interfejsu graficznego, nazywany non-GUI mode.
+
+Pozwala on ograniczyć narzut związany z interfejsem i wygodniej uruchamiać testy z linii poleceń.
+
+Przykładowe polecenie:
+
+```
+jmeter -n -t test-plan.jmx -l results.jtl
+```
+
+Opcja `-n` uruchamia JMeter bez interfejsu graficznego.
+
+Opcja `-t` wskazuje plik scenariusza testowego.
+
+Opcja `-l` określa plik, w którym zostaną zapisane wyniki.
+
+13. Apache JMeter a Selenium
+
+Apache JMeter służy przede wszystkim do testowania wydajności i generowania żądań na poziomie protokołu.
+
+Selenium automatyzuje przeglądarkę i pozwala testować interakcje użytkownika z interfejsem strony internetowej.
+
+JMeter sprawdza się podczas obciążania API i serwerów.
+
+Selenium sprawdza się podczas weryfikowania zachowania aplikacji w przeglądarce.
+
+Oba narzędzia mogą uzupełniać się w procesie testowania, ale nie są bezpośrednimi zamiennikami.
+
+14. Apache JMeter a Postman
+
+Postman jest często wykorzystywany do ręcznego testowania API, przygotowywania kolekcji żądań i automatyzacji testów funkcjonalnych.
+
+JMeter jest szczególnie przydatny do symulowania wielu użytkowników i mierzenia wydajności systemu.
+
+Postman pozwala szybko sprawdzić, czy endpoint działa prawidłowo.
+
+JMeter pozwala sprawdzić, jak ten endpoint zachowuje się przy dużej liczbie żądań.
+
+W pracy testera QA warto znać oba narzędzia, ponieważ rozwiązują różne problemy.
+
+15. Zalety Apache JMeter
+
+JMeter jest bezpłatnym narzędziem open source.
+
+Obsługuje wiele protokołów i typów testów, w tym HTTP, HTTPS, JDBC oraz inne mechanizmy komunikacji.
+
+Pozwala tworzyć rozbudowane scenariusze z danymi testowymi, asercjami i zmiennymi.
+
+Umożliwia uruchamianie testów z wiersza poleceń oraz integrację z procesami CI/CD.
+
+Jest popularnym narzędziem w testowaniu wydajności aplikacji internetowych i API.
+
+16. Wady Apache JMeter
+
+Przy dużym obciążeniu sam JMeter może zużywać znaczną ilość pamięci i mocy procesora.
+
+Nieprawidłowo skonfigurowany test może mierzyć ograniczenia komputera generującego ruch zamiast możliwości testowanego systemu.
+
+Testowanie z poziomu protokołu HTTP nie odwzorowuje automatycznie całego zachowania przeglądarki, w tym renderowania strony i wykonywania JavaScriptu.
+
+Analiza dużej ilości wyników wymaga zrozumienia metryk i odpowiedniej konfiguracji raportów.
+
+17. Plan nauki Apache JMeter
+
+Na początku warto zainstalować JMeter i poznać jego interfejs.
+
+Następnie należy utworzyć pierwszy Thread Group oraz wykonać prosty test HTTP GET.
+
+Kolejnym krokiem powinno być dodanie asercji, nagłówków HTTP i danych testowych z pliku CSV.
+
+Później warto przetestować REST API aplikacji Spring Boot i przeanalizować czas odpowiedzi oraz odsetek błędów.
+
+Na końcu należy nauczyć się uruchamiać testy w trybie non-GUI, generować raporty i integrować testy z procesem CI/CD.
+
+Dobrym projektem praktycznym jest porównanie wydajności jednego endpointu przy różnych poziomach obciążenia.
+
+18. Najważniejsze pojęcia
+
+Apache JMeter — narzędzie do testowania wydajności i obciążenia systemów.
+
+Load Testing — testowanie przy przewidywanym obciążeniu.
+
+Stress Testing — testowanie zachowania systemu po przekroczeniu typowego obciążenia.
+
+Thread Group — element definiujący wirtualnych użytkowników i sposób wykonywania testu.
+
+Sampler — element wykonujący operację, na przykład żądanie HTTP.
+
+Assertion — sprawdzenie poprawności odpowiedzi.
+
+Response Time — czas odpowiedzi systemu.
+
+Throughput — liczba operacji obsługiwanych w jednostce czasu.
+
+Error Rate — odsetek operacji zakończonych błędem.
+
+p95 — percentyl pokazujący czas, którego nie przekroczyło 95% zmierzonych odpowiedzi.
+
+CSV Data Set Config — element umożliwiający wykorzystywanie danych z pliku CSV.
+
+Non-GUI mode — uruchamianie testu bez interfejsu graficznego.
+
+19. W skrócie
+
+Apache JMeter to narzędzie wykorzystywane do testowania wydajności aplikacji, serwerów i interfejsów API.
+
+Pozwala symulować wielu użytkowników, analizować czasy odpowiedzi, wykrywać błędy oraz sprawdzać zachowanie systemu pod obciążeniem.
+
+Dla testera QA szczególnie ważna jest umiejętność tworzenia scenariuszy HTTP, korzystania z asercji, analizowania metryk i uruchamiania testów bez interfejsu graficznego.
+
+Dodaj kompletny test POST z JSON-emSkróć powtarzające się fragmenty

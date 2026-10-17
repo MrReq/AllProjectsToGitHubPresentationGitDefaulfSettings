@@ -1,0 +1,302 @@
+# Linux – kompletna notatka
+
+## 1. Czym jest Linux?
+
+Linux to rodzina systemów operacyjnych opartych na jądrze Linux, które odpowiada za komunikację pomiędzy oprogramowaniem a sprzętem komputera.
+
+Linux jest wykorzystywany na komputerach osobistych, serwerach, superkomputerach, urządzeniach sieciowych, systemach wbudowanych oraz urządzeniach mobilnych.
+
+W ścisłym znaczeniu Linux oznacza jądro systemu operacyjnego (kernel), natomiast kompletne systemy, takie jak Ubuntu, Debian czy Fedora, nazywane są dystrybucjami Linuksa.
+
+Linux jest oprogramowaniem typu open source, co oznacza, że jego kod źródłowy jest dostępny do analizy, modyfikowania i rozpowszechniania zgodnie z warunkami odpowiednich licencji.
+
+[File:Tux.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/dmJ2YhhQAA3RhfRQXUk6c2d7wHRTx0a4K7lsgIKLiF3zhqesp7HBa3dafG_-yAY0v84AOw9n5OskTWKpIRHueoxaktCoGlhXMiO05dcJF4I0aVGfr5XK0n959dNoAHY9MXMmO3S-B-DXevPnNXzfc45YIUpC50elOqvxC7LbwMU?purpose=inline)
+
+[Ubuntu 20.04 LTS arrives](https://images.openai.com/static-rsc-4/olwdS2t83QRMOEN-FO7ZAnIoVA3PAZx752Zv7IY6nEg7XVciCVAz99EXMRmzjQ4B39X7mDnGtnWvS7ld5EpT6qseneOpCzYWmdGIgmBriH_8IXP72_CEaohsMaJdu5TpX_U8YiGJ6HclhYV28IpNjiANEgySxOKWRngs_bebblE?purpose=inline)
+
+[A guide to effective use of the command line, console, and terminal – Felenasoft](https://images.openai.com/static-rsc-4/2IUzmZmmztcJuEGbQ_gq89Fn-q8wCl3btYfGw0z6Yrs9LYcEZorTPl27SaI-JWtmMcjXwyH7ChsJH_MyI2wdj8CwkNtrHjFCam_0ZShKja3ElUxd3iY0emmNw1_Q6N4AgopTasSVQYAOU6YvdB6MzhE-gw0un7GWahW0Y37CgPo?purpose=inline)
+
+4
+
+## 2. Do czego służy Linux?
+
+Linux znajduje zastosowanie w wielu obszarach informatyki.
+
+Najważniejsze zastosowania to:
+
+- Serwery internetowe – obsługa stron WWW, aplikacji i interfejsów API.
+- Administracja systemami – zarządzanie użytkownikami, usługami, uprawnieniami i zasobami.
+- Programowanie – tworzenie aplikacji w Javie, Pythonie, C++, JavaScript i innych językach.
+- DevOps – automatyzacja wdrożeń, konteneryzacja i zarządzanie infrastrukturą.
+- Chmura obliczeniowa – uruchamianie maszyn wirtualnych, kontenerów i usług chmurowych.
+- Cyberbezpieczeństwo – analiza bezpieczeństwa systemów i sieci.
+- Bazy danych – uruchamianie PostgreSQL, MySQL, MariaDB i innych systemów bazodanowych.
+- Systemy wbudowane – urządzenia IoT, routery, sprzęt przemysłowy i inne urządzenia.
+- Superkomputery – wykonywanie zaawansowanych obliczeń naukowych.
+- Urządzenia mobilne – Android wykorzystuje jądro Linux.
+
+Przykładowo programista może uruchomić aplikację Spring Boot na Linuksie, połączyć ją z bazą PostgreSQL i wdrożyć całość na serwerze produkcyjnym.
+
+## 3. Jak działa Linux?
+
+Linux zarządza zasobami komputera i udostępnia je aplikacjom za pośrednictwem jądra systemu operacyjnego.
+
+Jądro obsługuje między innymi procesy, pamięć operacyjną, urządzenia, systemy plików i komunikację sieciową.
+
+1\. Aplikacje
+
+Przeglądarki, edytory kodu, serwery i bazy danych
+
+2\. Biblioteki systemowe i interfejsy
+
+Umożliwiają aplikacjom korzystanie z funkcji systemu
+
+3\. Kernel Linux
+
+Zarządza procesami, pamięcią, urządzeniami i siecią
+
+4\. Sprzęt komputerowy
+
+Procesor, RAM, dyski, karta sieciowa i urządzenia peryferyjne
+
+Użytkownik komunikuje się z systemem za pomocą interfejsu graficznego (GUI) albo terminala, w którym wpisuje polecenia.
+
+W przeciwieństwie do wielu systemów desktopowych Linux jest często obsługiwany na serwerach bez środowiska graficznego, wyłącznie przez terminal lub zdalne połączenie SSH.
+
+## 4. Najważniejsze dystrybucje Linuksa
+
+Dystrybucja Linuksa to kompletny system zawierający jądro, narzędzia systemowe, menedżer pakietów i wybrane oprogramowanie.
+
+[Get started | Linux](https://images.openai.com/static-rsc-4/phRnulff39YHMW-eol0RLa-mIPOvA1NdFoQ2Uz8EVBQOSJtT3ygzBpoW_RChVS46i6uXWW_YcRmruGDwibV3vPVk2heKLnOHSYSqSQBXt1w-BTXpR_clfUwqBvwsGK7upe3w8BmluRs-sg49BH_LBOolPetbhdvHu17PSS3aLnI?purpose=inline)
+
+Ubuntu
+
+Popularna dystrybucja przeznaczona dla użytkowników domowych, programistów i serwerów. Wykorzystuje menedżer pakietów APT.
+
+[Free Icons to Download or Edit Online - PNG & SVG | Magnific (formerly Freepik)](https://images.openai.com/static-rsc-4/CvfhQPkVbBQkYUX8ibwom9yeKkHSFUnyLrTYEscnhvdn9Cb3auV6AZFLZ_sLVMiiSCFwW0m6eB3K5Kba632CwhrPMdsYzvt0DW1QKeHfXblNhTn-_OCVeBULzOV6_qZV77aPwefoBzqpVrBObT_PRDf9UPYE_spCDtzTKZptYfY?purpose=inline)
+
+Debian
+
+Dystrybucja znana ze stabilności i dużego repozytorium pakietów. Jest podstawą wielu innych dystrybucji, w tym Ubuntu.
+
+[File:Fedora icon (2021).svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/n2bFh8w_l55uhGT7Q0vfpUfHk2OmwWDVqUxNi16g-RYXE_wRHfT596cIrrv0Ju88ZDTG-YMGn6V16WVktqHibTDwu2vvWmCi1zMP0c7i3wc5-qE18b035MplEsnT57iEto_ApFxnHBu9Kxoao93cPrbrnEMryLqbflUoMhv65sc?purpose=inline)
+
+Fedora
+
+Dystrybucja oferująca nowoczesne technologie i stosunkowo świeże wersje oprogramowania.
+
+[Arch linux Icons, Logos, Symbole – Kostenloser Download PNG, SVG](https://images.openai.com/static-rsc-4/sh5Dpx3Fs5ezU-MlBhTP6RxCqWeDI-vn0kdWRoUCx5KefjQ2WH26l-M9iuIC1B6JlqwuT5UgSud6vgr70q1VoVWxB03TGAC6Q3KokGMqrfIf2zn2uip2N1-7vTc4IZylUfHgaA73tsvwhXJKhG6aThE17qptdjiOOQzCgxzGEKQ?purpose=inline)
+
+Arch Linux
+
+Dystrybucja skierowana do osób, które chcą samodzielnie konfigurować system i kontrolować jego składniki.
+
+[File:Linux Mint logo without wordmark.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/bf1r9DHApl513gRhQyv42hjp12uI-te8MEbzFGZSp9PfXwwFen9yA9NoZdARK2TelUG14o1mmAQOqqpBSXc889vj1M4K81KxOgzYz5PsGMYg9-JSuTCfqNJcqRF9g6hUEMBqpiMIdsWZBYMcM7lEsrc7rzFTe0DvB3pRIcciPUo?purpose=inline)
+
+Linux Mint
+
+Dystrybucja zaprojektowana z myślą o wygodnej obsłudze komputera osobistego. Jest często wybierana przez osoby rozpoczynające naukę Linuksa.
+
+[Technology, Hacker, Linux, Kali Linux, HD phone wallpaper | Peakpx](https://images.openai.com/static-rsc-4/_eaIQjx7MgdzaA9tdLkPhMda2yhsIxtw17QnMm_SZDmG60zUV6kGj2PbE2QDBt3bOPu58VUboM2KcIlbz4VDq5LL8cPLBXXwXXaWdXSlQt6j3SCMxs4sYNUNNkj-8P6Yasph1Mz16w_cJfjcf5nGtPwg5BCeUNKX7Hrr5KPY0cQ?purpose=inline)
+
+Kali Linux
+
+Dystrybucja zawierająca narzędzia wykorzystywane w testach penetracyjnych, audytach bezpieczeństwa i analizie systemów.
+
+Inne ważne dystrybucje i systemy oparte na Linuksie to Rocky Linux, AlmaLinux, openSUSE oraz Oracle Linux.
+
+## 5. Terminal Linux i podstawowe polecenia
+
+Terminal jest jednym z najważniejszych narzędzi pracy w Linuksie.
+
+Pozwala zarządzać plikami, uruchamiać programy, instalować oprogramowanie, sprawdzać stan systemu i administrować serwerem.
+
+Najważniejsze polecenia:
+
+| Polecenie   | Zastosowanie                                                                         |
+| ----------- | ------------------------------------------------------------------------------------ |
+| `pwd`       | Wyświetla aktualny katalog                                                           |
+| `ls`        | Wyświetla zawartość katalogu                                                         |
+| `cd`        | Zmienia katalog                                                                      |
+| `mkdir`     | Tworzy katalog                                                                       |
+| `touch`     | Tworzy pusty plik lub aktualizuje jego znaczniki czasu                               |
+| `cp`        | Kopiuje pliki i katalogi                                                             |
+| `mv`        | Przenosi lub zmienia nazwę pliku                                                     |
+| `rm`        | Usuwa pliki lub katalogi                                                             |
+| `cat`       | Wyświetla zawartość pliku                                                            |
+| `grep`      | Wyszukuje tekst w danych                                                             |
+| `find`      | Wyszukuje pliki i katalogi                                                           |
+| `ps`        | Wyświetla informacje o procesach                                                     |
+| `top`       | Prezentuje aktywne procesy i wykorzystanie zasobów                                   |
+| `df -h`     | Pokazuje wykorzystanie przestrzeni dyskowej                                          |
+| `free -h`   | Pokazuje wykorzystanie pamięci                                                       |
+| `ip addr`   | Wyświetla informacje o interfejsach sieciowych                                       |
+| `systemctl` | Zarządza usługami systemowymi                                                        |
+| `sudo`      | Uruchamia polecenie z uprawnieniami administratora, jeśli użytkownik jest uprawniony |
+| `man`       | Wyświetla dokumentację poleceń                                                       |
+
+Przykładowe polecenia:
+
+```
+pwd
+ls -la
+mkdir my-project
+cd my-project
+touch app.py
+```
+
+Ten zestaw poleceń wyświetla bieżący katalog, pokazuje jego zawartość, tworzy katalog projektu, przechodzi do niego i tworzy plik `app.py`.
+
+Uwaga: polecenie `rm` może bezpowrotnie usuwać dane. Przed użyciem go na ważnych plikach należy sprawdzić ścieżkę i argumenty.
+
+## 6. System plików Linux
+
+Linux wykorzystuje hierarchiczną strukturę katalogów, której głównym punktem jest katalog główny `/`.
+
+Wszystkie standardowe ścieżki systemu są organizowane w tej hierarchii.
+
+Najważniejsze katalogi:
+
+| Katalog | Przeznaczenie                                                                       |
+| ------- | ----------------------------------------------------------------------------------- |
+| `/`     | Katalog główny systemu                                                              |
+| `/home` | Katalogi użytkowników                                                               |
+| `/root` | Katalog domowy administratora root                                                  |
+| `/etc`  | Pliki konfiguracyjne                                                                |
+| `/var`  | Zmienne dane, np. logi i kolejki                                                    |
+| `/tmp`  | Pliki tymczasowe                                                                    |
+| `/usr`  | Programy, biblioteki i zasoby systemowe                                             |
+| `/bin`  | Podstawowe polecenia użytkownika; w wielu dystrybucjach jest powiązany z `/usr/bin` |
+| `/sbin` | Narzędzia administracyjne; w wielu dystrybucjach jest powiązany z `/usr/sbin`       |
+| `/dev`  | Pliki urządzeń                                                                      |
+| `/proc` | Wirtualny system plików z informacjami o procesach i jądrze                         |
+| `/mnt`  | Typowe miejsce tymczasowego montowania systemów plików                              |
+| `/opt`  | Opcjonalne oprogramowanie                                                           |
+
+Linux rozróżnia wielkość liter w nazwach plików. Oznacza to, że `File.txt` i `file.txt` mogą być dwoma różnymi plikami.
+
+## 7. Użytkownicy i uprawnienia
+
+Linux jest systemem wieloużytkownikowym, w którym dostęp do plików i operacji kontrolowany jest przez uprawnienia.
+
+Podstawowe klasy uprawnień to:
+
+- `u` – właściciel pliku.
+- `g` – grupa.
+- `o` – pozostali użytkownicy.
+
+Trzy podstawowe uprawnienia to:
+
+- `r` – odczyt.
+- `w` – zapis.
+- `x` – wykonywanie.
+
+Przykładowe polecenia:
+
+```
+whoami
+id
+ls -l
+chmod 755 script.sh
+chown user:group file.txt
+```
+
+`whoami` wyświetla nazwę aktualnego użytkownika, `id` pokazuje jego identyfikatory i grupy, `ls -l` prezentuje uprawnienia, `chmod` zmienia uprawnienia, a `chown` zmienia właściciela i grupę pliku.
+
+Wartość `755` oznacza, że właściciel ma uprawnienia odczytu, zapisu i wykonywania, a grupa oraz pozostali użytkownicy mają odczyt i wykonywanie.
+
+Konto `root` ma bardzo szerokie uprawnienia administracyjne. Nie należy uruchamiać nieznanych poleceń z uprawnieniami administratora bez sprawdzenia ich działania.
+
+## 8. Zarządzanie oprogramowaniem
+
+Linux korzysta z menedżerów pakietów, które pozwalają instalować, aktualizować i usuwać oprogramowanie oraz zarządzać zależnościami.
+
+Przykładowe narzędzia:
+
+- APT – wykorzystywany między innymi w Debianie i Ubuntu.
+- DNF – wykorzystywany w Fedorze.
+- Pacman – wykorzystywany w Arch Linux.
+- Zypper – wykorzystywany w openSUSE.
+
+Przykładowe polecenia w Ubuntu:
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install git
+sudo apt remove git
+```
+
+`apt update` odświeża informacje o pakietach, `apt upgrade` aktualizuje zainstalowane pakiety, `apt install` instaluje program, a `apt remove` go usuwa.
+
+Polecenia różnią się pomiędzy dystrybucjami, dlatego należy korzystać z instrukcji odpowiedniej dla używanego systemu.
+
+## 9. Linux w programowaniu i DevOps
+
+Linux jest bardzo ważny w pracy programistów i administratorów infrastruktury.
+
+Umożliwia uruchamianie serwerów aplikacyjnych, zarządzanie procesami, korzystanie z narzędzi automatyzacji i wdrażanie aplikacji.
+
+Przykładowe zastosowania:
+
+- Java i Spring Boot – uruchamianie backendów oraz aplikacji serwerowych.
+- Python – tworzenie skryptów, API i narzędzi automatyzujących.
+- Docker – uruchamianie aplikacji w kontenerach.
+- Kubernetes – zarządzanie aplikacjami kontenerowymi.
+- Git – zarządzanie wersjami kodu.
+- Nginx i Apache – obsługa ruchu HTTP i serwowanie aplikacji.
+- PostgreSQL i MySQL – zarządzanie bazami danych.
+- Bash – automatyzacja operacji za pomocą skryptów powłoki.
+
+W praktyce znajomość Linuksa jest szczególnie przydatna przy wdrażaniu aplikacji backendowych, diagnozowaniu problemów serwerowych i automatyzacji procesów CI/CD.
+
+## 10. Linux a Windows
+
+| Cecha                     | Linux                                                          | Windows                                                             |
+| ------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Model rozwoju             | Open source w przypadku jądra i wielu dystrybucji              | System komercyjny o zamkniętym kodzie głównych komponentów          |
+| Terminal                  | Bash i inne powłoki                                            | PowerShell, WSL i wiersz poleceń                                    |
+| Instalacja oprogramowania | Zwykle menedżery pakietów, repozytoria i inne formaty          | Instalatory, Microsoft Store, menedżery pakietów                    |
+| Serwery                   | Bardzo popularny                                               | Popularny m.in. w środowiskach Windows Server                       |
+| Personalizacja            | Szerokie możliwości wyboru i konfiguracji                      | Zależna od wersji i funkcji systemu                                 |
+| Programowanie             | Bardzo dobre wsparcie dla wielu narzędzi backendowych i DevOps | Szerokie wsparcie dla .NET, narzędzi Microsoft i innych technologii |
+| Gry                       | Wsparcie zależne od gry i platformy                            | Szeroka kompatybilność z grami PC                                   |
+
+Nie istnieje jeden system najlepszy dla wszystkich zastosowań. Wybór zależy od potrzeb, wymagań programowych i sposobu pracy.
+
+## 11. Zalety Linuksa
+
+- Jest dostępny w wielu bezpłatnych dystrybucjach.
+- Zapewnia szerokie możliwości konfiguracji.
+- Ma rozbudowane narzędzia do pracy w terminalu.
+- Jest popularny w serwerach, chmurze i DevOps.
+- Oferuje zaawansowane mechanizmy uprawnień i izolacji.
+- Ułatwia automatyzację zadań.
+- Ma duży ekosystem oprogramowania open source.
+- Pozwala analizować i modyfikować kod jądra zgodnie z warunkami licencji.
+
+## 12. Wady i ograniczenia Linuksa
+
+- Niektóre programy komercyjne są dostępne tylko na Windows lub macOS.
+- Część sprzętu może wymagać dodatkowej konfiguracji sterowników.
+- Początkujący użytkownicy mogą mieć trudności z terminalem i uprawnieniami.
+- Instrukcje instalacji różnią się między dystrybucjami.
+- Niektóre gry i aplikacje desktopowe mogą działać gorzej lub wymagać dodatkowych narzędzi.
+- Samodzielne zarządzanie serwerem wymaga wiedzy o aktualizacjach, bezpieczeństwie i kopiach zapasowych.
+
+## 13. Gdzie można nauczyć się Linuksa?
+
+- Oficjalna strona jądra: [The Linux Kernel Archives](https://www.kernel.org/).
+- Dokumentacja Ubuntu: [Ubuntu Documentation](https://help.ubuntu.com/).
+- Dokumentacja Debiana: [Debian Documentation](https://www.debian.org/doc/).
+- Dokumentacja Fedory: [Fedora Documentation](https://docs.fedoraproject.org/).
+- Materiały Linux Foundation: [Linux Foundation Training](https://training.linuxfoundation.org/).
+- Darmowe ćwiczenia terminala: [Linux Journey](https://linuxjourney.com/).
+
+## 14. Podsumowanie
+
+Linux to rodzina systemów opartych na jądrze Linux, szeroko stosowana w programowaniu, administracji serwerami, cyberbezpieczeństwie, chmurze i systemach wbudowanych.
+
+Najważniejsze zagadnienia związane z Linuksem to jądro systemu, dystrybucje, terminal, Bash, system plików, uprawnienia, użytkownicy, procesy, menedżery pakietów, sieci i automatyzacja.
+
+Dla programisty szczególnie istotna jest umiejętność korzystania z terminala, instalowania oprogramowania, zarządzania usługami, analizowania logów i uruchamiania aplikacji na serwerze Linux.

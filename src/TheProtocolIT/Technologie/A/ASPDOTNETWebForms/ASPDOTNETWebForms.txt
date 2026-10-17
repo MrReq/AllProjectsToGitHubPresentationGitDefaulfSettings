@@ -1,0 +1,309 @@
+ASP.NET Web Forms — notatka
+
+1. Czym jest ASP.NET Web Forms?
+
+ASP.NET Web Forms to framework firmy Microsoft służący do tworzenia dynamicznych aplikacji internetowych w technologii ASP.NET.
+
+Jest częścią klasycznego .NET Framework i umożliwia budowanie stron internetowych za pomocą kontrolek serwerowych oraz modelu zdarzeń.
+
+Technologia została zaprojektowana tak, aby tworzenie aplikacji internetowych przypominało programowanie aplikacji desktopowych, na przykład w Windows Forms.
+
+Programista może korzystać z kontrolek, takich jak przyciski, pola tekstowe i listy, a następnie obsługiwać ich zdarzenia w języku C#.
+
+ASP.NET Web Forms jest obecnie technologią starszego typu, wykorzystywaną przede wszystkim do utrzymywania istniejących aplikacji.
+
+2. Do czego służy ASP.NET Web Forms?
+
+ASP.NET Web Forms służy do tworzenia aplikacji internetowych, w których serwer generuje strony HTML na podstawie kontrolek i kodu aplikacji.
+
+Można go spotkać w starszych systemach firmowych, panelach administracyjnych, formularzach internetowych i aplikacjach biznesowych.
+
+Technologia umożliwia obsługę danych użytkowników, komunikację z bazami danych oraz realizowanie operacji biznesowych.
+
+Jest szczególnie istotna podczas rozwijania i utrzymywania starszych systemów opartych na .NET Framework.
+
+3. Jak działa ASP.NET Web Forms?
+
+Użytkownik otwiera stronę internetową w przeglądarce.
+
+Serwer przetwarza żądanie i wykonuje kod strony Web Forms.
+
+Kontrolki serwerowe generują odpowiedni kod HTML, który jest wysyłany do przeglądarki.
+
+Gdy użytkownik kliknie przycisk lub prześle formularz, przeglądarka może wysłać kolejne żądanie do serwera.
+
+Serwer odtwarza stan strony, wykonuje odpowiednie zdarzenia i generuje nową odpowiedź HTML.
+
+Przykładowy przepływ wygląda następująco:
+
+Przeglądarka → Żądanie HTTP → Strona Web Forms → Obsługa zdarzeń → HTML → Przeglądarka.
+
+4. Pliki ASPX i code-behind
+
+Strona Web Forms jest zazwyczaj podzielona na plik `.aspx` oraz plik zawierający kod C#.
+
+Plik `.aspx` definiuje strukturę strony, kontrolki serwerowe i elementy HTML.
+
+Plik code-behind, najczęściej z rozszerzeniem `.aspx.cs`, zawiera logikę obsługującą zdarzenia oraz operacje wykonywane na stronie.
+
+Taki podział pozwala oddzielić strukturę interfejsu od kodu aplikacji.
+
+Przykładowo `Default.aspx` może zawierać przycisk, a `Default.aspx.cs` metodę wykonywaną po jego kliknięciu.
+
+5. Kontrolki serwerowe
+
+Kontrolki serwerowe to podstawowy element ASP.NET Web Forms.
+
+Umożliwiają tworzenie interfejsów z wykorzystaniem komponentów takich jak `Button`, `TextBox`, `Label`, `DropDownList` i `GridView`.
+
+Kontrolki oznaczone atrybutem `runat="server"` są obsługiwane przez środowisko ASP.NET.
+
+Mogą udostępniać właściwości, metody i zdarzenia dostępne w kodzie C#.
+
+Przykładowe kontrolki:
+
+```
+<asp:Label
+    ID="MessageLabel"
+    runat="server"
+    Text="Witaj!" />
+
+<asp:TextBox
+    ID="NameTextBox"
+    runat="server" />
+
+<asp:Button
+    ID="SubmitButton"
+    runat="server"
+    Text="Wyślij" />
+```
+
+Dzięki kontrolkom serwerowym programista może korzystać z obiektowego modelu interfejsu zamiast samodzielnie implementować całą obsługę formularza.
+
+6. Obsługa zdarzeń
+
+ASP.NET Web Forms wykorzystuje model zdarzeń podobny do tego, który występuje w aplikacjach desktopowych.
+
+Programista może przypisać metodę do zdarzenia kliknięcia przycisku, zmiany wartości kontrolki lub załadowania strony.
+
+Przykładowa obsługa kliknięcia:
+
+```
+protected void SubmitButton_Click(
+    object sender,
+    EventArgs e)
+{
+    MessageLabel.Text =
+        "Witaj, " + NameTextBox.Text + "!";
+}
+```
+
+Metoda jest wykonywana po wywołaniu odpowiedniego zdarzenia przycisku.
+
+W klasycznym Web Forms obsługa zdarzeń jest powiązana z cyklem życia strony i mechanizmem postback.
+
+7. Page Lifecycle
+
+Page Lifecycle to cykl życia strony ASP.NET Web Forms, który określa kolejność wykonywania poszczególnych etapów przetwarzania strony.
+
+Obejmuje między innymi inicjalizację, odtworzenie stanu, obsługę zdarzeń, renderowanie i zwrócenie odpowiedzi.
+
+Do ważnych zdarzeń należą `Page_Init`, `Page_Load`, zdarzenia kontrolek i `Page_PreRender`.
+
+Zrozumienie cyklu życia strony jest istotne, ponieważ niewłaściwe umieszczenie kodu może prowadzić do utraty danych lub nieoczekiwanych zachowań.
+
+Przykładowo dane inicjalizowane w `Page_Load` mogą wymagać sprawdzenia właściwości `IsPostBack`, aby nie były ponownie ładowane przy każdym przesłaniu formularza.
+
+8. ViewState
+
+ViewState to mechanizm służący do zachowywania wybranych wartości kontrolek pomiędzy kolejnymi żądaniami strony.
+
+W klasycznym Web Forms dane ViewState są zwykle przechowywane w ukrytym polu formularza HTML.
+
+Dzięki temu kontrolki mogą zachować część swojego stanu po wykonaniu postbacku.
+
+ViewState ułatwia tworzenie aplikacji, ale może zwiększać rozmiar przesyłanych danych.
+
+Nie należy traktować ViewState jako bezpiecznego miejsca do przechowywania poufnych informacji.
+
+9. PostBack
+
+PostBack oznacza ponowne przesłanie formularza strony do tego samego endpointu w celu przetworzenia danych lub zdarzeń.
+
+W Web Forms wiele interakcji z kontrolkami serwerowymi powoduje postback.
+
+Po otrzymaniu żądania serwer odtwarza stan strony, wykonuje odpowiednie zdarzenia i generuje nową odpowiedź.
+
+Mechanizm ten pozwala programiście pracować z modelem zdarzeń, ale może powodować dodatkowe żądania HTTP i przeładowywanie strony.
+
+W nowoczesnych aplikacjach część podobnych interakcji realizuje się za pomocą JavaScriptu i asynchronicznych żądań HTTP.
+
+10. Master Pages
+
+Master Pages umożliwiają tworzenie wspólnego układu dla wielu stron aplikacji.
+
+Mogą zawierać nagłówek, menu nawigacyjne, stopkę oraz inne elementy wspólne dla całego serwisu.
+
+Poszczególne strony wykorzystujące Master Page uzupełniają zdefiniowane w niej obszary treści.
+
+Dzięki temu zmiana wspólnego układu nie wymaga edytowania każdej strony osobno.
+
+Mechanizm ten pełni podobną rolę do layoutów w innych technologiach internetowych.
+
+11. Walidacja formularzy
+
+ASP.NET Web Forms udostępnia kontrolki walidacyjne, które pomagają sprawdzać poprawność danych wprowadzanych przez użytkownika.
+
+Przykładami są `RequiredFieldValidator`, `RangeValidator`, `RegularExpressionValidator` i `CompareValidator`.
+
+Kontrolki mogą sprawdzać, czy pole zostało wypełnione, wartość mieści się w określonym zakresie lub tekst odpowiada zdefiniowanemu wzorcowi.
+
+Przykładowa konfiguracja:
+
+```
+<asp:TextBox
+    ID="EmailTextBox"
+    runat="server" />
+
+<asp:RequiredFieldValidator
+    ID="EmailRequired"
+    runat="server"
+    ControlToValidate="EmailTextBox"
+    ErrorMessage="Pole jest wymagane." />
+```
+
+Walidacja po stronie serwera pozostaje istotna nawet wtedy, gdy część kontroli wykonywana jest w przeglądarce.
+
+12. Dostęp do baz danych
+
+ASP.NET Web Forms może współpracować z bazami danych, takimi jak Microsoft SQL Server.
+
+Do komunikacji z bazą można wykorzystywać ADO.NET, Entity Framework i inne biblioteki.
+
+Dane mogą być pobierane i prezentowane w kontrolkach takich jak `GridView`, `DetailsView` lub `FormView`.
+
+Przykładowo aplikacja magazynowa może wyświetlać listę produktów, pozwalać na ich edycję i zapisywać zmiany w bazie danych.
+
+W większych systemach warto oddzielać dostęp do danych od kodu strony, aby ułatwić testowanie i utrzymanie aplikacji.
+
+13. GridView i inne kontrolki danych
+
+`GridView` to kontrolka służąca do prezentowania danych w formie tabeli.
+
+Może wyświetlać rekordy, obsługiwać sortowanie, stronicowanie i wybrane operacje edycji.
+
+`DetailsView` prezentuje szczegóły pojedynczego rekordu, natomiast `FormView` umożliwia definiowanie własnego układu prezentacji i edycji danych.
+
+Kontrolki danych pozwalają szybko budować typowe interfejsy biznesowe.
+
+Ich użyteczność zależy jednak od wymagań aplikacji i stopnia kontroli potrzebnego nad interfejsem użytkownika.
+
+14. Bezpieczeństwo aplikacji
+
+ASP.NET Web Forms może wykorzystywać mechanizmy uwierzytelniania i autoryzacji dostępne w klasycznym ASP.NET.
+
+Aplikacje mogą kontrolować dostęp do stron, chronić zasoby i zarządzać sesjami użytkowników.
+
+Należy walidować dane wejściowe, bezpiecznie wykonywać zapytania do baz danych i odpowiednio konfigurować mechanizmy ochrony przed atakami.
+
+W przypadku operacji zmieniających dane należy również zwrócić uwagę na ochronę przed atakami CSRF.
+
+Poufne informacje nie powinny być przechowywane w miejscach dostępnych dla użytkownika, a konfiguracja produkcyjna powinna ograniczać ujawnianie szczegółów błędów.
+
+15. ASP.NET Web Forms a ASP.NET MVC
+
+ASP.NET Web Forms opiera się na kontrolkach serwerowych, zdarzeniach, ViewState i modelu postback.
+
+ASP.NET MVC wykorzystuje wzorzec Model-View-Controller i zapewnia bardziej bezpośrednią kontrolę nad routingiem oraz generowaniem odpowiedzi.
+
+Web Forms został zaprojektowany tak, aby ułatwić tworzenie stron programistom przyzwyczajonym do modelu zdarzeń aplikacji desktopowych.
+
+MVC wyraźniej rozdziela logikę obsługi żądań od prezentacji danych.
+
+Oba rozwiązania należą do klasycznego ekosystemu ASP.NET, ale różnią się architekturą i sposobem pracy.
+
+16. ASP.NET Web Forms a ASP.NET Core
+
+ASP.NET Web Forms działa na klasycznym .NET Framework i nie jest częścią ASP.NET Core.
+
+ASP.NET Core jest nowoczesną, wieloplatformową platformą do tworzenia aplikacji internetowych.
+
+W ASP.NET Core można korzystać między innymi z MVC, Razor Pages, Web API i Blazor, ale nie z klasycznego modelu Web Forms.
+
+Starsze aplikacje Web Forms zwykle wymagają utrzymywania środowiska .NET Framework albo zaplanowanej migracji do innej technologii.
+
+Migracja nie polega na prostym przekompilowaniu projektu, ponieważ różnią się modele interfejsu, cykl życia żądań i architektura aplikacji.
+
+17. Zalety ASP.NET Web Forms
+
+ASP.NET Web Forms umożliwia szybkie tworzenie tradycyjnych formularzy i aplikacji biznesowych.
+
+Kontrolki serwerowe upraszczają implementację wielu typowych elementów interfejsu.
+
+Model zdarzeń może być intuicyjny dla programistów znających aplikacje desktopowe.
+
+Technologia oferuje integrację z klasycznym .NET Framework, ADO.NET i Microsoft SQL Server.
+
+Jest przydatna do utrzymywania starszych aplikacji, które nadal realizują ważne procesy biznesowe.
+
+18. Wady ASP.NET Web Forms
+
+ASP.NET Web Forms jest technologią starszego typu i nie jest dostępny w ASP.NET Core.
+
+ViewState i częste postbacki mogą zwiększać ilość przesyłanych danych oraz obciążenie serwera.
+
+Kontrolki serwerowe mogą utrudniać pełną kontrolę nad wygenerowanym HTML i nowoczesnym interfejsem użytkownika.
+
+Architektura oparta na zdarzeniach i cyklu życia strony może być trudniejsza do zrozumienia przy diagnozowaniu złożonych problemów.
+
+Przy tworzeniu nowych aplikacji internetowych zazwyczaj lepiej rozważyć współczesne rozwiązania, takie jak ASP.NET Core MVC, Razor Pages lub Blazor.
+
+19. Plan nauki ASP.NET Web Forms
+
+Na początku warto poznać podstawy C#, HTML, HTTP i klasycznego .NET Framework.
+
+Następnie należy stworzyć stronę `.aspx` z kontrolkami serwerowymi i obsługą zdarzeń w pliku code-behind.
+
+Kolejnym krokiem jest zrozumienie Page Lifecycle, ViewState i mechanizmu PostBack.
+
+Później warto nauczyć się walidacji formularzy, Master Pages i kontrolek danych.
+
+Następnie należy połączyć aplikację z bazą danych za pomocą ADO.NET lub Entity Framework.
+
+Dobrym projektem praktycznym jest prosty system ewidencji produktów z formularzem dodawania, tabelą rekordów i możliwością edycji danych.
+
+Jeśli uczysz się technologii pod kątem nowych projektów, po poznaniu podstaw warto przejść do ASP.NET Core.
+
+20. Najważniejsze pojęcia
+
+ASP.NET Web Forms — klasyczny framework do tworzenia stron internetowych na platformie .NET Framework.
+
+ASPX — rozszerzenie plików stron Web Forms.
+
+Code-behind — plik zawierający kod C# powiązany ze stroną ASPX.
+
+Server Controls — kontrolki obsługiwane przez środowisko ASP.NET.
+
+Page Lifecycle — cykl życia strony określający kolejność etapów jej przetwarzania.
+
+ViewState — mechanizm zachowywania stanu kontrolek pomiędzy żądaniami.
+
+PostBack — ponowne przesłanie formularza strony do serwera.
+
+Master Page — wspólny szablon układu wykorzystywany przez wiele stron.
+
+GridView — kontrolka do prezentowania danych w tabeli.
+
+ADO.NET — biblioteki .NET służące do komunikacji z bazami danych.
+
+Validation Controls — kontrolki sprawdzające poprawność danych wprowadzanych w formularzach.
+
+.NET Framework — klasyczna platforma Microsoftu, na której działa ASP.NET Web Forms.
+
+21. W skrócie
+
+ASP.NET Web Forms to klasyczna technologia Microsoftu do tworzenia aplikacji internetowych za pomocą kontrolek serwerowych i modelu zdarzeń.
+
+Jej charakterystycznymi elementami są pliki ASPX, code-behind, ViewState i PostBack.
+
+Obecnie warto ją znać przede wszystkim podczas utrzymywania starszych aplikacji, natomiast do nowych projektów należy rozważyć nowoczesne technologie ASP.NET Core.

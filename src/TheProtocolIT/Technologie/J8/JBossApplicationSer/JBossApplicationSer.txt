@@ -1,0 +1,320 @@
+# JBoss Application Server (WildFly)
+
+## 1. Czym jest JBoss Application Server?
+
+JBoss Application Server to serwer aplikacyjny służący do uruchamiania i zarządzania aplikacjami napisanymi przede wszystkim w języku Java.
+
+Został stworzony przez firmę JBoss, która została przejęta przez Red Hat w 2006 roku.
+
+Projekt rozwijał się pod nazwą JBoss Application Server, a od wersji 8 jego kontynuacją jest WildFly.
+
+Red Hat oferuje również komercyjny produkt Red Hat JBoss Enterprise Application Platform (JBoss EAP), oparty na technologiach WildFly i przeznaczony do zastosowań korporacyjnych.
+
+JBoss/WildFly jest wykorzystywany do uruchamiania aplikacji backendowych, aplikacji biznesowych, usług internetowych oraz systemów wykorzystujących technologie Java Enterprise.
+
+## 2. Do czego służy JBoss?
+
+JBoss pozwala uruchamiać aplikacje Java po stronie serwera bez konieczności samodzielnego implementowania wszystkich mechanizmów infrastrukturalnych.
+
+Najważniejsze zastosowania to:
+
+- uruchamianie aplikacji webowych napisanych w Javie,
+- obsługa żądań HTTP,
+- udostępnianie REST API,
+- zarządzanie połączeniami z bazami danych,
+- obsługa transakcji,
+- zarządzanie komponentami aplikacji,
+- obsługa bezpieczeństwa,
+- komunikacja między aplikacjami,
+- wdrażanie aplikacji korporacyjnych,
+- obsługa aplikacji wielowątkowych.
+
+Przykładowo aplikacja bankowa może korzystać z JBoss do uruchamiania usług obsługujących klientów, przelewy, transakcje oraz komunikację z bazą danych.
+
+## 3. Jak działa JBoss?
+
+Klient
+
+Przeglądarka, aplikacja mobilna lub inny system
+
+HTTP / HTTPS
+
+Żądanie do aplikacji serwerowej
+
+JBoss / WildFly
+
+Kontener aplikacyjny, bezpieczeństwo, transakcje i zarządzanie zasobami
+
+Aplikacja Java
+
+Logika biznesowa, serwisy i dostęp do danych
+
+Baza danych
+
+PostgreSQL, Oracle Database, SQL Server i inne
+
+JBoss zarządza środowiskiem uruchomieniowym aplikacji, a sama aplikacja realizuje logikę biznesową.
+
+## 4. JBoss a WildFly a JBoss EAP
+
+Te nazwy są ze sobą powiązane, ale nie oznaczają dokładnie tego samego.
+
+| Technologia | Charakterystyka                                                  |
+| ----------- | ---------------------------------------------------------------- |
+| JBoss AS    | Dawna nazwa serwera aplikacyjnego                                |
+| WildFly     | Otwarty serwer aplikacyjny rozwijany przez społeczność i Red Hat |
+| JBoss EAP   | Komercyjna platforma aplikacyjna Red Hat ze wsparciem producenta |
+
+WildFly jest często wykorzystywany w projektach edukacyjnych i środowiskach deweloperskich.
+
+JBoss EAP jest przeznaczony między innymi dla organizacji, które potrzebują wsparcia technicznego, określonych cykli aktualizacji i stabilnego środowiska produkcyjnego.
+
+## 5. Java EE i Jakarta EE
+
+JBoss i WildFly są silnie związane z platformą Java EE, która obecnie funkcjonuje pod nazwą Jakarta EE.
+
+Jakarta EE dostarcza standardowe API do tworzenia aplikacji korporacyjnych w Javie.
+
+Najważniejsze technologie obejmują:
+
+- Servlet – obsługa żądań HTTP.
+- Jakarta RESTful Web Services (JAX-RS) – tworzenie REST API.
+- Jakarta Persistence (JPA) – mapowanie obiektów na dane w bazie.
+- Jakarta Enterprise Beans (EJB) – komponenty biznesowe i usługi zarządzane przez kontener.
+- Jakarta Transactions (JTA) – zarządzanie transakcjami.
+- Jakarta Messaging (JMS) – komunikacja asynchroniczna.
+- Jakarta CDI – wstrzykiwanie zależności i zarządzanie komponentami.
+- Jakarta Security – mechanizmy bezpieczeństwa aplikacji.
+
+Dokładny zestaw dostępnych specyfikacji zależy od wersji serwera i obsługiwanej platformy.
+
+## 6. Deployment – wdrażanie aplikacji
+
+Wdrażanie oznacza umieszczanie aplikacji na serwerze w celu jej uruchomienia.
+
+JBoss/WildFly obsługuje między innymi następujące formaty:
+
+```
+.war  – aplikacje webowe
+.ear  – aplikacje korporacyjne
+.jar  – biblioteki lub aplikacje, zależnie od sposobu uruchomienia
+```
+
+Przykładowo aplikacja webowa może zostać spakowana do pliku:
+
+```
+MyApplication.war
+```
+
+Następnie plik można wdrożyć na serwerze WildFly.
+
+Po poprawnym wdrożeniu aplikacja może być dostępna pod adresem podobnym do:
+
+```
+http://localhost:8080/MyApplication
+```
+
+Adres zależy od konfiguracji serwera i kontekstu aplikacji.
+
+## 7. Konfiguracja serwera
+
+WildFly oferuje rozbudowane możliwości konfiguracji.
+
+Do najważniejszych elementów należą:
+
+- konfiguracja portów,
+- konfiguracja baz danych,
+- konfiguracja użytkowników i uprawnień,
+- konfiguracja serwerów HTTP,
+- konfiguracja logowania,
+- konfiguracja pul połączeń,
+- konfiguracja transakcji,
+- konfiguracja zasobów JMS.
+
+Pliki konfiguracyjne znajdują się zazwyczaj w katalogu:
+
+```
+WILDFLY_HOME/standalone/configuration/
+```
+
+Jednym z podstawowych plików jest:
+
+```
+standalone.xml
+```
+
+W środowisku standalone serwer działa jako pojedyncza instancja z własną konfiguracją.
+
+## 8. Tryby pracy
+
+WildFly oferuje dwa podstawowe modele zarządzania.
+
+Standalone mode – pojedyncza instancja serwera zarządzana niezależnie.
+
+Domain mode – scentralizowane zarządzanie wieloma instancjami serwerów, przydatne w większych środowiskach.
+
+Tryb domain ułatwia zarządzanie konfiguracją i grupami serwerów, ale nie zastępuje samodzielnie wszystkich mechanizmów wysokiej dostępności.
+
+## 9. Zarządzanie serwerem
+
+WildFly udostępnia interfejsy administracyjne.
+
+Najważniejsze z nich to:
+
+- Management CLI – konsola poleceń do zarządzania serwerem.
+- Management Console – graficzny interfejs administracyjny.
+- HTTP management interface – interfejs zarządzania przez HTTP.
+
+Przykładowe polecenie uruchamiające CLI w instalacji WildFly:
+
+```
+jboss-cli.sh --connect
+```
+
+W systemie Windows używa się odpowiedniego skryptu `jboss-cli.bat`.
+
+Po połączeniu można wykonywać polecenia administracyjne, na przykład sprawdzać stan serwera lub wdrażać aplikacje.
+
+## 10. JBoss a Apache Tomcat
+
+JBoss/WildFly i Tomcat służą do uruchamiania aplikacji Java, ale różnią się zakresem funkcjonalności.
+
+| Cecha                                              | WildFly                             | Apache Tomcat                                 |
+| -------------------------------------------------- | ----------------------------------- | --------------------------------------------- |
+| Serwletowy kontener webowy                         | Tak                                 | Tak                                           |
+| Pełna platforma Jakarta EE                         | Zależnie od wersji, szeroka obsługa | Nie                                           |
+| Zarządzanie transakcjami i zasobami korporacyjnymi | Wbudowane mechanizmy                | Zwykle wymaga dodatkowych bibliotek lub usług |
+| Obsługa EJB                                        | Tak, zależnie od wersji             | Nie                                           |
+| Typowe zastosowanie                                | Aplikacje korporacyjne              | Aplikacje webowe i serwlety                   |
+
+Jeżeli tworzysz aplikację Spring Boot, często możesz uruchomić ją samodzielnie z wbudowanym serwerem Tomcat.
+
+Jeżeli potrzebujesz środowiska zgodnego z Jakarta EE, WildFly może być bardziej odpowiednim wyborem.
+
+## 11. JBoss a Spring Boot
+
+Spring Boot i JBoss to różne elementy architektury.
+
+Spring Boot jest frameworkiem ułatwiającym tworzenie aplikacji.
+
+JBoss/WildFly jest serwerem aplikacyjnym, który może uruchamiać odpowiednio przygotowane aplikacje Java.
+
+Przykładowe podejścia:
+
+```
+Spring Boot
+    ↓
+Wbudowany Tomcat
+    ↓
+Aplikacja
+```
+
+albo:
+
+```
+Spring Boot
+    ↓
+Pakowanie WAR
+    ↓
+WildFly
+    ↓
+Aplikacja
+```
+
+Drugi wariant wymaga odpowiedniego przygotowania aplikacji i zgodności wersji zależności oraz serwera.
+
+## 12. Zalety JBoss/WildFly
+
+Najważniejsze zalety to:
+
+- rozbudowane funkcje dla aplikacji korporacyjnych,
+- integracja z technologiami Java i Jakarta EE,
+- obsługa transakcji i bezpieczeństwa,
+- zarządzanie zasobami serwerowymi,
+- możliwość centralnego zarządzania wieloma instancjami,
+- automatyzacja wdrażania,
+- dojrzały ekosystem narzędzi,
+- dostępność otwartej wersji WildFly.
+
+## 13. Wady i ograniczenia
+
+Należy pamiętać również o ograniczeniach:
+
+- konfiguracja może być bardziej złożona niż w prostych aplikacjach webowych,
+- pełny serwer aplikacyjny może zużywać więcej zasobów niż minimalne środowisko uruchomieniowe,
+- kompatybilność zależy od wersji JDK i platformy Jakarta EE,
+- migracja między starszymi wersjami Java EE i nowszymi Jakarta EE może wymagać zmian w kodzie,
+- utrzymanie serwera produkcyjnego wymaga wiedzy z zakresu administracji, bezpieczeństwa i monitorowania.
+
+## 14. Przykładowe zastosowania
+
+JBoss/WildFly może być wykorzystywany w:
+
+- systemach bankowych,
+- systemach ubezpieczeniowych,
+- aplikacjach ERP,
+- systemach administracji publicznej,
+- platformach biznesowych,
+- systemach integracyjnych,
+- aplikacjach wykorzystujących JMS,
+- dużych systemach opartych na Javie.
+
+## 15. Najważniejsze pojęcia do zapamiętania
+
+```
+JBoss Application Server
+WildFly
+JBoss EAP
+Java EE
+Jakarta EE
+Servlet
+JAX-RS
+JPA
+EJB
+JTA
+JMS
+CDI
+WAR
+EAR
+standalone.xml
+Management CLI
+Deployment
+DataSource
+Connection Pool
+```
+
+## 16. Schemat ekosystemu JBoss
+
+```
+JBOSS / WILDFLY
+│
+├── Application Server
+│   ├── HTTP
+│   ├── Deployment
+│   └── Management
+│
+├── Jakarta EE
+│   ├── Servlet
+│   ├── REST
+│   ├── JPA
+│   ├── EJB
+│   ├── CDI
+│   ├── JTA
+│   └── JMS
+│
+├── Resources
+│   ├── DataSource
+│   ├── Connection Pool
+│   └── Security
+│
+├── Deployment
+│   ├── WAR
+│   └── EAR
+│
+└── Administration
+    ├── CLI
+    ├── Console
+    └── Configuration
+```
+
+Podsumowanie: JBoss Application Server to historyczna nazwa serwera aplikacyjnego Java, którego otwartym następcą jest WildFly. Współczesny JBoss EAP to komercyjna platforma Red Hat. Technologie te są szczególnie ważne w świecie aplikacji korporacyjnych, Jakarta EE, transakcji, komunikacji asynchronicznej i wdrażania aplikacji Java na serwerach.

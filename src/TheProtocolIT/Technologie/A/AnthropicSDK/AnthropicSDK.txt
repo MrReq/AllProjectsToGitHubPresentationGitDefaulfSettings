@@ -1,0 +1,282 @@
+Anthropic SDK — notatka
+
+1. Czym jest Anthropic SDK?
+
+Anthropic SDK to zestaw bibliotek programistycznych umożliwiających komunikację z modelami sztucznej inteligencji firmy Anthropic za pomocą kodu.
+
+Anthropic rozwija rodzinę modeli językowych Claude, które mogą analizować tekst, generować odpowiedzi, podsumowywać dokumenty, pomagać w programowaniu i wykonywać zadania związane z przetwarzaniem informacji.
+
+SDK pozwala programistom integrować te modele z własnymi aplikacjami bez konieczności ręcznego konstruowania wszystkich żądań HTTP.
+
+Można go wykorzystywać między innymi w aplikacjach Python i Java, a także w środowiskach JavaScript i TypeScript.
+
+2. Do czego służy Anthropic SDK?
+
+Anthropic SDK jest wykorzystywany do budowania aplikacji korzystających z modeli Claude.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie chatbotów AI.
+- Generowanie i analizowanie tekstu.
+- Odpowiadanie na pytania użytkowników.
+- Podsumowywanie dokumentów.
+- Analizowanie kodu źródłowego i pomaganie w programowaniu.
+- Tworzenie asystentów AI dla firm.
+- Przetwarzanie danych przekazywanych przez użytkowników.
+- Budowanie systemów RAG, które łączą model z własną bazą wiedzy.
+- Automatyzowanie wybranych procesów biznesowych.
+- Tworzenie agentów AI wykorzystujących narzędzia zewnętrzne.
+
+Przykładowo można zintegrować SDK z backendem napisanym w Spring Boot, aby aplikacja mogła wysyłać pytania do modelu Claude i zwracać odpowiedzi użytkownikom.
+
+3. Czym jest Anthropic?
+
+Anthropic to firma zajmująca się rozwojem sztucznej inteligencji, znana przede wszystkim z rodziny modeli Claude.
+
+Jej modele są udostępniane między innymi przez API, które umożliwia aplikacjom komunikowanie się z modelami za pomocą żądań programistycznych.
+
+Anthropic SDK jest warstwą programistyczną ułatwiającą korzystanie z tego API.
+
+SDK nie jest samym modelem AI i nie działa jako niezależny model lokalny — typowa integracja API wymaga połączenia z usługą Anthropic oraz odpowiedniego uwierzytelnienia.
+
+4. Jak działa Anthropic SDK?
+
+Podstawowy proces korzystania z SDK wygląda następująco:
+
+1. Programista tworzy konto i uzyskuje dostęp do API Anthropic.
+2. Przygotowuje klucz API.
+3. Instaluje odpowiednią bibliotekę SDK w projekcie.
+4. Konfiguruje klienta API.
+5. Wysyła zapytanie zawierające instrukcję lub wiadomość użytkownika.
+6. Model Claude przetwarza zapytanie.
+7. Aplikacja odbiera odpowiedź i wykorzystuje ją w swoim działaniu.
+
+SDK upraszcza obsługę żądań, odpowiedzi, błędów i innych elementów komunikacji z API.
+
+Dokładny sposób konfiguracji zależy od wybranego języka programowania oraz wersji biblioteki.
+
+5. Najważniejsze elementy Anthropic SDK
+
+- **Client** — obiekt klienta, za pomocą którego aplikacja komunikuje się z API.
+- **API Key** — klucz wykorzystywany do uwierzytelniania żądań.
+- **Messages API** — interfejs do przesyłania wiadomości i otrzymywania odpowiedzi modelu.
+- **Model** — określony model Claude wybrany do wykonania zadania.
+- **System prompt** — instrukcje określające rolę i zasady działania modelu, jeśli są obsługiwane w danym interfejsie.
+- **User message** — wiadomość zawierająca pytanie lub polecenie użytkownika.
+- **Response** — odpowiedź zwrócona przez model.
+- **Streaming** — odbieranie odpowiedzi stopniowo, w miarę jej generowania.
+- **Tool use** — mechanizm pozwalający modelowi proponować wywołania narzędzi zewnętrznych.
+- **Token** — jednostka tekstu wykorzystywana do przetwarzania danych i rozliczania użycia modelu.
+
+6. Anthropic SDK w Pythonie
+
+Python jest często wykorzystywany w projektach AI, analizie danych i automatyzacji.
+
+Bibliotekę można zainstalować poleceniem:
+
+`pip install anthropic`
+
+Przykładowy kod:
+
+```
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="MODEL_NAME",
+    max_tokens=300,
+    messages=[
+        {
+            "role": "user",
+            "content": "Wyjaśnij, czym jest sztuczna inteligencja."
+        }
+    ]
+)
+
+print(response.content[0].text)
+```
+
+Wartość `MODEL_NAME` należy zastąpić identyfikatorem modelu Claude dostępnego dla danego konta.
+
+Klient może odczytać klucz API ze zmiennej środowiskowej `ANTHROPIC_API_KEY`, co pozwala uniknąć umieszczania sekretu bezpośrednio w kodzie.
+
+7. Anthropic SDK w Javie
+
+Anthropic udostępnia również SDK dla Javy, dzięki któremu można integrować modele Claude z aplikacjami JVM.
+
+Biblioteka może być wykorzystywana w projektach opartych na Javie, a także w aplikacjach Spring Boot.
+
+Typowy proces integracji obejmuje dodanie biblioteki do projektu, skonfigurowanie klienta i wywołanie API Messages.
+
+W aplikacji backendowej można przygotować osobny serwis, który będzie odpowiadał za komunikację z Claude, obsługę błędów i przetwarzanie odpowiedzi.
+
+W przypadku projektu Maven zależność należy pobrać z oficjalnej dokumentacji SDK i dopasować jej wersję do używanej konfiguracji projektu.
+
+8. Anthropic SDK w JavaScript i TypeScript
+
+Anthropic udostępnia SDK dla środowiska JavaScript i TypeScript.
+
+Bibliotekę można zainstalować poleceniem:
+
+`npm install @anthropic-ai/sdk`
+
+Przykład wykorzystania w środowisku Node.js:
+
+```
+import Anthropic from "@anthropic-ai/sdk";
+
+const client = new Anthropic();
+
+const response = await client.messages.create({
+  model: "MODEL_NAME",
+  max_tokens: 300,
+  messages: [
+    {
+      role: "user",
+      content: "Wyjaśnij, czym jest sztuczna inteligencja."
+    }
+  ]
+});
+
+console.log(response.content);
+```
+
+Tak jak w przykładzie Python, `MODEL_NAME` należy zastąpić aktualnym identyfikatorem modelu.
+
+Klucz API powinien być przechowywany bezpiecznie po stronie serwera, a nie w publicznym kodzie frontendowym.
+
+9. Messages API
+
+Messages API to jeden z podstawowych interfejsów wykorzystywanych do komunikacji z modelami Claude.
+
+Pozwala przesyłać wiadomości, określać limit generowanych tokenów i odbierać odpowiedzi modelu.
+
+W zależności od obsługiwanych funkcji można również przekazywać dodatkowe instrukcje, wykorzystywać obrazy, odbierać odpowiedzi strumieniowo i korzystać z mechanizmu tool use.
+
+Przykładowe zastosowanie to chatbot, który wysyła pytanie użytkownika do modelu i wyświetla wygenerowaną odpowiedź.
+
+Messages API jest interfejsem programistycznym, natomiast SDK upraszcza jego wykorzystanie w konkretnym języku programowania.
+
+10. Tool use i agenci AI
+
+Tool use pozwala modelowi zaproponować wykonanie operacji za pomocą zewnętrznego narzędzia.
+
+Narzędziem może być na przykład funkcja wyszukująca produkt w bazie danych, pobierająca pogodę albo sprawdzająca status zamówienia.
+
+Typowy przebieg wygląda następująco:
+
+1. Aplikacja wysyła wiadomość i opis dostępnych narzędzi.
+2. Model decyduje, czy potrzebuje któregoś z nich.
+3. Model zwraca żądanie wywołania określonego narzędzia.
+4. Aplikacja wykonuje funkcję i sprawdza jej wynik.
+5. Wynik jest przekazywany z powrotem do modelu.
+6. Model przygotowuje odpowiedź dla użytkownika.
+
+Samo wskazanie narzędzia przez model nie oznacza, że zostało ono automatycznie wykonane — to aplikacja musi obsłużyć wywołanie.
+
+Przy operacjach wpływających na dane, finanse lub systemy produkcyjne należy stosować odpowiednie uprawnienia i kontrolę działań.
+
+11. Streaming odpowiedzi
+
+Streaming umożliwia odbieranie odpowiedzi modelu w miarę jej generowania, zamiast czekania na cały wynik.
+
+Jest przydatny w chatbotach, w których użytkownik powinien szybko zobaczyć początek odpowiedzi.
+
+Może również ułatwiać prezentowanie długich odpowiedzi, podsumowań i wyników generowania kodu.
+
+Obsługa streamingu zależy od metod udostępnianych przez konkretną wersję SDK.
+
+12. RAG i własna baza wiedzy
+
+Anthropic SDK może być częścią systemu RAG (Retrieval-Augmented Generation).
+
+RAG polega na wyszukiwaniu odpowiednich informacji w zewnętrznej bazie wiedzy i przekazywaniu ich modelowi jako kontekstu do przygotowania odpowiedzi.
+
+Przykładowo aplikacja może wyszukać fragmenty dokumentacji firmy, a następnie przekazać je Claude, aby model odpowiedział na pytanie użytkownika na podstawie tych materiałów.
+
+Do budowy takiego rozwiązania można wykorzystać bazę danych, system wyszukiwania wektorowego i backend napisany w Javie lub Pythonie.
+
+SDK odpowiada wtedy za komunikację z modelem, natomiast wyszukiwanie dokumentów i kontrola dostępu należą do pozostałych elementów aplikacji.
+
+13. Bezpieczeństwo i zarządzanie kluczem API
+
+Klucz API należy traktować jak hasło do usługi.
+
+Nie należy umieszczać go w publicznym repozytorium Git, kodzie przeglądarkowym ani publicznej aplikacji mobilnej.
+
+Najlepiej przechowywać go w zmiennych środowiskowych lub bezpiecznym menedżerze sekretów.
+
+Warto również ograniczać dostęp do API, kontrolować koszty, obsługiwać błędy i unikać przesyłania danych wrażliwych bez odpowiedniej podstawy oraz zabezpieczeń.
+
+Odpowiedzi modelu mogą zawierać błędy, dlatego w krytycznych zastosowaniach należy weryfikować wygenerowane informacje.
+
+14. Anthropic SDK a inne narzędzia AI
+
+- **Anthropic SDK** — biblioteki do integracji aplikacji z API modeli Claude.
+- **OpenAI SDK** — biblioteki do komunikacji z API modeli OpenAI.
+- **Google Gen AI SDK** — biblioteki do korzystania z modeli Google, w tym Gemini.
+- **LangChain** — framework do budowania aplikacji korzystających z modeli językowych i narzędzi zewnętrznych.
+- **LlamaIndex** — narzędzia do budowania aplikacji opartych na danych i systemach RAG.
+- **Ollama** — narzędzie umożliwiające uruchamianie obsługiwanych modeli lokalnie.
+
+Bezpośrednie SDK dostarcza interfejs do konkretnego dostawcy, natomiast frameworki takie jak LangChain mogą zapewniać dodatkowe mechanizmy łączenia modeli, danych i narzędzi.
+
+15. Zalety Anthropic SDK
+
+- Upraszcza integrację aplikacji z modelami Claude.
+- Udostępnia biblioteki dla popularnych języków programowania.
+- Ułatwia obsługę wiadomości i odpowiedzi API.
+- Może być wykorzystywane do tworzenia chatbotów i asystentów AI.
+- Umożliwia budowanie rozwiązań korzystających z tool use i streamingu.
+- Pozwala integrować AI z istniejącymi systemami backendowymi.
+- Ogranicza konieczność ręcznego implementowania komunikacji HTTP.
+
+16. Wady i ograniczenia Anthropic SDK
+
+- Typowa integracja API wymaga połączenia z usługą Anthropic.
+- Korzystanie z API może generować koszty zależne od modelu i wykorzystania.
+- Dostępność modeli oraz funkcji może zmieniać się w czasie.
+- Model może generować nieprawdziwe lub niepełne informacje.
+- SDK nie zastępuje bazy danych, backendu ani całej architektury aplikacji.
+- Wdrożenie produkcyjne wymaga obsługi błędów, limitów zapytań, bezpieczeństwa i monitorowania kosztów.
+- Niektóre funkcje wymagają dodatkowej logiki po stronie aplikacji.
+
+17. Plan nauki Anthropic SDK
+
+Na początku warto poznać podstawy wybranego języka programowania oraz działanie API HTTP i JSON.
+
+Następnie należy utworzyć dostęp do API, bezpiecznie skonfigurować klucz i wykonać pierwsze zapytanie do modelu Claude.
+
+Kolejnym krokiem jest nauka Messages API, parametrów generowania i obsługi błędów.
+
+Później warto poznać streaming, tool use oraz integrację z własnymi funkcjami i bazami danych.
+
+Na końcu można stworzyć prosty chatbot, asystenta do analizy dokumentów albo system RAG.
+
+Jeżeli rozwijasz aplikacje w Javie i Spring Boot, dobrym projektem ćwiczeniowym będzie serwis backendowy, który odbiera pytania użytkowników, wysyła je do Claude i zwraca odpowiedzi przez własne API.
+
+18. Najważniejsze pojęcia
+
+- **Anthropic** — firma rozwijająca modele sztucznej inteligencji Claude.
+- **Claude** — rodzina modeli AI firmy Anthropic.
+- **Anthropic SDK** — biblioteki do korzystania z API Anthropic.
+- **API** — interfejs umożliwiający komunikację między programami.
+- **API Key** — klucz wykorzystywany do uwierzytelniania żądań.
+- **Messages API** — interfejs do wysyłania wiadomości i odbierania odpowiedzi modelu.
+- **Token** — jednostka tekstu wykorzystywana podczas przetwarzania przez model.
+- **Streaming** — odbieranie odpowiedzi stopniowo.
+- **Tool use** — mechanizm pozwalający modelowi proponować wywołania zewnętrznych narzędzi.
+- **Agent AI** — system wykorzystujący model do realizacji zadań z użyciem dostępnych narzędzi.
+- **RAG** — technika łączenia generowania odpowiedzi z wyszukiwaniem informacji w zewnętrznych źródłach.
+- **SDK** — zestaw bibliotek i narzędzi ułatwiających integrację z daną platformą.
+
+19. W skrócie
+
+Anthropic SDK umożliwia programistom integrowanie aplikacji z modelami Claude za pomocą kodu.
+
+Można go wykorzystywać do tworzenia chatbotów, asystentów AI, systemów RAG i aplikacji automatyzujących zadania.
+
+Najważniejsze elementy do poznania to klient SDK, Messages API, klucz API, streaming oraz tool use.
+
+Dodaj praktyczny projekt w Spring BootDodaj porównanie SDK i API

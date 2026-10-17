@@ -1,0 +1,157 @@
+# Notepad – kompleksowa notatka
+
+## 1. Czym jest Notepad?
+
+[notepad.exe | Notepad | STRONTIC](https://images.openai.com/static-rsc-4/PctQjXJzWPlvOizGwauDatEfgWoegjkp-M4JbbIa-23CqFSXzcxthAVXqzQ-Kp7CBBIbxvC8sm_xyZFV2X6av2y4bS8O2XDHRjwaWP0PIdIEhunUTnmJK5UowazTunwWllQJ5ZCq8w7etUMKGX2gXEm6D9X7Kuzp6oVjIyxRpZY?purpose=inline)
+
+[Windows 11: Notatnik z kartami](https://images.openai.com/static-rsc-4/eqVr7mG4ElpJUXqKyFhHQwOGhMlS8EKljRQQmVxJv637DwXvdGEJIOnxaPqehX93yTa2HYfUZKxXMjMbmGta55-eZlvzHtQem_pf6QuELWuiGuGJy9OtJMeMNb0aURVi1crnVUFq7FJxc5o6KYkPy9bhSrCvkvU-QZGfvXuRHJE?purpose=inline)
+
+[What was new in the Windows 10 Insider Program for Business Preview Builds - Windows Insider Program | Microsoft Learn](https://images.openai.com/static-rsc-4/U2sKCN2pSxclJsCMXhnwpqgcO2YUD3C4Ha_kdHZNdquO0r-zP2uwpXKvYjwFKY6gSnQXF69JiY4VK2oBW6HoQpIXDvC9WAKTlc_QVW3js26MgRZaLcPd5TL28S4fBGgF-2vznsF0aOWdZu6WwNq-JFgdTv_tEf1YTw1hdJ7cYqQ?purpose=inline)
+
+6
+
+Notepad, czyli Notatnik, to prosty edytor tekstu dostępny w systemie Windows, rozwijany przez firmę Microsoft.
+
+Jego głównym zadaniem jest tworzenie, otwieranie i edytowanie plików tekstowych, szczególnie plików zapisanych w formacie `.txt`.
+
+Notatnik jest przydatny zarówno w codziennej pracy z tekstem, jak i w programowaniu, ponieważ pozwala edytować kod źródłowy, pliki konfiguracyjne oraz skrypty bez konieczności korzystania z rozbudowanego środowiska programistycznego.
+
+Należy odróżnić klasyczny Windows Notepad od Notepad++, który jest osobnym, bardziej zaawansowanym edytorem tekstu przeznaczonym między innymi dla programistów.
+
+## 2. Do czego służy Notepad?
+
+Notepad jest wykorzystywany przede wszystkim do pracy z tekstem bez formatowania.
+
+Najważniejsze zastosowania Notatnika to:
+
+- Tworzenie zwykłych plików tekstowych.
+- Zapisywanie notatek i krótkich dokumentów.
+- Edytowanie plików konfiguracyjnych.
+- Otwieranie plików `.txt`, `.log`, `.ini` i innych plików tekstowych.
+- Pisanie prostych skryptów.
+- Edytowanie kodu HTML, CSS, JavaScript i innych języków programowania.
+- Przeglądanie logów systemowych i aplikacyjnych.
+- Przygotowywanie prostych danych tekstowych do dalszego przetwarzania.
+
+Przykładowo można wykorzystać Notepad do zapisania listy zadań, edycji pliku konfiguracyjnego albo przygotowania prostego pliku HTML.
+
+## 3. Najważniejsze funkcje Notepad
+
+Edycja tekstu umożliwia wpisywanie, usuwanie, kopiowanie i przenoszenie tekstu.
+
+Wyszukiwanie pozwala odnajdywać określone słowa i fragmenty tekstu.
+
+Zamiana tekstu umożliwia zastępowanie wybranych fragmentów innymi.
+
+Zapisywanie plików pozwala przechowywać tekst na dysku w wybranej lokalizacji.
+
+Obsługa kodowania tekstu umożliwia zapisywanie i odczytywanie tekstu w różnych kodowaniach, w tym UTF-8.
+
+Wyszukiwanie i przechodzenie po tekście ułatwia pracę z dłuższymi dokumentami.
+
+W nowszych wersjach Windows 11 Notatnik oferuje również dodatkowe funkcje, takie jak karty, automatyczne zapisywanie sesji oraz wybrane możliwości formatowania tekstu w obsługiwanych wersjach aplikacji.
+
+## 4. Notepad w programowaniu
+
+Notepad może służyć do tworzenia i edytowania plików źródłowych.
+
+Nie jest jednak pełnym IDE, dlatego nie oferuje standardowo wszystkich funkcji takich jak zaawansowane autouzupełnianie kodu, debugger czy zintegrowane narzędzia do budowania aplikacji.
+
+Przykładowy plik HTML:
+
+```
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moja strona</title>
+</head>
+<body>
+    <h1>Witaj świecie!</h1>
+    <p>To moja pierwsza strona.</p>
+</body>
+</html>
+```
+
+Kod można zapisać w Notatniku jako `index.html`, a następnie otworzyć plik w przeglądarce internetowej.
+
+Podczas zapisywania należy wybrać odpowiednią nazwę pliku i upewnić się, że nie zostanie zapisany jako `index.html.txt`.
+
+## 5. Najważniejsze skróty klawiszowe
+
+| Skrót              | Działanie                                        |
+| ------------------ | ------------------------------------------------ |
+| `Ctrl + N`         | Utworzenie nowego pliku                          |
+| `Ctrl + O`         | Otwarcie pliku                                   |
+| `Ctrl + S`         | Zapisanie pliku                                  |
+| `Ctrl + Shift + S` | Zapisanie jako, jeśli obsługiwane w danej wersji |
+| `Ctrl + A`         | Zaznaczenie całego tekstu                        |
+| `Ctrl + C`         | Kopiowanie                                       |
+| `Ctrl + X`         | Wycinanie                                        |
+| `Ctrl + V`         | Wklejanie                                        |
+| `Ctrl + Z`         | Cofnięcie operacji                               |
+| `Ctrl + F`         | Wyszukiwanie tekstu                              |
+| `Ctrl + H`         | Wyszukiwanie i zamiana                           |
+| `Ctrl + P`         | Drukowanie                                       |
+
+Dostępność niektórych skrótów i ich działanie mogą zależeć od wersji Notatnika.
+
+## 6. Notepad a Notepad++
+
+[Download Windows Notepad 1.0 for Windows - Filehippo.com](https://images.openai.com/static-rsc-4/32J_LnEFVyaYUgerrb_AsRjCQvmHBAQmnW89YlP3k4jqaSqnSvOm53ZoXS_5JcqXwga2nzUxXBNgbAUrWQrgZYz6zNBtwDRVkYvzLVRd7h4vo54xYx_zzcvK7RtzUJQlgFEi0WdZVeDAIg4dwcRRfgOkSznuYoSNjldSUaUnpEc?purpose=inline)
+
+Notepad
+
+Prosty edytor tekstu systemu Windows, przeznaczony do szybkiego zapisywania notatek i edycji plików tekstowych.
+
+[File:Notepad++ Logo.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/fV5HUleyk327C58liKtlBxJjevUlwJqiHZ5nzUkUEQJunWvNP-eOnm449z9ZTMfsCUx51ToAAlKF3dybxNd-T6fiSOB2rqJ_O4QXsXJFNu03KxsUgFnErb_zfeJQSUp88LgPwXie3sKzhx-WBA0873VWggf-T3VAyahiup6zxx0?purpose=inline)
+
+Notepad++
+
+Bezpłatny edytor tekstu dla Windows, oferujący między innymi kolorowanie składni, obsługę wielu języków programowania, wtyczki i bardziej rozbudowane narzędzia edycyjne.
+
+Notepad sprawdza się przy prostych zadaniach tekstowych.
+
+Notepad++ jest lepszym wyborem, gdy regularnie edytujesz kod źródłowy, pliki konfiguracyjne lub duże dokumenty tekstowe.
+
+## 7. Notepad a inne edytory i IDE
+
+- Visual Studio Code – rozbudowany edytor kodu z rozszerzeniami, terminalem i narzędziami do debugowania.
+- Sublime Text – szybki edytor tekstu i kodu z zaawansowanymi funkcjami edycyjnymi.
+- Notepad++ – edytor tekstu szczególnie przydatny w programowaniu i analizie plików.
+- IntelliJ IDEA – pełne środowisko programistyczne przeznaczone między innymi do Javy.
+- Notepad – narzędzie do prostego tekstu i szybkich zmian w plikach.
+
+Wybór narzędzia zależy od zadania. Do krótkiej notatki wystarczy Notepad, a do rozbudowanego projektu programistycznego lepiej wykorzystać edytor kodu lub IDE.
+
+## 8. Zalety Notepad
+
+- Jest prosty w obsłudze.
+- Jest dostępny w systemie Windows.
+- Uruchamia się szybko.
+- Nie wymaga skomplikowanej konfiguracji.
+- Nadaje się do edycji zwykłych plików tekstowych.
+- Umożliwia szybkie modyfikowanie plików konfiguracyjnych i logów.
+- Nie wymaga tworzenia projektu programistycznego.
+
+## 9. Wady Notepad
+
+- Ma ograniczone możliwości formatowania tekstu.
+- Nie oferuje pełnego środowiska do programowania.
+- Klasyczna wersja nie zapewnia zaawansowanego kolorowania składni.
+- Brakuje w nim standardowego, zintegrowanego debuggera.
+- Nie zapewnia rozbudowanego zarządzania projektami i zależnościami.
+- Nie jest przeznaczony do profesjonalnej edycji dużych projektów programistycznych.
+
+## 10. Najważniejsze pojęcia do zapamiętania
+
+- Notepad – prosty edytor tekstu systemu Windows.
+- TXT – format zwykłego tekstu.
+- UTF-8 – popularne kodowanie znaków.
+- Plik konfiguracyjny – plik zawierający ustawienia programu lub systemu.
+- Log – zapis zdarzeń i działania aplikacji lub systemu.
+- Notepad++ – bardziej zaawansowany edytor tekstu.
+- IDE – zintegrowane środowisko programistyczne.
+- Source code – kod źródłowy programu.
+
+Podsumowanie: Notepad to prosty edytor tekstu systemu Windows, który umożliwia szybkie tworzenie i edytowanie plików tekstowych. Sprawdza się w codziennej pracy, przy modyfikowaniu plików konfiguracyjnych i wykonywaniu prostych zadań programistycznych. W przypadku bardziej zaawansowanego programowania lepszym rozwiązaniem będzie Notepad++, Visual Studio Code lub pełne IDE.

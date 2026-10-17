@@ -1,0 +1,97 @@
+# Gemini
+
+## 1. Czym jest Gemini?
+
+Gemini to rodzina modeli sztucznej inteligencji opracowanych przez firmę Google, przeznaczonych do rozumienia i generowania tekstu, analizowania obrazów, pracy z kodem oraz wykonywania złożonych zadań.
+
+Gemini jest również nazwą asystenta AI, z którym użytkownicy mogą rozmawiać, zadawać pytania, tworzyć treści i korzystać z funkcji sztucznej inteligencji w usługach Google.
+
+## 2. Do czego służy Gemini?
+
+Gemini służy do wyszukiwania i wyjaśniania informacji, tworzenia tekstów, streszczania dokumentów oraz generowania pomysłów.
+
+Może pomagać w programowaniu, analizowaniu kodu, wykrywaniu błędów i wyjaśnianiu zagadnień technicznych.
+
+Umożliwia analizowanie materiałów, takich jak obrazy, dokumenty i inne obsługiwane typy danych.
+
+Może wspierać organizację pracy, naukę języków obcych, przygotowywanie prezentacji i rozwiązywanie problemów.
+
+## 3. Najważniejsze funkcje Gemini
+
+Generowanie tekstu pozwala tworzyć artykuły, notatki, wiadomości, raporty i inne treści.
+
+Programowanie umożliwia generowanie kodu, wyjaśnianie jego działania, refaktoryzację oraz pomoc w debugowaniu.
+
+Analiza dokumentów pozwala wyciągać najważniejsze informacje z obsługiwanych plików i długich materiałów.
+
+Multimodalność oznacza możliwość pracy z różnymi rodzajami danych, na przykład tekstem, obrazami i dźwiękiem, zależnie od modelu i dostępnych funkcji.
+
+Współpraca z usługami Google umożliwia korzystanie z wybranych funkcji AI w ekosystemie Google, w tym w Gmailu, Dokumentach Google i innych usługach, jeśli dana integracja jest dostępna.
+
+## 4. Gemini w programowaniu
+
+Gemini może wspierać programistów w nauce języków takich jak Java, Python, JavaScript i C++.
+
+Może generować przykładowe klasy, wyjaśniać działanie algorytmów i pomagać w analizowaniu wyjątków oraz komunikatów błędów.
+
+Może również wspierać tworzenie testów jednostkowych, testów API i dokumentacji technicznej.
+
+Przykładowo, podczas pracy nad aplikacją w Spring Boot można poprosić Gemini o przygotowanie kontrolera REST, wyjaśnienie konfiguracji bazy danych PostgreSQL lub analizę błędu podczas uruchamiania aplikacji.
+
+Wygenerowany kod należy jednak sprawdzać, ponieważ model może tworzyć rozwiązania niepoprawne lub niezgodne z wymaganiami projektu.
+
+## 5. Gemini a Google AI Studio
+
+Gemini jest nazwą rodziny modeli AI i asystenta, natomiast Google AI Studio to środowisko umożliwiające eksperymentowanie z modelami Gemini i tworzenie prototypów aplikacji wykorzystujących ich możliwości.
+
+Google AI Studio pozwala testować prompty, sprawdzać odpowiedzi modeli i korzystać z interfejsu API w aplikacjach.
+
+Programiści mogą integrować Gemini ze swoimi projektami, wykorzystując odpowiednie biblioteki lub bezpośrednie wywołania API.
+
+## 6. Gemini a inne narzędzia AI
+
+Gemini konkuruje z takimi rozwiązaniami jak ChatGPT, Claude i Microsoft Copilot.
+
+ChatGPT oferuje asystenta AI do nauki, programowania, analizy danych i pracy z dokumentami.
+
+Claude jest znany między innymi z pracy z długimi dokumentami, programowania i analizy tekstu.
+
+Microsoft Copilot integruje funkcje AI z wybranymi produktami i usługami Microsoftu.
+
+Gemini wyróżnia się integracją z ekosystemem Google oraz rozbudowanymi możliwościami pracy z różnymi rodzajami danych.
+
+## 7. Zalety Gemini
+
+Gemini może przyspieszać naukę, programowanie i analizowanie dużych ilości informacji.
+
+Pozwala łączyć pracę z tekstem, kodem i innymi obsługiwanymi formatami danych.
+
+Integracja z usługami Google może ułatwiać wykonywanie zadań w środowisku pracy i nauki.
+
+Dostęp do modeli przez API umożliwia budowanie własnych aplikacji wykorzystujących sztuczną inteligencję.
+
+## 8. Wady i ograniczenia Gemini
+
+Gemini może generować nieprawdziwe informacje, błędne wyjaśnienia i niepoprawny kod.
+
+Dostępność modeli, limitów, funkcji i integracji zależy od planu, regionu oraz aktualnej oferty Google.
+
+Korzystanie z API może wiązać się z kosztami zależnymi od modelu i sposobu wykorzystania.
+
+Podczas pracy z dokumentami firmowymi lub danymi osobowymi należy zwracać uwagę na ustawienia prywatności i zasady przetwarzania danych.
+
+## 9. Zastosowanie Gemini w biznesie
+
+Gemini może wspierać automatyzację obsługi klienta, przygotowywanie raportów i analizowanie dokumentów.
+
+Może być wykorzystywany do tworzenia chatbotów, asystentów wiedzy i aplikacji odpowiadających na pytania użytkowników.
+
+W połączeniu z API może stanowić część systemów wspomagających podejmowanie decyzji i automatyzujących powtarzalne zadania.
+
+## 10. Podsumowanie
+
+Gemini to rodzina modeli sztucznej inteligencji Google oraz asystent AI umożliwiający generowanie tekstu, analizowanie danych, programowanie i automatyzację wybranych zadań.
+
+Jest przydatny zarówno dla użytkowników indywidualnych, jak i programistów oraz przedsiębiorstw.
+
+Warto poznać Gemini, jeśli interesujesz się sztuczną inteligencją, tworzeniem aplikacji AI i integracją modeli językowych z własnym oprogramowaniem.

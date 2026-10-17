@@ -1,0 +1,218 @@
+Atomic — notatka
+
+1. Czym jest Atomic?
+
+Atomic to określenie, które może odnosić się do różnych technologii i narzędzi informatycznych.
+
+W programowaniu najczęściej spotyka się je w kontekście operacji atomowych, czyli operacji wykonywanych w sposób niepodzielny z punktu widzenia innych wątków.
+
+Pojęcie atomic występuje między innymi w językach Java, C++, C# oraz w systemach bazodanowych i rozproszonych.
+
+Operacje atomowe są szczególnie istotne w programowaniu współbieżnym, gdzie wiele wątków może jednocześnie korzystać z tych samych danych.
+
+2. Czym jest operacja atomowa?
+
+Operacja atomowa to operacja, która z punktu widzenia obserwujących ją wątków zachowuje się jak pojedyncza, niepodzielna czynność.
+
+Oznacza to, że inne wątki nie powinny obserwować jej jako częściowo wykonanej operacji.
+
+Przykładowo zwiększenie licznika może wymagać odczytania wartości, dodania jedynki i zapisania wyniku.
+
+Jeżeli dwa wątki wykonają te czynności jednocześnie bez odpowiedniej synchronizacji, mogą nadpisać swoje wyniki.
+
+Operacja atomowa pozwala bezpiecznie wykonać taką aktualizację w określonych warunkach.
+
+3. Dlaczego operacje atomowe są ważne?
+
+W aplikacjach wielowątkowych kilka wątków może próbować zmodyfikować tę samą zmienną w tym samym czasie.
+
+Bez synchronizacji może dojść do wyścigu danych, czyli sytuacji, w której wynik zależy od kolejności wykonywania operacji.
+
+Operacje atomowe pozwalają wykonywać wybrane aktualizacje bez konieczności stosowania tradycyjnej blokady mutex dla każdej operacji.
+
+Mogą poprawić wydajność w sytuacjach, w których wiele wątków współdzieli proste zmienne lub liczniki.
+
+Nie rozwiązują jednak automatycznie wszystkich problemów współbieżności, szczególnie gdy trzeba zachować spójność kilku powiązanych wartości.
+
+4. Atomic w języku Java
+
+W Javie operacje atomowe są udostępniane między innymi przez pakiet `java.util.concurrent.atomic`.
+
+Znajdują się w nim klasy takie jak `AtomicInteger`, `AtomicLong`, `AtomicBoolean` i `AtomicReference`.
+
+Pozwalają one wykonywać określone operacje w sposób bezpieczny dla wielu wątków.
+
+Przykład z wykorzystaniem `AtomicInteger`:
+
+```
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class AtomicExample {
+    private static final AtomicInteger counter =
+            new AtomicInteger(0);
+
+    public static void main(String[] args) {
+        counter.incrementAndGet();
+
+        System.out.println(counter.get());
+    }
+}
+```
+
+Metoda `incrementAndGet()` atomowo zwiększa licznik o jeden i zwraca nową wartość.
+
+W przypadku zwykłego współdzielonego licznika typu `int` samo użycie operatora `++` nie zapewnia atomowości całej operacji.
+
+5. Atomic w języku C++
+
+C++ udostępnia mechanizmy atomowe w bibliotece standardowej, przede wszystkim w nagłówku `<atomic>`.
+
+Szablon `std::atomic` pozwala przechowywać wartości, na których można wykonywać określone operacje atomowe.
+
+Przykład:
+
+```
+#include <atomic>
+#include <iostream>
+
+int main() {
+    std::atomic<int> counter{0};
+
+    counter.fetch_add(1);
+
+    std::cout << counter.load() << '\n';
+
+    return 0;
+}
+```
+
+Metoda `fetch_add(1)` atomowo zwiększa licznik o jeden i zwraca jego poprzednią wartość.
+
+Operacje atomowe w C++ mogą również określać porządek pamięci, który wpływa na widoczność zmian między wątkami.
+
+6. Atomic a mutex
+
+Atomic i mutex są mechanizmami wykorzystywanymi w programowaniu współbieżnym, ale służą do nieco innych zastosowań.
+
+Atomic nadaje się do bezpiecznego wykonywania określonych operacji na pojedynczych współdzielonych wartościach.
+
+Mutex pozwala chronić sekcję krytyczną, w której może być wykonywanych wiele operacji wymagających wspólnej synchronizacji.
+
+Przykładowo atomowy licznik można wykorzystać do zliczania zakończonych zadań.
+
+Jeżeli natomiast trzeba jednocześnie aktualizować kilka pól obiektu i zachować ich wzajemną spójność, mutex może być prostszym rozwiązaniem.
+
+Wybór zależy od rodzaju danych, wymaganych gwarancji i charakteru operacji.
+
+7. Atomic a thread safety
+
+Thread safety oznacza, że kod może być bezpiecznie używany przez wiele wątków zgodnie z określonymi założeniami.
+
+Operacje atomowe pomagają tworzyć kod bezpieczny wielowątkowo, ale nie gwarantują automatycznie bezpieczeństwa całej klasy.
+
+Przykładowo atomowe zwiększanie licznika nie oznacza, że wszystkie pozostałe operacje na obiekcie są również bezpieczne.
+
+Należy osobno rozważyć dostęp do współdzielonego stanu, kolejność operacji i zależności pomiędzy danymi.
+
+8. Atomic a baza danych
+
+W bazach danych atomowość jest jedną z właściwości ACID, opisujących transakcje.
+
+Oznacza ona, że transakcja jest traktowana jako całość: albo jej zmiany zostaną zatwierdzone, albo zostaną wycofane.
+
+Przykładem jest przelew pomiędzy dwoma rachunkami, w którym pobranie środków z jednego rachunku i dodanie ich do drugiego powinno być częścią jednej transakcji.
+
+Atomowość transakcji bazodanowej jest innym, choć powiązanym pojęciem niż atomowa operacja na zmiennej w programie.
+
+W aplikacjach backendowych oba mechanizmy pomagają zachować spójność danych, ale działają na różnych poziomach.
+
+9. Atomic w języku C#
+
+W C# istnieje klasa `System.Threading.Interlocked`, która udostępnia atomowe operacje na wybranych typach wartości.
+
+Można jej używać między innymi do atomowego zwiększania liczników i wykonywania operacji porównania oraz zamiany.
+
+Przykład:
+
+```
+using System;
+using System.Threading;
+
+class Program
+{
+    private static int counter = 0;
+
+    static void Main()
+    {
+        Interlocked.Increment(ref counter);
+
+        Console.WriteLine(counter);
+    }
+}
+```
+
+Metoda `Interlocked.Increment()` atomowo zwiększa wartość zmiennej.
+
+C# udostępnia również `lock`, który pozwala chronić większe fragmenty kodu wymagające wzajemnego wykluczania.
+
+10. Zalety operacji atomowych
+
+Operacje atomowe pomagają uniknąć wybranych wyścigów danych.
+
+Mogą ograniczyć potrzebę stosowania blokad przy prostych operacjach na współdzielonych zmiennych.
+
+Są przydatne przy implementowaniu liczników, flag stanu i niektórych struktur współbieżnych.
+
+W odpowiednich zastosowaniach mogą zapewnić dobrą wydajność w programach wielowątkowych.
+
+11. Ograniczenia operacji atomowych
+
+Nie każda operacja na danych może zostać wykonana atomowo za pomocą pojedynczej instrukcji lub bibliotecznego mechanizmu.
+
+Operacje atomowe nie zastępują automatycznie mutexów, transakcji ani innych mechanizmów synchronizacji.
+
+Nieprawidłowe zarządzanie współbieżnością nadal może prowadzić do błędów logicznych.
+
+Zaawansowane mechanizmy atomowe wymagają zrozumienia modelu pamięci i widoczności zmian między wątkami.
+
+12. Plan nauki Atomic
+
+Na początku warto poznać podstawy programowania wielowątkowego i pojęcie wyścigu danych.
+
+Następnie należy przećwiczyć współdzielony licznik bez synchronizacji i zaobserwować możliwe nieprawidłowe wyniki.
+
+Kolejnym krokiem jest zastosowanie operacji atomowych w wybranym języku, na przykład `AtomicInteger` w Javie albo `Interlocked` w C#.
+
+Później warto porównać operacje atomowe z mutexami i blokadami.
+
+Na koniec dobrze jest poznać podstawy modelu pamięci i zrozumieć, kiedy atomowość pojedynczej wartości nie wystarcza do ochrony całej operacji.
+
+13. Najważniejsze pojęcia
+
+Atomic — określenie odnoszące się do operacji wykonywanych w sposób niepodzielny z punktu widzenia innych wątków.
+
+Operacja atomowa — operacja, której wykonanie jest obserwowane jako całość.
+
+Thread safety — bezpieczeństwo kodu podczas współbieżnego wykonywania przez wiele wątków.
+
+Race condition — sytuacja, w której wynik zależy od niekontrolowanej kolejności wykonywania operacji.
+
+Mutex — mechanizm synchronizacji zapewniający wzajemne wykluczanie dostępu do chronionego fragmentu kodu.
+
+AtomicInteger — klasa Javy zapewniająca atomowe operacje na liczbie całkowitej.
+
+std::atomic — mechanizm atomowy dostępny w standardowej bibliotece C++.
+
+Interlocked — klasa C# udostępniająca atomowe operacje na wybranych typach wartości.
+
+ACID — zestaw właściwości transakcji bazodanowych obejmujący atomowość, spójność, izolację i trwałość.
+
+14. W skrócie
+
+Atomic najczęściej oznacza mechanizm wykonywania określonych operacji w sposób niepodzielny, szczególnie w programowaniu wielowątkowym.
+
+W Javie wykorzystuje się między innymi `AtomicInteger`, w C++ `std::atomic`, a w C# `Interlocked`.
+
+Warto poznać to pojęcie, jeśli uczysz się współbieżności, synchronizacji wątków i tworzenia bezpiecznych aplikacji.
+
+Dodaj praktyczny przykład wyścigu danychWyjaśnij różnicę Atomic i volatile

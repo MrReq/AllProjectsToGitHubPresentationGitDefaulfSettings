@@ -1,0 +1,1507 @@
+# HTML
+
+## 1. Czym jest HTML?
+
+HTML to skrót od **HyperText Markup Language**, czyli **języka znaczników hipertekstowych**.
+
+HTML jest podstawowym językiem używanym do tworzenia struktury stron internetowych.
+
+HTML określa, **jakie elementy znajdują się na stronie**, np. nagłówki, teksty, obrazy, linki, formularze, tabele czy listy.
+
+HTML nie jest klasycznym językiem programowania, ponieważ sam w sobie nie zawiera mechanizmów typowych dla programowania, takich jak instrukcje warunkowe czy pętle.
+
+HTML jest **językiem znaczników**, który opisuje strukturę dokumentu.
+
+Przeglądarka internetowa odczytuje kod HTML i na jego podstawie tworzy widok strony.
+
+Przykładowo:
+
+```html
+<h1>Witaj na mojej stronie</h1>
+<p>To jest pierwszy akapit.</p>
+```
+
+Przeglądarka wyświetli nagłówek oraz znajdujący się pod nim tekst.
+
+## 2. Do czego służy HTML?
+
+HTML służy przede wszystkim do tworzenia struktury stron internetowych.
+
+Za pomocą HTML możemy definiować nagłówki.
+
+Możemy tworzyć akapity tekstu.
+
+Możemy dodawać obrazy.
+
+Możemy tworzyć hiperłącza.
+
+Możemy tworzyć listy.
+
+Możemy tworzyć tabele.
+
+Możemy tworzyć formularze.
+
+Możemy osadzać multimedia.
+
+Możemy definiować semantyczną strukturę dokumentu.
+
+HTML jest fundamentem większości aplikacji internetowych.
+
+## 3. HTML, CSS i JavaScript
+
+HTML, CSS i JavaScript pełnią różne role w aplikacji internetowej.
+
+**HTML** odpowiada przede wszystkim za strukturę i zawartość.
+
+**CSS** odpowiada za wygląd i prezentację.
+
+**JavaScript** odpowiada za zachowanie i interakcję.
+
+Można zapamiętać to bardzo prosto:
+
+**HTML = struktura**
+
+**CSS = wygląd**
+
+**JavaScript = zachowanie**
+
+Przykładowo HTML może powiedzieć:
+
+```html
+<button>Kliknij mnie</button>
+```
+
+CSS może określić:
+
+```css
+button {
+    background: blue;
+    color: white;
+}
+```
+
+JavaScript może natomiast zareagować na kliknięcie:
+
+```javascript
+button.addEventListener("click", () => {
+    alert("Kliknięto przycisk!");
+});
+```
+
+## 4. Historia HTML
+
+HTML został stworzony przez **Tima Bernersa-Lee** na początku lat 90.
+
+Pierwsza wersja HTML powstała w kontekście rozwoju World Wide Web.
+
+HTML początkowo miał przede wszystkim umożliwiać tworzenie dokumentów połączonych ze sobą za pomocą hiperłączy.
+
+Język rozwijał się wraz z rozwojem Internetu.
+
+Istotnymi etapami były HTML 2.0, HTML 3.2 oraz HTML 4.01.
+
+Później rozwijano standard XHTML.
+
+Obecnie podstawowym standardem jest **HTML Living Standard**, rozwijany przede wszystkim przez WHATWG.
+
+W praktyce często używa się określenia **HTML5**, które odnosi się do nowoczesnego HTML z obsługą wielu nowych możliwości.
+
+## 5. Dokument HTML
+
+Typowy dokument HTML wygląda następująco:
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moja strona</title>
+</head>
+<body>
+
+    <h1>Witaj!</h1>
+
+    <p>To jest moja pierwsza strona.</p>
+
+</body>
+</html>
+```
+
+Dokument rozpoczyna się od deklaracji:
+
+```html
+<!DOCTYPE html>
+```
+
+Informuje ona przeglądarkę, że dokument korzysta ze współczesnego standardu HTML.
+
+Następnie znajduje się element:
+
+```html
+<html>
+```
+
+Jest to główny element dokumentu HTML.
+
+Wewnątrz niego znajdują się najczęściej:
+
+```html
+<head>
+```
+
+oraz:
+
+```html
+<body>
+```
+
+## 6. Element `<head>`
+
+Element `<head>` zawiera informacje dotyczące dokumentu.
+
+Nie są one zazwyczaj bezpośrednio wyświetlane jako treść strony.
+
+Przykład:
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <title>Moja strona</title>
+</head>
+```
+
+W `<head>` możemy umieszczać między innymi:
+
+```html
+<title>
+```
+
+```html
+<meta>
+```
+
+```html
+<link>
+```
+
+```html
+<style>
+```
+
+```html
+<script>
+```
+
+Element `<title>` określa tytuł strony widoczny między innymi na karcie przeglądarki.
+
+## 7. Element `<body>`
+
+Element `<body>` zawiera właściwą zawartość strony.
+
+Przykład:
+
+```html
+<body>
+
+    <h1>Moja strona</h1>
+
+    <p>Witaj na mojej stronie internetowej.</p>
+
+</body>
+```
+
+W `<body>` umieszczamy elementy widoczne dla użytkownika.
+
+## 8. Znaczniki HTML
+
+HTML wykorzystuje **znaczniki**, nazywane również tagami.
+
+Przykład:
+
+```html
+<p>Witaj świecie!</p>
+```
+
+Tutaj:
+
+```html
+<p>
+```
+
+jest znacznikiem otwierającym.
+
+```html
+</p>
+```
+
+jest znacznikiem zamykającym.
+
+Całość:
+
+```html
+<p>Witaj świecie!</p>
+```
+
+tworzy element HTML.
+
+## 9. Zagnieżdżanie elementów
+
+Elementy HTML mogą znajdować się wewnątrz innych elementów.
+
+Przykład:
+
+```html
+<p>
+    To jest <strong>ważny</strong> tekst.
+</p>
+```
+
+Element `<strong>` znajduje się wewnątrz `<p>`.
+
+Elementy powinny być prawidłowo zagnieżdżone.
+
+Niepoprawne:
+
+```html
+<p>
+    <strong>Tekst
+</p>
+</strong>
+```
+
+Poprawne:
+
+```html
+<p>
+    <strong>Tekst</strong>
+</p>
+```
+
+## 10. Nagłówki
+
+HTML posiada sześć poziomów nagłówków.
+
+```html
+<h1>Najważniejszy nagłówek</h1>
+<h2>Nagłówek poziomu 2</h2>
+<h3>Nagłówek poziomu 3</h3>
+<h4>Nagłówek poziomu 4</h4>
+<h5>Nagłówek poziomu 5</h5>
+<h6>Nagłówek poziomu 6</h6>
+```
+
+`<h1>` powinien reprezentować główny temat strony lub sekcji.
+
+`<h2>` reprezentuje podsekcję.
+
+`<h3>` reprezentuje kolejną podsekcję itd.
+
+Nagłówki mają znaczenie również dla dostępności i struktury dokumentu.
+
+## 11. Akapity
+
+Akapit tworzymy za pomocą:
+
+```html
+<p>To jest akapit.</p>
+```
+
+Możemy tworzyć wiele akapitów:
+
+```html
+<p>Pierwszy akapit.</p>
+
+<p>Drugi akapit.</p>
+
+<p>Trzeci akapit.</p>
+```
+
+## 12. Formatowanie tekstu
+
+HTML posiada elementy służące między innymi do oznaczania znaczenia tekstu.
+
+Pogrubienie semantyczne:
+
+```html
+<strong>Ważny tekst</strong>
+```
+
+Wyróżnienie:
+
+```html
+<em>Wyróżniony tekst</em>
+```
+
+Podkreślenie znaczenia tekstu:
+
+```html
+<mark>Ważny fragment</mark>
+```
+
+Indeks górny:
+
+```html
+x<sup>2</sup>
+```
+
+Indeks dolny:
+
+```html
+H<sub>2</sub>O
+```
+
+## 13. Linki
+
+Linki tworzymy za pomocą elementu `<a>`.
+
+Przykład:
+
+```html
+<a href="https://example.com">
+    Przejdź do strony
+</a>
+```
+
+Najważniejszym atrybutem jest tutaj:
+
+```html
+href
+```
+
+który określa adres docelowy.
+
+Możemy również otworzyć stronę w nowej karcie:
+
+```html
+<a href="https://example.com" target="_blank">
+    Otwórz stronę
+</a>
+```
+
+Przy `target="_blank"` warto również stosować:
+
+```html
+rel="noopener noreferrer"
+```
+
+## 14. Obrazy
+
+Obraz dodajemy za pomocą:
+
+```html
+<img src="image.jpg" alt="Opis obrazu">
+```
+
+`src` określa lokalizację obrazu.
+
+`alt` zawiera tekst alternatywny.
+
+Atrybut `alt` jest bardzo ważny dla dostępności.
+
+Przykład:
+
+```html
+<img
+    src="kwiat.jpg"
+    alt="Czerwony kwiat w ogrodzie"
+>
+```
+
+Element `<img>` jest elementem pustym i nie posiada znacznika zamykającego.
+
+## 15. Listy
+
+HTML obsługuje listy uporządkowane i nieuporządkowane.
+
+Lista nieuporządkowana:
+
+```html
+<ul>
+    <li>Java</li>
+    <li>Python</li>
+    <li>C#</li>
+</ul>
+```
+
+Lista uporządkowana:
+
+```html
+<ol>
+    <li>Pobierz projekt</li>
+    <li>Uruchom aplikację</li>
+    <li>Przetestuj aplikację</li>
+</ol>
+```
+
+Element `<li>` oznacza pojedynczy element listy.
+
+## 16. Tabele
+
+Tabela może wyglądać następująco:
+
+```html
+<table>
+    <tr>
+        <th>Imię</th>
+        <th>Wiek</th>
+    </tr>
+
+    <tr>
+        <td>Jan</td>
+        <td>25</td>
+    </tr>
+
+    <tr>
+        <td>Anna</td>
+        <td>28</td>
+    </tr>
+</table>
+```
+
+`<table>` oznacza tabelę.
+
+`<tr>` oznacza wiersz.
+
+`<th>` oznacza komórkę nagłówkową.
+
+`<td>` oznacza zwykłą komórkę danych.
+
+W bardziej semantycznych tabelach możemy również używać:
+
+```html
+<thead>
+```
+
+```html
+<tbody>
+```
+
+```html
+<tfoot>
+```
+
+## 17. Formularze
+
+HTML umożliwia tworzenie formularzy.
+
+Przykład:
+
+```html
+<form>
+    <label for="email">E-mail:</label>
+
+    <input
+        type="email"
+        id="email"
+        name="email"
+    >
+
+    <button type="submit">
+        Wyślij
+    </button>
+</form>
+```
+
+Najważniejszym elementem formularza jest:
+
+```html
+<form>
+```
+
+Do wprowadzania danych służy między innymi:
+
+```html
+<input>
+```
+
+Możemy mieć różne typy pól:
+
+```html
+<input type="text">
+<input type="email">
+<input type="password">
+<input type="number">
+<input type="date">
+<input type="checkbox">
+<input type="radio">
+<input type="file">
+```
+
+Możemy również używać:
+
+```html
+<textarea></textarea>
+```
+
+oraz:
+
+```html
+<select>
+    <option>Java</option>
+    <option>Python</option>
+    <option>C#</option>
+</select>
+```
+
+## 18. Przyciski
+
+Przycisk tworzymy za pomocą:
+
+```html
+<button>Kliknij</button>
+```
+
+Możemy określić jego typ:
+
+```html
+<button type="submit">Wyślij</button>
+```
+
+```html
+<button type="button">Kliknij</button>
+```
+
+```html
+<button type="reset">Wyczyść</button>
+```
+
+## 19. Atrybuty HTML
+
+Elementy HTML mogą posiadać **atrybuty**.
+
+Przykład:
+
+```html
+<a href="https://example.com" target="_blank">
+    Strona
+</a>
+```
+
+Tutaj `href` oraz `target` są atrybutami.
+
+Popularne atrybuty to:
+
+```html
+id
+```
+
+```html
+class
+```
+
+```html
+href
+```
+
+```html
+src
+```
+
+```html
+alt
+```
+
+```html
+title
+```
+
+```html
+name
+```
+
+```html
+value
+```
+
+```html
+type
+```
+
+```html
+placeholder
+```
+
+## 20. `id` i `class`
+
+`id` identyfikuje konkretny element.
+
+Przykład:
+
+```html
+<div id="main">
+    Główna zawartość
+</div>
+```
+
+`class` służy do przypisywania elementowi jednej lub wielu klas.
+
+```html
+<div class="container">
+    Treść
+</div>
+```
+
+Jeden element może mieć wiele klas:
+
+```html
+<div class="container active large">
+    Treść
+</div>
+```
+
+`id` powinno być unikalne w obrębie dokumentu.
+
+Ta sama `class` może być wykorzystana przez wiele elementów.
+
+## 21. Elementy blokowe i liniowe
+
+W klasycznym modelu HTML wyróżniano między innymi elementy blokowe i liniowe.
+
+Element blokowy zajmuje własny wiersz w typowym układzie dokumentu.
+
+Przykładem jest:
+
+```html
+<div>
+```
+
+Elementem liniowym jest między innymi:
+
+```html
+<span>
+```
+
+Przykład:
+
+```html
+<p>
+    To jest <span>ważny fragment</span> tekstu.
+</p>
+```
+
+Współczesnym CSS można jednak całkowicie zmienić sposób wyświetlania elementu.
+
+## 22. `<div>` i `<span>`
+
+`<div>` jest ogólnym kontenerem blokowym.
+
+Przykład:
+
+```html
+<div class="card">
+    <h2>Produkt</h2>
+    <p>Opis produktu.</p>
+</div>
+```
+
+`<span>` jest ogólnym kontenerem liniowym.
+
+Przykład:
+
+```html
+<p>
+    Cena:
+    <span>99 zł</span>
+</p>
+```
+
+Nie powinno się jednak używać `<div>` wszędzie, jeśli istnieje bardziej znaczący semantycznie element.
+
+## 23. HTML semantyczny
+
+Nowoczesny HTML pozwala opisywać znaczenie poszczególnych części strony.
+
+Najważniejsze elementy semantyczne to:
+
+```html
+<header>
+```
+
+```html
+<nav>
+```
+
+```html
+<main>
+```
+
+```html
+<section>
+```
+
+```html
+<article>
+```
+
+```html
+<aside>
+```
+
+```html
+<footer>
+```
+
+Przykład:
+
+```html
+<body>
+
+<header>
+    <h1>Moja strona</h1>
+</header>
+
+<nav>
+    <a href="/">Start</a>
+    <a href="/blog">Blog</a>
+</nav>
+
+<main>
+
+    <section>
+        <h2>Najnowsze artykuły</h2>
+
+        <article>
+            <h3>HTML</h3>
+            <p>Podstawy HTML.</p>
+        </article>
+    </section>
+
+</main>
+
+<footer>
+    Copyright 2026
+</footer>
+
+</body>
+```
+
+Semantyczny HTML poprawia czytelność kodu.
+
+Pomaga również wyszukiwarkom i technologiom asystującym.
+
+## 24. Multimedia
+
+HTML umożliwia osadzanie materiałów multimedialnych.
+
+Do dźwięku służy:
+
+```html
+<audio controls>
+    <source src="audio.mp3" type="audio/mpeg">
+</audio>
+```
+
+Do filmu:
+
+```html
+<video controls>
+    <source src="video.mp4" type="video/mp4">
+</video>
+```
+
+Możemy również osadzać zewnętrzne strony za pomocą:
+
+```html
+<iframe>
+```
+
+Przykładowo:
+
+```html
+<iframe
+    src="https://example.com"
+    title="Przykładowa strona">
+</iframe>
+```
+
+## 25. Komentarze
+
+Komentarze HTML zapisujemy następująco:
+
+```html
+<!-- To jest komentarz -->
+```
+
+Komentarz nie jest wyświetlany jako zwykła treść strony.
+
+Komentarze są często używane do dokumentowania kodu.
+
+## 26. Encje HTML
+
+HTML posiada specjalne encje pozwalające zapisywać określone znaki.
+
+Przykład:
+
+```html
+&lt;
+```
+
+oznacza:
+
+```text
+<
+```
+
+Natomiast:
+
+```html
+&gt;
+```
+
+oznacza:
+
+```text
+>
+```
+
+Dla znaku `&` używamy:
+
+```html
+&amp;
+```
+
+Dla spacji nierozdzielającej:
+
+```html
+&nbsp;
+```
+
+## 27. Formularze i walidacja
+
+HTML posiada podstawowe mechanizmy walidacji formularzy.
+
+Możemy oznaczyć pole jako wymagane:
+
+```html
+<input type="email" required>
+```
+
+Możemy określić minimalną długość:
+
+```html
+<input type="text" minlength="3">
+```
+
+Maksymalną długość:
+
+```html
+<input type="text" maxlength="50">
+```
+
+Zakres liczbowy:
+
+```html
+<input type="number" min="1" max="100">
+```
+
+Możemy również określić wzorzec za pomocą:
+
+```html
+pattern
+```
+
+Przykład:
+
+```html
+<input
+    type="text"
+    pattern="[A-Za-z]+"
+>
+```
+
+## 28. HTML i dostępność
+
+HTML powinien być tworzony z myślą o **Accessibility**, czyli dostępności.
+
+Najważniejsze jest stosowanie odpowiednich elementów semantycznych.
+
+Obrazy powinny posiadać odpowiednie `alt`.
+
+Pola formularzy powinny mieć odpowiednie etykiety `<label>`.
+
+Nagłówki powinny tworzyć logiczną strukturę.
+
+Elementów `<button>` należy używać do przycisków.
+
+Linków `<a>` należy używać do nawigacji.
+
+Dzięki temu strony są łatwiejsze w obsłudze dla osób korzystających między innymi z czytników ekranu.
+
+## 29. HTML i SEO
+
+HTML ma również duże znaczenie dla **SEO**, czyli optymalizacji stron pod kątem wyszukiwarek.
+
+Znaczenie mają między innymi:
+
+```html
+<title>
+```
+
+```html
+<meta name="description">
+```
+
+nagłówki:
+
+```html
+<h1>
+<h2>
+<h3>
+```
+
+semantyczna struktura dokumentu.
+
+Teksty alternatywne obrazów również mogą być istotne.
+
+Poprawna struktura HTML ułatwia wyszukiwarkom zrozumienie zawartości strony.
+
+## 30. HTML DOM
+
+Przeglądarka interpretuje dokument HTML i tworzy na jego podstawie **DOM**, czyli Document Object Model.
+
+DOM reprezentuje dokument jako strukturę drzewa.
+
+Przykładowo:
+
+```html
+<html>
+    <body>
+        <h1>Witaj</h1>
+        <p>Tekst</p>
+    </body>
+</html>
+```
+
+Można przedstawić jako:
+
+```text
+html
+└── body
+    ├── h1
+    │   └── "Witaj"
+    └── p
+        └── "Tekst"
+```
+
+JavaScript może następnie manipulować elementami DOM.
+
+Przykład:
+
+```javascript
+document.querySelector("h1").textContent = "Nowy nagłówek";
+```
+
+## 31. HTML a CSS
+
+HTML definiuje strukturę:
+
+```html
+<div class="card">
+    <h2>Produkt</h2>
+    <p>Opis produktu.</p>
+</div>
+```
+
+CSS definiuje wygląd:
+
+```css
+.card {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.card h2 {
+    font-size: 24px;
+}
+```
+
+HTML i CSS są więc ze sobą bardzo mocno powiązane, ale pełnią różne role.
+
+## 32. HTML a JavaScript
+
+JavaScript może odczytywać i modyfikować HTML poprzez DOM.
+
+Przykład:
+
+```html
+<button id="button">
+    Kliknij
+</button>
+```
+
+JavaScript:
+
+```javascript
+const button = document.getElementById("button");
+
+button.addEventListener("click", () => {
+    alert("Witaj!");
+});
+```
+
+HTML tworzy przycisk.
+
+JavaScript nadaje mu zachowanie.
+
+## 33. HTML w aplikacjach frontendowych
+
+HTML jest używany zarówno w klasycznych stronach internetowych, jak i aplikacjach frontendowych.
+
+Frameworki takie jak React, Angular i Vue wykorzystują koncepcje związane ze strukturą interfejsu HTML.
+
+W React używa się między innymi JSX.
+
+Przykład:
+
+```jsx
+function App() {
+    return (
+        <div>
+            <h1>Witaj</h1>
+            <p>Moja aplikacja</p>
+        </div>
+    );
+}
+```
+
+JSX przypomina HTML, ale jest składnią używaną w JavaScript/TypeScript.
+
+## 34. HTML w backendzie
+
+HTML może być również generowany przez backend.
+
+Przykładowo aplikacja Spring Boot może korzystać z silnika szablonów, takiego jak Thymeleaf.
+
+Szablon:
+
+```html
+<h1 th:text="${user.name}">
+    User
+</h1>
+```
+
+Backend może wtedy wygenerować finalny HTML wysyłany do przeglądarki.
+
+Podobne podejście występuje między innymi w ASP.NET Core Razor.
+
+## 35. HTML w testowaniu
+
+HTML jest bardzo ważny dla testera oprogramowania.
+
+Tester automatyzujący często musi odnajdywać elementy HTML na stronie.
+
+Przykładowo Selenium może znaleźć element po:
+
+```html
+id
+```
+
+```html
+class
+```
+
+```html
+name
+```
+
+lub za pomocą XPath i CSS Selector.
+
+Przykład:
+
+```java
+driver.findElement(By.id("login"));
+```
+
+Można również użyć selektora CSS:
+
+```java
+driver.findElement(By.cssSelector("#login"));
+```
+
+lub XPath:
+
+```java
+driver.findElement(By.xpath("//button[@id='login']"));
+```
+
+Dlatego znajomość HTML jest bardzo ważna dla **QA Automation**.
+
+## 36. Najważniejsze elementy HTML
+
+Do najczęściej spotykanych elementów należą:
+
+```text
+html
+head
+body
+title
+meta
+link
+h1–h6
+p
+a
+img
+ul
+ol
+li
+table
+tr
+th
+td
+form
+input
+label
+textarea
+select
+option
+button
+div
+span
+header
+nav
+main
+section
+article
+aside
+footer
+audio
+video
+iframe
+```
+
+## 37. Najważniejsze atrybuty
+
+Warto bardzo dobrze znać:
+
+```text
+id
+class
+href
+src
+alt
+title
+name
+value
+type
+placeholder
+required
+disabled
+readonly
+checked
+selected
+target
+rel
+```
+
+## 38. HTML a XML
+
+HTML i XML są językami znaczników, ale mają inne zastosowania.
+
+HTML służy przede wszystkim do reprezentowania struktury dokumentów i stron internetowych.
+
+XML służy przede wszystkim do przechowywania i wymiany danych.
+
+HTML posiada określony zestaw standardowych elementów.
+
+XML pozwala definiować własne znaczniki.
+
+Przykład XML:
+
+```xml
+<user>
+    <name>Jan</name>
+    <age>25</age>
+</user>
+```
+
+## 39. HTML a XHTML
+
+XHTML był próbą połączenia HTML z bardziej rygorystycznymi zasadami XML.
+
+W XHTML składnia musiała być bardziej restrykcyjna.
+
+Współczesny HTML jest bardziej elastyczny.
+
+Obecnie najważniejsze jest stosowanie aktualnego standardu HTML zgodnego z HTML Living Standard.
+
+## 40. HTML a Markdown
+
+HTML i Markdown służą do oznaczania treści, ale mają różny poziom złożoności.
+
+Markdown jest prostym językiem do formatowania tekstu.
+
+Przykład Markdown:
+
+```markdown
+# Nagłówek
+
+**Pogrubiony tekst**
+```
+
+HTML:
+
+```html
+<h1>Nagłówek</h1>
+
+<strong>Pogrubiony tekst</strong>
+```
+
+Markdown jest prostszy.
+
+HTML daje znacznie większą kontrolę nad strukturą dokumentu.
+
+## 41. HTML a SPA
+
+HTML może być używany w klasycznych stronach wielostronicowych.
+
+Może być również fundamentem aplikacji typu **SPA**, czyli Single Page Application.
+
+W SPA początkowy dokument HTML może być stosunkowo prosty.
+
+JavaScript następnie dynamicznie zmienia zawartość DOM.
+
+Tak działają między innymi aplikacje tworzone przy użyciu React, Angular czy Vue.
+
+## 42. HTML w praktycznym projekcie
+
+Przykładowa prosta strona:
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Moja strona</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Moja strona internetowa</h1>
+</header>
+
+<nav>
+    <a href="/">Start</a>
+    <a href="/about">O mnie</a>
+    <a href="/contact">Kontakt</a>
+</nav>
+
+<main>
+
+    <section>
+        <h2>O mnie</h2>
+
+        <p>
+            Jestem programistą uczącym się technologii webowych.
+        </p>
+    </section>
+
+    <section>
+        <h2>Technologie</h2>
+
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>Spring Boot</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <p>Moja strona © 2026</p>
+</footer>
+
+</body>
+</html>
+```
+
+## 43. HTML w kontekście Full Stack
+
+W aplikacji Full Stack HTML jest najczęściej częścią warstwy frontendowej.
+
+Typowy stos może wyglądać tak:
+
+```text
+Frontend
+│
+├── HTML
+├── CSS
+└── JavaScript
+        │
+        ↓
+Backend
+│
+├── Java / Spring Boot
+├── C# / ASP.NET Core
+├── Node.js
+└── Python
+        │
+        ↓
+Database
+│
+├── PostgreSQL
+├── MySQL
+├── SQL Server
+└── Oracle
+```
+
+HTML odpowiada przede wszystkim za strukturę interfejsu użytkownika.
+
+## 44. Najczęstsze błędy początkujących
+
+Jednym z częstych błędów jest używanie `<div>` do wszystkiego.
+
+Lepszym rozwiązaniem jest korzystanie z elementów semantycznych, jeśli pasują do sytuacji.
+
+Kolejnym błędem jest brak `alt` przy obrazach.
+
+Częstym błędem jest również niepoprawne zagnieżdżanie elementów.
+
+Nie powinno się używać nagłówków tylko dlatego, że domyślnie mają większy rozmiar tekstu.
+
+Do wyglądu należy wykorzystywać CSS.
+
+Do zachowania strony należy wykorzystywać JavaScript.
+
+Nie należy używać HTML jako zamiennika CSS lub JavaScript.
+
+## 45. Najważniejsze pojęcia do zapamiętania
+
+**HTML** – język znaczników służący do tworzenia struktury dokumentów internetowych.
+
+**Tag** – znacznik HTML, np. `<p>`.
+
+**Element** – kompletna konstrukcja HTML, np. `<p>Tekst</p>`.
+
+**Atrybut** – dodatkowa informacja elementu, np. `class="container"`.
+
+**DOM** – drzewiasta reprezentacja dokumentu HTML w przeglądarce.
+
+**Semantic HTML** – stosowanie elementów opisujących znaczenie treści.
+
+**Formularz** – mechanizm zbierania danych od użytkownika.
+
+**Accessibility** – tworzenie stron dostępnych dla różnych użytkowników i technologii asystujących.
+
+**SEO** – optymalizacja strony pod kątem wyszukiwarek.
+
+**HTML5** – określenie nowoczesnego HTML zawierającego między innymi semantyczne elementy oraz obsługę multimediów.
+
+**HTML Living Standard** – współczesny, stale rozwijany standard HTML.
+
+## 46. HTML – najważniejsze rzeczy na rozmowę kwalifikacyjną
+
+Warto umieć wyjaśnić różnicę między HTML, CSS i JavaScript.
+
+Warto znać różnicę między elementem, tagiem i atrybutem.
+
+Warto znać znaczenie `id` oraz `class`.
+
+Warto znać semantyczne elementy HTML.
+
+Warto wiedzieć, czym jest DOM.
+
+Warto znać podstawowe elementy formularzy.
+
+Warto rozumieć znaczenie `alt`.
+
+Warto znać podstawy dostępności.
+
+Warto wiedzieć, czym różnią się `<div>` i `<span>`.
+
+Warto wiedzieć, czym różnią się `<strong>` i `<b>` oraz `<em>` i `<i>`.
+
+Warto znać podstawowe selektory CSS, ponieważ są często wykorzystywane razem z HTML.
+
+W przypadku QA Automation warto znać HTML szczególnie dobrze, ponieważ automaty często identyfikują elementy właśnie na podstawie struktury HTML.
+
+## 47. HTML – najważniejsze komendy i składnia do zapamiętania
+
+Struktura dokumentu:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+</body>
+</html>
+```
+
+Nagłówek:
+
+```html
+<h1>Nagłówek</h1>
+```
+
+Akapit:
+
+```html
+<p>Tekst</p>
+```
+
+Link:
+
+```html
+<a href="https://example.com">Link</a>
+```
+
+Obraz:
+
+```html
+<img src="image.jpg" alt="Opis">
+```
+
+Lista:
+
+```html
+<ul>
+    <li>Element</li>
+</ul>
+```
+
+Formularz:
+
+```html
+<form>
+    <input type="text">
+    <button type="submit">Wyślij</button>
+</form>
+```
+
+Kontener:
+
+```html
+<div class="container">
+    Treść
+</div>
+```
+
+Element semantyczny:
+
+```html
+<section>
+    <h2>Sekcja</h2>
+</section>
+```
+
+Komentarz:
+
+```html
+<!-- Komentarz -->
+```
+
+## 48. HTML w jednym zdaniu
+
+**HTML to podstawowy język znaczników Web, który definiuje strukturę i znaczenie zawartości strony internetowej, a razem z CSS i JavaScript stanowi fundament współczesnych aplikacji internetowych.**

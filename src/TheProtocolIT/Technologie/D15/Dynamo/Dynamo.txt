@@ -1,0 +1,164 @@
+# DynamoDB
+
+## 1. Czym jest DynamoDB?
+
+Amazon DynamoDB to w pełni zarządzana, bezserwerowa baza danych NoSQL opracowana przez firmę Amazon Web Services (AWS).
+
+Służy do przechowywania i szybkiego odczytywania dużych ilości danych, szczególnie w aplikacjach wymagających niskich opóźnień, dużej skalowalności i wysokiej dostępności.
+
+DynamoDB wykorzystuje model danych klucz-wartość oraz model dokumentowy, dzięki czemu może przechowywać zarówno proste rekordy, jak i bardziej złożone struktury danych.
+
+Jest wykorzystywana między innymi w aplikacjach internetowych, systemach e-commerce, grach online, rozwiązaniach IoT i aplikacjach działających w chmurze.
+
+## 2. Do czego służy DynamoDB?
+
+- Przechowywanie danych użytkowników i ich ustawień.
+- Obsługa koszyków zakupowych i sesji użytkowników.
+- Przechowywanie danych aplikacji mobilnych i internetowych.
+- Obsługa systemów wymagających dużej liczby operacji odczytu i zapisu.
+- Przetwarzanie danych generowanych przez urządzenia IoT.
+- Przechowywanie metadanych i dokumentów.
+- Budowanie aplikacji opartych na architekturze serverless.
+- Obsługa systemów rozproszonych działających w wielu lokalizacjach.
+
+## 3. Najważniejsze cechy DynamoDB
+
+NoSQL
+
+DynamoDB nie wymaga klasycznego relacyjnego modelu tabel z ustalonym zestawem kolumn dla każdego rekordu.
+
+Klucz główny (Primary Key)
+
+Każdy element posiada klucz główny, który może składać się z klucza partycji (partition key) albo klucza partycji i klucza sortowania (sort key).
+
+Skalowalność
+
+Usługa może automatycznie dostosowywać zasoby do obciążenia w odpowiednio skonfigurowanym trybie pojemności.
+
+Niskie opóźnienia
+
+DynamoDB została zaprojektowana do obsługi szybkich operacji odczytu i zapisu przy dużej skali.
+
+Serverless
+
+AWS zarządza infrastrukturą bazy danych, dzięki czemu użytkownik nie musi samodzielnie instalować i utrzymywać serwerów bazodanowych.
+
+Indeksy
+
+Global Secondary Index (GSI) i Local Secondary Index (LSI) umożliwiają wykonywanie zapytań według dodatkowych kluczy.
+
+## 4. Jak działa DynamoDB?
+
+1\. Aplikacja
+
+Backend, aplikacja mobilna lub usługa AWS
+
+2\. API DynamoDB
+
+Operacje GetItem, PutItem, Query i UpdateItem
+
+3\. Tabela DynamoDB
+
+Elementy, klucze partycji i opcjonalne klucze sortowania
+
+4\. Infrastruktura AWS
+
+Rozproszona pamięć danych i zarządzanie dostępnością
+
+Aplikacja komunikuje się z DynamoDB przez API AWS lub odpowiednie biblioteki SDK.
+
+Dane są organizowane według kluczy, a projekt tabel powinien uwzględniać najważniejsze zapytania, które aplikacja będzie wykonywać.
+
+## 5. Przykład wykorzystania DynamoDB w Pythonie
+
+Do komunikacji z DynamoDB w Pythonie można wykorzystać bibliotekę Boto3.
+
+Przykładowe dodanie elementu do tabeli `Users`:
+
+```
+import boto3dynamodb = boto3.resource("dynamodb", region_name="eu-central-1")table = dynamodb.Table("Users")table.put_item(    Item={        "user_id": "user123",        "name": "Adam",        "email": "adam@example.com"    })
+```
+
+Pobieranie elementu według klucza głównego:
+
+```
+response = table.get_item(    Key={"user_id": "user123"})user = response.get("Item")print(user)
+```
+
+Przykład zakłada, że tabela `Users` ma klucz partycji `user_id`, skonfigurowane poświadczenia AWS oraz odpowiednie uprawnienia IAM.
+
+## 6. Najważniejsze elementy DynamoDB
+
+- Table – tabela przechowująca elementy.
+- Item – pojedynczy rekord w tabeli.
+- Attribute – atrybut opisujący element, na przykład `name` lub `email`.
+- Partition Key – klucz określający partycję danych.
+- Sort Key – opcjonalny klucz umożliwiający porządkowanie i grupowanie elementów w ramach klucza partycji.
+- GSI – globalny indeks wtórny pozwalający wykonywać zapytania według alternatywnego klucza.
+- LSI – lokalny indeks wtórny wykorzystujący ten sam klucz partycji co tabela.
+- DynamoDB Streams – mechanizm udostępniający informacje o zmianach elementów.
+- TTL (Time to Live) – mechanizm umożliwiający automatyczne usuwanie elementów po określonym czasie.
+- IAM – system kontroli dostępu do zasobów AWS.
+
+## 7. DynamoDB a inne bazy danych
+
+| Technologia      | Typ                                | Główne zastosowanie                             |
+| ---------------- | ---------------------------------- | ----------------------------------------------- |
+| DynamoDB         | NoSQL, klucz-wartość i dokumentowa | Skalowalne aplikacje AWS                        |
+| PostgreSQL       | Relacyjna                          | Systemy transakcyjne i aplikacje biznesowe      |
+| MongoDB          | Dokumentowa NoSQL                  | Aplikacje wykorzystujące dokumenty JSON-podobne |
+| Redis            | Magazyn klucz-wartość w pamięci    | Cache i szybki dostęp do danych                 |
+| Apache Cassandra | Rozproszona baza NoSQL             | Duże systemy rozproszone                        |
+
+DynamoDB dobrze sprawdza się w aplikacjach o przewidywalnych wzorcach dostępu do danych. Jeśli aplikacja wymaga wielu złożonych relacji i zapytań SQL, baza relacyjna może być wygodniejszym rozwiązaniem.
+
+## 8. Zalety i wady DynamoDB
+
+Zalety:
+
+- Brak konieczności samodzielnego zarządzania serwerem bazy danych.
+- Skalowanie do dużych obciążeń.
+- Niskie opóźnienia przy odpowiednio zaprojektowanych kluczach i zapytaniach.
+- Integracja z usługami AWS, takimi jak Lambda, IAM i CloudWatch.
+- Obsługa replikacji między regionami w ramach odpowiednich funkcji.
+- Możliwość automatycznego usuwania danych za pomocą TTL.
+
+Wady:
+
+- Inny sposób modelowania danych niż w relacyjnych bazach SQL.
+- Koszty zależą od sposobu wykorzystania i konfiguracji zasobów.
+- Niektóre zapytania wymagają dodatkowych indeksów.
+- Nie jest przeznaczona do dowolnych złożonych zapytań relacyjnych.
+- Silne uzależnienie od ekosystemu AWS może utrudnić przenoszenie aplikacji do innego dostawcy.
+
+## 9. DynamoDB na rynku pracy
+
+Znajomość DynamoDB jest przydatna przy tworzeniu aplikacji chmurowych i systemów serverless.
+
+Technologia ta może być wykorzystywana na stanowiskach:
+
+- AWS Cloud Developer.
+- Backend Developer.
+- Cloud Engineer.
+- Serverless Developer.
+- Software Engineer.
+- Solutions Architect.
+
+Warto łączyć naukę DynamoDB z Pythonem lub Javą, AWS Lambda, IAM, API Gateway, architekturą serverless i podstawami projektowania systemów rozproszonych.
+
+## 10. Jak zacząć naukę DynamoDB?
+
+Najlepiej rozpocząć od podstaw NoSQL, poznając tabele, elementy, klucze partycji i klucze sortowania.
+
+Następnie warto nauczyć się operacji `PutItem`, `GetItem`, `Query`, `UpdateItem` i `DeleteItem`, a także zasad projektowania indeksów.
+
+Kolejnym krokiem może być stworzenie aplikacji do zarządzania użytkownikami, w której backend korzysta z DynamoDB, a funkcje serwerowe są uruchamiane przez AWS Lambda.
+
+Materiały do nauki:
+
+- [Oficjalna strona Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+- [Dokumentacja DynamoDB](https://docs.aws.amazon.com/amazondynamodb/)
+- [Dokumentacja Boto3 dla DynamoDB](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html)
+- [Materiały edukacyjne AWS](https://aws.amazon.com/training/)
+
+Podsumowanie: Amazon DynamoDB to zarządzana baza NoSQL przeznaczona do aplikacji wymagających skalowalności, wysokiej dostępności i szybkiego dostępu do danych. Warto ją poznać, jeśli interesujesz się AWS, backendem, architekturą serverless i systemami rozproszonymi.

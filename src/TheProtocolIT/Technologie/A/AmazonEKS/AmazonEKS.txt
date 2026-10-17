@@ -1,0 +1,353 @@
+1. Czym jest Amazon EKS?
+
+Amazon EKS (Amazon Elastic Kubernetes Service) to zarządzana usługa Kubernetes dostępna w chmurze Amazon Web Services (AWS).
+
+Umożliwia wdrażanie, uruchamianie, skalowanie i zarządzanie aplikacjami działającymi w kontenerach.
+
+Amazon EKS przejmuje część zadań związanych z utrzymaniem infrastruktury Kubernetes, dzięki czemu zespoły mogą skupić się na aplikacjach i ich wdrażaniu.
+
+Usługa jest wykorzystywana między innymi w architekturach mikroserwisowych, systemach rozproszonych oraz aplikacjach wymagających automatycznego skalowania.
+
+2. Czym jest Kubernetes?
+
+Kubernetes to platforma służąca do automatycznego wdrażania, skalowania i zarządzania aplikacjami uruchamianymi w kontenerach.
+
+Kontener zawiera aplikację oraz elementy potrzebne do jej uruchomienia.
+
+Kubernetes zarządza rozmieszczaniem kontenerów, ich uruchamianiem, monitorowaniem i odtwarzaniem po awarii.
+
+Pozwala również udostępniać aplikacje przez sieć i dostosowywać liczbę uruchomionych instancji do obciążenia.
+
+Amazon EKS wykorzystuje Kubernetes, ale upraszcza zarządzanie jego infrastrukturą w AWS.
+
+3. Amazon EKS a Kubernetes
+
+Kubernetes jest technologią, natomiast Amazon EKS jest zarządzaną usługą, która udostępnia Kubernetes w środowisku AWS.
+
+Kubernetes można uruchomić samodzielnie na własnych serwerach lub maszynach wirtualnych.
+
+Amazon EKS zarządza płaszczyzną sterowania Kubernetes, dzięki czemu użytkownik nie musi samodzielnie utrzymywać jej podstawowych komponentów.
+
+Pozostałe zasoby, takie jak węzły robocze, sieć i uprawnienia, nadal wymagają odpowiedniej konfiguracji.
+
+Amazon EKS integruje się z innymi usługami AWS, takimi jak Amazon EC2, Elastic Load Balancing, IAM i Amazon VPC.
+
+4. Klaster Kubernetes — Cluster
+
+Klaster Kubernetes to środowisko, w którym uruchamiane i zarządzane są aplikacje kontenerowe.
+
+W Amazon EKS klaster obejmuje zarządzaną płaszczyznę sterowania oraz zasoby wykonawcze, na których działają aplikacje.
+
+Płaszczyzna sterowania odpowiada za koordynację działania klastra.
+
+Węzły robocze udostępniają zasoby obliczeniowe potrzebne do uruchamiania aplikacji.
+
+Klaster może obejmować wiele węzłów rozmieszczonych w różnych strefach dostępności.
+
+5. Control Plane
+
+Control Plane to płaszczyzna sterowania Kubernetes, która zarządza stanem klastra.
+
+Obejmuje komponenty odpowiedzialne między innymi za przyjmowanie poleceń, przechowywanie stanu klastra i podejmowanie decyzji dotyczących rozmieszczania aplikacji.
+
+Amazon EKS zarządza dostępnością i utrzymaniem swojej płaszczyzny sterowania.
+
+Użytkownik nadal odpowiada za poprawną konfigurację zasobów aplikacji i zasad działania klastra.
+
+Oddzielenie płaszczyzny sterowania od węzłów roboczych ułatwia zarządzanie środowiskiem produkcyjnym.
+
+6. Węzły robocze — Worker Nodes
+
+Worker Nodes to maszyny, na których uruchamiane są kontenery aplikacji.
+
+W Amazon EKS mogą być oparte między innymi na instancjach Amazon EC2.
+
+Węzły dostarczają procesor, pamięć RAM, przestrzeń dyskową i zasoby sieciowe potrzebne aplikacjom.
+
+Na węzłach działa komponent kubelet, który komunikuje się z płaszczyzną sterowania Kubernetes.
+
+Liczba i rozmiar węzłów wpływają na wydajność oraz koszty działania klastra.
+
+7. Pod
+
+Pod to podstawowa jednostka uruchomieniowa Kubernetes.
+
+Zawiera jeden lub więcej kontenerów współdzielących określone zasoby, takie jak sieć i wolumeny.
+
+W typowych aplikacjach jeden Pod zawiera jeden główny kontener aplikacji.
+
+Kubernetes może tworzyć nowe Pody, gdy wymaga tego konfiguracja lub obciążenie systemu.
+
+Pody są zwykle zarządzane przez wyższe zasoby, takie jak Deployment lub StatefulSet.
+
+8. Deployment
+
+Deployment służy do deklaratywnego zarządzania aplikacjami, które działają w postaci replik Podów.
+
+Pozwala określić między innymi obraz kontenera, liczbę replik oraz sposób aktualizowania aplikacji.
+
+Kubernetes dąży do utrzymania liczby działających replik zgodnej z konfiguracją.
+
+Jeżeli Pod zostanie usunięty lub przestanie działać, kontroler może utworzyć nowy.
+
+Deployment umożliwia również przeprowadzanie aktualizacji aplikacji i kontrolowanie ich przebiegu.
+
+9. Service
+
+Service zapewnia stabilny sposób komunikacji z Podami w Kubernetes.
+
+Pody mogą być tworzone ponownie i otrzymywać inne adresy IP, dlatego bezpośrednie odwoływanie się do nich bywa niewygodne.
+
+Service udostępnia stały punkt dostępu do wybranej grupy Podów.
+
+ClusterIP udostępnia usługę wewnątrz klastra.
+
+NodePort udostępnia port na węzłach klastra.
+
+LoadBalancer pozwala integrować usługę z zewnętrznym mechanizmem równoważenia obciążenia, jeśli wspiera to konfiguracja środowiska.
+
+10. Namespace
+
+Namespace pozwala logicznie podzielić zasoby jednego klastra Kubernetes.
+
+Można na przykład utworzyć osobne przestrzenie dla środowisk testowych, aplikacji produkcyjnych i narzędzi administracyjnych.
+
+Każdy Namespace może zawierać własne Pody, Deploymenty, Service i inne zasoby.
+
+Podział ułatwia organizację projektu i zarządzanie dostępem.
+
+Namespace sam w sobie nie stanowi jednak pełnej granicy bezpieczeństwa.
+
+11. Kontenery i Docker
+
+Docker jest popularną technologią służącą do budowania i uruchamiania kontenerów.
+
+Obraz kontenera zawiera aplikację i elementy potrzebne do jej uruchomienia.
+
+Kubernetes wykorzystuje środowisko wykonawcze kontenerów do uruchamiania aplikacji na węzłach.
+
+Amazon EKS może pobierać obrazy z Amazon Elastic Container Registry (ECR) lub innych obsługiwanych rejestrów.
+
+Typowy proces obejmuje zbudowanie obrazu, umieszczenie go w rejestrze i wdrożenie w klastrze.
+
+12. Amazon ECR
+
+Amazon Elastic Container Registry (ECR) to zarządzany rejestr obrazów kontenerów w AWS.
+
+Pozwala przechowywać obrazy wykorzystywane przez aplikacje uruchamiane w Amazon EKS.
+
+Deweloper może zbudować obraz aplikacji, przesłać go do ECR i wskazać jego adres w konfiguracji Deployment.
+
+ECR wspiera również zarządzanie wersjami obrazów oraz kontrolę dostępu.
+
+Dzięki integracji z AWS można ograniczyć potrzebę korzystania z zewnętrznego rejestru kontenerów.
+
+13. Skalowanie aplikacji
+
+Amazon EKS umożliwia skalowanie aplikacji poprzez zmianę liczby replik Podów i zasobów obliczeniowych klastra.
+
+Horizontal Pod Autoscaler (HPA) może automatycznie zmieniać liczbę replik na podstawie dostępnych metryk.
+
+Cluster Autoscaler lub Karpenter mogą pomagać w dostosowywaniu liczby węzłów do potrzeb klastra.
+
+Skalowanie Podów zwiększa liczbę instancji aplikacji.
+
+Skalowanie węzłów zwiększa lub zmniejsza dostępną moc obliczeniową.
+
+Automatyczne skalowanie wymaga odpowiedniej konfiguracji, uprawnień i dostępności zasobów.
+
+14. Load Balancing
+
+Load Balancing polega na rozdzielaniu ruchu pomiędzy wiele instancji aplikacji.
+
+Amazon EKS może współpracować z usługami Elastic Load Balancing, takimi jak Application Load Balancer i Network Load Balancer.
+
+Application Load Balancer jest często wykorzystywany do obsługi ruchu HTTP i HTTPS.
+
+Network Load Balancer obsługuje ruch na niższym poziomie sieciowym i może być przydatny dla połączeń TCP i UDP.
+
+Właściwy wybór zależy od rodzaju aplikacji, protokołów i wymagań dotyczących ruchu.
+
+15. AWS IAM i bezpieczeństwo
+
+AWS Identity and Access Management (IAM) służy do zarządzania tożsamościami i uprawnieniami w AWS.
+
+W Amazon EKS IAM może kontrolować dostęp do klastra i umożliwiać aplikacjom korzystanie z wybranych usług AWS.
+
+Uprawnienia Kubernetes są dodatkowo kontrolowane za pomocą mechanizmów takich jak Role-Based Access Control (RBAC).
+
+Właściwe rozdzielenie uprawnień ogranicza ryzyko nieautoryzowanych operacji.
+
+Nie należy nadawać aplikacjom ani użytkownikom większych uprawnień, niż rzeczywiście potrzebują.
+
+16. Amazon VPC i sieć
+
+Amazon Virtual Private Cloud (VPC) to wirtualna sieć, w której można uruchamiać zasoby AWS.
+
+Amazon EKS wykorzystuje konfigurację sieciową VPC do komunikacji pomiędzy płaszczyzną sterowania, węzłami i aplikacjami.
+
+Podsieci, tablice routingu i grupy bezpieczeństwa wpływają na dostępność zasobów i sposób komunikacji.
+
+Błędna konfiguracja sieci może uniemożliwić aplikacjom pobieranie obrazów, komunikację z bazą danych lub obsługę ruchu zewnętrznego.
+
+Planowanie sieci jest szczególnie ważne w środowiskach produkcyjnych.
+
+17. Persistent Volumes i przechowywanie danych
+
+Persistent Volume (PV) reprezentuje zasób trwałego przechowywania danych dostępny dla aplikacji w Kubernetes.
+
+PersistentVolumeClaim (PVC) pozwala aplikacji zażądać odpowiedniego zasobu pamięci masowej.
+
+Amazon EKS może współpracować z usługami takimi jak Amazon EBS i Amazon EFS poprzez odpowiednie sterowniki CSI.
+
+Amazon EBS jest często wykorzystywany do przechowywania danych na wolumenach blokowych.
+
+Amazon EFS udostępnia system plików, z którego mogą korzystać różne zasoby zgodnie z konfiguracją i uprawnieniami.
+
+Wybór rozwiązania zależy od wymagań dotyczących wydajności, współdzielenia danych i trwałości.
+
+18. Helm
+
+Helm to narzędzie służące do instalowania i zarządzania aplikacjami w Kubernetes.
+
+Wykorzystuje pakiety nazywane Charts, które zawierają szablony i konfigurację zasobów Kubernetes.
+
+Helm pozwala wdrażać aplikacje, aktualizować ich konfigurację i zarządzać kolejnymi wersjami wdrożenia.
+
+Jest często wykorzystywany w projektach opartych na Amazon EKS.
+
+Dzięki Helm można ujednolicić proces instalacji aplikacji w środowiskach deweloperskich, testowych i produkcyjnych.
+
+19. CI/CD i Amazon EKS
+
+CI/CD oznacza automatyzację procesu budowania, testowania i wdrażania oprogramowania.
+
+Pipeline może budować aplikację, uruchamiać testy, tworzyć obraz kontenera i publikować go w Amazon ECR.
+
+Następnie proces wdrażania aktualizuje zasoby Kubernetes w Amazon EKS.
+
+Do automatyzacji można wykorzystywać między innymi GitHub Actions, Jenkins, GitLab CI/CD i AWS CodeBuild.
+
+Automatyczne wdrażanie ogranicza liczbę ręcznych operacji i ułatwia powtarzalne wydawanie nowych wersji aplikacji.
+
+20. Monitorowanie i logowanie
+
+Monitorowanie pozwala obserwować stan klastra, wykorzystanie zasobów i działanie aplikacji.
+
+Amazon EKS może współpracować z Amazon CloudWatch w celu zbierania metryk i logów.
+
+Prometheus jest popularnym narzędziem do gromadzenia i analizowania metryk.
+
+Grafana umożliwia tworzenie dashboardów prezentujących stan aplikacji i infrastruktury.
+
+Logi, metryki i alerty pomagają wykrywać błędy, przeciążenia i problemy z dostępnością.
+
+21. Amazon EKS a Amazon ECS
+
+Amazon EKS jest zarządzaną usługą Kubernetes.
+
+Amazon ECS (Elastic Container Service) to usługa AWS do zarządzania aplikacjami kontenerowymi, która nie wymaga korzystania z Kubernetes.
+
+EKS może być dobrym wyborem dla zespołów potrzebujących ekosystemu Kubernetes i jego przenośnych narzędzi.
+
+ECS może być prostszym rozwiązaniem dla aplikacji, które mają działać głównie w ekosystemie AWS.
+
+Wybór powinien uwzględniać doświadczenie zespołu, złożoność infrastruktury, koszty i wymagania aplikacji.
+
+22. Zalety Amazon EKS
+
+Amazon EKS upraszcza utrzymywanie płaszczyzny sterowania Kubernetes.
+
+Usługa integruje się z innymi elementami AWS, takimi jak IAM, VPC, ECR i CloudWatch.
+
+Umożliwia skalowanie aplikacji oraz uruchamianie wielu usług w jednym klastrze.
+
+Kubernetes udostępnia szeroki ekosystem narzędzi do wdrażania, monitorowania i automatyzacji.
+
+Amazon EKS może być dobrym rozwiązaniem dla organizacji rozwijających aplikacje mikroserwisowe i środowiska kontenerowe.
+
+23. Wady i ograniczenia Amazon EKS
+
+Kubernetes jest rozbudowaną technologią, której konfiguracja i utrzymanie wymagają odpowiedniej wiedzy.
+
+Amazon EKS może generować koszty związane z klastrem, węzłami, pamięcią masową, ruchem sieciowym i dodatkowymi usługami.
+
+Zarządzanie siecią, uprawnieniami, wdrożeniami i monitorowaniem nadal wymaga pracy administratorów oraz zespołów DevOps.
+
+Nie każda aplikacja wymaga Kubernetes, a dla prostych projektów zarządzanie klastrem może być niepotrzebnie skomplikowane.
+
+Przed wdrożeniem warto ocenić, czy korzyści ze skalowania i automatyzacji uzasadniają koszty i złożoność rozwiązania.
+
+24. Przykładowy workflow wdrażania aplikacji
+
+Deweloper tworzy aplikację i przygotowuje jej konfigurację.
+
+Następnie buduje obraz kontenera i publikuje go w Amazon ECR.
+
+Konfiguracja Kubernetes określa obraz, liczbę replik i zasoby potrzebne aplikacji.
+
+Amazon EKS zarządza uruchomieniem Podów na dostępnych węzłach.
+
+Service udostępnia aplikację innym komponentom, a odpowiedni Load Balancer może umożliwiać dostęp z zewnątrz.
+
+Na końcu monitoruje się działanie aplikacji i dostosowuje zasoby do jej obciążenia.
+
+25. Jak uczyć się Amazon EKS?
+
+Na początku warto poznać podstawy Dockera i tworzenia obrazów kontenerów.
+
+Następnie należy nauczyć się podstaw Kubernetes, szczególnie Pod, Deployment, Service, Namespace i ConfigMap.
+
+Kolejnym krokiem jest poznanie Amazon EC2, ECR, IAM i VPC.
+
+Później warto utworzyć testowy klaster EKS i wdrożyć prostą aplikację internetową.
+
+Po opanowaniu podstaw można przejść do Helm, automatycznego skalowania, CI/CD i monitorowania.
+
+26. Najważniejsze pojęcia
+
+Amazon EKS — zarządzana usługa Kubernetes w AWS.
+
+Kubernetes — platforma do wdrażania i zarządzania aplikacjami kontenerowymi.
+
+Cluster — klaster Kubernetes.
+
+Control Plane — płaszczyzna sterowania klastrem.
+
+Worker Node — węzeł wykonujący aplikacje.
+
+Pod — podstawowa jednostka uruchomieniowa Kubernetes.
+
+Deployment — zasób zarządzający replikami aplikacji.
+
+Service — stabilny punkt dostępu do Podów.
+
+Namespace — logiczna przestrzeń organizująca zasoby klastra.
+
+Amazon ECR — rejestr obrazów kontenerów.
+
+Amazon EC2 — usługa maszyn wirtualnych w AWS.
+
+Amazon VPC — wirtualna sieć w AWS.
+
+IAM — usługa zarządzania tożsamościami i uprawnieniami.
+
+HPA — mechanizm automatycznego skalowania liczby Podów.
+
+Helm — narzędzie do zarządzania pakietami aplikacji Kubernetes.
+
+CI/CD — automatyzacja budowania, testowania i wdrażania oprogramowania.
+
+Load Balancer — mechanizm rozdzielania ruchu pomiędzy instancje aplikacji.
+
+Persistent Volume — trwały zasób pamięci masowej dla Kubernetes.
+
+27. W skrócie
+
+Amazon EKS to zarządzana usługa Kubernetes, która ułatwia uruchamianie i skalowanie aplikacji kontenerowych w AWS.
+
+Najważniejsze elementy to klastry, węzły robocze, Pody, Deploymenty i Service.
+
+Usługa integruje się z AWS IAM, VPC, ECR i CloudWatch, dzięki czemu można budować rozbudowane środowiska produkcyjne.
+
+Aby dobrze opanować Amazon EKS, należy najpierw zrozumieć Dockera i podstawy Kubernetes, a następnie przejść do konfiguracji klastra, bezpieczeństwa i automatyzacji wdrożeń.

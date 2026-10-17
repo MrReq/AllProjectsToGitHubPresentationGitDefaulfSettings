@@ -1,0 +1,172 @@
+# LibreNMS – kompletna notatka
+
+## 1. Czym jest LibreNMS?
+
+LibreNMS to otwartoźródłowy system monitorowania infrastruktury sieciowej, który pozwala administratorom IT kontrolować stan urządzeń sieciowych, serwerów oraz innych elementów infrastruktury informatycznej.
+
+Narzędzie zbiera informacje o urządzeniach, analizuje ich parametry pracy i prezentuje wyniki w postaci wykresów, tabel, paneli oraz alertów.
+
+LibreNMS jest wykorzystywany przede wszystkim do monitorowania routerów, przełączników sieciowych, zapór sieciowych, serwerów i innych urządzeń obsługujących odpowiednie protokoły monitorowania.
+
+System może automatycznie wykrywać urządzenia w sieci, zbierać dane o wykorzystaniu interfejsów sieciowych oraz informować administratora o problemach, takich jak przeciążenie łącza czy niedostępność urządzenia.
+
+[Integrate LibreNMS & Squadcast for slick network monitoring](https://images.openai.com/static-rsc-4/WCTjX7JZwS8zW_u3w6K4btA34HYSElnzLyUP-agHtpN51DNrTY-duMi7a3ZtdEdUfgLNPlN3yv40lfAW9OCNWtwgkcZ6oPXyF8PbpPpT7UCgCALwOL_JAPC-ngsSzigsxu8DGr7nunm0ULhjPHRZyhyL8muRDGxPqHsQ30HftH0?purpose=inline)
+
+[Dashboards - LibreNMS Docs](https://images.openai.com/static-rsc-4/CQUb8ZZspFgeehX8ngZ54b77OqrSgCd0YgWTk-i1qu-6Ho06EDCZhUdZ2fxkWMxAFIoLCSgVJ9Tk_Mrk4a2jFbKrpCvLxOSA9Wrw2DDrc-lBIRsI37wpiu6WyqhMltrEx12pTAschcNYOhzfYcPP7mxRNvTCsI27kMzz2itQOGU?purpose=inline)
+
+[Details about Graph - Help - LibreNMS Community](https://images.openai.com/static-rsc-4/SdCaC3AHgaDG1YkxlQAo51cHeQmCc4mqZQ_2UNZX5PRzstCgwZ8j6IqUgE5QRlIW6yjcmaDshfKKS7vDJxyydoiOLbSnmpyfLwwZggp8KLzq-N9-kTwTlt5rHqoV862I_dVnJnDAgW0LSkywkeL7te3o7jYoxgMoDITnscgQ9UA?purpose=inline)
+
+7
+
+## 2. Do czego służy LibreNMS?
+
+LibreNMS pomaga administratorom IT utrzymywać stabilność i dostępność infrastruktury sieciowej.
+
+Najważniejsze zastosowania to:
+
+- Monitorowanie routerów i przełączników.
+- Kontrolowanie ruchu sieciowego i wykorzystania przepustowości.
+- Monitorowanie dostępności urządzeń.
+- Śledzenie wykorzystania procesora i pamięci w obsługiwanych urządzeniach.
+- Analizowanie błędów na interfejsach sieciowych.
+- Wykrywanie problemów z połączeniami.
+- Generowanie alertów o awariach i przekroczeniu ustalonych progów.
+- Przeglądanie historii parametrów urządzeń.
+- Tworzenie map i wizualizacji infrastruktury sieciowej.
+- Monitorowanie urządzeń w środowiskach firmowych i centrach danych.
+
+Przykładowo administrator może wykorzystać LibreNMS do sprawdzania, czy router w firmie działa prawidłowo, jakie jest obciążenie łącza internetowego oraz czy któryś z przełączników przestał odpowiadać.
+
+## 3. Jak działa LibreNMS?
+
+LibreNMS zbiera dane z monitorowanych urządzeń i przetwarza je w celu przedstawienia aktualnego stanu infrastruktury.
+
+Typowy proces wygląda następująco:
+
+1\. Urządzenia sieciowe
+
+Routery, przełączniki, serwery i zapory sieciowe
+
+2\. Zbieranie danych
+
+SNMP, wykrywanie urządzeń i inne obsługiwane mechanizmy
+
+3\. Serwer LibreNMS
+
+Przetwarzanie i zapisywanie informacji o urządzeniach
+
+4\. Baza danych i wykresy
+
+Historia parametrów, statystyki i wizualizacja danych
+
+5\. Administrator IT
+
+Analizuje wyniki i reaguje na alerty
+
+Dane mogą być zbierane cyklicznie, a ich częstotliwość zależy od konfiguracji i rodzaju monitorowania.
+
+## 4. Najważniejsze technologie wykorzystywane przez LibreNMS
+
+SNMP (Simple Network Management Protocol) to jeden z podstawowych protokołów używanych do pobierania informacji o urządzeniach sieciowych. Pozwala między innymi odczytywać liczniki ruchu, stan interfejsów i wybrane parametry sprzętowe.
+
+ICMP (Internet Control Message Protocol) może służyć do sprawdzania osiągalności urządzeń, na przykład za pomocą żądań ping.
+
+PHP jest głównym językiem programowania wykorzystywanym w aplikacji LibreNMS.
+
+MariaDB / MySQL służy do przechowywania danych konfiguracyjnych oraz informacji o monitorowanych urządzeniach.
+
+RRDTool jest wykorzystywany do przechowywania i prezentowania szeregów czasowych w postaci wykresów, na przykład dotyczących ruchu sieciowego.
+
+Linux jest typową platformą serwerową do uruchamiania LibreNMS.
+
+## 5. SNMP – najważniejszy element monitorowania
+
+SNMP jest szczególnie ważne w pracy z LibreNMS, ponieważ umożliwia pobieranie danych z urządzeń sieciowych.
+
+W monitorowaniu SNMP występują trzy podstawowe elementy.
+
+- SNMP Manager – system zarządzający, który odpytuje urządzenia. W tym przypadku jest nim LibreNMS.
+- SNMP Agent – komponent działający na urządzeniu i udostępniający informacje o jego stanie.
+- MIB (Management Information Base) – struktura opisująca dostępne parametry zarządzania, identyfikowane między innymi przez OID.
+
+LibreNMS może na przykład odczytać liczbę bajtów przesłanych przez interfejs sieciowy, a następnie wykorzystać kolejne pomiary do wyliczenia szybkości transmisji.
+
+W praktyce często wykorzystuje się SNMPv2c lub bezpieczniejszy SNMPv3, który obsługuje uwierzytelnianie i mechanizmy ochrony komunikacji.
+
+## 6. Automatyczne wykrywanie urządzeń
+
+LibreNMS posiada mechanizmy automatycznego wykrywania urządzeń, dzięki czemu administrator nie musi ręcznie definiować wszystkich parametrów monitorowania.
+
+System może identyfikować urządzenia na podstawie dostępnych informacji, wykrywać ich interfejsy sieciowe i rozpoznawać obsługiwane czujniki.
+
+W zależności od urządzenia i dostępnych danych może monitorować temperaturę, napięcia, prędkość wentylatorów, stan zasilaczy oraz inne parametry sprzętowe.
+
+Zakres dostępnych informacji zależy od producenta, modelu urządzenia, wersji oprogramowania i obsługiwanego protokołu.
+
+## 7. Alerty i powiadomienia
+
+LibreNMS pozwala definiować reguły alarmowe, które informują administratora o określonych zdarzeniach.
+
+Przykładowe sytuacje, w których można skonfigurować alerty:
+
+- Urządzenie przestaje odpowiadać.
+- Interfejs sieciowy przechodzi w stan niedostępności.
+- Wykorzystanie przepustowości przekracza określony próg.
+- Wzrasta temperatura urządzenia.
+- Pojawiają się błędy na interfejsie.
+- Monitorowany parametr osiąga nieprawidłową wartość.
+
+Powiadomienia mogą być przekazywane przez obsługiwane kanały, na przykład e-mail lub zintegrowane systemy powiadomień.
+
+Reguły alertów należy odpowiednio dostosować, aby ograniczyć liczbę fałszywych alarmów i niepotrzebnych powiadomień.
+
+## 8. LibreNMS a inne narzędzia monitorowania
+
+| Narzędzie            | Główne przeznaczenie                                                      |
+| -------------------- | ------------------------------------------------------------------------- |
+| LibreNMS             | Monitorowanie urządzeń i infrastruktury sieciowej                         |
+| Zabbix               | Monitorowanie sieci, serwerów, aplikacji i usług                          |
+| Nagios               | Monitorowanie dostępności hostów i usług                                  |
+| Prometheus           | Zbieranie i analizowanie metryk, szczególnie w środowiskach aplikacyjnych |
+| Grafana              | Wizualizacja danych i tworzenie dashboardów                               |
+| PRTG Network Monitor | Monitorowanie infrastruktury IT w rozwiązaniu komercyjnym                 |
+
+LibreNMS jest szczególnie przydatny, gdy głównym celem jest monitorowanie urządzeń sieciowych i ich interfejsów.
+
+Zabbix oferuje szerokie możliwości monitorowania różnych elementów infrastruktury, natomiast Prometheus jest często wykorzystywany do zbierania metryk z aplikacji i nowoczesnych środowisk serwerowych.
+
+Narzędzia te mogą się również uzupełniać, zamiast bezpośrednio ze sobą konkurować.
+
+## 9. Zalety LibreNMS
+
+- Jest oprogramowaniem open source.
+- Umożliwia centralne monitorowanie wielu urządzeń sieciowych.
+- Obsługuje SNMP i automatyczne wykrywanie urządzeń.
+- Udostępnia wykresy oraz historię parametrów.
+- Pozwala konfigurować alerty i powiadomienia.
+- Ułatwia analizowanie wykorzystania przepustowości.
+- Może być rozbudowywany i integrowany z innymi narzędziami.
+- Jest przydatny w sieciach firmowych, serwerowniach i laboratoriach sieciowych.
+
+## 10. Wady i ograniczenia LibreNMS
+
+- Wymaga poprawnej konfiguracji serwera oraz monitorowanych urządzeń.
+- Dostępność danych zależy od obsługi SNMP i innych mechanizmów przez urządzenia.
+- Duże instalacje mogą wymagać odpowiedniego dostosowania wydajności bazy danych i procesów zbierania danych.
+- Początkującym administratorom może sprawić trudność konfiguracja SNMP, uprawnień i alertów.
+- Nie zastępuje pełnego systemu zarządzania konfiguracją ani narzędzia do analizy wszystkich rodzajów logów.
+- W środowiskach wymagających rozbudowanego monitorowania aplikacji może być potrzebne dodatkowe oprogramowanie.
+
+## 11. Gdzie można nauczyć się LibreNMS?
+
+- Oficjalna strona: [LibreNMS](https://www.librenms.org/).
+- Dokumentacja: [LibreNMS Documentation](https://docs.librenms.org/).
+- Repozytorium źródłowe: [LibreNMS na GitHubie](https://github.com/librenms/librenms).
+
+## 12. Podsumowanie
+
+LibreNMS to otwartoźródłowy system monitorowania infrastruktury sieciowej, który umożliwia zbieranie danych z urządzeń, analizowanie ruchu sieciowego, obserwowanie dostępności sprzętu oraz generowanie alertów.
+
+Jest szczególnie przydatny administratorom sieci, którzy chcą centralnie kontrolować stan routerów, przełączników, serwerów i innych urządzeń.
+
+Najważniejsze pojęcia do zapamiętania to SNMP, ICMP, MIB, OID, RRDTool, automatyczne wykrywanie urządzeń, monitoring interfejsów oraz alerty.

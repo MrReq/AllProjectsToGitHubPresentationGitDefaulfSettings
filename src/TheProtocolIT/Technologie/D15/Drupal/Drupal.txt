@@ -1,0 +1,169 @@
+# Drupal
+
+## 1. Czym jest Drupal?
+
+Drupal to otwartoźródłowy system zarządzania treścią (CMS – Content Management System), który służy do tworzenia i zarządzania stronami internetowymi, portalami, serwisami informacyjnymi oraz rozbudowanymi aplikacjami internetowymi.
+
+Jest napisany głównie w języku PHP i wykorzystuje bazę danych do przechowywania treści, użytkowników, konfiguracji oraz innych informacji.
+
+Drupal wyróżnia się rozbudowanym systemem uprawnień, elastycznym modelem danych i możliwością rozszerzania funkcjonalności za pomocą modułów.
+
+Jest szczególnie przydatny w dużych projektach, w których ważne są bezpieczeństwo, wielojęzyczność, zarządzanie treścią i kontrola dostępu.
+
+## 2. Do czego służy Drupal?
+
+- Tworzenie stron internetowych i portali informacyjnych.
+- Budowanie serwisów instytucji publicznych i organizacji.
+- Tworzenie stron korporacyjnych.
+- Zarządzanie dużą ilością treści i dokumentów.
+- Budowanie wielojęzycznych serwisów internetowych.
+- Tworzenie portali społecznościowych i społeczności internetowych.
+- Budowanie katalogów, baz wiedzy i platform edukacyjnych.
+- Udostępnianie treści przez API dla aplikacji mobilnych i frontendów.
+
+## 3. Najważniejsze cechy Drupala
+
+System CMS
+
+Drupal pozwala tworzyć, edytować, publikować i organizować treści bez konieczności ręcznego programowania każdej podstrony.
+
+Moduły
+
+Funkcjonalność systemu można rozszerzać za pomocą modułów, które dodają między innymi formularze, wyszukiwanie, integracje i obsługę dodatkowych typów treści.
+
+Typy treści i pola
+
+Można definiować własne typy treści, takie jak artykuł, produkt, wydarzenie czy profil użytkownika, oraz przypisywać im odpowiednie pola.
+
+Role i uprawnienia
+
+Drupal umożliwia definiowanie ról użytkowników i szczegółowe kontrolowanie dostępu do funkcji oraz treści.
+
+Wielojęzyczność
+
+System zapewnia mechanizmy tworzenia wielojęzycznych stron i zarządzania tłumaczeniami.
+
+API i architektura headless
+
+Drupal może pełnić funkcję backendu, który udostępnia dane przez API aplikacjom napisanym w innych technologiach, na przykład React lub Vue.
+
+## 4. Jak działa Drupal?
+
+1\. Użytkownik
+
+Przeglądarka lub aplikacja wysyła żądanie
+
+2\. Drupal i PHP
+
+Logika aplikacji, moduły, uprawnienia i obsługa treści
+
+3\. Baza danych
+
+Treści, użytkownicy, konfiguracja i metadane
+
+4\. Odpowiedź
+
+Strona HTML lub dane udostępnione przez API
+
+Drupal przetwarza żądanie, sprawdza uprawnienia, pobiera potrzebne dane i generuje odpowiedź.
+
+Może zwracać gotową stronę HTML albo działać jako backend udostępniający treści innym aplikacjom.
+
+## 5. Najważniejsze elementy Drupala
+
+- Core – podstawowa część systemu zawierająca mechanizmy CMS.
+- Modules – rozszerzenia dodające funkcjonalności.
+- Themes – motywy definiujące wygląd strony.
+- Content Types – definicje typów treści.
+- Fields – pola przechowujące poszczególne informacje.
+- Views – narzędzie do tworzenia list, tabel i zestawień treści bez konieczności pisania całego zapytania od podstaw.
+- Users, Roles and Permissions – system użytkowników, ról i uprawnień.
+- Configuration Management – mechanizmy zarządzania i przenoszenia konfiguracji między środowiskami.
+- Composer – narzędzie do zarządzania zależnościami PHP.
+- Drush – narzędzie wiersza poleceń ułatwiające administrację Drupalem.
+
+## 6. Przykład wykorzystania Drupala
+
+Załóżmy, że tworzysz portal z artykułami technologicznymi.
+
+W panelu administracyjnym definiujesz typ treści `Article`, który zawiera tytuł, treść, autora, datę publikacji i kategorię.
+
+Drupal przechowuje artykuły w bazie danych i umożliwia redaktorom zarządzanie nimi przez przeglądarkę.
+
+Jeśli chcesz pobrać treści z poziomu aplikacji zewnętrznej, możesz wykorzystać dostępne API, zależnie od konfiguracji serwisu.
+
+Przykładowe zapytanie do endpointu JSON:API dla treści typu `article`:
+
+```
+GET /jsonapi/node/article
+Accept: application/vnd.api+json
+```
+
+W instalacji udostępniającej JSON:API zapytanie może zwrócić opublikowane artykuły zgodnie z konfiguracją dostępu.
+
+## 7. Drupal a inne systemy CMS
+
+| Technologia | Główne zastosowanie                                        |
+| ----------- | ---------------------------------------------------------- |
+| Drupal      | Rozbudowane portale i serwisy o złożonej strukturze treści |
+| WordPress   | Strony firmowe, blogi i serwisy oparte na treści           |
+| Joomla      | Strony internetowe i portale z systemem rozszerzeń         |
+| Shopify     | Sklepy internetowe jako zarządzana platforma               |
+| Strapi      | Headless CMS oparty na JavaScript/TypeScript               |
+| Contentful  | Zarządzanie treścią w chmurowym headless CMS               |
+
+Drupal jest szczególnie przydatny tam, gdzie potrzebne są złożone typy treści, zaawansowane uprawnienia i rozbudowane procesy redakcyjne.
+
+## 8. Zalety i wady Drupala
+
+Zalety:
+
+- Otwarty kod źródłowy.
+- Rozbudowany system zarządzania uprawnieniami.
+- Elastyczne definiowanie typów treści.
+- Dobre wsparcie dla wielojęzycznych serwisów.
+- Możliwość rozszerzania systemu modułami.
+- Obsługa API i architektury headless.
+- Przydatność w dużych projektach i złożonych portalach.
+
+Wady:
+
+- Wyższy próg wejścia niż w przypadku prostszych CMS-ów.
+- Rozbudowana konfiguracja może wymagać doświadczenia.
+- Tworzenie własnych modułów wymaga znajomości PHP i architektury Drupala.
+- Aktualizacje i zgodność rozszerzeń wymagają starannego zarządzania.
+- Duże wdrożenia mogą wymagać specjalistycznej infrastruktury i optymalizacji.
+
+## 9. Drupal na rynku pracy
+
+Drupal jest wykorzystywany przez agencje internetowe, instytucje publiczne, organizacje oraz przedsiębiorstwa zarządzające dużymi serwisami.
+
+Stanowiska związane z tą technologią to:
+
+- Drupal Developer.
+- PHP Developer.
+- Backend Developer.
+- CMS Developer.
+- Web Developer.
+- Technical Consultant.
+
+Warto łączyć naukę Drupala z PHP, Symfony, SQL, HTML, CSS, JavaScript, Git i Composerem.
+
+## 10. Jak zacząć naukę Drupala?
+
+Najlepiej rozpocząć od podstaw PHP, HTML, CSS oraz relacyjnych baz danych.
+
+Następnie warto zainstalować Drupala, poznać panel administracyjny, typy treści, pola, widoki, moduły i system uprawnień.
+
+Kolejnym krokiem może być stworzenie portalu technologicznego z kategoriami, artykułami, kontami użytkowników i wyszukiwarką.
+
+Na dalszym etapie warto poznać tworzenie własnych modułów w PHP, Drush, Composer, API oraz wdrażanie aplikacji z wykorzystaniem Dockera.
+
+Materiały do nauki:
+
+- [Oficjalna strona Drupala](https://www.drupal.org/)
+- [Oficjalna dokumentacja](https://www.drupal.org/docs)
+- [Drush – narzędzie administracyjne](https://www.drupal.org/project/drush)
+- [Dokumentacja modułu JSON:API](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module)
+
+Podsumowanie: Drupal to zaawansowany system CMS oparty na PHP, przeznaczony do tworzenia rozbudowanych stron, portali i aplikacji zarządzających treścią. Warto go poznać, jeśli interesuje Cię rozwój aplikacji internetowych, systemów CMS i backendów opartych na PHP.

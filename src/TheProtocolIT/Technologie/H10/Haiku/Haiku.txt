@@ -1,0 +1,411 @@
+# Haiku
+
+## 1. Czym jest Haiku
+
+Haiku to lekki system operacyjny typu open source przeznaczony przede wszystkim dla komputerów osobistych.
+
+Haiku jest inspirowany systemem BeOS i rozwija jego idee oraz filozofię projektowania.
+
+Projekt Haiku rozpoczął się jako OpenBeOS po zaprzestaniu rozwoju BeOS.
+
+W 2004 roku projekt przyjął nazwę Haiku.
+
+Haiku jest tworzony przez społeczność skupioną wokół Haiku Project.
+
+## 2. Historia Haiku
+
+Haiku jest bezpośrednim następcą idei systemu BeOS.
+
+BeOS został opracowany przez firmę Be Inc. w latach 90.
+
+BeOS był projektowany z myślą o wydajnym przetwarzaniu multimediów.
+
+Po zakończeniu rozwoju BeOS społeczność rozpoczęła tworzenie jego otwartego następcy.
+
+Początkowo projekt nosił nazwę OpenBeOS.
+
+Później został przemianowany na Haiku.
+
+## 3. Główne założenia Haiku
+
+Haiku ma być szybkim i prostym systemem operacyjnym.
+
+System stawia duży nacisk na responsywność interfejsu.
+
+Haiku został zaprojektowany przede wszystkim dla komputerów desktopowych.
+
+System posiada własne środowisko graficzne.
+
+System posiada własny zestaw bibliotek i API.
+
+Haiku nie jest dystrybucją Linuxa.
+
+Haiku posiada własne jądro oraz własną architekturę systemową.
+
+## 4. Jądro systemu
+
+Haiku wykorzystuje własne jądro systemu operacyjnego.
+
+Jądro jest odpowiedzialne między innymi za zarządzanie procesami, pamięcią, urządzeniami oraz komunikacją między procesami.
+
+Haiku jest systemem wielozadaniowym.
+
+System może jednocześnie wykonywać wiele procesów i aplikacji.
+
+Haiku wykorzystuje wielowątkowość.
+
+System został zaprojektowany tak, aby dobrze wykorzystywać współczesne procesory wielordzeniowe.
+
+## 5. Interfejs graficzny
+
+Haiku posiada własne środowisko graficzne.
+
+Interfejs został zaprojektowany z naciskiem na prostotę i szybkość działania.
+
+Jednym z charakterystycznych elementów interfejsu jest Deskbar.
+
+Deskbar pełni funkcję podobną do menu systemowego oraz paska zadań.
+
+Haiku posiada również własny system okien.
+
+Okna aplikacji mogą być organizowane w charakterystyczny dla Haiku sposób.
+
+## 6. Tracker
+
+Tracker jest menedżerem plików systemu Haiku.
+
+Pozwala przeglądać katalogi i pliki.
+
+Tracker jest odpowiedzialny również za część interakcji użytkownika z systemem plików.
+
+Jego funkcjonalność jest zintegrowana z pozostałą częścią środowiska Haiku.
+
+Tracker przypomina funkcjonalnie menedżery plików znane z innych systemów operacyjnych.
+
+## 7. Deskbar
+
+Deskbar jest jednym z najbardziej charakterystycznych elementów interfejsu Haiku.
+
+Pozwala uruchamiać aplikacje.
+
+Pozwala przełączać się pomiędzy uruchomionymi aplikacjami.
+
+Zapewnia dostęp do elementów systemu.
+
+Deskbar może być umieszczony w różnych miejscach ekranu.
+
+## 8. System plików
+
+Haiku wykorzystuje system plików BFS.
+
+BFS oznacza Be File System.
+
+BFS został pierwotnie zaprojektowany dla BeOS.
+
+System plików został zaprojektowany z myślą o wydajnym zarządzaniu dużymi plikami.
+
+BFS obsługuje między innymi rozszerzone atrybuty plików.
+
+BFS posiada również możliwość indeksowania atrybutów.
+
+Dzięki temu można wyszukiwać pliki na podstawie ich właściwości, a nie tylko nazwy.
+
+## 9. Atrybuty plików
+
+Jedną z ciekawych cech Haiku jest rozbudowany system atrybutów plików.
+
+Do pliku można przypisać dodatkowe informacje.
+
+Atrybut może przechowywać na przykład ocenę, autora lub inne dane.
+
+Atrybuty mogą być indeksowane.
+
+Indeksowanie pozwala wykonywać szybkie wyszukiwanie według określonych właściwości.
+
+## 10. Package Management
+
+Haiku posiada własny system zarządzania pakietami.
+
+Pakiety mogą zawierać aplikacje, biblioteki oraz inne komponenty systemu.
+
+System pozwala instalować i aktualizować oprogramowanie za pomocą pakietów.
+
+Haiku wykorzystuje między innymi narzędzie `pkgman`.
+
+Przykładowe polecenie może wyglądać następująco:
+
+```bash
+pkgman install nazwa_pakietu
+```
+
+System posiada również graficzny program HaikuDepot.
+
+## 11. HaikuDepot
+
+HaikuDepot jest graficznym centrum oprogramowania dla Haiku.
+
+Użytkownik może przeglądać dostępne aplikacje.
+
+Można instalować oraz aktualizować pakiety.
+
+HaikuDepot ułatwia korzystanie z systemu osobom, które nie chcą używać terminala.
+
+## 12. Aplikacje
+
+Haiku posiada własny zestaw aplikacji systemowych.
+
+W systemie znajdują się między innymi edytory tekstu, menedżer plików, narzędzia systemowe oraz programy multimedialne.
+
+Dostępne są również aplikacje tworzone przez społeczność.
+
+Liczba aplikacji jest jednak znacznie mniejsza niż w przypadku Windows, macOS czy popularnych dystrybucji Linuxa.
+
+## 13. Programowanie w Haiku
+
+Haiku posiada własne API przeznaczone do tworzenia aplikacji.
+
+API Haiku jest mocno związane z językiem C++.
+
+Programiści mogą tworzyć natywne aplikacje wykorzystujące framework Haiku.
+
+System udostępnia klasy i biblioteki ułatwiające tworzenie interfejsów graficznych.
+
+Haiku oferuje również narzędzia programistyczne potrzebne do tworzenia aplikacji.
+
+## 14. C++ i Haiku
+
+C++ jest podstawowym językiem wykorzystywanym do tworzenia natywnych aplikacji Haiku.
+
+Framework Haiku wykorzystuje obiektowe API.
+
+Programista może tworzyć między innymi okna, przyciski, menu oraz inne elementy interfejsu.
+
+Przykładowa aplikacja Haiku może korzystać z klas takich jak `BApplication`, `BWindow`, `BView` czy `BButton`.
+
+## 15. Framework GUI
+
+Haiku posiada własny framework graficzny.
+
+Framework pozwala tworzyć natywne aplikacje desktopowe.
+
+Elementy interfejsu są reprezentowane przez klasy C++.
+
+Programista może reagować na zdarzenia generowane przez użytkownika.
+
+Model programowania wykorzystuje między innymi komunikaty i zdarzenia.
+
+## 16. Architektura systemu
+
+Haiku jest systemem modularnym.
+
+Poszczególne elementy systemu odpowiadają za określone funkcje.
+
+Możemy wyróżnić między innymi:
+
+```text
+Haiku
+│
+├── Kernel
+├── Drivers
+├── File System
+├── Media Kit
+├── Network Kit
+├── Storage Kit
+├── Interface Kit
+├── Application Kit
+└── System Applications
+```
+
+Takie podejście pozwala zachować stosunkowo uporządkowaną architekturę systemu.
+
+## 17. Media Kit
+
+Media Kit odpowiada za obsługę multimediów.
+
+Pozwala aplikacjom korzystać z dźwięku i obrazu.
+
+Jest jednym z elementów odziedziczonych ideowo po BeOS.
+
+Obsługa multimediów była jednym z najważniejszych założeń pierwotnego BeOS.
+
+## 18. Network Kit
+
+Network Kit zapewnia funkcje związane z komunikacją sieciową.
+
+Haiku obsługuje współczesne technologie sieciowe.
+
+System może korzystać między innymi z Ethernetu oraz Wi-Fi, zależnie od dostępnych sterowników.
+
+Dostępne są również standardowe narzędzia sieciowe.
+
+## 19. Terminal
+
+Haiku posiada własny terminal.
+
+Terminal umożliwia wykonywanie poleceń systemowych.
+
+Można za jego pomocą zarządzać plikami, pakietami oraz procesami.
+
+Dostępne są standardowe narzędzia znane z systemów Unix-like.
+
+Terminal jest szczególnie przydatny podczas programowania i administracji systemem.
+
+## 20. Zgodność z Unix
+
+Haiku nie jest systemem Linux.
+
+Haiku nie jest również klasycznym systemem Unix.
+
+System posiada jednak wiele cech charakterystycznych dla współczesnych systemów Unix-like.
+
+Dostępny jest między innymi terminal oraz wiele narzędzi znanych ze świata Unix.
+
+Haiku posiada również warstwę POSIX umożliwiającą uruchamianie części oprogramowania zgodnego z tym standardem.
+
+## 21. Sterowniki
+
+Haiku posiada własny system sterowników.
+
+Sterowniki pozwalają systemowi komunikować się ze sprzętem.
+
+Dostępność sterowników jest jednym z ważniejszych ograniczeń Haiku.
+
+Największe problemy mogą występować w przypadku bardzo nowego lub nietypowego sprzętu.
+
+Przed instalacją Haiku warto sprawdzić kompatybilność konkretnego komputera.
+
+## 22. Wirtualizacja
+
+Haiku można uruchamiać w maszynach wirtualnych.
+
+Można korzystać między innymi z VirtualBox lub VMware, zależnie od konfiguracji.
+
+Uruchamianie Haiku w maszynie wirtualnej jest dobrym sposobem na poznanie systemu bez instalowania go na głównym komputerze.
+
+Haiku może być również uruchamiany w emulatorach.
+
+## 23. Haiku i BeOS
+
+Haiku zachowuje wiele koncepcji znanych z BeOS.
+
+Oba systemy koncentrują się na szybkości i prostocie.
+
+Haiku zachowuje kompatybilność na poziomie API z dużą częścią oprogramowania tworzonego dla BeOS, choć nie jest to pełna kompatybilność binarna ze wszystkimi aplikacjami.
+
+Haiku rozwija jednak system niezależnie od oryginalnego BeOS.
+
+## 24. Haiku a Linux
+
+Haiku i Linux mają zupełnie inne korzenie.
+
+Linux wykorzystuje jądro Linux.
+
+Haiku wykorzystuje własne jądro.
+
+Linux posiada ogromny ekosystem dystrybucji.
+
+Haiku jest jednym spójnym systemem operacyjnym rozwijanym jako całość.
+
+Linux jest znacznie szerzej wykorzystywany na serwerach, w chmurze i urządzeniach embedded.
+
+Haiku skupia się przede wszystkim na komputerach desktopowych.
+
+## 25. Haiku a Windows
+
+Windows jest komercyjnym systemem operacyjnym rozwijanym przez Microsoft.
+
+Haiku jest projektem open source.
+
+Windows posiada ogromny ekosystem aplikacji komercyjnych.
+
+Haiku posiada znacznie mniejszy ekosystem oprogramowania.
+
+Haiku wyróżnia się prostotą i niewielkimi wymaganiami sprzętowymi.
+
+## 26. Zalety Haiku
+
+Haiku jest lekki.
+
+Haiku może działać na stosunkowo słabszym sprzęcie.
+
+System uruchamia się szybko.
+
+Interfejs jest prosty i spójny.
+
+System jest open source.
+
+Haiku posiada własne API dla programistów.
+
+System jest interesującym przykładem alternatywnego podejścia do projektowania desktopowego systemu operacyjnego.
+
+## 27. Wady Haiku
+
+Haiku ma znacznie mniejszą bazę użytkowników niż Windows, macOS czy Linux.
+
+Liczba dostępnych aplikacji jest ograniczona.
+
+Kompatybilność sprzętowa jest mniejsza niż w przypadku najpopularniejszych systemów.
+
+Nie wszystkie współczesne urządzenia posiadają odpowiednie sterowniki.
+
+Haiku nie jest najlepszym wyborem do każdego rodzaju zastosowań.
+
+## 28. Zastosowanie Haiku
+
+Haiku może być wykorzystywany jako system desktopowy.
+
+Może być wykorzystywany do nauki tworzenia systemów operacyjnych i programowania systemowego.
+
+Może być wykorzystywany do nauki C++.
+
+Może być interesującą platformą do eksperymentowania z architekturą systemów operacyjnych.
+
+Może być również wykorzystywany jako lekki system na starszych komputerach, jeżeli sprzęt jest kompatybilny.
+
+## 29. Haiku dla programisty
+
+Haiku jest szczególnie interesujący dla programistów zainteresowanych systemami operacyjnymi.
+
+Programowanie natywnych aplikacji odbywa się przede wszystkim w C++.
+
+Programista ma dostęp do dobrze zintegrowanego API systemowego.
+
+Można tworzyć własne aplikacje GUI.
+
+Można również eksperymentować z elementami systemowymi i sterownikami.
+
+Haiku jest więc ciekawym środowiskiem edukacyjnym dla osoby zainteresowanej C++ oraz systemami operacyjnymi.
+
+## 30. Najważniejsze pojęcia do zapamiętania
+
+**Haiku** — lekki system operacyjny open source inspirowany BeOS.
+
+**BeOS** — system operacyjny, na którym wzorowany jest Haiku.
+
+**OpenBeOS** — pierwotna nazwa projektu Haiku.
+
+**Kernel** — jądro systemu odpowiedzialne za podstawowe funkcje systemu operacyjnego.
+
+**BFS** — system plików Haiku.
+
+**Tracker** — menedżer plików Haiku.
+
+**Deskbar** — centralny element interfejsu użytkownika.
+
+**HaikuDepot** — graficzny menedżer oprogramowania.
+
+**pkgman** — narzędzie do zarządzania pakietami.
+
+**Application Kit** — część API służąca między innymi do tworzenia aplikacji.
+
+**Interface Kit** — biblioteka odpowiedzialna za elementy interfejsu graficznego.
+
+**Media Kit** — komponent odpowiedzialny za obsługę multimediów.
+
+**Network Kit** — komponent związany z funkcjami sieciowymi.
+
+**C++** — główny język programowania natywnych aplikacji Haiku.
+
+## 31. Haiku w jednym zdaniu
+
+Haiku to **lekki, otwartoźródłowy system operacyjny inspirowany BeOS, skoncentrowany na szybkości, prostocie, spójnym interfejsie oraz wygodnym tworzeniu natywnych aplikacji w C++**.

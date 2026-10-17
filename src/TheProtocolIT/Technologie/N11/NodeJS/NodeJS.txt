@@ -1,0 +1,282 @@
+# Node.js – kompleksowa notatka
+
+## 1. Czym jest Node.js?
+
+[Pengenalan Node JS Lengkap + Cara Install - Teziger Blog](https://images.openai.com/static-rsc-4/yhb6L_zHD89hq9StVnKJSbhV5YpcjpuXaUiwKe3Yd0Q3p8qLiwTo4xoM6cgkONkAC2R8lMT8_9O1FOAg1f3t88UK4wnh_g7GSnUoengav4u4Cuy4V1KWDeoEr_8EXAvRqrXtBzD4mBtIunoq3hjYaw1TePJfYx8Vj52vuhBOF50?purpose=inline)
+
+[【Node.js入門】インストールからローカルサーバー立ち上げまで #JavaScript - Qiita](https://images.openai.com/static-rsc-4/ENf_vrJqzjhToLbxKBuYApB9LZU7Sob1tyxItlPQZjJrmmRtgoKslpa8tvXvLuhU4lOjKolsD38Fd5R0EszUxJNje5wY6ymGcVpfCDdYQ5doDFA6j7BCHcrnB_TBhQ1x2dl1tSQEPVL5JGE4k1_c0y95sMOzL6FtSYzVmojArrU?purpose=inline)
+
+[How to Build Your First REST API with Node.js and Express | by Azeem Teli | Medium](https://images.openai.com/static-rsc-4/vA38t45dcpOKOZloD_qsK-KZVYb4IALWvILbEbzcj__xb0GHXMYucUKaBgyf5ux1OXMIArn197eTlEahfTNtywVAz5G9u3fSroiKTXE4tWL_U3mRqPKew0gHYnUHblgZMZG40ourrXZBCosaCNcM9qaW5ZuYspo62Z3Gucaj7Hg?purpose=inline)
+
+7
+
+Node.js to środowisko uruchomieniowe (runtime environment), które umożliwia wykonywanie kodu JavaScript poza przeglądarką internetową, na przykład na serwerze, komputerze lokalnym lub w środowisku chmurowym.
+
+Wykorzystuje silnik JavaScript V8, rozwijany przez Google i stosowany między innymi w przeglądarce Chrome.
+
+Node.js pozwala tworzyć aplikacje serwerowe, interfejsy API, narzędzia programistyczne, aplikacje czasu rzeczywistego oraz skrypty automatyzujące pracę.
+
+Ważną cechą Node.js jest obsługa operacji wejścia i wyjścia w sposób asynchroniczny, co pozwala efektywnie obsługiwać wiele jednoczesnych połączeń.
+
+Node.js nie jest językiem programowania ani frameworkiem. Jest środowiskiem, w którym można uruchamiać programy napisane w JavaScripcie.
+
+## 2. Do czego służy Node.js?
+
+Node.js jest wykorzystywany przede wszystkim do tworzenia aplikacji działających po stronie serwera.
+
+Najważniejsze zastosowania Node.js to:
+
+- Tworzenie backendów aplikacji internetowych.
+- Budowanie REST API.
+- Obsługa połączeń HTTP i HTTPS.
+- Tworzenie aplikacji czasu rzeczywistego, np. czatów.
+- Komunikacja przez WebSocket.
+- Budowanie mikroserwisów.
+- Tworzenie narzędzi programistycznych i skryptów automatyzujących.
+- Obsługa kolejek wiadomości i przetwarzania zadań.
+- Tworzenie aplikacji wykorzystujących bazy danych.
+- Uruchamianie narzędzi frontendowych, takich jak Vite, Webpack czy Next.js.
+
+Przykładowo Node.js może obsługiwać backend sklepu internetowego, przyjmować zamówienia, komunikować się z bazą danych i zwracać informacje do aplikacji frontendowej.
+
+## 3. Jak działa Node.js?
+
+Node.js wykorzystuje silnik V8 do wykonywania kodu JavaScript oraz mechanizmy asynchroniczne do obsługi operacji wejścia i wyjścia.
+
+Jednym z najważniejszych elementów jego architektury jest Event Loop, czyli pętla zdarzeń.
+
+Dzięki niej Node.js może obsługiwać wiele operacji oczekujących na zakończenie, na przykład zapytań HTTP lub odczytów plików, bez konieczności blokowania głównego wątku na czas oczekiwania.
+
+Aplikacja JavaScript
+
+Kod wykonywany przez silnik V8
+
+Event Loop
+
+Obsługa zdarzeń i kontynuowanie zadań
+
+Node.js APIs i libuv
+
+Operacje plikowe, sieciowe i zadania asynchroniczne
+
+System operacyjny i usługi
+
+Pliki, sieć, procesy i zasoby systemowe
+
+Wiele operacji sieciowych jest obsługiwanych asynchronicznie, natomiast część operacji, takich jak określone zadania plikowe, kryptograficzne czy kompresja, może korzystać z puli wątków.
+
+Sam kod JavaScript wykonywany w głównym wątku nie staje się automatycznie wielowątkowy. Długotrwałe, intensywne obliczenia mogą blokować Event Loop, dlatego w takich przypadkach można zastosować między innymi `worker_threads` lub osobne procesy.
+
+## 4. Najważniejsze elementy Node.js
+
+V8 to silnik JavaScript, który kompiluje i wykonuje kod.
+
+Event Loop to mechanizm koordynujący wykonywanie zadań asynchronicznych i obsługę zdarzeń.
+
+libuv to biblioteka obsługująca między innymi pętlę zdarzeń, operacje wejścia i wyjścia oraz pulę wątków.
+
+npm (Node Package Manager) to domyślny menedżer pakietów rozpowszechniany wraz z Node.js, umożliwiający instalowanie bibliotek i zarządzanie zależnościami.
+
+Node.js Modules to mechanizm organizowania kodu w moduły, np. za pomocą systemów CommonJS lub ECMAScript Modules.
+
+HTTP Module to wbudowany moduł umożliwiający tworzenie serwerów HTTP i obsługę żądań.
+
+File System (`fs`) to moduł pozwalający odczytywać, zapisywać i modyfikować pliki oraz katalogi.
+
+Streams to mechanizm przetwarzania danych fragmentami, przydatny m.in. przy obsłudze dużych plików.
+
+## 5. Instalacja Node.js
+
+Aby rozpocząć pracę z Node.js, należy zainstalować środowisko na komputerze.
+
+Oficjalna strona projektu: Node.js — [nodejs.org](https://nodejs.org/).
+
+Po instalacji można sprawdzić dostępne wersje za pomocą terminala.
+
+```
+node --version
+npm --version
+```
+
+Pierwsze polecenie wyświetla wersję Node.js, a drugie wersję npm.
+
+Aby utworzyć nowy projekt, można przygotować katalog i zainicjalizować go poleceniem:
+
+```
+mkdir my-node-app
+cd my-node-app
+npm init -y
+```
+
+Polecenie `npm init -y` tworzy plik `package.json`, który przechowuje informacje o projekcie, skryptach i zależnościach.
+
+## 6. Pierwszy program w Node.js
+
+Przykładowy plik `app.js`:
+
+```
+console.log("Hello, Node.js!");
+```
+
+Program można uruchomić w terminalu:
+
+```
+node app.js
+```
+
+Wynikiem będzie tekst `Hello, Node.js!`.
+
+W przeciwieństwie do kodu uruchamianego w przeglądarce, program Node.js może bezpośrednio korzystać z wielu funkcji systemowych udostępnianych przez środowisko, np. odczytywać pliki i tworzyć serwery.
+
+## 7. Tworzenie serwera HTTP
+
+Node.js zawiera wbudowany moduł `http`, dlatego prosty serwer można utworzyć bez instalowania dodatkowego frameworka.
+
+Przykład:
+
+```
+const http = require("node:http");
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {
+        "Content-Type": "text/plain; charset=utf-8"
+    });
+
+    res.end("Witaj w moim serwerze!");
+});
+
+server.listen(3000, () => {
+    console.log("Serwer działa na porcie 3000");
+});
+```
+
+Po zapisaniu kodu w pliku `app.js` należy wykonać polecenie:
+
+```
+node app.js
+```
+
+Następnie można otworzyć adres `http://localhost:3000` w przeglądarce.
+
+Serwer zwróci tekst „Witaj w moim serwerze!”.
+
+W tym przykładzie `createServer()` tworzy serwer, `req` reprezentuje żądanie klienta, a `res` służy do przygotowania odpowiedzi.
+
+## 8. Asynchroniczność w Node.js
+
+Asynchroniczność pozwala rozpocząć operację, a następnie kontynuować wykonywanie programu bez czekania na jej zakończenie w głównym wątku.
+
+Node.js udostępnia kilka mechanizmów obsługi operacji asynchronicznych.
+
+Callbacks to funkcje przekazywane jako argumenty i wywoływane po wykonaniu określonej operacji.
+
+Promises reprezentują wynik operacji, który może być dostępny teraz lub w przyszłości.
+
+Async/Await to składnia ułatwiająca pisanie kodu asynchronicznego w sposób przypominający kod synchroniczny.
+
+Przykład z `async/await`:
+
+```
+const fs = require("node:fs/promises");
+
+async function readFile() {
+    try {
+        const content = await fs.readFile(
+            "data.txt",
+            "utf8"
+        );
+
+        console.log(content);
+    } catch (error) {
+        console.error("Błąd odczytu pliku:", error);
+    }
+}
+
+readFile();
+```
+
+Program odczytuje plik `data.txt` w sposób asynchroniczny i wyświetla jego zawartość.
+
+Operator `await` oczekuje na wynik operacji wewnątrz funkcji asynchronicznej, ale nie blokuje całego procesu Node.js na czas oczekiwania na odczyt pliku.
+
+## 9. Node.js a frameworki backendowe
+
+Node.js jest środowiskiem uruchomieniowym, na którym mogą działać różne frameworki i biblioteki backendowe.
+
+| Technologia | Charakterystyka                                                                  |
+| ----------- | -------------------------------------------------------------------------------- |
+| Express.js  | Minimalistyczny framework HTTP do budowania serwerów i API                       |
+| NestJS      | Framework z modularną architekturą, Dependency Injection i wsparciem TypeScriptu |
+| Fastify     | Framework HTTP skupiający się na wydajności i walidacji                          |
+| Koa         | Lekki framework serwerowy wykorzystujący middleware                              |
+| Hapi        | Framework do tworzenia aplikacji i usług HTTP                                    |
+
+Node.js zapewnia środowisko wykonawcze, a frameworki dodają wyższy poziom abstrakcji, ułatwiający obsługę tras, middleware, walidację czy organizację logiki aplikacji.
+
+## 10. Node.js a inne środowiska backendowe
+
+[Node.js Logo PNG, AI, EPS, CDR, PDF, SVG - iconLogoVector](https://images.openai.com/static-rsc-4/5ANKiVteKuFmwTC_nJQYBiAmqe6ohcaJDmCOzIWHztmvUYEVp567kfYp7A9edvAEOFAXlZn_Ntx7FD28tuY_bKu39l4sg8r3-CtWZYug08GAes2NDeVRr_czhvw8FGMehJ7HFtVG4982zF-8YKbVab_W_c34znXp_YOt6-Syy3U?purpose=inline)
+
+Node.js
+
+Środowisko JavaScript, szczególnie przydatne w aplikacjach sieciowych, API i systemach czasu rzeczywistego.
+
+[The beginnings of Java in EDICOM: improving EDIWIN](https://images.openai.com/static-rsc-4/PV9al79BBeehNsvSwOegNKe14ZxBr_9fF6RtKthZCb7NbZeJ3DSfNCxY5eCwxlj8cD2Wx4TPlCdr6wl-iQWaxWxLE7UdTdp-ZXcMGnff2lyxPrgDquEC7PCkulUEkiVJuSargLWf5J6_xb5tuahKAF495pPo81yYHSPlzoh0hEE?purpose=inline)
+
+Java
+
+Język programowania uruchamiany najczęściej na JVM; wykorzystywany m.in. z frameworkiem Spring Boot.
+
+[File:Dot-net-original-wordmark.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/q4S4ICL0hEy8fp7GNePQ2JJRwSMr3mbVJ1wCb6DL-gbqWu_Z2L5cK-xFGRRuxZzou3yoMndwBFoYIji1ZZ_VoY3vLm_Bnep4ITBtFIQV__Lw1L4uDweLkLOcZ1pyFp5krzqZaZo8fIkaR2nxKKJs37_GWgcU3tttw9gs5JR8xQs?purpose=inline)
+
+.NET
+
+Platforma programistyczna wykorzystywana między innymi z C# i ASP.NET Core do tworzenia backendów oraz aplikacji biznesowych.
+
+[GitHub - thevkrant/morse_code: Morse code is a method of transmitting text information as a series of on-off tones lights or clicks that can be directly understood by a skilled listener or observer without special equipment. It is named for Samuel F. B. Morse. Every character in the English language is substituted by a series of dots and dashes or something just singular dot or dash. · GitHub](https://images.openai.com/static-rsc-4/urfnHK6zfHhc4B3R1e0oqA7y8Vz4MVLbH4OkbEzp4ebiLf4GTPEzcrMq0g_u9dOKD9WtiCsX1xicbi1zCOCmsU7j0U2CpN8O76md71nd7cu1RcWbDdn6SDRiXMKinT5IfvrkoqB5kmNDq66qlVhyACf4H_8owV3q1znxDE3C7JE?purpose=inline)
+
+Python
+
+Język wykorzystywany w backendzie, automatyzacji, analizie danych i sztucznej inteligencji, np. z frameworkiem FastAPI.
+
+Node.js sprawdza się szczególnie dobrze w aplikacjach obsługujących wiele operacji wejścia i wyjścia, takich jak połączenia sieciowe, czaty i API.
+
+W przypadku intensywnych obliczeń CPU wybór technologii powinien uwzględniać architekturę rozwiązania, możliwości równoległego wykonywania zadań oraz wymagania wydajnościowe.
+
+## 11. Zalety Node.js
+
+- Pozwala wykorzystywać JavaScript zarówno po stronie klienta, jak i serwera.
+- Obsługuje wiele jednoczesnych operacji wejścia i wyjścia.
+- Posiada rozbudowany ekosystem bibliotek dostępnych przez npm.
+- Ułatwia tworzenie REST API i aplikacji czasu rzeczywistego.
+- Integruje się z wieloma bazami danych i systemami wiadomości.
+- Umożliwia tworzenie skryptów automatyzujących pracę.
+- Wspiera nowoczesne mechanizmy asynchroniczne, takie jak Promises i `async/await`.
+- Jest dostępny na wielu systemach operacyjnych.
+
+## 12. Wady Node.js
+
+- Długotrwałe obliczenia w głównym wątku mogą blokować Event Loop.
+- Duża liczba zależności npm może zwiększać ryzyko problemów bezpieczeństwa.
+- Ekosystem zawiera wiele bibliotek o różnej jakości i poziomie utrzymania.
+- Obsługa wyjątków w kodzie asynchronicznym wymaga starannego projektowania.
+- Rozbudowane aplikacje wymagają odpowiedniej architektury, testów i monitorowania.
+- Wydajność zależy od charakteru obciążenia, konfiguracji i jakości implementacji.
+
+## 13. Najważniejsze pojęcia do zapamiętania
+
+- Node.js – środowisko uruchomieniowe JavaScriptu.
+- V8 – silnik wykonujący kod JavaScript.
+- Event Loop – mechanizm obsługi zdarzeń i kontynuowania operacji asynchronicznych.
+- libuv – biblioteka obsługująca między innymi operacje wejścia i wyjścia.
+- npm – menedżer pakietów.
+- package.json – plik opisujący projekt i jego zależności.
+- Module – moduł organizujący kod aplikacji.
+- Express.js – framework HTTP dla Node.js.
+- REST API – interfejs umożliwiający komunikację między aplikacjami.
+- Promise – obiekt reprezentujący wynik operacji asynchronicznej.
+- Async/Await – składnia ułatwiająca obsługę Promises.
+- WebSocket – technologia umożliwiająca dwukierunkową komunikację w czasie rzeczywistym.
+- Worker Threads – mechanizm pozwalający wykonywać kod JavaScript w dodatkowych wątkach.
+
+Podsumowanie: Node.js to środowisko uruchomieniowe JavaScriptu, które umożliwia tworzenie backendów, serwerów HTTP, API, mikroserwisów i aplikacji czasu rzeczywistego. Jego najważniejsze cechy to asynchroniczna obsługa operacji wejścia i wyjścia, Event Loop oraz rozbudowany ekosystem npm. Jest szczególnie przydatny w nowoczesnych aplikacjach internetowych i systemach komunikujących się przez sieć.

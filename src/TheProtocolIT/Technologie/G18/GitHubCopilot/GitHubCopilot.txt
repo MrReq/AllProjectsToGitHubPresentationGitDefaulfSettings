@@ -1,0 +1,133 @@
+# GitHub Copilot
+
+## 1. Czym jest GitHub Copilot?
+
+GitHub Copilot to narzędzie programistyczne wykorzystujące sztuczną inteligencję, opracowane przez GitHub we współpracy z partnerami technologicznymi.
+
+Jego zadaniem jest wspomaganie programistów podczas pisania, analizowania, poprawiania i testowania kodu źródłowego.
+
+GitHub Copilot może podpowiadać kolejne fragmenty kodu, generować całe funkcje, wyjaśniać istniejące rozwiązania i pomagać w wykrywaniu błędów.
+
+Narzędzie integruje się z popularnymi środowiskami programistycznymi, takimi jak Visual Studio Code i Visual Studio, a jego funkcje są dostępne również w innych obsługiwanych środowiskach i usługach GitHub.
+
+## 2. Do czego służy GitHub Copilot?
+
+GitHub Copilot służy do przyspieszania procesu tworzenia oprogramowania poprzez automatyczne generowanie sugestii kodu.
+
+Umożliwia tworzenie funkcji, klas, metod i testów na podstawie komentarzy, nazw metod lub poleceń przekazywanych w języku naturalnym.
+
+Pomaga wyjaśniać istniejący kod, proponować refaktoryzację i analizować komunikaty błędów.
+
+Może również wspierać przygotowywanie dokumentacji technicznej, zapytań SQL oraz skryptów automatyzujących pracę.
+
+## 3. Najważniejsze funkcje GitHub Copilot
+
+Code Completion polega na automatycznym podpowiadaniu kolejnych fragmentów kodu podczas programowania.
+
+Copilot Chat umożliwia zadawanie pytań dotyczących kodu i otrzymywanie wyjaśnień bezpośrednio w obsługiwanym środowisku.
+
+Generowanie kodu pozwala tworzyć funkcje, klasy i inne elementy aplikacji na podstawie opisu wymagań.
+
+Pomoc w debugowaniu wspiera analizowanie błędów i proponowanie możliwych sposobów ich naprawienia.
+
+Generowanie testów pomaga przygotowywać testy jednostkowe oraz inne testy automatyczne.
+
+Funkcje agentowe w obsługiwanych trybach mogą wykonywać wieloetapowe zadania programistyczne, analizować pliki i proponować zmiany w projekcie.
+
+## 4. GitHub Copilot w programowaniu
+
+GitHub Copilot obsługuje wiele popularnych języków programowania, między innymi Java, Python, JavaScript, TypeScript, C++, C# i Go.
+
+Może pomagać w tworzeniu aplikacji internetowych, backendów, skryptów, testów oraz zapytań do baz danych.
+
+Przykładowo podczas pracy nad aplikacją Java w Spring Boot można poprosić Copilota o wygenerowanie kontrolera REST, przygotowanie testów dla serwisu lub wyjaśnienie działania konfiguracji Spring Security.
+
+Copilot potrafi również sugerować wykorzystanie bibliotek i wzorców projektowych odpowiednich do opisywanego problemu.
+
+## 5. Przykład zastosowania
+
+Załóżmy, że tworzysz aplikację w Javie i potrzebujesz metody sprawdzającej, czy podany ciąg znaków jest palindromem.
+
+Możesz wpisać komentarz opisujący wymaganie, a GitHub Copilot zaproponuje implementację.
+
+Przykładowy kod wygenerowanej metody może wyglądać następująco:
+
+```
+public static boolean isPalindrome(String text) {
+    if (text == null) {
+        return false;
+    }
+
+    String normalized = text
+            .replaceAll("[^a-zA-Z0-9]", "")
+            .toLowerCase();
+
+    return normalized.equals(
+            new StringBuilder(normalized)
+                    .reverse()
+                    .toString()
+    );
+}
+```
+
+Metoda ignoruje wielkość liter oraz znaki niebędące literami lub cyframi.
+
+Warto jednak samodzielnie sprawdzić wymagania, przypadki brzegowe i poprawność wygenerowanego kodu, zamiast bezrefleksyjnie akceptować sugestie AI.
+
+## 6. GitHub Copilot a GitHub Actions
+
+GitHub Copilot i GitHub Actions pełnią różne funkcje.
+
+GitHub Copilot pomaga programiście tworzyć, analizować i poprawiać kod.
+
+GitHub Actions automatyzuje procesy wykonywane w repozytorium, takie jak kompilowanie aplikacji i uruchamianie testów.
+
+Narzędzia mogą się wzajemnie uzupełniać: Copilot pomaga przygotować kod i testy, a GitHub Actions automatycznie sprawdza, czy projekt poprawnie się buduje i czy testy przechodzą.
+
+## 7. GitHub Copilot a ChatGPT
+
+GitHub Copilot jest skoncentrowany przede wszystkim na pracy programistycznej i integracji z narzędziami do tworzenia oprogramowania.
+
+ChatGPT jest bardziej ogólnym asystentem AI, który może wspierać nie tylko programowanie, lecz także naukę, analizę dokumentów, planowanie i wiele innych zadań.
+
+Oba narzędzia mogą pomagać w generowaniu kodu, wyjaśnianiu błędów i projektowaniu rozwiązań informatycznych.
+
+Wybór zależy od sposobu pracy: Copilot jest szczególnie wygodny podczas bezpośredniego pisania kodu w IDE, natomiast ChatGPT może być przydatny do szerszej analizy problemu i nauki zagadnień technicznych.
+
+## 8. Zalety GitHub Copilot
+
+GitHub Copilot może przyspieszać pisanie powtarzalnego kodu i ograniczać czas potrzebny na realizację typowych zadań programistycznych.
+
+Pomaga początkującym zrozumieć składnię języków programowania i poznawać przykładowe implementacje.
+
+Ułatwia generowanie testów, dokumentacji oraz alternatywnych rozwiązań technicznych.
+
+Integracja ze środowiskiem programistycznym pozwala korzystać z pomocy AI bez konieczności ciągłego przełączania się między aplikacjami.
+
+## 9. Wady i ograniczenia GitHub Copilot
+
+GitHub Copilot może generować błędny, nieefektywny lub niebezpieczny kod.
+
+Sugestie mogą nie uwzględniać pełnej architektury aplikacji, wszystkich wymagań biznesowych ani ograniczeń konkretnego projektu.
+
+Kod wygenerowany przez AI może wymagać dodatkowych testów, analizy bezpieczeństwa i ręcznej weryfikacji.
+
+Dostępne modele, limity i funkcje zależą od aktualnego planu oraz środowiska, w którym używany jest Copilot.
+
+## 10. Znaczenie GitHub Copilot w pracy informatyka
+
+GitHub Copilot jest przydatny dla programistów, testerów automatyzujących, inżynierów QA i specjalistów DevOps.
+
+Programiści mogą wykorzystywać go do tworzenia aplikacji, refaktoryzacji kodu i analizowania błędów.
+
+Testerzy mogą korzystać z niego przy generowaniu testów jednostkowych, scenariuszy testowych i skryptów automatyzujących.
+
+Osoby uczące się programowania mogą traktować go jako dodatkowe wsparcie, pod warunkiem że rozumieją wygenerowany kod i potrafią samodzielnie ocenić jego poprawność.
+
+## 11. Podsumowanie
+
+GitHub Copilot to asystent programistyczny wykorzystujący sztuczną inteligencję do generowania kodu, wyjaśniania rozwiązań, wykrywania potencjalnych błędów i wspomagania testowania.
+
+Jest szczególnie przydatny podczas pracy w środowiskach programistycznych i przy codziennym rozwijaniu projektów.
+
+Znajomość GitHub Copilot może zwiększyć produktywność programisty, ale nie zastępuje wiedzy technicznej, samodzielnego myślenia ani testowania oprogramowania.

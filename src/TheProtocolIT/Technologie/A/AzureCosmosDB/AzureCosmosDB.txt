@@ -1,0 +1,260 @@
+Azure Cosmos DB — notatka
+
+1. Czym jest Azure Cosmos DB?
+
+Azure Cosmos DB to globalnie rozproszona, zarządzana usługa bazodanowa oferowana przez Microsoft w ramach platformy Microsoft Azure.
+
+Jest przeznaczona przede wszystkim do przechowywania i przetwarzania danych w aplikacjach wymagających wysokiej dostępności, skalowalności oraz niewielkich opóźnień.
+
+Cosmos DB należy do kategorii baz danych NoSQL, choć platforma udostępnia również interfejsy zgodne z wybranymi modelami i protokołami bazodanowymi.
+
+Usługa pozwala przechowywać dane w różnych regionach geograficznych i obsługiwać użytkowników z wielu części świata.
+
+2. Do czego służy Azure Cosmos DB?
+
+Azure Cosmos DB jest wykorzystywana w aplikacjach, które muszą szybko przetwarzać duże ilości danych.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie aplikacji internetowych i mobilnych.
+- Przechowywanie profili użytkowników i ustawień aplikacji.
+- Budowanie systemów IoT przetwarzających dane z urządzeń.
+- Obsługa katalogów produktów i koszyków zakupowych.
+- Tworzenie systemów gier online.
+- Przechowywanie danych telemetrycznych i zdarzeń.
+- Budowanie aplikacji czasu rzeczywistego.
+- Przechowywanie danych dla chatbotów i systemów AI.
+- Tworzenie globalnych aplikacji dostępnych w wielu regionach.
+
+3. Jak działa Azure Cosmos DB?
+
+Cosmos DB przechowuje dane w strukturach odpowiednich dla wybranego modelu danych i interfejsu.
+
+W przypadku API for NoSQL dane są najczęściej zapisywane jako dokumenty JSON.
+
+Dane organizowane są w kontenerach, które należą do bazy danych.
+
+Kontener może zawierać wiele elementów, a każdy element posiada klucz partycji i identyfikator umożliwiające jego organizację oraz wyszukiwanie.
+
+Usługa automatycznie zarządza znaczną częścią infrastruktury, w tym replikacją i skalowaniem zasobów w zależności od konfiguracji.
+
+Programista może komunikować się z bazą za pomocą SDK, REST API lub obsługiwanego interfejsu zapytań.
+
+4. Najważniejsze elementy Azure Cosmos DB
+
+- **Account** — konto Cosmos DB, w ramach którego konfiguruje się usługę, regiony i wybrane API.
+- **Database** — logiczna baza danych zawierająca kontenery.
+- **Container** — podstawowa jednostka przechowywania danych i skalowania w API for NoSQL.
+- **Item** — pojedynczy element danych, najczęściej dokument JSON.
+- **Partition Key** — klucz używany do rozdzielania danych pomiędzy partycje logiczne.
+- **Request Units (RU)** — jednostki opisujące koszt operacji wykonywanych na danych.
+- **Consistency Level** — ustawienie określające gwarancje spójności odczytów.
+- **SDK** — biblioteka umożliwiająca korzystanie z bazy z poziomu aplikacji.
+
+5. Przykład dokumentu JSON
+
+Załóżmy, że tworzysz aplikację do zarządzania gospodarstwem rolnym.
+
+W Cosmos DB możesz zapisać informacje o gospodarstwie jako dokument JSON.
+
+```
+{
+  "id": "farm-101",
+  "farmName": "Zielone Pole",
+  "city": "Lublin",
+  "areaHectares": 25.5,
+  "crops": [
+    "pszenica",
+    "kukurydza"
+  ],
+  "isActive": true
+}
+```
+
+Pole `id` identyfikuje dokument w obrębie jego partycji.
+
+Pozostałe właściwości opisują gospodarstwo i mogą być dostosowane do potrzeb aplikacji.
+
+Dokumenty JSON nie muszą mieć identycznego zestawu właściwości, co daje większą elastyczność niż typowy model relacyjny z ustalonym schematem tabeli.
+
+6. API dostępne w Azure Cosmos DB
+
+Azure Cosmos DB udostępnia różne interfejsy, które pozwalają pracować z danymi w odmienny sposób.
+
+- **API for NoSQL** — natywny interfejs Cosmos DB do pracy z dokumentami JSON i zapytaniami SQL-owym językiem zapytań tej usługi.
+- **API for MongoDB** — interfejs zgodności z wybranymi funkcjami protokołu i ekosystemu MongoDB.
+- **API for Apache Cassandra** — interfejs przeznaczony dla aplikacji korzystających z modelu Cassandra.
+- **API for Gremlin** — interfejs do pracy z danymi grafowymi.
+- **API for Table** — interfejs zgodny z modelem Azure Table Storage.
+
+Zakres obsługiwanych funkcji różni się pomiędzy interfejsami.
+
+Przed migracją aplikacji z innej bazy należy sprawdzić zgodność konkretnych zapytań, funkcji i narzędzi.
+
+7. Zapytania w Azure Cosmos DB
+
+W API for NoSQL można wyszukiwać dokumenty za pomocą języka zapytań przypominającego SQL.
+
+Przykładowe zapytanie:
+
+```
+SELECT *
+FROM c
+WHERE c.isActive = true
+```
+
+Zapytanie zwraca dokumenty, których właściwość `isActive` ma wartość `true`.
+
+Można również wybierać konkretne pola:
+
+```
+SELECT c.farmName, c.city
+FROM c
+WHERE c.areaHectares > 20
+```
+
+Takie zapytanie zwraca nazwy i miasta gospodarstw, których powierzchnia przekracza 20 hektarów.
+
+Język zapytań Cosmos DB nie jest tym samym co pełny dialekt SQL stosowany w PostgreSQL lub Microsoft SQL Server.
+
+8. Partycjonowanie danych
+
+Partycjonowanie jest jednym z najważniejszych elementów projektowania rozwiązania w Cosmos DB.
+
+Dane są rozdzielane na partycje logiczne na podstawie wartości Partition Key.
+
+Dobry klucz partycji pomaga równomiernie rozkładać obciążenie i ograniczać koszt zapytań.
+
+Przykładowo, w aplikacji rolniczej można rozważyć użycie `farmId` jako klucza partycji, jeżeli większość operacji dotyczy konkretnego gospodarstwa.
+
+Nie ma jednak jednego uniwersalnego klucza partycji dla wszystkich aplikacji.
+
+Niewłaściwy wybór może powodować nierównomierne obciążenie, ograniczenia skalowania i większe zużycie jednostek RU.
+
+9. Skalowanie i wydajność
+
+Azure Cosmos DB pozwala dostosować zasoby do potrzeb aplikacji.
+
+Jednym z podstawowych parametrów wydajności są Request Units (RU), które określają koszt operacji bazodanowych.
+
+Proste odczyty i zapisy zwykle zużywają mniej jednostek niż złożone zapytania skanujące dużą ilość danych.
+
+Usługa oferuje różne modele przepustowości, w tym konfiguracje oparte na ręcznie ustawianej lub automatycznie skalowanej liczbie RU/s.
+
+Właściwe indeksowanie, dobór klucza partycji i projektowanie zapytań mają duży wpływ na wydajność oraz koszty.
+
+10. Globalna dystrybucja i spójność danych
+
+Cosmos DB może replikować dane pomiędzy wieloma regionami Azure.
+
+Pozwala to obsługiwać użytkowników z różnych części świata i zwiększać odporność aplikacji na awarie.
+
+W zależności od konfiguracji można ustawić różne poziomy spójności danych.
+
+Dostępne poziomy obejmują Strong, Bounded Staleness, Session, Consistent Prefix i Eventual.
+
+Silniejsza spójność zapewnia bardziej rygorystyczne gwarancje dotyczące odczytów, ale może wiązać się z innymi opóźnieniami i ograniczeniami niż spójność słabsza.
+
+Wybór poziomu powinien wynikać z wymagań aplikacji, na przykład tego, czy użytkownik musi natychmiast widzieć własne zmiany.
+
+11. Azure Cosmos DB w aplikacji Java i Spring Boot
+
+Programista Java może komunikować się z Cosmos DB za pomocą oficjalnego SDK dla API for NoSQL.
+
+Przykładowe zastosowania to przechowywanie danych użytkowników, produktów, zdarzeń i dokumentów aplikacyjnych.
+
+Przykładowy kod tworzący klienta bazy:
+
+```
+import com.azure.cosmos.CosmosClient;
+import com.azure.cosmos.CosmosClientBuilder;
+
+public class CosmosDbExample {
+    public static void main(String[] args) {
+        CosmosClient client = new CosmosClientBuilder()
+                .endpoint(System.getenv("COSMOS_ENDPOINT"))
+                .key(System.getenv("COSMOS_KEY"))
+                .buildClient();
+
+        System.out.println("Połączono z Azure Cosmos DB.");
+
+        client.close();
+    }
+}
+```
+
+Przykład pokazuje podstawowy sposób utworzenia klienta.
+
+Zmienne środowiskowe muszą zawierać prawidłowy adres endpointu oraz klucz dostępu do konta.
+
+W środowisku produkcyjnym warto rozważyć Microsoft Entra ID i zarządzane tożsamości zamiast stałych kluczy, jeśli architektura i używane SDK na to pozwalają.
+
+12. Azure Cosmos DB a PostgreSQL i MongoDB
+
+PostgreSQL jest relacyjną bazą danych, która dobrze sprawdza się przy danych o określonych relacjach, transakcjach i złożonych zapytaniach SQL.
+
+MongoDB jest dokumentową bazą NoSQL, w której dane są przechowywane w dokumentach BSON.
+
+Azure Cosmos DB jest zarządzaną platformą bazodanową oferującą różne interfejsy, globalną dystrybucję i mechanizmy skalowania.
+
+Cosmos DB z API for NoSQL nie jest tym samym produktem co MongoDB, nawet jeśli oba systemy wykorzystują dokumenty i podobne koncepcje.
+
+Wybór rozwiązania zależy od modelu danych, wymagań dotyczących transakcji, sposobu skalowania, kosztów oraz potrzebnej zgodności z istniejącymi narzędziami.
+
+13. Zalety Azure Cosmos DB
+
+- Umożliwia globalną replikację danych.
+- Zapewnia zarządzaną infrastrukturę i automatyzację wielu zadań administracyjnych.
+- Obsługuje elastyczne skalowanie przepustowości.
+- Nadaje się do aplikacji wymagających niskich opóźnień.
+- Oferuje kilka interfejsów dostępu do danych.
+- Współpracuje z innymi usługami Microsoft Azure.
+- Umożliwia przechowywanie dokumentów JSON o elastycznej strukturze.
+
+14. Wady i ograniczenia Azure Cosmos DB
+
+- Koszty mogą wzrastać przy dużej liczbie operacji lub nieefektywnych zapytaniach.
+- Wybór klucza partycji wymaga starannego zaprojektowania.
+- Nie wszystkie interfejsy oferują identyczne funkcje.
+- Migracja z innych baz może wymagać dostosowania zapytań i kodu.
+- Model dokumentowy nie zawsze jest najlepszym rozwiązaniem dla danych o złożonych relacjach.
+- Projektowanie wydajnej aplikacji wymaga zrozumienia jednostek RU, indeksowania i partycjonowania.
+
+15. Jak zacząć naukę Azure Cosmos DB?
+
+Najpierw poznaj podstawy baz danych NoSQL i dokumentów JSON.
+
+Następnie utwórz konto testowe Azure Cosmos DB i zapoznaj się z bazami danych, kontenerami oraz elementami.
+
+Naucz się wykonywać operacje CRUD, czyli tworzyć, odczytywać, aktualizować i usuwać dane.
+
+Kolejnym krokiem jest opanowanie zapytań, indeksowania, kluczy partycji i jednostek RU.
+
+Później połącz bazę z aplikacją Java lub Spring Boot.
+
+Na koniec poznaj poziomy spójności, replikację regionalną, zabezpieczenia i monitorowanie kosztów.
+
+16. Najważniejsze pojęcia
+
+- **NoSQL** — rodzina baz danych niewymagających tradycyjnego relacyjnego modelu tabel.
+- **JSON** — format zapisu danych w postaci obiektów i tablic.
+- **Database** — logiczna baza danych zawierająca kontenery.
+- **Container** — jednostka przechowywania danych w API for NoSQL.
+- **Item** — pojedynczy dokument lub element danych.
+- **Partition Key** — klucz wykorzystywany do partycjonowania danych.
+- **RU** — jednostka określająca koszt operacji bazodanowej.
+- **CRUD** — tworzenie, odczytywanie, aktualizowanie i usuwanie danych.
+- **Replication** — utrzymywanie kopii danych w różnych lokalizacjach.
+- **Consistency Level** — poziom gwarancji spójności danych.
+- **SDK** — biblioteka umożliwiająca komunikację aplikacji z usługą.
+- **Global Distribution** — możliwość udostępniania danych w wielu regionach geograficznych.
+
+17. W skrócie
+
+Azure Cosmos DB to zarządzana, globalnie rozproszona usługa bazodanowa Microsoft Azure przeznaczona dla aplikacji wymagających skalowalności i niskich opóźnień.
+
+Warto poznać ją podczas nauki chmury, aplikacji backendowych i baz danych NoSQL.
+
+Najważniejsze zagadnienia to dokumenty JSON, kontenery, klucze partycji, jednostki RU, zapytania oraz replikacja danych.
+
+Dodaj sekcję z pełnym CRUDDodaj tabelę porównawczą baz

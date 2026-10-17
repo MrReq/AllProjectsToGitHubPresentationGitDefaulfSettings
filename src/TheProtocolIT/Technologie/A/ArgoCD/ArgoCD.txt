@@ -1,0 +1,292 @@
+Argo CD — notatka
+
+1. Czym jest Argo CD?
+
+Argo CD to narzędzie open source służące do automatyzacji wdrażania aplikacji w środowiskach Kubernetes.
+
+Jest częścią ekosystemu Argo Project i wykorzystuje podejście GitOps do zarządzania konfiguracją oraz stanem aplikacji.
+
+Argo CD porównuje konfigurację zapisaną w repozytorium Git z rzeczywistym stanem zasobów w klastrze Kubernetes.
+
+Jeżeli wykryje różnice, może poinformować o nich użytkownika lub automatycznie doprowadzić klaster do stanu opisanego w repozytorium.
+
+Narzędzie jest wykorzystywane przez zespoły DevOps, inżynierów platformowych i administratorów Kubernetes.
+
+2. Do czego służy Argo CD?
+
+Argo CD służy do automatyzacji wdrażania i aktualizowania aplikacji działających w Kubernetes.
+
+Pozwala zarządzać konfiguracją aplikacji za pomocą plików przechowywanych w repozytoriach Git.
+
+Może wdrażać aplikacje opisane w manifestach YAML, wykorzystywać Helm Charts i współpracować z Kustomize.
+
+Ułatwia kontrolowanie wersji wdrożeń, wykrywanie zmian w konfiguracji i przywracanie poprzedniego stanu aplikacji.
+
+Przykładowo po zmianie pliku Deployment w repozytorium Git Argo CD może wykryć nową konfigurację i zastosować ją w klastrze Kubernetes.
+
+3. Czym jest GitOps?
+
+GitOps to podejście do zarządzania infrastrukturą i aplikacjami, w którym repozytorium Git przechowuje deklarację oczekiwanego stanu systemu.
+
+Git staje się źródłem informacji o tym, jak aplikacja i jej zasoby powinny być skonfigurowane.
+
+Zmiany są wprowadzane przez aktualizację plików konfiguracyjnych i mogą być kontrolowane za pomocą przeglądów kodu oraz historii commitów.
+
+Narzędzie GitOps, takie jak Argo CD, porównuje deklarowany stan z rzeczywistym stanem klastra.
+
+Dzięki temu wdrażanie jest bardziej powtarzalne, a zmiany można łatwiej audytować i odtwarzać.
+
+4. Jak działa Argo CD?
+
+Argo CD działa wewnątrz klastra Kubernetes i monitoruje zdefiniowane aplikacje.
+
+Każda aplikacja może wskazywać repozytorium Git, ścieżkę do manifestów oraz docelowy klaster i przestrzeń nazw.
+
+Argo CD pobiera konfigurację z repozytorium i porównuje ją z zasobami istniejącymi w Kubernetes.
+
+Jeżeli stany się różnią, aplikacja może zostać oznaczona jako wymagająca synchronizacji.
+
+Synchronizacja polega na zastosowaniu konfiguracji z repozytorium w celu doprowadzenia klastra do oczekiwanego stanu.
+
+Proces można przedstawić następująco:
+
+Programista → repozytorium Git → Argo CD → klaster Kubernetes → uruchomiona aplikacja.
+
+5. Czym jest Application?
+
+Application to podstawowy obiekt Argo CD opisujący sposób wdrażania i monitorowania aplikacji.
+
+Określa między innymi źródło konfiguracji, ścieżkę do manifestów oraz miejsce wdrożenia.
+
+Źródłem może być repozytorium Git zawierające pliki YAML, katalog z konfiguracją Kustomize lub wykres Helm.
+
+Miejscem docelowym może być przestrzeń nazw w klastrze Kubernetes.
+
+Dzięki obiektom Application można niezależnie zarządzać wieloma aplikacjami i ich konfiguracjami.
+
+6. Git jako źródło prawdy
+
+W podejściu GitOps repozytorium Git przechowuje deklarację oczekiwanego stanu aplikacji.
+
+Może zawierać manifesty Deployment, Service, Ingress, ConfigMap i inne zasoby Kubernetes.
+
+Zmiany konfiguracji powinny być wprowadzane przez aktualizację repozytorium zgodnie z przyjętym procesem.
+
+Argo CD wykrywa zmiany i może je synchronizować z klastrem.
+
+Jeśli ktoś zmodyfikuje zasób bezpośrednio w Kubernetes, Argo CD może wykryć rozbieżność pomiędzy stanem klastra a konfiguracją Git.
+
+Takie wykrywanie różnic pomaga ograniczać niekontrolowane zmiany w środowisku.
+
+7. Sync Status i Health Status
+
+Sync Status określa, czy stan zasobów w klastrze odpowiada konfiguracji zapisanej w repozytorium.
+
+Status Synced oznacza, że konfiguracja została zsynchronizowana.
+
+Status OutOfSync oznacza, że istnieją różnice wymagające sprawdzenia lub synchronizacji.
+
+Health Status opisuje stan zdrowia wdrożonych zasobów.
+
+Status Healthy oznacza, że zasoby spełniają warunki zdrowia określone przez Argo CD.
+
+Status Degraded wskazuje, że co najmniej jeden element aplikacji ma problem z działaniem.
+
+Oba statusy są ważne, ponieważ aplikacja może być zsynchronizowana, ale nadal nie działać poprawnie.
+
+8. Automatyczna i ręczna synchronizacja
+
+Argo CD umożliwia ręczne oraz automatyczne synchronizowanie konfiguracji.
+
+Przy synchronizacji ręcznej użytkownik sprawdza zmiany i uruchamia proces wdrożenia.
+
+Przy automatycznej synchronizacji Argo CD może samodzielnie stosować zmiany wykryte w repozytorium.
+
+Można również skonfigurować mechanizmy automatycznego usuwania zasobów, których nie ma już w deklarowanej konfiguracji, oraz automatycznego przywracania stanu zgodnego z Git.
+
+Takie funkcje wymagają odpowiedniej konfiguracji i ostrożności, ponieważ mogą prowadzić do usunięcia zasobów.
+
+9. Przykład konfiguracji Argo CD
+
+Załóżmy, że repozytorium Git zawiera manifesty aplikacji Spring Boot.
+
+Chcesz, aby Argo CD wdrażało aplikację do przestrzeni nazw `agrimind`.
+
+Przykładowa definicja Application może wyglądać następująco:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: agrimind
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/example/agrimind-deploy.git
+    targetRevision: main
+    path: kubernetes
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: agrimind
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+```
+
+Adres repozytorium i ścieżkę należy zastąpić wartościami właściwymi dla własnego projektu.
+
+Pole `repoURL` wskazuje repozytorium Git.
+
+Pole `targetRevision` określa gałąź, tag lub rewizję, z której ma być pobierana konfiguracja.
+
+Pole `path` wskazuje katalog zawierający manifesty albo konfigurację narzędzia takiego jak Helm lub Kustomize.
+
+Pole `destination` określa klaster i przestrzeń nazw, do których aplikacja zostanie wdrożona.
+
+Opcja `prune: true` pozwala usuwać zarządzane zasoby, które przestały występować w konfiguracji źródłowej.
+
+Opcja `selfHeal: true` pozwala automatycznie korygować wykryte zmiany w zasobach zarządzanych przez Argo CD.
+
+W środowisku produkcyjnym należy odpowiednio skonfigurować uprawnienia i rozważyć skutki automatycznego usuwania zasobów.
+
+10. Argo CD a Kubernetes
+
+Kubernetes jest platformą do wdrażania i zarządzania aplikacjami kontenerowymi.
+
+Argo CD nie zastępuje Kubernetes, lecz automatyzuje zarządzanie deklarowaną konfiguracją aplikacji w tej platformie.
+
+Kubernetes odpowiada między innymi za uruchamianie kontenerów, zarządzanie Podami, skalowanie i odtwarzanie zasobów.
+
+Argo CD odpowiada za porównywanie stanu klastra z konfiguracją przechowywaną w repozytorium.
+
+Oba narzędzia współpracują ze sobą, aby ułatwić powtarzalne i kontrolowane wdrożenia.
+
+11. Argo CD a Helm i Kustomize
+
+Helm jest narzędziem do pakowania i konfigurowania aplikacji Kubernetes za pomocą wykresów, czyli Helm Charts.
+
+Kustomize pozwala modyfikować manifesty Kubernetes i dostosowywać je do różnych środowisk bez konieczności używania szablonów Helm.
+
+Argo CD potrafi korzystać z konfiguracji przygotowanej przy użyciu obu tych narzędzi.
+
+Helm i Kustomize służą do opisywania oraz generowania konfiguracji, natomiast Argo CD odpowiada za synchronizację jej z klastrem.
+
+Można na przykład przygotować osobne konfiguracje dla środowisk development, test i production, a następnie zarządzać nimi za pomocą Argo CD.
+
+12. Argo CD a Jenkins i GitHub Actions
+
+Jenkins i GitHub Actions są często wykorzystywane do automatyzacji budowania, testowania i przygotowywania aplikacji do wdrożenia.
+
+Argo CD koncentruje się na synchronizowaniu deklarowanej konfiguracji z klastrem Kubernetes.
+
+W typowym procesie CI narzędzie takie jak Jenkins buduje aplikację, uruchamia testy i publikuje obraz kontenera do rejestru.
+
+Następnie konfiguracja wdrożenia w Git zostaje zaktualizowana o odpowiedni tag obrazu.
+
+Argo CD wykrywa zmianę konfiguracji i synchronizuje ją z klastrem.
+
+Taki podział obowiązków pozwala oddzielić proces CI od procesu CD.
+
+13. Rollback i historia wdrożeń
+
+Argo CD udostępnia informacje o synchronizacjach oraz zmianach w konfiguracji aplikacji.
+
+Historia pozwala analizować, które rewizje konfiguracji były wdrażane i jakie operacje wykonano.
+
+W podejściu GitOps przywrócenie wcześniejszego stanu często polega na cofnięciu zmiany w repozytorium Git i zsynchronizowaniu nowej rewizji.
+
+Można w ten sposób odtworzyć wcześniejszą konfigurację aplikacji.
+
+Należy pamiętać, że cofnięcie konfiguracji Kubernetes nie zawsze cofa zmiany wykonane w bazie danych lub innych zewnętrznych systemach.
+
+14. Bezpieczeństwo Argo CD
+
+Argo CD powinno korzystać z odpowiednio ograniczonych uprawnień do zarządzania zasobami Kubernetes.
+
+Repozytoria prywatne należy konfigurować przy użyciu bezpiecznych mechanizmów uwierzytelniania.
+
+Dostęp użytkowników można kontrolować za pomocą ról i reguł RBAC.
+
+Warto oddzielać konfiguracje środowisk testowych i produkcyjnych oraz ograniczać możliwość wdrażania niezweryfikowanych zmian.
+
+Automatyczna synchronizacja i usuwanie zasobów powinny być włączane zgodnie z polityką bezpieczeństwa organizacji.
+
+15. Zalety Argo CD
+
+Argo CD automatyzuje wdrażanie aplikacji w Kubernetes.
+
+Wykorzystuje Git jako źródło deklarowanej konfiguracji i historii zmian.
+
+Pozwala wykrywać różnice pomiędzy stanem klastra a konfiguracją repozytorium.
+
+Obsługuje Helm, Kustomize i zwykłe manifesty Kubernetes.
+
+Udostępnia graficzny interfejs do monitorowania aplikacji oraz kontrolowania synchronizacji.
+
+Ułatwia wdrażanie powtarzalnych konfiguracji w wielu środowiskach.
+
+16. Wady Argo CD
+
+Argo CD wymaga znajomości podstaw Kubernetes i deklaratywnej konfiguracji zasobów.
+
+Nie zastępuje całego procesu CI, dlatego budowanie, testowanie i publikowanie aplikacji często wymaga dodatkowych narzędzi.
+
+Błędna konfiguracja automatycznej synchronizacji może doprowadzić do niepożądanych zmian w klastrze.
+
+W większych środowiskach konieczne jest przemyślane zarządzanie uprawnieniami, repozytoriami i strukturą aplikacji.
+
+Rozwiązywanie problemów może wymagać jednoczesnej analizy logów Argo CD, stanu zasobów Kubernetes i konfiguracji Git.
+
+17. Plan nauki Argo CD
+
+Na początku warto poznać podstawy Kubernetes, w szczególności Pody, Deployment, Service i Namespace.
+
+Następnie należy nauczyć się przechowywać manifesty Kubernetes w repozytorium Git.
+
+Kolejnym krokiem powinno być zainstalowanie Argo CD i utworzenie pierwszego obiektu Application.
+
+Później warto przećwiczyć ręczną i automatyczną synchronizację oraz obserwowanie statusów aplikacji.
+
+Na koniec dobrze jest połączyć Argo CD z procesem CI, który buduje aplikację i aktualizuje konfigurację wdrożenia.
+
+Dobrym projektem praktycznym jest wdrożenie aplikacji Spring Boot wraz z bazą danych do Kubernetes i zarządzanie konfiguracją za pomocą GitOps.
+
+18. Najważniejsze pojęcia
+
+Argo CD — narzędzie do wdrażania aplikacji w Kubernetes z wykorzystaniem GitOps.
+
+GitOps — podejście, w którym repozytorium Git przechowuje deklarację oczekiwanego stanu systemu.
+
+Application — obiekt Argo CD definiujący źródło konfiguracji i miejsce wdrożenia.
+
+Sync Status — informacja o zgodności konfiguracji klastra z repozytorium.
+
+Health Status — informacja o stanie zdrowia wdrożonych zasobów.
+
+Synchronization — proces stosowania konfiguracji z repozytorium w klastrze.
+
+Prune — usuwanie zarządzanych zasobów, których nie ma już w konfiguracji źródłowej.
+
+Self-heal — automatyczne korygowanie określonych rozbieżności pomiędzy stanem klastra a konfiguracją Git.
+
+Helm — narzędzie do pakowania i konfigurowania aplikacji Kubernetes.
+
+Kustomize — narzędzie do dostosowywania manifestów Kubernetes.
+
+CI/CD — automatyzacja budowania, testowania i dostarczania oprogramowania.
+
+RBAC — mechanizm kontroli dostępu oparty na rolach.
+
+19. W skrócie
+
+Argo CD to narzędzie GitOps, które automatyzuje wdrażanie i synchronizację aplikacji w Kubernetes.
+
+Porównuje konfigurację przechowywaną w Git z rzeczywistym stanem klastra i pomaga utrzymywać aplikacje w oczekiwanej konfiguracji.
+
+Warto je poznać, jeśli interesujesz się DevOps, Kubernetes, CI/CD i automatyzacją wdrożeń aplikacji.
+
+Dodaj praktyczną instalację Argo CDDodaj tabelę statusów Argo CD

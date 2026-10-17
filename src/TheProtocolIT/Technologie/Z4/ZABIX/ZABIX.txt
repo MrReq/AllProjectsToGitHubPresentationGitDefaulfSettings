@@ -1,0 +1,568 @@
+# Zabbix
+
+## Czym jest Zabbix?
+
+**Zabbix** to otwartoźródłowa platforma do **monitorowania infrastruktury IT, sieci, serwerów, aplikacji i usług**.
+
+Pozwala administratorom obserwować stan infrastruktury i wykrywać problemy, zanim doprowadzą one do poważnej awarii.
+
+Zabbix może monitorować między innymi:
+
+- serwery,
+- komputery,
+- maszyny wirtualne,
+- urządzenia sieciowe,
+- bazy danych,
+- aplikacje,
+- strony internetowe,
+- usługi sieciowe,
+- kontenery,
+- urządzenia IoT.
+
+## Do czego służy Zabbix?
+
+Głównym zadaniem Zabbixa jest **zbieranie danych o stanie monitorowanych systemów**.
+
+Może na przykład sprawdzać:
+
+```text
+CPU         → 85%
+RAM         → 72%
+Dysk        → 91%
+Temperatura → 68°C
+Sieć        → 850 Mb/s
+```
+
+Administrator może następnie obserwować te dane na dashboardach oraz ustawiać reguły generujące alerty.
+
+Przykładowo:
+
+```text
+Dysk > 90%
+      ↓
+Problem
+      ↓
+Alert
+      ↓
+Administrator
+```
+
+## Jak działa Zabbix?
+
+Zabbix składa się z kilku głównych elementów.
+
+Uproszczony schemat wygląda tak:
+
+```text
+                 +----------------+
+                 |    Zabbix      |
+                 |     Server     |
+                 +-------+--------+
+                         |
+              +----------+----------+
+              |          |          |
+              v          v          v
+           Server     Router     Database
+           Agent      SNMP       Monitor
+```
+
+Zabbix Server zbiera i analizuje informacje dotyczące monitorowanej infrastruktury.
+
+Dane mogą być przechowywane w bazie danych.
+
+Administrator korzysta z interfejsu webowego, aby przeglądać stan systemu.
+
+## Zabbix Server
+
+**Zabbix Server** jest centralnym komponentem systemu.
+
+Odpowiada między innymi za:
+
+- zbieranie danych,
+- przetwarzanie danych,
+- przechowywanie informacji o monitorowanych hostach,
+- wykrywanie problemów,
+- generowanie zdarzeń,
+- uruchamianie mechanizmów alertowania.
+
+Można go traktować jako **centrum systemu monitoringu Zabbix**.
+
+## Zabbix Agent
+
+**Zabbix Agent** to program instalowany na monitorowanym komputerze lub serwerze.
+
+Agent może zbierać informacje dotyczące systemu operacyjnego.
+
+Może monitorować między innymi:
+
+- wykorzystanie procesora,
+- wykorzystanie pamięci RAM,
+- wolne miejsce na dysku,
+- procesy,
+- usługi,
+- obciążenie systemu,
+- parametry aplikacji.
+
+Przykładowo:
+
+```text
+Linux Server
+     |
+     | Zabbix Agent
+     v
+Zabbix Server
+```
+
+Agent przekazuje dane do Zabbix Server.
+
+## Zabbix Proxy
+
+**Zabbix Proxy** jest komponentem pośredniczącym pomiędzy monitorowanymi urządzeniami a Zabbix Server.
+
+Może być szczególnie przydatny w dużych lub rozproszonych infrastrukturach.
+
+Przykład:
+
+```text
+                Zabbix Server
+                     |
+                     |
+               Zabbix Proxy
+                /    |    \
+               /     |     \
+            Server Router Switch
+```
+
+Proxy może zbierać dane z lokalnej sieci i przekazywać je do centralnego Zabbix Server.
+
+## Monitoring bez agenta
+
+Zabbix nie zawsze wymaga instalowania Zabbix Agenta.
+
+Może monitorować urządzenia również za pomocą innych mechanizmów.
+
+Jednym z najważniejszych jest **SNMP**.
+
+SNMP jest często wykorzystywany do monitorowania urządzeń sieciowych.
+
+Przykładowo:
+
+```text
+Router
+  |
+  | SNMP
+  v
+Zabbix Server
+```
+
+Dzięki temu można monitorować między innymi routery, przełączniki, drukarki czy urządzenia infrastruktury sieciowej.
+
+## SNMP
+
+**SNMP (Simple Network Management Protocol)** jest protokołem służącym do monitorowania i zarządzania urządzeniami sieciowymi.
+
+Zabbix może wykorzystywać SNMP do pobierania informacji z urządzeń.
+
+Przykładowo może sprawdzać:
+
+```text
+Interface status
+Traffic
+Packets
+Errors
+CPU
+Memory
+Temperature
+```
+
+## Host
+
+W Zabbixie **host** oznacza monitorowany system lub urządzenie.
+
+Hostem może być:
+
+```text
+Linux Server
+Windows Server
+Router
+Switch
+Database Server
+Web Server
+Virtual Machine
+```
+
+Każdy host może posiadać własny zestaw parametrów monitorowania.
+
+## Item
+
+**Item** oznacza konkretny parametr, który Zabbix monitoruje.
+
+Przykładowe itemy:
+
+```text
+CPU utilization
+Free memory
+Free disk space
+Network traffic
+Number of processes
+HTTP response time
+```
+
+Przykładowo:
+
+```text
+Host: WEB-SERVER-01
+
+Item:
+CPU utilization
+```
+
+Zabbix będzie cyklicznie pobierał wartość tego parametru.
+
+## Trigger
+
+**Trigger** określa warunek, który może oznaczać problem.
+
+Przykład:
+
+```text
+CPU utilization > 90%
+```
+
+Jeżeli warunek zostanie spełniony, Zabbix może utworzyć problem.
+
+Można więc zapamiętać:
+
+```text
+Item
+ ↓
+zbiera dane
+
+Trigger
+ ↓
+sprawdza warunek
+
+Problem
+ ↓
+informuje o nieprawidłowości
+```
+
+## Problem
+
+**Problem** oznacza wykryte przez Zabbix nieprawidłowe działanie.
+
+Przykładowo:
+
+```text
+CPU > 90%
+```
+
+może spowodować:
+
+```text
+PROBLEM:
+High CPU utilization
+```
+
+Po powrocie wartości do normalnego poziomu problem może zostać oznaczony jako rozwiązany.
+
+## Alerty
+
+Zabbix może informować administratora o wykrytych problemach.
+
+Powiadomienia mogą być wysyłane między innymi za pomocą:
+
+- e-maila,
+- komunikatorów,
+- webhooków,
+- innych systemów integracyjnych.
+
+Przykładowy scenariusz:
+
+```text
+Disk usage > 90%
+        ↓
+Trigger
+        ↓
+Problem
+        ↓
+Action
+        ↓
+E-mail do administratora
+```
+
+## Dashboard
+
+Zabbix posiada interfejs webowy umożliwiający tworzenie **dashboardów**.
+
+Dashboard może prezentować najważniejsze informacje dotyczące infrastruktury.
+
+Można na nim zobaczyć między innymi:
+
+```text
+Servers:       48
+Problems:       2
+CPU Usage:     63%
+Memory Usage:  71%
+Disk Usage:    82%
+```
+
+Dzięki dashboardom administrator może szybko sprawdzić ogólny stan infrastruktury.
+
+## Template
+
+**Template** to szablon konfiguracji monitorowania.
+
+Zamiast ręcznie konfigurować każdy host, można przypisać mu odpowiedni template.
+
+Przykładowo:
+
+```text
+Template Linux
+       ↓
+WEB-01
+WEB-02
+WEB-03
+WEB-04
+```
+
+Wszystkie serwery mogą wtedy otrzymać zestaw podobnych itemów, triggerów i innych ustawień.
+
+Jest to szczególnie przydatne w dużych środowiskach.
+
+## Discovery
+
+Zabbix może automatycznie wykrywać urządzenia i zasoby.
+
+Mechanizmy **Discovery** pozwalają ograniczyć konieczność ręcznego dodawania dużej liczby elementów.
+
+Przykładowo Zabbix może wykryć urządzenia znajdujące się w określonym zakresie adresów IP.
+
+```text
+192.168.1.1
+192.168.1.2
+192.168.1.3
+       ↓
+Network Discovery
+       ↓
+Zabbix
+```
+
+## Web Monitoring
+
+Zabbix może również monitorować aplikacje internetowe.
+
+Może sprawdzać między innymi:
+
+- dostępność strony,
+- czas odpowiedzi,
+- odpowiedzi HTTP,
+- poszczególne kroki scenariusza użytkownika.
+
+Przykładowo:
+
+```text
+https://example.com
+        ↓
+HTTP request
+        ↓
+Response: 200 OK
+        ↓
+Service available
+```
+
+Jeżeli strona przestanie odpowiadać, Zabbix może wygenerować problem.
+
+## Monitorowanie baz danych
+
+Zabbix może być wykorzystywany również do monitorowania baz danych.
+
+Można zbierać informacje dotyczące między innymi:
+
+- liczby połączeń,
+- czasu odpowiedzi,
+- wykorzystania zasobów,
+- błędów,
+- wydajności zapytań.
+
+Dzięki temu administrator może wykrywać problemy z bazą danych.
+
+## Zabbix i Docker
+
+Zabbix może monitorować również środowiska kontenerowe.
+
+Może być stosowany w infrastrukturze wykorzystującej:
+
+```text
+Docker
+Kubernetes
+Virtual Machines
+Cloud
+```
+
+Pozwala to monitorować zarówno infrastrukturę, jak i uruchomione na niej usługi.
+
+## Zabbix i Kubernetes
+
+W środowisku Kubernetes monitoring jest szczególnie ważny ze względu na dużą liczbę dynamicznie tworzonych zasobów.
+
+Zabbix może być wykorzystywany do obserwowania między innymi:
+
+```text
+Cluster
+  ↓
+Nodes
+  ↓
+Pods
+  ↓
+Containers
+  ↓
+Applications
+```
+
+Dzięki temu administrator może monitorować stan całego środowiska.
+
+## Zabbix i DevOps
+
+Zabbix jest często używany jako element infrastruktury **DevOps**.
+
+Może współpracować z procesami:
+
+```text
+Development
+      ↓
+CI/CD
+      ↓
+Deployment
+      ↓
+Monitoring
+      ↓
+Alerting
+```
+
+Po wdrożeniu aplikacji Zabbix może monitorować jej dostępność i wydajność.
+
+## Zabbix a Prometheus
+
+Zabbix i Prometheus są narzędziami służącymi do monitorowania infrastruktury, ale mają inne podejście i ekosystem.
+
+**Zabbix** jest kompleksową platformą monitoringu infrastruktury z własnym serwerem, agentami, triggerami, dashboardami i systemem alertowania.
+
+**Prometheus** jest szczególnie popularny w środowiskach cloud-native i Kubernetes oraz wykorzystuje model oparty na szeregach czasowych i pobieraniu metryk.
+
+W praktyce oba rozwiązania mogą występować w tej samej organizacji.
+
+## Zabbix a Grafana
+
+**Grafana** jest przede wszystkim platformą do wizualizacji i analizy danych.
+
+Zabbix natomiast zapewnia również mechanizmy zbierania danych, wykrywania problemów i alertowania.
+
+Możliwe jest połączenie obu narzędzi:
+
+```text
+Zabbix
+   ↓
+Dane / Metryki
+   ↓
+Grafana
+   ↓
+Dashboard
+```
+
+Grafana może więc służyć jako dodatkowa warstwa wizualizacji danych z Zabbixa.
+
+## Architektura Zabbixa
+
+Typowa architektura może wyglądać tak:
+
+```text
+                    +----------------+
+                    | Zabbix Web UI  |
+                    +-------+--------+
+                            |
+                            v
+                    +---------------+
+                    | Zabbix Server |
+                    +-------+-------+
+                            |
+              +-------------+-------------+
+              |             |             |
+              v             v             v
+           Agent           SNMP        Zabbix Proxy
+              |             |             |
+              v             v             v
+          Servers         Network      Remote Site
+```
+
+Dane mogą być przechowywane w bazie danych wykorzystywanej przez Zabbix.
+
+## Zalety Zabbixa
+
+Zabbix jest rozwiązaniem **open source**.
+
+Pozwala monitorować bardzo różne rodzaje infrastruktury.
+
+Posiada system agentów oraz obsługę monitorowania bez agentów.
+
+Oferuje mechanizmy alertowania.
+
+Pozwala tworzyć dashboardy.
+
+Obsługuje templaty i automatyzację konfiguracji.
+
+Może być stosowany zarówno w małych, jak i dużych środowiskach.
+
+## Wady Zabbixa
+
+Konfiguracja Zabbixa może być rozbudowana, szczególnie w dużych środowiskach.
+
+Pełne wykorzystanie jego możliwości wymaga znajomości monitorowanej infrastruktury.
+
+Przy bardzo dużej liczbie hostów konieczne jest odpowiednie zaprojektowanie architektury.
+
+## Najważniejsze pojęcia
+
+**Zabbix** – platforma do monitorowania infrastruktury IT.
+
+**Zabbix Server** – centralny komponent systemu.
+
+**Zabbix Agent** – program zbierający dane z monitorowanego hosta.
+
+**Zabbix Proxy** – pośrednik zbierający dane z części infrastruktury.
+
+**Host** – monitorowane urządzenie lub system.
+
+**Item** – konkretny parametr monitorowany przez Zabbixa.
+
+**Trigger** – warunek wykrywający określony problem.
+
+**Problem** – wykryta nieprawidłowość.
+
+**Action** – działanie wykonywane po wystąpieniu określonego zdarzenia.
+
+**Template** – szablon konfiguracji monitorowania.
+
+**SNMP** – protokół często wykorzystywany do monitorowania urządzeń sieciowych.
+
+**Dashboard** – panel prezentujący informacje o stanie infrastruktury.
+
+**Discovery** – mechanizm automatycznego wykrywania zasobów.
+
+**Alert** – powiadomienie o wykrytym problemie.
+
+## W skrócie
+
+**Zabbix to platforma open source służąca do monitorowania infrastruktury IT.**
+
+**Może monitorować serwery, urządzenia sieciowe, aplikacje, bazy danych, usługi i środowiska wirtualne.**
+
+**Najważniejsze elementy Zabbixa to Zabbix Server, Agent, Proxy, Host, Item, Trigger, Problem, Action i Template.**
+
+Najważniejszy schemat do zapamiętania:
+
+**Host → Item → Trigger → Problem → Action → Alert**
+
+Czyli:
+
+**monitorowane urządzenie → zbieramy parametr → sprawdzamy warunek → wykrywamy problem → wykonujemy akcję → informujemy administratora.**

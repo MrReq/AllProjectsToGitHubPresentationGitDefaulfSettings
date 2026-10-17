@@ -1,0 +1,199 @@
+# Neo4j – kompleksowa notatka
+
+## 1. Czym jest Neo4j?
+
+[Neo4j Browser](https://images.openai.com/static-rsc-4/fpd1l5QqirzEPGBd6ZSFw3n77RK2oed8sXMfc_hjz_9j-9Z-lQjrh27Kw3ZmgDFcU_3Kr-GF1ygChnbPw6IZp-MiKJeLpkoo0Hfkmc1nBblRaF_u_QvJ4FgWeSWlEbupD5HkKP72MgNjFCLy5T-wRvQN4d6I4iwoFcOaSOJ4rYM?purpose=inline)
+
+[A Knowledge Graph of Music Brand Partnerships with Neo4j — Shep Bryan](https://images.openai.com/static-rsc-4/ZAvk-3TTU4Aw4xpUeSpvrKJO7h8WnesVw4lYlMT9sqHfQabUN8Fu5DfCx9nSaqmj0BNR1Sw7WnaZR5HgAn7d5Vh4iSKc1Unxza12MpzDYQUfI1dH4gDQre0PhfwBdNjxo3A-V5BRF8pm_XKNAA9xqWPFHSHvqf6OisqQ1eqcsvM?purpose=inline)
+
+[Explorando o Neo4j: O Banco de Dados de Grafos](https://images.openai.com/static-rsc-4/GI8QJoHsBquz6vY5c7krCkEw8I_A9IVXU17KKJn26ygVKYb5g6bbj1BtGVtAOb-pIKceDmwht3xYdqif0qqIalWrCqbIGL2o5m9e2CmZy1sk3IN9V3r3sBH9CsXNm9hvjC9hROZaRuEaTkMXq08VSk5q0B30HtrBNI5uXbss8mU?purpose=inline)
+
+10
+
+Neo4j to system zarządzania bazą danych typu NoSQL, który wykorzystuje model grafowy do przechowywania i analizowania danych.
+
+W przeciwieństwie do tradycyjnych relacyjnych baz danych, takich jak MySQL, PostgreSQL czy Microsoft SQL Server, Neo4j koncentruje się na przedstawianiu danych jako węzłów połączonych relacjami.
+
+Neo4j jest szczególnie przydatny w projektach, w których ważne są powiązania między obiektami, na przykład w sieciach społecznościowych, systemach rekomendacji, analizie oszustw finansowych oraz zarządzaniu wiedzą.
+
+System obsługuje język zapytań Cypher, który pozwala w czytelny sposób wyszukiwać dane, tworzyć relacje i analizować połączenia między obiektami.
+
+## 2. Jak działa baza grafowa?
+
+Podstawą Neo4j jest graf składający się z trzech głównych elementów.
+
+- Node (węzeł) – reprezentuje konkretny obiekt, na przykład użytkownika, produkt, firmę lub miasto.
+- Relationship (relacja) – reprezentuje połączenie między węzłami, na przykład znajomość, zakup produktu lub połączenie lotnicze.
+- Property (właściwość) – przechowuje informacje opisujące węzeł lub relację, na przykład imię, cenę, datę albo typ połączenia.
+
+Dodatkowo węzły mogą posiadać etykiety (labels), które określają ich typ, np. `Person`, `Product` lub `Company`.
+
+PRZYKŁAD GRAFU
+
+W powyższym przykładzie Anna i Piotr są węzłami, a relacja `FRIEND_OF` opisuje ich powiązanie.
+
+W bazie grafowej relacje są przechowywane jako elementy grafu, dzięki czemu analiza połączeń między obiektami stanowi podstawową operację, a nie tylko dodatkowe zadanie wykonywane za pomocą złączeń tabel.
+
+## 3. Czym Neo4j różni się od relacyjnej bazy danych?
+
+W relacyjnej bazie danych informacje przechowuje się w tabelach składających się z wierszy i kolumn.
+
+W Neo4j dane przedstawiane są jako węzły i relacje, co ułatwia analizowanie skomplikowanych powiązań.
+
+| Cecha                 | Neo4j                         | PostgreSQL                               |
+| --------------------- | ----------------------------- | ---------------------------------------- |
+| Model danych          | Grafowy                       | Relacyjny                                |
+| Podstawowe elementy   | Węzły i relacje               | Tabele i wiersze                         |
+| Język zapytań         | Cypher                        | SQL                                      |
+| Relacje między danymi | Jawne połączenia w grafie     | Klucze i złączenia tabel                 |
+| Typowe zastosowania   | Sieci powiązań i rekomendacje | Systemy transakcyjne i dane tabelaryczne |
+
+Neo4j nie zastępuje wszystkich relacyjnych baz danych.
+
+Wybór rozwiązania zależy od struktury danych, rodzaju zapytań oraz wymagań konkretnej aplikacji.
+
+## 4. Język zapytań Cypher
+
+Cypher to deklaratywny język zapytań opracowany z myślą o grafowych bazach danych.
+
+Jego składnia wykorzystuje nawiasy okrągłe do reprezentowania węzłów oraz nawiasy kwadratowe do przedstawiania relacji.
+
+Najważniejsze elementy języka Cypher to:
+
+- `CREATE` – tworzenie węzłów i relacji.
+- `MATCH` – wyszukiwanie elementów grafu.
+- `WHERE` – filtrowanie wyników.
+- `RETURN` – zwracanie wyników zapytania.
+- `SET` – dodawanie lub zmiana właściwości.
+- `DELETE` – usuwanie elementów grafu.
+- `MERGE` – dopasowanie istniejącego wzorca lub utworzenie go, jeśli nie istnieje.
+
+### Przykład 1. Tworzenie węzłów
+
+```
+CREATE (:Person {name: 'Anna', age: 22});
+CREATE (:Person {name: 'Piotr', age: 25});
+```
+
+Powyższe polecenia tworzą dwa węzły z etykietą `Person`, z których każdy ma właściwości `name` i `age`.
+
+### Przykład 2. Wyszukiwanie danych
+
+```
+MATCH (p:Person)
+RETURN p.name, p.age;
+```
+
+Zapytanie wyszukuje wszystkie węzły oznaczone etykietą `Person` i zwraca ich imiona oraz wiek.
+
+### Przykład 3. Tworzenie relacji
+
+```
+MATCH (a:Person {name: 'Anna'}),
+      (p:Person {name: 'Piotr'})
+CREATE (a)-[:FRIEND_OF]->(p);
+```
+
+Zapytanie tworzy skierowaną relację `FRIEND_OF` od Anny do Piotra.
+
+### Przykład 4. Filtrowanie danych
+
+```
+MATCH (p:Person)
+WHERE p.age >= 25
+RETURN p.name, p.age;
+```
+
+Zapytanie zwraca osoby, których wiek wynosi co najmniej 25 lat.
+
+### Przykład 5. Wyszukiwanie znajomych
+
+```
+MATCH (a:Person {name: 'Anna'})
+      -[:FRIEND_OF]->(friend:Person)
+RETURN friend.name;
+```
+
+Zapytanie wyszukuje osoby, do których prowadzą relacje `FRIEND_OF` wychodzące od Anny.
+
+## 5. Najważniejsze narzędzia i komponenty Neo4j
+
+Neo4j Database to silnik bazy danych odpowiedzialny za przechowywanie grafu, wykonywanie zapytań i zarządzanie danymi.
+
+Neo4j Aura to zarządzana usługa chmurowa umożliwiająca uruchamianie baz Neo4j bez samodzielnego utrzymywania całej infrastruktury serwerowej.
+
+Neo4j Browser to interfejs do wykonywania zapytań Cypher oraz przeglądania wyników, w tym wizualizacji grafów.
+
+Neo4j Desktop to aplikacja do zarządzania lokalnymi projektami i bazami Neo4j, zależnie od dostępnej wersji i oferowanych funkcji.
+
+Cypher to język służący do tworzenia, wyszukiwania i modyfikowania danych grafowych.
+
+APOC (Awesome Procedures on Cypher) to biblioteka dodatkowych procedur i funkcji rozszerzających możliwości Neo4j.
+
+Graph Data Science (GDS) to biblioteka algorytmów analizy grafów, obejmująca między innymi wykrywanie społeczności, analizę centralności i obliczanie podobieństw.
+
+## 6. Zastosowania Neo4j
+
+Neo4j jest wykorzystywany w wielu obszarach informatyki.
+
+- Sieci społecznościowe – analizowanie znajomości, grup i powiązań między użytkownikami.
+- Systemy rekomendacyjne – proponowanie produktów na podstawie zakupów i powiązań z innymi produktami.
+- Wykrywanie oszustw – wyszukiwanie podejrzanych połączeń między kontami, transakcjami i urządzeniami.
+- Cyberbezpieczeństwo – analiza zależności między użytkownikami, uprawnieniami, urządzeniami i incydentami.
+- Zarządzanie wiedzą – przedstawianie relacji między pojęciami, dokumentami i encjami.
+- Logistyka – analizowanie tras, połączeń i zależności w sieciach transportowych.
+- Systemy biznesowe – analizowanie relacji między klientami, firmami, produktami i zamówieniami.
+
+## 7. Zalety Neo4j
+
+- Naturalne odwzorowanie danych, które są silnie ze sobą powiązane.
+- Czytelny język zapytań Cypher.
+- Efektywne przechodzenie po relacjach między węzłami.
+- Możliwość modelowania złożonych struktur grafowych.
+- Obsługa algorytmów analizy grafów.
+- Dostęp do narzędzi lokalnych i usług chmurowych.
+- Możliwość integracji z aplikacjami napisanymi w Javie, Pythonie, JavaScripcie i innych językach.
+
+## 8. Wady Neo4j
+
+- Wymaga poznania modelowania grafowego i języka Cypher.
+- Nie zawsze jest najlepszym wyborem dla typowych danych tabelarycznych.
+- Niektóre raporty i operacje agregujące mogą być prostsze do wykonania w relacyjnej bazie danych.
+- Koszty zarządzanej usługi chmurowej i niektórych funkcji zależą od wybranego planu.
+- Przy bardzo dużych grafach trzeba odpowiednio zaprojektować model danych, indeksy i zapytania.
+- Wdrożenie może wymagać zmiany sposobu myślenia w porównaniu z klasycznym modelem relacyjnym.
+
+## 9. Neo4j w programowaniu Java
+
+Neo4j można zintegrować z aplikacjami napisanymi w Javie za pomocą oficjalnego sterownika Java Driver.
+
+Przykładowo aplikacja Spring Boot może łączyć się z bazą Neo4j, wykonywać zapytania Cypher i udostępniać dane poprzez REST API.
+
+Popularnym rozwiązaniem jest również Spring Data Neo4j, które upraszcza mapowanie obiektów Javy na elementy grafu oraz integrację z ekosystemem Spring.
+
+Przykładowe zastosowanie to aplikacja rekomendująca produkty, w której klienci, produkty i zakupy są reprezentowane jako węzły połączone odpowiednimi relacjami.
+
+## 10. Neo4j a inne bazy grafowe
+
+Neo4j konkuruje z innymi technologiami przeznaczonymi do przechowywania i analizowania relacji.
+
+- ArangoDB – obsługuje kilka modeli danych, w tym grafowy i dokumentowy.
+- Amazon Neptune – zarządzana usługa bazodanowa AWS obsługująca grafowe modele danych.
+- OrientDB – baza danych łącząca cechy modeli dokumentowego i grafowego.
+
+Neo4j jest szczególnie rozpoznawalny dzięki modelowi grafowemu, językowi Cypher i rozbudowanemu ekosystemowi narzędzi.
+
+## 11. Najważniejsze pojęcia do zapamiętania
+
+- Graph Database – baza danych przechowująca dane w postaci grafu.
+- Node – węzeł reprezentujący obiekt.
+- Relationship – relacja łącząca węzły.
+- Property – właściwość opisująca węzeł lub relację.
+- Label – etykieta określająca typ węzła.
+- Cypher – język zapytań Neo4j.
+- Neo4j Aura – zarządzana usługa chmurowa.
+- APOC – biblioteka dodatkowych procedur i funkcji.
+- Graph Data Science – narzędzia do analizy grafów.
+- Spring Data Neo4j – integracja Neo4j z aplikacjami Spring.
+
+Podsumowanie: Neo4j to grafowa baza danych NoSQL, która umożliwia przechowywanie obiektów i ich relacji w naturalnej, połączonej strukturze. Największą zaletą tego rozwiązania jest możliwość efektywnego analizowania powiązań, dlatego Neo4j sprawdza się w systemach rekomendacyjnych, analizie oszustw, sieciach społecznościowych oraz aplikacjach opartych na złożonych zależnościach między danymi.

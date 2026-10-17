@@ -1,0 +1,534 @@
+Jasne. Poniżej masz notatkę w stylu naszych wcześniejszych czatów — przejrzyste sekcje, proste wyjaśnienia i każde zdanie w osobnej linii.
+
+# Yarn
+
+## 1. Czym jest Yarn
+
+Yarn to menedżer pakietów przeznaczony przede wszystkim dla ekosystemu JavaScript i Node.js.
+
+Yarn służy do instalowania, aktualizowania, usuwania oraz zarządzania zależnościami projektu.
+
+Yarn jest alternatywą dla npm, który jest domyślnym menedżerem pakietów dostarczanym razem z Node.js.
+
+Yarn został stworzony przez Facebooka wraz z innymi firmami i początkowo miał rozwiązać problemy związane z szybkością i przewidywalnością instalowania zależności.
+
+Obecnie najważniejszą współczesną wersją jest Yarn Berry, czyli Yarn 2+.
+
+## 2. Do czego służy Yarn
+
+Yarn pozwala instalować biblioteki potrzebne w projekcie JavaScript lub TypeScript.
+
+Yarn automatycznie pobiera wymagane pakiety z rejestru pakietów.
+
+Yarn zapisuje informacje o zależnościach projektu w pliku `package.json`.
+
+Yarn może również zapisywać dokładne wersje zainstalowanych zależności w pliku `yarn.lock`.
+
+Yarn umożliwia uruchamianie skryptów zdefiniowanych w `package.json`.
+
+Yarn może być używany zarówno w małych projektach, jak i dużych aplikacjach.
+
+## 3. Yarn a Node.js
+
+Node.js jest środowiskiem uruchomieniowym pozwalającym wykonywać JavaScript poza przeglądarką.
+
+Yarn nie zastępuje Node.js.
+
+Yarn wykorzystuje Node.js do wykonywania aplikacji i narzędzi JavaScript.
+
+Można więc przyjąć prostą zależność:
+
+`Node.js → uruchamia JavaScript`
+
+`Yarn → zarządza zależnościami projektu`
+
+## 4. Instalacja Yarn
+
+Yarn można zainstalować na kilka sposobów.
+
+W przypadku współczesnych projektów często wykorzystuje się Corepack dostarczany z Node.js.
+
+Przykładowe polecenie aktywujące Yarn przez Corepack wygląda następująco:
+
+```bash
+corepack enable
+```
+
+Następnie można sprawdzić wersję Yarn:
+
+```bash
+yarn --version
+```
+
+Wynik może wyglądać na przykład tak:
+
+```text
+4.x.x
+```
+
+W starszych projektach można również spotkać instalację Yarn za pomocą npm:
+
+```bash
+npm install --global yarn
+```
+
+## 5. package.json
+
+`package.json` jest jednym z najważniejszych plików projektu Node.js.
+
+Plik ten zawiera informacje o projekcie oraz jego zależnościach.
+
+Może zawierać między innymi nazwę projektu, wersję projektu, skrypty oraz zależności.
+
+Przykład:
+
+```json
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+```
+
+Sekcja `dependencies` zawiera biblioteki wymagane przez aplikację podczas jej działania.
+
+Sekcja `devDependencies` zawiera biblioteki potrzebne głównie podczas tworzenia i testowania aplikacji.
+
+## 6. yarn.lock
+
+`yarn.lock` jest plikiem blokującym konkretne wersje zależności.
+
+Jego zadaniem jest zapewnienie powtarzalnych instalacji projektu.
+
+Przykładowo `package.json` może określać:
+
+```text
+express: ^5.1.0
+```
+
+Symbol `^` oznacza, że może zostać użyta kompatybilna nowsza wersja.
+
+`yarn.lock` zapisuje natomiast konkretną wersję, która została rozwiązana dla projektu.
+
+Dzięki temu dwóch programistów pracujących nad tym samym projektem może otrzymać te same wersje zależności.
+
+Pliku `yarn.lock` zazwyczaj nie powinno się usuwać bez konkretnego powodu.
+
+## 7. Tworzenie projektu
+
+Projekt wykorzystujący Yarn można utworzyć za pomocą:
+
+```bash
+yarn init
+```
+
+Yarn utworzy wtedy plik:
+
+```text
+package.json
+```
+
+Można również użyć:
+
+```bash
+yarn init -2
+```
+
+aby rozpocząć projekt wykorzystujący współczesny Yarn Berry.
+
+## 8. Instalowanie zależności
+
+Podstawowym poleceniem instalującym zależności jest:
+
+```bash
+yarn install
+```
+
+Polecenie analizuje `package.json` oraz plik blokady i instaluje wymagane zależności.
+
+W przypadku istniejącego projektu jest to zazwyczaj pierwsze polecenie wykonywane po jego pobraniu.
+
+Przykładowo:
+
+```bash
+git clone <repozytorium>
+cd my-project
+yarn install
+```
+
+Po wykonaniu `yarn install` projekt powinien mieć wszystkie wymagane zależności.
+
+## 9. Instalowanie pakietu
+
+Pakiet można zainstalować za pomocą:
+
+```bash
+yarn add express
+```
+
+Yarn doda wtedy pakiet `express` do projektu.
+
+Pakiet zostanie zapisany w sekcji `dependencies` pliku `package.json`.
+
+Można również zainstalować konkretną wersję:
+
+```bash
+yarn add express@5.1.0
+```
+
+Można również zainstalować pakiet jako zależność deweloperską:
+
+```bash
+yarn add --dev typescript
+```
+
+Wtedy pakiet zostanie dodany do `devDependencies`.
+
+## 10. Usuwanie pakietu
+
+Pakiet można usunąć za pomocą:
+
+```bash
+yarn remove express
+```
+
+Yarn usunie pakiet z projektu oraz z odpowiedniej sekcji `package.json`.
+
+## 11. Aktualizowanie pakietów
+
+Yarn umożliwia aktualizowanie zależności za pomocą:
+
+```bash
+yarn up
+```
+
+Można również zaktualizować konkretny pakiet:
+
+```bash
+yarn up express
+```
+
+Można wskazać konkretną wersję:
+
+```bash
+yarn up express@5.1.0
+```
+
+## 12. Sprawdzanie zależności
+
+Yarn pozwala sprawdzić informacje dotyczące pakietu za pomocą:
+
+```bash
+yarn info express
+```
+
+Można również sprawdzić zależności projektu za pomocą:
+
+```bash
+yarn why express
+```
+
+Polecenie `yarn why` pomaga ustalić, dlaczego konkretny pakiet znajduje się w projekcie.
+
+Jest to szczególnie przydatne, gdy pakiet został dodany jako zależność innej biblioteki.
+
+## 13. Uruchamianie skryptów
+
+Skrypty projektu są definiowane w `package.json`.
+
+Przykład:
+
+```json
+{
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "build": "webpack"
+  }
+}
+```
+
+Skrypt `start` można uruchomić za pomocą:
+
+```bash
+yarn start
+```
+
+Skrypt `test` można uruchomić za pomocą:
+
+```bash
+yarn test
+```
+
+Skrypt `build` można uruchomić za pomocą:
+
+```bash
+yarn build
+```
+
+W Yarn można również użyć:
+
+```bash
+yarn run test
+```
+
+## 14. Yarn i npm
+
+Yarn oraz npm rozwiązują bardzo podobny problem.
+
+Oba narzędzia służą do zarządzania zależnościami projektów JavaScript.
+
+Przykładowe odpowiedniki poleceń wyglądają następująco:
+
+| npm | Yarn |
+|---|---|
+| `npm install` | `yarn install` |
+| `npm install express` | `yarn add express` |
+| `npm uninstall express` | `yarn remove express` |
+| `npm update` | `yarn up` |
+| `npm run test` | `yarn test` |
+| `npm init` | `yarn init` |
+
+Nie oznacza to jednak, że npm i Yarn są całkowicie identyczne.
+
+Poszczególne wersje Yarn mają własne mechanizmy i funkcje.
+
+## 15. Yarn Classic i Yarn Berry
+
+W ekosystemie Yarn można spotkać dwie główne generacje.
+
+Yarn Classic oznacza przede wszystkim Yarn 1.x.
+
+Yarn Berry odnosi się do Yarn 2 i nowszych wersji.
+
+Yarn Berry wprowadził wiele zmian w sposobie zarządzania zależnościami.
+
+Jedną z najbardziej charakterystycznych funkcji Yarn Berry jest Plug'n'Play, czyli PnP.
+
+## 16. Plug'n'Play
+
+Plug'n'Play pozwala Yarnowi zarządzać zależnościami bez konieczności tworzenia tradycyjnego katalogu `node_modules`.
+
+W tradycyjnym modelu zależności znajdują się zazwyczaj w:
+
+```text
+node_modules/
+```
+
+W trybie Plug'n'Play Yarn może zamiast tego korzystać z własnego mechanizmu rozwiązywania zależności.
+
+Może to zmniejszyć liczbę plików tworzonych w projekcie.
+
+Może również przyspieszyć niektóre operacje związane z instalowaniem i rozwiązywaniem zależności.
+
+Nie wszystkie narzędzia i projekty są jednak równie dobrze przystosowane do PnP.
+
+## 17. Zero-Installs
+
+Yarn może być również wykorzystywany w podejściu określanym jako Zero-Installs.
+
+W tym podejściu odpowiednie pliki zależności mogą być przechowywane razem z repozytorium.
+
+Dzięki temu po pobraniu projektu nie zawsze trzeba wykonywać klasyczną instalację wszystkich zależności.
+
+Takie podejście może być szczególnie interesujące w dużych projektach i środowiskach CI/CD.
+
+## 18. Workspaces
+
+Yarn Workspaces pozwalają zarządzać wieloma powiązanymi projektami w jednym repozytorium.
+
+Jest to szczególnie przydatne w projektach typu monorepo.
+
+Przykładowa struktura może wyglądać tak:
+
+```text
+project/
+├── package.json
+├── packages/
+│   ├── frontend/
+│   ├── backend/
+│   └── shared/
+└── yarn.lock
+```
+
+Każdy z katalogów może reprezentować osobny pakiet.
+
+Yarn może wtedy zarządzać ich zależnościami z poziomu całego repozytorium.
+
+## 19. Yarn w TypeScript
+
+Yarn może być używany razem z TypeScriptem.
+
+Przykładowo można zainstalować TypeScript jako zależność deweloperską:
+
+```bash
+yarn add --dev typescript
+```
+
+Następnie można utworzyć konfigurację TypeScript:
+
+```bash
+yarn tsc --init
+```
+
+Powstanie wtedy plik:
+
+```text
+tsconfig.json
+```
+
+Yarn może więc pełnić funkcję menedżera zależności również w projektach TypeScript.
+
+## 20. Yarn w projektach frontendowych
+
+Yarn jest często wykorzystywany w projektach frontendowych.
+
+Może być używany między innymi z Reactem, Vue, Angular oraz innymi narzędziami JavaScript.
+
+Przykładowo instalacja Reacta w istniejącym projekcie może wyglądać następująco:
+
+```bash
+yarn add react react-dom
+```
+
+Yarn pobierze wymagane pakiety i zapisze je w konfiguracji projektu.
+
+## 21. Yarn w CI/CD
+
+Yarn może być wykorzystywany podczas automatycznego budowania aplikacji.
+
+W pipeline CI/CD można wykonać na przykład:
+
+```bash
+yarn install
+yarn test
+yarn build
+```
+
+Pierwsze polecenie instaluje zależności.
+
+Drugie uruchamia testy.
+
+Trzecie buduje aplikację.
+
+Dzięki temu Yarn może być elementem automatycznego procesu dostarczania aplikacji.
+
+## 22. Najważniejsze pliki Yarn
+
+Najczęściej spotykane pliki związane z Yarn to:
+
+```text
+package.json
+yarn.lock
+.yarnrc.yml
+```
+
+`package.json` opisuje projekt i jego zależności.
+
+`yarn.lock` przechowuje informacje o rozwiązanych wersjach zależności.
+
+`.yarnrc.yml` jest plikiem konfiguracyjnym wykorzystywanym przez współczesne wersje Yarn.
+
+W projektach wykorzystujących Yarn Berry można również spotkać katalog:
+
+```text
+.yarn/
+```
+
+## 23. Najważniejsze polecenia
+
+Najważniejsze polecenia Yarn, które warto zapamiętać, to:
+
+```bash
+yarn --version
+```
+
+Sprawdza wersję Yarn.
+
+```bash
+yarn init
+```
+
+Tworzy nowy projekt.
+
+```bash
+yarn install
+```
+
+Instaluje zależności projektu.
+
+```bash
+yarn add <pakiet>
+```
+
+Dodaje pakiet do projektu.
+
+```bash
+yarn add --dev <pakiet>
+```
+
+Dodaje pakiet jako zależność deweloperską.
+
+```bash
+yarn remove <pakiet>
+```
+
+Usuwa pakiet.
+
+```bash
+yarn up
+```
+
+Aktualizuje zależności.
+
+```bash
+yarn <skrypt>
+```
+
+Uruchamia skrypt znajdujący się w `package.json`.
+
+```bash
+yarn why <pakiet>
+```
+
+Pokazuje, dlaczego pakiet znajduje się w projekcie.
+
+## 24. Yarn w skrócie
+
+Yarn jest menedżerem pakietów dla ekosystemu JavaScript i Node.js.
+
+Służy do zarządzania bibliotekami i zależnościami projektu.
+
+Najważniejszym plikiem projektu jest `package.json`.
+
+Plik `yarn.lock` pozwala zachować przewidywalne wersje zależności.
+
+Polecenie `yarn install` instaluje zależności.
+
+Polecenie `yarn add` dodaje nową zależność.
+
+Polecenie `yarn remove` usuwa zależność.
+
+Polecenie `yarn up` aktualizuje zależności.
+
+Yarn może obsługiwać monorepo dzięki Yarn Workspaces.
+
+Współczesny Yarn oferuje również mechanizm Plug'n'Play, który może działać bez klasycznego `node_modules`.
+
+**Najprościej zapamiętać:**
+
+```text
+Node.js → uruchamia JavaScript
+Yarn → zarządza pakietami i zależnościami
+package.json → opisuje projekt i zależności
+yarn.lock → blokuje rozwiązane wersje zależności
+yarn install → instaluje zależności
+yarn add → dodaje pakiet
+yarn remove → usuwa pakiet
+yarn up → aktualizuje pakiet
+```

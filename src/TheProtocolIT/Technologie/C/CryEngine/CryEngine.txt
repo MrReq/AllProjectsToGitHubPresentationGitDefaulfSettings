@@ -1,0 +1,157 @@
+# CryEngine — notatka o technologii
+
+## 1. Czym jest CryEngine?
+
+[CRYENGINE - Crytek's powerful game development platform](https://images.openai.com/static-rsc-4/vaJ3JBcPEf4nQh0jvUJcF9XgaHpNPIv2E9t_zniQPKg5Ex95feiKA8Z5sOAAcvYnGkQ_z6UKwTz4MjTZCxpcUQIxkzL7apXUXdDGd4XNW28F-L4-ZTjeO5_a0-dHGe_T0TVWeQIANudYkIlFbaEynnAkOxxN_vmCtlWgGY9oEY8?purpose=inline)
+
+[crytek.com](https://www.crytek.com/cryengine)
+
+CryEngine to zaawansowany silnik gier 3D opracowany przez firmę Crytek, przeznaczony do tworzenia realistycznych gier komputerowych i interaktywnych środowisk trójwymiarowych.
+
+Silnik zasłynął z wysokiej jakości grafiki, realistycznego oświetlenia, szczegółowych krajobrazów i rozbudowanych efektów środowiskowych.
+
+CryEngine został wykorzystany między innymi w serii Far Cry oraz grach Crysis i Ryse: Son of Rome.
+
+Technologia oferuje narzędzia do projektowania poziomów, tworzenia materiałów, symulowania fizyki, animowania postaci i implementowania mechanik rozgrywki.
+
+CryEngine jest szczególnie interesujący dla osób, które chcą rozwijać się w grafice komputerowej, programowaniu gier 3D i optymalizacji wydajnych aplikacji czasu rzeczywistego.
+
+## 2. Najważniejsze cechy CryEngine
+
+[CRYENGINE - GDC 2015 Screenshots Revealed](https://images.openai.com/static-rsc-4/_GCE6Dn_ILaFBjl8LRQk_wcTCUkxzmZdD-PhwCNVJQK2HY1zGImWIV9aa3xbbdBrKtR7nSScpRzWWM-Yg_iP_14c3nHNB8EOyw8IshZmmwUO41vTIDP_uUjSkQ33sqTzIkzRsxjp_m9onBsesmwiCpuke2fuMHyDQNHjuQvCTAc?purpose=inline)
+
+Zaawansowana grafika 3D
+
+Silnik oferuje narzędzia do renderowania realistycznych krajobrazów, materiałów, roślinności i efektów wizualnych.
+
+[CRYENGINE on Steam](https://images.openai.com/static-rsc-4/sZi3B9TNmMmPJABJmwlNFL7l1H6URrQAyN0siuD5nVb-Tp8u5YaEfif3-seWev5-_9508gKw983PAzigkegLToFoLkbmtc4pwKZlyNMIVMY_4HrbKA833omFN2SH6hsyBsNcZ10ql-0HV8U4aTY7TVIX31OG63pXkKvJ9tINYDE?purpose=inline)
+
+Sandbox Editor
+
+Edytor umożliwia projektowanie poziomów, rozmieszczanie obiektów, konfigurowanie środowiska i testowanie zmian.
+
+[CRYENGINE | Documentation - Water Shader](https://images.openai.com/static-rsc-4/P15r85Bv0GMsgvJAUxlOMjbitGvUp5wOKS2za7-naXRWL8ldNkqs23W_bKFBKaImMpCINl7bthBpvEiB_vnsstvMlzIuKI_6Kdm4qmsS3D2_eAqKUaWGiXrG2yJa981-MgpS-37x4RN0qwqioWJl6AaEcpySaxEIcuuJqWxrlDk?purpose=inline)
+
+Fizyka i symulacja środowiska
+
+CryEngine udostępnia mechanizmy obsługi kolizji, ruchu obiektów, wody i interakcji z otoczeniem, zależnie od wersji silnika.
+
+[CRYENGINE | Documentation - Tutorial – Creating a Player using C++](https://images.openai.com/static-rsc-4/pCbah7DOnYmHJNaiy7N7mWFlb_qgoCoU0ku0Ewby2JbG5Q8vLLaNNDng55-7TC4-LSgQVPwK9ykeAJ7gdHbHIA-sT_6fKNDcoBUcwsn4Yz3JLPXmZEadZciXXtK5fC9tU1y77xZCfNDxQXNp3aOuBmlAwobLP8mV2IBpbU3j5pk?purpose=inline)
+
+Programowanie w C++
+
+C++ pozwala implementować mechaniki rozgrywki, systemy postaci, logikę obiektów i bardziej zaawansowane funkcje silnika.
+
+## 3. Jak działa CryEngine?
+
+CryEngine jest silnikiem czasu rzeczywistego, co oznacza, że przetwarza logikę gry i generuje kolejne klatki obrazu podczas działania aplikacji.
+
+Typowy cykl działania obejmuje:
+
+1. Odczyt wejścia użytkownika, np. klawiatury, myszy lub kontrolera.
+2. Aktualizację logiki gry, zachowania postaci i sztucznej inteligencji.
+3. Obliczanie ruchu obiektów, kolizji i interakcji fizycznych.
+4. Przygotowanie sceny do renderowania.
+5. Wygenerowanie obrazu z wykorzystaniem GPU.
+6. Wyświetlenie kolejnej klatki i powtórzenie cyklu.
+
+Aby gra działała płynnie, silnik musi wykonywać te operacje w ograniczonym czasie.
+
+Przykładowo przy 60 klatkach na sekundę budżet na jedną klatkę wynosi około 16,7 ms.
+
+## 4. Języki programowania i narzędzia
+
+| Technologia                   | Zastosowanie                                                                         |
+| ----------------------------- | ------------------------------------------------------------------------------------ |
+| C++                           | Implementowanie logiki gry i zaawansowanych mechanizmów                              |
+| Lua                           | Scripting i automatyzacja wybranych elementów w wersjach obsługujących ten mechanizm |
+| Sandbox Editor                | Projektowanie i edycja świata gry                                                    |
+| Visual Studio                 | Pisanie, kompilowanie i debugowanie kodu C++                                         |
+| Systemy materiałów i shaderów | Definiowanie wyglądu powierzchni i efektów graficznych                               |
+| Narzędzia animacji            | Przygotowywanie ruchów i zachowania postaci                                          |
+
+Dokładna dostępność języków, funkcji i narzędzi zależy od wersji CryEngine oraz wykorzystywanego zestawu SDK.
+
+## 5. Do czego wykorzystuje się CryEngine?
+
+[Crysis Director Explained Why It Was So Demanding](https://images.openai.com/static-rsc-4/EAZA1AAU_CKrd8FsKS5ppVGqvPm3F4WAI3et6FlAvdn2CC0aBTnd9CuLoid5VstYGi-YKgM8IWp3K04D85zSB6J5F8I5DJL6QiNPI-XoWpLjvruXP7UbEJhNAVQWCODdjIv4IkSatXmAiSQ14dJCKPYNVi73onkiQuvFyGHZKu0?purpose=inline)
+
+Gry komputerowe
+
+Najbardziej znanym zastosowaniem jest tworzenie gier 3D, szczególnie produkcji wykorzystujących rozbudowane środowiska i realistyczną grafikę.
+
+[3D Architectural Rendering: See Your Design Come to Life](https://images.openai.com/static-rsc-4/460v-te9PyABNaulqx2S0sP1mbgE5B8t5yOdxapWFjatAjKD111B9Rjhyasi71p_AdpWgScmFUNwXEN11SlXPsrRrkYF6fgR0Yy33AHPILuzjbntIIzfgT6fCKe1NMpGI5Hbj6mlBr5dlC6_Vlfj-MeEIOWC7xlVr8oFsdCYPyo?purpose=inline)
+
+Wizualizacje architektoniczne
+
+Silniki czasu rzeczywistego mogą służyć do prezentowania budynków, wnętrz i przestrzeni w interaktywnym środowisku.
+
+[Custom VR SOPs for Bottling & Canning Lines | Spark](https://images.openai.com/static-rsc-4/0azp4IT3jGEKAxZdXAsJ8KahORPeO00Xn8CwFvSHlpcqlGohHxm9iz0E1yG8XjGhDstC3QJ2u9FRasfy3MMBYukpvEYFKs8toPdvlRQJl2pBQ5QEIeZ5jVWpu_qogxUOB_ZX-jenFnc98-69OmdyRIfVVtJx3foh5uwjl-SPvQw?purpose=inline)
+
+Symulacje i szkolenia
+
+Technologia renderowania 3D może być wykorzystywana do demonstracji środowisk i interaktywnych scenariuszy treningowych.
+
+[Game Development Outsourcing Company | Cubix](https://images.openai.com/static-rsc-4/p5Bc7fg3rP8Yry2ZIHemOrwOyDvueTkSQ3ez_IWHRvsUr16X6bIxLn4qn73g_OTy-ZPCIyNSbnPJz23oHHb2RVI4PdnPTtK-Ga-1qCdzZPwLtqBhaq-jOYTPFr1guPZpHm7xwidDlNvoqOqywlL-4CSl3yVNCtVWIQ82lbTwlLg?purpose=inline)
+
+Doświadczenia immersyjne
+
+Silniki 3D mogą stanowić podstawę interaktywnych doświadczeń, w tym wybranych zastosowań rzeczywistości wirtualnej, jeśli dana wersja zapewnia odpowiednie wsparcie.
+
+## 6. CryEngine a Unreal Engine i Unity
+
+| Cecha                      | CryEngine                       | Unreal Engine                        | Unity                                              |
+| -------------------------- | ------------------------------- | ------------------------------------ | -------------------------------------------------- |
+| Główny język programowania | C++                             | C++ i Blueprints                     | C#                                                 |
+| Grafika 3D                 | Duży nacisk na realizm          | Zaawansowane możliwości renderowania | Szeroki zakres możliwości, zależny od konfiguracji |
+| Edytor wizualny            | Sandbox Editor                  | Unreal Editor                        | Unity Editor                                       |
+| Typowe zastosowania        | Gry 3D, środowiska realistyczne | Gry AAA, symulacje, wizualizacje     | Gry 2D i 3D, aplikacje mobilne, symulacje          |
+| Próg wejścia               | Stosunkowo wysoki               | Średni do wysokiego                  | Zwykle niższy dla początkujących                   |
+
+CryEngine, Unreal Engine i Unity umożliwiają tworzenie gier, ale różnią się ekosystemem, narzędziami, językami programowania i dostępnością materiałów edukacyjnych.
+
+Unreal Engine jest często wybierany do dużych projektów 3D, a Unity do szerokiego zakresu gier i aplikacji wieloplatformowych.
+
+CryEngine może być interesującym wyborem dla osób zainteresowanych technologią Crytek i specyfiką jego narzędzi.
+
+## 7. Zalety i wady CryEngine
+
+Zalety:
+
+- Zaawansowane możliwości tworzenia realistycznych środowisk 3D.
+- Narzędzia do projektowania poziomów i pracy z dużymi scenami.
+- Możliwość programowania zaawansowanej logiki w C++.
+- Przydatność do nauki renderowania czasu rzeczywistego i optymalizacji.
+- Możliwość tworzenia rozbudowanych interaktywnych światów.
+
+Wady:
+
+- Stosunkowo wysoki próg wejścia dla początkujących.
+- Mniejszy ekosystem społeczności i materiałów edukacyjnych niż w przypadku Unreal Engine lub Unity.
+- Wydajne renderowanie złożonych scen wymaga odpowiedniego sprzętu i optymalizacji.
+- Niektóre starsze materiały edukacyjne mogą dotyczyć funkcji, które zmieniły się między wersjami.
+- Dostępność funkcji, platform docelowych i warunków licencyjnych należy sprawdzić dla konkretnej wersji silnika.
+
+## 8. Jak zacząć naukę CryEngine?
+
+Proponowana kolejność nauki:
+
+1. Poznaj podstawy grafiki 3D, wektorów, macierzy i współrzędnych przestrzennych.
+2. Zainstaluj odpowiednią wersję CryEngine i zapoznaj się z edytorem Sandbox.
+3. Stwórz prosty poziom z terenem, światłem, kamerą i obiektami.
+4. Naucz się tworzyć materiały i konfigurować oświetlenie.
+5. Poznaj podstawy C++, szczególnie klasy, funkcje, wskaźniki i zarządzanie zasobami.
+6. Dodaj postać gracza oraz podstawowe sterowanie.
+7. Zaimplementuj kolizje, interakcje i prostą logikę przeciwnika.
+8. Naucz się profilowania i optymalizacji wydajności.
+9. Zbuduj niewielki projekt demonstracyjny i udostępnij jego kod w GitHubie, jeśli pozwalają na to warunki licencyjne.
+
+Oficjalne informacje i materiały znajdziesz na stronie [CRYENGINE](https://www.cryengine.com/).
+
+## 9. Czy warto uczyć się CryEngine?
+
+CryEngine warto poznać, jeśli interesuje Cię tworzenie realistycznych gier 3D, grafika komputerowa, programowanie C++ lub technologia silników czasu rzeczywistego.
+
+Jeśli dopiero zaczynasz programowanie gier i zależy Ci na dużej liczbie kursów, tutoriali i przykładów, warto równolegle rozważyć Unreal Engine.
+
+Jeżeli natomiast chcesz rozwijać umiejętności C++, CryEngine może być ciekawym środowiskiem do poznawania architektury gier, fizyki, renderowania i optymalizacji.

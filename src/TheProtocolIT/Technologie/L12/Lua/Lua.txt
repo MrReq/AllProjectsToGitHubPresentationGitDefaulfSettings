@@ -1,0 +1,236 @@
+# Lua – język programowania
+
+## 1. Czym jest Lua?
+
+[\[View 37+\] Imagem De Lua Cheia Png](https://images.openai.com/static-rsc-4/VeBMssyPjD7Mc5LgO6Qe7mLB5xTfD_MZZYdLbtxJeMJqBTJE30hujzIxqpbuh0FqhhpIMl4SXAEuRm1kYOqO-PYpej-_egYCv2AiWpRfphNwUDqjcgIGJWNJWkqPIkuOGzOVBgnAZd34u6MkdKJ34kooUDLm21g7UbsPlLWpGqM?purpose=inline)
+
+[Lua. Background of the Programming Language | by JOSEMARIA LAYUG III | Medium](https://images.openai.com/static-rsc-4/gRMu59-pdSFOhied2Yr4j6RqO1tjSvQg5u4GNtjhhzLuey0fR5wqT9dGwG_6LmdoQsjA_Wu0GGH-96I0uW8KQofoHIEgf33ZjYMxjDb01NFM-cPSeHQT6L4pMCf1OUppqVdTVi-B4UyVSKF8nOXpKwTXnlglHntTXJ4GijmvWhQ?purpose=inline)
+
+[How can I store each line of a file in an array in Lua? - Programming - OpenComputers](https://images.openai.com/static-rsc-4/ctHnO-RS4Dh9Azk7YplHp8ecg8FL5q55jkiiDVihMP7y_Q_2GmYL7PNY1mHwFjn9ibHxLAG_76uLHRDrYQEOnB5tZn90zCsAGK69AAaAYn4_os23_wvKYAUXHEXV8ZtgNkBM-WKy9vbM4DMFtSKY_A1M7gxDHEbqXwhnQiUGLbA?purpose=inline)
+
+7
+
+Lua to lekki, szybki i elastyczny język programowania, który został zaprojektowany z myślą o łatwym osadzaniu w innych aplikacjach.
+
+Jego nazwa pochodzi z języka portugalskiego i oznacza „Księżyc”.
+
+Lua jest językiem skryptowym, który pozwala automatyzować działania, rozszerzać funkcjonalność programów oraz tworzyć logikę aplikacji.
+
+Język został opracowany w 1993 roku na Papieskim Uniwersytecie Katolickim w Rio de Janeiro w Brazylii.
+
+Lua jest znana z niewielkich wymagań dotyczących pamięci, prostej składni oraz łatwej integracji z językami takimi jak C i C++.
+
+## 2. Do czego wykorzystuje się Lua?
+
+[Blox Scribe | AI-Powered Roblox Development](https://images.openai.com/static-rsc-4/be5kgQmQiCL-1sfKpreYJhFkfFo5wMdpOa3UgJwRmlC_Jbjkhs2paxO-J7bBt0T_M5CRURtgkNWr02ZK-G2EnmKXF3PziN2Xlhk5lzDXEBZ23mQLL66OcEil1z_ycZkwjSIXn3watkP-Md59GrjeSYYXCyAuu37W5oAgmNg3lP0?purpose=inline)
+
+Tworzenie gier
+
+Lua służy do programowania mechanik gry, zachowania postaci, zdarzeń, interfejsów oraz systemów zadań.
+
+Jest wykorzystywana między innymi w silnikach i platformach takich jak Roblox oraz w niektórych projektach opartych na silnikach gier.
+
+[SARACA Solutions - Leading Engineering and Consulting Services](https://images.openai.com/static-rsc-4/eGyJSy9jfczNxMvtX_j1-08rkSFfGLIWCeZpwuO_aa1y9SgHhSOYLAg7Bx9str6ICe5j-HbXkQB0ibgrRDMYbD0kEJPuYbiE9ZGU31tfwFK1S2QoJ84fF7QPFmztdpBeWQOZMTeDO7XOM8y-RHkmxqIebdbwVrS-DiW7E2CJCPk?purpose=inline)
+
+Rozszerzanie aplikacji
+
+Programiści mogą osadzać interpreter Lua w aplikacji napisanej w C lub C++, aby umożliwić użytkownikom tworzenie własnych skryptów.
+
+[Nginx Web Server Setup — Hello World | by Miles Handelman | Medium](https://images.openai.com/static-rsc-4/iMIE4i6Mxiim0KS43gYxD_DygjK-KFPomQ4drrXPyEZCpHxcXhxa0NFXFAOIddoBD8Fo0SFKUAf8my6lUviPkhbU0vhx2msM1M_BUbhbmRvHdxtwzS-5Ml7FxPapItrLPmKLtO7llU1AvC6qXRaphneB7Yvo55-45nBuWgaGIBw?purpose=inline)
+
+Serwery i aplikacje internetowe
+
+Lua jest wykorzystywana między innymi w OpenResty, które rozszerza możliwości Nginx o wykonywanie kodu Lua.
+
+[Home | Software4u](https://images.openai.com/static-rsc-4/KwykvCOJGKUhSxg1ZU6rXvib1Tlrzbh49HdmJAx_k35OZG4euURw2qpkTV_7d0tWyfAU184lyUcahEIEYwK9BNtZjmtWBXTs2-P1niuTjSzPyH9sL1WUUyafD6R6C-WF9qwP7am6Tp639woNIzrmCDNGlgdTnZLqzIszR9PQqH0?purpose=inline)
+
+Automatyzacja i konfiguracja
+
+Lua może służyć do definiowania konfiguracji, automatyzowania zadań oraz tworzenia skryptów sterujących zachowaniem programów.
+
+## 3. Najważniejsze cechy Lua
+
+- Lekkość – interpreter Lua ma niewielkie wymagania sprzętowe.
+- Prosta składnia – język jest stosunkowo łatwy do opanowania dla początkujących.
+- Dynamiczne typowanie – typ zmiennej jest określany na podstawie przechowywanej wartości.
+- Automatyczne zarządzanie pamięcią – Lua wykorzystuje mechanizm garbage collection.
+- Wieloparadygmatowość – umożliwia programowanie proceduralne, funkcyjne oraz obiektowe realizowane za pomocą tabel i metatabel.
+- Integracja z C i C++ – może być osadzana w aplikacjach napisanych w tych językach.
+- Przenośność – działa na wielu systemach operacyjnych i platformach sprzętowych.
+- Niewielki zestaw podstawowych typów danych – między innymi `nil`, `boolean`, `number`, `string`, `function`, `table` i `userdata`.
+
+## 4. Jak wygląda kod w Lua?
+
+Poniższy przykład pokazuje prosty program wyświetlający komunikat.
+
+```
+print("Hello, World!")
+```
+
+Do tworzenia zmiennych można używać słowa kluczowego `local`.
+
+```
+local name = "Adam"
+local age = 25
+
+print(name)
+print(age)
+```
+
+Instrukcja warunkowa wygląda następująco:
+
+```
+local age = 20
+
+if age >= 18 then
+    print("Osoba pelnoletnia")
+else
+    print("Osoba niepelnoletnia")
+end
+```
+
+Pętla `for` umożliwia powtarzanie instrukcji określoną liczbę razy.
+
+```
+for i = 1, 5 do
+    print(i)
+end
+```
+
+Funkcje definiuje się za pomocą słowa kluczowego `function`.
+
+```
+local function add(a, b)
+    return a + b
+end
+
+print(add(10, 20))
+```
+
+W Lua bloki instrukcji zamyka się słowem `end`, a nie klamrami, jak w Javie czy C++.
+
+## 5. Typy danych w Lua
+
+| Typ        | Znaczenie                                                    |
+| ---------- | ------------------------------------------------------------ |
+| `nil`      | Brak wartości                                                |
+| `boolean`  | Wartość logiczna `true` lub `false`                          |
+| `number`   | Liczby                                                       |
+| `string`   | Tekst                                                        |
+| `function` | Funkcja                                                      |
+| `table`    | Struktura danych używana między innymi jako tablica lub mapa |
+| `userdata` | Dane zarządzane przez kod napisany w C                       |
+| `thread`   | Wątek korutyny używany do współpracy między fragmentami kodu |
+
+Szczególnie ważnym elementem Lua jest typ `table`.
+
+Tabele mogą pełnić funkcję tablic, słowników, rekordów, a także podstawy do implementowania obiektów.
+
+Przykład tabeli przechowującej dane użytkownika:
+
+```
+local user = {
+    name = "Adam",
+    age = 25,
+    active = true
+}
+
+print(user.name)
+print(user.age)
+```
+
+## 6. Programowanie obiektowe w Lua
+
+Lua nie posiada tradycyjnych klas takich jak Java, C# czy C++.
+
+Programowanie obiektowe można jednak realizować za pomocą tabel i metatabel.
+
+Metatabele pozwalają definiować specjalne zachowania obiektów, na przykład sposób odczytywania pól lub wywoływania operatorów.
+
+Przykład prostego obiektu:
+
+```
+local Person = {}
+Person.__index = Person
+
+function Person:new(name)
+    local object = {
+        name = name
+    }
+
+    setmetatable(object, Person)
+    return object
+end
+
+function Person:greet()
+    print("Czesc, " .. self.name)
+end
+
+local person = Person:new("Adam")
+person:greet()
+```
+
+W tym przykładzie tabela `Person` pełni rolę wzorca obiektu, a metoda `greet()` wyświetla powitanie.
+
+## 7. Najważniejsze narzędzia związane z Lua
+
+- Lua Interpreter – interpreter umożliwiający wykonywanie skryptów Lua.
+- LuaRocks – menedżer pakietów ułatwiający instalowanie bibliotek i modułów.
+- ZeroBrane Studio – środowisko programistyczne przeznaczone do pracy z Lua.
+- Visual Studio Code – edytor kodu, który można rozszerzyć o obsługę Lua.
+- IntelliJ IDEA – środowisko, w którym obsługę Lua można uzyskać za pomocą odpowiednich wtyczek.
+- OpenResty – platforma oparta na Nginx, umożliwiająca wykonywanie skryptów Lua w aplikacjach internetowych.
+
+## 8. Zalety Lua
+
+- Łatwy do przyswojenia język.
+- Niewielkie zużycie pamięci.
+- Dobra wydajność w zastosowaniach skryptowych.
+- Możliwość osadzania w większych aplikacjach.
+- Elastyczny system tabel i metatabel.
+- Przydatność w grach i systemach wbudowanych.
+- Dostępność bibliotek oraz narzędzi wspierających rozwój.
+
+## 9. Wady Lua
+
+- Mniejszy ekosystem niż w przypadku Pythona, JavaScriptu czy Javy.
+- Mniej standardowych rozwiązań dla dużych aplikacji biznesowych.
+- Dynamiczne typowanie może prowadzić do błędów wykrywanych dopiero podczas wykonywania programu.
+- Programowanie obiektowe wymaga zastosowania wzorców opartych na tabelach i metatabelach.
+- Popularność języka zależy w dużej mierze od konkretnej branży i platformy.
+
+## 10. Lua na tle innych języków
+
+| Język      | Główne zastosowanie                                 |
+| ---------- | --------------------------------------------------- |
+| Lua        | Skrypty, gry, rozszerzanie aplikacji                |
+| Python     | Automatyzacja, analiza danych, AI, backend          |
+| JavaScript | Aplikacje internetowe i środowisko Node.js          |
+| C          | Programowanie systemowe i niskopoziomowe            |
+| Java       | Aplikacje biznesowe, backend i systemy korporacyjne |
+
+Lua często uzupełnia aplikację napisaną w innym języku, zamiast całkowicie ją zastępować.
+
+## 11. Jak rozpocząć naukę Lua?
+
+Najlepiej zacząć od instalacji interpretera Lua i uruchamiania prostych skryptów z terminala.
+
+Następnie warto opanować zmienne, typy danych, instrukcje warunkowe, pętle i funkcje.
+
+Kolejnym krokiem powinno być poznanie tabel, metatabel, modułów oraz obsługi plików.
+
+Na końcu warto stworzyć mały projekt, na przykład prostą grę tekstową, system ekwipunku albo zestaw skryptów automatyzujących wybrane zadania.
+
+Materiały do nauki:
+
+- Lua – [oficjalna strona języka](https://www.lua.org/).
+- [oficjalna dokumentacja Lua 5.4](https://www.lua.org/manual/5.4/).
+- [LuaRocks – menedżer pakietów](https://luarocks.org/).
+
+## 12. Podsumowanie
+
+Lua to lekki i elastyczny język programowania, szczególnie przydatny do tworzenia skryptów oraz rozszerzania funkcjonalności innych programów.
+
+Jego największe atuty to prostota, małe wymagania i możliwość integracji z C oraz C++.
+
+Warto go poznać przede wszystkim wtedy, gdy interesujesz się tworzeniem gier, automatyzacją, programowaniem systemów wbudowanych lub skryptowaniem w istniejących aplikacjach.

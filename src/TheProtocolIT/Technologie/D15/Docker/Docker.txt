@@ -1,0 +1,251 @@
+# Docker
+
+## 1. Czym jest Docker?
+
+Docker to platforma służąca do tworzenia, pakowania, uruchamiania i wdrażania aplikacji w kontenerach.
+
+Kontenery pozwalają umieścić aplikację wraz z jej zależnościami, bibliotekami i konfiguracją w odizolowanym środowisku, dzięki czemu łatwiej uruchamiać ją na różnych komputerach i serwerach.
+
+Docker jest szeroko wykorzystywany w programowaniu, testowaniu oprogramowania, administracji systemami, DevOps i wdrażaniu aplikacji chmurowych.
+
+Przykładowo aplikację napisaną w Javie i bazę PostgreSQL można uruchomić w osobnych kontenerach, bez konieczności ręcznej instalacji wszystkich komponentów bezpośrednio w systemie operacyjnym.
+
+## 2. Do czego służy Docker?
+
+- Uruchamianie aplikacji w izolowanych kontenerach.
+- Przygotowywanie powtarzalnych środowisk programistycznych.
+- Uruchamianie baz danych, takich jak PostgreSQL, MySQL czy MongoDB.
+- Testowanie aplikacji w środowisku zbliżonym do produkcyjnego.
+- Pakowanie aplikacji i jej zależności w obrazy.
+- Automatyzacja procesów wdrażania oprogramowania.
+- Uruchamianie wielu usług jednocześnie za pomocą Docker Compose.
+- Wspieranie procesów CI/CD oraz pracy zespołowej.
+
+## 3. Najważniejsze elementy Dockera
+
+[Scalingo Docker Image](https://images.openai.com/static-rsc-4/Hx5zrIlEDZQn1kUAE3P1BIqEjPUVB60sHFTPPaLsNEDZk1eDAH4zgtpMkvzgi0ISYdmdv3eCAa7dMQhTc3-pvRmLRUIc9lWJNlsThnnBI9l-EUZvULIb8c4zCuOtP_nT582hjaVL1X88DlK9fpKrZHPucHAZGS8GzwQBLnC-wr4?purpose=inline)
+
+Docker Engine
+
+Silnik odpowiedzialny za budowanie i uruchamianie kontenerów oraz zarządzanie nimi.
+
+[Understanding Docker Image Layers: Optimizing Build Performance - DEV Community](https://images.openai.com/static-rsc-4/WhWSIUhezBh3JmIhqlFVAOlX-wtYgxius2dwCbtYLVy0wT8rK8eRecNXFeF8ydw7XQZZHmp-sSfaENZQLUZlW-P-B9Oct3qx8nwIjaj9m_N-K6xXbRx2T3YHHFOGcc87M5qOD34_-acp-eqfGQZrCXWjpZT3sYVNHk3aKbUV-DQ?purpose=inline)
+
+Image (obraz)
+
+Szablon zawierający system plików, aplikację i potrzebne zależności, na podstawie którego tworzy się kontenery.
+
+[Kubernetes and YAML: a DevOps primer - Styra](https://images.openai.com/static-rsc-4/Hv7AHhcT1xCDFwdXP3iGeiGBcsGR4dPJYhTD94cReXRaIQ_2KztIJZoMqzM2ORueTize5h1jrEmKtmQQdXcLA4R6y0HHuzGLYyBXLeLIfcrj3NselfbpS4FslNNXsYGMnxEhr4_hC0_tlPY6L9WJJxDtZ8SDn8S03rl_GwGSytc?purpose=inline)
+
+Container (kontener)
+
+Uruchomiona instancja obrazu, w której działa aplikacja lub usługa.
+
+[docker-composeでDjango開発環境を構築する](https://images.openai.com/static-rsc-4/nGl0GqGJVlSlR26C9ZZRaI3gl6g0cF8a3qxQPEWCiEEXoP-l7tai87YFq4hRbxioHdVovsSJ9vnYJd89HuD7m0DakmSPoFiQ2IC3tnXc2j_04YU6MGsBjTcyQtwx4ILbDa27OvW_zMHggUi8DcrsyRYXOC2o5WUmhWZi7OX72hw?purpose=inline)
+
+Docker Compose
+
+Narzędzie umożliwiające definiowanie i uruchamianie wielu współpracujących usług za pomocą pliku YAML.
+
+Pozostałe ważne elementy to:
+
+- Dockerfile – plik zawierający instrukcje budowania obrazu.
+- Docker Hub – popularny rejestr obrazów kontenerowych.
+- Volumes – mechanizm przechowywania danych niezależnie od cyklu życia kontenera.
+- Networks – mechanizm komunikacji między kontenerami.
+- Docker Desktop – aplikacja ułatwiająca korzystanie z Dockera na Windows i macOS oraz udostępniająca graficzny interfejs zarządzania.
+
+## 4. Jak działa Docker?
+
+Dockerfile
+
+Instrukcje budowania obrazu
+
+Docker Image
+
+Gotowy szablon aplikacji i zależności
+
+Kontenery
+
+Uruchomione aplikacje i usługi
+
+Backend
+
+Spring Boot
+
+Baza danych
+
+PostgreSQL
+
+Programista przygotowuje obraz aplikacji, a następnie uruchamia z niego kontener.
+
+Docker izoluje procesy i system plików kontenera, korzystając z mechanizmów systemu operacyjnego. Kontenery współdzielą jądro systemu, dlatego zazwyczaj są lżejsze od pełnych maszyn wirtualnych.
+
+## 5. Najważniejsze polecenia Dockera
+
+Sprawdzanie wersji:
+
+```
+docker --version
+docker compose version
+```
+
+Pobieranie obrazu PostgreSQL:
+
+```
+docker pull postgres:17
+```
+
+Uruchamianie kontenera:
+
+```
+docker run -d \
+  --name postgres-db \
+  -e POSTGRES_PASSWORD=change_me \
+  -e POSTGRES_DB=appdb \
+  -p 5432:5432 \
+  postgres:17
+```
+
+To przykładowa konfiguracja lokalna. W prawdziwym środowisku należy stosować odpowiednie zarządzanie hasłami i ograniczyć dostęp do bazy.
+
+Wyświetlanie uruchomionych kontenerów:
+
+```
+docker ps
+```
+
+Wyświetlanie wszystkich kontenerów:
+
+```
+docker ps -a
+```
+
+Wyświetlanie logów:
+
+```
+docker logs postgres-db
+```
+
+Zatrzymywanie kontenera:
+
+```
+docker stop postgres-db
+```
+
+Usuwanie kontenera:
+
+```
+docker rm postgres-db
+```
+
+Usunięcie kontenera nie oznacza automatycznie usunięcia wszystkich danych przechowywanych w osobnym wolumenie.
+
+## 6. Docker Compose
+
+Docker Compose umożliwia uruchomienie kilku usług jako jednego środowiska.
+
+Przykładowy plik `compose.yaml` dla aplikacji korzystającej z PostgreSQL:
+
+```
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+```
+
+Uruchomienie środowiska:
+
+```
+docker compose up -d
+```
+
+Wyświetlenie logów:
+
+```
+docker compose logs -f
+```
+
+Zatrzymanie usług:
+
+```
+docker compose down
+```
+
+W tym przykładzie wolumen `postgres_data` pozwala zachować dane bazy po zatrzymaniu i usunięciu kontenera, dopóki sam wolumen nie zostanie usunięty.
+
+Ważne: hasło `change_me` jest przykładowe i nie powinno być używane jako rzeczywiste hasło produkcyjne.
+
+## 7. Docker a maszyny wirtualne
+
+| Cecha             | Docker                                         | Maszyna wirtualna                                              |
+| ----------------- | ---------------------------------------------- | -------------------------------------------------------------- |
+| Izolacja          | Na poziomie procesów i zasobów systemu         | Na poziomie całego systemu operacyjnego                        |
+| System operacyjny | Współdzielone jądro hosta lub środowiska Linux | Zwykle własny system gościa                                    |
+| Zużycie zasobów   | Zazwyczaj mniejsze                             | Zazwyczaj większe                                              |
+| Uruchamianie      | Zwykle szybkie                                 | Zwykle wolniejsze                                              |
+| Zastosowanie      | Aplikacje i mikroserwisy                       | Całe systemy operacyjne i środowiska wymagające własnego jądra |
+
+Docker i maszyny wirtualne nie wykluczają się. Docker może działać wewnątrz maszyny wirtualnej, a Docker Desktop na Windows korzysta zazwyczaj z lekkiego środowiska Linux.
+
+## 8. Zalety i wady Dockera
+
+Zalety:
+
+- Powtarzalne środowiska programistyczne.
+- Łatwiejsze wdrażanie aplikacji.
+- Izolacja poszczególnych usług.
+- Szybkie uruchamianie baz danych i narzędzi testowych.
+- Wygodna współpraca z CI/CD.
+- Możliwość uruchamiania wielu wersji środowisk bez instalowania każdej bezpośrednio w systemie.
+
+Wady:
+
+- Wymaga nauki obrazów, kontenerów, sieci i wolumenów.
+- Błędna konfiguracja może powodować problemy z dostępem do usług lub utratę danych.
+- Kontenery wymagają odpowiedniej konfiguracji bezpieczeństwa.
+- Zarządzanie rozbudowanymi środowiskami może wymagać dodatkowych narzędzi, takich jak Kubernetes.
+
+## 9. Docker na rynku pracy
+
+Docker jest jedną z ważnych technologii w nowoczesnym wytwarzaniu oprogramowania.
+
+Jego znajomość przydaje się na stanowiskach takich jak:
+
+- Backend Developer.
+- DevOps Engineer.
+- Software Developer.
+- QA Automation Engineer.
+- Cloud Engineer.
+- Site Reliability Engineer (SRE).
+
+Warto łączyć Dockera z Git, Linuxem, CI/CD, REST API, bazami danych i narzędziami do monitorowania aplikacji.
+
+## 10. Jak zacząć naukę Dockera?
+
+Najlepiej rozpocząć od instalacji Docker Desktop na Windows i poznania różnicy między obrazem a kontenerem.
+
+Następnie warto nauczyć się tworzyć pliki Dockerfile, budować własne obrazy, mapować porty, zarządzać wolumenami i analizować logi.
+
+Kolejnym krokiem może być konteneryzacja aplikacji Java Spring Boot oraz bazy PostgreSQL za pomocą Docker Compose.
+
+To szczególnie przydatne w backendzie, ponieważ pozwala uruchamiać aplikację i bazę w powtarzalnym środowisku bez ręcznej konfiguracji każdej usługi.
+
+Materiały do nauki:
+
+- [Oficjalna strona Docker](https://www.docker.com/)
+- [Dokumentacja Docker](https://docs.docker.com/)
+- [Docker Get Started – kurs dla początkujących](https://docs.docker.com/get-started/)
+- [Docker Hub – rejestr obrazów](https://hub.docker.com/)
+
+Podsumowanie: Docker to podstawowa technologia do pakowania i uruchamiania aplikacji w kontenerach. W połączeniu z Docker Compose pozwala łatwo uruchamiać całe środowiska składające się z backendu, bazy danych i innych usług, dlatego warto go poznać podczas nauki Javy, Spring Boot i DevOps.

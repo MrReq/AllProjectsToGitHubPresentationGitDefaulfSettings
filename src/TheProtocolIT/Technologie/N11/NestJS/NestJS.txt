@@ -1,0 +1,294 @@
+# NestJS – kompleksowa notatka
+
+## 1. Czym jest NestJS?
+
+[Khám phá NestJS là gì? Framework Node.js cho ứng dụng web và API](https://images.openai.com/static-rsc-4/ve-HTnVrbdRe2ltMKnHPKMojFdwGDVIhnA-LHZM43cfM0ktBptD2zI3RqsQ8CxGfOw7-VVeTNRPMWr8ALPRNRqV-qM_6LjN34OOC6PO4xg9wFh6oq5MXKsce0VH0WQzmtXIKwDR8pjX00SirUZI-PQtkods87DWpeHIIiMR64TE?purpose=inline)
+
+[Introduction to NestJS. Hi everyone, today i will be writing… | by Kurniawan Cristianto | Medium](https://images.openai.com/static-rsc-4/-64SBtfwKlWc-Ro7loweGDwld5FRuByIjXw5Ceu8l9in4Q7oWVdlTPpkku-MFGPWI53QmMBG_wj9G2P5FBMn9apC-Ju0dFwVvp2anjEccw7YD2uEl1jTZcFqGfVb7j2sOWUaleGKa9lRzGBEif4CEnvwKATxOPOueLihK2T4NSc?purpose=inline)
+
+[Modules, Controllers et Services : Maîtriser NestJS Facilement — jpsymfony](https://images.openai.com/static-rsc-4/aY4PedHFEKlgL6Pwgi0yflseC1hEv-vDOSykd76FHSLq8KPEP00x3ryYQ-NtYnOqbmymA1XpiHWGBxEz6pievjP8WrWmY33-3XpDyVJL2SshFKro_kqNADA6dcYbyJertrt-Fpf3zlRQciv8y3rLiyDabCJ7Z7WOXUaS_4T2MPs?purpose=inline)
+
+8
+
+NestJS to framework służący do tworzenia aplikacji backendowych w JavaScripcie i TypeScripcie, przede wszystkim aplikacji serwerowych oraz interfejsów API.
+
+Wykorzystuje TypeScript, programowanie obiektowe i architekturę inspirowaną między innymi frameworkiem Angular.
+
+NestJS działa najczęściej na platformie Node.js i domyślnie wykorzystuje Express jako silnik HTTP, choć może również korzystać z Fastify.
+
+Framework pomaga budować uporządkowane, modularne i łatwe w utrzymaniu aplikacje, zarówno niewielkie REST API, jak i duże systemy biznesowe oraz mikroserwisy.
+
+## 2. Do czego służy NestJS?
+
+NestJS jest wykorzystywany przede wszystkim do tworzenia logiki serwerowej aplikacji internetowych.
+
+Pozwala obsługiwać żądania HTTP, przetwarzać dane, komunikować się z bazami danych, zarządzać uwierzytelnianiem użytkowników oraz integrować różne usługi.
+
+Najważniejsze zastosowania NestJS to:
+
+- Tworzenie REST API.
+- Budowanie aplikacji backendowych.
+- Tworzenie aplikacji wykorzystujących GraphQL.
+- Budowanie mikroserwisów.
+- Obsługa uwierzytelniania i autoryzacji.
+- Integracja z bazami danych, takimi jak PostgreSQL, MySQL i MongoDB.
+- Obsługa komunikacji przez WebSocket.
+- Tworzenie aplikacji wykorzystujących kolejki wiadomości.
+- Budowanie systemów biznesowych oraz aplikacji SaaS.
+
+Przykładowo można wykorzystać NestJS do stworzenia backendu sklepu internetowego, który obsługuje użytkowników, produkty, zamówienia i płatności.
+
+## 3. Jak działa NestJS?
+
+NestJS opiera się na modularnej architekturze, w której aplikacja jest podzielona na mniejsze elementy odpowiedzialne za konkretne zadania.
+
+Najważniejsze elementy frameworka to moduły, kontrolery i serwisy.
+
+Klient HTTP
+
+Przeglądarka, aplikacja mobilna lub inny system
+
+Controller
+
+Odbiera żądanie i wybiera odpowiednią operację
+
+Service / Provider
+
+Realizuje logikę biznesową
+
+Repository / baza danych
+
+Odczyt i zapis danych
+
+Kontroler odpowiada za obsługę określonych adresów i metod HTTP.
+
+Serwis zawiera logikę biznesową, na przykład obliczanie ceny zamówienia albo sprawdzanie uprawnień użytkownika.
+
+Repozytorium, jeśli zostało zastosowane, odpowiada za dostęp do danych.
+
+Moduł grupuje powiązane elementy i określa, które komponenty są dostępne w danej części aplikacji.
+
+Taki podział ułatwia testowanie, rozwijanie i utrzymywanie kodu.
+
+## 4. Najważniejsze elementy NestJS
+
+Module to jednostka organizacyjna aplikacji, która grupuje kontrolery, dostawców usług i zależności.
+
+Controller odpowiada za obsługę żądań HTTP i zwracanie odpowiedzi.
+
+Service to klasa zawierająca logikę biznesową aplikacji.
+
+Provider to ogólne pojęcie obejmujące obiekty zarządzane przez mechanizm Dependency Injection, między innymi serwisy.
+
+Dependency Injection (DI) to mechanizm automatycznego dostarczania klasom wymaganych zależności.
+
+Middleware to funkcja wykonywana podczas przetwarzania żądania, przed przekazaniem go do właściwego handlera.
+
+Guard decyduje, czy dane żądanie może zostać obsłużone, na przykład na podstawie roli użytkownika.
+
+Pipe służy między innymi do walidacji i przekształcania danych wejściowych.
+
+Interceptor umożliwia wykonywanie działań przed i po obsłudze metody, na przykład transformację odpowiedzi lub pomiar czasu wykonania.
+
+Exception Filter pozwala obsługiwać wyjątki i kontrolować sposób zwracania błędów.
+
+## 5. TypeScript w NestJS
+
+NestJS wykorzystuje TypeScript, czyli nadzbiór JavaScriptu wprowadzający między innymi typy statyczne, interfejsy i rozbudowane możliwości programowania obiektowego.
+
+Dzięki temu łatwiej określić strukturę danych, wykrywać część błędów podczas kompilacji i utrzymywać większe projekty.
+
+Przykładowa klasa w TypeScript:
+
+```
+export class User {
+  constructor(
+    public id: number,
+    public name: string,
+    public email: string,
+  ) {}
+}
+```
+
+Klasa `User` reprezentuje użytkownika posiadającego identyfikator, imię i adres e-mail.
+
+Warto pamiętać, że typy TypeScript są zasadniczo sprawdzane podczas kompilacji i same w sobie nie zapewniają walidacji danych otrzymanych w żądaniu HTTP w czasie działania programu.
+
+## 6. Przykład tworzenia API w NestJS
+
+Poniższy przykład pokazuje uproszczone API zarządzające użytkownikami.
+
+### Krok 1. Instalacja NestJS
+
+Do utworzenia projektu można wykorzystać Nest CLI.
+
+```
+npm install -g @nestjs/cli
+nest new my-api
+cd my-api
+npm run start:dev
+```
+
+Polecenie `nest new` tworzy szkielet aplikacji, a `npm run start:dev` uruchamia ją w trybie deweloperskim.
+
+### Krok 2. Utworzenie modułu użytkowników
+
+```
+nest generate module users
+nest generate controller users
+nest generate service users
+```
+
+Polecenia generują moduł, kontroler i serwis odpowiedzialne za funkcjonalność użytkowników.
+
+### Krok 3. Utworzenie serwisu
+
+```
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class UsersService {
+  private users = [
+    { id: 1, name: 'Anna' },
+    { id: 2, name: 'Piotr' },
+  ];
+
+  findAll() {
+    return this.users;
+  }
+}
+```
+
+Dekorator `@Injectable()` oznacza klasę jako możliwą do zarządzania przez mechanizm wstrzykiwania zależności NestJS.
+
+Metoda `findAll()` zwraca listę użytkowników przechowywanych w pamięci.
+
+### Krok 4. Utworzenie kontrolera
+
+```
+import { Controller, Get } from '@nestjs/common';
+import { UsersService } from './users.service';
+
+@Controller('users')
+export class UsersController {
+  constructor(
+    private readonly usersService: UsersService,
+  ) {}
+
+  @Get()
+  findAll() {
+    return this.usersService.findAll();
+  }
+}
+```
+
+Dekorator `@Controller('users')` określa ścieżkę kontrolera.
+
+Dekorator `@Get()` oznacza metodę obsługującą żądania HTTP GET.
+
+Po uruchomieniu aplikacji żądanie `GET /users` zwróci listę użytkowników w formacie JSON.
+
+Przedstawiony przykład przechowuje dane w pamięci, dlatego nie jest kompletnym systemem produkcyjnym.
+
+## 7. Bazy danych i NestJS
+
+NestJS nie wymaga korzystania z konkretnej bazy danych.
+
+Można zintegrować go z wieloma rozwiązaniami, w zależności od potrzeb projektu.
+
+| Technologia | Zastosowanie                                      |
+| ----------- | ------------------------------------------------- |
+| PostgreSQL  | Relacyjna baza danych do aplikacji biznesowych    |
+| MySQL       | Relacyjna baza danych dla aplikacji internetowych |
+| MongoDB     | Dokumentowa baza danych NoSQL                     |
+| Prisma      | ORM i narzędzia dostępu do danych                 |
+| TypeORM     | ORM obsługujący encje i relacje                   |
+| MikroORM    | ORM zorientowany obiektowo                        |
+
+W aplikacji wykorzystującej PostgreSQL można użyć Prisma lub TypeORM, aby uprościć wykonywanie operacji na danych.
+
+W większych projektach warto oddzielić logikę biznesową od szczegółów dostępu do bazy danych.
+
+## 8. NestJS a mikroserwisy
+
+NestJS oferuje mechanizmy pozwalające budować systemy składające się z wielu niezależnych usług.
+
+Poszczególne mikroserwisy mogą komunikować się za pomocą różnych transportów, między innymi TCP, Redis, MQTT, gRPC oraz systemów opartych na Kafka czy RabbitMQ, zależnie od konfiguracji i użytych pakietów.
+
+Przykładowy system sklepu internetowego może składać się z następujących usług:
+
+- `Users Service` – zarządzanie użytkownikami.
+- `Products Service` – obsługa produktów.
+- `Orders Service` – zarządzanie zamówieniami.
+- `Payments Service` – obsługa płatności.
+- `Notifications Service` – wysyłanie powiadomień.
+
+Takie podejście może ułatwić niezależne rozwijanie i skalowanie poszczególnych części systemu, ale zwiększa też złożoność wdrożenia, komunikacji i monitorowania.
+
+## 9. NestJS a inne frameworki backendowe
+
+[Clean Architecture and Folder Structure — Nest JS | by Ankitdetroja | Medium](https://images.openai.com/static-rsc-4/yoiZoRNRTHKxgVp-UA5avt2ZXqz87L_Upc3gtbzFMFhtRUljwPkIUrkpz0P5rTBnkFnQSTM2ycl5tKynRg7HsqqnQUIqsvRqFDX_f9tjmZKUQ9uouIsD4T2_IqBPGlSHX_c-HRes9dBnbNoJrmuLMHc7fAhD0o8voF9d-jCWSR4?purpose=inline)
+
+NestJS
+
+Framework dla Node.js wykorzystujący TypeScript, moduły, kontrolery, serwisy i wstrzykiwanie zależności.
+
+[Search results | RTB](https://images.openai.com/static-rsc-4/H-Oqz07bs9gfs7V3_RO6TqvsO-2dtLkgtJmdqUTdQhDnRllJuLsI_KgP-VnE9fJwlLTPZYd3PTRiBbNN8AYEPPMQbzCkSzHt1stW02hproB_mmZQ7GPIKx-tqE0-AbBErp93iodlAzddE7AvRYi3Pay1fMfQILmICRzcSF0Rc5g?purpose=inline)
+
+Express.js
+
+Minimalistyczny framework HTTP dla Node.js, zapewniający dużą swobodę w projektowaniu architektury.
+
+[Fastify Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/P_eNOOrzTBu7GVCyRISNC8y7virkrC7v1UwJz0MN_cOMUUUWbfDEKcpqBwXFv_okHXYTUwMDVUBGsU0E-Z6RwreNFIM3jn4Mv8BQkfmkpn8c3ygprgSZY1VNsxCd-D5ETUy82_y5j9dNN-58_3B2D3k7WPhRhJd37_TpemaL-2s?purpose=inline)
+
+Fastify
+
+Framework HTTP skupiający się na wydajności i walidacji danych; może również stanowić platformę HTTP dla NestJS.
+
+[Software Engineering Services and Solutions - CBTW | Collaboration Betters The World](https://images.openai.com/static-rsc-4/cXA39bJxPPtsxI2aHzY_geVIbCWxDG1ViuYywWky1iwmuY_8rmDdgQckDBwK2BM6rdTCttS4O5UIdxDLIjT1W7ILjU0MEYXG2pJwq-L32xWXTkAZJJON0nQsBoSgUHTMBLoRATgsbgrYbW0UHvTF675JIMCQMAvpwyaemJkuqe4?purpose=inline)
+
+Spring Boot
+
+Framework ekosystemu Java wykorzystywany do budowy aplikacji backendowych, REST API i mikroserwisów.
+
+NestJS jest dobrym wyborem, gdy chcesz tworzyć backend w TypeScripcie i zależy Ci na jasno określonej architekturze.
+
+Express.js jest bardziej minimalistyczny i pozostawia programiście więcej decyzji dotyczących organizacji kodu.
+
+Spring Boot pełni podobną rolę w ekosystemie Javy, ale wykorzystuje inne narzędzia i mechanizmy językowe.
+
+## 10. Zalety NestJS
+
+- Wykorzystuje TypeScript i wspiera programowanie obiektowe.
+- Zapewnia modularną architekturę aplikacji.
+- Oferuje wbudowany mechanizm Dependency Injection.
+- Ułatwia tworzenie i testowanie REST API.
+- Obsługuje GraphQL, WebSockety i mikroserwisy.
+- Integruje się z popularnymi bazami danych.
+- Ułatwia organizowanie dużych projektów backendowych.
+- Oferuje narzędzia do walidacji, obsługi błędów i uwierzytelniania.
+
+## 11. Wady NestJS
+
+- Wymaga poznania TypeScriptu oraz architektury frameworka.
+- Ma większy narzut konfiguracyjny niż minimalistyczne rozwiązania.
+- W małych projektach część mechanizmów może być niepotrzebna.
+- Wymaga zrozumienia Dependency Injection, modułów i dekoratorów.
+- Sam framework nie rozwiązuje automatycznie problemów bezpieczeństwa, wydajności ani poprawnego projektowania bazy danych.
+
+## 12. Najważniejsze pojęcia do zapamiętania
+
+- NestJS – framework backendowy dla Node.js.
+- TypeScript – język rozszerzający JavaScript o system typów.
+- Node.js – środowisko uruchomieniowe JavaScriptu poza przeglądarką.
+- Module – jednostka organizacyjna aplikacji.
+- Controller – element obsługujący żądania HTTP.
+- Service – element realizujący logikę biznesową.
+- Provider – obiekt zarządzany przez mechanizm Dependency Injection.
+- Dependency Injection – mechanizm dostarczania zależności.
+- Decorator – konstrukcja oznaczająca klasy, metody lub parametry dodatkowymi informacjami.
+- REST API – interfejs umożliwiający komunikację między aplikacjami przez HTTP.
+- Microservices – architektura oparta na współpracujących, niezależnych usługach.
+- Prisma / TypeORM – narzędzia ułatwiające dostęp do baz danych.
+
+Podsumowanie: NestJS to framework backendowy oparty na Node.js i TypeScripcie, który pomaga budować uporządkowane, skalowalne aplikacje serwerowe. Jego najważniejsze cechy to modularna architektura, kontrolery, serwisy, Dependency Injection oraz obsługa REST API i mikroserwisów. Jest szczególnie przydatny przy tworzeniu większych aplikacji internetowych, w których istotne są czytelna struktura kodu, testowalność i możliwość dalszego rozwoju.

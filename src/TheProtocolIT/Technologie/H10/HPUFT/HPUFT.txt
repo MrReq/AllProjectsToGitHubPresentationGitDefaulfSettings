@@ -1,0 +1,851 @@
+# HPUFT
+
+## 1. Czym jest HPUFT
+
+HP UFT, obecnie znany jako **OpenText UFT One**, to narzędzie do automatyzacji testów oprogramowania.
+
+UFT oznacza **Unified Functional Testing**.
+
+Narzędzie służy przede wszystkim do automatyzacji testów funkcjonalnych i regresyjnych.
+
+UFT pozwala tworzyć testy, które automatycznie wykonują czynności użytkownika w aplikacji.
+
+Może między innymi otwierać aplikacje, klikać przyciski, wpisywać dane, sprawdzać wyniki oraz generować raporty.
+
+## 2. Historia HPUFT
+
+Narzędzie było pierwotnie rozwijane przez firmę HP.
+
+Wcześniej było znane jako **HP Unified Functional Testing**.
+
+Po przejęciu części biznesu Micro Focus produkt był rozwijany jako **Micro Focus UFT One**.
+
+Obecnie rozwiązanie jest rozwijane w ramach firmy **OpenText**.
+
+Nazwa **UFT One** jest obecnie używana dla tego produktu.
+
+## 3. Do czego służy UFT
+
+UFT służy do automatyzacji testów aplikacji.
+
+Może być wykorzystywany do testowania:
+
+```text
+aplikacji webowych
+aplikacji desktopowych
+aplikacji mobilnych
+API
+aplikacji biznesowych
+```
+
+Można za jego pomocą automatyzować powtarzalne scenariusze testowe.
+
+## 4. Testy funkcjonalne
+
+Test funkcjonalny sprawdza, czy aplikacja działa zgodnie z wymaganiami.
+
+Przykładowo dla formularza logowania możemy sprawdzić:
+
+```text
+1. Otwórz stronę logowania.
+2. Wpisz login.
+3. Wpisz hasło.
+4. Kliknij Login.
+5. Sprawdź, czy użytkownik został zalogowany.
+```
+
+UFT może wykonać wszystkie te czynności automatycznie.
+
+## 5. Testy regresyjne
+
+Testy regresyjne sprawdzają, czy nowe zmiany w aplikacji nie zepsuły wcześniej działających funkcji.
+
+Przykładowo aplikacja może otrzymać nową funkcję płatności.
+
+Po zmianie można uruchomić automatyczny zestaw testów:
+
+```text
+Logowanie
+Rejestracja
+Koszyk
+Płatność
+Zamówienia
+Wylogowanie
+```
+
+UFT może automatycznie wykonać cały zestaw.
+
+## 6. Testy automatyczne
+
+UFT pozwala zastąpić ręczne wykonywanie powtarzalnych czynności automatyzacją.
+
+Zamiast tester wykonywać:
+
+```text
+kliknięcie
+wpisanie danych
+kliknięcie
+sprawdzenie wyniku
+```
+
+test może wykonać te czynności automatycznie.
+
+Pozwala to oszczędzać czas podczas wielokrotnego wykonywania tych samych scenariuszy.
+
+## 7. UFT i GUI
+
+Jednym z głównych zastosowań UFT jest automatyzacja interfejsu użytkownika.
+
+UFT może identyfikować elementy takie jak:
+
+```text
+Button
+TextBox
+CheckBox
+RadioButton
+ComboBox
+Link
+Table
+Window
+```
+
+Następnie może wykonywać na nich operacje.
+
+## 8. Object Identification
+
+UFT musi wiedzieć, który element aplikacji ma zostać użyty.
+
+Do tego służy mechanizm identyfikacji obiektów.
+
+Przykładowo przycisk może posiadać właściwości:
+
+```text
+name = Login
+text = Login
+type = button
+```
+
+UFT wykorzystuje właściwości obiektu do odnalezienia odpowiedniego elementu.
+
+## 9. Object Repository
+
+Object Repository przechowuje informacje o obiektach wykorzystywanych przez testy.
+
+Może zawierać między innymi:
+
+```text
+Browser
+Page
+Button
+Input
+Table
+Link
+```
+
+Dla każdego obiektu przechowywane są jego właściwości.
+
+Przykładowo:
+
+```text
+LoginButton
+    class = WebButton
+    name = Login
+```
+
+Test może następnie odwołać się do tego obiektu.
+
+## 10. Spy
+
+UFT posiada narzędzia umożliwiające analizowanie elementów aplikacji.
+
+Jednym z nich jest **Object Spy**.
+
+Object Spy pozwala wskazać element aplikacji i zobaczyć jego właściwości.
+
+Jest to bardzo przydatne podczas tworzenia testów.
+
+Tester może sprawdzić:
+
+```text
+nazwę
+typ
+identyfikator
+właściwości
+hierarchię
+```
+
+danego obiektu.
+
+## 11. Record and Run
+
+UFT posiada możliwość nagrywania działań użytkownika.
+
+Mechanizm Record and Run może rejestrować wykonywane czynności.
+
+Przykładowo:
+
+```text
+Uruchom przeglądarkę
+↓
+Otwórz stronę
+↓
+Kliknij Login
+↓
+Wpisz użytkownika
+↓
+Wpisz hasło
+↓
+Kliknij Submit
+```
+
+UFT może na tej podstawie utworzyć kroki automatycznego testu.
+
+## 12. Ważne zastrzeżenie dotyczące Record and Run
+
+Record and Run jest dobrym sposobem na rozpoczęcie nauki UFT.
+
+Nie powinien jednak być jedyną metodą tworzenia profesjonalnych testów.
+
+Automatycznie nagrany test może być trudny w utrzymaniu.
+
+W profesjonalnych projektach testy często są projektowane i organizowane ręcznie.
+
+## 13. VBScript
+
+UFT tradycyjnie wykorzystuje **VBScript** do tworzenia automatyzacji.
+
+Przykład może wyglądać tak:
+
+```vbscript
+Browser("Google").Page("Google").WebEdit("q").Set "OpenText"
+```
+
+Następnie możemy wykonać:
+
+```vbscript
+Browser("Google").Page("Google").WebButton("Search").Click
+```
+
+Kod steruje elementami aplikacji.
+
+## 14. Checkpoints
+
+Checkpoint jest mechanizmem służącym do sprawdzania oczekiwanego rezultatu.
+
+Przykładowo test może sprawdzić, czy po zalogowaniu pojawił się tekst:
+
+```text
+Welcome, User
+```
+
+Jeżeli tekst istnieje, test może zostać uznany za zakończony sukcesem.
+
+Jeżeli tekstu nie ma, test może zakończyć się niepowodzeniem.
+
+## 15. Rodzaje Checkpoints
+
+UFT obsługuje różne rodzaje checkpointów.
+
+Możemy spotkać między innymi:
+
+```text
+Standard Checkpoint
+Text Checkpoint
+Bitmap Checkpoint
+Table Checkpoint
+Database Checkpoint
+XML Checkpoint
+```
+
+Każdy z nich służy do sprawdzania innego rodzaju danych.
+
+## 16. Standard Checkpoint
+
+Standard Checkpoint pozwala sprawdzać właściwości obiektów.
+
+Przykładowo możemy sprawdzić:
+
+```text
+Enabled = True
+Visible = True
+Text = "Login"
+```
+
+Jeżeli właściwości różnią się od oczekiwanych, test może zakończyć się błędem.
+
+## 17. Text Checkpoint
+
+Text Checkpoint pozwala sprawdzać obecność określonego tekstu.
+
+Przykładowo:
+
+```text
+"Login successful"
+```
+
+Test może sprawdzić, czy taki tekst pojawił się na stronie.
+
+## 18. Bitmap Checkpoint
+
+Bitmap Checkpoint służy do porównywania elementów graficznych.
+
+Można sprawdzić, czy określony fragment interfejsu wygląda zgodnie z oczekiwaniami.
+
+Jest to forma testowania wizualnego.
+
+## 19. Database Checkpoint
+
+Database Checkpoint umożliwia sprawdzanie danych znajdujących się w bazie danych.
+
+Przykładowy scenariusz:
+
+```text
+Utwórz użytkownika
+       ↓
+Aplikacja zapisuje dane
+       ↓
+Sprawdź bazę danych
+       ↓
+Czy użytkownik istnieje?
+```
+
+Pozwala to testować nie tylko interfejs, ale również rezultat operacji w bazie.
+
+## 20. Parameterization
+
+Parametryzacja pozwala wykonywać ten sam test z różnymi wartościami.
+
+Zamiast:
+
+```text
+login = user1
+```
+
+możemy używać:
+
+```text
+login = user1
+login = user2
+login = user3
+login = user4
+```
+
+Ten sam scenariusz testowy może więc zostać wykonany wiele razy.
+
+## 21. Data Table
+
+UFT posiada mechanizm Data Table.
+
+Data Table pozwala przechowywać dane wykorzystywane podczas wykonywania testów.
+
+Przykładowo:
+
+| Username | Password |
+|---|---|
+| user1 | pass1 |
+| user2 | pass2 |
+| user3 | pass3 |
+
+Test może przechodzić przez kolejne wiersze tabeli.
+
+## 22. Descriptive Programming
+
+Descriptive Programming pozwala identyfikować obiekty bez konieczności korzystania z Object Repository.
+
+Przykład:
+
+```vbscript
+Browser("micclass:=Browser").Page("micclass:=Page").WebEdit("name:=username").Set "admin"
+```
+
+Właściwości obiektu są definiowane bezpośrednio w kodzie.
+
+Może to być przydatne w dużych lub dynamicznych aplikacjach.
+
+## 23. Keyword-Driven Testing
+
+UFT wspiera podejście Keyword-Driven Testing.
+
+Test może być przedstawiony jako zestaw operacji:
+
+```text
+Open Browser
+Enter Username
+Enter Password
+Click Login
+Verify Dashboard
+Logout
+```
+
+Każda operacja może odpowiadać konkretnej implementacji automatyzacji.
+
+Takie podejście może ułatwić tworzenie testów przez osoby, które nie są zaawansowanymi programistami.
+
+## 24. Data-Driven Testing
+
+Data-Driven Testing polega na wykonywaniu tego samego scenariusza z różnymi danymi.
+
+Przykładowo:
+
+```text
+Test Login
+│
+├── user1 / password1
+├── user2 / password2
+├── user3 / password3
+└── user4 / password4
+```
+
+Jest to bardzo przydatne podczas testowania wielu przypadków.
+
+## 25. API Testing
+
+UFT może również być wykorzystywany do automatyzacji testów API.
+
+Można testować między innymi:
+
+```text
+REST API
+SOAP API
+HTTP requests
+response
+status codes
+headers
+data
+```
+
+Przykładowo test może wysłać:
+
+```http
+POST /api/login
+```
+
+a następnie sprawdzić:
+
+```text
+HTTP 200
+token
+username
+response body
+```
+
+## 26. Testowanie REST API
+
+Przykładowy scenariusz:
+
+```text
+POST /api/users
+       ↓
+HTTP 201
+       ↓
+Sprawdź response body
+       ↓
+GET /api/users/{id}
+       ↓
+Sprawdź dane użytkownika
+```
+
+UFT może automatyzować cały przepływ.
+
+## 27. Web Testing
+
+UFT może być wykorzystywany do testowania aplikacji webowych.
+
+Może automatyzować działania w przeglądarce.
+
+Może pracować z elementami HTML.
+
+Może sprawdzać formularze.
+
+Może wykonywać kliknięcia.
+
+Może wprowadzać dane.
+
+Może sprawdzać wyniki działania aplikacji.
+
+## 28. Desktop Testing
+
+UFT może również służyć do automatyzacji aplikacji desktopowych.
+
+Może pracować z elementami interfejsu aplikacji Windows.
+
+Przykładowo może automatyzować:
+
+```text
+otwieranie aplikacji
+wprowadzanie danych
+klikanie przycisków
+wybór elementów
+sprawdzanie wyników
+```
+
+## 29. Mobile Testing
+
+UFT posiadało również możliwości związane z testowaniem aplikacji mobilnych.
+
+W zależności od wersji produktu i wykorzystywanego środowiska mogą być dostępne różne mechanizmy automatyzacji urządzeń mobilnych.
+
+Przy wyborze rozwiązania należy sprawdzić aktualnie wspierane technologie i wersje.
+
+## 30. Test Objects
+
+Test Object to obiekt reprezentujący element aplikacji z punktu widzenia testu.
+
+Przykładowo:
+
+```text
+WebEdit
+WebButton
+WebTable
+WebElement
+```
+
+Test Object posiada właściwości i metody.
+
+Przykładowo:
+
+```vbscript
+WebEdit("username").Set "admin"
+```
+
+`Set` jest metodą służącą do ustawienia wartości.
+
+## 31. Methods i Properties
+
+Obiekty UFT posiadają właściwości i metody.
+
+Property opisuje obiekt.
+
+Method wykonuje operację.
+
+Przykładowo:
+
+```text
+WebButton
+    Text
+    Enabled
+    Visible
+
+    Click()
+```
+
+`Text` jest właściwością.
+
+`Click()` jest metodą.
+
+## 32. Actions
+
+Test UFT może być podzielony na Actions.
+
+Action jest logiczną częścią testu.
+
+Przykładowo:
+
+```text
+Login
+    ↓
+Search
+    ↓
+Add Product
+    ↓
+Checkout
+```
+
+Każda Action może realizować określony fragment scenariusza.
+
+## 33. Reusable Actions
+
+Action może być wielokrotnie wykorzystywana.
+
+Przykładowo Action `Login` może być używana przez wiele testów.
+
+Dzięki temu nie trzeba kopiować tego samego kodu do każdego testu.
+
+## 34. Function Libraries
+
+Function Library pozwala przechowywać wielokrotnie używane funkcje.
+
+Przykład:
+
+```vbscript
+Function Login(username, password)
+    ' login logic
+End Function
+```
+
+Funkcja może następnie zostać wykorzystana w wielu testach.
+
+Pomaga to ograniczyć duplikowanie kodu.
+
+## 35. Object Repository a Function Library
+
+Object Repository przechowuje informacje o obiektach aplikacji.
+
+Function Library przechowuje funkcje i kod automatyzacji.
+
+Możemy zapamiętać:
+
+```text
+Object Repository
+→ "Gdzie jest obiekt?"
+
+Function Library
+→ "Co mam z nim zrobić?"
+```
+
+## 36. Recovery Scenarios
+
+Recovery Scenario pozwala definiować sposób reagowania na nieoczekiwane sytuacje podczas testu.
+
+Przykładowo aplikacja może wyświetlić:
+
+```text
+Unexpected Popup
+```
+
+Recovery Scenario może wykonać odpowiednią akcję.
+
+Może na przykład zamknąć popup i kontynuować test.
+
+## 37. Synchronization
+
+Aplikacje webowe często wykonują operacje asynchronicznie.
+
+Element może nie być dostępny natychmiast.
+
+UFT posiada mechanizmy synchronizacji pozwalające czekać na określony stan aplikacji.
+
+Przykładowo możemy poczekać, aż element stanie się dostępny.
+
+Dobra synchronizacja jest bardzo ważna dla stabilności testów.
+
+## 38. Smart Identification
+
+Smart Identification jest mechanizmem pomagającym UFT odnaleźć obiekt, gdy jego podstawowe właściwości identyfikacyjne nie wystarczają.
+
+UFT może wykorzystać dodatkowe właściwości obiektu.
+
+Mechanizm może zwiększać odporność testów na niewielkie zmiany interfejsu.
+
+Nie powinien jednak zastępować dobrze zaprojektowanych identyfikatorów elementów.
+
+## 39. Test Results
+
+Po wykonaniu testu UFT generuje wyniki.
+
+Raport może zawierać:
+
+```text
+Pass
+Fail
+Warning
+Step
+Error
+Screenshot
+```
+
+Dzięki temu tester może przeanalizować wykonanie testu.
+
+## 40. Screenshoty
+
+UFT może zapisywać screenshoty podczas wykonywania testów.
+
+Jest to szczególnie przydatne w przypadku błędów.
+
+Tester może zobaczyć stan aplikacji w momencie wystąpienia problemu.
+
+## 41. Integracja z ALM
+
+UFT może współpracować z rozwiązaniami do zarządzania testami firmy OpenText.
+
+Historycznie szczególnie istotny był **ALM**, czyli Application Lifecycle Management.
+
+Integracja pozwala między innymi zarządzać:
+
+```text
+test cases
+requirements
+test runs
+defects
+test results
+```
+
+## 42. UFT w procesie QA
+
+UFT może być elementem większego procesu QA.
+
+Przykładowy proces:
+
+```text
+Requirement
+     ↓
+Test Case
+     ↓
+Automated Test
+     ↓
+UFT
+     ↓
+Execution
+     ↓
+Test Result
+     ↓
+Defect
+```
+
+UFT automatyzuje przede wszystkim etap wykonywania testów.
+
+## 43. UFT i CI/CD
+
+UFT może być wykorzystywany w automatycznych pipeline'ach.
+
+Przykładowo:
+
+```text
+Developer
+    ↓
+Git
+    ↓
+CI/CD
+    ↓
+Build
+    ↓
+Deploy
+    ↓
+UFT Tests
+    ↓
+PASS / FAIL
+```
+
+Jeżeli testy zakończą się niepowodzeniem, pipeline może zostać zatrzymany.
+
+## 44. UFT a Selenium
+
+UFT i Selenium służą między innymi do automatyzacji testów aplikacji webowych.
+
+Selenium jest przede wszystkim frameworkiem/toolingiem do automatyzacji przeglądarek.
+
+UFT jest bardziej rozbudowaną platformą do automatyzacji różnych rodzajów aplikacji i posiada własne środowisko IDE oraz mechanizmy zarządzania testami.
+
+Selenium jest bardzo popularne w projektach wykorzystujących Java, Python, JavaScript czy C#.
+
+UFT tradycyjnie jest mocno związane z VBScript i ekosystemem OpenText.
+
+## 45. UFT a Postman
+
+Postman jest przede wszystkim narzędziem do pracy z API.
+
+UFT może również automatyzować testy API, ale jego głównym wyróżnikiem jest szersza automatyzacja testów aplikacji.
+
+Możemy uprościć:
+
+```text
+Postman
+→ API
+
+UFT
+→ GUI + API + automatyzacja funkcjonalna
+```
+
+## 46. UFT a JMeter
+
+JMeter jest przede wszystkim narzędziem do testów wydajnościowych i obciążeniowych.
+
+UFT skupia się przede wszystkim na automatyzacji funkcjonalnej.
+
+Możemy więc zapamiętać:
+
+```text
+UFT
+→ Czy aplikacja działa poprawnie?
+
+JMeter
+→ Jak aplikacja zachowuje się pod obciążeniem?
+```
+
+## 47. Zalety UFT
+
+UFT pozwala automatyzować powtarzalne testy.
+
+Posiada rozbudowane środowisko do tworzenia testów.
+
+Obsługuje różne typy aplikacji.
+
+Posiada Object Repository.
+
+Posiada mechanizmy checkpointów.
+
+Obsługuje parametryzację.
+
+Posiada rozbudowane raportowanie.
+
+Może integrować się z procesami CI/CD.
+
+Może być wykorzystywany przez testerów manualnych przechodzących do automatyzacji.
+
+## 48. Wady UFT
+
+UFT jest rozwiązaniem komercyjnym.
+
+Koszt licencji może być istotny.
+
+Ekosystem open source jest znacznie większy w przypadku Selenium, Playwright czy Cypress.
+
+VBScript jest technologią starszą i mniej popularną niż Java, Python czy JavaScript.
+
+Utrzymywanie dużych zestawów testów UFT może być wymagające.
+
+Automatyzacja GUI może być podatna na zmiany interfejsu aplikacji.
+
+## 49. Kiedy warto używać UFT
+
+UFT jest szczególnie interesujące w dużych organizacjach posiadających rozbudowane procesy QA.
+
+Może być dobrym wyborem w środowiskach korzystających już z produktów OpenText.
+
+Sprawdza się przy dużej liczbie testów regresyjnych.
+
+Może być przydatne w organizacjach, które potrzebują jednego narzędzia do automatyzacji różnych rodzajów aplikacji.
+
+Warto jednak zawsze porównać je z nowocześniejszymi rozwiązaniami open source.
+
+## 50. Najważniejsze pojęcia do zapamiętania
+
+**UFT** — narzędzie do automatyzacji testów funkcjonalnych.
+
+**OpenText UFT One** — współczesna nazwa produktu rozwijanego wcześniej jako HP UFT i Micro Focus UFT One.
+
+**Functional Testing** — sprawdzanie, czy funkcje aplikacji działają zgodnie z wymaganiami.
+
+**Regression Testing** — sprawdzanie, czy nowe zmiany nie zepsuły istniejących funkcji.
+
+**Object Repository** — repozytorium obiektów wykorzystywanych przez testy.
+
+**Object Spy** — narzędzie do analizowania właściwości elementów aplikacji.
+
+**Checkpoint** — mechanizm weryfikacji oczekiwanego rezultatu.
+
+**VBScript** — tradycyjny język automatyzacji wykorzystywany przez UFT.
+
+**Action** — logiczna część testu.
+
+**Function Library** — miejsce przechowywania wielokrotnie wykorzystywanych funkcji.
+
+**Parameterization** — wykonywanie testów z różnymi danymi.
+
+**Data-Driven Testing** — wykonywanie tego samego scenariusza z różnymi zestawami danych.
+
+**Keyword-Driven Testing** — budowanie testów na podstawie operacji/keywordów.
+
+**Descriptive Programming** — identyfikowanie obiektów bez konieczności korzystania z Object Repository.
+
+**Smart Identification** — mechanizm pomagający identyfikować obiekty.
+
+**Recovery Scenario** — mechanizm obsługi nieoczekiwanych sytuacji podczas testu.
+
+**Test Results** — wyniki wykonania testów.
+
+**CI/CD** — automatyczne wykonywanie procesów budowania, testowania i wdrażania.
+
+## 51. HPUFT w jednym zdaniu
+
+**HP UFT**, obecnie **OpenText UFT One**, to **komercyjne narzędzie do automatyzacji testów funkcjonalnych i regresyjnych, pozwalające automatycznie testować aplikacje webowe, desktopowe i API przy wykorzystaniu między innymi Object Repository, checkpointów, parametryzacji i skryptów automatyzujących**.

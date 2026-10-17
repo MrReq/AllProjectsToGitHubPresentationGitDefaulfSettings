@@ -1,0 +1,111 @@
+# Inkscape – notatka
+
+## 1. Czym jest Inkscape?
+
+Inkscape to darmowy, otwartoźródłowy program do tworzenia i edycji grafiki wektorowej.
+
+Umożliwia projektowanie ilustracji, logotypów, ikon, diagramów, plakatów oraz innych materiałów graficznych.
+
+Program wykorzystuje przede wszystkim format SVG (Scalable Vector Graphics), dzięki któremu grafiki można skalować bez utraty jakości.
+
+Inkscape jest dostępny na systemy Windows, Linux i macOS.
+
+## 2. Do czego służy Inkscape?
+
+- Tworzenie logotypów – projektowanie znaków firmowych i identyfikacji wizualnej.
+- Ilustracje wektorowe – rysowanie ikon, postaci, obiektów i elementów graficznych.
+- Projektowanie materiałów reklamowych – przygotowywanie plakatów, ulotek i banerów.
+- Tworzenie diagramów – opracowywanie schematów, rysunków technicznych i prostych infografik.
+- Edycja plików SVG – otwieranie, modyfikowanie i eksportowanie grafiki wektorowej.
+- Przygotowywanie grafik do Internetu – tworzenie ikon, ilustracji i elementów interfejsów użytkownika.
+
+## 3. Najważniejsze funkcje Inkscape
+
+Rysowanie ścieżek (Paths) pozwala tworzyć precyzyjne kształty za pomocą krzywych Béziera i węzłów.
+
+Narzędzia kształtów umożliwiają rysowanie prostokątów, elips, gwiazd, wielokątów i innych figur.
+
+Edycja węzłów pozwala zmieniać kształt obiektów wektorowych przez przesuwanie punktów kontrolnych.
+
+Warstwy i grupowanie ułatwiają organizowanie elementów złożonych projektów.
+
+Praca z tekstem umożliwia dodawanie napisów, zmianę kroju pisma i rozmieszczanie tekstu na ścieżkach.
+
+Operacje na ścieżkach pozwalają łączyć, odejmować, przecinać i dzielić obiekty.
+
+Eksport grafiki umożliwia zapisywanie projektów między innymi jako SVG, PNG i PDF, zależnie od potrzeb i ustawień eksportu.
+
+## 4. Grafika wektorowa a rastrowa
+
+[Modern geometric shapes](https://images.openai.com/static-rsc-4/nIfOZoYkzUIUKIkoP4tZaKQ8IGerGEIJ6HKV6G-zx6fJXBj4IwGf5MXumBPeX4OQWGb0TpYjlU67uWWrgMdK9jr0WIsDQrh0XzopsOnFjiP59Z-6UUjmMFaWbARyzYAyfhrRWelon3BfCznlAT92YUjllFHUs3knpTmuob2Vz9ZWe0MGR8hNlQSaIdQPLZm3?purpose=inline)
+
+Grafika wektorowa
+
+Obraz składa się z matematycznie opisanych kształtów, linii i krzywych. Można go skalować bez utraty ostrości.
+
+[Resizing photos simplified | PPT](https://images.openai.com/static-rsc-4/8Q_CLtKi310foZ9j--nPjnbisYNM0XEOwhdKAn6EUhjodESMuoLYjRMz1Jjyf_SEMq1lki2ToZu_CL73a0hTbK-m8MM0MZxWLk6ptYrEPhdel39YdkmW1sxJRoKCXysucz2RqAHtRfe6dRtS4cDg4lqgQkjiZ905PNS714kXdkE?purpose=inline)
+
+Grafika rastrowa
+
+Obraz składa się z pikseli. Przy dużym powiększeniu mogą stać się widoczne pojedyncze piksele.
+
+Inkscape jest przeznaczony przede wszystkim do grafiki wektorowej, natomiast programy takie jak GIMP i Adobe Photoshop koncentrują się głównie na grafice rastrowej.
+
+## 5. Najważniejsze formaty plików
+
+| Format | Zastosowanie                                                                   |
+| ------ | ------------------------------------------------------------------------------ |
+| SVG    | Podstawowy format grafiki wektorowej                                           |
+| PNG    | Obraz rastrowy, również z przezroczystym tłem                                  |
+| PDF    | Dokumenty i grafika przeznaczona do udostępniania lub druku                    |
+| EPS    | Format grafiki wektorowej spotykany w starszych przepływach DTP                |
+| DXF    | Format wymiany danych wykorzystywany między innymi w projektowaniu technicznym |
+
+Nie każdy format zachowuje wszystkie funkcje edycji dostępne w oryginalnym projekcie SVG.
+
+## 6. Zalety i wady
+
+Zalety:
+
+- Jest bezpłatny i otwartoźródłowy.
+- Działa na kilku popularnych systemach operacyjnych.
+- Umożliwia tworzenie grafiki wektorowej wysokiej jakości.
+- Obsługuje standard SVG.
+- Nadaje się do projektowania ikon, logotypów i ilustracji.
+- Pozwala eksportować projekty do wielu formatów.
+
+Wady:
+
+- Interfejs i niektóre funkcje wymagają czasu na opanowanie.
+- Nie jest tak wyspecjalizowany w edycji zdjęć jak Photoshop.
+- Złożone dokumenty mogą wymagać optymalizacji dla zachowania płynności pracy.
+- Zgodność z niektórymi zaawansowanymi funkcjami plików z innych programów może być ograniczona.
+
+## 7. Inkscape a inne programy graficzne
+
+| Program           | Główne zastosowanie                                |
+| ----------------- | -------------------------------------------------- |
+| Inkscape          | Darmowa grafika wektorowa                          |
+| Adobe Illustrator | Profesjonalna grafika wektorowa                    |
+| CorelDRAW         | Grafika wektorowa i projektowanie do druku         |
+| GIMP              | Darmowa edycja grafiki rastrowej                   |
+| Adobe Photoshop   | Edycja zdjęć i grafiki rastrowej                   |
+| Figma             | Projektowanie interfejsów użytkownika i prototypów |
+
+## 8. Przykład zastosowania w IT
+
+Programista tworzący aplikację internetową może wykorzystać Inkscape do zaprojektowania logo, ikon oraz ilustracji, a następnie wyeksportować je do formatu SVG.
+
+Pliki SVG można umieszczać na stronach HTML i stylować za pomocą CSS, a w odpowiednich przypadkach również modyfikować programowo.
+
+Inkscape może być też wykorzystywany do przygotowywania diagramów architektury aplikacji, schematów przepływu danych i materiałów dokumentacyjnych.
+
+## 9. Co warto zapamiętać?
+
+Inkscape to darmowy program do tworzenia i edycji grafiki wektorowej.
+
+Jego najważniejsze zastosowania to projektowanie logotypów, ikon, ilustracji, plakatów i diagramów.
+
+Najważniejszym formatem programu jest SVG, który umożliwia skalowanie grafiki bez utraty jakości.
+
+&#x20;ofic

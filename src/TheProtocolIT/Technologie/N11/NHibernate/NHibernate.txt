@@ -1,0 +1,299 @@
+# NHibernate – kompleksowa notatka
+
+## 1. Czym jest NHibernate?
+
+[Chapter 2. Architecture](https://images.openai.com/static-rsc-4/o7lZdcv9eDOrIOQgxhG3pupMGpRoqyBHiJp4vpnaWU_aGNXPEv2z-R24JQgOJ2Rbv_0z36NGZ5xYNx9V0-lBsJPVLKxm4Vq3-p1xEiEmqOJtxw21tfd9U8KXfMz7uAu6v67o97skXlhlxYwp44U72fBbA1u08DXakRBcO7waDso?purpose=inline)
+
+[How to map a domain model with NHibernate? · Los Techies](https://images.openai.com/static-rsc-4/Y1LIMPWOwFE8CZpIYC2YZHuQqeBl-mejyqMwwnBHNwC0ted-COKkvgkeGFoP-ZPF-9mn7-iANC_2G-nS-Xl-vF0uAOqSiSiDzb4EKgTzUxNsUAnZjrklscq4vludR_18gJrcekfWVrNi5QnAUwG5Jdsw1yUMdV4updZGMehDHGQ?purpose=inline)
+
+5
+
+NHibernate to framework typu ORM (Object-Relational Mapping) przeznaczony dla platformy .NET, który umożliwia komunikację między aplikacją obiektową a relacyjną bazą danych.
+
+Jego głównym zadaniem jest mapowanie obiektów języka C# na tabele bazy danych oraz odwrotnie.
+
+Dzięki NHibernate programista może wykonywać operacje na danych za pomocą obiektów i metod języka C#, zamiast samodzielnie pisać zapytania SQL dla każdej operacji.
+
+NHibernate jest portem koncepcji Hibernate znanej z ekosystemu Java, ale został dostosowany do platformy .NET.
+
+Framework współpracuje między innymi z relacyjnymi bazami danych takimi jak Microsoft SQL Server, PostgreSQL, MySQL i Oracle, zależnie od wersji oraz dostępnego providera.
+
+## 2. Do czego służy NHibernate?
+
+NHibernate jest wykorzystywany do tworzenia aplikacji, które przechowują i przetwarzają dane w relacyjnych bazach danych.
+
+Najważniejsze zastosowania NHibernate to:
+
+- Mapowanie klas C# na tabele bazodanowe.
+- Odczytywanie i zapisywanie danych.
+- Aktualizowanie oraz usuwanie rekordów.
+- Obsługa relacji między encjami.
+- Zarządzanie transakcjami.
+- Wykonywanie zapytań do bazy danych.
+- Zarządzanie cyklem życia obiektów powiązanych z sesją.
+- Optymalizacja dostępu do danych dzięki mechanizmom cache.
+- Budowanie warstwy dostępu do danych w aplikacjach biznesowych.
+
+Przykładowo, w aplikacji sklepu internetowego NHibernate może mapować klasy `Customer`, `Product` i `Order` na odpowiednie tabele w bazie danych.
+
+## 3. Jak działa NHibernate?
+
+NHibernate pełni rolę warstwy pośredniczącej między aplikacją C# a relacyjną bazą danych.
+
+Programista pracuje z obiektami, a framework odpowiada za przekształcanie operacji obiektowych na odpowiednie polecenia SQL.
+
+Aplikacja C#
+
+Klasy, obiekty i logika biznesowa
+
+NHibernate ORM
+
+Mapowanie obiektów, sesje i generowanie SQL
+
+Relacyjna baza danych
+
+SQL Server, PostgreSQL, MySQL lub inna obsługiwana baza
+
+NHibernate analizuje mapowanie klas, określa, jak obiekty odpowiadają tabelom i kolumnom, a następnie generuje polecenia SQL potrzebne do wykonania operacji.
+
+Wyniki zapytań mogą zostać przekształcone w obiekty C#.
+
+Dzięki temu programista może skupić się na logice aplikacji, a nie na ręcznym mapowaniu każdego rekordu.
+
+## 4. Najważniejsze elementy NHibernate
+
+ORM to mechanizm mapowania obiektowego na relacyjne struktury bazy danych.
+
+Entity (encja) to obiekt reprezentujący dane przechowywane w bazie, na przykład klienta lub zamówienie.
+
+ISessionFactory to obiekt służący do tworzenia sesji NHibernate. Zwykle jest inicjalizowany raz i współdzielony w aplikacji.
+
+ISession to obiekt reprezentujący jednostkę pracy z bazą danych, zarządzający między innymi stanem obiektów i wykonywaniem operacji.
+
+ITransaction reprezentuje transakcję bazodanową, która pozwala zatwierdzić lub wycofać zestaw operacji.
+
+Mapping określa sposób odwzorowania klas, właściwości i relacji na tabele, kolumny i klucze.
+
+HQL (Hibernate Query Language) to język zapytań operujący na encjach i ich właściwościach, a nie bezpośrednio na nazwach tabel i kolumn.
+
+LINQ to NHibernate pozwala budować zapytania z wykorzystaniem składni LINQ, które framework może przetłumaczyć na zapytania bazodanowe.
+
+## 5. Mapowanie obiektów na tabele
+
+Mapowanie jest jednym z najważniejszych elementów NHibernate.
+
+Załóżmy, że aplikacja posiada klasę `Product`, reprezentującą produkt.
+
+```
+public class Product
+{
+    public virtual int Id { get; set; }
+
+    public virtual string Name { get; set; } = "";
+
+    public virtual decimal Price { get; set; }
+}
+```
+
+Klasa może odpowiadać tabeli `Products` zawierającej kolumny `Id`, `Name` i `Price`.
+
+NHibernate musi wiedzieć, jak właściwości tej klasy odpowiadają strukturze bazy danych.
+
+Mapowanie można definiować za pomocą plików XML, biblioteki Fluent NHibernate lub innych metod obsługiwanych przez wybraną konfigurację.
+
+Przykładowa definicja mapowania w XML może wyglądać następująco:
+
+```
+<class name="Product" table="Products">
+    <id name="Id" column="Id">
+        <generator class="identity"/>
+    </id>
+
+    <property name="Name" column="Name"/>
+    <property name="Price" column="Price"/>
+</class>
+```
+
+W tym przykładzie klasa `Product` jest mapowana na tabelę `Products`, a właściwości `Name` i `Price` odpowiadają kolumnom o tych nazwach.
+
+Generator `identity` wskazuje, że identyfikator jest generowany przez mechanizm tożsamości bazy danych, o ile wybrana baza i konfiguracja obsługują taki sposób generowania identyfikatorów.
+
+## 6. Operacje CRUD w NHibernate
+
+CRUD to skrót od czterech podstawowych operacji wykonywanych na danych: Create, Read, Update i Delete.
+
+NHibernate umożliwia realizację tych operacji przy wykorzystaniu obiektów.
+
+### Tworzenie rekordu
+
+```
+using var transaction = session.BeginTransaction();
+
+var product = new Product
+{
+    Name = "Laptop",
+    Price = 3500m
+};
+
+session.Save(product);
+transaction.Commit();
+```
+
+Metoda `Save()` rejestruje nowy obiekt do zapisania w bazie danych.
+
+Zatwierdzenie transakcji powoduje jej commit i zapisuje zmiany zgodnie z mechanizmem działania sesji.
+
+### Odczytywanie danych
+
+```
+var product = session.Get<Product>(1);
+```
+
+Metoda `Get<Product>(1)` wyszukuje produkt o identyfikatorze równym `1`.
+
+Jeżeli rekord nie istnieje, metoda `Get` zwraca `null`.
+
+### Aktualizowanie danych
+
+```
+using var transaction = session.BeginTransaction();
+
+var product = session.Get<Product>(1);
+
+if (product != null)
+{
+    product.Price = 3200m;
+}
+
+transaction.Commit();
+```
+
+Jeżeli obiekt jest zarządzany przez bieżącą sesję, NHibernate może wykryć zmianę jego właściwości i zapisać ją podczas synchronizacji sesji z bazą danych.
+
+### Usuwanie danych
+
+```
+using var transaction = session.BeginTransaction();
+
+var product = session.Get<Product>(1);
+
+if (product != null)
+{
+    session.Delete(product);
+}
+
+transaction.Commit();
+```
+
+Metoda `Delete()` oznacza obiekt do usunięcia.
+
+Powyższe przykłady zakładają, że zmienna `session` wskazuje na poprawnie skonfigurowaną sesję NHibernate.
+
+## 7. Relacje między encjami
+
+NHibernate umożliwia mapowanie różnych typów relacji występujących w relacyjnych bazach danych.
+
+Najważniejsze z nich to:
+
+- One-to-One – relacja jeden do jednego.
+- One-to-Many – relacja jeden do wielu.
+- Many-to-One – relacja wiele do jednego.
+- Many-to-Many – relacja wiele do wielu.
+
+Przykładowo klient może mieć wiele zamówień, a każde zamówienie może należeć do jednego klienta.
+
+```
+public class Customer
+{
+    public virtual int Id { get; set; }
+
+    public virtual string Name { get; set; } = "";
+
+    public virtual IList<Order> Orders { get; set; }
+        = new List<Order>();
+}
+```
+
+W takim modelu `Customer` reprezentuje klienta, a kolekcja `Orders` przechowuje powiązane z nim zamówienia.
+
+Aby relacja działała prawidłowo, należy również odpowiednio skonfigurować mapowanie i klucze obce w bazie danych.
+
+## 8. HQL i LINQ w NHibernate
+
+NHibernate pozwala wykonywać zapytania na kilka sposobów.
+
+HQL operuje na klasach encji i ich właściwościach.
+
+```
+var products = session
+    .CreateQuery("from Product p where p.Price > :price")
+    .SetParameter("price", 1000m)
+    .List<Product>();
+```
+
+Zapytanie pobiera produkty, których cena jest większa niż 1000.
+
+LINQ to NHibernate pozwala wykorzystywać składnię znaną z języka C#.
+
+```
+var products = session.Query<Product>()
+    .Where(p => p.Price > 1000m)
+    .ToList();
+```
+
+W tym przypadku zapytanie jest budowane za pomocą LINQ, a NHibernate tłumaczy obsługiwane wyrażenia na zapytanie wykonywane przez bazę danych.
+
+Nie każda operacja LINQ może zostać przetłumaczona przez provider, dlatego w bardziej złożonych przypadkach należy zwracać uwagę na obsługiwane wyrażenia i wygenerowany SQL.
+
+## 9. NHibernate a Entity Framework Core
+
+NHibernate konkuruje z Entity Framework Core, czyli popularnym ORM dla platformy .NET.
+
+| Cecha                                | NHibernate                                              | Entity Framework Core           |
+| ------------------------------------ | ------------------------------------------------------- | ------------------------------- |
+| Platforma                            | .NET                                                    | .NET                            |
+| Mapowanie                            | XML, Fluent NHibernate i inne obsługiwane metody        | Konwencje, Fluent API, atrybuty |
+| Zapytania                            | HQL, LINQ i SQL                                         | LINQ i SQL                      |
+| Zarządzanie obiektami                | Sesje i mechanizm śledzenia zmian                       | `DbContext` i śledzenie zmian   |
+| Migracje schematu                    | Dostępne rozwiązania zależne od narzędzi i konfiguracji | Wbudowany system migracji       |
+| Popularność w nowych projektach .NET | Mniejsza niż EF Core                                    | Bardzo duża                     |
+
+Entity Framework Core jest często wybierany w nowych aplikacjach ASP.NET Core ze względu na integrację z ekosystemem .NET i wygodny system migracji.
+
+NHibernate nadal może być dobrym wyborem w systemach, które już go wykorzystują, oraz w projektach, w których istotne są jego mechanizmy mapowania i zarządzania stanem obiektów.
+
+## 10. Zalety NHibernate
+
+- Ogranicza konieczność ręcznego pisania SQL dla typowych operacji.
+- Pozwala pracować z bazą danych za pomocą obiektów C#.
+- Obsługuje różne relacyjne systemy bazodanowe.
+- Umożliwia mapowanie złożonych relacji między encjami.
+- Obsługuje transakcje i śledzenie zmian obiektów.
+- Oferuje HQL, LINQ i mechanizmy cache.
+- Pozwala oddzielić logikę biznesową od szczegółów dostępu do danych.
+
+## 11. Wady NHibernate
+
+- Konfiguracja mapowania może być skomplikowana w dużych projektach.
+- Wymaga zrozumienia sesji, transakcji i cyklu życia obiektów.
+- Nieprawidłowe mapowanie może prowadzić do problemów z wydajnością.
+- Mechanizmy lazy loading mogą powodować dodatkowe zapytania do bazy danych.
+- W nowych projektach .NET często łatwiej znaleźć materiały dotyczące Entity Framework Core.
+- W bardziej zaawansowanych scenariuszach trzeba analizować generowany SQL i zachowanie cache.
+
+## 12. Najważniejsze pojęcia do zapamiętania
+
+- NHibernate – ORM dla platformy .NET.
+- ORM – mapowanie obiektowo-relacyjne.
+- Entity – obiekt reprezentujący dane w bazie.
+- Mapping – odwzorowanie klas na tabele.
+- ISessionFactory – fabryka sesji NHibernate.
+- ISession – sesja zarządzająca pracą z obiektami i bazą danych.
+- ITransaction – transakcja bazodanowa.
+- HQL – język zapytań operujący na encjach.
+- LINQ to NHibernate – zapytania LINQ tłumaczone na operacje bazodanowe.
+- CRUD – tworzenie, odczytywanie, aktualizowanie i usuwanie danych.
+- Lazy Loading – pobieranie powiązanych danych dopiero wtedy, gdy są potrzebne.
+- Fluent NHibernate – biblioteka pozwalająca definiować mapowania za pomocą płynnego API w C#.
+
+Podsumowanie: NHibernate to ORM dla platformy .NET, który umożliwia mapowanie obiektów C# na relacyjne struktury baz danych. Zapewnia obsługę CRUD, relacji, transakcji i zapytań HQL oraz LINQ. Jest alternatywą dla Entity Framework Core i sprawdza się szczególnie w aplikacjach wymagających rozbudowanego mapowania obiektowo-relacyjnego.

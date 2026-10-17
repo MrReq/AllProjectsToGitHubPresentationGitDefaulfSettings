@@ -1,0 +1,932 @@
+# Firebase
+
+## Czym jest Firebase?
+
+Firebase to platforma chmurowa firmy Google przeznaczona do tworzenia, rozwijania i utrzymywania aplikacji webowych oraz mobilnych.
+
+Firebase dostarcza gotowe usługi backendowe, dzięki czemu programista nie musi samodzielnie tworzyć całej infrastruktury serwerowej.
+
+Firebase jest często określany jako **Backend as a Service (BaaS)**.
+
+Można dzięki niemu szybko stworzyć aplikację posiadającą między innymi:
+
+logowanie użytkowników.
+
+bazę danych.
+
+przechowywanie plików.
+
+powiadomienia push.
+
+hosting.
+
+analitykę.
+
+monitorowanie błędów.
+
+funkcje backendowe.
+
+## Do czego służy Firebase?
+
+Firebase może być wykorzystywany do tworzenia:
+
+aplikacji mobilnych Android.
+
+aplikacji iOS.
+
+aplikacji webowych.
+
+aplikacji SPA.
+
+MVP.
+
+prototypów.
+
+aplikacji czasu rzeczywistego.
+
+gier.
+
+aplikacji wykorzystujących powiadomienia push.
+
+aplikacji wykorzystujących uwierzytelnianie użytkowników.
+
+## Firebase jako Backend as a Service
+
+Tradycyjna aplikacja może wyglądać tak:
+
+```text
+Frontend
+    ↓
+Backend
+    ↓
+API
+    ↓
+Database
+    ↓
+Storage
+```
+
+W Firebase wiele elementów backendu jest dostarczanych jako gotowe usługi:
+
+```text
+Frontend
+    ↓
+Firebase
+ ┌──┼───────────────┐
+ ↓  ↓       ↓       ↓
+Auth Database Storage Functions
+```
+
+Programista może korzystać z tych usług bez konieczności budowania całego backendu od podstaw.
+
+## Firebase Authentication
+
+**Firebase Authentication** odpowiada za uwierzytelnianie użytkowników.
+
+Pozwala implementować między innymi:
+
+rejestrację.
+
+logowanie.
+
+wylogowanie.
+
+resetowanie hasła.
+
+logowanie przez Google.
+
+logowanie przez Apple.
+
+logowanie przez GitHub.
+
+logowanie przez Facebook.
+
+uwierzytelnianie numerem telefonu.
+
+Możemy dzięki temu stosunkowo łatwo stworzyć system użytkowników.
+
+Przykładowy przepływ:
+
+```text
+User
+ ↓
+Login
+ ↓
+Firebase Authentication
+ ↓
+Verification
+ ↓
+Authenticated User
+ ↓
+Application
+```
+
+Firebase może również generować tokeny używane do potwierdzania tożsamości użytkownika.
+
+## Firestore
+
+**Cloud Firestore** jest jedną z najważniejszych baz danych Firebase.
+
+Jest to **NoSQL document database**.
+
+Dane są organizowane w:
+
+Collections.
+
+Documents.
+
+Fields.
+
+Przykładowa struktura:
+
+```text
+users
+ ├── user1
+ │    ├── name: "Jan"
+ │    ├── age: 25
+ │    └── email: "jan@example.com"
+ │
+ └── user2
+      ├── name: "Anna"
+      ├── age: 28
+      └── email: "anna@example.com"
+```
+
+Document przypomina obiekt lub rekord.
+
+Collection jest zbiorem dokumentów.
+
+## Realtime Database
+
+Firebase posiada również **Realtime Database**.
+
+Jest to baza danych NoSQL zaprojektowana z myślą o synchronizacji danych w czasie rzeczywistym.
+
+Przykładowo:
+
+```text
+User A
+   ↓
+Firebase Realtime Database
+   ↓
+User B
+```
+
+Jeżeli użytkownik A zmieni dane, użytkownik B może bardzo szybko otrzymać aktualizację.
+
+Jest to szczególnie przydatne w:
+
+czatach.
+
+grach.
+
+aplikacjach współdzielonych.
+
+systemach monitorowania.
+
+aplikacjach czasu rzeczywistego.
+
+## Firestore vs Realtime Database
+
+Obie technologie służą do przechowywania danych, ale mają inne charakterystyki.
+
+**Cloud Firestore** jest bardziej nowoczesną i elastyczną bazą dokumentową.
+
+**Realtime Database** jest prostszą bazą opartą na strukturze JSON i bardzo mocno koncentruje się na synchronizacji danych w czasie rzeczywistym.
+
+Można to zapamiętać:
+
+```text
+Firestore
+→ nowoczesna baza dokumentowa
+
+Realtime Database
+→ prostsza baza JSON + realtime
+```
+
+## Firebase Storage
+
+**Cloud Storage for Firebase** służy do przechowywania plików.
+
+Możemy przechowywać między innymi:
+
+zdjęcia.
+
+filmy.
+
+dokumenty.
+
+PDF-y.
+
+pliki audio.
+
+inne pliki użytkowników.
+
+Przykładowo aplikacja społecznościowa może mieć:
+
+```text
+User
+ ↓
+Upload photo
+ ↓
+Firebase Storage
+ ↓
+Download URL
+ ↓
+Firestore
+```
+
+W Firestore możemy przechowywać informacje o pliku, a sam plik przechowywać w Storage.
+
+## Firebase Cloud Messaging
+
+**Firebase Cloud Messaging (FCM)** umożliwia wysyłanie powiadomień push.
+
+Może być wykorzystywany między innymi w:
+
+aplikacjach mobilnych.
+
+aplikacjach webowych.
+
+systemach powiadomień.
+
+aplikacjach komunikacyjnych.
+
+Przykładowy przepływ:
+
+```text
+Backend
+   ↓
+Firebase Cloud Messaging
+   ↓
+Smartphone
+   ↓
+Push Notification
+```
+
+Przykład:
+
+```text
+"Masz nową wiadomość."
+```
+
+## Firebase Cloud Functions
+
+**Cloud Functions for Firebase** pozwalają uruchamiać kod backendowy bez konieczności zarządzania własnym serwerem.
+
+Można reagować między innymi na:
+
+zdarzenia w bazie danych.
+
+zmiany użytkowników.
+
+zdarzenia HTTP.
+
+upload plików.
+
+zdarzenia związane z Authentication.
+
+Przykładowy scenariusz:
+
+```text
+User creates account
+        ↓
+Firebase Authentication
+        ↓
+Cloud Function
+        ↓
+Create user profile
+```
+
+Funkcje mogą być pisane między innymi w JavaScript, TypeScript lub Pythonie, zależnie od obsługiwanego środowiska.
+
+## Firebase Hosting
+
+**Firebase Hosting** umożliwia publikowanie aplikacji internetowych.
+
+Można hostować między innymi:
+
+HTML.
+
+CSS.
+
+JavaScript.
+
+React.
+
+Angular.
+
+Vue.
+
+Inne aplikacje frontendowe.
+
+Przykładowy proces:
+
+```text
+Frontend
+   ↓
+Firebase Hosting
+   ↓
+Internet
+```
+
+Firebase zapewnia również HTTPS i integrację z CDN.
+
+## Firebase App Check
+
+**App Check** pomaga chronić backendowe zasoby aplikacji przed nadużyciami pochodzącymi z nieautoryzowanych klientów.
+
+Może pomagać weryfikować, czy żądania pochodzą z prawidłowej aplikacji.
+
+Może współpracować między innymi z:
+
+Firestore.
+
+Realtime Database.
+
+Cloud Functions.
+
+Storage.
+
+## Firebase Analytics
+
+**Google Analytics for Firebase** pozwala analizować zachowanie użytkowników w aplikacji.
+
+Możemy analizować między innymi:
+
+liczbę użytkowników.
+
+sesje.
+
+zdarzenia.
+
+źródła ruchu.
+
+aktywność użytkowników.
+
+retencję.
+
+konwersje.
+
+Przykładowo możemy sprawdzić:
+
+```text
+1000 użytkowników
+      ↓
+700 otworzyło aplikację
+      ↓
+500 wykonało akcję
+      ↓
+150 dokonało zakupu
+```
+
+## Crashlytics
+
+**Firebase Crashlytics** służy do monitorowania błędów i awarii aplikacji.
+
+Może informować programistę między innymi:
+
+gdzie wystąpił błąd.
+
+jakiego urządzenia dotyczył.
+
+jakiej wersji aplikacji dotyczył.
+
+jak często występuje.
+
+jakich użytkowników dotyczy.
+
+Przykład:
+
+```text
+Application
+     ↓
+Crash
+     ↓
+Crashlytics
+     ↓
+Developer
+     ↓
+Bug Fix
+```
+
+Jest to szczególnie przydatne w aplikacjach mobilnych.
+
+## Firebase Remote Config
+
+**Remote Config** pozwala zmieniać zachowanie aplikacji bez konieczności publikowania nowej wersji aplikacji.
+
+Możemy przykładowo przechowywać:
+
+kolory.
+
+teksty.
+
+wartości konfiguracyjne.
+
+flagę funkcjonalności.
+
+ustawienia eksperymentu.
+
+Przykład:
+
+```text
+feature_new_ui = true
+```
+
+Aplikacja może odczytać tę wartość i zdecydować, którą wersję interfejsu wyświetlić.
+
+## A/B Testing
+
+Firebase może być wykorzystywany do przeprowadzania eksperymentów A/B.
+
+Przykładowo:
+
+```text
+50% użytkowników
+        ↓
+Button A
+
+50% użytkowników
+        ↓
+Button B
+```
+
+Następnie możemy porównać wyniki.
+
+Możemy na przykład sprawdzić, która wersja przycisku generuje więcej konwersji.
+
+## Firebase Emulator Suite
+
+**Firebase Local Emulator Suite** pozwala uruchamiać lokalne emulatory usług Firebase.
+
+Możemy dzięki temu testować aplikację bez korzystania z produkcyjnych danych.
+
+Przykładowo:
+
+```text
+Local Application
+       ↓
+Firebase Emulator Suite
+ ┌─────┼─────┐
+ ↓     ↓     ↓
+Auth Firestore Functions
+```
+
+Jest to bardzo przydatne podczas developmentu.
+
+## Firebase CLI
+
+Firebase posiada **Firebase CLI**, czyli narzędzie wiersza poleceń.
+
+Po instalacji możemy korzystać z polecenia:
+
+```bash
+firebase
+```
+
+Logowanie:
+
+```bash
+firebase login
+```
+
+Inicjalizacja projektu:
+
+```bash
+firebase init
+```
+
+Uruchomienie lokalnych emulatorów:
+
+```bash
+firebase emulators:start
+```
+
+Deploy:
+
+```bash
+firebase deploy
+```
+
+## Firebase SDK
+
+Firebase udostępnia SDK dla różnych platform.
+
+Możemy korzystać z Firebase między innymi w:
+
+JavaScript.
+
+TypeScript.
+
+Android.
+
+iOS.
+
+Flutter.
+
+Unity.
+
+C++.
+
+Przykładowo aplikacja JavaScript może komunikować się bezpośrednio z usługami Firebase poprzez odpowiednie SDK.
+
+## Firebase i React
+
+Firebase jest często wykorzystywany razem z React.
+
+Przykładowa architektura:
+
+```text
+React
+  ↓
+Firebase SDK
+  ↓
+Firebase
+ ├── Authentication
+ ├── Firestore
+ ├── Storage
+ └── Functions
+```
+
+Można dzięki temu stworzyć aplikację bez klasycznego własnego backendu.
+
+## Firebase i Flutter
+
+Firebase jest również bardzo popularny w połączeniu z Flutterem.
+
+Przykładowa aplikacja:
+
+```text
+Flutter
+   ↓
+Firebase
+ ├── Auth
+ ├── Firestore
+ ├── Storage
+ ├── FCM
+ └── Analytics
+```
+
+Jest to popularne rozwiązanie przy tworzeniu aplikacji mobilnych.
+
+## Firebase i Android
+
+Firebase jest szczególnie mocno związany z ekosystemem Android.
+
+Można wykorzystywać go między innymi do:
+
+Authentication.
+
+Firestore.
+
+Cloud Messaging.
+
+Analytics.
+
+Crashlytics.
+
+Remote Config.
+
+App Check.
+
+## Firebase i iOS
+
+Firebase można również wykorzystywać w aplikacjach iOS.
+
+Zapewnia między innymi:
+
+Authentication.
+
+Firestore.
+
+Storage.
+
+Cloud Messaging.
+
+Analytics.
+
+Crashlytics.
+
+Remote Config.
+
+## Firebase jako backend aplikacji
+
+Firebase może całkowicie zastąpić tradycyjny backend w niektórych aplikacjach.
+
+Przykładowo:
+
+```text
+React
+  ↓
+Firebase Auth
+  ↓
+Firestore
+  ↓
+Firebase Storage
+```
+
+Nie potrzebujemy wtedy koniecznie własnego:
+
+Spring Boot.
+
+ASP.NET Core.
+
+Django.
+
+FastAPI.
+
+serwera Node.js.
+
+Jednak w bardziej złożonych systemach własny backend nadal może być potrzebny.
+
+## Firebase + własny backend
+
+Firebase nie musi zastępować backendu.
+
+Możemy połączyć Firebase z własnym API.
+
+Przykład:
+
+```text
+Mobile App
+     ↓
+Spring Boot / FastAPI
+     ↓
+Firebase
+     ↓
+Firestore / Storage / FCM
+```
+
+Jest to przydatne, gdy aplikacja ma skomplikowaną logikę biznesową.
+
+## Firebase a tradycyjny backend
+
+Tradycyjny backend:
+
+```text
+Frontend
+   ↓
+REST API
+   ↓
+Backend
+   ↓
+Database
+```
+
+Firebase:
+
+```text
+Frontend
+   ↓
+Firebase SDK
+   ↓
+Firebase Services
+```
+
+Firebase pozwala znacznie szybciej rozpocząć tworzenie aplikacji.
+
+## Firebase i bezpieczeństwo
+
+Firebase posiada system **Security Rules**.
+
+Reguły pozwalają określić, kto może odczytywać lub modyfikować dane.
+
+Przykładowo możemy określić:
+
+```text
+Użytkownik może odczytać własny profil.
+```
+
+ale:
+
+```text
+Użytkownik nie może zmienić profilu innego użytkownika.
+```
+
+Security Rules są szczególnie ważne w przypadku Firestore i Storage.
+
+## Firebase Security Rules
+
+Przykładowa reguła może określać dostęp zależny od zalogowanego użytkownika.
+
+Koncepcyjnie:
+
+```text
+if user is authenticated
+    → allow read
+else
+    → deny
+```
+
+Reguły powinny być projektowane bardzo ostrożnie.
+
+Błędna konfiguracja może spowodować ujawnienie danych.
+
+## Zalety Firebase
+
+Bardzo szybkie rozpoczęcie projektu.
+
+Nie trzeba samodzielnie zarządzać całym backendem.
+
+Gotowe uwierzytelnianie.
+
+Gotowe bazy danych.
+
+Storage dla plików.
+
+Powiadomienia push.
+
+Hosting.
+
+Analityka.
+
+Crash reporting.
+
+Cloud Functions.
+
+Integracja z aplikacjami mobilnymi.
+
+Dobra integracja z ekosystemem Google.
+
+Dobre rozwiązanie do MVP.
+
+## Wady Firebase
+
+Firebase jest usługą chmurową i wiąże aplikację z konkretnym dostawcą.
+
+Koszty mogą rosnąć wraz ze skalą aplikacji.
+
+Firestore ma inną charakterystykę niż tradycyjne relacyjne bazy SQL.
+
+Niektóre bardzo skomplikowane operacje backendowe są łatwiejsze do implementacji we własnym backendzie.
+
+Przeniesienie dużej aplikacji Firebase do innej technologii może wymagać dużo pracy.
+
+Trzeba bardzo dobrze zaprojektować Security Rules.
+
+## Firebase a Supabase
+
+Firebase i Supabase są konkurencyjnymi rozwiązaniami typu Backend as a Service.
+
+Firebase jest mocno związany z ekosystemem Google i oferuje między innymi Firestore oraz Realtime Database.
+
+Supabase wykorzystuje przede wszystkim **PostgreSQL**.
+
+Można zapamiętać:
+
+```text
+Firebase
+→ Google
+→ Firestore / Realtime Database
+→ bardzo mocny ekosystem mobilny
+
+Supabase
+→ PostgreSQL
+→ SQL
+→ bardziej klasyczne podejście relacyjne
+```
+
+## Firebase a AWS
+
+Firebase jest rozwiązaniem bardziej zorientowanym na szybkie tworzenie aplikacji.
+
+AWS jest znacznie większą platformą chmurową oferującą ogromną liczbę usług infrastrukturalnych.
+
+Można to uprościć:
+
+```text
+Firebase
+→ szybkie tworzenie aplikacji
+
+AWS
+→ rozbudowana infrastruktura cloud
+```
+
+## Firebase w architekturze aplikacji
+
+Przykładowa aplikacja społecznościowa:
+
+```text
+                Mobile App
+                    │
+                    ▼
+              Firebase Auth
+                    │
+          ┌─────────┼─────────┐
+          ▼         ▼         ▼
+      Firestore   Storage     FCM
+          │         │         │
+          ▼         ▼         ▼
+       Posts      Photos   Notifications
+```
+
+## Firebase – typowy projekt
+
+Przykładowa aplikacja może mieć:
+
+```text
+Firebase Project
+│
+├── Authentication
+│
+├── Firestore
+│
+├── Storage
+│
+├── Cloud Functions
+│
+├── Hosting
+│
+├── Analytics
+│
+├── Crashlytics
+│
+└── Cloud Messaging
+```
+
+## Firebase – najważniejsze pojęcia
+
+**Firebase** – platforma usług backendowych firmy Google.
+
+**BaaS** – Backend as a Service.
+
+**Firebase Authentication** – uwierzytelnianie użytkowników.
+
+**Firestore** – dokumentowa baza danych NoSQL.
+
+**Realtime Database** – baza danych zapewniająca synchronizację w czasie rzeczywistym.
+
+**Cloud Storage** – przechowywanie plików.
+
+**Cloud Functions** – wykonywanie kodu backendowego.
+
+**Firebase Cloud Messaging** – powiadomienia push.
+
+**Firebase Hosting** – hosting aplikacji webowych.
+
+**Analytics** – analiza zachowania użytkowników.
+
+**Crashlytics** – monitorowanie awarii aplikacji.
+
+**Remote Config** – zdalna konfiguracja aplikacji.
+
+**App Check** – dodatkowa ochrona zasobów Firebase przed nieautoryzowanymi klientami.
+
+**Security Rules** – reguły określające dostęp do danych.
+
+**Emulator Suite** – lokalne środowisko do testowania usług Firebase.
+
+**Firebase CLI** – narzędzie do zarządzania projektem Firebase z terminala.
+
+## Firebase – najważniejsze do zapamiętania
+
+Firebase to platforma **Backend as a Service** firmy Google.
+
+Pozwala tworzyć aplikacje bez konieczności budowania całej infrastruktury backendowej od podstaw.
+
+**Firebase Authentication** odpowiada za logowanie użytkowników.
+
+**Firestore** jest dokumentową bazą danych NoSQL.
+
+**Realtime Database** umożliwia synchronizację danych w czasie rzeczywistym.
+
+**Cloud Storage** służy do przechowywania plików.
+
+**Cloud Functions** pozwalają uruchamiać kod backendowy.
+
+**FCM** służy do wysyłania powiadomień push.
+
+**Firebase Hosting** służy do hostowania aplikacji internetowych.
+
+**Crashlytics** pomaga wykrywać awarie aplikacji.
+
+**Analytics** pozwala analizować zachowanie użytkowników.
+
+**Remote Config** umożliwia zmianę konfiguracji aplikacji bez publikowania nowej wersji.
+
+**Security Rules** kontrolują dostęp do danych.
+
+**Firebase Emulator Suite** umożliwia lokalne testowanie usług Firebase.
+
+Najprościej zapamiętać:
+
+```text
+Firebase
+   ↓
+Backend as a Service
+   ↓
+┌──────────────┬──────────────┬──────────────┐
+│ Authentication│  Firestore   │   Storage    │
+└──────────────┴──────────────┴──────────────┘
+        │              │              │
+        └──────────────┼──────────────┘
+                       ↓
+               Cloud Functions
+                       ↓
+              Push / Analytics
+                       ↓
+                 Aplikacja
+```
+
+**Firebase = gotowy backend w chmurze, szczególnie przydatny do szybkiego tworzenia aplikacji webowych i mobilnych.**

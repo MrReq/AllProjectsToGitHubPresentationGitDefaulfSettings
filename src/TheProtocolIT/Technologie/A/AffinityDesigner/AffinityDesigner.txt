@@ -1,0 +1,379 @@
+# Affinity Designer — notatka
+
+1. Czym jest Affinity Designer?
+
+Affinity Designer to profesjonalny program graficzny służący przede wszystkim do tworzenia grafiki wektorowej oraz ilustracji cyfrowych.
+
+Program umożliwia projektowanie logo, ikon, plakatów, materiałów reklamowych, ilustracji, elementów interfejsów i grafik przeznaczonych do publikacji internetowych.
+
+Affinity Designer został opracowany przez firmę Serif i stanowi alternatywę dla Adobe Illustratora.
+
+Jedną z jego najważniejszych cech jest możliwość łączenia pracy z grafiką wektorową i rastrową.
+
+2. Grafika wektorowa i rastrowa
+
+Grafika wektorowa jest oparta na matematycznym opisie kształtów, linii i krzywych.
+
+Dzięki temu grafikę wektorową można powiększać i pomniejszać bez utraty jakości.
+
+Grafika rastrowa składa się z pikseli, dlatego jej nadmierne powiększanie może powodować utratę ostrości.
+
+Grafika wektorowa jest wykorzystywana przede wszystkim do tworzenia logo, ikon, symboli i ilustracji.
+
+Grafika rastrowa sprawdza się przy edycji zdjęć, malowaniu cyfrowym i tworzeniu tekstur.
+
+Affinity Designer pozwala wykorzystywać oba rodzaje grafiki w jednym projekcie.
+
+3. Affinity Designer a Adobe Illustrator i Photoshop
+
+Affinity Designer jest bezpośrednią alternatywą dla Adobe Illustratora, ponieważ oba programy służą głównie do tworzenia grafiki wektorowej.
+
+Adobe Illustrator jest wykorzystywany do projektowania logo, ilustracji, ikon i materiałów reklamowych.
+
+Adobe Photoshop koncentruje się przede wszystkim na edycji zdjęć, retuszu i grafice rastrowej.
+
+Affinity Designer łączy narzędzia wektorowe z wybranymi funkcjami rastrowymi, dzięki czemu umożliwia realizację wielu rodzajów projektów graficznych.
+
+4. Interfejs programu
+
+Interfejs Affinity Designer składa się z obszaru roboczego, paska narzędzi oraz paneli służących do edycji i organizacji projektu.
+
+Obszar roboczy jest miejscem, w którym tworzysz i modyfikujesz grafikę.
+
+Pasek narzędzi zawiera funkcje zaznaczania, rysowania, tworzenia kształtów i edycji ścieżek.
+
+Panel Layers umożliwia zarządzanie warstwami i kolejnością elementów.
+
+Panel Colour służy do wybierania kolorów.
+
+Panel Stroke pozwala modyfikować obramowanie obiektów.
+
+Panel Transform umożliwia precyzyjne ustawianie położenia, rozmiaru i obrotu elementów.
+
+5. Dokument i obszar roboczy
+
+Dokument jest plikiem, w którym zapisujesz swój projekt graficzny.
+
+Artboard to wydzielony obszar roboczy przeznaczony do tworzenia określonej grafiki lub wariantu projektu.
+
+W jednym dokumencie można umieścić kilka obszarów roboczych, na przykład dla różnych wersji logo lub zestawu ikon.
+
+Podczas tworzenia dokumentu należy określić jego wymiary, jednostki i odpowiednie ustawienia kolorów.
+
+Do grafiki internetowej najczęściej wykorzystuje się piksele oraz przestrzeń kolorów RGB.
+
+Materiały przeznaczone do druku powinny być przygotowane zgodnie z wymaganiami drukarni.
+
+6. Move Tool
+
+Move Tool służy do zaznaczania, przesuwania, obracania i zmieniania rozmiaru obiektów.
+
+W Affinity Designer skrót klawiaturowy tego narzędzia to V.
+
+Po zaznaczeniu obiektu można zmieniać jego położenie i wymiary za pomocą uchwytów transformacji.
+
+Narzędzie jest wykorzystywane praktycznie na każdym etapie pracy nad projektem.
+
+7. Node Tool
+
+Node Tool służy do edycji punktów i krzywych tworzących obiekty wektorowe.
+
+Punkty określające przebieg ścieżki nazywane są węzłami, czyli Nodes.
+
+Za pomocą uchwytów krzywych można kontrolować kierunek i stopień zakrzywienia linii.
+
+Node Tool jest szczególnie przydatny podczas dopracowywania konturów logo, ikon i ilustracji.
+
+8. Pen Tool
+
+Pen Tool umożliwia tworzenie precyzyjnych ścieżek wektorowych.
+
+Za jego pomocą można rysować linie proste oraz krzywe Béziera.
+
+Krzywe Béziera pozwalają tworzyć płynne kształty poprzez kontrolowanie położenia punktów i uchwytów.
+
+Pen Tool jest wykorzystywany do rysowania niestandardowych symboli, konturów i ilustracji.
+
+Opanowanie tego narzędzia jest jedną z najważniejszych umiejętności w projektowaniu grafiki wektorowej.
+
+9. Narzędzia do tworzenia kształtów
+
+Affinity Designer udostępnia narzędzia umożliwiające tworzenie podstawowych figur geometrycznych.
+
+Rectangle Tool służy do rysowania prostokątów i kwadratów.
+
+Ellipse Tool umożliwia tworzenie okręgów i elips.
+
+Triangle Tool pozwala tworzyć trójkąty.
+
+Polygon Tool służy do rysowania wielokątów.
+
+Star Tool umożliwia tworzenie gwiazd.
+
+Gotowe kształty można łączyć, modyfikować i wykorzystywać jako podstawę bardziej złożonych ilustracji.
+
+10. Fill i Stroke
+
+Fill oznacza wypełnienie obiektu kolorem lub innym rodzajem wypełnienia.
+
+Stroke oznacza obrys, czyli linię otaczającą krawędzie obiektu.
+
+Można ustawić różne kolory wypełnienia i obrysu.
+
+Właściwości obrysu obejmują między innymi jego grubość, zakończenia oraz sposób łączenia segmentów.
+
+Fill i Stroke są podstawowymi właściwościami wykorzystywanymi podczas projektowania grafiki wektorowej.
+
+11. Warstwy — Layers
+
+Warstwy pozwalają organizować elementy projektu i kontrolować sposób ich wyświetlania.
+
+Poszczególne obiekty mogą znajdować się na oddzielnych warstwach lub we wspólnych grupach.
+
+Warstwy można przesuwać, ukrywać, blokować i zmieniać ich kolejność.
+
+Element znajdujący się wyżej w hierarchii może zasłaniać element położony niżej.
+
+Odpowiednia organizacja warstw ułatwia edycję rozbudowanych projektów.
+
+12. Grupowanie obiektów
+
+Grupowanie umożliwia połączenie kilku obiektów w jeden logiczny zestaw.
+
+Dzięki temu można przesuwać, skalować i obracać wiele elementów jednocześnie.
+
+Grupowanie jest przydatne na przykład podczas tworzenia logo składającego się z symbolu i napisu.
+
+Grupy można rozdzielać, aby ponownie edytować ich poszczególne elementy.
+
+13. Operacje boolowskie — Boolean Operations
+
+Operacje boolowskie umożliwiają łączenie i modyfikowanie kształtów wektorowych.
+
+Add łączy zaznaczone kształty w jeden obiekt.
+
+Subtract odejmuje jeden kształt od drugiego.
+
+Intersect pozostawia część wspólną zaznaczonych obiektów.
+
+Xor pozostawia obszary należące tylko do jednego z zaznaczonych kształtów.
+
+Operacje boolowskie są wykorzystywane do tworzenia bardziej skomplikowanych symboli, ikon i logo z prostych figur geometrycznych.
+
+14. Kolory i palety
+
+Affinity Designer umożliwia pracę z różnymi modelami kolorów, między innymi RGB i CMYK.
+
+RGB wykorzystuje składowe czerwone, zielone i niebieskie i jest powszechnie stosowany w grafice ekranowej.
+
+CMYK wykorzystuje cyjan, magentę, żółty i czarny i jest stosowany w wielu procesach drukarskich.
+
+Palety kolorów pozwalają zachować spójność wizualną projektu.
+
+Można tworzyć własne zestawy kolorystyczne i wykorzystywać je w wielu elementach grafiki.
+
+Przygotowując projekt do druku, należy sprawdzić wymagania drukarni dotyczące profilu kolorów.
+
+15. Gradienty
+
+Gradient to płynne przejście pomiędzy dwoma lub większą liczbą kolorów.
+
+Affinity Designer umożliwia tworzenie gradientów, które można wykorzystywać do wypełniania obiektów.
+
+Można zmieniać kolory gradientu, kierunek przejścia i położenie punktów kontrolnych.
+
+Gradienty pomagają nadawać grafice głębię i urozmaicać jej wygląd.
+
+Są często wykorzystywane w ilustracjach, ikonach, plakatach i materiałach reklamowych.
+
+16. Tekst i typografia
+
+Narzędzia tekstowe umożliwiają dodawanie napisów do projektów graficznych.
+
+Tekst może być wykorzystywany w logo, plakatach, materiałach reklamowych i infografikach.
+
+Można zmieniać krój pisma, rozmiar, kolor oraz odstępy między znakami.
+
+Affinity Designer umożliwia tworzenie tekstu w ramkach oraz umieszczanie go wzdłuż ścieżki.
+
+Tekst można również przekształcić w krzywe, aby uzyskać większą kontrolę nad kształtem liter.
+
+Po przekształceniu tekstu w krzywe nie można już edytować go jak zwykłego tekstu, dlatego warto zachować jego oryginalną kopię.
+
+17. Obrazy rastrowe
+
+Affinity Designer pozwala umieszczać obrazy rastrowe w projektach wektorowych.
+
+Można na przykład połączyć zdjęcie z tekstem i wektorowymi elementami graficznymi w jednym projekcie.
+
+Obrazy można skalować, przycinać i odpowiednio rozmieszczać na obszarze roboczym.
+
+Powiększenie obrazu rastrowego nie zwiększa jego rzeczywistej rozdzielczości.
+
+Funkcje rastrowe umożliwiają również malowanie cyfrowe i dodawanie tekstur.
+
+18. Personas
+
+W klasycznych wersjach Affinity Designer dostępne są różne tryby pracy nazywane Personas.
+
+Designer Persona jest przeznaczona przede wszystkim do tworzenia i edytowania grafiki wektorowej.
+
+Pixel Persona umożliwia pracę z grafiką rastrową, między innymi przy użyciu pędzli.
+
+Export Persona w wersjach, które ją udostępniają, służy do przygotowywania eksportowanych elementów projektu.
+
+Dostępność i sposób działania poszczególnych trybów zależą od używanej wersji programu.
+
+19. Symbole i ponowne wykorzystywanie elementów
+
+Podczas projektowania często trzeba wykorzystywać te same elementy graficzne w wielu miejscach.
+
+Symbole i mechanizmy ponownego wykorzystania pomagają zachować spójność projektu.
+
+Takie rozwiązania są przydatne przy tworzeniu zestawów ikon, elementów identyfikacji wizualnej i wielu wariantów projektu.
+
+Odpowiednie wykorzystanie współdzielonych elementów może ograniczyć ilość powtarzalnej pracy.
+
+20. Maski i przycinanie
+
+Maski umożliwiają kontrolowanie widoczności fragmentów obiektów i obrazów.
+
+Przycinanie pozwala ograniczyć widoczny obszar grafiki do określonego kształtu.
+
+Przykładem jest umieszczenie zdjęcia wewnątrz koła w celu utworzenia okrągłego elementu graficznego.
+
+Maski są przydatne przy projektowaniu ikon, ilustracji, banerów i materiałów promocyjnych.
+
+21. Efekty i przezroczystość
+
+Affinity Designer umożliwia stosowanie efektów wizualnych, takich jak cienie i rozmycia.
+
+Przezroczystość pozwala kontrolować widoczność obiektów oraz tworzyć nakładające się elementy.
+
+Efekty mogą podkreślać ważne elementy projektu i poprawiać jego czytelność.
+
+Należy jednak stosować je z umiarem, aby nie utrudniały odbioru grafiki.
+
+22. Siatki, prowadnice i wyrównywanie
+
+Siatki i prowadnice pomagają precyzyjnie rozmieszczać elementy na obszarze roboczym.
+
+Narzędzia wyrównywania umożliwiają ustawianie obiektów względem siebie lub obszaru roboczego.
+
+Funkcje przyciągania ułatwiają zachowanie równych odstępów i odpowiednich proporcji.
+
+Rozwiązania te są szczególnie przydatne przy projektowaniu ikon, logo, infografik i materiałów reklamowych.
+
+23. Eksportowanie plików
+
+Affinity Designer umożliwia zapisywanie projektów oraz eksportowanie grafiki do różnych formatów.
+
+Natywny format projektu pozwala zachować edytowalną strukturę dokumentu.
+
+SVG jest formatem wektorowym często wykorzystywanym w internecie.
+
+PDF jest przydatny przy przekazywaniu dokumentów i materiałów do druku.
+
+PNG obsługuje przezroczystość i jest często stosowany do eksportowania ikon oraz grafiki ekranowej.
+
+JPEG sprawdza się przy zapisywaniu obrazów rastrowych bez potrzeby zachowania przezroczystości.
+
+Podczas eksportowania należy dobrać format i ustawienia do przeznaczenia grafiki.
+
+24. Projektowanie logo
+
+Affinity Designer jest często wykorzystywany do projektowania logo i elementów identyfikacji wizualnej.
+
+Pracę warto rozpocząć od określenia charakteru marki i grupy docelowej.
+
+Następnie należy przygotować kilka szkiców i wybrać najlepszy kierunek projektu.
+
+Kolejnym krokiem jest stworzenie kształtów za pomocą narzędzi geometrycznych lub Pen Tool.
+
+Po utworzeniu symbolu można dobrać kolory, dodać typografię i dopracować proporcje.
+
+Gotowe logo należy sprawdzić w różnych rozmiarach oraz przygotować wersje kolorystyczne i monochromatyczne.
+
+Projekt warto zachować w formacie edytowalnym i wyeksportować do odpowiednich formatów, takich jak SVG i PDF.
+
+25. Zastosowania Affinity Designer
+
+Affinity Designer może być wykorzystywany do tworzenia logo i identyfikacji wizualnej.
+
+Program sprawdza się przy projektowaniu ikon, ilustracji i infografik.
+
+Można w nim przygotowywać plakaty, ulotki, banery i inne materiały reklamowe.
+
+Jest przydatny przy tworzeniu elementów graficznych do stron internetowych i aplikacji.
+
+Można go również wykorzystywać do ilustracji cyfrowych, naklejek i grafik przeznaczonych do publikacji internetowych.
+
+26. Zalety i ograniczenia
+
+Jedną z głównych zalet Affinity Designer jest połączenie narzędzi wektorowych z wybranymi funkcjami rastrowymi.
+
+Program zapewnia dużą kontrolę nad kształtami, krzywymi, kolorami i układem elementów.
+
+Może stanowić alternatywę dla osób, które nie potrzebują całego ekosystemu Adobe.
+
+Ograniczeniem może być różnica w obsłudze niektórych formatów i funkcji w porównaniu z innymi programami graficznymi.
+
+Przed rozpoczęciem współpracy z klientem lub drukarnią warto sprawdzić wymagany format plików i zgodność wersji oprogramowania.
+
+27. Jak uczyć się Affinity Designer?
+
+Na początku warto poznać interfejs programu oraz podstawowe narzędzia zaznaczania i transformacji.
+
+Następnie należy nauczyć się tworzenia kształtów, edycji węzłów i korzystania z Pen Tool.
+
+Kolejnym etapem jest opanowanie warstw, grupowania, operacji boolowskich i pracy z kolorami.
+
+Później warto ćwiczyć tworzenie gradientów, pracę z tekstem oraz łączenie grafiki wektorowej z rastrową.
+
+Po opanowaniu podstaw można przejść do tworzenia własnych ikon, ilustracji i logo.
+
+Najlepszym sposobem nauki jest realizowanie małych projektów, które stopniowo wymagają coraz większej precyzji.
+
+28. Najważniejsze pojęcia
+
+Vector Graphics — grafika wektorowa oparta na kształtach i krzywych.
+
+Raster Graphics — grafika rastrowa zbudowana z pikseli.
+
+Artboard — obszar roboczy przeznaczony na projekt.
+
+Node — punkt określający kształt ścieżki wektorowej.
+
+Path — ścieżka składająca się z punktów i segmentów.
+
+Pen Tool — narzędzie do tworzenia precyzyjnych ścieżek.
+
+Fill — wypełnienie obiektu.
+
+Stroke — obrys obiektu.
+
+Layers — warstwy służące do organizowania elementów projektu.
+
+Boolean Operations — operacje łączenia i modyfikowania kształtów.
+
+Gradient — płynne przejście pomiędzy kolorami.
+
+RGB — model kolorów wykorzystywany głównie w grafice ekranowej.
+
+CMYK — model kolorów wykorzystywany w wielu procesach drukarskich.
+
+SVG — format grafiki wektorowej.
+
+PDF — format dokumentów i materiałów do druku.
+
+29. W skrócie
+
+Affinity Designer to profesjonalny program do projektowania grafiki wektorowej i tworzenia ilustracji cyfrowych.
+
+Jego główne zastosowania obejmują logo, ikony, ilustracje, plakaty i materiały reklamowe.
+
+Najważniejsze umiejętności to praca z kształtami, krzywymi, warstwami, kolorami i tekstem.
+
+Opanowanie tych podstaw pozwala tworzyć własne projekty i przygotowywać je do publikacji cyfrowej lub druku.
+
+Dodaj praktyczny projekt krok po krokuUtwórz tabelę najważniejszych narzędzi

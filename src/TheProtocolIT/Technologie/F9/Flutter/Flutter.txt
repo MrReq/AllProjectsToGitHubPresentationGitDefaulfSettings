@@ -1,0 +1,1532 @@
+# Flutter
+
+## Czym jest Flutter?
+
+Flutter to **open-source'owy framework UI firmy Google** służący do tworzenia aplikacji wieloplatformowych.
+
+Flutter wykorzystuje przede wszystkim język programowania **Dart**.
+
+Największą zaletą Fluttera jest możliwość tworzenia aplikacji na wiele platform przy wykorzystaniu jednej bazy kodu.
+
+Możemy tworzyć między innymi aplikacje na:
+
+Android.
+
+iOS.
+
+Windows.
+
+macOS.
+
+Linux.
+
+Web.
+
+Można więc napisać dużą część aplikacji raz, a następnie uruchamiać ją na różnych platformach.
+
+## Do czego służy Flutter?
+
+Flutter służy przede wszystkim do tworzenia:
+
+aplikacji mobilnych.
+
+aplikacji webowych.
+
+aplikacji desktopowych.
+
+aplikacji biznesowych.
+
+aplikacji e-commerce.
+
+aplikacji społecznościowych.
+
+aplikacji wykorzystujących API.
+
+aplikacji wykorzystujących Firebase.
+
+prototypów i MVP.
+
+## Flutter a Dart
+
+Flutter wykorzystuje język **Dart**.
+
+Dart został również stworzony przez Google.
+
+Przykładowy kod Dart:
+
+```dart
+void main() {
+  print("Hello World!");
+}
+```
+
+Dart jest językiem statycznie typowanym.
+
+Obsługuje między innymi:
+
+klasy.
+
+dziedziczenie.
+
+interfejsy.
+
+generyki.
+
+funkcje.
+
+async/await.
+
+Future.
+
+Stream.
+
+null safety.
+
+## Pierwsza aplikacja Flutter
+
+Minimalna aplikacja Flutter może wyglądać tak:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text('Hello World!'),
+        ),
+      ),
+    );
+  }
+}
+```
+
+Aplikacja uruchamia funkcję:
+
+```dart
+runApp()
+```
+
+która rozpoczyna działanie aplikacji Flutter.
+
+## Widget
+
+Najważniejszym pojęciem we Flutterze jest **Widget**.
+
+Flutter buduje interfejs użytkownika za pomocą widgetów.
+
+Widget może reprezentować:
+
+tekst.
+
+przycisk.
+
+obraz.
+
+pole tekstowe.
+
+wiersz.
+
+kolumnę.
+
+ekran.
+
+całą aplikację.
+
+Można to przedstawić:
+
+```text
+Application
+    ↓
+Widget
+    ↓
+Widget
+    ↓
+Widget
+    ↓
+Widget
+```
+
+## Everything is a Widget
+
+Jedna z podstawowych zasad Fluttera brzmi:
+
+**Everything is a Widget.**
+
+Oznacza to, że bardzo wiele elementów interfejsu jest reprezentowanych jako widgety.
+
+Przykładowo:
+
+```dart
+Text()
+```
+
+jest widgetem.
+
+```dart
+Container()
+```
+
+jest widgetem.
+
+```dart
+Column()
+```
+
+jest widgetem.
+
+```dart
+Row()
+```
+
+jest widgetem.
+
+```dart
+Scaffold()
+```
+
+jest widgetem.
+
+## Widget Tree
+
+Widgety tworzą hierarchiczną strukturę nazywaną **Widget Tree**.
+
+Przykład:
+
+```text
+MaterialApp
+    │
+    └── Scaffold
+         │
+         ├── AppBar
+         │
+         └── Column
+              ├── Text
+              ├── TextField
+              └── ElevatedButton
+```
+
+Flutter wykorzystuje tę strukturę do budowania interfejsu aplikacji.
+
+## StatelessWidget
+
+**StatelessWidget** reprezentuje widget, którego stan nie zmienia się podczas jego działania.
+
+Przykład:
+
+```dart
+class Welcome extends StatelessWidget {
+  const Welcome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      'Welcome!',
+    );
+  }
+}
+```
+
+Jeżeli widget nie musi samodzielnie przechowywać zmiennego stanu, możemy wykorzystać `StatelessWidget`.
+
+## StatefulWidget
+
+**StatefulWidget** jest wykorzystywany wtedy, gdy widget posiada zmieniający się stan.
+
+Przykład:
+
+```dart
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+```
+
+Stan znajduje się w klasie:
+
+```dart
+class _CounterState extends State<Counter> {
+  int counter = 0;
+
+  void increment() {
+    setState(() {
+      counter++;
+    });
+  }
+}
+```
+
+## setState()
+
+`setState()` informuje Fluttera, że stan widgetu został zmieniony i interfejs powinien zostać ponownie zbudowany.
+
+Przykład:
+
+```dart
+setState(() {
+  counter++;
+});
+```
+
+Możemy to zapamiętać:
+
+```text
+Zmiana danych
+     ↓
+setState()
+     ↓
+Flutter rebuild
+     ↓
+Nowy UI
+```
+
+## Build Method
+
+Widget posiada metodę:
+
+```dart
+build()
+```
+
+która określa, jak widget powinien wyglądać.
+
+Przykład:
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return const Text(
+    'Hello Flutter',
+  );
+}
+```
+
+Metoda `build()` zwraca widget.
+
+## MaterialApp
+
+`MaterialApp` jest jednym z podstawowych widgetów używanych w aplikacjach Flutter.
+
+Zapewnia między innymi:
+
+nawigację.
+
+motywy.
+
+lokalizację.
+
+obsługę Material Design.
+
+konfigurację aplikacji.
+
+Przykład:
+
+```dart
+MaterialApp(
+  home: HomePage(),
+)
+```
+
+## Scaffold
+
+`Scaffold` zapewnia podstawową strukturę ekranu aplikacji.
+
+Może zawierać:
+
+AppBar.
+
+Body.
+
+FloatingActionButton.
+
+Drawer.
+
+BottomNavigationBar.
+
+SnackBar.
+
+Przykład:
+
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: const Text('My App'),
+  ),
+  body: const Center(
+    child: Text('Hello'),
+  ),
+)
+```
+
+## AppBar
+
+`AppBar` reprezentuje górny pasek aplikacji.
+
+Może zawierać:
+
+tytuł.
+
+przyciski.
+
+menu.
+
+ikony.
+
+Przykład:
+
+```dart
+AppBar(
+  title: const Text('Home'),
+  actions: [
+    IconButton(
+      onPressed: () {},
+      icon: const Icon(Icons.settings),
+    ),
+  ],
+)
+```
+
+## Text
+
+Widget `Text` służy do wyświetlania tekstu.
+
+```dart
+const Text(
+  'Hello Flutter',
+)
+```
+
+Możemy określić styl:
+
+```dart
+Text(
+  'Hello',
+  style: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  ),
+)
+```
+
+## Container
+
+`Container` jest uniwersalnym widgetem umożliwiającym między innymi określanie:
+
+rozmiaru.
+
+paddingu.
+
+marginesu.
+
+koloru.
+
+obramowania.
+
+zaokrąglenia.
+
+Przykład:
+
+```dart
+Container(
+  padding: const EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Text('Hello'),
+)
+```
+
+## Row
+
+`Row` układa widgety poziomo.
+
+```text
+[ Text ] [ Button ] [ Icon ]
+```
+
+Przykład:
+
+```dart
+Row(
+  children: [
+    const Text('Hello'),
+    ElevatedButton(
+      onPressed: () {},
+      child: const Text('Click'),
+    ),
+  ],
+)
+```
+
+## Column
+
+`Column` układa widgety pionowo.
+
+```text
+Text
+  ↓
+TextField
+  ↓
+Button
+```
+
+Przykład:
+
+```dart
+Column(
+  children: [
+    const Text('Login'),
+    TextField(),
+    ElevatedButton(
+      onPressed: () {},
+      child: const Text('Login'),
+    ),
+  ],
+)
+```
+
+## Stack
+
+`Stack` pozwala nakładać widgety na siebie.
+
+Przykładowo:
+
+```text
+┌──────────────────┐
+│      Image       │
+│                  │
+│    [ Button ]    │
+└──────────────────┘
+```
+
+Kod:
+
+```dart
+Stack(
+  children: [
+    Image.network('image_url'),
+    Positioned(
+      bottom: 10,
+      child: ElevatedButton(
+        onPressed: () {},
+        child: const Text('Buy'),
+      ),
+    ),
+  ],
+)
+```
+
+## ListView
+
+`ListView` służy do tworzenia przewijalnych list.
+
+```dart
+ListView(
+  children: [
+    const Text('Item 1'),
+    const Text('Item 2'),
+    const Text('Item 3'),
+  ],
+)
+```
+
+Dla dużych list często wykorzystuje się:
+
+```dart
+ListView.builder()
+```
+
+który tworzy elementy w sposób bardziej efektywny.
+
+## GridView
+
+`GridView` pozwala tworzyć układ siatkowy.
+
+Przykład:
+
+```text
+┌────┐ ┌────┐
+│ 1  │ │ 2  │
+└────┘ └────┘
+┌────┐ ┌────┐
+│ 3  │ │ 4  │
+└────┘ └────┘
+```
+
+Może być wykorzystywany między innymi w:
+
+galeriach.
+
+sklepach internetowych.
+
+katalogach produktów.
+
+## Buttons
+
+Flutter posiada wiele rodzajów przycisków.
+
+Między innymi:
+
+`ElevatedButton`
+
+`TextButton`
+
+`OutlinedButton`
+
+`IconButton`
+
+Przykład:
+
+```dart
+ElevatedButton(
+  onPressed: () {
+    print('Clicked');
+  },
+  child: const Text('Click me'),
+)
+```
+
+## TextField
+
+`TextField` pozwala pobierać tekst od użytkownika.
+
+```dart
+TextField(
+  decoration: InputDecoration(
+    labelText: 'Email',
+  ),
+)
+```
+
+Często wykorzystuje się również `TextEditingController`.
+
+```dart
+final controller = TextEditingController();
+```
+
+Następnie:
+
+```dart
+TextField(
+  controller: controller,
+)
+```
+
+Możemy odczytać tekst:
+
+```dart
+controller.text
+```
+
+## Forms
+
+Flutter posiada widget `Form`, który pomaga tworzyć formularze.
+
+Możemy wykorzystać:
+
+`Form`.
+
+`TextFormField`.
+
+`GlobalKey<FormState>`.
+
+Przykładowy schemat:
+
+```text
+Form
+ ├── Email
+ ├── Password
+ └── Submit
+```
+
+## Walidacja
+
+Możemy definiować walidację pól formularza.
+
+Przykład:
+
+```dart
+TextFormField(
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Pole jest wymagane';
+    }
+
+    return null;
+  },
+)
+```
+
+## Navigation
+
+Flutter posiada system nawigacji pomiędzy ekranami.
+
+Możemy przejść na nowy ekran:
+
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const DetailsPage(),
+  ),
+);
+```
+
+Powrót:
+
+```dart
+Navigator.pop(context);
+```
+
+Schemat:
+
+```text
+Home
+ ↓
+Details
+ ↓
+Settings
+```
+
+## Named Routes
+
+Możemy również wykorzystywać nazwane trasy.
+
+Przykład:
+
+```dart
+MaterialApp(
+  routes: {
+    '/': (context) => const HomePage(),
+    '/login': (context) => const LoginPage(),
+    '/settings': (context) => const SettingsPage(),
+  },
+)
+```
+
+Następnie:
+
+```dart
+Navigator.pushNamed(
+  context,
+  '/settings',
+);
+```
+
+## State Management
+
+W większych aplikacjach zarządzanie stanem staje się bardzo ważne.
+
+Popularne rozwiązania to:
+
+Provider.
+
+Riverpod.
+
+Bloc.
+
+Cubit.
+
+GetX.
+
+Redux.
+
+Można je wykorzystać do zarządzania między innymi:
+
+użytkownikiem.
+
+koszykiem.
+
+autoryzacją.
+
+ustawieniami.
+
+danymi z API.
+
+stanem formularzy.
+
+## Provider
+
+**Provider** jest jednym z popularnych sposobów zarządzania stanem we Flutterze.
+
+Pozwala udostępniać dane wielu widgetom.
+
+Schemat:
+
+```text
+Provider
+   ↓
+Widget A
+   ↓
+Widget B
+   ↓
+Widget C
+```
+
+## Riverpod
+
+**Riverpod** jest nowoczesnym rozwiązaniem do zarządzania stanem.
+
+Pozwala między innymi:
+
+zarządzać zależnościami.
+
+obserwować dane.
+
+obsługiwać stan asynchroniczny.
+
+oddzielać logikę od UI.
+
+## BLoC
+
+**BLoC – Business Logic Component** jest wzorcem pozwalającym oddzielić logikę biznesową od interfejsu.
+
+Schemat:
+
+```text
+UI
+ ↓
+Event
+ ↓
+BLoC
+ ↓
+Business Logic
+ ↓
+State
+ ↓
+UI
+```
+
+Jest często wykorzystywany w większych aplikacjach.
+
+## Async / Await
+
+Flutter i Dart posiadają obsługę programowania asynchronicznego.
+
+Możemy wykorzystywać:
+
+`Future`.
+
+`async`.
+
+`await`.
+
+`Stream`.
+
+Przykład:
+
+```dart
+Future<String> loadData() async {
+  final result = await getData();
+
+  return result;
+}
+```
+
+Jest to bardzo ważne podczas komunikacji z API i bazami danych.
+
+## Future
+
+`Future` reprezentuje wartość, która zostanie otrzymana w przyszłości.
+
+Przykład:
+
+```dart
+Future<String> getName() async {
+  return 'Jan';
+}
+```
+
+Możemy wykorzystać:
+
+```dart
+final name = await getName();
+```
+
+## Stream
+
+`Stream` pozwala otrzymywać wiele wartości w czasie.
+
+Przykładowo:
+
+```text
+Event 1
+  ↓
+Event 2
+  ↓
+Event 3
+  ↓
+Event 4
+```
+
+Jest przydatny przy:
+
+czatach.
+
+danych czasu rzeczywistego.
+
+sensorach.
+
+lokalizacji.
+
+zdarzeniach aplikacji.
+
+## HTTP i REST API
+
+Flutter może komunikować się z backendem poprzez HTTP.
+
+Popularnym pakietem jest:
+
+```text
+http
+```
+
+Przykładowo:
+
+```dart
+final response = await http.get(
+  Uri.parse('https://example.com/api/users'),
+);
+```
+
+Możemy wykonywać:
+
+GET.
+
+POST.
+
+PUT.
+
+PATCH.
+
+DELETE.
+
+## JSON
+
+API często przesyła dane w formacie JSON.
+
+Przykład:
+
+```json
+{
+  "id": 1,
+  "name": "Jan",
+  "email": "jan@example.com"
+}
+```
+
+Dart może przekształcić JSON na obiekty aplikacji.
+
+Typowy przepływ:
+
+```text
+Flutter
+ ↓
+HTTP Request
+ ↓
+REST API
+ ↓
+JSON
+ ↓
+Dart Model
+ ↓
+UI
+```
+
+## Firebase i Flutter
+
+Flutter bardzo dobrze współpracuje z Firebase.
+
+Możemy wykorzystywać między innymi:
+
+Firebase Authentication.
+
+Cloud Firestore.
+
+Firebase Storage.
+
+Firebase Cloud Messaging.
+
+Firebase Analytics.
+
+Firebase Crashlytics.
+
+Przykładowa architektura:
+
+```text
+Flutter
+   ↓
+Firebase
+ ├── Authentication
+ ├── Firestore
+ ├── Storage
+ ├── FCM
+ └── Analytics
+```
+
+## SQLite
+
+Flutter może również korzystać z lokalnych baz danych.
+
+Popularnym rozwiązaniem jest SQLite.
+
+Możemy dzięki temu przechowywać dane lokalnie.
+
+Przykładowo:
+
+```text
+Flutter
+   ↓
+SQLite
+   ↓
+Local Device
+```
+
+Jest to przydatne między innymi do:
+
+danych offline.
+
+cache.
+
+ustawień.
+
+lokalnych rekordów.
+
+## Packages
+
+Flutter posiada system pakietów.
+
+Zależności aplikacji definiuje się w:
+
+```text
+pubspec.yaml
+```
+
+Przykład:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^1.0.0
+  provider: ^6.0.0
+```
+
+Pakiety pobieramy między innymi za pomocą:
+
+```bash
+flutter pub get
+```
+
+## pub.dev
+
+**pub.dev** jest oficjalnym repozytorium pakietów dla ekosystemu Dart i Flutter.
+
+Można tam znaleźć biblioteki do:
+
+API.
+
+Firebase.
+
+animacji.
+
+UI.
+
+baz danych.
+
+autoryzacji.
+
+map.
+
+płatności.
+
+testów.
+
+## Hot Reload
+
+Jedną z najbardziej znanych funkcji Fluttera jest **Hot Reload**.
+
+Pozwala szybko zobaczyć zmiany w aplikacji bez pełnego restartowania aplikacji.
+
+Schemat:
+
+```text
+Zmiana kodu
+    ↓
+Hot Reload
+    ↓
+Aktualizacja UI
+```
+
+Jest to bardzo przydatne podczas projektowania interfejsu.
+
+## Hot Restart
+
+**Hot Restart** restartuje stan aplikacji.
+
+Różnica:
+
+```text
+Hot Reload
+→ zachowuje stan aplikacji
+
+Hot Restart
+→ restartuje aplikację i jej stan
+```
+
+## Flutter DevTools
+
+**Flutter DevTools** to zestaw narzędzi dla programistów Fluttera.
+
+Pozwala między innymi analizować:
+
+wydajność.
+
+widget tree.
+
+layout.
+
+pamięć.
+
+sieć.
+
+logi.
+
+rebuildy widgetów.
+
+Jest bardzo przydatny podczas debugowania.
+
+## Material Design
+
+Flutter posiada rozbudowane widgety zgodne z **Material Design**.
+
+Przykładowo:
+
+```dart
+ElevatedButton()
+AppBar()
+Drawer()
+FloatingActionButton()
+TextField()
+```
+
+Dzięki temu można stosunkowo szybko tworzyć nowoczesne interfejsy.
+
+## Cupertino
+
+Flutter posiada również widgety stylizowane na interfejs iOS.
+
+Znajdują się one w bibliotece:
+
+```dart
+import 'package:flutter/cupertino.dart';
+```
+
+Przykładowo:
+
+```dart
+CupertinoButton()
+CupertinoNavigationBar()
+CupertinoSwitch()
+```
+
+Dzięki temu można tworzyć interfejsy bardziej przypominające natywne aplikacje Apple.
+
+## Responsive Design
+
+Flutter umożliwia tworzenie interfejsów dostosowanych do różnych rozmiarów ekranów.
+
+Możemy tworzyć aplikacje dla:
+
+smartfonów.
+
+tabletów.
+
+desktopów.
+
+web.
+
+Możemy wykorzystać między innymi:
+
+`MediaQuery`.
+
+`LayoutBuilder`.
+
+`Flexible`.
+
+`Expanded`.
+
+`Wrap`.
+
+## Expanded
+
+`Expanded` pozwala widgetowi zająć dostępną przestrzeń w `Row` lub `Column`.
+
+Przykład:
+
+```dart
+Row(
+  children: [
+    Expanded(
+      child: Container(),
+    ),
+    Expanded(
+      child: Container(),
+    ),
+  ],
+)
+```
+
+Elementy mogą wtedy podzielić dostępną szerokość.
+
+## Flexible
+
+`Flexible` również pozwala tworzyć elastyczne layouty.
+
+Różni się od `Expanded` sposobem, w jaki ogranicza i wykorzystuje dostępną przestrzeń.
+
+## Theme
+
+Flutter umożliwia definiowanie globalnego wyglądu aplikacji.
+
+Przykład:
+
+```dart
+MaterialApp(
+  theme: ThemeData(
+    brightness: Brightness.light,
+  ),
+)
+```
+
+Możemy definiować między innymi:
+
+kolory.
+
+typografię.
+
+kształty.
+
+style przycisków.
+
+tryb jasny.
+
+tryb ciemny.
+
+## Dark Mode
+
+Flutter pozwala obsługiwać tryb jasny i ciemny.
+
+Możemy zdefiniować:
+
+```text
+Light Theme
+Dark Theme
+```
+
+i przełączać się między nimi zależnie od ustawień użytkownika.
+
+## Animations
+
+Flutter posiada rozbudowany system animacji.
+
+Możemy tworzyć:
+
+animacje przejść.
+
+animacje przycisków.
+
+animacje elementów UI.
+
+animacje ekranów.
+
+animacje własne.
+
+Dostępne są między innymi:
+
+Implicit Animations.
+
+Explicit Animations.
+
+AnimationController.
+
+Tween.
+
+## Flutter Architecture
+
+Typowa aplikacja Flutter może mieć strukturę:
+
+```text
+lib/
+├── main.dart
+├── screens/
+├── widgets/
+├── models/
+├── services/
+├── repositories/
+├── providers/
+└── utils/
+```
+
+Przykładowy przepływ:
+
+```text
+UI
+ ↓
+Provider / BLoC
+ ↓
+Service
+ ↓
+Repository
+ ↓
+REST API
+ ↓
+Backend
+ ↓
+Database
+```
+
+## Flutter + Spring Boot
+
+Flutter może być frontendem mobilnym dla backendu napisanego w Spring Boot.
+
+Przykładowa architektura:
+
+```text
+              Flutter
+                 ↓
+              HTTP/JSON
+                 ↓
+          Spring Boot API
+                 ↓
+             PostgreSQL
+```
+
+Flutter odpowiada za UI i aplikację kliencką.
+
+Spring Boot odpowiada za backend i logikę biznesową.
+
+## Flutter + FastAPI
+
+Możemy również połączyć Flutter z FastAPI:
+
+```text
+Flutter
+   ↓
+HTTP / JSON
+   ↓
+FastAPI
+   ↓
+PostgreSQL
+```
+
+Jest to szczególnie interesujące w aplikacjach wykorzystujących Python i AI.
+
+## Flutter + Firebase
+
+Jeżeli aplikacja nie potrzebuje rozbudowanego własnego backendu:
+
+```text
+Flutter
+   ↓
+Firebase
+ ├── Auth
+ ├── Firestore
+ ├── Storage
+ └── FCM
+```
+
+może być bardzo szybkim sposobem stworzenia MVP.
+
+## Flutter – zalety
+
+Jedna baza kodu dla wielu platform.
+
+Bardzo dobre możliwości tworzenia UI.
+
+Szybki development.
+
+Hot Reload.
+
+Duża liczba gotowych widgetów.
+
+Bogaty ekosystem pakietów.
+
+Dobra integracja z Firebase.
+
+Dobra dokumentacja.
+
+Dobra wydajność.
+
+Możliwość tworzenia aplikacji mobilnych, desktopowych i webowych.
+
+## Flutter – wady
+
+Trzeba nauczyć się języka Dart.
+
+Aplikacje mogą mieć większy rozmiar niż niektóre aplikacje natywne.
+
+Flutter nie zawsze zapewnia identyczne zachowanie jak natywne rozwiązania danej platformy.
+
+Niektóre funkcje platformowe wymagają wykorzystania kodu natywnego.
+
+Przy bardzo specyficznych funkcjach systemowych konieczna może być znajomość Kotlin/Java lub Swift/Objective-C.
+
+## Flutter vs React Native
+
+Flutter wykorzystuje:
+
+```text
+Dart
+```
+
+React Native wykorzystuje:
+
+```text
+JavaScript / TypeScript
+```
+
+Flutter posiada własny system widgetów.
+
+React Native wykorzystuje komponenty i mechanizmy komunikacji z platformą natywną.
+
+Można zapamiętać:
+
+```text
+Flutter
+→ Dart
+→ Widgety
+→ Google
+
+React Native
+→ JavaScript / TypeScript
+→ React
+→ Meta
+```
+
+## Flutter vs Kotlin Multiplatform
+
+Flutter wykorzystuje własny framework UI i język Dart.
+
+Kotlin Multiplatform pozwala współdzielić kod napisany w Kotlinie pomiędzy platformami, jednocześnie umożliwiając korzystanie z natywnych mechanizmów platform.
+
+Można to uprościć:
+
+```text
+Flutter
+→ wspólny kod + Flutter UI
+
+Kotlin Multiplatform
+→ wspólny kod Kotlin + natywne UI lub współdzielone komponenty
+```
+
+## Flutter – najważniejsze pojęcia
+
+**Flutter** – framework do tworzenia aplikacji wieloplatformowych.
+
+**Dart** – język programowania wykorzystywany przez Flutter.
+
+**Widget** – podstawowy element interfejsu.
+
+**Widget Tree** – hierarchia widgetów.
+
+**StatelessWidget** – widget bez własnego zmiennego stanu.
+
+**StatefulWidget** – widget posiadający zmienny stan.
+
+**setState()** – informuje Flutter o zmianie stanu.
+
+**BuildContext** – kontekst widgetu w drzewie widgetów.
+
+**MaterialApp** – podstawowa konfiguracja aplikacji Material.
+
+**Scaffold** – podstawowa struktura ekranu.
+
+**Navigator** – obsługa nawigacji pomiędzy ekranami.
+
+**Provider / Riverpod / BLoC** – rozwiązania do zarządzania stanem.
+
+**Future** – wartość dostępna w przyszłości.
+
+**Stream** – strumień wielu wartości w czasie.
+
+**pubspec.yaml** – plik konfiguracji projektu i zależności.
+
+**pub.dev** – repozytorium pakietów Dart/Flutter.
+
+**Hot Reload** – szybkie przeładowanie zmian w kodzie.
+
+**DevTools** – narzędzia do debugowania i analizy aplikacji.
+
+## Flutter – najważniejsze do zapamiętania
+
+Flutter to framework firmy Google do tworzenia aplikacji wieloplatformowych.
+
+Wykorzystuje język **Dart**.
+
+Najważniejszym pojęciem we Flutterze jest **Widget**.
+
+Interfejs aplikacji jest tworzony jako **Widget Tree**.
+
+`StatelessWidget` jest używany dla widgetów bez zmiennego stanu.
+
+`StatefulWidget` pozwala zarządzać zmieniającym się stanem.
+
+`setState()` powoduje ponowne zbudowanie odpowiedniej części interfejsu.
+
+`MaterialApp` definiuje podstawową konfigurację aplikacji.
+
+`Scaffold` tworzy podstawową strukturę ekranu.
+
+`Navigator` służy do przechodzenia między ekranami.
+
+`Future` i `async/await` służą do obsługi operacji asynchronicznych.
+
+`Provider`, `Riverpod` i `BLoC` pomagają zarządzać stanem.
+
+`pubspec.yaml` przechowuje zależności projektu.
+
+`Hot Reload` znacznie przyspiesza proces tworzenia aplikacji.
+
+Flutter może komunikować się z REST API.
+
+Flutter bardzo dobrze współpracuje z Firebase.
+
+Flutter może być frontendem dla backendów napisanych między innymi w Spring Boot, ASP.NET Core, FastAPI czy Flask.
+
+Najprościej zapamiętać:
+
+```text
+                         FLUTTER
+                            ↓
+                           DART
+                            ↓
+                         WIDGETS
+                            ↓
+                      WIDGET TREE
+                            ↓
+              ┌─────────────┼─────────────┐
+              ↓             ↓             ↓
+           Android         iOS          Desktop
+              ↓             ↓             ↓
+                            Web
+                            ↓
+                    REST API / Firebase
+                            ↓
+                         Backend
+                            ↓
+                         Database
+```
+
+**Flutter = Dart + Widgety + jedna baza kodu + wiele platform.**

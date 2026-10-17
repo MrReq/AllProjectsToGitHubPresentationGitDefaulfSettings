@@ -1,0 +1,835 @@
+# Erlang
+
+## 1. Czym jest Erlang?
+
+Erlang to funkcyjny język programowania zaprojektowany przede wszystkim do tworzenia **niezawodnych, współbieżnych i rozproszonych systemów**.
+
+Erlang został opracowany w firmie **Ericsson** pod koniec lat 80. XX wieku.
+
+Język powstał z myślą o systemach telekomunikacyjnych, które musiały działać przez bardzo długi czas i obsługiwać ogromną liczbę jednoczesnych połączeń.
+
+Erlang jest szczególnie znany z wysokiej odporności na awarie oraz bardzo dobrego modelu współbieżności.
+
+## 2. BEAM
+
+Programy Erlanga są uruchamiane na **BEAM**, czyli maszynie wirtualnej Erlanga.
+
+BEAM odpowiada między innymi za:
+
+uruchamianie lekkich procesów,
+
+współbieżność,
+
+komunikację między procesami,
+
+obsługę systemów rozproszonych,
+
+izolowanie awarii.
+
+Schemat:
+
+```text
+Kod Erlang
+    ↓
+Kompilacja
+    ↓
+BEAM
+    ↓
+System operacyjny
+```
+
+## 3. Erlang i Elixir
+
+Erlang jest bezpośrednio związany z językiem **Elixir**.
+
+Elixir działa na tej samej maszynie BEAM i korzysta z wielu mechanizmów ekosystemu Erlanga.
+
+Można więc przedstawić zależność:
+
+```text
+             BEAM
+            /    \
+       Erlang    Elixir
+```
+
+Erlang jest starszym językiem i stanowi podstawę ekosystemu BEAM.
+
+Elixir oferuje inną, bardziej współczesną składnię, ale korzysta z wielu tych samych mechanizmów współbieżności i OTP.
+
+## 4. Programowanie funkcyjne
+
+Erlang jest językiem funkcyjnym.
+
+Duże znaczenie mają:
+
+funkcje,
+
+niemutowalność danych,
+
+rekurencja,
+
+pattern matching,
+
+funkcje wyższego rzędu.
+
+Przykład:
+
+```erlang
+double(X) ->
+    X * 2.
+```
+
+Wywołanie:
+
+```erlang
+double(5).
+```
+
+zwraca:
+
+```text
+10
+```
+
+## 5. Niemutowalność danych
+
+Dane w Erlangu są niemutowalne.
+
+Po przypisaniu wartości zmienna nie może zostać przypisana do innej wartości w tym samym zakresie wykonania.
+
+Przykład:
+
+```erlang
+X = 10.
+```
+
+Ponowne wykonanie:
+
+```erlang
+X = 10.
+```
+
+jest poprawne, ponieważ wartość jest taka sama.
+
+Natomiast:
+
+```erlang
+X = 20.
+```
+
+spowoduje błąd dopasowania.
+
+Jest to związane z charakterystycznym dla Erlanga mechanizmem **single assignment**.
+
+## 6. Pattern Matching
+
+Pattern matching jest jednym z podstawowych mechanizmów Erlanga.
+
+Przykład:
+
+```erlang
+{Name, Age} = {"Marcin", 25}.
+```
+
+W wyniku dopasowania:
+
+```text
+Name = "Marcin"
+Age = 25
+```
+
+Pattern matching może być również wykorzystywany w parametrach funkcji.
+
+## 7. Rekurencja
+
+Ponieważ dane są niemutowalne i Erlang nie wykorzystuje klasycznych pętli w stylu `while`, bardzo ważną rolę odgrywa rekurencja.
+
+Przykład:
+
+```erlang
+sum([]) ->
+    0;
+
+sum([Head | Tail]) ->
+    Head + sum(Tail).
+```
+
+Funkcja przechodzi po kolejnych elementach listy za pomocą rekurencji.
+
+## 8. Typy danych
+
+Erlang posiada między innymi:
+
+**Integer** – liczby całkowite.
+
+**Float** – liczby zmiennoprzecinkowe.
+
+**Atom** – stałe symboliczne.
+
+**Tuple** – krotki.
+
+**List** – listy.
+
+**Map** – mapy klucz-wartość.
+
+**Binary** – dane binarne.
+
+**PID** – identyfikator procesu.
+
+## 9. Atom
+
+Atom reprezentuje stałą symboliczną.
+
+Przykłady:
+
+```erlang
+ok
+error
+admin
+user
+```
+
+Atomy są bardzo często wykorzystywane do reprezentowania stanów i wyników operacji.
+
+Typowy wzorzec:
+
+```erlang
+{ok, Result}
+```
+
+lub:
+
+```erlang
+{error, Reason}
+```
+
+## 10. Tuple
+
+Tuple pozwala przechowywać kilka wartości w jednej strukturze.
+
+Przykład:
+
+```erlang
+Person = {"Marcin", 25}.
+```
+
+Często stosuje się również tuple zawierające atom:
+
+```erlang
+{ok, Result}.
+```
+
+Jest to bardzo charakterystyczny sposób zwracania wyników funkcji w Erlangu.
+
+## 11. Listy
+
+Lista jest jedną z podstawowych struktur danych Erlanga.
+
+Przykład:
+
+```erlang
+Numbers = [1, 2, 3, 4, 5].
+```
+
+Lista może być rozbijana za pomocą wzorca:
+
+```erlang
+[Head | Tail]
+```
+
+gdzie `Head` oznacza pierwszy element, a `Tail` pozostałą część listy.
+
+## 12. Mapy
+
+Mapy przechowują dane w postaci klucz-wartość.
+
+Przykład:
+
+```erlang
+User = #{
+    name => <<"Marcin">>,
+    age => 25
+}.
+```
+
+Mapy są szczególnie przydatne do reprezentowania bardziej złożonych struktur danych.
+
+## 13. Funkcje
+
+Funkcje są podstawowym elementem Erlanga.
+
+Przykład:
+
+```erlang
+add(A, B) ->
+    A + B.
+```
+
+W Erlangu każda instrukcja kończy się kropką.
+
+Przykład wywołania:
+
+```erlang
+add(10, 20).
+```
+
+Wynik:
+
+```text
+30
+```
+
+## 14. Guards
+
+Guards pozwalają określać dodatkowe warunki dla funkcji.
+
+Przykład:
+
+```erlang
+check_age(Age) when Age >= 18 ->
+    adult;
+
+check_age(Age) when Age < 18 ->
+    minor.
+```
+
+Dzięki temu różne wersje funkcji mogą być wykonywane zależnie od wartości argumentu.
+
+## 15. Wieloklauzulowe funkcje
+
+Erlang pozwala definiować wiele klauzul tej samej funkcji.
+
+Przykład:
+
+```erlang
+greet(admin) ->
+    "Welcome admin";
+
+greet(user) ->
+    "Welcome user";
+
+greet(_) ->
+    "Unknown user".
+```
+
+Erlang wybiera odpowiednią klauzulę na podstawie pattern matchingu.
+
+## 16. Procesy
+
+Jedną z najważniejszych cech Erlanga są **lekkie procesy**.
+
+Proces Erlanga nie jest tym samym co klasyczny proces systemu operacyjnego.
+
+Procesy BEAM są bardzo lekkie i można uruchamiać ich bardzo dużo.
+
+Przykład:
+
+```erlang
+spawn(fun() ->
+    io:format("Hello from process~n")
+end).
+```
+
+## 17. Concurrency
+
+Erlang został zaprojektowany z myślą o współbieżności.
+
+Możliwe jest uruchamianie wielu procesów wykonujących zadania niezależnie od siebie.
+
+Przykładowo:
+
+```text
+             System
+                │
+       ┌────────┼────────┐
+       ↓        ↓        ↓
+   Process A Process B Process C
+```
+
+Procesy mogą działać równolegle lub współbieżnie.
+
+## 18. Message Passing
+
+Procesy Erlanga komunikują się za pomocą wiadomości.
+
+Przykład wysłania wiadomości:
+
+```erlang
+Pid ! {hello, "world"}.
+```
+
+Proces może odbierać wiadomości za pomocą:
+
+```erlang
+receive
+    {hello, Message} ->
+        io:format("~p~n", [Message])
+end.
+```
+
+Nie jest konieczne współdzielenie pamięci pomiędzy procesami.
+
+## 19. Mailbox
+
+Każdy proces Erlanga posiada własną skrzynkę wiadomości, czyli **mailbox**.
+
+Wiadomości wysłane do procesu trafiają do jego mailboxa.
+
+Proces może następnie wybrać wiadomość pasującą do określonego wzorca.
+
+Schemat:
+
+```text
+Process A
+    │
+    │ {hello, Message}
+    ↓
+┌───────────────┐
+│    Mailbox    │
+├───────────────┤
+│ message 1     │
+│ message 2     │
+│ message 3     │
+└───────────────┘
+        │
+        ↓
+    Process B
+```
+
+## 20. Actor Model
+
+Model współbieżności Erlanga jest blisko związany z **modelem aktorów**.
+
+Proces można traktować jako niezależnego aktora, który:
+
+posiada własny stan,
+
+otrzymuje wiadomości,
+
+przetwarza wiadomości,
+
+może wysyłać wiadomości do innych procesów.
+
+Dzięki temu procesy nie muszą bezpośrednio współdzielić pamięci.
+
+## 21. Fault Tolerance
+
+Jedną z największych zalet Erlanga jest możliwość tworzenia systemów odpornych na awarie.
+
+Poszczególne procesy są izolowane.
+
+Awaria jednego procesu nie musi oznaczać awarii całej aplikacji.
+
+Możliwe jest również automatyczne ponowne uruchomienie procesu.
+
+## 22. "Let it crash"
+
+Ekosystem Erlanga wykorzystuje filozofię określaną jako:
+
+**"Let it crash"**
+
+Nie oznacza to ignorowania błędów.
+
+Chodzi o projektowanie systemu tak, aby pojedynczy proces mógł zakończyć się w przypadku nieoczekiwanego błędu, a odpowiedni mechanizm nadzorujący mógł go odtworzyć.
+
+## 23. OTP
+
+**OTP (Open Telecom Platform)** jest jednym z najważniejszych elementów ekosystemu Erlanga.
+
+OTP dostarcza gotowe wzorce, biblioteki i zachowania potrzebne do budowania niezawodnych systemów.
+
+Najważniejsze elementy OTP obejmują między innymi:
+
+GenServer,
+
+Supervisor,
+
+Application,
+
+GenStateMachine,
+
+gen_statem,
+
+ETS.
+
+## 24. GenServer
+
+**GenServer** to standardowy wzorzec OTP służący do tworzenia procesów działających jako serwery.
+
+GenServer może:
+
+przechowywać stan,
+
+odbierać wiadomości,
+
+obsługiwać żądania,
+
+wykonywać operacje asynchroniczne,
+
+komunikować się z innymi procesami.
+
+## 25. Supervisor
+
+**Supervisor** to proces odpowiedzialny za nadzorowanie innych procesów.
+
+Jeżeli nadzorowany proces zakończy się błędem, Supervisor może go uruchomić ponownie.
+
+Schemat:
+
+```text
+Supervisor
+    │
+    ├── Worker A
+    ├── Worker B
+    └── Worker C
+```
+
+## 26. Supervision Tree
+
+Supervisory mogą być również organizowane hierarchicznie.
+
+Powstaje wtedy **Supervision Tree**.
+
+Przykład:
+
+```text
+Root Supervisor
+       │
+       ├── Supervisor A
+       │      ├── Worker 1
+       │      └── Worker 2
+       │
+       └── Supervisor B
+              ├── Worker 3
+              └── Worker 4
+```
+
+Dzięki temu system może kontrolować bardzo dużą liczbę procesów.
+
+## 27. OTP Behaviours
+
+OTP definiuje standardowe **behaviours**, czyli wzorce zachowania procesów.
+
+Najbardziej znane to:
+
+`gen_server`
+
+`gen_statem`
+
+`supervisor`
+
+`application`
+
+Behaviours pozwalają tworzyć aplikacje zgodnie ze sprawdzonymi wzorcami OTP.
+
+## 28. Distributed Erlang
+
+Erlang został zaprojektowany z myślą o systemach rozproszonych.
+
+Procesy mogą działać na różnych maszynach i komunikować się ze sobą.
+
+Schemat:
+
+```text
+Node A                         Node B
+┌──────────────┐              ┌──────────────┐
+│   Process A  │ ───────────→ │   Process B  │
+└──────────────┘              └──────────────┘
+```
+
+Dzięki temu można budować systemy składające się z wielu współpracujących serwerów.
+
+## 29. Node
+
+W systemach Erlanga **node** oznacza uruchomioną instancję środowiska Erlang/BEAM uczestniczącą w systemie rozproszonym.
+
+Node może komunikować się z innymi node'ami.
+
+Przykładowo:
+
+```text
+Cluster
+ ├── Node 1
+ ├── Node 2
+ └── Node 3
+```
+
+## 30. Hot Code Upgrades
+
+Jedną z historycznie charakterystycznych funkcji ekosystemu Erlanga są **hot code upgrades**.
+
+Pozwalają one w określonych warunkach aktualizować kod działającego systemu bez całkowitego zatrzymywania aplikacji.
+
+Ma to szczególne znaczenie w systemach telekomunikacyjnych i innych systemach wymagających bardzo wysokiej dostępności.
+
+## 31. BEAM i pamięć
+
+Procesy Erlanga posiadają odizolowany stan.
+
+Komunikacja pomiędzy procesami odbywa się poprzez przesyłanie wiadomości.
+
+Takie podejście ogranicza problemy związane ze współdzieloną pamięcią i klasycznymi mechanizmami synchronizacji.
+
+## 32. ETS
+
+**ETS (Erlang Term Storage)** to mechanizm przechowywania danych w pamięci.
+
+ETS umożliwia przechowywanie dużej liczby struktur danych dostępnych dla procesów Erlanga.
+
+Może być wykorzystywany między innymi jako szybki magazyn danych w pamięci.
+
+ETS nie jest jednak klasyczną relacyjną bazą danych.
+
+## 33. Mnesia
+
+**Mnesia** to rozproszony system bazodanowy dostępny w ekosystemie Erlanga.
+
+Jest zintegrowany z BEAM i został zaprojektowany między innymi z myślą o aplikacjach rozproszonych.
+
+Mnesia może przechowywać dane w pamięci RAM oraz na dysku.
+
+## 34. Erlang/OTP
+
+W praktyce bardzo często mówi się o **Erlang/OTP**, ponieważ sam język jest tylko częścią całego środowiska.
+
+Można to przedstawić:
+
+```text
+Erlang
+  +
+BEAM
+  +
+OTP
+  +
+Libraries
+  =
+Erlang Ecosystem
+```
+
+To właśnie połączenie tych elementów pozwala budować niezawodne systemy.
+
+## 35. Rebar3
+
+**Rebar3** jest popularnym narzędziem do budowania i zarządzania projektami Erlanga.
+
+Pozwala między innymi:
+
+budować projekty,
+
+zarządzać zależnościami,
+
+uruchamiać testy,
+
+tworzyć pakiety,
+
+zarządzać konfiguracją projektu.
+
+## 36. Erlang Shell
+
+Erlang posiada interaktywną powłokę.
+
+Można ją uruchomić poleceniem:
+
+```bash
+erl
+```
+
+Następnie można wykonywać kod:
+
+```erlang
+1 + 2.
+```
+
+Wynik:
+
+```text
+3
+```
+
+Powłoka jest przydatna do nauki języka i testowania kodu.
+
+## 37. Moduły
+
+Kod Erlanga jest organizowany w modułach.
+
+Przykład:
+
+```erlang
+-module(math_utils).
+
+-export([add/2]).
+
+add(A, B) ->
+    A + B.
+```
+
+`-module()` określa nazwę modułu.
+
+`-export()` określa funkcje dostępne spoza modułu.
+
+## 38. OTP Application
+
+Duże aplikacje Erlanga są często organizowane jako **OTP Applications**.
+
+Application może definiować:
+
+procesy,
+
+supervisory,
+
+konfigurację,
+
+zależności.
+
+Przykładowa struktura:
+
+```text
+Application
+      │
+      ↓
+Supervisor
+      │
+ ┌────┼────┐
+ ↓    ↓    ↓
+Worker Worker Worker
+```
+
+## 39. Erlang i telekomunikacja
+
+Erlang został stworzony z myślą o systemach telekomunikacyjnych.
+
+Takie systemy wymagają między innymi:
+
+wysokiej dostępności,
+
+obsługi ogromnej liczby połączeń,
+
+współbieżności,
+
+odporności na awarie,
+
+możliwości aktualizacji systemu bez długiej przerwy.
+
+Te wymagania miały ogromny wpływ na projekt języka i BEAM.
+
+## 40. Erlang i systemy czasu rzeczywistego
+
+Erlang jest wykorzystywany w systemach wymagających szybkiej obsługi dużej liczby zdarzeń.
+
+Przykładowe obszary zastosowań to:
+
+telekomunikacja,
+
+systemy komunikacyjne,
+
+messaging,
+
+systemy czasu rzeczywistego,
+
+backendy,
+
+systemy rozproszone,
+
+platformy obsługujące wiele jednoczesnych połączeń.
+
+## 41. Erlang i RabbitMQ
+
+**RabbitMQ** jest jednym z najbardziej znanych projektów wykorzystujących Erlang/OTP.
+
+RabbitMQ jest brokerem wiadomości umożliwiającym komunikację pomiędzy aplikacjami.
+
+Jest to dobry przykład wykorzystania możliwości Erlanga w systemach wymagających współbieżności i niezawodności.
+
+## 42. Erlang i Elixir
+
+Erlang i Elixir działają na BEAM i korzystają z OTP.
+
+Erlang ma bardziej klasyczną składnię charakterystyczną dla swojego ekosystemu.
+
+Elixir posiada składnię inspirowaną między innymi Ruby oraz innymi nowoczesnymi językami.
+
+Oba języki mogą korzystać z bibliotek BEAM.
+
+Przykładowo:
+
+```text
+Erlang ──┐
+         ├── BEAM ── OTP
+Elixir ──┘
+```
+
+## 43. Zalety Erlanga
+
+Erlang zapewnia bardzo dobre mechanizmy współbieżności.
+
+Posiada lekkie procesy.
+
+Umożliwia komunikację poprzez message passing.
+
+Jest przeznaczony do systemów rozproszonych.
+
+Zapewnia mechanizmy fault tolerance.
+
+OTP dostarcza sprawdzone wzorce budowania niezawodnych systemów.
+
+BEAM umożliwia obsługę dużej liczby współbieżnych procesów.
+
+## 44. Wady Erlanga
+
+Składnia Erlanga może wydawać się nietypowa dla osób przyzwyczajonych do Javy, C# czy C++.
+
+Ekosystem jest mniejszy niż ekosystemy najpopularniejszych języków programowania.
+
+Programowanie funkcyjne wymaga innego sposobu myślenia niż programowanie obiektowe.
+
+Wiele nowoczesnych aplikacji można stworzyć łatwiej przy użyciu innych języków, szczególnie jeśli nie potrzebują modelu współbieżności BEAM.
+
+## 45. Najważniejsze pojęcia
+
+**Erlang** – funkcyjny język programowania zaprojektowany do systemów współbieżnych i rozproszonych.
+
+**BEAM** – maszyna wirtualna Erlanga.
+
+**OTP** – zestaw narzędzi, bibliotek i wzorców do budowania niezawodnych systemów.
+
+**Process** – lekki proces BEAM.
+
+**PID** – identyfikator procesu.
+
+**Message Passing** – komunikacja procesów poprzez wiadomości.
+
+**Mailbox** – skrzynka wiadomości procesu.
+
+**Pattern Matching** – dopasowywanie wartości do wzorców.
+
+**Guard** – dodatkowy warunek funkcji.
+
+**GenServer** – standardowy proces-serwer OTP.
+
+**Supervisor** – proces nadzorujący inne procesy.
+
+**Supervision Tree** – hierarchiczna struktura supervisorów i workerów.
+
+**Node** – instancja Erlanga uczestnicząca w systemie rozproszonym.
+
+**ETS** – pamięciowy magazyn danych Erlanga.
+
+**Mnesia** – rozproszony system bazodanowy Erlanga.
+
+**Rebar3** – narzędzie do budowania projektów Erlanga.
+
+**Erlang Shell** – interaktywna konsola Erlanga.
+
+**Hot Code Upgrade** – możliwość aktualizacji kodu działającego systemu w określonych warunkach.
+
+## 46. Podsumowanie
+
+Erlang to język zaprojektowany przede wszystkim do tworzenia **niezawodnych, współbieżnych i rozproszonych systemów**.
+
+Jego fundamentem jest maszyna wirtualna **BEAM**, która zapewnia lekkie procesy, izolację procesów i mechanizmy komunikacji poprzez wiadomości.
+
+Najważniejszym elementem ekosystemu jest **OTP**, dostarczające między innymi `GenServer`, `Supervisor` i supervision trees.
+
+Erlang szczególnie dobrze pasuje do systemów, które muszą obsługiwać ogromną liczbę jednoczesnych zdarzeń i pozostawać dostępne przez bardzo długi czas.
+
+**W skrócie: Erlang = BEAM + OTP + lekkie procesy + message passing + współbieżność + fault tolerance + systemy rozproszone.**

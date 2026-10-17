@@ -1,0 +1,253 @@
+Apache Storm — notatka
+
+1. Czym jest Apache Storm?
+
+Apache Storm to otwarte narzędzie do rozproszonego przetwarzania strumieni danych w czasie rzeczywistym.
+
+Jest rozwijane w ramach projektów Apache i umożliwia analizowanie zdarzeń w momencie ich napływania do systemu.
+
+Storm został zaprojektowany do obsługi dużej liczby danych przychodzących nieprzerwanie, bez konieczności czekania na zebranie całej partii danych.
+
+Jest wykorzystywany między innymi do analizy zdarzeń, monitorowania systemów, przetwarzania logów i wykrywania anomalii.
+
+2. Do czego służy Apache Storm?
+
+Apache Storm służy do przetwarzania danych, które muszą być analizowane niemal natychmiast po ich otrzymaniu.
+
+Może analizować zdarzenia pochodzące z aplikacji internetowych, systemów finansowych, urządzeń IoT i platform komunikacyjnych.
+
+Przykładowo może zliczać liczbę żądań HTTP, monitorować transakcje, wykrywać podejrzane operacje i analizować aktywność użytkowników.
+
+Storm sprawdza się szczególnie w systemach, w których istotne są małe opóźnienia oraz ciągłe przetwarzanie napływających zdarzeń.
+
+3. Jak działa Apache Storm?
+
+Storm przetwarza dane za pomocą zdefiniowanego przepływu operacji, który nazywany jest topologią.
+
+Dane wejściowe są przekazywane do kolejnych komponentów, które wykonują określone operacje.
+
+Przykładowo jeden komponent może odbierać zdarzenia z Kafki, kolejny filtrować dane, a następny obliczać statystyki.
+
+Przetwarzanie odbywa się w sposób rozproszony na wielu procesach i komputerach.
+
+Dzięki temu system może obsługiwać duże strumienie danych, a obciążenie można rozdzielać pomiędzy dostępne zasoby.
+
+4. Topologia (Topology)
+
+Topologia to podstawowa struktura przetwarzania w Apache Storm.
+
+Opisuje sposób przepływu danych pomiędzy komponentami aplikacji.
+
+Topologia działa w sposób ciągły, dopóki nie zostanie zatrzymana lub zakończona przez system zarządzający.
+
+Może składać się z komponentów odbierających dane, przetwarzających zdarzenia i przekazujących wyniki do innych systemów.
+
+Przykładowa topologia może wyglądać następująco:
+
+```
+Źródło danych
+      |
+      v
+Kafka Spout
+      |
+      v
+Filter Bolt
+      |
+      v
+Aggregation Bolt
+      |
+      v
+Baza danych
+```
+
+Taki przepływ może odbierać zdarzenia z Kafki, filtrować je, obliczać statystyki i zapisywać wyniki.
+
+5. Spout
+
+Spout jest komponentem odpowiedzialnym za pobieranie danych do topologii.
+
+Może odczytywać zdarzenia z kolejki, strumienia komunikatów, pliku lub innego źródła.
+
+Spout przekazuje dane do dalszych komponentów topologii w postaci krotek (tuples).
+
+Przykładowo spout może pobierać komunikaty z Apache Kafka zawierające informacje o zamówieniach internetowych.
+
+6. Bolt
+
+Bolt jest komponentem odpowiedzialnym za przetwarzanie danych w topologii.
+
+Może filtrować zdarzenia, zmieniać ich strukturę, obliczać wartości, grupować dane lub zapisywać wyniki.
+
+Jeden bolt może przekazywać przetworzone dane do kolejnego bolta.
+
+Przykładowo bolt może sprawdzać, czy wartość transakcji przekracza określony limit, a następnie kierować podejrzane zdarzenia do osobnego systemu.
+
+Spout pobiera dane, natomiast bolt wykonuje operacje na danych już znajdujących się w przepływie.
+
+7. Strumienie i krotki
+
+Strumień (Stream) to nieograniczona sekwencja krotek przekazywanych pomiędzy komponentami topologii.
+
+Krotka (Tuple) to pojedyncza jednostka danych zawierająca określone pola.
+
+Przykładowa krotka może zawierać identyfikator użytkownika, typ zdarzenia i znacznik czasu.
+
+```
+user_id: 125
+event_type: login
+timestamp: 10:15:30
+```
+
+Storm umożliwia przekazywanie takich danych pomiędzy komponentami i wykonywanie na nich operacji w czasie rzeczywistym.
+
+8. Przetwarzanie rozproszone
+
+Apache Storm może wykonywać obliczenia na wielu komputerach jednocześnie.
+
+Topologia jest rozdzielana na zadania wykonywane przez procesy robocze.
+
+Worker Process wykonuje część pracy przypisanej do topologii.
+
+Executor odpowiada za wykonywanie jednego lub większej liczby zadań danego komponentu.
+
+Task reprezentuje konkretną jednostkę wykonawczą komponentu.
+
+Odpowiednie rozdzielenie pracy pozwala zwiększać przepustowość systemu poprzez zmianę liczby workerów i executorów.
+
+9. Apache Storm a Apache Kafka
+
+Apache Kafka jest rozproszoną platformą do przesyłania i przechowywania strumieni zdarzeń.
+
+Apache Storm jest silnikiem, który może te zdarzenia odbierać i przetwarzać w czasie rzeczywistym.
+
+Kafka może przechowywać zdarzenia w tematach, a Storm może pobierać je i wykonywać na nich obliczenia.
+
+Przykładowo aplikacja internetowa wysyła zdarzenia do Kafki, Storm analizuje je i wykrywa podejrzaną aktywność, a wyniki trafiają do bazy danych.
+
+Oba narzędzia mogą współpracować, ponieważ rozwiązują różne problemy.
+
+10. Apache Storm a Apache Spark
+
+Apache Storm został zaprojektowany przede wszystkim do ciągłego przetwarzania strumieni danych przy małych opóźnieniach.
+
+Apache Spark obsługuje przetwarzanie wsadowe oraz strumieniowe, a także analizę danych przez SQL i funkcje uczenia maszynowego.
+
+Storm opiera się na topologiach składających się ze spoutów i boltów.
+
+Spark Structured Streaming wykorzystuje model oparty na operacjach na danych tabelarycznych i pozwala korzystać z wielu funkcji Spark SQL.
+
+Wybór zależy od wymagań dotyczących opóźnień, modelu przetwarzania, dostępnych bibliotek i architektury systemu.
+
+11. Apache Storm a Apache Flink
+
+Apache Storm i Apache Flink służą do rozproszonego przetwarzania strumieni danych.
+
+Storm wykorzystuje topologie, spouty i bolty do definiowania przepływu zdarzeń.
+
+Flink oferuje rozbudowane mechanizmy przetwarzania strumieniowego, obsługę czasu zdarzeń oraz zarządzanie stanem obliczeń.
+
+Flink jest często rozważany w nowych projektach wymagających zaawansowanej analizy strumieniowej.
+
+Storm pozostaje istotny przy utrzymywaniu istniejących systemów oraz w środowiskach wykorzystujących jego model przetwarzania.
+
+12. Przykład zastosowania Apache Storm
+
+Załóżmy, że sklep internetowy chce monitorować zamówienia w czasie rzeczywistym.
+
+Każde zamówienie jest przesyłane do systemu komunikatów.
+
+Spout pobiera zdarzenia o zamówieniach i przekazuje je do topologii.
+
+Bolt sprawdza poprawność danych oraz oblicza wartość zamówienia.
+
+Kolejny bolt może agregować liczbę zamówień w określonym przedziale czasu.
+
+Wyniki są przekazywane do bazy danych lub systemu monitorowania.
+
+Dzięki temu firma może na bieżąco obserwować sprzedaż i reagować na nietypowe zdarzenia.
+
+13. Niezawodność i gwarancje przetwarzania
+
+Apache Storm oferuje mechanizmy wspierające niezawodne przetwarzanie strumieni danych.
+
+Może wykrywać niepowodzenia w przetwarzaniu i ponawiać obsługę wybranych komunikatów.
+
+W zależności od konfiguracji oraz zastosowanego mechanizmu przetwarzania Storm może zapewniać różne gwarancje dotyczące obsługi wiadomości.
+
+W starszym modelu Storm rozróżniał między innymi przetwarzanie typu at-least-once i at-most-once.
+
+Dokładna gwarancja zależy od sposobu potwierdzania komunikatów, konfiguracji spoutów i implementacji komponentów.
+
+Samo ponowienie komunikatu nie gwarantuje braku duplikatów, dlatego operacje zapisujące dane powinny uwzględniać idempotencję lub inne mechanizmy kontroli powtórzeń.
+
+14. Zalety Apache Storm
+
+Storm umożliwia ciągłe przetwarzanie zdarzeń bez konieczności oczekiwania na zakończenie całej partii danych.
+
+Może obsługiwać dużą liczbę zdarzeń i rozdzielać pracę pomiędzy wiele procesów.
+
+Pozwala tworzyć przepływy przetwarzania z wykorzystaniem spoutów i boltów.
+
+Może współpracować z Apache Kafka i innymi systemami dostarczającymi dane.
+
+Sprawdza się w rozwiązaniach monitorujących zdarzenia oraz wymagających szybkiej reakcji na napływające informacje.
+
+15. Wady Apache Storm
+
+Projektowanie topologii wymaga zrozumienia sposobu przepływu danych oraz odpowiedzialności poszczególnych komponentów.
+
+Obsługa stanu, agregacji czasowych i złożonych analiz może wymagać dodatkowej logiki.
+
+Konfiguracja rozproszonego środowiska oraz diagnostyka problemów mogą być trudne dla początkujących.
+
+W nowych projektach warto porównać Storm z Apache Flink i Spark Structured Streaming, ponieważ mogą oferować wygodniejsze mechanizmy dla określonych zastosowań.
+
+Przed wyborem Storm należy również sprawdzić aktualny stan projektu, zgodność wersji oraz dostępność potrzebnych integracji.
+
+16. Plan nauki Apache Storm
+
+Na początku warto poznać podstawy przetwarzania strumieniowego i różnice między danymi wsadowymi a strumieniowymi.
+
+Następnie należy zrozumieć pojęcia topologii, spouta, bolta i krotki.
+
+Kolejnym krokiem powinno być utworzenie prostej aplikacji, która odbiera dane i wykonuje podstawowe obliczenia.
+
+Później warto poznać integrację z Apache Kafka oraz mechanizmy potwierdzania i ponawiania komunikatów.
+
+Na koniec dobrze jest przygotować projekt monitorujący zdarzenia, na przykład liczbę zamówień lub błędów aplikacji w określonym czasie.
+
+17. Najważniejsze pojęcia
+
+Apache Storm — narzędzie do rozproszonego przetwarzania strumieni danych.
+
+Topology — definicja przepływu przetwarzania danych.
+
+Spout — komponent pobierający dane do topologii.
+
+Bolt — komponent wykonujący operacje na danych.
+
+Stream — strumień krotek przekazywanych pomiędzy komponentami.
+
+Tuple — pojedyncza jednostka danych zawierająca określone pola.
+
+Worker Process — proces wykonujący część topologii.
+
+Executor — jednostka wykonawcza realizująca zadania komponentu.
+
+Task — konkretna jednostka pracy komponentu.
+
+Apache Kafka — platforma do przesyłania i przechowywania strumieni zdarzeń.
+
+Stream Processing — przetwarzanie danych w miarę ich napływania.
+
+Idempotencja — właściwość operacji pozwalająca bezpiecznie powtarzać ją bez wielokrotnego wywoływania niepożądanych skutków.
+
+18. W skrócie
+
+Apache Storm to narzędzie Big Data przeznaczone do ciągłego przetwarzania strumieni danych w czasie rzeczywistym.
+
+Jego najważniejsze elementy to topologie, spouty, bolty i strumienie krotek.
+
+Storm może współpracować z Apache Kafka i innymi źródłami danych, a jego zastosowania obejmują monitorowanie zdarzeń, analizę transakcji i wykrywanie anomalii.
+
+Dodaj krótki przykład kodu JavaDodaj porównanie w tabeli

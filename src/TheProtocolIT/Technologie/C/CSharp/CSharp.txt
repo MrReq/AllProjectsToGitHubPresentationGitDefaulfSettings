@@ -1,0 +1,281 @@
+# C# (CSharp) — notatka o technologii
+
+## 1. Czym jest C#?
+
+[Microsoft 365 App Builder vs. Power Apps vs. Code Apps: Which Should You Choose?](https://images.openai.com/static-rsc-4/bRdGH3rmUt0KJ3rhodGbQSzZSib7KMwNVOHLfgLgU1aj_SrGAKiaxUHz6nZe-qc4PNZcqtcX1tvmLfFpnRK_HFYlv4ZWzwxsyLC2HoRu3mbHXuwQvsjoEJxSRc4n_mGs8d0JWuVInlYEd1zMpVvdzBSHf_0KIAgCqVpkHLI4JXg?purpose=inline)
+
+[2tolead.com](https://www.2tolead.com/insights/microsoft-365-app-builder-power-apps-code-apps-comparison)
+
+C# (czyt. C Sharp) to nowoczesny, obiektowy język programowania opracowany przez firmę Microsoft, który jest częścią ekosystemu .NET.
+
+C# został zaprojektowany z myślą o tworzeniu bezpiecznych, czytelnych i wydajnych aplikacji.
+
+Język jest wykorzystywany do tworzenia aplikacji internetowych, programów desktopowych, gier komputerowych, aplikacji mobilnych, usług backendowych oraz systemów biznesowych.
+
+C# korzysta z platformy .NET, która dostarcza środowisko uruchomieniowe, biblioteki standardowe i narzędzia programistyczne.
+
+Kod C# jest zazwyczaj kompilowany do języka pośredniego CIL, a następnie wykonywany przez środowisko uruchomieniowe .NET, które wykorzystuje między innymi kompilację JIT.
+
+## 2. Najważniejsze cechy C\#
+
+Programowanie obiektowe
+
+C# obsługuje klasy, obiekty, dziedziczenie, enkapsulację, abstrakcję i polimorfizm.
+
+Statyczne typowanie
+
+Typy zmiennych są sprawdzane podczas kompilacji, co pomaga wykrywać wiele błędów przed uruchomieniem programu.
+
+Automatyczne zarządzanie pamięcią
+
+Środowisko .NET wykorzystuje Garbage Collector, który automatycznie odzyskuje pamięć zajmowaną przez nieużywane obiekty.
+
+Asynchroniczność
+
+Słowa kluczowe `async` i `await` ułatwiają pisanie kodu obsługującego operacje wejścia i wyjścia, np. zapytania HTTP lub operacje bazodanowe.
+
+LINQ
+
+Language Integrated Query pozwala wygodnie filtrować, sortować i przekształcać dane w kolekcjach oraz innych źródłach danych.
+
+Wieloplatformowość
+
+Współczesny .NET pozwala uruchamiać aplikacje C# na Windows, Linux i macOS, zależnie od użytych bibliotek i funkcji.
+
+## 3. Jak działa C#?
+
+Typowy proces tworzenia aplikacji w C# wygląda następująco:
+
+1. Programista zapisuje kod źródłowy w plikach `.cs`.
+2. Kompilator C# przekształca kod do postaci pośredniej CIL.
+3. Środowisko uruchomieniowe .NET ładuje program i jego zależności.
+4. Kod jest wykonywany, często z wykorzystaniem kompilacji JIT do kodu maszynowego.
+5. Garbage Collector zarządza pamięcią obiektów, a biblioteki .NET udostępniają gotowe funkcje.
+
+W ekosystemie .NET można także tworzyć aplikacje publikowane w trybie AOT, w którym część lub całość kodu jest kompilowana do kodu maszynowego przed uruchomieniem.
+
+## 4. Podstawowy przykład programu
+
+```
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string imie = "Jan";
+        int wiek = 25;
+
+        Console.WriteLine($"Cześć, {imie}!");
+        Console.WriteLine($"Masz {wiek} lat.");
+    }
+}
+```
+
+`using System` udostępnia między innymi klasę `Console`.
+
+`class Program` definiuje klasę programu.
+
+`static void Main()` jest tradycyjnym punktem wejścia aplikacji konsolowej.
+
+`string` przechowuje tekst, a `int` liczby całkowite.
+
+`Console.WriteLine()` wyświetla tekst w konsoli.
+
+Interpolacja `$"..."` pozwala wstawiać wartości zmiennych bezpośrednio do tekstu.
+
+## 5. Programowanie obiektowe w C\#
+
+C# jest często wykorzystywany w projektach opartych na programowaniu obiektowym.
+
+Przykładem może być klasa reprezentująca konto bankowe.
+
+```
+using System;
+
+class KontoBankowe
+{
+    public string Wlasciciel { get; }
+
+    private decimal saldo;
+
+    public KontoBankowe(string wlasciciel)
+    {
+        Wlasciciel = wlasciciel;
+        saldo = 0m;
+    }
+
+    public void Wplac(decimal kwota)
+    {
+        if (kwota <= 0)
+            throw new ArgumentException("Kwota musi być dodatnia.");
+
+        saldo += kwota;
+    }
+
+    public decimal PobierzSaldo()
+    {
+        return saldo;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        KontoBankowe konto = new KontoBankowe("Jan");
+
+        konto.Wplac(500m);
+
+        Console.WriteLine(konto.PobierzSaldo());
+    }
+}
+```
+
+Klasa `KontoBankowe` opisuje dane i zachowania konta.
+
+Konstruktor inicjalizuje obiekt podczas jego tworzenia.
+
+Pole `saldo` jest prywatne, dzięki czemu można kontrolować sposób jego modyfikowania.
+
+Metoda `Wplac()` sprawdza poprawność kwoty przed zmianą salda.
+
+Typ `decimal` jest często wykorzystywany do reprezentowania wartości pieniężnych.
+
+## 6. Najważniejsze elementy języka C\#
+
+| Element              | Zastosowanie                                                       |
+| -------------------- | ------------------------------------------------------------------ |
+| Klasy i obiekty      | Modelowanie danych i zachowań                                      |
+| Interfejsy           | Definiowanie kontraktów dla klas                                   |
+| Dziedziczenie        | Rozszerzanie istniejących klas                                     |
+| Generyki             | Tworzenie kodu obsługującego różne typy                            |
+| LINQ                 | Przetwarzanie i filtrowanie danych                                 |
+| Delegaty i zdarzenia | Przekazywanie funkcji i reagowanie na zdarzenia                    |
+| `async` / `await`    | Asynchroniczne wykonywanie operacji                                |
+| Kolekcje             | Przechowywanie danych, np. w `List<T>` i `Dictionary<TKey,TValue>` |
+| Wyjątki              | Obsługa błędów i nieoczekiwanych sytuacji                          |
+| LINQ to Entities     | Zapytania do danych przez Entity Framework Core                    |
+| Reflection           | Analizowanie typów i ich elementów w czasie działania              |
+
+## 7. .NET — platforma dla C\#
+
+.NET to platforma programistyczna, na której działa większość współczesnych aplikacji C#.
+
+W jej skład wchodzą środowisko uruchomieniowe, kompilatory, biblioteki oraz narzędzia do budowania i testowania programów.
+
+Najważniejsze technologie ekosystemu .NET to:
+
+- ASP.NET Core — tworzenie API, aplikacji internetowych i backendów.
+- Entity Framework Core — mapowanie obiektowo-relacyjne i obsługa baz danych.
+- Windows Forms — tworzenie aplikacji desktopowych dla Windows.
+- WPF — tworzenie rozbudowanych aplikacji okienkowych dla Windows.
+- .NET MAUI — budowanie aplikacji na obsługiwane platformy mobilne i desktopowe.
+- Blazor — tworzenie interfejsów internetowych z wykorzystaniem C#.
+- SignalR — komunikacja w czasie rzeczywistym.
+- xUnit, NUnit i MSTest — testowanie jednostkowe.
+
+Ważne jest rozróżnienie: C# to język programowania, natomiast .NET to platforma, na której można uruchamiać programy napisane między innymi w C#.
+
+## 8. Do czego wykorzystuje się C#?
+
+[Create A Minimal Web API With ASP.NET Core And Publish It To Azure API Management With Visual Studio](https://images.openai.com/static-rsc-4/mJXMEUWqhqHKZv-VkjrLTQ8HxHRuVSEtVMEC9WOfD4zw73YLDkGWcXqROtgqR29D-baYnpUyhzwZ7Ap3sJvbCsqy4wI47_jx2nq7CGY-WAGeMrPvyjMJ7RahN9R7WlyH08c2TScN2yZH314-1PVChDNvcd37s_NdhNzCrDexq7M?purpose=inline)
+
+Backend i aplikacje internetowe
+
+ASP.NET Core umożliwia tworzenie REST API, aplikacji webowych, systemów autoryzacji oraz usług komunikujących się z bazami danych.
+
+[ゲームプログラマーコース - ゲーム 専門学校 - 日本工学院 - 東京](https://images.openai.com/static-rsc-4/cdbcKVt5WHWTybUyDgPSbPxUc6pWSpnRCMwUHW2j841xPWjZgIPBbD5Q4rGziuOTo6qJj21LsZ0uWkVjB6BG4Tg0sJ03oI37Nbcfl_88JVXxAV74Y3_LQdht2EBXmXqj0uCXLvnVdDPCszEaCYpBzxb3E6_o3FvwxrWINhNLQ-Y?purpose=inline)
+
+Gry komputerowe
+
+C# jest podstawowym językiem skryptowym wykorzystywanym w silniku Unity do tworzenia mechaniki gry, sterowania postaciami i obsługi zdarzeń.
+
+[4.1 - Getting started with WPF · GitBook](https://images.openai.com/static-rsc-4/_KDzj7TliMyMSmgNat2GTF_eHYzNxRF88Ca2vre3Cj1QxeBxnabwAB94R8S_shJg_uEYCfZM5uooZiiipc9n2yWOq81syFTYkjd15-zDjdu6BQkD7aoFD0Ry3ee4dYwePV9JnOJ57CybgsASREUI6lTuvvRpnt932X0PgPc0p0o?purpose=inline)
+
+Aplikacje desktopowe
+
+Technologie takie jak WPF i Windows Forms pozwalają budować programy okienkowe, narzędzia firmowe i aplikacje wewnętrzne.
+
+[Getting Started with .NET MAUI | .NET MAUI Succinctly | Syncfusion®](https://images.openai.com/static-rsc-4/R6u5VzNgXLWw8SywvBTMZ5AosbYn4epGIVHi-VeJ873wgxFbt0VrNssyei6DQDOg8smxzrYDkpqpa4vBoTvdoTxg-lUjGtzlZADFAkKN-cyNRYIck46cj1Rtry53RQolC6efy6TkFtjz79yjswhR-QxC4AwKDDac-SaL2RAcGKo?purpose=inline)
+
+Aplikacje mobilne i wieloplatformowe
+
+.NET MAUI pozwala tworzyć aplikacje dla obsługiwanych platform mobilnych i desktopowych z wykorzystaniem wspólnego kodu.
+
+C# jest także wykorzystywany w automatyzacji, narzędziach developerskich, przetwarzaniu danych i aplikacjach chmurowych.
+
+## 9. Popularne narzędzia programistyczne
+
+| Narzędzie          | Zastosowanie                                            |
+| ------------------ | ------------------------------------------------------- |
+| Visual Studio      | Rozbudowane IDE do programowania w C# i .NET            |
+| Visual Studio Code | Lekki edytor z rozszerzeniami C#                        |
+| JetBrains Rider    | Wieloplatformowe IDE do projektów .NET                  |
+| .NET SDK           | Kompilowanie, uruchamianie i budowanie aplikacji        |
+| NuGet              | Zarządzanie pakietami i bibliotekami                    |
+| Git i GitHub       | Kontrola wersji i współpraca zespołowa                  |
+| SQL Server         | Popularna baza danych wykorzystywana w aplikacjach .NET |
+| Docker             | Konteneryzacja aplikacji i ich zależności               |
+
+## 10. C# a Java i C++
+
+| Cecha                | C#                       | Java                             | C++                                                              |
+| -------------------- | ------------------------ | -------------------------------- | ---------------------------------------------------------------- |
+| Główne środowisko    | .NET                     | JVM                              | Zależne od kompilatora i platformy                               |
+| Zarządzanie pamięcią | Garbage Collector        | Garbage Collector                | RAII, smart pointers i możliwość ręcznego zarządzania            |
+| Typowanie            | Statyczne                | Statyczne                        | Statyczne                                                        |
+| Backend              | ASP.NET Core             | Spring Boot                      | Możliwy, ale rzadziej wybierany do typowych systemów biznesowych |
+| Tworzenie gier       | Unity                    | Rzadziej wykorzystywana          | Unreal Engine i inne silniki                                     |
+| Aplikacje desktopowe | WPF, Windows Forms, MAUI | JavaFX, Swing                    | Qt i inne biblioteki                                             |
+| Asynchroniczność     | `async` / `await`        | Wątki, futures i inne mechanizmy | Wątki i biblioteki współbieżności                                |
+
+C# i Java są do siebie podobne pod względem składni oraz podejścia obiektowego.
+
+C# oferuje ścisłą integrację z platformą .NET, natomiast Java posiada rozbudowany ekosystem bibliotek i frameworków, w tym Spring Boot.
+
+C++ zapewnia większą kontrolę nad pamięcią i zasobami, ale wymaga również większej uwagi przy zarządzaniu nimi.
+
+## 11. Zalety i wady C\#
+
+Zalety:
+
+- Czytelna składnia i rozbudowane możliwości programowania obiektowego.
+- Bogaty ekosystem bibliotek i narzędzi .NET.
+- Automatyczne zarządzanie pamięcią.
+- Wygodne tworzenie API i aplikacji backendowych.
+- Dobre wsparcie asynchroniczności i testowania.
+- Możliwość tworzenia aplikacji dla wielu platform.
+
+Wady:
+
+- Niektóre technologie, takie jak WPF i Windows Forms, są przeznaczone przede wszystkim dla Windows.
+- Garbage Collector nie eliminuje wszystkich problemów związanych z pamięcią i zasobami.
+- Wydajność i zużycie pamięci zależą od sposobu implementacji oraz rodzaju aplikacji.
+- Ekosystem .NET ma wiele bibliotek i technologii, których poznanie wymaga czasu.
+- Przy tworzeniu aplikacji mobilnych i desktopowych trzeba uwzględnić ograniczenia konkretnych platform.
+
+## 12. Jak zacząć naukę C#?
+
+Proponowana kolejność nauki:
+
+1. Zmienne, typy danych, operatory i instrukcje warunkowe.
+2. Pętle, funkcje, tablice i kolekcje.
+3. Klasy, obiekty, konstruktory i enkapsulacja.
+4. Dziedziczenie, interfejsy, polimorfizm i generyki.
+5. Obsługa wyjątków, plików i formatów JSON.
+6. LINQ, delegaty, zdarzenia i programowanie asynchroniczne.
+7. Git, testy jednostkowe i zarządzanie zależnościami NuGet.
+8. ASP.NET Core i tworzenie REST API.
+9. Entity Framework Core i integracja z bazą danych.
+10. Projekt praktyczny, np. system zadań, aplikacja do zarządzania finansami lub REST API.
+
+Oficjalne materiały znajdziesz na stronie [Microsoft Learn — dokumentacja C#](https://learn.microsoft.com/pl-pl/dotnet/csharp/).
+
+## 13. Czy warto uczyć się C#?
+
+Tak, szczególnie jeśli interesuje Cię backend, aplikacje biznesowe, tworzenie gier w Unity albo rozwój oprogramowania w środowisku Microsoft.
+
+Jeśli znasz już podstawy Javy, wiele zagadnień C# będzie Ci znajomych, dzięki czemu możesz szybciej przejść do nauki platformy .NET i ASP.NET Core.
+
+C# jest również dobrym wyborem do budowania REST API, aplikacji połączonych z bazą danych oraz projektów wymagających testowania i dobrej organizacji kodu.

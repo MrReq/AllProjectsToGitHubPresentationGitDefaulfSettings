@@ -1,0 +1,351 @@
+1. Czym jest Amazon DocumentDB?
+
+Amazon DocumentDB to zarządzana usługa bazodanowa dostępna w chmurze Amazon Web Services (AWS).
+
+Służy do przechowywania, wyszukiwania i przetwarzania danych w formie dokumentów, najczęściej reprezentowanych jako struktury podobne do JSON.
+
+Amazon DocumentDB jest kompatybilny z API MongoDB, dzięki czemu aplikacje mogą korzystać z wielu znanych sterowników i narzędzi MongoDB.
+
+Usługa automatyzuje wiele zadań administracyjnych, takich jak zarządzanie infrastrukturą, tworzenie kopii zapasowych i monitorowanie bazy danych. <Cite refs={["turn972901search1","turn972901search5"]}/>
+
+2. Bazy danych dokumentowe — Document Databases
+
+Baza danych dokumentowa jest rodzajem nierelacyjnej bazy danych, w której informacje przechowuje się w postaci dokumentów.
+
+Dokument może zawierać pola tekstowe, liczby, daty, tablice i zagnieżdżone obiekty.
+
+W przeciwieństwie do tradycyjnych baz relacyjnych dane nie muszą być przechowywane w tabelach o ściśle określonej strukturze.
+
+Takie podejście jest przydatne, gdy poszczególne rekordy mogą mieć różne zestawy właściwości.
+
+Bazy dokumentowe są często wykorzystywane w aplikacjach internetowych, systemach zarządzania treścią i platformach przechowujących dane produktów.
+
+3. Amazon DocumentDB a MongoDB
+
+MongoDB to popularna nierelacyjna baza danych dokumentowych.
+
+Amazon DocumentDB udostępnia zgodność z wieloma interfejsami API MongoDB, dzięki czemu może obsługiwać aplikacje wykorzystujące sterowniki MongoDB.
+
+Nie oznacza to jednak, że Amazon DocumentDB jest identyczny z MongoDB ani że obsługuje wszystkie jego funkcje.
+
+Przed migracją aplikacji należy sprawdzić zgodność wykorzystywanych poleceń, operatorów, indeksów i funkcji agregacyjnych. <Cite refs={["turn972901search0","turn972901search5"]}/>
+
+4. Dokumenty i kolekcje
+
+Dokument jest podstawową jednostką przechowywania danych w bazie dokumentowej.
+
+Może zawierać informacje o użytkowniku, produkcie, zamówieniu lub innym obiekcie biznesowym.
+
+Kolekcja (Collection) to zbiór dokumentów przechowujących podobny rodzaj informacji.
+
+Na przykład kolekcja `users` może zawierać dokumenty opisujące użytkowników aplikacji.
+
+Kolekcja `products` może przechowywać nazwy produktów, ceny, kategorie i dostępność.
+
+5. Format BSON i struktura danych
+
+MongoDB wykorzystuje BSON, czyli binarny format serializacji dokumentów podobny do JSON.
+
+BSON obsługuje między innymi tekst, liczby, wartości logiczne, tablice, zagnieżdżone dokumenty i specjalne typy danych.
+
+Przykładowy dokument użytkownika może wyglądać następująco:
+
+```json
+{
+  "_id": "user001",
+  "name": "Jan",
+  "email": "jan@example.com",
+  "age": 25,
+  "active": true,
+  "address": {
+    "city": "Warszawa",
+    "country": "Polska"
+  }
+}
+```
+
+Pole `_id` identyfikuje dokument w kolekcji.
+
+Pole `address` jest zagnieżdżonym dokumentem zawierającym dodatkowe informacje o użytkowniku.
+
+Taka struktura pozwala przechowywać powiązane informacje w jednym dokumencie.
+
+6. AWS Management Console
+
+AWS Management Console to internetowy panel umożliwiający zarządzanie usługami Amazon Web Services.
+
+Za jego pomocą można tworzyć klastry Amazon DocumentDB, konfigurować instancje i sprawdzać stan bazy danych.
+
+Panel umożliwia również zarządzanie ustawieniami sieciowymi, bezpieczeństwem i monitorowaniem.
+
+Jest to jedno z podstawowych narzędzi wykorzystywanych podczas pracy z usługami AWS.
+
+7. Klastry i instancje
+
+Klaster Amazon DocumentDB jest środowiskiem bazodanowym, które przechowuje dane i udostępnia je aplikacjom.
+
+Instancja zapewnia zasoby obliczeniowe potrzebne do obsługi zapytań.
+
+W zależności od konfiguracji klaster może zawierać instancję główną oraz instancje replik przeznaczone między innymi do obsługi odczytów.
+
+Amazon DocumentDB oddziela warstwę obliczeniową od warstwy przechowywania danych, co pozwala skalować te zasoby niezależnie w ramach obsługiwanych konfiguracji. <Cite refs={["turn972901search2","turn972901search4"]}/>
+
+8. Zapytania i operacje CRUD
+
+CRUD to skrót oznaczający cztery podstawowe operacje wykonywane na danych.
+
+Create oznacza tworzenie nowych dokumentów.
+
+Read oznacza odczytywanie dokumentów.
+
+Update oznacza modyfikowanie istniejących dokumentów.
+
+Delete oznacza usuwanie dokumentów.
+
+W Amazon DocumentDB operacje te można wykonywać za pomocą zgodnych sterowników MongoDB i obsługiwanych poleceń.
+
+Przykładowo aplikacja może dodać nowego użytkownika, wyszukać go po adresie e-mail, zmienić jego dane lub usunąć konto.
+
+9. Indeksy — Indexes
+
+Indeksy przyspieszają wyszukiwanie dokumentów na podstawie określonych pól.
+
+Bez odpowiedniego indeksu baza może być zmuszona do sprawdzenia wielu dokumentów, zanim znajdzie pasujące wyniki.
+
+Przykładowo indeks na polu `email` może usprawnić wyszukiwanie użytkowników według adresu e-mail.
+
+Indeksy wymagają dodatkowej przestrzeni i mogą zwiększać koszt operacji modyfikujących dane.
+
+Należy je projektować na podstawie rzeczywistych zapytań wykonywanych przez aplikację.
+
+10. Aggregation Pipeline
+
+Aggregation Pipeline to mechanizm przetwarzania dokumentów przez kolejne etapy operacji.
+
+Może służyć do filtrowania danych, grupowania rekordów, obliczania wartości i przekształcania wyników.
+
+Przykładowo aplikacja sklepu może wykorzystać agregację do obliczenia liczby zamówień w poszczególnych kategoriach.
+
+Poszczególne etapy potoku mogą przekazywać swoje wyniki do kolejnych etapów.
+
+Dostępne operatory i etapy agregacji zależą od wersji Amazon DocumentDB, dlatego należy sprawdzać ich zgodność przed użyciem. <Cite refs={["turn972901search0","turn972901search7"]}/>
+
+11. Skalowalność
+
+Skalowalność oznacza możliwość dostosowywania zasobów systemu do zmieniającego się obciążenia.
+
+Amazon DocumentDB umożliwia skalowanie zasobów obliczeniowych poprzez zmianę konfiguracji instancji i dodawanie obsługiwanych replik.
+
+Warstwa przechowywania danych może automatycznie zwiększać swoją pojemność w ramach limitów danej konfiguracji.
+
+Dzięki temu usługa może obsługiwać aplikacje, których ilość danych i liczba zapytań rosną wraz z rozwojem projektu. <Cite refs={["turn972901search1","turn972901search2"]}/>
+
+12. Wysoka dostępność i kopie zapasowe
+
+Amazon DocumentDB został zaprojektowany z myślą o trwałości danych i odporności na określone awarie infrastruktury.
+
+Usługa wykorzystuje replikację danych w obrębie wielu stref dostępności AWS.
+
+Można również korzystać z kopii zapasowych i mechanizmów odtwarzania danych.
+
+Replikacja i kopie zapasowe pełnią różne funkcje, dlatego nie powinny być traktowane jako zamienne rozwiązania.
+
+Szczegóły odtwarzania i dostępności zależą od konfiguracji klastra oraz funkcji dostępnych w danym regionie AWS. <Cite refs={["turn972901search1","turn972901search4"]}/>
+
+13. Bezpieczeństwo
+
+Amazon DocumentDB udostępnia mechanizmy ochrony danych i kontroli dostępu.
+
+Usługa może korzystać z szyfrowania danych przechowywanych przy użyciu AWS Key Management Service (AWS KMS).
+
+Połączenia z bazą mogą być zabezpieczane za pomocą TLS.
+
+Dostęp do klastra należy ograniczać za pomocą odpowiedniej konfiguracji sieciowej, ról i danych uwierzytelniających.
+
+Instancje Amazon DocumentDB działają w środowisku Amazon VPC, co umożliwia kontrolowanie komunikacji sieciowej. <Cite refs={["turn972901search2","turn972901search6"]}/>
+
+14. Amazon VPC i połączenie z bazą
+
+Amazon VPC to wirtualna sieć w chmurze AWS, w której można uruchamiać zasoby i kontrolować ich komunikację.
+
+Amazon DocumentDB korzysta z infrastruktury sieciowej VPC.
+
+Aplikacja musi mieć odpowiednią trasę sieciową oraz uprawnienia, aby połączyć się z klastrem.
+
+Dostęp można kontrolować między innymi za pomocą Security Groups.
+
+Przed uruchomieniem aplikacji należy skonfigurować adres endpointu, port, uwierzytelnianie i wymagane zabezpieczenia połączenia.
+
+15. Integracja z aplikacjami Java
+
+Aplikacje Java mogą komunikować się z Amazon DocumentDB za pomocą zgodnego sterownika MongoDB dla Javy.
+
+Sterownik umożliwia nawiązywanie połączenia, wykonywanie zapytań i operowanie na dokumentach.
+
+W aplikacji Spring Boot można zintegrować bazę z wykorzystaniem Spring Data MongoDB, o ile wybrane funkcje biblioteki są zgodne z używaną wersją usługi.
+
+Przy konfiguracji należy uwzględnić adres klastra, dane uwierzytelniające, TLS oraz ustawienia sieciowe.
+
+W środowisku produkcyjnym nie należy umieszczać haseł bezpośrednio w kodzie źródłowym.
+
+16. Przykład operacji w Javie
+
+Poniższy przykład pokazuje ogólną ideę zapisu dokumentu przy użyciu sterownika MongoDB dla Javy.
+
+Kod wymaga dodania odpowiedniej zależności sterownika oraz skonfigurowania połączenia do działającej instancji Amazon DocumentDB.
+
+```java
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+
+public class DocumentDbExample {
+
+    public static void main(String[] args) {
+        String connectionString =
+                System.getenv("DOCUMENTDB_URI");
+
+        try (MongoClient client =
+                     MongoClients.create(connectionString)) {
+
+            MongoDatabase database =
+                    client.getDatabase("shop");
+
+            MongoCollection<Document> users =
+                    database.getCollection("users");
+
+            Document user = new Document("name", "Jan")
+                    .append("email", "jan@example.com")
+                    .append("active", true);
+
+            users.insertOne(user);
+
+            System.out.println("Dodano dokument użytkownika.");
+        }
+    }
+}
+```
+
+Zmienna środowiskowa `DOCUMENTDB_URI` powinna zawierać prawidłowy ciąg połączenia zgodny z konfiguracją klastra.
+
+W środowisku produkcyjnym należy odpowiednio skonfigurować TLS i certyfikaty zgodnie z dokumentacją AWS.
+
+Przykład przedstawia podstawową operację zapisu i nie obejmuje pełnej obsługi błędów ani konfiguracji połączenia produkcyjnego.
+
+17. Amazon DocumentDB a relacyjne bazy danych
+
+Relacyjne bazy danych, takie jak PostgreSQL, MySQL i Oracle, przechowują dane przede wszystkim w tabelach składających się z wierszy i kolumn.
+
+Amazon DocumentDB przechowuje dane w dokumentach, które mogą zawierać zagnieżdżone struktury.
+
+Bazy relacyjne są szczególnie przydatne w systemach wymagających złożonych relacji, rozbudowanych zapytań SQL i ścisłych ograniczeń integralności.
+
+Bazy dokumentowe sprawdzają się wtedy, gdy struktura danych jest elastyczna lub naturalnie odpowiada dokumentom.
+
+Wybór technologii powinien wynikać z modelu danych i wymagań aplikacji, a nie tylko z popularności danego rozwiązania.
+
+18. Amazon DocumentDB a DynamoDB
+
+Amazon DocumentDB i Amazon DynamoDB to różne usługi bazodanowe AWS.
+
+Amazon DocumentDB jest bazą dokumentową zgodną z wieloma interfejsami API MongoDB.
+
+Amazon DynamoDB to zarządzana baza danych NoSQL oparta na modelu klucz-wartość i dokumentowym.
+
+DocumentDB może być dobrym wyborem dla aplikacji wykorzystujących zapytania i modele danych zgodne z MongoDB.
+
+DynamoDB często sprawdza się w aplikacjach projektowanych wokół kluczy dostępu i przewidywalnych wzorców zapytań.
+
+Obie usługi różnią się sposobem modelowania danych, wykonywania zapytań, skalowania i rozliczania kosztów.
+
+19. Koszty korzystania
+
+Koszt Amazon DocumentDB zależy od wybranej konfiguracji, zasobów obliczeniowych, przechowywanych danych, operacji wejścia-wyjścia i dodatkowych usług.
+
+Na cenę mogą wpływać również kopie zapasowe oraz transfer danych.
+
+AWS udostępnia różne konfiguracje pamięci masowej i modele optymalizacji kosztów.
+
+Przed wdrożeniem należy oszacować przewidywaną liczbę zapytań, rozmiar bazy i wymagania dotyczące wydajności.
+
+Aktualne ceny warto sprawdzać w oficjalnym cenniku AWS, ponieważ różnią się między regionami i konfiguracjami. <Cite refs={["turn972901search6","turn972901search5"]}/>
+
+20. Zalety Amazon DocumentDB
+
+Amazon DocumentDB ogranicza konieczność samodzielnego zarządzania infrastrukturą bazy danych.
+
+Obsługuje wiele sterowników i narzędzi MongoDB, co może ułatwić migrację istniejących aplikacji.
+
+Udostępnia mechanizmy replikacji, kopii zapasowych, monitorowania i kontroli dostępu.
+
+Pozwala skalować zasoby w zależności od potrzeb aplikacji.
+
+Może być dobrym rozwiązaniem dla organizacji korzystających z ekosystemu AWS i modelu danych dokumentowych.
+
+21. Wady i ograniczenia Amazon DocumentDB
+
+Amazon DocumentDB nie obsługuje wszystkich funkcji MongoDB, dlatego migracja nie zawsze odbywa się bez zmian w kodzie.
+
+Koszty zależą od konfiguracji i rzeczywistego wykorzystania zasobów, dlatego niewłaściwe dobranie parametrów może zwiększyć wydatki.
+
+Usługa jest związana z ekosystemem AWS, co należy uwzględnić przy projektowaniu architektury i planowaniu przenoszenia aplikacji.
+
+Diagnozowanie problemów może wymagać znajomości zarówno baz dokumentowych, jak i infrastruktury chmurowej.
+
+Przed wyborem tej technologii warto przeprowadzić testy zgodności, wydajności i kosztów.
+
+22. Jak uczyć się Amazon DocumentDB?
+
+Na początku warto poznać podstawy baz dokumentowych oraz strukturę dokumentów BSON.
+
+Następnie należy nauczyć się operacji CRUD, filtrowania danych i tworzenia indeksów.
+
+Kolejnym krokiem jest poznanie MongoDB API oraz różnic pomiędzy MongoDB i Amazon DocumentDB.
+
+Później warto przećwiczyć tworzenie klastra AWS, konfigurację VPC i bezpieczne łączenie się z bazą.
+
+Po opanowaniu podstaw można zbudować niewielką aplikację w Javie lub Spring Boot, która zapisuje i odczytuje dokumenty.
+
+23. Najważniejsze pojęcia
+
+Amazon Web Services (AWS) — platforma usług chmurowych.
+
+Document Database — baza danych przechowująca informacje w dokumentach.
+
+MongoDB — nierelacyjna baza danych dokumentowych.
+
+Document — dokument zawierający pola i wartości.
+
+Collection — zbiór dokumentów.
+
+BSON — binarny format reprezentacji dokumentów.
+
+CRUD — podstawowe operacje tworzenia, odczytu, aktualizacji i usuwania danych.
+
+Index — struktura przyspieszająca wyszukiwanie dokumentów.
+
+Aggregation Pipeline — mechanizm przetwarzania dokumentów w kolejnych etapach.
+
+Cluster — środowisko bazodanowe składające się z zasobów obsługujących dane.
+
+Instance — zasób obliczeniowy wykorzystywany do obsługi bazy danych.
+
+Amazon VPC — wirtualna sieć umożliwiająca kontrolowanie komunikacji zasobów AWS.
+
+TLS — protokół zabezpieczający komunikację sieciową.
+
+AWS KMS — usługa zarządzania kluczami kryptograficznymi.
+
+AWS Database Migration Service (DMS) — usługa wspierająca migrację danych pomiędzy bazami.
+
+24. W skrócie
+
+Amazon DocumentDB to zarządzana baza dokumentowa w chmurze AWS, kompatybilna z wieloma interfejsami API MongoDB.
+
+Umożliwia przechowywanie elastycznych struktur danych, wykonywanie zapytań i skalowanie zasobów w zależności od potrzeb aplikacji.
+
+Jej najważniejsze elementy to dokumenty, kolekcje, indeksy, klastry, instancje i integracja z infrastrukturą AWS.
+
+Przed wykorzystaniem usługi należy sprawdzić zgodność funkcji MongoDB, koszty, wymagania sieciowe i ustawienia bezpieczeństwa.

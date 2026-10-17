@@ -1,0 +1,271 @@
+# Laravel – kompletna notatka
+
+## 1. Czym jest Laravel?
+
+Laravel to otwartoźródłowy framework do tworzenia aplikacji internetowych napisany w języku PHP.
+
+Ułatwia budowanie nowoczesnych stron internetowych, aplikacji webowych, systemów zarządzania treścią, sklepów internetowych oraz interfejsów API.
+
+Laravel udostępnia gotowe mechanizmy do obsługi routingu, komunikacji z bazami danych, uwierzytelniania użytkowników, walidacji formularzy, wysyłania wiadomości e-mail oraz wykonywania zadań w tle.
+
+Framework wykorzystuje architekturę MVC (Model–View–Controller), która pozwala oddzielić logikę biznesową, dostęp do danych i prezentację interfejsu użytkownika.
+
+[Digital Marketing Agency for the Travel Industry - Adido Digital](https://images.openai.com/static-rsc-4/qLajtQyHWRcFTamHDD5AEq_dpWP5bY4W4zLYH7rth2r35mzD6iliwGzSu6IeEaiJiJldmSp_YNHW5bkYdwZTNSbNj6dnwqwqZ5k4ysurBHuMiDsW9g84vvGfQTqunLFyUpaFCCwa9ikOL2LB5UU3z3vpS_GBsLb0mefC-vGjvtQ?purpose=inline)
+
+[Day 3 - 如何運用Laravel框架設計模式規劃大型專案 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://images.openai.com/static-rsc-4/kO4FAdqvpwFA8yJ3V40vXeuoQKzsyFgG59nBibblEWWZCt7FRwKgRJFffzmeGuD-ChzgbgFZ0waIo26bEj8XfDilyoy1wInEwEd5MIHPBJkrFZL5-uU8lAvvGrja3EIuvYwhf5dv3woMHZhhW4ZVwLhrAwauNBZD282_Uhej0as?purpose=inline)
+
+[Filament - Laravel Admin Panel - Filament](https://images.openai.com/static-rsc-4/aus4V7DsI7iCPauuVGTPZQMUqpyEbKOcZgcGT92YZco-X411yy_en2Xs3LIeDN_ZB274zOk7y4UO1-GbFPwSbg_ZlofRsu__Opq4F2sXDkvRopzsKmziO98EkVhddQFZoPXOObnood0RsOTvpSoIpamXGUbBrfFLwHvADiPHhQo?purpose=inline)
+
+5
+
+## 2. Do czego służy Laravel?
+
+Laravel jest wykorzystywany do tworzenia różnego rodzaju aplikacji internetowych.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie stron internetowych i aplikacji webowych.
+- Budowanie sklepów internetowych i platform sprzedażowych.
+- Tworzenie paneli administracyjnych.
+- Budowanie REST API dla aplikacji mobilnych i frontendowych.
+- Tworzenie systemów rezerwacji i zarządzania użytkownikami.
+- Obsługa logowania, rejestracji i uprawnień użytkowników.
+- Integracja z bazami danych.
+- Automatyzacja procesów biznesowych.
+- Przetwarzanie zadań w tle i wysyłanie powiadomień.
+- Budowanie aplikacji wykorzystujących zewnętrzne usługi i modele AI.
+
+Przykładowo za pomocą Laravel można stworzyć system rezerwacji wizyt lekarskich, w którym pacjenci umawiają terminy, lekarze zarządzają grafikiem, a administrator kontroluje użytkowników i dane systemu.
+
+## 3. Jak działa Laravel?
+
+Laravel działa po stronie serwera. Odbiera żądania HTTP, przetwarza je i zwraca odpowiedź w postaci strony HTML, danych JSON lub innego zasobu.
+
+Typowy przepływ żądania wygląda następująco:
+
+1\. Użytkownik
+
+Przeglądarka wysyła żądanie HTTP
+
+2\. Routing
+
+Laravel wybiera odpowiednią trasę i obsługę żądania
+
+3\. Controller
+
+Kontroler wykonuje logikę obsługi żądania
+
+4\. Model i baza danych
+
+Odczyt lub zapis informacji, jeśli jest potrzebny
+
+5\. Odpowiedź HTTP
+
+Widok HTML, JSON lub inna odpowiedź dla klienta
+
+Nie każde żądanie musi przechodzić przez model i bazę danych. Przykładowo trasa wyświetlająca statyczną stronę może zwrócić widok bez wykonywania zapytania SQL.
+
+## 4. Architektura MVC
+
+Laravel wykorzystuje wzorzec architektoniczny MVC, który dzieli aplikację na trzy podstawowe części.
+
+Model (Model) odpowiada za reprezentację danych i współpracę z bazą danych. W Laravel modele najczęściej korzystają z ORM o nazwie Eloquent.
+
+Widok (View) odpowiada za prezentację informacji użytkownikowi. Laravel wykorzystuje do tego między innymi silnik szablonów Blade.
+
+Kontroler (Controller) obsługuje żądania, koordynuje działanie aplikacji i zwraca odpowiednią odpowiedź.
+
+Przykładowo w sklepie internetowym model `Product` reprezentuje produkt, widok wyświetla jego nazwę i cenę, a kontroler pobiera produkty i przekazuje je do widoku.
+
+Rozdzielenie tych odpowiedzialności ułatwia rozwój, testowanie i utrzymanie kodu.
+
+## 5. Najważniejsze komponenty Laravel
+
+Routing pozwala definiować adresy URL i przypisywać do nich odpowiednie funkcje lub kontrolery.
+
+Controllers grupują logikę obsługi żądań HTTP.
+
+Eloquent ORM umożliwia pracę z bazą danych za pomocą obiektów i modeli zamiast ręcznego pisania większości zapytań SQL.
+
+Blade jest silnikiem szablonów, który pozwala tworzyć dynamiczne strony HTML.
+
+Migrations umożliwiają wersjonowanie zmian w strukturze bazy danych.
+
+Middleware pozwala wykonywać operacje przed obsługą żądania lub po niej, na przykład sprawdzać uwierzytelnienie użytkownika.
+
+Validation zapewnia mechanizmy sprawdzania poprawności danych wejściowych.
+
+Authentication i Authorization umożliwiają zarządzanie tożsamością użytkowników oraz kontrolowanie dostępu do zasobów.
+
+Queues pozwalają wykonywać czasochłonne zadania w tle.
+
+Artisan to interfejs wiersza poleceń ułatwiający zarządzanie projektem, generowanie klas, uruchamianie migracji i wykonywanie innych operacji.
+
+Events i Listeners umożliwiają reagowanie na zdarzenia w aplikacji bez konieczności umieszczania całej logiki w jednym miejscu.
+
+## 6. Laravel i bazy danych
+
+Laravel obsługuje popularne systemy bazodanowe, w tym:
+
+- MySQL.
+- PostgreSQL.
+- SQLite.
+- Microsoft SQL Server.
+
+Do komunikacji z bazami danych Laravel oferuje Eloquent ORM oraz Query Builder.
+
+Eloquent pozwala reprezentować rekordy jako obiekty PHP, a relacje pomiędzy tabelami można odwzorowywać za pomocą relacji modeli.
+
+Przykładowo aplikacja może posiadać modele `User`, `Order` i `Product`, które reprezentują użytkowników, zamówienia i produkty.
+
+Migracje pozwalają definiować strukturę tabel w kodzie, a następnie tworzyć ją lub modyfikować przy użyciu poleceń Artisan.
+
+Dzięki temu zmiany schematu bazy danych mogą być przechowywane w repozytorium Git i wdrażane w różnych środowiskach.
+
+## 7. Przykład kodu w Laravel
+
+Poniższy przykład pokazuje prostą trasę, która zwraca odpowiedź tekstową.
+
+Plik `routes/web.php`:
+
+```
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/hello', function () {
+    return 'Hello from Laravel!';
+});
+```
+
+Po uruchomieniu aplikacji wejście na adres `/hello` zwróci tekst `Hello from Laravel!`.
+
+Przykład trasy zwracającej dane w formacie JSON:
+
+```
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/api/products', function () {
+    return response()->json([
+        'products' => [
+            ['id' => 1, 'name' => 'Coffee'],
+            ['id' => 2, 'name' => 'Tea'],
+        ],
+    ]);
+});
+```
+
+Taka trasa może być wykorzystywana przez frontend, aplikację mobilną lub innego klienta API.
+
+## 8. Laravel a REST API
+
+Laravel nadaje się do tworzenia REST API, które udostępnia dane innym aplikacjom za pośrednictwem protokołu HTTP.
+
+API może wykorzystywać metody:
+
+- `GET` – pobieranie danych.
+- `POST` – tworzenie zasobów lub uruchamianie operacji.
+- `PUT` – zastępowanie zasobu lub aktualizowanie go zgodnie z przyjętą konwencją.
+- `PATCH` – częściowa aktualizacja zasobu.
+- `DELETE` – usuwanie zasobu.
+
+Laravel zapewnia routing API, walidację danych, mechanizmy uwierzytelniania oraz możliwość formatowania odpowiedzi jako JSON.
+
+Do uwierzytelniania API można wykorzystać między innymi Laravel Sanctum, a w odpowiednich scenariuszach także rozwiązania oparte na OAuth.
+
+Przykładowo backend sklepu może udostępniać endpointy do pobierania produktów, składania zamówień i zarządzania kontem użytkownika.
+
+## 9. Artisan – narzędzie wiersza poleceń
+
+Artisan jest jednym z najważniejszych narzędzi w ekosystemie Laravel.
+
+Pozwala wykonywać wiele operacji bez ręcznego tworzenia wszystkich plików i uruchamiania poleceń SQL.
+
+Przykładowe polecenia:
+
+```
+php artisan serve
+php artisan route:list
+php artisan make:controller ProductController
+php artisan make:model Product -m
+php artisan migrate
+php artisan make:middleware CheckRole
+```
+
+Znaczenie poleceń:
+
+- `serve` uruchamia lokalny serwer deweloperski.
+- `route:list` wyświetla zdefiniowane trasy.
+- `make:controller` generuje kontroler.
+- `make:model Product -m` generuje model i migrację.
+- `migrate` wykonuje oczekujące migracje.
+- `make:middleware` generuje klasę middleware.
+
+## 10. Laravel a frontend
+
+Laravel może generować strony HTML po stronie serwera przy użyciu Blade, ale może również pełnić rolę backendu dla oddzielnej aplikacji frontendowej.
+
+W zależności od projektu można go łączyć z:
+
+- Vue.js.
+- React.
+- Livewire.
+- Inertia.js.
+- Tailwind CSS.
+
+Blade jest dobrym wyborem dla stron renderowanych przez serwer. Livewire ułatwia tworzenie interaktywnych interfejsów przy wykorzystaniu PHP. Vue i React sprawdzają się między innymi w bardziej rozbudowanych interfejsach, natomiast Inertia.js umożliwia połączenie backendu Laravel z frontendem komponentowym bez konieczności budowania oddzielnego REST API dla każdego widoku.
+
+## 11. Laravel a inne frameworki
+
+| Technologia  | Język      | Główne przeznaczenie                          |
+| ------------ | ---------- | --------------------------------------------- |
+| Laravel      | PHP        | Aplikacje internetowe i API                   |
+| Symfony      | PHP        | Rozbudowane aplikacje i komponenty backendowe |
+| Django       | Python     | Aplikacje internetowe i systemy bazodanowe    |
+| FastAPI      | Python     | Nowoczesne API                                |
+| ASP.NET Core | C#         | Aplikacje webowe, backendy i API              |
+| Spring Boot  | Java       | Backendy, API i systemy korporacyjne          |
+| Express.js   | JavaScript | Serwery i API w ekosystemie Node.js           |
+
+Laravel i Symfony są frameworkami PHP, ale różnią się podejściem do organizacji aplikacji i dostarczanymi konwencjami.
+
+Laravel jest często wybierany ze względu na spójny ekosystem i szybkie tworzenie funkcjonalności, natomiast Symfony jest znane z modularnej architektury i rozbudowanego zestawu komponentów.
+
+## 12. Zalety Laravel
+
+- Czytelna struktura projektu i ustalone konwencje.
+- Rozbudowany ekosystem komponentów.
+- Wygodna obsługa baz danych przez Eloquent ORM.
+- Wbudowane mechanizmy walidacji i routingu.
+- Narzędzia do uwierzytelniania i autoryzacji.
+- Wsparcie dla kolejek, zdarzeń, zadań cyklicznych i powiadomień.
+- Ułatwione testowanie aplikacji.
+- Duża liczba materiałów edukacyjnych i przykładów.
+- Możliwość szybkiego tworzenia zarówno aplikacji monolitycznych, jak i backendów API.
+
+## 13. Wady i ograniczenia Laravel
+
+- Wymaga znajomości PHP i podstaw programowania backendowego.
+- Niektóre abstrakcje frameworka mogą utrudniać zrozumienie działania zapytań i przepływu danych.
+- Aplikacje o dużej skali wymagają odpowiedniego projektowania, profilowania i optymalizacji.
+- Korzystanie z ORM nie eliminuje konieczności znajomości SQL.
+- Aktualizacje głównych wersji mogą wymagać dostosowania kodu i zależności.
+- Bezpieczeństwo aplikacji zależy również od konfiguracji, walidacji, kontroli dostępu i poprawnego zarządzania sekretami.
+
+## 14. Gdzie można nauczyć się Laravel?
+
+- Oficjalna strona: [Laravel](https://laravel.com/).
+- Dokumentacja: [Laravel Documentation](https://laravel.com/docs).
+- Dokumentacja API: [Laravel API Reference](https://api.laravel.com/).
+- Repozytorium źródłowe: [Laravel na GitHubie](https://github.com/laravel/laravel).
+- Laracasts: [Laracasts – kursy Laravel i PHP](https://laracasts.com/).
+
+## 15. Podsumowanie
+
+Laravel to framework PHP przeznaczony do tworzenia aplikacji internetowych, stron WWW, sklepów, paneli administracyjnych i REST API.
+
+Jego największe zalety to uporządkowana architektura MVC, wygodna obsługa baz danych, routing, mechanizmy bezpieczeństwa i rozbudowany ekosystem narzędzi.
+
+Najważniejsze pojęcia do zapamiętania to PHP, MVC, Routing, Controller, Model, View, Eloquent ORM, Blade, Middleware, Migrations i Artisan.

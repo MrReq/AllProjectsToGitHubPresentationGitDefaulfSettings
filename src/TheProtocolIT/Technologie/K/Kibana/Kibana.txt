@@ -1,0 +1,579 @@
+# Kibana
+
+## 1. Czym jest Kibana?
+
+**Kibana** to narzędzie służące do **wizualizacji, analizy i monitorowania danych**, najczęściej używane razem z **Elasticsearch**.
+
+Kibana jest częścią ekosystemu **Elastic**.
+
+Najprościej można zapamiętać:
+
+**Elasticsearch przechowuje i wyszukuje dane, a Kibana pozwala je analizować i przedstawiać w czytelnej formie.**
+
+Przykładowo:
+
+```text
+Aplikacja
+   ↓
+Logi
+   ↓
+Elasticsearch
+   ↓
+Kibana
+   ↓
+Wykresy / Dashboardy / Alerty
+```
+
+## 2. Do czego wykorzystuje się Kibanę?
+
+Kibana jest wykorzystywana między innymi do:
+
+- analizy logów,
+- monitorowania aplikacji,
+- monitorowania serwerów,
+- analizy ruchu sieciowego,
+- tworzenia dashboardów,
+- wizualizacji danych,
+- wyszukiwania informacji,
+- monitorowania infrastruktury,
+- analizy zdarzeń bezpieczeństwa,
+- obserwowania działania systemów w czasie rzeczywistym.
+
+## 3. Kibana i Elasticsearch
+
+Kibana najczęściej współpracuje z **Elasticsearch**.
+
+Elasticsearch jest rozproszonym silnikiem wyszukiwania i analizy danych.
+
+Można przedstawić ich współpracę tak:
+
+```text
+                Elasticsearch
+                     ▲
+                     │
+                  dane
+                     │
+                     ▼
+                   Kibana
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+       Search    Dashboard   Visualizations
+```
+
+Kibana pobiera dane z Elasticsearch i prezentuje je użytkownikowi.
+
+## 4. ELK Stack
+
+Kibana jest bardzo często kojarzona z **ELK Stack**.
+
+ELK oznacza:
+
+**E — Elasticsearch**
+
+**L — Logstash**
+
+**K — Kibana**
+
+Typowy przepływ wygląda tak:
+
+```text
+Źródła danych
+     ↓
+  Logstash
+     ↓
+Elasticsearch
+     ↓
+   Kibana
+```
+
+### Elasticsearch
+
+Przechowuje i analizuje dane.
+
+### Logstash
+
+Pobiera, przetwarza i przesyła dane.
+
+### Kibana
+
+Wizualizuje i umożliwia analizowanie danych.
+
+## 5. Elastic Stack
+
+Obecnie częściej mówi się o **Elastic Stack**, ponieważ ekosystem Elastic obejmuje więcej komponentów niż tylko ELK.
+
+Jednym z ważnych elementów jest **Elastic Agent**, który może zbierać dane z systemów i aplikacji.
+
+Schemat może wyglądać tak:
+
+```text
+Servers
+Applications
+Containers
+     │
+     ▼
+Elastic Agent
+     │
+     ▼
+Elasticsearch
+     │
+     ▼
+Kibana
+```
+
+## 6. Dashboard
+
+Jedną z najważniejszych funkcji Kibany jest tworzenie **dashboardów**.
+
+Dashboard może zawierać wiele elementów jednocześnie.
+
+Przykładowo:
+
+```text
+┌─────────────────────────────────────────────┐
+│              SYSTEM DASHBOARD               │
+├───────────────────┬─────────────────────────┤
+│ Requests           │ Errors                  │
+│     12,540         │      127                │
+├───────────────────┴─────────────────────────┤
+│                                             │
+│             Requests / Time                 │
+│             📈                              │
+│                                             │
+├───────────────────────┬─────────────────────┤
+│ CPU                   │ Memory              │
+│       📊              │       📊            │
+└───────────────────────┴─────────────────────┘
+```
+
+Dzięki temu administrator może szybko zobaczyć stan systemu.
+
+## 7. Visualizations
+
+Kibana pozwala tworzyć różnego rodzaju wizualizacje.
+
+Można między innymi wykorzystać:
+
+- wykresy liniowe,
+- wykresy słupkowe,
+- wykresy kołowe,
+- tabele,
+- metryki,
+- histogramy,
+- mapy,
+- wykresy obszarowe.
+
+Przykładowo można przedstawić liczbę błędów aplikacji w czasie:
+
+```text
+Errors
+│
+│       ╭──╮
+│   ╭───╯  ╰──╮
+│───╯          ╰────
+└────────────────────
+        Time
+```
+
+## 8. Discover
+
+**Discover** jest miejscem, w którym można przeglądać i analizować pojedyncze dokumenty znajdujące się w Elasticsearch.
+
+Można tam między innymi:
+
+- wyszukiwać rekordy,
+- filtrować dane,
+- analizować logi,
+- sprawdzać pola dokumentów,
+- analizować dane w określonym przedziale czasu.
+
+Przykładowy log:
+
+```text
+2026-09-27 16:10:22
+level: ERROR
+service: payment-service
+message: Database connection failed
+```
+
+Kibana pozwala szybko odnaleźć takie zdarzenia.
+
+## 9. KQL
+
+Kibana posiada własny język zapytań o nazwie **Kibana Query Language (KQL)**.
+
+KQL pozwala filtrować dane.
+
+Przykładowo:
+
+```text
+status: 500
+```
+
+może służyć do wyszukiwania rekordów, w których pole `status` ma wartość `500`.
+
+Można również łączyć warunki:
+
+```text
+status: 500 and service: "payment-service"
+```
+
+Dzięki temu można szybko znaleźć błędy konkretnego serwisu.
+
+## 10. Lucene Query Syntax
+
+Kibana może również korzystać z **Lucene Query Syntax**.
+
+Jest to bardziej zaawansowany sposób wyszukiwania danych w Elasticsearch.
+
+Warto pamiętać:
+
+**KQL** → prostsze filtrowanie danych w Kibanie.
+
+**Lucene Query Syntax** → bardziej zaawansowane możliwości zapytań.
+
+## 11. Logi aplikacji
+
+Jednym z najpopularniejszych zastosowań Kibany jest analiza logów.
+
+Przykładowo aplikacja generuje:
+
+```text
+INFO  User logged in
+INFO  Order created
+WARN  Payment delayed
+ERROR Database unavailable
+```
+
+Logi trafiają do Elasticsearch.
+
+Kibana pozwala następnie:
+
+- wyszukać błędy,
+- filtrować logi,
+- analizować ich częstotliwość,
+- tworzyć wykresy,
+- obserwować problemy w czasie.
+
+## 12. Monitorowanie aplikacji
+
+Kibana może być wykorzystywana do obserwowania aplikacji.
+
+Możemy monitorować na przykład:
+
+```text
+Requests
+Errors
+Response time
+CPU
+Memory
+Availability
+```
+
+Przykładowy dashboard:
+
+```text
+Application
+│
+├── Requests: 125 000
+├── Errors: 320
+├── Avg Response Time: 120 ms
+└── Availability: 99.9%
+```
+
+## 13. Observability
+
+Kibana jest również wykorzystywana w obszarze **observability**.
+
+Observability pozwala analizować działanie systemu poprzez dane takie jak:
+
+**Logs** — logi.
+
+**Metrics** — metryki.
+
+**Traces** — ślady wykonywania operacji.
+
+Można dzięki temu analizować działanie całego systemu.
+
+```text
+Application
+    │
+    ├── Logs
+    ├── Metrics
+    └── Traces
+          │
+          ▼
+       Elastic
+          │
+          ▼
+        Kibana
+```
+
+## 14. APM
+
+**APM — Application Performance Monitoring** służy do monitorowania wydajności aplikacji.
+
+Można analizować między innymi:
+
+- czas wykonywania żądań,
+- błędy,
+- zapytania do baz danych,
+- zależności pomiędzy usługami,
+- wydajność endpointów.
+
+Przykładowo:
+
+```text
+GET /api/orders
+        │
+        ├── Controller: 15 ms
+        ├── Service: 20 ms
+        └── Database: 85 ms
+```
+
+Dzięki temu można znaleźć miejsce powodujące opóźnienia.
+
+## 15. Kibana i mikroserwisy
+
+Kibana jest bardzo przydatna w środowisku mikroserwisowym.
+
+Przykładowo mamy:
+
+```text
+                    ┌── User Service
+                    │
+                    ├── Order Service
+Application ────────┼── Payment Service
+                    │
+                    └── Notification Service
+                              │
+                              ▼
+                        Elasticsearch
+                              │
+                              ▼
+                            Kibana
+```
+
+Logi wielu mikroserwisów mogą być analizowane z jednego miejsca.
+
+## 16. Kibana i Docker
+
+Kibana jest często uruchamiana razem z Elasticsearch w Dockerze.
+
+Przykładowo:
+
+```text
+Docker
+│
+├── Elasticsearch
+│
+└── Kibana
+```
+
+Można również dodać Logstash:
+
+```text
+Docker
+│
+├── Elasticsearch
+├── Logstash
+└── Kibana
+```
+
+Jest to popularny sposób tworzenia lokalnego środowiska do nauki Elastic Stack.
+
+## 17. Alerting
+
+Kibana może służyć do tworzenia **alertów**.
+
+Przykładowo można skonfigurować regułę:
+
+```text
+Jeżeli:
+ERROR > 100 / 5 minut
+
+to:
+utwórz alert
+```
+
+Dzięki temu administrator może szybciej reagować na problemy.
+
+## 18. Security
+
+Kibana może również służyć do analizy danych związanych z bezpieczeństwem.
+
+W ekosystemie Elastic dostępne są funkcje związane z **SIEM**.
+
+SIEM pozwala zbierać i analizować informacje dotyczące zdarzeń bezpieczeństwa.
+
+Przykładowo:
+
+```text
+Login failures
+Suspicious activity
+Network events
+Security alerts
+```
+
+mogą być analizowane w jednym środowisku.
+
+## 19. Maps
+
+Kibana pozwala również prezentować dane geograficzne na mapach.
+
+Przykładowo można zobaczyć:
+
+```text
+         EUROPE
+       ● ● ● ●
+     ●       ●
+        ●
+```
+
+Można dzięki temu analizować na przykład:
+
+- lokalizacje użytkowników,
+- źródła ruchu,
+- zdarzenia,
+- lokalizacje serwerów.
+
+## 20. Kibana Lens
+
+**Lens** to interfejs Kibany ułatwiający tworzenie wizualizacji.
+
+Pozwala tworzyć wykresy poprzez wybieranie danych i przeciąganie pól.
+
+Przykładowo:
+
+```text
+Field: timestamp
+        ↓
+X axis
+
+Field: response_time
+        ↓
+Y axis
+```
+
+Kibana może następnie utworzyć wykres.
+
+## 21. Data View
+
+**Data View** określa, z jakiego zestawu danych Kibana ma korzystać.
+
+Może wskazywać na określone indeksy Elasticsearch.
+
+Przykładowo:
+
+```text
+logs-*
+```
+
+może obejmować:
+
+```text
+logs-2026.09.25
+logs-2026.09.26
+logs-2026.09.27
+```
+
+Dzięki temu można analizować dane z wielu indeksów.
+
+## 22. Index
+
+W Elasticsearch dane są przechowywane w **indeksach**.
+
+Można to uprościć:
+
+```text
+Elasticsearch
+│
+├── users
+├── orders
+├── products
+└── logs
+```
+
+Kibana może odczytywać dane z tych indeksów i przedstawiać je użytkownikowi.
+
+## 23. Typowy przepływ danych
+
+Przykładowy system może działać tak:
+
+```text
+Application
+     │
+     ▼
+Elastic Agent / Logstash
+     │
+     ▼
+Elasticsearch
+     │
+     ▼
+Kibana
+     │
+     ├── Discover
+     ├── Dashboards
+     ├── Lens
+     ├── Alerts
+     └── Observability
+```
+
+## 24. Kibana vs Grafana
+
+Kibana i Grafana służą między innymi do wizualizacji danych, ale często wykorzystuje się je w nieco innych ekosystemach.
+
+**Kibana** jest mocno związana z Elasticsearch i Elastic Stack.
+
+**Grafana** jest bardzo popularna przy wizualizacji metryk i danych pochodzących z wielu różnych źródeł.
+
+Można zapamiętać:
+
+```text
+Elastic Stack
+      ↓
+    Kibana
+
+Prometheus / wiele źródeł
+      ↓
+    Grafana
+```
+
+Nie oznacza to jednak, że zakres zastosowań obu narzędzi się nie pokrywa.
+
+## 25. Kibana — najważniejsze pojęcia
+
+**Kibana** → wizualizacja i analiza danych.
+
+**Elasticsearch** → wyszukiwanie, przechowywanie i analiza danych.
+
+**Logstash** → przetwarzanie i przesyłanie danych.
+
+**Elastic Stack** → ekosystem narzędzi Elastic.
+
+**ELK** → Elasticsearch + Logstash + Kibana.
+
+**Dashboard** → zestaw wizualizacji na jednym ekranie.
+
+**Discover** → przeglądanie i filtrowanie dokumentów.
+
+**KQL** → Kibana Query Language.
+
+**Lens** → narzędzie do tworzenia wizualizacji.
+
+**Data View** → określa dane dostępne dla Kibany.
+
+**Index** → miejsce przechowywania danych w Elasticsearch.
+
+**Observability** → analiza Logs, Metrics i Traces.
+
+**APM** → monitorowanie wydajności aplikacji.
+
+**SIEM** → analiza zdarzeń związanych z bezpieczeństwem.
+
+**Alert** → powiadomienie o spełnieniu określonego warunku.
+
+## 26. Kibana w jednym zdaniu
+
+**Kibana to narzędzie ekosystemu Elastic służące do wyszukiwania, analizy, wizualizacji i monitorowania danych przechowywanych między innymi w Elasticsearch, szczególnie logów, metryk, śladów i zdarzeń bezpieczeństwa.**

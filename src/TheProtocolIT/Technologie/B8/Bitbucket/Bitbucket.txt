@@ -1,0 +1,569 @@
+# Bitbucket — notatka
+
+## 1. Czym jest Bitbucket?
+
+Bitbucket to platforma służąca przede wszystkim do przechowywania i zarządzania kodem źródłowym.
+
+Bitbucket wykorzystuje system kontroli wersji Git.
+
+Pozwala przechowywać repozytoria kodu w chmurze.
+
+Umożliwia również współpracę wielu programistów nad tym samym projektem.
+
+Bitbucket jest rozwijany przez firmę Atlassian.
+
+## 2. Git
+
+Aby dobrze zrozumieć Bitbucket, należy najpierw znać pojęcie Git.
+
+Git jest rozproszonym systemem kontroli wersji.
+
+Pozwala śledzić zmiany wykonywane w plikach projektu.
+
+Git umożliwia również tworzenie różnych gałęzi projektu oraz łączenie zmian wykonanych przez różnych programistów.
+
+Bitbucket wykorzystuje Git jako podstawę zarządzania kodem.
+
+## 3. Repozytorium
+
+Repozytorium jest miejscem, w którym przechowywany jest projekt oraz jego historia zmian.
+
+Repozytorium może znajdować się lokalnie na komputerze programisty.
+
+Może również znajdować się zdalnie na serwerze.
+
+Bitbucket pozwala przechowywać zdalne repozytoria Git.
+
+Dzięki temu członkowie zespołu mogą uzyskiwać dostęp do wspólnego projektu.
+
+## 4. Repository w Bitbucket
+
+Repozytorium Bitbucket zawiera kod źródłowy projektu.
+
+Może również zawierać historię commitów, gałęzie oraz inne informacje związane z projektem.
+
+Repozytorium może być wykorzystywane przez jednego programistę lub cały zespół.
+
+Możemy utworzyć repozytorium dla aplikacji Java, projektu .NET, aplikacji frontendowej lub innego rodzaju oprogramowania.
+
+## 5. Local Repository
+
+Local Repository znajduje się na komputerze programisty.
+
+Możemy utworzyć je za pomocą polecenia `git init`.
+
+Następnie możemy dodawać pliki i wykonywać commity.
+
+Lokalne repozytorium przechowuje historię zmian projektu.
+
+## 6. Remote Repository
+
+Remote Repository znajduje się na zdalnym serwerze.
+
+Bitbucket może pełnić rolę takiego zdalnego repozytorium.
+
+Programista może wysyłać zmiany z lokalnego repozytorium do Bitbucket.
+
+Może również pobierać zmiany z Bitbucket do swojego komputera.
+
+## 7. Git i Bitbucket
+
+Git oraz Bitbucket nie są tym samym.
+
+Git jest systemem kontroli wersji.
+
+Bitbucket jest platformą umożliwiającą między innymi przechowywanie zdalnych repozytoriów Git.
+
+Można więc uprościć to w następujący sposób.
+
+Git odpowiada za kontrolę wersji.
+
+Bitbucket zapewnia miejsce i narzędzia do współpracy nad repozytoriami.
+
+## 8. Commit
+
+Commit jest zapisem określonego zestawu zmian w repozytorium.
+
+Programista może wykonać kilka zmian w projekcie.
+
+Następnie może zapisać je jako commit.
+
+Każdy commit posiada między innymi własny identyfikator oraz informację o autorze.
+
+Commit powinien posiadać opis informujący, jakie zmiany zostały wykonane.
+
+Przykładem może być commit `Add login functionality`.
+
+## 9. git add
+
+Polecenie `git add` służy do przygotowania zmian do commita.
+
+Możemy na przykład użyć `git add .`.
+
+Polecenie doda zmienione pliki do obszaru przygotowania zmian.
+
+Następnie możemy wykonać commit.
+
+## 10. git commit
+
+Polecenie `git commit` zapisuje przygotowane zmiany w lokalnym repozytorium.
+
+Przykładem jest `git commit -m "Add login functionality"`.
+
+Opcja `-m` pozwala określić wiadomość opisującą commit.
+
+Commit zapisuje zmiany w historii lokalnego repozytorium.
+
+## 11. git push
+
+Polecenie `git push` służy do wysyłania lokalnych commitów do zdalnego repozytorium.
+
+Jeżeli repozytorium znajduje się w Bitbucket, `git push` może przesłać zmiany właśnie do Bitbucket.
+
+Dzięki temu inni członkowie zespołu mogą uzyskać dostęp do nowych zmian.
+
+## 12. git pull
+
+Polecenie `git pull` służy do pobierania zmian ze zdalnego repozytorium.
+
+Możemy dzięki niemu pobrać zmiany wykonane przez innych programistów.
+
+Polecenie pobiera zmiany i integruje je z lokalną gałęzią.
+
+Jest często używane przed rozpoczęciem dalszej pracy nad projektem.
+
+## 13. git clone
+
+Polecenie `git clone` służy do skopiowania zdalnego repozytorium na komputer.
+
+Możemy dzięki temu pobrać istniejący projekt z Bitbucket.
+
+Po wykonaniu klonowania otrzymujemy lokalne repozytorium.
+
+Możemy następnie pracować nad projektem lokalnie.
+
+## 14. Branch
+
+Branch oznacza gałąź w repozytorium Git.
+
+Gałąź pozwala prowadzić niezależną linię rozwoju projektu.
+
+Programista może utworzyć branch przeznaczony dla konkretnej funkcjonalności.
+
+Może na przykład utworzyć branch `feature/login`.
+
+Dzięki branchom różne funkcjonalności mogą być rozwijane niezależnie.
+
+## 15. Main Branch
+
+Main branch jest główną gałęzią repozytorium.
+
+W nowych projektach często nazywa się ona `main`.
+
+Może zawierać główną wersję kodu projektu.
+
+Zespół może określić zasady dotyczące tego, jakie zmiany mogą zostać połączone z główną gałęzią.
+
+## 16. Feature Branch
+
+Feature branch jest gałęzią przeznaczoną do tworzenia konkretnej funkcjonalności.
+
+Programista może utworzyć branch `feature/register`.
+
+Następnie może wykonywać zmiany bez modyfikowania bezpośrednio głównej gałęzi.
+
+Po zakończeniu pracy zmiany mogą zostać przekazane do przeglądu.
+
+## 17. Pull Request
+
+Pull Request jest mechanizmem umożliwiającym zaproponowanie zmian do połączenia z inną gałęzią.
+
+W Bitbucket mechanizm ten jest związany z procesem code review.
+
+Programista tworzy Pull Request po zakończeniu określonego fragmentu pracy.
+
+Inni członkowie zespołu mogą przejrzeć zmiany.
+
+Następnie zmiany mogą zostać zaakceptowane i połączone z docelową gałęzią.
+
+## 18. Code Review
+
+Code Review oznacza przegląd kodu wykonanego przez innego programistę.
+
+Celem Code Review jest sprawdzenie zmian przed ich połączeniem z główną gałęzią.
+
+Programiści mogą komentować poszczególne fragmenty kodu.
+
+Mogą również zgłaszać uwagi dotyczące implementacji.
+
+Code Review pomaga zespołowi utrzymywać określony standard kodu.
+
+## 19. Merge
+
+Merge oznacza połączenie zmian z jednej gałęzi z inną gałęzią.
+
+Przykładowo możemy połączyć `feature/login` z `main`.
+
+Po wykonaniu merge zmiany z gałęzi funkcjonalnej stają się częścią docelowej gałęzi.
+
+Merge jest jednym z podstawowych mechanizmów pracy z Git.
+
+## 20. Merge Conflict
+
+Merge Conflict występuje wtedy, gdy Git nie może automatycznie połączyć zmian.
+
+Może się to wydarzyć, gdy dwóch programistów zmieniło ten sam fragment pliku w różny sposób.
+
+Git oznaczy miejsce konfliktu.
+
+Programista musi zdecydować, która wersja powinna zostać zachowana.
+
+Po rozwiązaniu konfliktu można kontynuować proces merge.
+
+## 21. Branch Permissions
+
+Bitbucket pozwala definiować zasady dotyczące poszczególnych gałęzi.
+
+Możemy na przykład ograniczyć możliwość bezpośredniego wysyłania zmian do głównej gałęzi.
+
+Zmiany mogą wtedy wymagać utworzenia Pull Request.
+
+Można również wymagać zatwierdzenia zmian przez innych członków zespołu.
+
+## 22. Repository Permissions
+
+Bitbucket pozwala zarządzać dostępem użytkowników do repozytoriów.
+
+Możemy określać, kto może odczytywać repozytorium.
+
+Możemy również określać, kto może wprowadzać zmiany.
+
+Uprawnienia pozwalają kontrolować dostęp do kodu projektu.
+
+## 23. Projekty
+
+W Bitbucket repozytoria mogą być organizowane w ramach projektów.
+
+Projekt może grupować wiele powiązanych repozytoriów.
+
+Jest to przydatne w przypadku większych zespołów i organizacji.
+
+Możemy na przykład posiadać osobne repozytoria dla backendu, frontendu oraz infrastruktury.
+
+## 24. Workspace
+
+Workspace jest przestrzenią organizującą pracę w Bitbucket Cloud.
+
+Może zawierać repozytoria oraz użytkowników związanych z określoną organizacją lub zespołem.
+
+Workspace pomaga zarządzać wspólnymi zasobami.
+
+Dzięki temu wiele repozytoriów może być organizowanych w jednym miejscu.
+
+## 25. Issues
+
+Issues służą do rejestrowania zadań, problemów oraz innych elementów wymagających uwagi.
+
+Możemy utworzyć Issue dotyczące błędu w aplikacji.
+
+Możemy również wykorzystać Issue do opisania nowej funkcjonalności.
+
+Issues pomagają organizować pracę zespołu.
+
+## 26. Pull Request i Issue
+
+Pull Request może być powiązany z określonym Issue.
+
+Dzięki temu można połączyć zadanie z konkretnymi zmianami w kodzie.
+
+Programista może pracować nad funkcjonalnością opisaną w Issue.
+
+Następnie może utworzyć Pull Request zawierający implementację tego zadania.
+
+Pozwala to łatwiej śledzić historię pracy nad funkcjonalnością.
+
+## 27. README
+
+Repozytorium Bitbucket może zawierać plik README.
+
+README zawiera informacje dotyczące projektu.
+
+Może opisywać sposób instalacji aplikacji.
+
+Może również zawierać informacje dotyczące uruchamiania projektu oraz jego konfiguracji.
+
+README jest często pierwszym dokumentem, który powinien przeczytać nowy członek zespołu.
+
+## 28. .gitignore
+
+Plik `.gitignore` określa pliki i katalogi, które nie powinny być śledzone przez Git.
+
+Możemy umieścić w nim między innymi pliki tymczasowe oraz katalogi generowane automatycznie.
+
+W projektach Java często ignorowany jest katalog `target`.
+
+W projektach .NET często ignorowane są katalogi `bin` oraz `obj`.
+
+`.gitignore` pomaga utrzymać repozytorium w uporządkowanym stanie.
+
+## 29. Tags
+
+Tag jest oznaczeniem określonego miejsca w historii repozytorium.
+
+Tag może być wykorzystany do oznaczenia konkretnej wersji aplikacji.
+
+Przykładem może być `v1.0.0`.
+
+Tagi są często wykorzystywane podczas tworzenia wydań aplikacji.
+
+## 30. Releases
+
+Release oznacza wydaną wersję projektu.
+
+Może być powiązany z określonym tagiem Git.
+
+Release może zawierać informacje dotyczące zmian w danej wersji.
+
+Jest to przydatne podczas zarządzania kolejnymi wersjami aplikacji.
+
+## 31. Pipelines
+
+Bitbucket Pipelines jest funkcją służącą do automatyzacji procesów CI/CD.
+
+CI oznacza Continuous Integration.
+
+CD oznacza Continuous Delivery lub Continuous Deployment.
+
+Pipeline może automatycznie wykonywać określone zadania po zmianie kodu.
+
+Może na przykład uruchomić testy po wykonaniu push.
+
+## 32. CI
+
+Continuous Integration polega na regularnym integrowaniu zmian wykonywanych przez programistów.
+
+Po przesłaniu zmian system może automatycznie uruchomić proces budowania projektu.
+
+Może również uruchomić testy automatyczne.
+
+Pozwala to szybciej wykrywać problemy związane z nowym kodem.
+
+## 33. CD
+
+Continuous Delivery polega na automatycznym przygotowywaniu aplikacji do wydania.
+
+Continuous Deployment idzie krok dalej i może automatycznie wdrażać zmiany do środowiska docelowego.
+
+Bitbucket Pipelines może być wykorzystywany do realizacji takich procesów.
+
+## 34. bitbucket-pipelines.yml
+
+Konfiguracja Bitbucket Pipelines znajduje się w pliku `bitbucket-pipelines.yml`.
+
+Plik ten znajduje się zazwyczaj w głównym katalogu repozytorium.
+
+Określa on między innymi kroki wykonywane podczas pipeline.
+
+Możemy w nim zdefiniować budowanie aplikacji, testy oraz inne operacje.
+
+## 35. Pipeline
+
+Pipeline może składać się z kilku etapów.
+
+Pierwszym etapem może być instalacja zależności.
+
+Następnym etapem może być kompilacja projektu.
+
+Kolejnym etapem może być uruchomienie testów.
+
+Ostatnim etapem może być wdrożenie aplikacji.
+
+Można więc przedstawić przykładowy proces.
+
+Kod → Build → Test → Deploy.
+
+## 36. Runners
+
+Pipeline musi być wykonywany przez środowisko wykonawcze.
+
+Takie środowisko może być dostarczane przez odpowiedni mechanizm wykonawczy.
+
+Bitbucket Pipelines może korzystać z infrastruktury Bitbucket lub z własnych runnerów.
+
+Runner wykonuje polecenia zdefiniowane w pipeline.
+
+## 37. Deployment
+
+Bitbucket może być wykorzystywany jako element procesu wdrażania aplikacji.
+
+Pipeline może po pomyślnym zakończeniu testów rozpocząć proces deploymentu.
+
+Aplikacja może zostać wdrożona na odpowiednie środowisko.
+
+Może to być między innymi środowisko testowe lub produkcyjne.
+
+## 38. Environment Variables
+
+Pipeline może korzystać ze zmiennych środowiskowych.
+
+Zmienne mogą przechowywać konfigurację potrzebną podczas wykonywania procesu.
+
+Możemy również przechowywać w odpowiednim mechanizmie dane wrażliwe.
+
+Dane takie jak hasła i klucze dostępowe nie powinny być zapisywane bezpośrednio w repozytorium.
+
+## 39. SSH
+
+Bitbucket może wykorzystywać SSH do uwierzytelniania podczas komunikacji z repozytorium.
+
+Użytkownik może skonfigurować klucz SSH na swoim komputerze.
+
+Następnie Git może wykorzystywać ten klucz podczas wykonywania operacji takich jak `git push` i `git pull`.
+
+SSH pozwala uniknąć konieczności wpisywania hasła przy każdej operacji.
+
+## 40. HTTPS
+
+Repozytoria Bitbucket mogą być również obsługiwane przez HTTPS.
+
+Git może komunikować się ze zdalnym repozytorium za pomocą adresu HTTPS.
+
+Sposób uwierzytelniania zależy od konfiguracji konta oraz stosowanych mechanizmów dostępu.
+
+HTTPS i SSH są dwoma popularnymi sposobami komunikacji z repozytoriami Git.
+
+## 41. Authentication
+
+Authentication oznacza uwierzytelnianie użytkownika.
+
+Bitbucket musi wiedzieć, kim jest użytkownik wykonujący określoną operację.
+
+W zależności od sposobu komunikacji mogą być wykorzystywane między innymi klucze SSH lub inne mechanizmy uwierzytelniania.
+
+Uwierzytelnianie pozwala kontrolować dostęp do repozytoriów.
+
+## 42. Bitbucket i Atlassian
+
+Bitbucket jest częścią ekosystemu Atlassian.
+
+Atlassian rozwija również inne narzędzia wykorzystywane przez zespoły programistyczne.
+
+Przykładami są Jira oraz Confluence.
+
+Bitbucket może być integrowany z innymi narzędziami Atlassian.
+
+Dzięki temu zadania, kod oraz dokumentacja mogą być ze sobą powiązane.
+
+## 43. Bitbucket i Jira
+
+Jira służy między innymi do zarządzania zadaniami i procesem pracy zespołu.
+
+Bitbucket służy przede wszystkim do pracy z kodem i repozytoriami.
+
+Integracja obu narzędzi pozwala powiązać zadania Jira ze zmianami w kodzie.
+
+Programista może dzięki temu łatwiej prześledzić historię implementacji określonego zadania.
+
+## 44. Bitbucket i Confluence
+
+Confluence służy do tworzenia i przechowywania dokumentacji.
+
+Bitbucket przechowuje przede wszystkim kod źródłowy.
+
+Oba narzędzia mogą być wykorzystywane razem w ramach ekosystemu Atlassian.
+
+Dokumentacja projektu może znajdować się w Confluence, a kod projektu w Bitbucket.
+
+## 45. Bitbucket a GitHub
+
+Bitbucket i GitHub są platformami umożliwiającymi pracę z repozytoriami Git.
+
+Obie platformy pozwalają przechowywać kod oraz współpracować nad projektami.
+
+Obie obsługują między innymi branche, commity oraz mechanizmy przeglądu zmian.
+
+Bitbucket jest szczególnie mocno związany z ekosystemem Atlassian.
+
+GitHub posiada natomiast własny rozbudowany ekosystem narzędzi developerskich.
+
+## 46. Bitbucket a GitLab
+
+Bitbucket i GitLab są platformami opartymi na Git.
+
+Obie mogą być wykorzystywane do przechowywania kodu i automatyzacji procesów CI/CD.
+
+Bitbucket oferuje Bitbucket Pipelines.
+
+GitLab posiada własne rozwiązania związane z CI/CD.
+
+Obie platformy mogą być wykorzystywane w profesjonalnych zespołach programistycznych.
+
+## 47. Code Collaboration
+
+Bitbucket pozwala wielu programistom pracować nad tym samym projektem.
+
+Każdy programista może pracować na własnej gałęzi.
+
+Zmiany mogą być przesyłane do zdalnego repozytorium.
+
+Następnie mogą zostać poddane Code Review.
+
+Po zaakceptowaniu mogą zostać połączone z główną gałęzią.
+
+## 48. Bezpieczeństwo repozytorium
+
+Repozytorium może zawierać bardzo ważny kod źródłowy.
+
+Dlatego należy odpowiednio zarządzać dostępem użytkowników.
+
+Należy również unikać umieszczania haseł, kluczy API oraz innych sekretów bezpośrednio w kodzie.
+
+Uprawnienia do repozytorium powinny być nadawane odpowiednim osobom.
+
+## 49. Typowy workflow w Bitbucket
+
+Typowa praca może rozpocząć się od sklonowania repozytorium.
+
+Następnie programista tworzy nową gałąź.
+
+Na tej gałęzi wykonuje zmiany w kodzie.
+
+Następnie wykonuje `git add`.
+
+Po przygotowaniu zmian wykonuje `git commit`.
+
+Następnie wykonuje `git push`.
+
+Po przesłaniu zmian tworzy Pull Request.
+
+Inni członkowie zespołu mogą przeprowadzić Code Review.
+
+Po zaakceptowaniu zmian wykonywany jest merge do odpowiedniej gałęzi.
+
+Pipeline może następnie automatycznie uruchomić testy i proces wdrożenia.
+
+## 50. Jak uczyć się Bitbucket?
+
+Podczas nauki Bitbucket najpierw warto dobrze poznać podstawy Git.
+
+Należy zrozumieć pojęcia repository, commit, branch, merge oraz remote.
+
+Następnie warto nauczyć się tworzenia repozytorium i klonowania projektu.
+
+Kolejnym krokiem powinno być poznanie push, pull oraz pracy z branchami.
+
+Następnie warto nauczyć się Pull Requestów i Code Review.
+
+Później można przejść do uprawnień oraz integracji z Jira.
+
+Na końcu warto nauczyć się Bitbucket Pipelines i podstaw CI/CD.
+
+## 51. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to Bitbucket, Git, repository, local repository, remote repository, commit, branch, main branch, feature branch, push, pull, clone, Pull Request, Code Review, merge, merge conflict, permissions, Issues, tags, releases, Bitbucket Pipelines, CI/CD, runner, deployment, SSH, HTTPS, Jira oraz Confluence.
+
+Najważniejsza zasada dotycząca Bitbucket jest taka, że **Bitbucket jest platformą służącą przede wszystkim do przechowywania repozytoriów Git oraz współpracy zespołów programistycznych nad kodem**.
+
+Bitbucket pozwala zarządzać kodem, branchami, Pull Requestami oraz procesem Code Review.
+
+Dzięki Bitbucket Pipelines może również automatyzować procesy związane z budowaniem, testowaniem i wdrażaniem aplikacji.

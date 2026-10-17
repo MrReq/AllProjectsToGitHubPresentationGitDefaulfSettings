@@ -1,0 +1,454 @@
+Tak, teraz dokładnie widzę wzór, o który Ci chodzi.
+Chcesz, żeby **Babel** był napisany w takim samym stylu jak przesłana notatka o Adobe XD: numerowane sekcje, krótkie akapity, każde zdanie w osobnej linii, prosty język i stopniowe przechodzenie od podstaw do bardziej szczegółowych pojęć.
+
+Poniżej przygotuję Babel właśnie w tym formacie.
+
+# Babel — notatka
+
+## 1. Czym jest Babel?
+
+Babel to narzędzie służące do przekształcania kodu JavaScript.
+
+Babel pozwala przekształcać nowoczesny kod JavaScript do starszej lub bardziej kompatybilnej postaci.
+
+Dzięki temu kod może działać w środowiskach, które nie obsługują wszystkich najnowszych funkcji JavaScript.
+
+Babel jest nazywany transpilerem.
+
+Transpiler to narzędzie, które przekształca kod źródłowy do innej postaci kodu, zachowując jego podstawowe znaczenie.
+
+Babel jest szczególnie często wykorzystywany w projektach frontendowych.
+
+## 2. JavaScript i nowe funkcje języka
+
+JavaScript jest rozwijany poprzez kolejne wersje standardu ECMAScript.
+
+Kolejne wersje standardu wprowadzają nowe funkcje i możliwości języka.
+
+Przykładami nowoczesnych funkcji JavaScript są arrow functions, klasy, template literals, let, const oraz wiele innych konstrukcji.
+
+Nie wszystkie środowiska obsługują wszystkie nowe funkcje JavaScript.
+
+Problem ten jest szczególnie istotny w przypadku starszych przeglądarek.
+
+Babel pozwala przekształcić nowoczesny kod do postaci lepiej obsługiwanej przez starsze środowiska.
+
+## 3. Transpilacja
+
+Proces przekształcania kodu za pomocą Babel nazywamy transpilacją.
+
+Programista może napisać kod wykorzystujący nowoczesną składnię JavaScript.
+
+Babel analizuje ten kod i wykonuje określone transformacje.
+
+Wynikiem jest kod JavaScript, który może być przeznaczony dla określonych środowisk.
+
+Można więc przedstawić podstawowy schemat działania Babel.
+
+```text
+Nowoczesny JavaScript
+        ↓
+      Babel
+        ↓
+Przekształcony JavaScript
+        ↓
+   Przeglądarka
+```
+
+## 4. Przykład transformacji
+
+Nowoczesny JavaScript może wykorzystywać funkcję strzałkową.
+
+```javascript
+const add = (a, b) => {
+    return a + b;
+};
+```
+
+Babel może przekształcić taki kod do starszej składni.
+
+```javascript
+var add = function (a, b) {
+    return a + b;
+};
+```
+
+Programista może więc korzystać z nowoczesnej składni bez konieczności ręcznego przepisywania kodu do starszej wersji JavaScript.
+
+## 5. ECMAScript
+
+ECMAScript jest standardem opisującym język JavaScript.
+
+JavaScript jest implementacją standardu ECMAScript.
+
+Nowe wersje ECMAScript wprowadzają kolejne funkcje języka.
+
+Babel może pomagać w korzystaniu z tych funkcji w środowiskach, które nie obsługują ich bezpośrednio.
+
+## 6. Babel i kompatybilność
+
+Jednym z głównych zastosowań Babel jest zapewnienie kompatybilności kodu.
+
+Kompatybilność oznacza możliwość uruchomienia aplikacji w różnych środowiskach.
+
+Programista może określić, jakie środowiska powinny być obsługiwane przez aplikację.
+
+Babel może na tej podstawie dobrać odpowiednie transformacje.
+
+Dzięki temu nie trzeba zawsze przekształcać całego kodu do bardzo starej wersji JavaScript.
+
+## 7. Presets
+
+Babel wykorzystuje presety.
+
+Preset jest zestawem konfiguracji i pluginów odpowiedzialnych za określone transformacje.
+
+Jednym z najważniejszych presetów jest `@babel/preset-env`.
+
+`@babel/preset-env` pomaga przekształcać nowoczesny JavaScript w zależności od środowisk docelowych.
+
+Przykładowa konfiguracja może wyglądać następująco.
+
+```json
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+## 8. Babel Plugins
+
+Babel wykorzystuje również pluginy.
+
+Plugin odpowiada za konkretną funkcję lub transformację kodu.
+
+Możemy dzięki nim określić, jakie elementy kodu powinny zostać przekształcone.
+
+Presety mogą składać się z wielu pluginów.
+
+Dzięki pluginom Babel można dostosować do konkretnego projektu.
+
+## 9. Babel Core
+
+Najważniejszym elementem Babel jest pakiet `@babel/core`.
+
+Zawiera on podstawowy silnik odpowiedzialny za wykonywanie transformacji.
+
+Pozostałe elementy ekosystemu Babel mogą korzystać z jego funkcjonalności.
+
+Sam `@babel/core` nie musi być jednak używany bezpośrednio przez programistę.
+
+Często wykorzystuje się dodatkowe narzędzia, które korzystają z niego automatycznie.
+
+## 10. Babel CLI
+
+Babel posiada również narzędzie wiersza poleceń.
+
+Nazywa się ono Babel CLI.
+
+Pozwala uruchamiać transformacje z poziomu terminala.
+
+Przykładowe polecenie może wyglądać następująco.
+
+```bash
+npx babel src --out-dir dist
+```
+
+Polecenie może przetworzyć pliki znajdujące się w katalogu `src`.
+
+Wynik transformacji zostanie zapisany w katalogu `dist`.
+
+## 11. Konfiguracja Babel
+
+Babel może być konfigurowany za pomocą specjalnych plików konfiguracyjnych.
+
+Jednym z możliwych sposobów konfiguracji jest plik `babel.config.json`.
+
+Przykładowa konfiguracja może wyglądać tak.
+
+```json
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+Konfiguracja określa między innymi, jakie presety i pluginy powinny zostać wykorzystane.
+
+## 12. Babel i JSX
+
+Babel może również przekształcać JSX.
+
+JSX jest składnią często wykorzystywaną w aplikacjach React.
+
+Przykładowy kod JSX może wyglądać następująco.
+
+```jsx
+const element = <h1>Hello World</h1>;
+```
+
+Babel może przekształcić JSX do kodu JavaScript.
+
+Dzięki temu kod JSX może zostać wykorzystany w aplikacji uruchamianej w środowisku JavaScript.
+
+## 13. Babel i React
+
+Babel jest często wykorzystywany w projektach React.
+
+React wykorzystuje JSX do definiowania elementów interfejsu.
+
+Kod JSX nie jest bezpośrednio zwykłym kodem JavaScript wykonywanym przez przeglądarkę.
+
+Dlatego musi zostać odpowiednio przetworzony.
+
+Babel może wykonywać transformację JSX do JavaScript.
+
+## 14. Babel i TypeScript
+
+Babel może również przetwarzać kod TypeScript.
+
+Babel może usuwać składnię TypeScript podczas transformacji kodu.
+
+Babel nie zastępuje jednak pełnego sprawdzania typów wykonywanego przez TypeScript.
+
+Dlatego w projektach TypeScript można wykorzystywać Babel do transformacji oraz TypeScript do sprawdzania typów.
+
+## 15. Polyfill
+
+Nie wszystkie nowe funkcje JavaScript można obsłużyć wyłącznie poprzez zmianę składni.
+
+Niektóre funkcje wymagają obecności odpowiednich API w środowisku wykonawczym.
+
+W takich przypadkach może być potrzebny polyfill.
+
+Polyfill to kod zapewniający brakującą funkcjonalność w starszym środowisku.
+
+Babel może współpracować z rozwiązaniami zapewniającymi polyfille.
+
+Jednym z popularnych elementów ekosystemu wykorzystywanych w tym celu jest `core-js`.
+
+## 16. Babel a składnia
+
+Babel jest szczególnie przydatny w przypadku nowych konstrukcji składniowych.
+
+Może między innymi przekształcać arrow functions, klasy, template literals oraz inne elementy nowoczesnego JavaScript.
+
+Dzięki temu programista może pisać kod przy użyciu współczesnej składni.
+
+Babel zajmuje się odpowiednią transformacją podczas procesu budowania aplikacji.
+
+## 17. Babel a Webpack
+
+Babel może współpracować z Webpackiem.
+
+Webpack jest narzędziem służącym między innymi do budowania i łączenia aplikacji frontendowych.
+
+Babel może odpowiadać za transformację kodu JavaScript.
+
+Webpack może następnie wykorzystać przekształcone pliki podczas procesu budowania aplikacji.
+
+Do połączenia Webpacka z Babel często wykorzystuje się `babel-loader`.
+
+## 18. Babel a bundlery
+
+Babel może współpracować z różnymi narzędziami do budowania aplikacji.
+
+Może być wykorzystywany między innymi w projektach wykorzystujących Webpack lub inne narzędzia frontendowe.
+
+Współczesne narzędzia często automatyzują proces transformacji kodu.
+
+Programista może więc korzystać z Babel bez konieczności ręcznego uruchamiania każdej transformacji.
+
+## 19. Babel i proces budowania
+
+Proces budowania aplikacji może obejmować wiele etapów.
+
+Kod źródłowy jest najpierw analizowany i przetwarzany.
+
+Babel może wykonać transformację kodu JavaScript.
+
+Następnie inne narzędzia mogą połączyć i zoptymalizować pliki.
+
+Na końcu powstają pliki przeznaczone do uruchomienia w środowisku docelowym.
+
+Można przedstawić to w uproszczeniu.
+
+```text
+Kod źródłowy
+     ↓
+Transformacja Babel
+     ↓
+Bundlowanie
+     ↓
+Optymalizacja
+     ↓
+Gotowa aplikacja
+```
+
+## 20. Babel i nowoczesne narzędzia
+
+Współczesne narzędzia frontendowe często automatyzują transformację kodu.
+
+Przykładem takiego narzędzia jest Vite.
+
+Programista nie zawsze musi więc konfigurować Babel ręcznie.
+
+W zależności od projektu transformacją kodu może zajmować się inne narzędzie.
+
+Znajomość Babel nadal jest jednak przydatna do zrozumienia procesu przetwarzania kodu JavaScript.
+
+## 21. Babel i kompatybilność przeglądarek
+
+Różne przeglądarki mogą obsługiwać różne funkcje JavaScript.
+
+Starsze przeglądarki mogą nie obsługiwać części nowych funkcji.
+
+Babel pozwala przekształcić wiele takich funkcji do starszej składni.
+
+Dzięki temu aplikacja może obsługiwać szerszy zakres środowisk.
+
+Zakres transformacji zależy jednak od konfiguracji projektu.
+
+## 22. Targety
+
+W Babel można określać środowiska docelowe.
+
+Środowisko docelowe określa, gdzie aplikacja ma działać.
+
+Może to być określona wersja przeglądarki lub określona wersja środowiska JavaScript.
+
+Informacja o środowisku docelowym pozwala dobrać odpowiednie transformacje.
+
+Dzięki temu nie wykonujemy niepotrzebnych transformacji.
+
+## 23. Babel i kod źródłowy
+
+Kod napisany przez programistę nazywamy kodem źródłowym.
+
+Kod źródłowy może wykorzystywać nowoczesne funkcje JavaScript.
+
+Babel przekształca ten kod podczas procesu budowania.
+
+Kod wynikowy jest przeznaczony do uruchomienia w środowisku docelowym.
+
+Programista zazwyczaj pracuje więc przede wszystkim z kodem źródłowym, a nie z kodem wygenerowanym przez Babel.
+
+## 24. Source Maps
+
+Babel może współpracować z source maps.
+
+Source map pozwala powiązać kod wynikowy z kodem źródłowym.
+
+Jest to szczególnie przydatne podczas debugowania aplikacji.
+
+Programista może dzięki temu łatwiej odnaleźć miejsce błędu w swoim oryginalnym kodzie.
+
+Bez source maps debugowanie przekształconego kodu może być znacznie trudniejsze.
+
+## 25. Babel i debugowanie
+
+Podczas działania aplikacji mogą wystąpić błędy w kodzie.
+
+Jeżeli kod został wcześniej przekształcony, komunikat błędu może wskazywać na kod wynikowy.
+
+Source maps pozwalają powiązać ten kod z oryginalnym kodem źródłowym.
+
+Dzięki temu programista może łatwiej znaleźć przyczynę problemu.
+
+## 26. Babel w projekcie Node.js
+
+Babel może być instalowany jako zależność projektu Node.js.
+
+Do instalacji można wykorzystać npm.
+
+Przykładowa instalacja może wyglądać następująco.
+
+```bash
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+```
+
+Pakiety zostaną zapisane jako zależności developerskie projektu.
+
+## 27. Babel i package.json
+
+Konfiguracja projektu JavaScript znajduje się między innymi w pliku `package.json`.
+
+W pliku tym mogą znajdować się zależności projektu.
+
+Mogą się tam znaleźć również skrypty uruchamiające proces budowania.
+
+Przykładowy skrypt może wyglądać następująco.
+
+```json
+{
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  }
+}
+```
+
+Następnie można uruchomić proces budowania za pomocą npm.
+
+```bash
+npm run build
+```
+
+## 28. Babel i automatyzacja
+
+Babel jest często elementem automatycznego procesu budowania aplikacji.
+
+Programista tworzy kod źródłowy.
+
+Narzędzia budujące uruchamiają odpowiednie transformacje.
+
+Babel przekształca kod zgodnie z konfiguracją projektu.
+
+Gotowe pliki są następnie przygotowywane do uruchomienia lub wdrożenia.
+
+## 29. Babel a frontend
+
+Babel jest szczególnie mocno związany z rozwojem aplikacji frontendowych.
+
+Może być wykorzystywany podczas tworzenia aplikacji wykorzystujących JavaScript, React i inne technologie frontendowe.
+
+Jego głównym zadaniem jest transformacja kodu.
+
+Nie jest natomiast narzędziem do projektowania interfejsu użytkownika.
+
+## 30. Typowy workflow z Babel
+
+Typowa praca może rozpocząć się od napisania nowoczesnego kodu JavaScript.
+
+Następnie projekt jest konfigurowany pod kątem środowisk docelowych.
+
+Babel otrzymuje odpowiednią konfigurację.
+
+Kod źródłowy zostaje poddany transformacji.
+
+Wynikowy kod jest następnie wykorzystywany przez pozostałe elementy procesu budowania.
+
+Na końcu aplikacja może zostać uruchomiona lub wdrożona.
+
+## 31. Jak uczyć się Babel?
+
+Podczas nauki Babel najpierw warto zrozumieć pojęcie transpiler.
+
+Następnie warto poznać różnicę pomiędzy kodem źródłowym a kodem wynikowym.
+
+Kolejnym krokiem powinno być poznanie presetów i pluginów.
+
+Następnie warto nauczyć się konfiguracji `@babel/preset-env`.
+
+Później można przejść do Babel CLI oraz integracji z narzędziami budującymi.
+
+Warto również poznać zastosowanie Babel w projektach React i TypeScript.
+
+## 32. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to Babel, transpiler, ECMAScript, transformacja, preset, plugin, `@babel/core`, Babel CLI, `@babel/preset-env`, polyfill, `core-js`, JSX, React, TypeScript, source maps, targety oraz bundler.
+
+Najważniejsza zasada dotycząca Babel jest taka, że **Babel służy przede wszystkim do transformowania kodu JavaScript, aby mógł być wykorzystywany w określonych środowiskach docelowych**.
+
+Babel nie jest językiem programowania.
+
+Babel nie jest również frameworkiem JavaScript.
+
+Babel jest narzędziem wykorzystywanym w procesie przetwarzania i budowania aplikacji.

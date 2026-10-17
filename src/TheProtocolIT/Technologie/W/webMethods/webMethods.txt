@@ -1,0 +1,917 @@
+# webMethods
+
+## 1. Czym jest webMethods?
+
+**webMethods** to platforma firmy **Software AG** przeznaczona do **integracji systemów, aplikacji, danych i usług**.
+
+Jej głównym zadaniem jest umożliwienie komunikacji pomiędzy różnymi systemami przedsiębiorstwa.
+
+Można ją traktować jako **platformę integracyjną klasy enterprise**, która pozwala łączyć ze sobą:
+
+- aplikacje,
+- bazy danych,
+- API,
+- systemy ERP,
+- systemy CRM,
+- usługi webowe,
+- aplikacje chmurowe,
+- systemy partnerskie,
+- pliki i komunikaty.
+
+Przykładowo firma może posiadać:
+
+```text
+CRM
+ |
+ +---- ERP
+ |
+ +---- Baza danych
+ |
+ +---- System płatności
+ |
+ +---- Sklep internetowy
+ |
+ +---- System magazynowy
+```
+
+webMethods może pełnić rolę warstwy integracyjnej pomiędzy tymi systemami.
+
+## 2. Do czego służy webMethods?
+
+Głównym zastosowaniem webMethods jest **Enterprise Application Integration (EAI)** oraz **Application Integration**.
+
+Przykładowo:
+
+```text
+Sklep internetowy
+       |
+       ↓
+   webMethods
+       |
+   +---+---+
+   |       |
+   ↓       ↓
+  ERP    CRM
+```
+
+Klient składa zamówienie w sklepie internetowym.
+
+webMethods może:
+
+1. odebrać zamówienie,
+2. przekształcić dane,
+3. wysłać je do ERP,
+4. zaktualizować CRM,
+5. przekazać informację do magazynu,
+6. obsłużyć odpowiedź,
+7. zarejestrować błąd, jeśli któryś system nie odpowie.
+
+## 3. webMethods jako middleware
+
+webMethods jest przykładem **middleware**.
+
+Middleware to warstwa znajdująca się pomiędzy różnymi aplikacjami.
+
+```text
+       Aplikacja A
+            |
+            ↓
+       Middleware
+       webMethods
+            |
+            ↓
+       Aplikacja B
+```
+
+Dzięki temu poszczególne systemy nie muszą bezpośrednio znać szczegółów implementacji innych systemów.
+
+## 4. Problem, który rozwiązuje webMethods
+
+Wyobraźmy sobie przedsiębiorstwo posiadające:
+
+```text
+Java Application
+.NET Application
+SAP
+Oracle
+SQL Server
+REST API
+SOAP API
+FTP
+```
+
+Bez platformy integracyjnej moglibyśmy mieć wiele bezpośrednich połączeń:
+
+```text
+Java ↔ SAP
+Java ↔ Oracle
+Java ↔ REST
+.NET ↔ SAP
+.NET ↔ Oracle
+.NET ↔ FTP
+...
+```
+
+Liczba integracji może bardzo szybko wzrosnąć.
+
+webMethods pozwala stworzyć centralną warstwę integracyjną:
+
+```text
+             SAP
+              |
+Java ---- webMethods ---- REST API
+              |
+.NET ---------+
+              |
+          SQL Server
+```
+
+## 5. Integration Server
+
+Jednym z najważniejszych komponentów webMethods jest **webMethods Integration Server**.
+
+Jest to centralny element platformy odpowiedzialny za wykonywanie procesów integracyjnych.
+
+Można go przedstawić:
+
+```text
+System A
+   |
+   ↓
+Integration Server
+   |
+   ↓
+System B
+```
+
+Integration Server może:
+
+- odbierać komunikaty,
+- przetwarzać dane,
+- wywoływać usługi,
+- transformować dane,
+- komunikować się z bazami danych,
+- obsługiwać API,
+- wykonywać logikę integracyjną.
+
+## 6. Services
+
+W webMethods bardzo ważnym pojęciem są **services**.
+
+Service reprezentuje określoną operację wykonywaną przez platformę.
+
+Przykładowo:
+
+```text
+createCustomer
+getCustomer
+updateCustomer
+processOrder
+sendInvoice
+```
+
+Service może być wywoływany przez inne usługi lub systemy.
+
+## 7. Flow Services
+
+Jednym z charakterystycznych mechanizmów webMethods są **Flow Services**.
+
+Flow Service pozwala definiować proces integracyjny poprzez kolejne kroki.
+
+Przykładowo:
+
+```text
+Receive Order
+      ↓
+Validate Order
+      ↓
+Transform Data
+      ↓
+Send to ERP
+      ↓
+Update CRM
+      ↓
+Return Response
+```
+
+Zamiast pisać całą logikę integracyjną od podstaw, można ją budować z gotowych operacji.
+
+## 8. Designer
+
+Do projektowania usług w webMethods wykorzystywane są narzędzia programistyczne, między innymi **webMethods Designer**.
+
+Pozwala on tworzyć i zarządzać:
+
+- usługami,
+- flow services,
+- mapowaniami,
+- schematami,
+- strukturami danych,
+- integracjami.
+
+Można wizualizować przepływ:
+
+```text
+START
+  ↓
+MAP
+  ↓
+CALL SERVICE
+  ↓
+BRANCH
+  ↓
+END
+```
+
+## 9. Data Mapping
+
+Systemy często wykorzystują różne formaty danych.
+
+Na przykład system A może zwracać:
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith"
+}
+```
+
+a system B oczekiwać:
+
+```xml
+<Customer>
+    <Name>John Smith</Name>
+</Customer>
+```
+
+webMethods może wykonać transformację:
+
+```text
+JSON
+ ↓
+Mapping
+ ↓
+XML
+```
+
+Jest to jedna z najważniejszych funkcji platform integracyjnych.
+
+## 10. Transformation
+
+webMethods umożliwia transformowanie danych pomiędzy różnymi strukturami.
+
+Przykładowo:
+
+```text
+Customer
+{
+    firstName
+    lastName
+    email
+}
+```
+
+może zostać przekształcony do:
+
+```text
+Client
+{
+    name
+    contact
+}
+```
+
+Platforma może więc działać jako **translator pomiędzy systemami**.
+
+## 11. Adapters
+
+Systemy przedsiębiorstwa wykorzystują wiele różnych technologii.
+
+webMethods wykorzystuje **adaptery**, które umożliwiają komunikację z określonymi systemami.
+
+Przykładowe zastosowania:
+
+```text
+Database Adapter
+SAP Adapter
+JDBC
+HTTP
+JMS
+FTP
+```
+
+Dzięki temu platforma może integrować systemy wykorzystujące różne technologie.
+
+## 12. Database Integration
+
+webMethods może komunikować się z bazami danych.
+
+Przykładowo:
+
+```text
+webMethods
+     |
+     ↓
+JDBC
+     |
+     ↓
+Database
+```
+
+Możliwe jest wykonywanie operacji takich jak:
+
+```sql
+SELECT
+INSERT
+UPDATE
+DELETE
+```
+
+Dzięki temu można integrować aplikacje z istniejącymi bazami danych.
+
+## 13. SAP Integration
+
+Jednym z ważnych zastosowań webMethods jest integracja z systemami **SAP**.
+
+Przykładowo:
+
+```text
+E-commerce
+     |
+     ↓
+webMethods
+     |
+     ↓
+SAP ERP
+```
+
+Można przekazywać między systemami takie informacje jak:
+
+- zamówienia,
+- produkty,
+- klienci,
+- faktury,
+- dane magazynowe.
+
+## 14. API Integration
+
+webMethods może również pełnić funkcję platformy do integracji API.
+
+Przykładowo:
+
+```text
+Mobile App
+    |
+    ↓
+API
+    |
+    ↓
+webMethods
+    |
+    +---- CRM
+    |
+    +---- ERP
+    |
+    +---- Database
+```
+
+Dzięki temu API może stanowić warstwę dostępu do wielu wewnętrznych systemów.
+
+## 15. API Gateway
+
+Ekosystem webMethods obejmuje również rozwiązania związane z zarządzaniem API.
+
+**API Gateway** może znajdować się pomiędzy klientami a usługami backendowymi.
+
+```text
+Client
+   |
+   ↓
+API Gateway
+   |
+   +---- Service A
+   |
+   +---- Service B
+   |
+   +---- Service C
+```
+
+API Gateway może realizować między innymi:
+
+- routing,
+- bezpieczeństwo,
+- autoryzację,
+- monitoring,
+- kontrolę dostępu,
+- zarządzanie API.
+
+## 16. REST
+
+webMethods może integrować usługi REST.
+
+Przykładowo:
+
+```text
+GET /api/customers
+POST /api/orders
+PUT /api/products/10
+```
+
+System może odebrać żądanie REST, przetworzyć dane i przekazać je do innego systemu.
+
+## 17. SOAP
+
+webMethods obsługuje również starsze, ale nadal bardzo popularne w enterprise środowiskach usługi **SOAP**.
+
+Schemat:
+
+```text
+Application
+     |
+     ↓
+SOAP
+     |
+     ↓
+webMethods
+     |
+     ↓
+Enterprise System
+```
+
+Jest to szczególnie istotne podczas integracji starszych systemów.
+
+## 18. Messaging
+
+webMethods może również pracować z komunikacją opartą na wiadomościach.
+
+Przykładowo:
+
+```text
+Producer
+   |
+   ↓
+Message Broker
+   |
+   ↓
+webMethods
+   |
+   ↓
+Consumer
+```
+
+Może to być przydatne w systemach asynchronicznych.
+
+## 19. JMS
+
+W środowiskach Java webMethods może współpracować z **JMS (Java Message Service)**.
+
+JMS umożliwia komunikację poprzez wiadomości.
+
+Przykładowo:
+
+```text
+Application
+     |
+     ↓
+JMS Message
+     |
+     ↓
+webMethods
+     |
+     ↓
+Another Application
+```
+
+Jest to szczególnie przydatne w architekturach rozproszonych.
+
+## 20. Broker
+
+W architekturze integracyjnej często wykorzystywany jest mechanizm brokera wiadomości.
+
+```text
+Producer
+   |
+   ↓
+ Message Broker
+   |
+   +---- Consumer A
+   |
+   +---- Consumer B
+   |
+   +---- Consumer C
+```
+
+Dzięki temu producent wiadomości nie musi znać szczegółów implementacji odbiorców.
+
+## 21. Event-driven Integration
+
+webMethods może być również wykorzystywany w architekturach opartych na zdarzeniach.
+
+Przykładowo:
+
+```text
+Order Created
+      ↓
+   Event
+      ↓
+webMethods
+      ↓
++-----+-----+
+|     |     |
+↓     ↓     ↓
+ERP   CRM  Warehouse
+```
+
+Jedno zdarzenie może więc uruchomić wiele procesów.
+
+## 22. Error Handling
+
+Integracja systemów jest podatna na błędy.
+
+Przykładowo:
+
+```text
+webMethods
+    |
+    ↓
+ERP
+    |
+    X
+Connection Failed
+```
+
+Platforma musi odpowiednio obsłużyć taki przypadek.
+
+Możliwe mechanizmy obejmują:
+
+- obsługę wyjątków,
+- retry,
+- logowanie,
+- alerty,
+- routing błędów,
+- obsługę komunikatów błędów.
+
+## 23. Monitoring
+
+W systemach enterprise bardzo ważny jest monitoring integracji.
+
+Administrator musi wiedzieć:
+
+```text
+Czy komunikat został wysłany?
+Czy został odebrany?
+Czy transformacja się udała?
+Czy ERP odpowiedział?
+Czy wystąpił błąd?
+```
+
+webMethods zapewnia narzędzia pozwalające monitorować działanie integracji.
+
+## 24. B2B Integration
+
+webMethods może być również wykorzystywany do integracji **B2B**, czyli komunikacji pomiędzy przedsiębiorstwami.
+
+Przykładowo:
+
+```text
+Company A
+    |
+    ↓
+webMethods
+    |
+    ↓
+Company B
+```
+
+Można przesyłać:
+
+- zamówienia,
+- faktury,
+- dokumenty,
+- informacje logistyczne,
+- dane produktów.
+
+## 25. EDI
+
+W integracji B2B często wykorzystywany jest **EDI (Electronic Data Interchange)**.
+
+EDI umożliwia elektroniczną wymianę ustandaryzowanych dokumentów pomiędzy firmami.
+
+Przykładowo:
+
+```text
+Order
+Invoice
+Shipping Notice
+```
+
+webMethods może być elementem infrastruktury obsługującej takie procesy.
+
+## 26. Cloud Integration
+
+Współczesne przedsiębiorstwa wykorzystują zarówno systemy lokalne, jak i chmurowe.
+
+webMethods może służyć do połączenia:
+
+```text
+On-Premise
+     |
+     ↓
+webMethods
+     |
+     ↓
+Cloud
+```
+
+Przykładowo:
+
+```text
+SAP
+ ↓
+webMethods
+ ↓
+Cloud CRM
+```
+
+## 27. Microservices
+
+webMethods może być również wykorzystywany w środowiskach wykorzystujących mikroserwisy.
+
+Przykładowo:
+
+```text
+             webMethods
+                  |
+       +----------+----------+
+       |          |          |
+       ↓          ↓          ↓
+  Customer    Order       Payment
+  Service     Service     Service
+```
+
+Platforma może pomagać w integracji różnych usług.
+
+## 28. webMethods a ESB
+
+Jednym z ważnych pojęć związanych z webMethods jest **ESB – Enterprise Service Bus**.
+
+ESB jest architekturą umożliwiającą komunikację pomiędzy wieloma usługami i systemami.
+
+Można ją przedstawić:
+
+```text
+System A
+    |
+System B → ESB ← System C
+    |
+System D
+```
+
+webMethods było historycznie jednym z popularnych rozwiązań wykorzystywanych jako platforma ESB.
+
+## 29. webMethods a API Management
+
+Warto rozróżnić:
+
+**Integration**
+
+czyli łączenie systemów:
+
+```text
+ERP ↔ CRM
+```
+
+oraz:
+
+**API Management**
+
+czyli zarządzanie API udostępnianymi klientom i aplikacjom:
+
+```text
+Client → API Gateway → API
+```
+
+Ekosystem webMethods może obsługiwać oba obszary.
+
+## 30. webMethods a MuleSoft
+
+webMethods jest często porównywany z **MuleSoft Anypoint Platform**.
+
+Obie platformy służą do integracji systemów.
+
+| webMethods | MuleSoft |
+|---|---|
+| Enterprise Integration | Enterprise Integration |
+| API Management | API Management |
+| ESB | ESB / Integration |
+| REST | REST |
+| SOAP | SOAP |
+| B2B | B2B |
+| Cloud Integration | Cloud Integration |
+| Data Transformation | Data Transformation |
+
+Oba rozwiązania są przede wszystkim narzędziami klasy enterprise.
+
+## 31. webMethods a Apache Kafka
+
+webMethods i Kafka mogą być używane razem, ale mają inne główne role.
+
+**webMethods**:
+
+```text
+Integration
+Transformation
+API
+Adapters
+Enterprise Systems
+```
+
+**Kafka**:
+
+```text
+Event Streaming
+Message Streaming
+High Throughput
+Distributed Systems
+```
+
+Przykładowa architektura:
+
+```text
+Application
+     |
+     ↓
+   Kafka
+     |
+     ↓
+webMethods
+     |
+     ↓
+    ERP
+```
+
+## 32. Zalety webMethods
+
+Najważniejsze zalety webMethods:
+
+- integracja wielu systemów,
+- obsługa REST,
+- obsługa SOAP,
+- integracja z bazami danych,
+- adaptery do systemów enterprise,
+- transformacja danych,
+- API Management,
+- B2B,
+- EDI,
+- obsługa komunikacji asynchronicznej,
+- monitoring,
+- obsługa błędów,
+- wsparcie dla środowisk hybrydowych,
+- możliwość integracji systemów legacy.
+
+## 33. Wady webMethods
+
+webMethods jest przede wszystkim rozwiązaniem klasy enterprise, dlatego może być:
+
+- skomplikowany,
+- kosztowny,
+- wymagający specjalistycznej wiedzy,
+- trudniejszy do wdrożenia niż proste rozwiązanie REST,
+- przesadnie rozbudowany dla małej aplikacji.
+
+Dla małego projektu:
+
+```text
+Frontend
+   ↓
+REST API
+   ↓
+PostgreSQL
+```
+
+webMethods prawdopodobnie byłby niepotrzebnym narzutem.
+
+Natomiast dla dużej organizacji:
+
+```text
+SAP
+CRM
+ERP
+Oracle
+SQL Server
+Cloud
+Legacy
+Partners
+APIs
+```
+
+platforma integracyjna może mieć ogromny sens.
+
+## 34. Przykład praktyczny
+
+Załóżmy, że sklep internetowy otrzymuje zamówienie.
+
+```text
+        CUSTOMER
+            |
+            ↓
+      Online Store
+            |
+            ↓
+       webMethods
+            |
+      +-----+-----+
+      |     |     |
+      ↓     ↓     ↓
+     ERP   CRM  Warehouse
+      |
+      ↓
+   Invoice
+```
+
+webMethods może:
+
+1. odebrać zamówienie,
+2. zweryfikować dane,
+3. przekształcić format,
+4. wysłać zamówienie do ERP,
+5. poinformować CRM,
+6. przekazać informację do magazynu,
+7. obsłużyć błędy,
+8. monitorować cały proces.
+
+## 35. WebMethods w jednym schemacie
+
+```text
+                       webMethods
+                            |
+          +-----------------+-----------------+
+          |                 |                 |
+       Integration       API Management      B2B
+          |                 |                 |
+          ↓                 ↓                 ↓
+      REST/SOAP           APIs              EDI
+          |
+          ↓
+   Data Transformation
+          |
+          ↓
+       Adapters
+          |
+    +-----+-----+-----+
+    |     |     |     |
+   SAP   DB    CRM   Cloud
+```
+
+## 36. Najważniejsze pojęcia
+
+Jeżeli chcesz zapamiętać webMethods, przede wszystkim zapamiętaj:
+
+**webMethods** – platforma enterprise do integracji systemów, aplikacji, danych i usług.
+
+**Integration Server** – centralny komponent wykonujący procesy integracyjne.
+
+**Flow Service** – usługa definiująca przepływ operacji integracyjnych.
+
+**Designer** – narzędzie do projektowania usług i integracji.
+
+**Adapter** – mechanizm umożliwiający komunikację z określonym systemem lub technologią.
+
+**API Gateway** – warstwa pośrednicząca w obsłudze i zarządzaniu API.
+
+**ESB** – Enterprise Service Bus, architektura integracji wielu systemów.
+
+**B2B** – integracja pomiędzy przedsiębiorstwami.
+
+**EDI** – elektroniczna wymiana ustandaryzowanych dokumentów.
+
+**Data Mapping** – mapowanie danych pomiędzy różnymi strukturami.
+
+**Transformation** – przekształcanie danych z jednego formatu do drugiego.
+
+## 37. Najważniejszy schemat do zapamiętania
+
+```text
+             SYSTEM A
+                 |
+                 ↓
+          +-------------+
+          | webMethods  |
+          |             |
+          | Integration |
+          |   Server    |
+          +-------------+
+            /    |    \
+           /     |     \
+          ↓      ↓      ↓
+        REST    SOAP    JMS
+          |      |       |
+          +------+-------+
+                 |
+                 ↓
+        SYSTEM B / ERP / CRM
+```
+
+Najważniejsze zdanie do zapamiętania:
+
+**webMethods to platforma integracyjna klasy enterprise, która umożliwia łączenie różnych aplikacji, baz danych, API, systemów ERP/CRM i usług poprzez integrację, transformację danych, API Management, komunikację asynchroniczną oraz procesy B2B.**

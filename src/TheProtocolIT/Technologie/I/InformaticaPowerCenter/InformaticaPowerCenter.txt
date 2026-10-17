@@ -1,0 +1,123 @@
+# Informatica PowerCenter – notatka
+
+## 1. Czym jest Informatica PowerCenter?
+
+Informatica PowerCenter to platforma integracji danych, która służy do pobierania, przekształcania i przesyłania danych pomiędzy różnymi systemami informatycznymi.
+
+Narzędzie jest wykorzystywane przede wszystkim w procesach ETL (Extract, Transform, Load), czyli pobieraniu danych ze źródeł, ich przetwarzaniu oraz ładowaniu do systemów docelowych.
+
+PowerCenter pomaga przedsiębiorstwom łączyć informacje z baz danych, plików, aplikacji biznesowych i hurtowni danych.
+
+Jest to rozwiązanie stosowane między innymi w bankowości, ubezpieczeniach, handlu, telekomunikacji oraz analityce biznesowej.
+
+## 2. Do czego służy Informatica PowerCenter?
+
+- Integracja danych – łączenie danych pochodzących z wielu różnych źródeł.
+- Transformacja danych – zmiana struktury, formatu i wartości danych zgodnie z wymaganiami systemu docelowego.
+- Automatyzacja ETL – tworzenie i wykonywanie powtarzalnych procesów przetwarzania danych.
+- Migracja danych – przenoszenie informacji pomiędzy bazami danych i systemami.
+- Czyszczenie danych – usuwanie nieprawidłowości i standaryzowanie informacji.
+- Zasilanie hurtowni danych – przygotowywanie danych do raportowania i analizy biznesowej.
+- Monitorowanie procesów – kontrolowanie wykonywania zadań i diagnozowanie błędów.
+
+## 3. Jak działa Informatica PowerCenter?
+
+PowerCenter wykorzystuje przepływy danych, które określają sposób pobierania, przetwarzania i zapisywania informacji.
+
+1\. Źródła danych
+
+Bazy SQL, pliki CSV, systemy biznesowe
+
+2\. Transformacje ETL
+
+Filtrowanie, łączenie, sortowanie i przekształcanie danych
+
+3\. System docelowy
+
+Hurtownia danych, baza raportowa lub inny system
+
+Przykładowo firma może pobierać dane klientów z kilku baz danych, ujednolicać format numerów telefonów, usuwać duplikaty i zapisywać wyniki w jednej hurtowni danych.
+
+## 4. Najważniejsze komponenty Informatica PowerCenter
+
+PowerCenter Designer to narzędzie graficzne służące do projektowania przepływów danych, mapowań i transformacji.
+
+Workflow Manager umożliwia tworzenie i konfigurację przepływów pracy, sesji oraz zadań wykonywanych przez platformę.
+
+Workflow Monitor pozwala obserwować wykonanie procesów, sprawdzać ich status i analizować błędy.
+
+Repository Service zarządza metadanymi przechowywanymi w repozytorium PowerCenter, takimi jak mapowania, sesje i workflow.
+
+Integration Service wykonuje zaprojektowane przepływy danych i realizuje operacje ETL.
+
+Nazwy i sposób konfiguracji poszczególnych komponentów mogą się różnić w zależności od wersji platformy.
+
+## 5. Najważniejsze transformacje
+
+W PowerCenter dostępne są różne transformacje, które pozwalają określać sposób przetwarzania danych.
+
+- Source Qualifier – odczytuje dane ze źródła relacyjnego i może definiować zapytanie SQL wykorzystywane do ich pobrania.
+- Expression – wykonuje obliczenia i przekształcenia na poziomie pojedynczego rekordu.
+- Filter – odrzuca rekordy niespełniające określonego warunku.
+- Aggregator – wykonuje operacje agregujące, takie jak `SUM`, `AVG` i `COUNT`.
+- Joiner – łączy dane pochodzące z różnych źródeł.
+- Lookup – wyszukuje odpowiadające rekordy w innym źródle danych.
+- Sorter – sortuje rekordy według wskazanych kolumn.
+- Router – kieruje rekordy do różnych ścieżek w zależności od warunków.
+- Update Strategy – określa sposób wykonywania operacji na rekordach docelowych, na przykład wstawiania, aktualizacji lub odrzucania.
+
+## 6. Informatica PowerCenter a ETL
+
+ETL jest metodą przetwarzania danych, natomiast Informatica PowerCenter jest narzędziem, które umożliwia implementację tej metody.
+
+| Etap      | Znaczenie              | Przykład                 |
+| --------- | ---------------------- | ------------------------ |
+| Extract   | Pobieranie danych      | Odczyt tabeli klientów   |
+| Transform | Przekształcanie danych | Usuwanie duplikatów      |
+| Load      | Zapisywanie danych     | Zapis do hurtowni danych |
+
+PowerCenter pozwala projektować te etapy graficznie, zamiast implementować cały proces od podstaw w kodzie.
+
+## 7. Zalety i wady
+
+Zalety:
+
+- Ułatwia integrację danych z wielu systemów.
+- Oferuje graficzne środowisko projektowania przepływów ETL.
+- Umożliwia automatyzację i harmonogramowanie zadań.
+- Zapewnia narzędzia monitorowania oraz diagnostyki.
+- Jest przydatny w dużych projektach hurtowni danych i Business Intelligence.
+
+Wady:
+
+- Wymaga poznania architektury i specyficznych komponentów platformy.
+- Wdrożenie oraz utrzymanie mogą być kosztowne.
+- Złożone przepływy wymagają starannej optymalizacji.
+- Starsze instalacje mogą wymagać utrzymywania określonych wersji środowiska i konektorów.
+
+## 8. Informatica PowerCenter a inne technologie
+
+| Technologia              | Główne zastosowanie                                      |
+| ------------------------ | -------------------------------------------------------- |
+| Informatica PowerCenter  | Integracja danych i procesy ETL                          |
+| IBM InfoSphere DataStage | Integracja i transformacja danych                        |
+| Microsoft SSIS           | Integracja danych w ekosystemie Microsoft                |
+| Apache NiFi              | Automatyzacja przepływu danych między systemami          |
+| Apache Spark             | Rozproszone przetwarzanie dużych zbiorów danych          |
+| SQL                      | Pobieranie i przekształcanie danych w bazach relacyjnych |
+
+## 9. Przykład zastosowania w praktyce
+
+Wyobraź sobie sklep internetowy, który przechowuje dane o zamówieniach w jednej bazie, dane klientów w drugiej, a informacje o płatnościach w trzeciej.
+
+Za pomocą Informatica PowerCenter można pobrać te dane, połączyć zamówienia z klientami, obliczyć łączną wartość sprzedaży i zapisać wyniki w hurtowni danych.
+
+Analitycy mogą następnie wykorzystać przygotowane dane do tworzenia raportów, dashboardów oraz analiz sprzedaży.
+
+## 10. Co warto zapamiętać?
+
+Informatica PowerCenter to platforma integracji danych wykorzystywana przede wszystkim do budowania procesów ETL.
+
+Jej najważniejsze elementy to Designer, Workflow Manager, Workflow Monitor, Repository Service i Integration Service.
+
+Narzędzie jest szczególnie przydatne w projektach hurtowni danych, migracji danych, integracji systemów oraz przygotowywania informacji do analiz biznesowych.

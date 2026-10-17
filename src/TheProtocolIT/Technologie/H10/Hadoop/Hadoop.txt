@@ -1,0 +1,556 @@
+Jasne — zachowam ten sam styl notatek, który robiliśmy wcześniej: **przejrzyste sekcje tematyczne, bez linii oddzielających rozdziały, jedna myśl/zdanie w osobnej linii i bez zmiany czcionki**.
+
+# Hadoop
+
+## 1. Czym jest Hadoop
+
+Apache Hadoop to otwartoźródłowa platforma służąca do przechowywania i przetwarzania bardzo dużych zbiorów danych.
+
+Hadoop został zaprojektowany przede wszystkim z myślą o środowiskach, w których ilość danych jest zbyt duża, aby wygodnie przechowywać i przetwarzać ją na jednym komputerze.
+
+Hadoop wykorzystuje wiele komputerów połączonych w klaster.
+
+Dane są rozdzielane pomiędzy wiele maszyn, a obliczenia mogą być wykonywane równolegle na wielu komputerach.
+
+Dzięki temu można przetwarzać dane w skali, która byłaby trudna lub bardzo kosztowna przy wykorzystaniu pojedynczego serwera.
+
+Hadoop jest szczególnie kojarzony z obszarem Big Data.
+
+## 2. Big Data
+
+Big Data oznacza bardzo duże, różnorodne i szybko napływające zbiory danych, których przetwarzanie tradycyjnymi metodami może być problematyczne.
+
+W kontekście Big Data często wykorzystuje się model 5V.
+
+Volume oznacza ogromną ilość danych.
+
+Velocity oznacza szybkość, z jaką dane są generowane i przetwarzane.
+
+Variety oznacza różnorodność danych.
+
+Veracity oznacza wiarygodność i jakość danych.
+
+Value oznacza możliwość uzyskania wartości biznesowej z danych.
+
+Hadoop został zaprojektowany przede wszystkim z myślą o problemach związanych z dużym Volume, ale może być częścią większych systemów Big Data.
+
+## 3. Najważniejsze cechy Hadoop
+
+Hadoop jest systemem rozproszonym.
+
+Oznacza to, że dane i obliczenia mogą być rozmieszczone na wielu komputerach.
+
+Hadoop jest skalowalny.
+
+Można zwiększać możliwości systemu poprzez dodawanie kolejnych maszyn do klastra.
+
+Hadoop zapewnia odporność na awarie.
+
+Awaria pojedynczego komputera nie musi oznaczać utraty danych, ponieważ dane mogą posiadać kopie na innych maszynach.
+
+Hadoop umożliwia równoległe przetwarzanie danych.
+
+Duże zadanie może zostać podzielone na wiele mniejszych części wykonywanych jednocześnie.
+
+Hadoop jest oprogramowaniem open source.
+
+Projekt jest rozwijany w ramach Apache Software Foundation.
+
+## 4. Hadoop Cluster
+
+Klaster Hadoop to grupa komputerów współpracujących ze sobą jako jeden system.
+
+Poszczególne komputery w klastrze nazywane są węzłami.
+
+Node oznacza pojedynczy komputer należący do klastra.
+
+Klaster może składać się z kilku, kilkudziesięciu, setek, a nawet tysięcy maszyn.
+
+W klasycznej architekturze Hadoop wyróżnia się między innymi NameNode, DataNode, ResourceManager oraz NodeManager.
+
+Węzły pełnią różne funkcje związane z przechowywaniem danych i wykonywaniem obliczeń.
+
+## 5. HDFS
+
+HDFS oznacza Hadoop Distributed File System.
+
+HDFS jest rozproszonym systemem plików używanym przez Hadoop.
+
+Jego zadaniem jest przechowywanie bardzo dużych plików na wielu komputerach.
+
+HDFS dzieli duże pliki na mniejsze części nazywane blokami.
+
+Poszczególne bloki mogą być przechowywane na różnych DataNode.
+
+Dzięki temu jeden bardzo duży plik może zostać rozłożony na wiele komputerów.
+
+## 6. Bloki HDFS
+
+Block jest podstawową jednostką przechowywania danych w HDFS.
+
+Duży plik jest dzielony na wiele bloków.
+
+Rozmiar bloku jest konfigurowalny.
+
+Współczesne konfiguracje HDFS często wykorzystują bloki o rozmiarze 128 MB lub większym.
+
+Przykładowo plik o rozmiarze 500 MB może zostać podzielony na kilka bloków.
+
+Poszczególne bloki mogą zostać zapisane na różnych DataNode.
+
+## 7. NameNode
+
+NameNode jest głównym elementem HDFS odpowiedzialnym za zarządzanie metadanymi systemu plików.
+
+NameNode przechowuje informacje o strukturze katalogów i plikach.
+
+NameNode wie, jakie pliki istnieją w systemie.
+
+NameNode przechowuje informacje o tym, z jakich bloków składa się dany plik.
+
+NameNode wie również, na których DataNode znajdują się poszczególne bloki.
+
+NameNode nie przechowuje normalnie właściwej zawartości plików.
+
+Można powiedzieć, że NameNode zarządza informacjami o danych, natomiast DataNode przechowują właściwe dane.
+
+## 8. DataNode
+
+DataNode to węzeł odpowiedzialny za fizyczne przechowywanie bloków danych.
+
+DataNode przechowuje bloki plików znajdujące się w HDFS.
+
+DataNode wykonuje również operacje odczytu i zapisu danych.
+
+DataNode regularnie komunikuje się z NameNode.
+
+DataNode informuje NameNode między innymi o swoim stanie oraz przechowywanych blokach.
+
+W dużym klastrze może znajdować się bardzo wiele DataNode.
+
+## 9. NameNode i DataNode
+
+Najprościej można zapamiętać to w następujący sposób.
+
+NameNode zarządza informacjami o plikach.
+
+DataNode przechowuje właściwe dane.
+
+NameNode można porównać do katalogu lub mapy systemu plików.
+
+DataNode można porównać do magazynów, w których znajdują się rzeczywiste dane.
+
+## 10. Replikacja danych
+
+Jedną z najważniejszych cech HDFS jest replikacja danych.
+
+Replikacja oznacza przechowywanie kilku kopii tego samego bloku danych.
+
+Dzięki replikacji awaria jednego DataNode nie musi prowadzić do utraty danych.
+
+Przykładowo przy replication factor równym 3 każdy blok może mieć trzy kopie znajdujące się na różnych DataNode.
+
+Jeżeli jeden DataNode ulegnie awarii, Hadoop może wykorzystać inną kopię bloku.
+
+Replikacja zwiększa odporność systemu na awarie.
+
+Replikacja zwiększa jednak również wykorzystanie przestrzeni dyskowej.
+
+## 11. Rack Awareness
+
+Hadoop może uwzględniać fizyczne rozmieszczenie komputerów w infrastrukturze.
+
+Informacja o tym, do którego racka należy dany serwer, może być wykorzystywana podczas rozmieszczania replik.
+
+Dzięki temu kopie danych mogą zostać rozmieszczone w różnych częściach infrastruktury.
+
+Zmniejsza to ryzyko utraty wszystkich kopii danych w przypadku awarii jednego racka.
+
+## 12. YARN
+
+YARN oznacza Yet Another Resource Negotiator.
+
+YARN jest warstwą Hadoop odpowiedzialną za zarządzanie zasobami klastra oraz uruchamianie aplikacji.
+
+YARN pozwala wielu aplikacjom współdzielić zasoby klastra.
+
+Do zasobów należą między innymi pamięć RAM i CPU.
+
+YARN oddziela zarządzanie zasobami od samego modelu przetwarzania danych.
+
+Dzięki temu Hadoop może obsługiwać różne rodzaje aplikacji przetwarzających dane.
+
+## 13. ResourceManager
+
+ResourceManager jest centralnym komponentem YARN.
+
+ResourceManager zarządza zasobami całego klastra.
+
+ResourceManager decyduje między innymi o przydzielaniu zasobów aplikacjom.
+
+ResourceManager posiada informacje o dostępnych zasobach w klastrze.
+
+## 14. NodeManager
+
+NodeManager działa na poszczególnych komputerach należących do klastra.
+
+NodeManager zarządza zasobami konkretnego węzła.
+
+NodeManager uruchamia i monitoruje procesy związane z wykonywaniem zadań.
+
+NodeManager komunikuje się z ResourceManagerem.
+
+## 15. ApplicationMaster
+
+ApplicationMaster jest tworzony dla konkretnej aplikacji uruchamianej w YARN.
+
+ApplicationMaster zarządza wykonywaniem danej aplikacji.
+
+ApplicationMaster współpracuje z ResourceManagerem w celu uzyskania potrzebnych zasobów.
+
+ApplicationMaster komunikuje się również z NodeManagerami.
+
+## 16. MapReduce
+
+MapReduce jest modelem programistycznym służącym do przetwarzania dużych zbiorów danych w sposób rozproszony.
+
+MapReduce dzieli przetwarzanie na dwa podstawowe etapy.
+
+Pierwszym etapem jest Map.
+
+Drugim etapem jest Reduce.
+
+Etap Map przetwarza dane wejściowe i generuje pary klucz-wartość.
+
+Etap Reduce otrzymuje dane pogrupowane według kluczy i wykonuje na nich dalsze operacje.
+
+## 17. Przykład MapReduce
+
+Wyobraźmy sobie plik zawierający tekst.
+
+Chcemy policzyć, ile razy każde słowo występuje w dokumencie.
+
+Mapper może zamienić słowo „Java” na parę:
+
+```text
+Java → 1
+```
+
+Jeżeli słowo „Java” wystąpi pięć razy, mapper może wygenerować:
+
+```text
+Java → 1
+Java → 1
+Java → 1
+Java → 1
+Java → 1
+```
+
+Następnie Hadoop grupuje dane według klucza.
+
+Reducer otrzymuje:
+
+```text
+Java → [1, 1, 1, 1, 1]
+```
+
+Reducer może następnie obliczyć:
+
+```text
+Java → 5
+```
+
+W ten sposób otrzymujemy liczbę wystąpień każdego słowa.
+
+## 18. Shuffle and Sort
+
+Pomiędzy etapami Map i Reduce znajduje się proces Shuffle and Sort.
+
+Shuffle odpowiada za przekazanie danych z mapperów do odpowiednich reducerów.
+
+Dane są grupowane według kluczy.
+
+Sort zapewnia uporządkowanie kluczy przed przekazaniem ich do Reduce.
+
+Proces Shuffle and Sort jest jednym z ważniejszych elementów MapReduce.
+
+## 19. Hadoop Streaming
+
+Hadoop Streaming pozwala wykonywać zadania MapReduce przy użyciu programów napisanych w językach innych niż Java.
+
+Można na przykład wykorzystać Python.
+
+Program może otrzymywać dane przez standardowe wejście.
+
+Wyniki mogą być przekazywane przez standardowe wyjście.
+
+Dzięki temu nie trzeba pisać całej logiki MapReduce bezpośrednio w Javie.
+
+## 20. Apache Hive
+
+Apache Hive jest narzędziem umożliwiającym wykonywanie zapytań dotyczących dużych zbiorów danych.
+
+Hive wykorzystuje język HiveQL przypominający SQL.
+
+Dzięki Hive użytkownik może wykonywać zapytania na dużych zbiorach danych bez konieczności pisania klasycznego kodu MapReduce.
+
+Hive jest szczególnie przydatny dla osób znających SQL.
+
+Przykładowe zapytanie może wyglądać podobnie do:
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department;
+```
+
+Hive może następnie przekształcić takie zapytanie na odpowiednie operacje wykonywane w środowisku rozproszonym.
+
+## 21. Apache Pig
+
+Apache Pig jest platformą przeznaczoną do analizy dużych zbiorów danych.
+
+Pig wykorzystuje język Pig Latin.
+
+Pig pozwala tworzyć przepływy przetwarzania danych bez konieczności pisania bezpośredniego kodu MapReduce.
+
+Pig był szczególnie popularny we wcześniejszych generacjach ekosystemu Hadoop.
+
+## 22. HBase
+
+Apache HBase jest rozproszoną bazą danych działającą na Hadoop.
+
+HBase jest bazą typu NoSQL.
+
+HBase jest przeznaczony przede wszystkim do obsługi dużych zbiorów danych wymagających szybkiego dostępu do konkretnych rekordów.
+
+HBase wykorzystuje HDFS do przechowywania danych.
+
+HBase jest inspirowany architekturą Google Bigtable.
+
+## 23. Apache Spark a Hadoop
+
+Apache Spark jest silnikiem przetwarzania danych, który może działać w środowisku Hadoop.
+
+Spark jest często wykorzystywany jako alternatywa lub uzupełnienie klasycznego MapReduce.
+
+Spark może przechowywać dane pośrednie w pamięci RAM.
+
+Dzięki temu wiele rodzajów operacji może być wykonywanych szybciej niż w klasycznym MapReduce opartym przede wszystkim na operacjach dyskowych.
+
+Spark może współpracować z HDFS oraz YARN.
+
+Hadoop i Spark nie są więc dokładnie tym samym narzędziem.
+
+Hadoop jest przede wszystkim ekosystemem obejmującym między innymi HDFS i YARN.
+
+Spark jest silnikiem przetwarzania danych.
+
+## 24. Hadoop i Kafka
+
+Hadoop oraz Apache Kafka rozwiązują różne problemy.
+
+Kafka służy przede wszystkim do przesyłania i obsługi strumieni danych oraz komunikacji między systemami.
+
+Hadoop jest wykorzystywany przede wszystkim do rozproszonego przechowywania i przetwarzania dużych zbiorów danych.
+
+Kafka może dostarczać dane do systemu Big Data.
+
+Dane z Kafki mogą następnie zostać zapisane lub przetworzone przy wykorzystaniu innych komponentów ekosystemu Big Data.
+
+## 25. Hadoop i Data Lake
+
+Hadoop może być wykorzystywany jako element architektury Data Lake.
+
+Data Lake służy do przechowywania dużych ilości danych w różnych formatach.
+
+Dane mogą być przechowywane między innymi jako pliki CSV, JSON, XML, Parquet lub Avro.
+
+HDFS może pełnić funkcję warstwy przechowywania danych w takiej architekturze.
+
+## 26. Format danych
+
+Hadoop może pracować z różnymi formatami danych.
+
+CSV jest prostym tekstowym formatem tabelarycznym.
+
+JSON jest popularnym formatem reprezentacji danych strukturalnych.
+
+Avro jest formatem przeznaczonym między innymi do serializacji danych.
+
+Parquet jest kolumnowym formatem przechowywania danych szczególnie popularnym w systemach analitycznych.
+
+ORC jest kolejnym kolumnowym formatem danych wykorzystywanym w ekosystemie Hadoop.
+
+Format kolumnowy może być korzystny podczas wykonywania zapytań analitycznych na dużych zbiorach danych.
+
+## 27. Hadoop Distributed Cache
+
+Distributed Cache umożliwia udostępnianie potrzebnych plików wszystkim węzłom wykonującym zadanie.
+
+Może być wykorzystywany między innymi do dostarczania plików konfiguracyjnych lub dodatkowych danych potrzebnych podczas wykonywania obliczeń.
+
+Mechanizm ten jest związany przede wszystkim z tradycyjnym środowiskiem MapReduce.
+
+## 28. Hadoop Fault Tolerance
+
+Fault tolerance oznacza odporność systemu na awarie.
+
+Hadoop zakłada, że awarie pojedynczych komputerów są czymś możliwym.
+
+System wykorzystuje między innymi replikację danych.
+
+Hadoop może wykrywać problemy z DataNode.
+
+W przypadku utraty kopii danych system może odtworzyć brakującą replikę na innym węźle.
+
+Dzięki temu awaria pojedynczego serwera nie musi zatrzymać całego systemu.
+
+## 29. Skalowanie Hadoop
+
+Hadoop został zaprojektowany z myślą o skalowaniu poziomym.
+
+Skalowanie poziome oznacza dodawanie kolejnych komputerów do klastra.
+
+Skalowanie pionowe oznacza zwiększanie zasobów pojedynczego komputera.
+
+W środowiskach Big Data skalowanie poziome jest szczególnie istotne.
+
+Możemy więc zamiast kupować jeden ekstremalnie wydajny komputer wykorzystać większą liczbę standardowych serwerów.
+
+## 30. Zalety Hadoop
+
+Hadoop umożliwia przechowywanie bardzo dużych ilości danych.
+
+Hadoop umożliwia rozproszone przetwarzanie danych.
+
+Hadoop może być skalowany poprzez dodawanie kolejnych maszyn.
+
+Hadoop zapewnia mechanizmy odporności na awarie.
+
+Hadoop jest projektem open source.
+
+Hadoop może pracować na relatywnie standardowym sprzęcie.
+
+Hadoop posiada bardzo rozbudowany ekosystem narzędzi.
+
+## 31. Wady Hadoop
+
+Hadoop może być skomplikowany w konfiguracji i utrzymaniu.
+
+Zarządzanie dużym klastrem wymaga odpowiedniej wiedzy administracyjnej.
+
+Klasyczny MapReduce może być stosunkowo wolny w przypadku algorytmów wymagających wielokrotnego przetwarzania tych samych danych.
+
+Hadoop wymaga odpowiedniej infrastruktury.
+
+Przechowywanie wielu replik danych zwiększa wymagania dotyczące przestrzeni dyskowej.
+
+W wielu nowych projektach część klasycznych komponentów Hadoop została zastąpiona lub uzupełniona przez nowocześniejsze technologie Big Data.
+
+## 32. Ekosystem Hadoop
+
+Najważniejsze elementy kojarzone z Hadoop to:
+
+HDFS odpowiada za rozproszone przechowywanie danych.
+
+YARN odpowiada za zarządzanie zasobami klastra.
+
+MapReduce jest modelem rozproszonego przetwarzania danych.
+
+Hive umożliwia wykonywanie zapytań podobnych do SQL.
+
+HBase jest rozproszoną bazą NoSQL.
+
+Pig jest językiem i platformą do przetwarzania danych.
+
+Sqoop był narzędziem służącym do transferu danych pomiędzy relacyjnymi bazami danych a Hadoop.
+
+Oozie był systemem służącym do zarządzania przepływami zadań Hadoop.
+
+ZooKeeper jest systemem koordynacji wykorzystywanym przez wiele systemów rozproszonych, choć nie jest wyłącznie komponentem Hadoop.
+
+Spark może działać razem z Hadoop i korzystać między innymi z HDFS oraz YARN.
+
+## 33. Typowa architektura Hadoop
+
+Możemy uprościć architekturę Hadoop do następującego modelu:
+
+```text
+                HADOOP CLUSTER
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+       HDFS                        YARN
+        │                           │
+   ┌────┴────┐                ┌─────┴─────┐
+   │         │                │           │
+NameNode  DataNode       ResourceManager  │
+              │                         NodeManager
+              │
+        Bloki danych
+```
+
+HDFS odpowiada za przechowywanie danych.
+
+YARN odpowiada za zarządzanie zasobami i wykonywanie aplikacji.
+
+## 34. Przykładowy przepływ danych
+
+Wyobraźmy sobie firmę, która posiada kilka terabajtów logów aplikacji.
+
+Logi mogą być przesyłane do systemu Big Data.
+
+Dane mogą zostać zapisane w HDFS.
+
+HDFS podzieli duże pliki na bloki.
+
+Bloki zostaną rozłożone pomiędzy DataNode.
+
+Bloki mogą zostać zreplikowane na kilku DataNode.
+
+Następnie dane mogą zostać przetworzone przy wykorzystaniu Spark lub MapReduce.
+
+Hive może zostać wykorzystany do wykonywania zapytań analitycznych.
+
+Wyniki mogą następnie zostać wykorzystane w raportach lub systemach analitycznych.
+
+## 35. Najważniejsze pojęcia do zapamiętania
+
+**Hadoop** — ekosystem do rozproszonego przechowywania i przetwarzania dużych zbiorów danych.
+
+**HDFS** — rozproszony system plików Hadoop.
+
+**NameNode** — zarządza metadanymi HDFS.
+
+**DataNode** — przechowuje właściwe bloki danych.
+
+**Block** — fragment pliku przechowywany w HDFS.
+
+**Replication** — przechowywanie wielu kopii bloku.
+
+**YARN** — zarządzanie zasobami klastra i uruchamianiem aplikacji.
+
+**ResourceManager** — centralny komponent YARN.
+
+**NodeManager** — zarządza zasobami pojedynczego węzła.
+
+**ApplicationMaster** — zarządza konkretną aplikacją uruchomioną w YARN.
+
+**MapReduce** — model rozproszonego przetwarzania danych.
+
+**Mapper** — przetwarza dane wejściowe i generuje pary klucz-wartość.
+
+**Reducer** — agreguje i przetwarza dane pogrupowane według kluczy.
+
+**Hive** — narzędzie umożliwiające analizę danych za pomocą HiveQL podobnego do SQL.
+
+**HBase** — rozproszona baza NoSQL działająca na Hadoop.
+
+**Spark** — silnik przetwarzania danych, który może współpracować z Hadoop.
+
+**Big Data** — przetwarzanie bardzo dużych i różnorodnych zbiorów danych.
+
+## 36. Hadoop w jednym zdaniu
+
+Hadoop to **ekosystem Big Data, który pozwala przechowywać i przetwarzać ogromne ilości danych rozproszone pomiędzy wiele komputerów, zapewniając skalowalność, równoległość oraz odporność na awarie**.

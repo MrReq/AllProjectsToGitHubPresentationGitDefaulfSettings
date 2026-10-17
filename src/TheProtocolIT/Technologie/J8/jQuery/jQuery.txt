@@ -1,0 +1,654 @@
+# jQuery
+
+## 1. Czym jest jQuery?
+
+jQuery to biblioteka JavaScript, która upraszcza tworzenie interaktywnych stron internetowych.
+
+Została stworzona przez Johna Resiga i opublikowana w 2006 roku.
+
+Jej głównym celem jest uproszczenie operacji na elementach HTML, obsługi zdarzeń, animacji oraz komunikacji z serwerem za pomocą AJAX.
+
+jQuery pozwala wykonywać wiele typowych operacji przy użyciu krótszego i bardziej zwięzłego kodu niż w tradycyjnym JavaScript.
+
+Podstawową zasadą jQuery jest hasło:
+
+„Write less, do more” – pisz mniej, osiągaj więcej.
+
+jQuery jest nadal spotykana w starszych aplikacjach internetowych, systemach CMS, motywach WordPress i projektach wykorzystujących istniejący kod JavaScript.
+
+## 2. Do czego służy jQuery?
+
+Najważniejsze zastosowania jQuery to:
+
+- wyszukiwanie elementów HTML,
+- zmienianie treści strony,
+- modyfikowanie stylów CSS,
+- dodawanie i usuwanie elementów DOM,
+- obsługa zdarzeń użytkownika,
+- tworzenie animacji,
+- wysyłanie żądań AJAX,
+- pobieranie danych z serwera,
+- upraszczanie obsługi formularzy,
+- obsługa interakcji na stronach internetowych.
+
+Przykładowo można wykorzystać jQuery do ukrywania elementów, wyświetlania komunikatów, walidacji formularzy czy aktualizowania fragmentów strony bez jej przeładowywania.
+
+## 3. Jak działa jQuery?
+
+jQuery działa w przeglądarce i korzysta z JavaScript oraz DOM, czyli struktury reprezentującej dokument HTML.
+
+Schemat działania:
+
+```
+HTML
+  ↓
+DOM
+  ↓
+jQuery
+  ↓
+Wybieranie elementów
+  ↓
+Zmiana treści, stylów i obsługa zdarzeń
+```
+
+jQuery nie zastępuje JavaScriptu. Jest biblioteką, która udostępnia wygodniejsze metody wykonywania wielu operacji.
+
+## 4. Instalacja jQuery
+
+Istnieją dwa popularne sposoby dodania jQuery do projektu.
+
+Sposób 1 – CDN
+
+W pliku HTML można dodać odwołanie do biblioteki:
+
+```
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+```
+
+Następnie można używać jQuery w skryptach umieszczonych po tym elemencie.
+
+Sposób 2 – instalacja przez npm
+
+W projektach wykorzystujących Node.js można wykonać:
+
+```
+npm install jquery
+```
+
+Następnie bibliotekę importuje się w kodzie projektu zgodnie z konfiguracją bundlera lub środowiska.
+
+## 5. Podstawowa składnia jQuery
+
+Charakterystycznym elementem jQuery jest znak `$`.
+
+Przykład:
+
+```
+$(selector).action();
+```
+
+Gdzie:
+
+- `$` – funkcja udostępniana przez jQuery,
+- `selector` – określa element lub grupę elementów,
+- `action()` – metoda wykonywana na wybranych elementach.
+
+Przykład:
+
+```
+$("p").hide();
+```
+
+Polecenie ukrywa wszystkie elementy HTML typu `p`.
+
+## 6. Selektory
+
+Selektory służą do wybierania elementów HTML.
+
+jQuery wykorzystuje składnię podobną do selektorów CSS.
+
+Selektor elementu:
+
+```
+$("p");
+```
+
+Wybiera wszystkie akapity.
+
+Selektor klasy:
+
+```
+$(".title");
+```
+
+Wybiera elementy posiadające klasę `title`.
+
+Selektor identyfikatora:
+
+```
+$("#button");
+```
+
+Wybiera element o identyfikatorze `button`.
+
+Selektor potomków:
+
+```
+$("div p");
+```
+
+Wybiera akapity znajdujące się wewnątrz elementów `div`.
+
+Selektor atrybutu:
+
+```
+$("input[type='text']");
+```
+
+Wybiera pola tekstowe.
+
+## 7. Zdarzenie ready
+
+Kod jQuery często wykonuje się po przygotowaniu struktury DOM.
+
+Przykład:
+
+```
+$(document).ready(function () {
+    console.log("DOM is ready");
+});
+```
+
+Można również zastosować krótszy zapis:
+
+```
+$(function () {
+    console.log("DOM is ready");
+});
+```
+
+Dzięki temu skrypt może bezpiecznie odwoływać się do elementów HTML, które zostały już przetworzone przez przeglądarkę.
+
+## 8. Zmiana tekstu i HTML
+
+jQuery umożliwia odczytywanie i modyfikowanie zawartości elementów.
+
+text()
+
+```
+$("#title").text("Hello World");
+```
+
+Ustawia tekst elementu.
+
+html()
+
+```
+$("#content").html("<strong>Hello</strong>");
+```
+
+Ustawia zawartość HTML.
+
+val()
+
+```
+$("#username").val("Marcin");
+```
+
+Ustawia wartość pola formularza.
+
+Metody `text()` i `html()` nie są zamienne: pierwsza traktuje zawartość jako tekst, a druga interpretuje przekazany ciąg jako HTML.
+
+## 9. Zmiana CSS
+
+jQuery pozwala zmieniać style elementów.
+
+```
+$("#title").css("color", "red");
+```
+
+Można również ustawiać wiele właściwości:
+
+```
+$("#title").css({
+    color: "blue",
+    fontSize: "24px",
+    backgroundColor: "lightgray"
+});
+```
+
+Dodawanie klasy CSS:
+
+```
+$("#title").addClass("active");
+```
+
+Usuwanie klasy:
+
+```
+$("#title").removeClass("active");
+```
+
+Przełączanie klasy:
+
+```
+$("#title").toggleClass("active");
+```
+
+## 10. Obsługa zdarzeń
+
+jQuery ułatwia reagowanie na działania użytkownika.
+
+Przykład obsługi kliknięcia:
+
+```
+$("#button").on("click", function () {
+    alert("Button clicked!");
+});
+```
+
+Popularne zdarzenia:
+
+```
+click
+dblclick
+mouseenter
+mouseleave
+keydown
+keyup
+input
+change
+submit
+focus
+blur
+```
+
+Przykład obsługi formularza:
+
+```
+$("#form").on("submit", function (event) {
+    event.preventDefault();
+
+    console.log("Form submitted");
+});
+```
+
+Metoda `preventDefault()` zapobiega domyślnej akcji przeglądarki, takiej jak standardowe wysłanie formularza.
+
+## 11. Ukrywanie i pokazywanie elementów
+
+jQuery oferuje proste metody zmiany widoczności elementów.
+
+Ukrywanie:
+
+```
+$("#box").hide();
+```
+
+Pokazywanie:
+
+```
+$("#box").show();
+```
+
+Przełączanie widoczności:
+
+```
+$("#box").toggle();
+```
+
+Można również kontrolować czas trwania animacji:
+
+```
+$("#box").hide(500);
+```
+
+W tym przypadku ukrywanie może zostać wykonane z animacją trwającą około 500 milisekund.
+
+## 12. Animacje
+
+jQuery posiada metody do tworzenia prostych animacji.
+
+fadeIn()
+
+Pokazuje element przez efekt zanikania w odwrotnym kierunku.
+
+```
+$("#box").fadeIn();
+```
+
+fadeOut()
+
+Ukrywa element przez stopniowe zanikanie.
+
+```
+$("#box").fadeOut();
+```
+
+slideUp()
+
+Zamyka element za pomocą animacji przesuwania.
+
+```
+$("#box").slideUp();
+```
+
+slideDown()
+
+Otwiera element za pomocą animacji przesuwania.
+
+```
+$("#box").slideDown();
+```
+
+animate()
+
+Pozwala animować wybrane właściwości CSS, które obsługują animację liczbową.
+
+```
+$("#box").animate({
+    left: "200px",
+    opacity: 0.5
+}, 1000);
+```
+
+W tym przykładzie element zmienia pozycję i przezroczystość w czasie około jednej sekundy. Do animowania pozycji `left` element musi mieć odpowiednio skonfigurowaną właściwość `position`.
+
+## 13. Manipulacja DOM
+
+jQuery oferuje metody do dodawania, usuwania i modyfikowania elementów HTML.
+
+Dodawanie zawartości na końcu:
+
+```
+$("#list").append("<li>New item</li>");
+```
+
+Dodawanie na początku:
+
+```
+$("#list").prepend("<li>First item</li>");
+```
+
+Dodawanie elementu przed wskazanym elementem:
+
+```
+$("#box").before("<p>Before</p>");
+```
+
+Usuwanie elementu:
+
+```
+$("#box").remove();
+```
+
+Usuwanie zawartości elementu:
+
+```
+$("#box").empty();
+```
+
+Należy uważać na przekazywanie niezaufanych danych do metod interpretujących HTML, ponieważ może to prowadzić do podatności XSS.
+
+## 14. AJAX
+
+AJAX oznacza Asynchronous JavaScript and XML.
+
+Jest to podejście pozwalające komunikować się z serwerem bez konieczności przeładowywania całej strony.
+
+Pomimo nazwy AJAX nie musi wykorzystywać XML. Współcześnie bardzo często używa się JSON.
+
+Przykład:
+
+```
+$.ajax({
+    url: "/api/users",
+    method: "GET",
+    dataType: "json",
+
+    success: function (data) {
+        console.log(data);
+    },
+
+    error: function (xhr, status, error) {
+        console.error(error);
+    }
+});
+```
+
+jQuery udostępnia także uproszczone metody:
+
+```
+$.get("/api/users");
+$.post("/api/users", { name: "Marcin" });
+```
+
+W nowoczesnych aplikacjach podobne zadania często realizuje się przy użyciu `fetch()` i `async/await`.
+
+## 15. Praca z JSON
+
+JSON jest powszechnym formatem wymiany danych między frontendem a backendem.
+
+Przykładowe dane zwracane przez API:
+
+```
+{
+    "id": 1,
+    "name": "Marcin",
+    "role": "USER"
+}
+```
+
+jQuery potrafi przetwarzać odpowiedzi JSON, jeśli odpowiedź i konfiguracja żądania wskazują ten format.
+
+Przykład:
+
+```
+$.getJSON("/api/users", function (users) {
+    console.log(users);
+});
+```
+
+## 16. Praca z formularzami
+
+jQuery pozwala pobierać wartości z formularzy i reagować na ich zmiany.
+
+Przykład:
+
+```
+<input id="username" type="text">
+<button id="submit">Submit</button>
+```
+
+```
+$("#submit").on("click", function () {
+    const username = $("#username").val();
+
+    console.log(username);
+});
+```
+
+Do zebrania wartości wielu pól można wykorzystać również:
+
+```
+$("#form").serialize();
+```
+
+Metoda ta tworzy ciąg danych formularza, który może zostać przekazany do żądania HTTP.
+
+## 17. Traversing – poruszanie się po DOM
+
+jQuery pozwala przechodzić pomiędzy elementami w strukturze dokumentu.
+
+Najważniejsze metody:
+
+```
+parent()
+parents()
+children()
+find()
+siblings()
+next()
+prev()
+closest()
+```
+
+Przykład:
+
+```
+$("#button").closest(".card");
+```
+
+Wyszukuje najbliższego przodka o klasie `card`, uwzględniając również sam wybrany element.
+
+Inny przykład:
+
+```
+$("#list").children();
+```
+
+Zwraca bezpośrednie elementy potomne listy.
+
+## 18. Iterowanie po elementach
+
+jQuery posiada metodę `each()`.
+
+```
+$("p").each(function () {
+    console.log($(this).text());
+});
+```
+
+Kod przechodzi po wszystkich akapitach i wyświetla ich tekst.
+
+Warto pamiętać, że współczesny JavaScript ma również własne metody, takie jak `forEach()`, `map()` i `filter()`, które często są wystarczające do pracy z tablicami.
+
+## 19. jQuery a JavaScript
+
+jQuery jest biblioteką JavaScript, a nie osobnym językiem programowania.
+
+| Zadanie            | JavaScript                       | jQuery                    |
+| ------------------ | -------------------------------- | ------------------------- |
+| Wybór elementu     | `document.querySelector("#box")` | `$("#box")`               |
+| Zmiana tekstu      | `element.textContent = "Hello"`  | `$("#box").text("Hello")` |
+| Obsługa kliknięcia | `addEventListener()`             | `.on("click", ...)`       |
+| Dodanie klasy      | `classList.add()`                | `.addClass()`             |
+| Pobranie danych    | `fetch()`                        | `$.ajax()`                |
+
+Współczesny JavaScript posiada wiele funkcji, które wcześniej wymagały biblioteki jQuery. Dlatego w nowych projektach często można korzystać bezpośrednio z natywnych API przeglądarki.
+
+## 20. jQuery a React, Angular i Vue
+
+jQuery, React, Angular i Vue mają różne role.
+
+- jQuery upraszcza operacje DOM, zdarzenia i żądania AJAX.
+- React służy do budowania interfejsów użytkownika z komponentów.
+- Angular jest rozbudowaną platformą do tworzenia aplikacji webowych.
+- Vue jest frameworkiem do budowania interfejsów i aplikacji webowych.
+
+jQuery jest często spotykana w istniejących stronach i systemach, natomiast React, Angular i Vue są popularne w nowoczesnych aplikacjach opartych na komponentach.
+
+## 21. Zalety jQuery
+
+- Prosta i czytelna składnia.
+- Łatwe wybieranie elementów HTML.
+- Wygodna obsługa zdarzeń.
+- Gotowe metody manipulacji DOM.
+- Obsługa animacji.
+- Uproszczona komunikacja AJAX.
+- Duża liczba istniejących projektów i wtyczek.
+- Przydatność podczas utrzymywania starszych aplikacji.
+
+## 22. Wady i ograniczenia jQuery
+
+- Wiele operacji można obecnie wykonać bez dodatkowej biblioteki.
+- Dodaje zewnętrzną zależność do projektu.
+- Nie zastępuje architektury komponentowej oferowanej przez nowoczesne frameworki.
+- Nadmierne manipulowanie DOM może utrudniać utrzymanie dużej aplikacji.
+- Niektóre starsze wtyczki mogą mieć problemy z kompatybilnością lub bezpieczeństwem.
+
+## 23. Najważniejsze metody jQuery do zapamiętania
+
+```
+$()
+ready()
+text()
+html()
+val()
+attr()
+prop()
+css()
+addClass()
+removeClass()
+toggleClass()
+on()
+off()
+click()
+hide()
+show()
+toggle()
+fadeIn()
+fadeOut()
+slideUp()
+slideDown()
+animate()
+append()
+prepend()
+before()
+after()
+remove()
+empty()
+find()
+children()
+parent()
+closest()
+each()
+serialize()
+$.ajax()
+$.get()
+$.post()
+$.getJSON()
+```
+
+## 24. Schemat ekosystemu jQuery
+
+```
+jQuery
+│
+├── Selectors
+│   ├── Elements
+│   ├── Classes
+│   └── IDs
+│
+├── DOM Manipulation
+│   ├── text()
+│   ├── html()
+│   ├── append()
+│   └── remove()
+│
+├── Events
+│   ├── click()
+│   ├── on()
+│   └── off()
+│
+├── CSS
+│   ├── css()
+│   ├── addClass()
+│   └── toggleClass()
+│
+├── Effects
+│   ├── fadeIn()
+│   ├── fadeOut()
+│   └── animate()
+│
+├── AJAX
+│   ├── $.ajax()
+│   ├── $.get()
+│   └── $.post()
+│
+└── Forms
+    ├── val()
+    └── serialize()
+```
+
+Podsumowanie: jQuery to biblioteka JavaScript ułatwiająca manipulowanie stronami HTML, obsługę zdarzeń, animacje oraz komunikację z serwerem. Warto ją znać przede wszystkim podczas pracy ze starszymi aplikacjami webowymi, WordPressem i istniejącymi systemami. Przy tworzeniu nowych aplikacji warto również dobrze opanować natywny JavaScript, DOM, `fetch()` oraz `async/await`.

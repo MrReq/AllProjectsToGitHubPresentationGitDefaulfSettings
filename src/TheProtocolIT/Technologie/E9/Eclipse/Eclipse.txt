@@ -1,0 +1,233 @@
+# Eclipse
+
+## 1. Czym jest Eclipse?
+
+Eclipse to otwarte, wieloplatformowe środowisko programistyczne typu IDE, rozwijane przez Eclipse Foundation.
+
+Eclipse jest przede wszystkim kojarzone z programowaniem w Javie, ale dzięki systemowi wtyczek może obsługiwać również wiele innych języków programowania i technologii.
+
+Eclipse działa na systemach Windows, Linux oraz macOS.
+
+Eclipse zostało stworzone w języku Java, dlatego do jego działania wymagane jest odpowiednie środowisko Java.
+
+## 2. Eclipse IDE
+
+Eclipse IDE to główna aplikacja przeznaczona do tworzenia, uruchamiania, testowania i debugowania programów.
+
+IDE oznacza **Integrated Development Environment**, czyli zintegrowane środowisko programistyczne.
+
+Eclipse zapewnia między innymi edytor kodu, system zarządzania projektami, debugger, integrację z systemami kontroli wersji oraz narzędzia do budowania aplikacji.
+
+## 3. Eclipse i Java
+
+Eclipse jest jednym z najbardziej znanych środowisk do tworzenia aplikacji w Javie.
+
+Umożliwia tworzenie między innymi aplikacji konsolowych, aplikacji desktopowych, aplikacji webowych oraz aplikacji wykorzystujących frameworki takie jak Spring.
+
+Eclipse obsługuje funkcje języka Java, takie jak klasy, interfejsy, dziedziczenie, wyjątki, generyki, lambdy i Stream API.
+
+## 4. Workspace
+
+Workspace to główny obszar roboczy Eclipse, w którym przechowywane są informacje dotyczące projektów i konfiguracji środowiska.
+
+Jeden workspace może zawierać wiele projektów.
+
+Można posiadać kilka różnych workspace'ów, na przykład osobny dla projektów studenckich i osobny dla projektów zawodowych.
+
+## 5. Project
+
+Projekt w Eclipse reprezentuje konkretną aplikację lub bibliotekę, nad którą pracuje programista.
+
+Projekt może zawierać kod źródłowy, biblioteki, pliki konfiguracyjne, testy oraz inne zasoby.
+
+Eclipse posiada różne typy projektów, między innymi projekty Java, Maven oraz Gradle.
+
+## 6. Perspektywy
+
+Perspektywa w Eclipse określa układ elementów interfejsu dostosowany do konkretnego rodzaju pracy.
+
+Przykładowo **Java Perspective** jest przeznaczona do programowania w Javie.
+
+Perspektywa Debug służy przede wszystkim do debugowania aplikacji.
+
+Perspektywy pozwalają szybko zmieniać sposób organizacji okien i narzędzi w IDE.
+
+## 7. Edytor kodu
+
+Eclipse posiada rozbudowany edytor kodu źródłowego.
+
+Edytor oferuje między innymi kolorowanie składni, automatyczne uzupełnianie kodu, podpowiedzi, formatowanie kodu oraz wykrywanie wielu błędów.
+
+Eclipse posiada również funkcje **Quick Fix**, które mogą proponować rozwiązania wykrytych problemów.
+
+## 8. Refaktoryzacja
+
+Eclipse posiada narzędzia do automatycznej refaktoryzacji kodu.
+
+Można między innymi zmieniać nazwy klas, metod i zmiennych, przenosić elementy pomiędzy klasami oraz wydzielać metody.
+
+Refaktoryzacja pozwala poprawiać strukturę kodu bez konieczności ręcznego zmieniania wszystkich jego odwołań.
+
+## 9. Debugger
+
+Eclipse posiada wbudowany debugger umożliwiający wykonywanie programu krok po kroku.
+
+Programista może ustawiać **breakpointy**, czyli punkty zatrzymania programu.
+
+Podczas debugowania można obserwować wartości zmiennych, stos wywołań oraz przepływ wykonywania programu.
+
+Podstawowe operacje debugowania obejmują **Step Into**, **Step Over**, **Step Return** oraz **Resume**.
+
+## 10. Maven
+
+Eclipse posiada integrację z Mavenem.
+
+Maven pozwala zarządzać zależnościami projektu, jego konfiguracją oraz procesem budowania.
+
+Projekt Maven jest zazwyczaj opisany za pomocą pliku `pom.xml`.
+
+Eclipse może automatycznie pobierać wymagane biblioteki i wykorzystywać konfigurację znajdującą się w `pom.xml`.
+
+## 11. Gradle
+
+Eclipse może również współpracować z Gradle.
+
+Gradle jest narzędziem do automatyzacji budowania projektów oraz zarządzania zależnościami.
+
+Projekty Gradle mogą być importowane do Eclipse i zarządzane za pomocą odpowiednich integracji.
+
+## 12. Wtyczki
+
+Jedną z najważniejszych cech Eclipse jest możliwość rozszerzania jego funkcjonalności za pomocą wtyczek.
+
+Wtyczki mogą dodawać obsługę nowych języków programowania, frameworków, systemów kontroli wersji oraz innych narzędzi.
+
+Dzięki temu Eclipse może być dostosowane do konkretnego środowiska programistycznego.
+
+## 13. Eclipse Marketplace
+
+Eclipse Marketplace jest miejscem, w którym można znaleźć i instalować dodatkowe rozszerzenia do Eclipse.
+
+Za pomocą Marketplace można między innymi instalować narzędzia do pracy z technologiami Java, Spring, Git, Docker czy bazami danych.
+
+## 14. Git
+
+Eclipse posiada integrację z systemem kontroli wersji Git.
+
+Do obsługi Git w Eclipse wykorzystywany jest między innymi projekt **EGit**.
+
+Programista może wykonywać operacje takie jak commit, pull, push, branch, merge oraz checkout bezpośrednio z poziomu IDE.
+
+## 15. Terminal
+
+Eclipse może zostać rozszerzone o narzędzia umożliwiające korzystanie z terminala bezpośrednio w środowisku IDE.
+
+Terminal pozwala wykonywać polecenia systemowe oraz polecenia związane z narzędziami takimi jak Git, Maven czy Gradle.
+
+## 16. Eclipse i Spring
+
+Eclipse może być wykorzystywane do tworzenia aplikacji opartych na Spring oraz Spring Boot.
+
+Dostępne są rozszerzenia zapewniające między innymi autouzupełnianie, nawigację po kodzie i wsparcie dla konfiguracji Spring.
+
+Dzięki temu Eclipse może być wykorzystywane do tworzenia aplikacji backendowych i REST API.
+
+## 17. Eclipse i bazy danych
+
+Eclipse może być rozszerzane o narzędzia umożliwiające pracę z bazami danych.
+
+Programista może dzięki odpowiednim pluginom wykonywać zapytania SQL, przeglądać struktury baz danych oraz zarządzać połączeniami z bazami.
+
+Eclipse może współpracować między innymi z bazami używanymi w aplikacjach Java.
+
+## 18. Eclipse RCP
+
+**Eclipse RCP (Rich Client Platform)** to platforma umożliwiająca tworzenie rozbudowanych aplikacji desktopowych.
+
+RCP wykorzystuje modułową architekturę Eclipse i system pluginów.
+
+Dzięki temu programista może budować aplikacje składające się z niezależnych modułów.
+
+## 19. Eclipse Foundation
+
+Eclipse jest rozwijane przez **Eclipse Foundation**, organizację zajmującą się rozwojem projektów open source związanych między innymi z Javą, narzędziami programistycznymi, IoT, chmurą i technologiami enterprise.
+
+Eclipse Foundation zarządza wieloma projektami należącymi do ekosystemu Eclipse.
+
+## 20. Najważniejsze zalety Eclipse
+
+Eclipse jest darmowym i otwartym środowiskiem programistycznym.
+
+Posiada bardzo dobre wsparcie dla języka Java.
+
+Jest dostępne na wielu systemach operacyjnych.
+
+Posiada rozbudowany system wtyczek.
+
+Oferuje narzędzia do debugowania i refaktoryzacji kodu.
+
+Może współpracować z Mavenem, Gradle oraz Gitem.
+
+Może być dostosowane do różnych języków programowania i technologii.
+
+## 21. Wady Eclipse
+
+Eclipse może być bardziej wymagające pod względem zasobów niż proste edytory kodu.
+
+Duża liczba dostępnych konfiguracji i pluginów może początkowo utrudniać poznanie środowiska.
+
+Niektóre funkcje mogą wymagać instalacji dodatkowych wtyczek.
+
+Przy dużych projektach niewłaściwie skonfigurowane środowisko może działać wolniej.
+
+## 22. Eclipse vs IntelliJ IDEA
+
+Eclipse i IntelliJ IDEA są popularnymi środowiskami IDE wykorzystywanymi do programowania w Javie.
+
+Eclipse jest projektem open source i posiada bardzo rozbudowany system pluginów.
+
+IntelliJ IDEA jest rozwijane przez JetBrains i oferuje bardzo rozbudowane funkcje związane z analizą kodu, refaktoryzacją oraz pracą z wieloma frameworkami.
+
+Oba środowiska mogą być wykorzystywane do tworzenia profesjonalnych aplikacji Java, aplikacji Spring, projektów Maven i Gradle oraz aplikacji wykorzystujących Git.
+
+## 23. Najważniejsze pojęcia związane z Eclipse
+
+**Eclipse IDE** – środowisko programistyczne.
+
+**Eclipse Foundation** – organizacja rozwijająca ekosystem Eclipse.
+
+**Workspace** – obszar roboczy Eclipse.
+
+**Project** – projekt znajdujący się w workspace.
+
+**Perspective** – określony układ narzędzi i okien IDE.
+
+**Plugin** – rozszerzenie funkcjonalności Eclipse.
+
+**Eclipse Marketplace** – katalog wtyczek.
+
+**EGit** – integracja Eclipse z Git.
+
+**Debugger** – narzędzie do analizowania działania programu.
+
+**Breakpoint** – punkt, w którym debugger zatrzymuje wykonywanie programu.
+
+**Maven** – narzędzie do budowania projektów i zarządzania zależnościami.
+
+**Gradle** – system automatyzacji budowania projektów.
+
+**Eclipse RCP** – platforma do tworzenia aplikacji desktopowych.
+
+**JDT (Java Development Tools)** – zestaw narzędzi Eclipse przeznaczonych do programowania w Javie.
+
+## 24. Podsumowanie
+
+Eclipse to rozbudowane, otwarte środowisko IDE szczególnie mocno związane z językiem Java.
+
+Jego najważniejszymi elementami są edytor kodu, debugger, system projektów, workspace, perspektywy oraz system rozszerzeń.
+
+Eclipse może współpracować z Mavenem, Gradle, Gitem, Springiem i wieloma innymi technologiami.
+
+Dzięki architekturze opartej na pluginach Eclipse można dostosować do różnych zastosowań programistycznych.
+
+**W skrócie: Eclipse = IDE + Java + pluginy + debugger + Maven/Gradle + Git + rozbudowany ekosystem.**

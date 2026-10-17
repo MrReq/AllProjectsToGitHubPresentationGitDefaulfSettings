@@ -1,0 +1,107 @@
+# Coda
+
+## 1. Czym jest Coda?
+
+[Coda for knowledge management, team wikis - Coda](https://images.openai.com/static-rsc-4/3qlzBUTonCXChUdKFXPI-3eiyeEiVHDZrdngg4lesU5buDEDg7jjwUNSxii01EqLOugEW9Ud_UwnH_l0b6i4bxnEM-d1DoS5tdqTBUIc-fgfc_ptSCMVDqQEjGtw46HdLy0Zjr8-hJz51wxrk7UhxSQRBckmGFib4ln5nc5whe0?purpose=inline)
+
+[coda.io](https://coda.io/solutions/scenario/knowledge-management)
+
+Coda to platforma do tworzenia interaktywnych dokumentów, zarządzania projektami, organizowania danych i automatyzowania procesów biznesowych.
+
+Łączy funkcje dokumentów tekstowych, arkuszy kalkulacyjnych, baz danych i aplikacji do współpracy zespołowej. Dzięki temu jeden dokument może zawierać tekst, tabele, przyciski, formularze, wykresy oraz automatyczne działania.
+
+Coda jest wykorzystywana przez zespoły projektowe, firmy, startupy i osoby indywidualne do organizowania pracy oraz tworzenia własnych narzędzi bez konieczności programowania całej aplikacji od podstaw.
+
+## 2. Najważniejsze funkcje Coda
+
+- Interaktywne dokumenty – łączenie tekstu, tabel i elementów aplikacyjnych w jednym miejscu.
+- Tables – przechowywanie danych w tabelach z możliwością filtrowania, sortowania i tworzenia widoków.
+- Formulas – wykonywanie obliczeń i tworzenie zależności pomiędzy danymi.
+- Buttons – uruchamianie określonych działań po kliknięciu przycisku.
+- Automations – wykonywanie zaplanowanych lub wyzwalanych zdarzeniem operacji.
+- Views – prezentowanie tych samych danych jako tabel, kart, kalendarzy lub tablic.
+- Packs – integracje umożliwiające łączenie Coda z zewnętrznymi usługami.
+- Collaboration – współpraca wielu użytkowników nad dokumentami.
+- AI – funkcje wspomagające analizowanie i przetwarzanie treści, zależnie od dostępnego planu.
+
+## 3. Jak działa Coda?
+
+Coda opiera się na dokumentach, które mogą pełnić funkcję znacznie bardziej rozbudowaną niż zwykłe pliki tekstowe.
+
+Przykładowo jeden dokument może zawierać opis projektu, tabelę z zadaniami, listę osób odpowiedzialnych, harmonogram i przyciski zmieniające statusy zadań.
+
+Typowy sposób pracy wygląda następująco:
+
+1. Użytkownik tworzy dokument.
+2. Dodaje tabele przechowujące dane.
+3. Łączy tabele z formułami i widokami.
+4. Dodaje przyciski oraz automatyzacje.
+5. Udostępnia dokument zespołowi.
+
+Dzięki temu Coda może pełnić funkcję prostego systemu zarządzania projektami, rejestru zadań lub wewnętrznego narzędzia biznesowego.
+
+## 4. Przykład wykorzystania Coda
+
+Załóżmy, że chcesz zarządzać zadaniami programistycznymi.
+
+Możesz utworzyć tabelę `Tasks` zawierającą następujące kolumny:
+
+| Task                    | Status       | Priority | Assignee    |
+| ----------------------- | ------------ | -------- | ----------- |
+| Utworzenie REST API     | W trakcie    | Wysoki   | Programista |
+| Konfiguracja PostgreSQL | Ukończone    | Średni   | Programista |
+| Testy jednostkowe       | Do zrobienia | Wysoki   | Tester      |
+
+Następnie możesz utworzyć widok Kanban, w którym zadania są grupowane według statusu, oraz przycisk pozwalający oznaczyć zadanie jako ukończone.
+
+Możesz też przygotować formuły podsumowujące liczbę wykonanych zadań i automatyzacje powiadamiające zespół o zmianach.
+
+## 5. Do czego wykorzystuje się Coda?
+
+- Zarządzanie projektami – planowanie zadań, terminów i odpowiedzialności.
+- Dokumentacja zespołowa – tworzenie instrukcji, procedur i notatek.
+- CRM – prowadzenie prostych baz klientów i kontaktów.
+- Zarządzanie produktami – tworzenie backlogów, roadmap i rejestrów funkcjonalności.
+- Automatyzacja procesów – wykonywanie powtarzalnych działań bez pisania pełnej aplikacji.
+- Raportowanie – przygotowywanie tabel, podsumowań i dashboardów.
+- Organizacja nauki – planowanie tematów, monitorowanie postępów i przechowywanie materiałów.
+
+## 6. Coda a inne narzędzia
+
+| Narzędzie       | Główne zastosowanie                                            |
+| --------------- | -------------------------------------------------------------- |
+| Coda            | Interaktywne dokumenty łączące tekst, dane i automatyzacje.    |
+| Notion          | Dokumentacja, notatki, bazy wiedzy i zarządzanie projektami.   |
+| ClickUp         | Zarządzanie zadaniami, projektami i pracą zespołową.           |
+| Airtable        | Bazy danych z interfejsem przypominającym arkusz kalkulacyjny. |
+| Google Sheets   | Arkusze kalkulacyjne i współdzielenie danych.                  |
+| Microsoft Excel | Zaawansowane obliczenia, analiza danych i raportowanie.        |
+
+Coda wyróżnia się możliwością łączenia dokumentów z interaktywną logiką, dzięki czemu może przypominać niewielką aplikację stworzoną wewnątrz dokumentu.
+
+## 7. Zalety i wady Coda
+
+Zalety:
+
+- Łączy dokumentację i dane w jednym miejscu.
+- Pozwala tworzyć interaktywne narzędzia bez rozbudowanego programowania.
+- Oferuje formuły, przyciski i automatyzacje.
+- Ułatwia współpracę zespołową.
+- Może ograniczyć konieczność korzystania z wielu oddzielnych narzędzi.
+
+Wady:
+
+- Przy dużej liczbie tabel i zależności dokumenty mogą stać się skomplikowane.
+- Zaawansowane zastosowania wymagają poznania formuł i zasad automatyzacji.
+- Integracje i funkcje mogą zależeć od planu.
+- Coda nie zastępuje w pełni dedykowanej bazy danych ani profesjonalnego systemu backendowego.
+
+## 8. Dlaczego warto znać Coda?
+
+Coda jest przydatna osobom zarządzającym projektami, analitykom biznesowym, przedsiębiorcom oraz zespołom, które chcą usprawnić organizację pracy.
+
+Pozwala szybko budować własne systemy do zarządzania zadaniami, dokumentacją, danymi i procesami biznesowymi.
+
+Dla programisty rozwijającego aplikacje w Javie i Spring Boot Coda może służyć jako narzędzie do planowania funkcjonalności, dokumentowania wymagań, prowadzenia backlogu oraz monitorowania postępów projektu.
+
+Oficjalna strona: [Coda](https://coda.io/).

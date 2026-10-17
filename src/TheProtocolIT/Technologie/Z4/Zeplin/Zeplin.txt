@@ -1,0 +1,390 @@
+# Zeplin
+
+## Czym jest Zeplin?
+
+**Zeplin** to narzędzie internetowe wspierające współpracę pomiędzy **designerami i programistami** podczas tworzenia aplikacji oraz stron internetowych.
+
+Służy przede wszystkim do przekazywania projektu graficznego z programu projektowego do zespołu odpowiedzialnego za jego implementację.
+
+Zeplin pozwala programistom dokładnie sprawdzić wygląd zaprojektowanego interfejsu oraz uzyskać informacje potrzebne do jego zaimplementowania.
+
+## Do czego służy Zeplin?
+
+Zeplin jest używany przede wszystkim po zakończeniu projektowania interfejsu użytkownika.
+
+Designer przygotowuje projekt w narzędziu takim jak Figma, Sketch, Adobe XD lub Photoshop, a następnie przekazuje go do Zeplin.
+
+Programista może później otworzyć projekt w Zeplin i sprawdzić między innymi wymiary elementów, odstępy, kolory, czcionki oraz grafiki.
+
+Dzięki temu designer i programista mogą pracować na podstawie tego samego projektu.
+
+## Jak działa Zeplin?
+
+Typowy proces pracy może wyglądać następująco:
+
+```text
+Designer
+   |
+   v
+Figma / Sketch / Adobe XD
+   |
+   v
+Zeplin
+   |
+   v
+Programista
+   |
+   v
+Kod aplikacji / strony
+```
+
+Designer przygotowuje interfejs.
+
+Projekt jest eksportowany do Zeplin.
+
+Zeplin analizuje projekt i udostępnia jego elementy w formie przydatnej dla programistów.
+
+Programista może sprawdzić szczegóły projektu i wykorzystać je podczas implementacji.
+
+## Design Handoff
+
+Jednym z najważniejszych zastosowań Zeplin jest **design handoff**.
+
+Design handoff oznacza przekazanie projektu od designera do programisty.
+
+Zamiast wysyłać programiście zwykły obraz projektu, designer może przekazać kompletny projekt zawierający informacje potrzebne do implementacji.
+
+Programista może dzięki temu zobaczyć między innymi:
+
+- rozmiary elementów,
+- odległości między elementami,
+- kolory,
+- typografię,
+- marginesy,
+- paddingi,
+- grafiki,
+- ikony,
+- nazwy elementów,
+- właściwości komponentów.
+
+## Specyfikacja elementów
+
+Zeplin pozwala sprawdzać szczegółowe informacje dotyczące poszczególnych elementów interfejsu.
+
+Po wybraniu elementu można zobaczyć między innymi jego szerokość i wysokość.
+
+Można również sprawdzić jego położenie oraz odległości od innych elementów.
+
+Jest to szczególnie przydatne podczas odwzorowywania projektu w kodzie.
+
+## Kolory
+
+Zeplin pozwala sprawdzać kolory wykorzystane w projekcie.
+
+Programista może zobaczyć wartość koloru w odpowiednim formacie.
+
+Przykładowo kolor może być przedstawiony jako:
+
+```text
+#2563EB
+```
+
+lub jako wartości RGB.
+
+Dzięki temu programista nie musi samodzielnie odgadywać koloru na podstawie obrazu.
+
+## Typografia
+
+Zeplin pokazuje informacje dotyczące tekstu znajdującego się w projekcie.
+
+Można sprawdzić między innymi:
+
+- nazwę fontu,
+- rozmiar tekstu,
+- grubość fontu,
+- wysokość linii,
+- kolor,
+- wyrównanie tekstu.
+
+Przykładowo:
+
+```text
+Font: Inter
+Size: 16px
+Weight: 500
+Line Height: 24px
+```
+
+Takie informacje ułatwiają dokładne odwzorowanie projektu.
+
+## Odstępy i wymiary
+
+Jednym z najważniejszych zastosowań Zeplin jest sprawdzanie odległości pomiędzy elementami.
+
+Programista może sprawdzić na przykład, że:
+
+```text
+Przycisk
+   |
+   | 16 px
+   v
+Pole tekstowe
+```
+
+Dzięki temu interfejs zaimplementowany przez programistę może być zgodny z projektem designera.
+
+## Assety
+
+Zeplin umożliwia również dostęp do **assetów**, czyli zasobów graficznych wykorzystywanych w projekcie.
+
+Mogą to być:
+
+- ikony,
+- obrazy,
+- ilustracje,
+- logotypy,
+- grafiki,
+- elementy interfejsu.
+
+Programista może pobrać odpowiednie zasoby i wykorzystać je w aplikacji.
+
+## Generowanie kodu
+
+Zeplin może prezentować informacje w formie przydatnej dla programistów oraz generować fragmenty kodu lub wartości odpowiadające właściwościom projektu.
+
+W zależności od technologii można otrzymać informacje przydatne między innymi przy tworzeniu:
+
+```text
+CSS
+Swift
+Android
+React
+HTML
+```
+
+Nie oznacza to jednak, że Zeplin automatycznie tworzy kompletną aplikację.
+
+Jego głównym zadaniem jest **ułatwienie przełożenia projektu graficznego na kod**.
+
+## Komponenty
+
+W większych projektach interfejs użytkownika składa się z wielokrotnie wykorzystywanych komponentów.
+
+Przykładami mogą być:
+
+```text
+Button
+Input
+Navbar
+Card
+Modal
+Checkbox
+```
+
+Zeplin pomaga dokumentować takie elementy i przekazywać informacje o ich wyglądzie oraz sposobie wykorzystania.
+
+## Style Guide
+
+Zeplin może być wykorzystywany do tworzenia i utrzymywania **Style Guide**.
+
+Style Guide zawiera informacje dotyczące standardów wizualnych projektu.
+
+Może obejmować:
+
+```text
+Kolory
+   ↓
+Typografia
+   ↓
+Ikony
+   ↓
+Komponenty
+   ↓
+Odstępy
+```
+
+Dzięki temu cały zespół może stosować spójne zasady projektowania interfejsu.
+
+## Design System
+
+Zeplin może wspierać pracę z **Design Systemem**.
+
+Design System to zbiór zasad, komponentów i standardów wykorzystywanych podczas tworzenia interfejsu.
+
+Przykładowy Design System może zawierać:
+
+```text
+Colors
+Typography
+Buttons
+Forms
+Cards
+Navigation
+Icons
+Spacing
+```
+
+Pozwala to zachować spójność wyglądu różnych części aplikacji.
+
+## Integracja z narzędziami projektowymi
+
+Zeplin może współpracować z popularnymi narzędziami do projektowania interfejsów.
+
+Przykładowo projekty mogą pochodzić z:
+
+- Figma,
+- Sketch,
+- Adobe XD,
+- Adobe Photoshop.
+
+Dzięki temu Zeplin znajduje się pomiędzy środowiskiem projektowym a procesem implementacji.
+
+## Zeplin a Figma
+
+Figma i Zeplin mogą być wykorzystywane w podobnym procesie, ale pełnią różne role.
+
+**Figma** jest przede wszystkim narzędziem do projektowania interfejsów i prototypowania.
+
+**Zeplin** skupia się przede wszystkim na przekazywaniu gotowych projektów do zespołu implementacyjnego.
+
+Można więc spotkać proces:
+
+```text
+Figma
+  ↓
+Projekt UI
+  ↓
+Zeplin
+  ↓
+Design Handoff
+  ↓
+Developer
+```
+
+Współczesne narzędzia projektowe mają jednak coraz więcej funkcji związanych bezpośrednio z handoffem, dlatego Zeplin jest często jednym z kilku możliwych elementów takiego procesu.
+
+## Zeplin a Adobe XD
+
+**Adobe XD** jest przede wszystkim narzędziem do projektowania UX/UI.
+
+**Zeplin** służy głównie do przekazywania przygotowanych projektów programistom.
+
+Można więc wykorzystać oba narzędzia razem:
+
+```text
+Adobe XD
+    ↓
+Projekt
+    ↓
+Zeplin
+    ↓
+Programista
+```
+
+## Zalety Zeplin
+
+Zeplin ułatwia komunikację pomiędzy designerami i programistami.
+
+Pozwala programistom dokładnie sprawdzić właściwości elementów interfejsu.
+
+Zmniejsza liczbę sytuacji, w których programista musi zgadywać wartości dotyczące projektu.
+
+Ułatwia przekazywanie assetów.
+
+Pomaga dokumentować komponenty i Design System.
+
+Może przyspieszyć proces implementacji interfejsu.
+
+## Wady Zeplin
+
+Zeplin nie jest pełnoprawnym narzędziem do projektowania interfejsów.
+
+Jego użyteczność zależy od sposobu organizacji projektu przez designerów.
+
+W przypadku prostych projektów dodatkowe narzędzie do handoffu może nie być konieczne.
+
+Część funkcji związanych z przekazywaniem projektów jest obecnie dostępna bezpośrednio w narzędziach takich jak Figma.
+
+## Zeplin w procesie tworzenia aplikacji
+
+Typowy proces może wyglądać tak:
+
+```text
+1. Analiza wymagań
+       ↓
+2. UX / UI Design
+       ↓
+3. Figma / Sketch / Adobe XD
+       ↓
+4. Zeplin
+       ↓
+5. Design Handoff
+       ↓
+6. Implementacja
+       ↓
+7. Testowanie
+       ↓
+8. Wdrożenie
+```
+
+Zeplin znajduje się więc przede wszystkim **pomiędzy projektowaniem a implementacją**.
+
+## Przykład
+
+Designer tworzy ekran logowania:
+
+```text
++-------------------------+
+|        LOGO             |
+|                         |
+|  Email                  |
+|  [___________________]  |
+|                         |
+|  Password               |
+|  [___________________]  |
+|                         |
+|  [      LOGIN       ]   |
++-------------------------+
+```
+
+Programista może następnie w Zeplin sprawdzić:
+
+```text
+Button width: 320px
+Button height: 48px
+Border radius: 8px
+Font: Inter
+Font size: 16px
+Color: #2563EB
+Margin: 16px
+```
+
+Na podstawie tych informacji implementuje ekran w wybranej technologii.
+
+## Najważniejsze pojęcia
+
+**Zeplin** – narzędzie do współpracy designerów i programistów.
+
+**Design Handoff** – przekazanie projektu od designera do programisty.
+
+**Asset** – zasób graficzny, np. ikona, obraz lub logo.
+
+**Style Guide** – zbiór zasad dotyczących wyglądu interfejsu.
+
+**Design System** – uporządkowany system komponentów, stylów i zasad projektowych.
+
+**Component** – wielokrotnie wykorzystywany element interfejsu.
+
+**Typography** – zasady dotyczące tekstu, fontów, rozmiarów i odstępów.
+
+**Spacing** – system odstępów pomiędzy elementami interfejsu.
+
+## W skrócie
+
+**Zeplin to narzędzie służące przede wszystkim do design handoffu, czyli przekazywania projektów UI z zespołu designerskiego do programistów.**
+
+**Pozwala sprawdzać wymiary, kolory, typografię, odstępy, komponenty i assety wykorzystane w projekcie.**
+
+**Jego głównym zadaniem nie jest tworzenie aplikacji, lecz ułatwienie programiście dokładnego odwzorowania projektu graficznego w kodzie.**
+
+**Zeplin może współpracować między innymi z Figmą, Sketchem i Adobe XD.**

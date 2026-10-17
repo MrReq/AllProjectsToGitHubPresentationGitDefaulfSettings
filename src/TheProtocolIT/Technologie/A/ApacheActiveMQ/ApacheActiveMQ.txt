@@ -1,0 +1,270 @@
+Apache ActiveMQ — notatka
+
+1. Czym jest Apache ActiveMQ?
+
+Apache ActiveMQ to broker wiadomości typu open source, rozwijany w ramach Apache Software Foundation.
+
+Służy do przesyłania wiadomości pomiędzy aplikacjami, usługami i komponentami systemu, nawet jeśli nie działają one jednocześnie lub są uruchomione na różnych serwerach.
+
+ActiveMQ umożliwia komunikację asynchroniczną, dzięki której nadawca może wysłać wiadomość bez konieczności oczekiwania na natychmiastową odpowiedź odbiorcy.
+
+Technologia jest często wykorzystywana w aplikacjach Java, systemach rozproszonych i rozwiązaniach opartych na architekturze mikroserwisowej.
+
+2. Do czego służy Apache ActiveMQ?
+
+Apache ActiveMQ pozwala oddzielić od siebie komponenty aplikacji i zapewnić im niezależną komunikację.
+
+Najważniejsze zastosowania to:
+
+- Przesyłanie wiadomości pomiędzy aplikacjami.
+- Komunikacja asynchroniczna pomiędzy mikroserwisami.
+- Obsługa kolejek zadań.
+- Przetwarzanie zamówień i zdarzeń biznesowych.
+- Integracja różnych systemów informatycznych.
+- Przesyłanie danych między aplikacjami napisanymi w różnych językach.
+- Buforowanie wiadomości podczas chwilowej niedostępności odbiorcy.
+- Realizacja komunikacji w aplikacjach wykorzystujących Java Message Service.
+- Budowanie systemów przetwarzających zadania w tle.
+
+Przykładowo sklep internetowy może wysłać wiadomość o nowym zamówieniu do kolejki, a osobna usługa może wykorzystać ją do wysłania potwierdzenia e-mail.
+
+3. Jak działa broker wiadomości?
+
+Broker wiadomości to pośrednik, który przyjmuje wiadomości od nadawców i przekazuje je odpowiednim odbiorcom.
+
+W przypadku ActiveMQ podstawowy przepływ wygląda następująco:
+
+1. Aplikacja nadawcy tworzy wiadomość.
+2. Wiadomość zostaje wysłana do brokera ActiveMQ.
+3. Broker umieszcza ją w odpowiedniej kolejce lub kieruje do tematu.
+4. Odbiorca pobiera wiadomość lub otrzymuje ją zgodnie z wybranym mechanizmem dostarczania.
+5. Aplikacja przetwarza wiadomość i w odpowiednich konfiguracjach potwierdza jej odbiór.
+
+Dzięki temu nadawca i odbiorca nie muszą bezpośrednio komunikować się ze sobą w tym samym momencie.
+
+4. Najważniejsze elementy ActiveMQ
+
+- **Broker** — serwer pośredniczący w przesyłaniu wiadomości.
+- **Producer** — aplikacja lub komponent wysyłający wiadomości.
+- **Consumer** — aplikacja lub komponent odbierający wiadomości.
+- **Queue** — kolejka, w której wiadomości oczekują na przetworzenie przez odbiorców.
+- **Topic** — kanał publikowania wiadomości dla subskrybentów.
+- **Message** — wiadomość przesyłana pomiędzy aplikacjami.
+- **Connection** — połączenie klienta z brokerem.
+- **Session** — kontekst komunikacji, w którym klient wykonuje operacje związane z wiadomościami.
+- **Acknowledgement** — potwierdzenie odbioru lub przetworzenia wiadomości, zależnie od konfiguracji.
+- **Dead Letter Queue (DLQ)** — kolejka przeznaczona na wiadomości, których nie udało się poprawnie dostarczyć lub przetworzyć zgodnie z polityką brokera.
+
+5. Queue — komunikacja punkt-punkt
+
+Queue jest wykorzystywana w modelu komunikacji point-to-point.
+
+Nadawca wysyła wiadomość do kolejki, a jeden z konkurujących odbiorców przetwarza daną wiadomość.
+
+Jeżeli do tej samej kolejki podłączonych jest kilku konsumentów, broker może rozdzielać między nich wiadomości.
+
+Przykładowo sklep internetowy umieszcza zadania generowania faktur w kolejce `invoiceQueue`, a kilka procesów może przetwarzać te zadania równolegle.
+
+Kolejki są przydatne do rozdzielania pracy i obsługi zadań w tle.
+
+6. Topic — komunikacja publikacja-subskrypcja
+
+Topic jest wykorzystywany w modelu publish-subscribe.
+
+Nadawca publikuje wiadomość w temacie, a wiadomość może zostać dostarczona wielu zainteresowanym subskrybentom.
+
+Przykładowo system publikuje zdarzenie `OrderCreated`, które może zainteresować usługę powiadomień, analitykę i moduł aktualizujący stan magazynowy.
+
+Każdy subskrybent może niezależnie reagować na otrzymane zdarzenie.
+
+W klasycznej komunikacji topic wiadomości są zwykle przeznaczone dla aktywnych subskrybentów, natomiast trwałe subskrypcje mogą pozwalać na odbieranie wiadomości opublikowanych podczas nieobecności subskrybenta.
+
+7. Apache ActiveMQ Classic a ActiveMQ Artemis
+
+W ekosystemie Apache istnieją dwie ważne technologie związane z ActiveMQ.
+
+**Apache ActiveMQ Classic** to starsza, szeroko wykorzystywana linia brokera wiadomości, znana między innymi z obsługi JMS i protokołów takich jak OpenWire.
+
+**Apache ActiveMQ Artemis** to nowszy broker o odrębnej architekturze, zaprojektowany z myślą o wysokiej wydajności i obsłudze wielu protokołów komunikacyjnych.
+
+Artemis obsługuje między innymi AMQP, MQTT, STOMP i własny protokół Core, a także może udostępniać interfejsy JMS.
+
+Obie technologie mają różne konfiguracje i szczegóły implementacyjne, dlatego nie należy zakładać, że instrukcje dotyczące jednej wersji zawsze będą działać w drugiej.
+
+Przy rozpoczynaniu nowego projektu warto świadomie wybrać konkretną linię produktu i korzystać z odpowiadającej jej dokumentacji.
+
+8. JMS — Java Message Service
+
+JMS (Java Message Service) to API służące do komunikacji asynchronicznej pomiędzy aplikacjami Java.
+
+Umożliwia wysyłanie i odbieranie wiadomości za pomocą kolejek oraz tematów.
+
+ActiveMQ jest jednym z brokerów, które mogą realizować komunikację przy użyciu JMS.
+
+W aplikacjach Java JMS pozwala oddzielić logikę biznesową od szczegółów przesyłania wiadomości.
+
+Ważne jest rozróżnienie wersji API: starsze aplikacje często korzystają z `javax.jms`, natomiast nowsze rozwiązania Jakarta Messaging wykorzystują pakiet `jakarta.jms`.
+
+Wybór właściwej biblioteki zależy od wersji brokera, klienta i frameworka używanego w projekcie.
+
+9. Przykład zastosowania w Javie
+
+Wyobraź sobie system zamówień, w którym jedna aplikacja przyjmuje zamówienie, a druga wysyła klientowi wiadomość e-mail.
+
+Aplikacja zamówień publikuje wiadomość zawierającą numer zamówienia i adres odbiorcy.
+
+Broker ActiveMQ przechowuje wiadomość w kolejce, a usługa powiadomień pobiera ją i realizuje wysyłkę.
+
+Przykładowy fragment kodu wykorzystujący API JMS:
+
+```
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSContext;
+import jakarta.jms.Queue;
+
+public class OrderProducer {
+
+    public void sendOrder(
+            ConnectionFactory factory,
+            Queue queue,
+            String message
+    ) {
+        try (JMSContext context = factory.createContext()) {
+            context.createProducer().send(queue, message);
+        }
+    }
+}
+```
+
+Przykład pokazuje samą operację wysłania wiadomości.
+
+Aby go uruchomić, należy skonfigurować odpowiednią fabrykę połączeń, kolejkę i klienta zgodnego z używaną wersją ActiveMQ oraz API JMS.
+
+10. Integracja z Spring Boot
+
+ActiveMQ można zintegrować z aplikacją Spring Boot.
+
+Spring JMS udostępnia komponenty, które ułatwiają wysyłanie i odbieranie wiadomości bez konieczności ręcznego zarządzania wszystkimi szczegółami połączenia.
+
+Najczęściej wykorzystywane elementy to:
+
+- `JmsTemplate` — wysyłanie wiadomości do brokera.
+- `@JmsListener` — odbieranie wiadomości z kolejki lub tematu.
+- `ConnectionFactory` — konfiguracja połączenia z brokerem.
+- Konfiguracja kolejek i tematów — określa miejsca wymiany wiadomości.
+- Konfiguracja transakcji i potwierdzeń — pozwala kontrolować sposób przetwarzania wiadomości.
+
+Przykładowy odbiorca:
+
+```
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class OrderConsumer {
+
+    @JmsListener(destination = "orderQueue")
+    public void receiveOrder(String message) {
+        System.out.println("Otrzymano zamówienie: " + message);
+    }
+}
+```
+
+Aby ten przykład działał, należy skonfigurować brokera, odpowiedni klient JMS oraz obsługę JMS w aplikacji Spring Boot.
+
+Przy wyborze zależności trzeba uwzględnić wersję Spring Boot i to, czy używany jest ActiveMQ Classic, czy ActiveMQ Artemis.
+
+11. Trwałość wiadomości i niezawodność
+
+ActiveMQ może zapewniać trwałe przechowywanie wiadomości, dzięki czemu broker może zachować je również po ponownym uruchomieniu, jeśli odpowiednia konfiguracja i magazyn danych są poprawnie ustawione.
+
+Ważne mechanizmy obejmują:
+
+- Persistent messages — wiadomości skonfigurowane do trwałego przechowywania.
+- Acknowledgements — potwierdzanie odbioru wiadomości.
+- Redelivery — ponowne dostarczanie wiadomości w przypadku nieudanego przetwarzania.
+- Dead Letter Queue — przechowywanie wiadomości, których nie udało się przetworzyć.
+- Transactions — grupowanie operacji w ramach transakcji, jeśli dany klient i konfiguracja to obsługują.
+
+Niezawodność zależy od konfiguracji brokera, klienta, magazynu danych i sposobu obsługi błędów.
+
+Ponowne dostarczenie wiadomości może prowadzić do wielokrotnego wykonania tej samej operacji, dlatego aplikacje powinny uwzględniać idempotencję przetwarzania.
+
+12. Apache ActiveMQ a Kafka i RabbitMQ
+
+ActiveMQ, Apache Kafka i RabbitMQ służą do komunikacji pomiędzy systemami, ale różnią się modelem działania i typowymi zastosowaniami.
+
+- **Apache ActiveMQ** — broker wiadomości często wykorzystywany w komunikacji JMS, kolejkach i integracji aplikacji.
+- **Apache Kafka** — rozproszona platforma strumieniowego przetwarzania zdarzeń, zaprojektowana między innymi do obsługi dużych strumieni danych i odtwarzania historii zdarzeń.
+- **RabbitMQ** — broker wiadomości obsługujący między innymi AMQP, popularny w systemach kolejkowych i komunikacji pomiędzy usługami.
+
+ActiveMQ może być dobrym wyborem dla aplikacji Java korzystających z JMS.
+
+Kafka jest szczególnie przydatna, gdy potrzebne są trwałe dzienniki zdarzeń, przetwarzanie strumieniowe i możliwość ponownego odczytywania danych.
+
+RabbitMQ często sprawdza się w zadaniach kolejkowych i routingu wiadomości.
+
+Ostateczny wybór zależy od wymagań dotyczących trwałości, wydajności, routingu, protokołów i skalowania.
+
+13. Zalety Apache ActiveMQ
+
+- Umożliwia asynchroniczną komunikację pomiędzy aplikacjami.
+- Obsługuje kolejki i tematy.
+- Integruje się z aplikacjami Java oraz rozwiązaniami opartymi na JMS.
+- Pomaga oddzielić od siebie komponenty systemu.
+- Może przechowywać wiadomości trwale.
+- Oferuje mechanizmy ponownego dostarczania wiadomości i obsługi błędów.
+- Obsługuje różne protokoły komunikacyjne, zależnie od wybranej linii produktu.
+- Jest przydatny w systemach rozproszonych i integracji usług.
+
+14. Wady i ograniczenia Apache ActiveMQ
+
+- Wymaga konfiguracji, monitorowania i utrzymywania brokera.
+- Nieprawidłowa konfiguracja może powodować opóźnienia lub utratę niezawodności.
+- Duży ruch wiadomości wymaga odpowiedniego doboru zasobów i konfiguracji.
+- Należy kontrolować liczbę ponownych prób i obsługiwać wiadomości trwale nieprzetwarzalne.
+- Integracja może być bardziej skomplikowana przy niezgodnych wersjach bibliotek JMS i frameworków.
+- Wybór między ActiveMQ Classic a Artemis wymaga uwzględnienia różnic architektonicznych.
+- Broker stanowi dodatkowy element infrastruktury, który trzeba zabezpieczać i monitorować.
+
+15. Plan nauki Apache ActiveMQ
+
+Na początku warto poznać podstawy komunikacji asynchronicznej, brokerów wiadomości i API JMS.
+
+Następnie należy uruchomić ActiveMQ w środowisku testowym i zapoznać się z jego konfiguracją.
+
+Kolejnym krokiem jest stworzenie dwóch aplikacji Java, z których jedna wysyła wiadomości do kolejki, a druga je odbiera.
+
+Później warto poznać tematy, trwałość wiadomości, potwierdzenia odbioru i obsługę błędów.
+
+Następnie można zintegrować brokera ze Spring Boot za pomocą `JmsTemplate` i `@JmsListener`.
+
+Na końcu dobrze jest zbudować mały system zamówień, w którym wiadomości są przetwarzane asynchronicznie, a błędy trafiają do odpowiedniej kolejki.
+
+16. Najważniejsze pojęcia
+
+- **Apache ActiveMQ** — broker wiadomości typu open source.
+- **Broker** — pośrednik przyjmujący i przekazujący wiadomości.
+- **Producer** — nadawca wiadomości.
+- **Consumer** — odbiorca wiadomości.
+- **Queue** — kolejka wiadomości w modelu point-to-point.
+- **Topic** — kanał komunikacji w modelu publish-subscribe.
+- **JMS** — Java Message Service, API do komunikacji wiadomościowej w Javie.
+- **JmsTemplate** — komponent Spring ułatwiający wysyłanie wiadomości JMS.
+- **@JmsListener** — adnotacja Spring do odbierania wiadomości.
+- **Acknowledgement** — potwierdzenie odbioru wiadomości.
+- **Dead Letter Queue** — kolejka na wiadomości, których nie udało się poprawnie przetworzyć.
+- **Persistent message** — wiadomość skonfigurowana do trwałego przechowywania.
+- **ActiveMQ Classic** — starsza linia brokera ActiveMQ.
+- **ActiveMQ Artemis** — broker o odrębnej, nowocześniejszej architekturze.
+- **Asynchronous communication** — komunikacja, w której nadawca i odbiorca nie muszą działać jednocześnie.
+
+17. W skrócie
+
+Apache ActiveMQ to broker wiadomości pozwalający aplikacjom komunikować się asynchronicznie za pomocą kolejek i tematów.
+
+Jest szczególnie przydatny w systemach Java, aplikacjach Spring Boot i architekturach, w których komponenty powinny działać niezależnie od siebie.
+
+Najważniejsze zagadnienia do poznania to kolejki, tematy, JMS, trwałość wiadomości oraz integracja z aplikacją Spring Boot.
+
+Dodaj kompletny projekt w JavieSkróć powtarzające się sekcje

@@ -1,0 +1,131 @@
+# Consul
+
+## 1. Czym jest Consul?
+
+[Securely connect your services with Consul service mesh | Consul | HashiCorp Developer](https://images.openai.com/static-rsc-4/A-Tvydu4UKAmOcx8pkmJ9ZF8jmhxp9UhcYrYRQC9_9ktGy-3K03jXN4-ElAD70xTzuQ01w20I_B4Bb8RQPC7oVGPOQevCfTyUOuu3ZVcyA0ulA-Gk0XB1tnvFJB1aB1CSUnbVp9TAKlTSSH9V_Jh6Sf_9URjtcLNBbzhpQJd4JI?purpose=inline)
+
+[developer.hashicorp.com](https://developer.hashicorp.com/consul/tutorials/get-started-kubernetes/kubernetes-gs-service-mesh)
+
+Consul to platforma opracowana przez firmę HashiCorp, służąca do wykrywania usług (Service Discovery), monitorowania ich dostępności oraz zarządzania komunikacją między usługami w środowiskach rozproszonych.
+
+Consul jest szczególnie przydatny w architekturze mikroserwisowej, w której wiele niezależnych aplikacji komunikuje się ze sobą i może działać na różnych serwerach lub kontenerach.
+
+Narzędzie umożliwia usługom odnajdywanie się bez konieczności ręcznego wpisywania adresów IP, a także oferuje mechanizmy kontroli stanu usług, zarządzania konfiguracją i zabezpieczania komunikacji.
+
+## 2. Najważniejsze funkcje Consul
+
+- Service Discovery – automatyczne wykrywanie usług i udostępnianie informacji o ich adresach oraz portach.
+- Health Checking – sprawdzanie dostępności usług i oznaczanie tych, które nie działają prawidłowo.
+- Service Mesh – zarządzanie komunikacją między usługami, w tym zabezpieczeniami połączeń.
+- Key-Value Store – przechowywanie prostych danych konfiguracyjnych w postaci klucz-wartość.
+- DNS Interface – umożliwienie wyszukiwania usług za pomocą zapytań DNS.
+- API HTTP – zarządzanie usługami i pobieranie informacji o ich stanie przez interfejs HTTP.
+- Integracja z infrastrukturą – współpraca z kontenerami, maszynami wirtualnymi i środowiskami chmurowymi.
+- Bezpieczeństwo komunikacji – obsługa mechanizmów takich jak mTLS w architekturze service mesh.
+
+## 3. Jak działa Consul?
+
+Consul przechowuje informacje o usługach zarejestrowanych w środowisku i udostępnia je innym komponentom systemu.
+
+Przykładowa architektura:
+
+Frontend
+
+Aplikacja internetowa
+
+Consul
+
+Rejestr usług, DNS i informacje o ich dostępności
+
+Service A
+
+Spring Boot
+
+Service B
+
+Spring Boot
+
+Przykładowo usługa zamówień może potrzebować komunikacji z usługą użytkowników. Zamiast utrzymywać na stałe adres konkretnego serwera, może odnajdywać instancje usługi użytkowników za pośrednictwem Consul.
+
+Consul udostępnia informacje o zarejestrowanych usługach, ale sam rejestr usług nie oznacza automatycznie, że cały ruch sieciowy zostanie przekierowany. Do tego potrzebny jest odpowiedni mechanizm klienta, proxy lub service mesh.
+
+## 4. Przykład wykorzystania Consul
+
+Załóżmy, że masz dwie aplikacje Spring Boot:
+
+- `user-service` – zarządza użytkownikami.
+- `order-service` – obsługuje zamówienia.
+
+Jeżeli `user-service` działa na kilku instancjach, Consul może przechowywać informacje o ich adresach i stanie zdrowia.
+
+Przykładowe zapytanie do HTTP API Consul, które pobiera zdrowe instancje usługi `user-service`:
+
+```
+curl http://localhost:8500/v1/health/service/user-service?passing
+```
+
+W typowej konfiguracji API zwraca informacje o instancjach, które przechodzą kontrole zdrowia.
+
+Przykładowa rejestracja usługi w pliku JSON:
+
+```
+{
+  "service": {
+    "name": "user-service",
+    "port": 8081,
+    "check": {
+      "http": "http://localhost:8081/actuator/health",
+      "interval": "10s"
+    }
+  }
+}
+```
+
+Taki plik może zostać wykorzystany jako definicja usługi w konfiguracji agenta Consul. Wymaga to uruchomionego agenta i odpowiednio skonfigurowanego endpointu health check w aplikacji.
+
+## 5. Do czego wykorzystuje się Consul?
+
+- Mikroserwisy – wykrywanie usług w systemach rozproszonych.
+- Dynamiczna infrastruktura – odnajdywanie instancji aplikacji, których adresy mogą się zmieniać.
+- Kontrola dostępności – wykrywanie niedostępnych instancji usług.
+- Service mesh – kontrolowanie komunikacji i zabezpieczanie połączeń między usługami.
+- Zarządzanie konfiguracją – przechowywanie wybranych parametrów konfiguracyjnych.
+- Środowiska chmurowe – integracja usług uruchomionych na wielu maszynach i w kontenerach.
+
+## 6. Consul a inne technologie
+
+| Technologia | Główne zastosowanie                                                      |
+| ----------- | ------------------------------------------------------------------------ |
+| Consul      | Service discovery, kontrole zdrowia i service mesh.                      |
+| Eureka      | Rejestr usług często wykorzystywany w ekosystemie Spring Cloud.          |
+| Kubernetes  | Orkiestracja kontenerów, z własnym mechanizmem wykrywania usług.         |
+| etcd        | Rozproszony magazyn klucz-wartość wykorzystywany m.in. przez Kubernetes. |
+| ZooKeeper   | Koordynacja usług rozproszonych i przechowywanie metadanych.             |
+| Nginx       | Serwer WWW, reverse proxy i load balancing.                              |
+
+## 7. Zalety i wady Consul
+
+Zalety:
+
+- Ułatwia wykrywanie usług w dynamicznej infrastrukturze.
+- Udostępnia kontrole zdrowia i informacje o dostępności instancji.
+- Obsługuje wiele środowisk uruchomieniowych.
+- Oferuje interfejsy API i DNS.
+- Może wspierać zabezpieczanie komunikacji między usługami.
+
+Wady:
+
+- Wymaga konfiguracji i utrzymania dodatkowego komponentu infrastruktury.
+- W środowiskach produkcyjnych należy odpowiednio zaplanować dostępność i zabezpieczenia klastra Consul.
+- Service mesh może zwiększyć złożoność architektury.
+- W prostych aplikacjach monolitycznych jego możliwości mogą być zbędne.
+
+## 8. Dlaczego warto znać Consul?
+
+Consul jest przydatny dla osób rozwijających się w kierunku DevOps, Cloud Engineering i projektowania systemów mikroserwisowych.
+
+Dla programisty Java i Spring Boot szczególnie ważne jest zrozumienie, jak rejestr usług, kontrole zdrowia i dynamiczne wykrywanie instancji ułatwiają komunikację pomiędzy aplikacjami.
+
+Jeżeli uczysz się Spring Cloud, warto porównać Consul z Eureka i mechanizmami Service Discovery dostępnymi w Kubernetes, aby wiedzieć, kiedy potrzebny jest osobny rejestr usług.
+
+Oficjalna dokumentacja: [HashiCorp Consul Docs](https://developer.hashicorp.com/consul/docs).

@@ -1,0 +1,384 @@
+# Xamarin
+
+## 1. Czym jest Xamarin?
+
+Xamarin to platforma i zestaw narzędzi firmy Microsoft służący do tworzenia aplikacji mobilnych na systemy Android i iOS przy użyciu języka C# oraz platformy .NET.
+
+Głównym założeniem Xamarin było umożliwienie programistom tworzenia aplikacji na różne systemy mobilne z wykorzystaniem dużej części wspólnego kodu.
+
+Xamarin pozwalał programistom korzystać z jednego ekosystemu technologicznego zamiast tworzyć całą aplikację osobno w Javie/Kotlinie dla Androida oraz Swift/Objective-C dla iOS.
+
+Xamarin został przejęty przez Microsoft w 2016 roku i następnie został zintegrowany z ekosystemem .NET.
+
+## 2. Do czego służy Xamarin?
+
+Xamarin był wykorzystywany przede wszystkim do tworzenia aplikacji mobilnych.
+
+Można było tworzyć aplikacje na Androida.
+
+Można było tworzyć aplikacje na iOS.
+
+Można było współdzielić znaczną część kodu pomiędzy platformami.
+
+Xamarin umożliwiał również korzystanie z natywnych funkcji urządzenia, takich jak aparat, GPS, Bluetooth, kontakty czy pamięć urządzenia.
+
+## 3. Najważniejsza idea Xamarin
+
+Najważniejszą ideą Xamarin było:
+
+**jeden język + wspólny kod + wiele platform.**
+
+Programista pisał większość logiki aplikacji w języku C#.
+
+Kod wspólny mógł zawierać między innymi modele danych.
+
+Mógł zawierać logikę biznesową.
+
+Mógł zawierać komunikację z API.
+
+Mógł zawierać obsługę baz danych.
+
+Mógł zawierać mechanizmy uwierzytelniania.
+
+Część specyficzna dla platformy mogła natomiast wykorzystywać natywne API Androida lub iOS.
+
+## 4. Xamarin.Forms
+
+Jednym z najważniejszych elementów ekosystemu Xamarin był **Xamarin.Forms**.
+
+Xamarin.Forms był frameworkiem umożliwiającym tworzenie interfejsu użytkownika aplikacji dla wielu platform przy użyciu wspólnego kodu.
+
+Programista mógł stworzyć interfejs raz, a Xamarin.Forms tłumaczył go na odpowiednie elementy interfejsu konkretnej platformy.
+
+Przykładowo przycisk zdefiniowany w Xamarin.Forms mógł zostać przedstawiony jako natywny element interfejsu Androida lub iOS.
+
+Do definiowania interfejsu często wykorzystywano język XAML.
+
+## 5. Xamarin.Android
+
+Xamarin.Android umożliwiał tworzenie aplikacji Android przy użyciu C# i .NET.
+
+Programista mógł korzystać z Android SDK.
+
+Xamarin udostępniał mechanizmy pozwalające wywoływać API Androida z poziomu C#.
+
+Dzięki temu można było tworzyć aplikacje wykorzystujące funkcje charakterystyczne dla Androida.
+
+## 6. Xamarin.iOS
+
+Xamarin.iOS umożliwiał tworzenie aplikacji na urządzenia Apple przy użyciu C#.
+
+Programista mógł korzystać z iOS SDK.
+
+Xamarin zapewniał dostęp do natywnych możliwości systemu iOS.
+
+Dzięki temu aplikacja mogła korzystać z funkcji urządzenia Apple podobnie jak aplikacje tworzone natywnie.
+
+## 7. C# w Xamarin
+
+Jedną z największych zalet Xamarin było wykorzystanie języka C#.
+
+Programista mógł wykorzystać takie elementy C#, jak klasy.
+
+Mógł wykorzystywać interfejsy.
+
+Mógł wykorzystywać dziedziczenie.
+
+Mógł wykorzystywać generyki.
+
+Mógł wykorzystywać LINQ.
+
+Mógł wykorzystywać async/await.
+
+Mógł wykorzystywać mechanizmy programowania obiektowego.
+
+Dzięki temu programista znający .NET mógł stosunkowo łatwo rozpocząć tworzenie aplikacji mobilnych.
+
+## 8. XAML
+
+XAML to deklaratywny język używany między innymi do definiowania interfejsu użytkownika.
+
+Przykładowy interfejs Xamarin.Forms mógł wyglądać następująco:
+
+```xml
+<StackLayout>
+    <Label Text="Hello Xamarin!" />
+    <Button Text="Kliknij mnie" />
+</StackLayout>
+```
+
+Kod XAML opisywał strukturę interfejsu.
+
+Logika działania aplikacji była natomiast zazwyczaj implementowana w C#.
+
+## 9. Code-behind
+
+Xamarin.Forms umożliwiał połączenie XAML z kodem C#.
+
+Przykładowo przycisk mógł wywoływać metodę po kliknięciu.
+
+```csharp
+private void Button_Clicked(object sender, EventArgs e)
+{
+    DisplayAlert("Informacja", "Kliknięto przycisk", "OK");
+}
+```
+
+XAML odpowiadał za wygląd.
+
+C# odpowiadał za zachowanie aplikacji.
+
+## 10. Architektura aplikacji
+
+W aplikacjach Xamarin można było stosować różne wzorce architektoniczne.
+
+Jednym z najpopularniejszych był **MVVM**.
+
+MVVM oznacza:
+
+**Model – View – ViewModel.**
+
+Model reprezentuje dane aplikacji.
+
+View odpowiada za interfejs użytkownika.
+
+ViewModel zawiera logikę potrzebną do obsługi widoku i komunikacji pomiędzy interfejsem a modelem.
+
+MVVM dobrze współpracował z XAML oraz mechanizmem data binding.
+
+## 11. Data Binding
+
+Data Binding umożliwiał powiązanie elementów interfejsu z właściwościami obiektów C#.
+
+Przykładowo:
+
+```xml
+<Label Text="{Binding UserName}" />
+```
+
+Oznaczało to, że tekst `Label` był powiązany z właściwością `UserName`.
+
+Jeżeli wartość `UserName` została odpowiednio zmieniona, interfejs mógł zostać automatycznie zaktualizowany.
+
+## 12. Xamarin i REST API
+
+Xamarin mógł być wykorzystywany do tworzenia aplikacji mobilnych komunikujących się z backendem.
+
+Aplikacja mogła wysyłać żądania HTTP do REST API.
+
+Przykładowy przepływ wyglądał następująco:
+
+**Xamarin App → HTTP → REST API → Database**
+
+Aplikacja mobilna wysyłała żądanie.
+
+Backend przetwarzał żądanie.
+
+Backend komunikował się z bazą danych.
+
+Backend zwracał odpowiedź.
+
+Xamarin przetwarzał odpowiedź i wyświetlał dane użytkownikowi.
+
+## 13. Xamarin i JSON
+
+REST API bardzo często komunikowało się z aplikacją za pomocą JSON.
+
+Przykładowa odpowiedź API:
+
+```json
+{
+    "id": 1,
+    "name": "Marcin",
+    "email": "marcin@example.com"
+}
+```
+
+W C# dane JSON można było zamienić na obiekt odpowiedniej klasy.
+
+```csharp
+public class User
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+}
+```
+
+Dzięki temu aplikacja mogła pracować z danymi jako z normalnymi obiektami C#.
+
+## 14. Xamarin i bazy danych
+
+Xamarin mógł również współpracować z lokalnymi bazami danych.
+
+Popularnym rozwiązaniem był SQLite.
+
+SQLite pozwalał przechowywać dane bezpośrednio na urządzeniu użytkownika.
+
+Było to przydatne między innymi w aplikacjach działających częściowo lub całkowicie offline.
+
+Przykładowe dane przechowywane lokalnie mogły obejmować ustawienia użytkownika.
+
+Mogły obejmować historię operacji.
+
+Mogły obejmować dane tymczasowe.
+
+## 15. Xamarin.Essentials
+
+**Xamarin.Essentials** było biblioteką zapewniającą wspólny dostęp do wielu funkcji urządzenia.
+
+Pozwalało między innymi korzystać z informacji o urządzeniu.
+
+Pozwalało korzystać z lokalizacji.
+
+Pozwalało korzystać z sieci.
+
+Pozwalało korzystać z baterii.
+
+Pozwalało korzystać z czujników.
+
+Pozwalało korzystać z preferencji aplikacji.
+
+Dzięki temu wiele funkcji można było obsługiwać za pomocą wspólnego kodu C#.
+
+## 16. Xamarin a natywne aplikacje
+
+Xamarin nie oznaczał całkowitego odizolowania od natywnych systemów.
+
+Programista nadal mógł korzystać z natywnych API Androida i iOS.
+
+Było to szczególnie ważne wtedy, gdy dana funkcja nie była dostępna bezpośrednio przez wspólny interfejs Xamarin.
+
+W takich sytuacjach można było stworzyć kod specyficzny dla konkretnej platformy.
+
+## 17. Zalety Xamarin
+
+Najważniejszą zaletą Xamarin było współdzielenie kodu pomiędzy platformami.
+
+Drugą ważną zaletą było wykorzystanie języka C#.
+
+Xamarin dobrze integrował się z ekosystemem Microsoftu i .NET.
+
+Programiści mogli korzystać z Visual Studio.
+
+Można było wykorzystywać istniejącą wiedzę dotyczącą C# i .NET.
+
+Możliwe było tworzenie aplikacji wykorzystujących natywne funkcje urządzeń.
+
+## 18. Wady Xamarin
+
+Jedną z wad Xamarin była większa złożoność w porównaniu z niektórymi rozwiązaniami natywnymi.
+
+Czasami konieczne było pisanie kodu oddzielnie dla Androida i iOS.
+
+Problematyczne mogły być również różnice pomiędzy platformami.
+
+W aplikacjach Xamarin.Forms występowały również sytuacje, w których trzeba było dostosować interfejs osobno dla różnych urządzeń.
+
+## 19. Xamarin a .NET MAUI
+
+To bardzo ważne zagadnienie.
+
+**Xamarin jest technologią starszej generacji.**
+
+Microsoft rozwija obecnie **.NET MAUI**, które jest następcą Xamarin.Forms.
+
+.NET MAUI oznacza:
+
+**.NET Multi-platform App UI.**
+
+.NET MAUI pozwala tworzyć aplikacje międzyplatformowe z wykorzystaniem współczesnego .NET.
+
+Obsługuje między innymi:
+
+**Android**
+
+**iOS**
+
+**macOS**
+
+**Windows**
+
+Główna idea pozostaje podobna:
+
+**jeden projekt → wiele platform.**
+
+## 20. Xamarin → Xamarin.Forms → .NET MAUI
+
+Warto zapamiętać ewolucję technologii:
+
+**Xamarin**
+
+↓
+
+**Xamarin.Forms**
+
+↓
+
+**.NET MAUI**
+
+Xamarin był platformą umożliwiającą tworzenie aplikacji mobilnych przy użyciu C#.
+
+Xamarin.Forms umożliwiał tworzenie wspólnego interfejsu użytkownika dla wielu platform.
+
+.NET MAUI jest współczesnym rozwiązaniem Microsoftu rozwijanym jako następca Xamarin.Forms.
+
+## 21. Xamarin w Visual Studio
+
+Xamarin był silnie związany z Visual Studio.
+
+Programista mógł tworzyć projekt.
+
+Mógł pisać kod C#.
+
+Mógł tworzyć interfejs w XAML.
+
+Mógł uruchamiać aplikację na emulatorze Androida.
+
+Mógł również korzystać z urządzeń fizycznych.
+
+W przypadku iOS część procesu wymagała środowiska Apple i odpowiednich narzędzi.
+
+## 22. Najważniejsze pojęcia
+
+**Xamarin** – platforma Microsoftu do tworzenia aplikacji mobilnych przy użyciu C# i .NET.
+
+**Xamarin.Android** – tworzenie aplikacji Android przy użyciu C#.
+
+**Xamarin.iOS** – tworzenie aplikacji iOS przy użyciu C#.
+
+**Xamarin.Forms** – framework do tworzenia wspólnego interfejsu dla wielu platform.
+
+**XAML** – deklaratywny język opisu interfejsu użytkownika.
+
+**MVVM** – popularny wzorzec architektoniczny stosowany w aplikacjach Xamarin.
+
+**Data Binding** – mechanizm wiążący dane z elementami interfejsu.
+
+**Xamarin.Essentials** – biblioteka zapewniająca dostęp do funkcji urządzenia.
+
+**SQLite** – lekka baza danych często wykorzystywana lokalnie w aplikacjach mobilnych.
+
+**.NET MAUI** – współczesny następca Xamarin.Forms.
+
+## 23. Najważniejsze do zapamiętania
+
+Xamarin służył do tworzenia aplikacji mobilnych przy użyciu C#.
+
+Jego głównym celem było współdzielenie kodu pomiędzy platformami.
+
+Xamarin umożliwiał tworzenie aplikacji na Androida i iOS.
+
+Xamarin.Forms umożliwiał tworzenie wspólnego interfejsu użytkownika.
+
+XAML służył do definiowania interfejsu.
+
+MVVM był jednym z najczęściej stosowanych wzorców architektonicznych.
+
+Xamarin mógł komunikować się z REST API.
+
+Xamarin mógł wykorzystywać lokalną bazę SQLite.
+
+Xamarin umożliwiał dostęp do natywnych funkcji urządzenia.
+
+**Xamarin jest obecnie technologią historyczną, a jego rolę przejął .NET MAUI.**

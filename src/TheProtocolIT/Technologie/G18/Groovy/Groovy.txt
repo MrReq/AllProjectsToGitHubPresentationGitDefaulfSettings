@@ -1,0 +1,188 @@
+# Groovy
+
+## 1. Czym jest Groovy?
+
+Groovy to obiektowy język programowania działający na maszynie wirtualnej Java (JVM), zaprojektowany z myślą o prostocie, elastyczności i zwiększeniu wygody programowania.
+
+Jego składnia przypomina Javę, ale często pozwala zapisać ten sam kod w znacznie krótszej formie.
+
+Groovy współpracuje z Javą, dzięki czemu może korzystać z jej klas, bibliotek i istniejących projektów.
+
+Jest wykorzystywany między innymi do automatyzacji zadań, tworzenia skryptów, testowania oprogramowania oraz konfiguracji narzędzi programistycznych.
+
+## 2. Do czego służy Groovy?
+
+Groovy może być używany do pisania krótkich skryptów automatyzujących codzienne zadania programistyczne.
+
+Jest wykorzystywany w systemach budowania projektów, takich jak Gradle, który umożliwia konfigurację procesu kompilacji i testowania aplikacji.
+
+Współpracuje z narzędziem Jenkins, gdzie skrypty Groovy mogą służyć do definiowania potoków CI/CD.
+
+Może być stosowany w testach automatycznych, przetwarzaniu danych oraz tworzeniu aplikacji wykorzystujących biblioteki Javy.
+
+Sprawdza się również jako język skryptowy osadzany w aplikacjach napisanych w Javie.
+
+## 3. Najważniejsze cechy Groovy
+
+Prosta składnia
+
+Groovy pozwala ograniczyć ilość kodu potrzebnego do wykonania wielu typowych operacji.
+
+Zgodność z Javą
+
+Groovy działa na JVM i może wykorzystywać klasy oraz biblioteki Javy.
+
+Dynamiczne typowanie
+
+Można używać słowa kluczowego `def`, aby zadeklarować zmienną bez jawnego określania jej typu.
+
+Obsługa programowania obiektowego
+
+Groovy obsługuje klasy, obiekty, dziedziczenie, interfejsy i inne podstawowe mechanizmy programowania obiektowego.
+
+Przetwarzanie kolekcji
+
+Język oferuje wygodne metody pracy z listami, mapami i zbiorami.
+
+Tworzenie DSL
+
+Groovy ułatwia tworzenie języków dziedzinowych (Domain-Specific Languages), czyli składni dostosowanej do konkretnego zastosowania, na przykład konfiguracji procesu budowania projektu.
+
+## 4. Przykład programu w Groovy
+
+Poniższy program wyświetla komunikat, tworzy listę języków programowania i wypisuje każdy element.
+
+```
+println "Hello, World!"
+
+def languages = ["Java", "Groovy", "Python"]
+
+languages.each { language ->
+    println "Język: ${language}"
+}
+```
+
+W tym przykładzie:
+
+- `println` wyświetla tekst w konsoli.
+- `def` pozwala zadeklarować zmienną bez jawnego wskazywania typu.
+- `["Java", "Groovy", "Python"]` tworzy listę elementów.
+- `each` wykonuje podany blok kodu dla każdego elementu listy.
+- `${language}` wstawia wartość zmiennej do tekstu.
+
+## 5. Groovy a Java
+
+Groovy i Java działają na JVM, ale różnią się stylem programowania.
+
+| Cecha           | Groovy                         | Java                                                       |
+| --------------- | ------------------------------ | ---------------------------------------------------------- |
+| Składnia        | Zwykle bardziej zwięzła        | Zwykle bardziej rozbudowana                                |
+| Typowanie       | Dynamiczne lub statyczne       | Statyczne                                                  |
+| Uruchamianie    | Na JVM                         | Na JVM                                                     |
+| Biblioteki Javy | Tak                            | Tak                                                        |
+| Skrypty         | Szczególnie wygodne            | Możliwe, ale tradycyjnie mniej zwięzłe                     |
+| Zastosowania    | Automatyzacja, skrypty, Gradle | Aplikacje backendowe, systemy korporacyjne, Android i inne |
+
+Groovy nie zastępuje całkowicie Javy, lecz stanowi jej uzupełnienie w wielu zastosowaniach.
+
+Warto pamiętać, że Groovy obsługuje również opcjonalne mechanizmy kontroli typów podczas kompilacji, dlatego nie musi być używany wyłącznie jako język dynamiczny.
+
+## 6. Groovy a Gradle
+
+Jednym z najważniejszych zastosowań Groovy jest konfiguracja projektów w Gradle.
+
+Gradle wykorzystuje skrypty budowania, które mogą być zapisane w Groovy DSL lub Kotlin DSL.
+
+Przykładowy fragment pliku `build.gradle`:
+
+```
+plugins {
+    id 'java'
+}
+
+group = 'pl.example'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+```
+
+Ten plik konfiguruje projekt Java, wskazuje repozytorium zależności i dodaje bibliotekę JUnit do testów.
+
+Jeśli uczysz się Javy i narzędzi budowania projektów, znajomość podstaw Groovy może pomóc w rozumieniu starszych i istniejących konfiguracji Gradle.
+
+## 7. Groovy w Jenkins
+
+Jenkins to narzędzie automatyzujące budowanie, testowanie i wdrażanie oprogramowania.
+
+W Jenkins można tworzyć potoki CI/CD, czyli sekwencje kroków wykonywanych automatycznie po określonym zdarzeniu, na przykład po zmianie kodu w repozytorium.
+
+Przykładowy fragment `Jenkinsfile`:
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Budowanie aplikacji'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Uruchamianie testów'
+            }
+        }
+    }
+}
+```
+
+W tym przykładzie zdefiniowano dwa etapy: budowanie aplikacji oraz testowanie.
+
+Jenkins Pipeline korzysta ze składni opartej na Groovy, ale udostępnia własne konstrukcje i ograniczenia, dlatego nie każdy zwykły program Groovy można bezpośrednio wykorzystać w `Jenkinsfile`.
+
+## 8. Zalety Groovy
+
+- Umożliwia pisanie krótszego i często bardziej czytelnego kodu.
+- Działa na JVM i współpracuje z ekosystemem Javy.
+- Ułatwia automatyzację zadań programistycznych.
+- Jest przydatny przy konfiguracji Gradle i Jenkins.
+- Oferuje wygodne mechanizmy pracy z kolekcjami i tekstem.
+- Pozwala tworzyć skrypty bez konieczności budowania dużej aplikacji.
+
+## 9. Wady i ograniczenia Groovy
+
+- Dynamiczne typowanie może powodować błędy wykrywane dopiero podczas wykonywania programu.
+- Wydajność i zużycie pamięci mogą być gorsze niż w dobrze zoptymalizowanym kodzie Java, zależnie od zastosowania.
+- W niektórych projektach trudniej utrzymać dużą bazę kodu bez jasno określonych typów i zasad.
+- Niektóre zastosowania wymagają znajomości specyficznej składni danego narzędzia, na przykład Gradle lub Jenkins.
+- Groovy jest mniej popularny niż Java w wielu nowych projektach aplikacyjnych.
+
+## 10. Jak rozpocząć naukę Groovy?
+
+Najlepiej zacząć od podstawowej składni, deklarowania zmiennych, instrukcji warunkowych i pętli.
+
+Następnie warto poznać listy, mapy, domknięcia (closures), klasy oraz obsługę plików.
+
+Kolejnym krokiem może być wykorzystanie Groovy do automatyzacji prostego zadania, a później poznanie jego zastosowania w Gradle lub Jenkins.
+
+Osobom znającym Javę nauka podstaw Groovy zwykle przychodzi łatwiej, ponieważ wiele konstrukcji językowych jest podobnych.
+
+## 11. Podsumowanie
+
+Groovy to język programowania działający na JVM, który łączy możliwości Javy z bardziej zwięzłą i elastyczną składnią.
+
+Jest szczególnie przydatny w skryptach, automatyzacji, konfiguracji Gradle i tworzeniu potoków Jenkins.
+
+Dla programisty Java jego znajomość jest wartościowym uzupełnieniem wiedzy, zwłaszcza podczas pracy z narzędziami DevOps i procesami CI/CD.

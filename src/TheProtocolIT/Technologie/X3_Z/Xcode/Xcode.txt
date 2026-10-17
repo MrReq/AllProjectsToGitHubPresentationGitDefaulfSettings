@@ -1,0 +1,512 @@
+# Xcode
+
+## 1. Czym jest Xcode?
+
+Xcode to zintegrowane środowisko programistyczne (IDE) firmy Apple służące do tworzenia aplikacji na urządzenia i systemy Apple.
+
+Xcode jest podstawowym środowiskiem używanym do tworzenia aplikacji na iPhone'a, iPada, Maca, Apple Watch, Apple TV oraz inne platformy Apple.
+
+Xcode działa na systemie macOS.
+
+Xcode integruje w jednym środowisku edytor kodu, kompilator, debugger, narzędzia do projektowania interfejsu, symulatory oraz narzędzia do testowania i publikowania aplikacji.
+
+## 2. Do czego służy Xcode?
+
+Xcode służy przede wszystkim do tworzenia aplikacji dla ekosystemu Apple.
+
+Można w nim tworzyć aplikacje na iOS.
+
+Można tworzyć aplikacje na iPadOS.
+
+Można tworzyć aplikacje na macOS.
+
+Można tworzyć aplikacje na watchOS.
+
+Można tworzyć aplikacje na tvOS.
+
+Xcode jest również wykorzystywany do tworzenia bibliotek, frameworków, narzędzi oraz innych projektów programistycznych.
+
+## 3. Języki programowania w Xcode
+
+Najważniejszym językiem używanym obecnie w Xcode jest **Swift**.
+
+Swift został stworzony przez Apple jako nowoczesny język programowania przeznaczony między innymi do tworzenia aplikacji na platformy Apple.
+
+Xcode obsługuje również **Objective-C**.
+
+Objective-C był przez wiele lat jednym z podstawowych języków używanych do tworzenia aplikacji Apple.
+
+W starszych projektach można więc spotkać kod napisany w Objective-C.
+
+## 4. Swift
+
+Swift jest obecnie podstawowym językiem programowania aplikacji Apple.
+
+Przykładowy kod Swift:
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        Text("Hello World!")
+    }
+}
+```
+
+Kod definiuje prosty interfejs użytkownika wyświetlający tekst.
+
+Swift jest językiem statycznie typowanym.
+
+Obsługuje programowanie obiektowe.
+
+Obsługuje również wiele mechanizmów charakterystycznych dla programowania funkcyjnego.
+
+## 5. SwiftUI
+
+**SwiftUI** to framework firmy Apple służący do tworzenia interfejsów użytkownika.
+
+SwiftUI pozwala definiować interfejs bezpośrednio w kodzie Swift.
+
+Przykład:
+
+```swift
+VStack {
+    Text("Witaj!")
+    Button("Kliknij") {
+        print("Kliknięto")
+    }
+}
+```
+
+`VStack` układa elementy pionowo.
+
+`Text` wyświetla tekst.
+
+`Button` tworzy przycisk.
+
+SwiftUI pozwala współdzielić znaczną część kodu interfejsu pomiędzy różnymi platformami Apple.
+
+## 6. UIKit
+
+**UIKit** to starszy i nadal bardzo ważny framework do tworzenia interfejsów aplikacji na platformach Apple.
+
+UIKit jest szczególnie istotny w starszych oraz dużych istniejących aplikacjach.
+
+SwiftUI i UIKit mogą być również używane razem.
+
+Dzięki temu można stopniowo przenosić istniejącą aplikację z UIKit do SwiftUI.
+
+## 7. Interface Builder
+
+Xcode posiadał narzędzie o nazwie **Interface Builder**, które umożliwiało wizualne projektowanie interfejsu.
+
+Elementy interfejsu można było przeciągać na ekran.
+
+Można było ustawiać ich właściwości.
+
+Można było definiować relacje pomiędzy elementami.
+
+W projektach wykorzystujących UIKit interfejs mógł być zapisywany między innymi w plikach storyboard.
+
+## 8. Storyboard
+
+Storyboard przedstawia strukturę ekranów aplikacji oraz przejścia pomiędzy nimi.
+
+Można było wizualnie zobaczyć wiele ekranów aplikacji.
+
+Można było również definiować przejścia pomiędzy ekranami.
+
+Storyboard był szczególnie popularny w projektach wykorzystujących UIKit.
+
+Współczesne aplikacje coraz częściej wykorzystują SwiftUI zamiast storyboardów.
+
+## 9. Projekt Xcode
+
+Projekt Xcode zawiera wszystkie elementy potrzebne do zbudowania aplikacji.
+
+Może zawierać kod Swift.
+
+Może zawierać kod Objective-C.
+
+Może zawierać pliki interfejsu.
+
+Może zawierać obrazy i inne zasoby.
+
+Może zawierać konfigurację projektu.
+
+Może zawierać testy.
+
+Może zawierać informacje dotyczące uprawnień aplikacji.
+
+## 10. Target
+
+W Xcode bardzo ważnym pojęciem jest **Target**.
+
+Target określa konkretny produkt, który ma zostać zbudowany.
+
+Jeden projekt może posiadać wiele targetów.
+
+Przykładowo jeden projekt może zawierać główną aplikację.
+
+Może również zawierać aplikację testową.
+
+Może zawierać rozszerzenie aplikacji.
+
+## 11. Scheme
+
+**Scheme** określa sposób, w jaki Xcode ma uruchamiać, testować lub budować projekt.
+
+Scheme może określać między innymi target.
+
+Może określać konfigurację Debug lub Release.
+
+Może określać urządzenie lub symulator, na którym aplikacja zostanie uruchomiona.
+
+Przykładowo można uruchomić aplikację na:
+
+**iPhone Simulator**
+
+albo:
+
+**fizycznym iPhone'ie.**
+
+## 12. Simulator
+
+Xcode posiada **Simulator**, który pozwala uruchamiać aplikacje Apple bez fizycznego urządzenia.
+
+Można na przykład uruchomić symulator iPhone'a.
+
+Można testować aplikację.
+
+Można zmieniać modele urządzeń.
+
+Można testować różne rozmiary ekranów.
+
+Symulator jest bardzo przydatny podczas tworzenia i debugowania aplikacji.
+
+## 13. Debugger
+
+Xcode posiada debugger umożliwiający analizowanie działania programu.
+
+Programista może ustawiać breakpointy.
+
+Może wykonywać program krok po kroku.
+
+Może sprawdzać wartości zmiennych.
+
+Może analizować stos wywołań.
+
+Może sprawdzać miejsce wystąpienia błędu.
+
+Debugger jest jednym z najważniejszych narzędzi podczas wyszukiwania błędów.
+
+## 14. Breakpoint
+
+Breakpoint zatrzymuje wykonywanie programu w określonym miejscu.
+
+Przykładowo można ustawić breakpoint na:
+
+```swift
+let result = calculatePrice()
+```
+
+Po dojściu programu do tego miejsca Xcode zatrzyma jego wykonywanie.
+
+Programista może wtedy sprawdzić wartości zmiennych.
+
+Może również przejść do kolejnej instrukcji.
+
+## 15. Build
+
+Build oznacza proces budowania aplikacji.
+
+Xcode analizuje kod źródłowy.
+
+Kompiluje kod.
+
+Łączy wymagane biblioteki.
+
+Przygotowuje aplikację do uruchomienia.
+
+Jeżeli podczas kompilacji wystąpi błąd, Xcode wyświetli go w panelu błędów.
+
+## 16. Compiler
+
+Kompilator przekształca kod źródłowy napisany w Swift lub Objective-C do postaci wykonywalnej przez urządzenie.
+
+Swift wykorzystuje między innymi kompilator **Swift Compiler**.
+
+W ekosystemie Apple wykorzystywany jest również **LLVM**.
+
+Uproszczony proces wygląda następująco:
+
+**Kod Swift → Compiler → kod maszynowy → aplikacja**
+
+## 17. Debug i Release
+
+Xcode wykorzystuje różne konfiguracje budowania aplikacji.
+
+Najczęściej spotkasz:
+
+**Debug**
+
+oraz:
+
+**Release**
+
+Debug służy przede wszystkim do programowania i testowania.
+
+Release służy do przygotowania aplikacji przeznaczonej do dystrybucji.
+
+Konfiguracje mogą różnić się między innymi optymalizacją oraz ustawieniami debugowania.
+
+## 18. Frameworki
+
+Framework to zestaw gotowych funkcji i klas, które można wykorzystać w aplikacji.
+
+Apple dostarcza ogromną liczbę frameworków.
+
+Przykładowo:
+
+**SwiftUI** – tworzenie interfejsów.
+
+**UIKit** – interfejsy użytkownika.
+
+**Foundation** – podstawowe funkcje systemowe.
+
+**Core Data** – praca z danymi i ich trwałym przechowywaniem.
+
+**Core Location** – lokalizacja urządzenia.
+
+**MapKit** – mapy.
+
+**AVFoundation** – audio i wideo.
+
+**CloudKit** – integracja z usługami iCloud.
+
+## 19. Foundation
+
+**Foundation** jest jednym z podstawowych frameworków Apple.
+
+Udostępnia wiele fundamentalnych funkcji wykorzystywanych przez aplikacje.
+
+Można w nim znaleźć między innymi obsługę dat.
+
+Można korzystać z operacji na tekstach.
+
+Można korzystać z URL.
+
+Można obsługiwać pliki.
+
+Można wykonywać operacje sieciowe.
+
+Przykład:
+
+```swift
+import Foundation
+```
+
+## 20. Core Data
+
+**Core Data** służy do zarządzania danymi w aplikacji.
+
+Może być wykorzystywane do trwałego przechowywania danych.
+
+Nie jest po prostu odpowiednikiem SQLite.
+
+Core Data jest frameworkiem do zarządzania obiektowym modelem danych i może wykorzystywać SQLite jako mechanizm przechowywania.
+
+## 21. Pliki zasobów
+
+Projekt Xcode może zawierać różnego rodzaju zasoby.
+
+Mogą to być obrazy.
+
+Ikony.
+
+Kolory.
+
+Dźwięki.
+
+Czcionki.
+
+Pliki konfiguracyjne.
+
+Zasoby aplikacji mogą być organizowane między innymi przy pomocy katalogów typu **Asset Catalog**.
+
+## 22. Info.plist
+
+**Info.plist** zawiera informacje konfiguracyjne aplikacji.
+
+Może zawierać między innymi informacje dotyczące aplikacji.
+
+Może definiować wymagane uprawnienia.
+
+Może zawierać konfigurację określonych funkcji aplikacji.
+
+Przykładowo aplikacja korzystająca z aparatu lub lokalizacji może wymagać odpowiednich opisów powodów wykorzystania tych funkcji.
+
+## 23. Uprawnienia
+
+Aplikacje Apple mogą potrzebować dostępu do chronionych zasobów urządzenia.
+
+Przykładowo aplikacja może potrzebować dostępu do:
+
+aparatu,
+
+mikrofonu,
+
+lokalizacji,
+
+kontaktów,
+
+zdjęć,
+
+Bluetooth.
+
+System iOS wymaga odpowiedniego mechanizmu autoryzacji dostępu do takich zasobów.
+
+## 24. Testing
+
+Xcode posiada narzędzia do testowania aplikacji.
+
+Można tworzyć **unit tests**.
+
+Można tworzyć **UI tests**.
+
+Unit test sprawdza określoną część logiki aplikacji.
+
+UI test sprawdza zachowanie aplikacji z perspektywy interfejsu użytkownika.
+
+Testy mogą być uruchamiane bezpośrednio z Xcode.
+
+## 25. Instruments
+
+**Instruments** to narzędzie służące do analizowania działania aplikacji.
+
+Można za jego pomocą analizować między innymi:
+
+zużycie pamięci,
+
+wykorzystanie procesora,
+
+wydajność aplikacji,
+
+aktywność sieciową,
+
+problemy z pamięcią.
+
+Jest szczególnie przydatne podczas optymalizacji aplikacji.
+
+## 26. Git w Xcode
+
+Xcode posiada integrację z systemami kontroli wersji, szczególnie z Git.
+
+Można przeglądać zmiany w kodzie.
+
+Można tworzyć commity.
+
+Można pracować z branchami.
+
+Można synchronizować projekt z repozytorium.
+
+Dzięki temu Xcode może być używany jako część typowego workflow Git/GitHub.
+
+## 27. Xcode i App Store
+
+Xcode jest również wykorzystywany do przygotowania aplikacji do publikacji.
+
+Proces może obejmować:
+
+**kodowanie → testowanie → archiwizacja → podpisanie aplikacji → przesłanie → App Store Connect → publikacja**
+
+Aplikacja przeznaczona do dystrybucji musi zostać odpowiednio podpisana.
+
+Apple wykorzystuje mechanizmy certyfikatów i provisioning profiles do kontroli dystrybucji aplikacji.
+
+## 28. Apple Developer
+
+Do tworzenia i publikowania aplikacji na urządzenia Apple wykorzystywane jest konto Apple Developer.
+
+Pozwala ono między innymi korzystać z odpowiednich narzędzi, certyfikatów oraz usług związanych z tworzeniem aplikacji.
+
+W przypadku dystrybucji aplikacji w App Store obowiązują dodatkowe wymagania Apple.
+
+## 29. Xcode a Visual Studio
+
+Xcode i Visual Studio są podobnymi kategoriami narzędzi, ale są przeznaczone dla różnych ekosystemów.
+
+**Xcode** jest głównym IDE firmy Apple.
+
+**Visual Studio** jest głównym IDE firmy Microsoft.
+
+Xcode koncentruje się na platformach Apple.
+
+Visual Studio obsługuje między innymi .NET, C#, C++, ASP.NET oraz wiele innych technologii.
+
+Jeżeli tworzysz aplikację natywną na iPhone'a w Swift, naturalnym środowiskiem jest Xcode.
+
+## 30. Xcode a Xamarin
+
+Xamarin pozwalał tworzyć aplikacje mobilne przy użyciu C#.
+
+Xcode jest natywnym środowiskiem Apple.
+
+Xamarin mógł korzystać z narzędzi Apple w procesie budowania aplikacji iOS, ale programista mógł pisać główną część kodu w C#.
+
+Współcześnie w świecie .NET odpowiednikiem Xamarin jest **.NET MAUI**.
+
+## 31. Najważniejsze pojęcia
+
+**Xcode** – IDE firmy Apple.
+
+**Swift** – główny współczesny język programowania aplikacji Apple.
+
+**Objective-C** – starszy język używany w ekosystemie Apple.
+
+**SwiftUI** – framework do tworzenia interfejsów.
+
+**UIKit** – framework do tworzenia interfejsów aplikacji Apple.
+
+**Xcode Simulator** – narzędzie do uruchamiania aplikacji na wirtualnych urządzeniach.
+
+**Debugger** – narzędzie do wyszukiwania błędów.
+
+**Breakpoint** – punkt zatrzymania programu.
+
+**Target** – produkt budowany przez projekt Xcode.
+
+**Scheme** – konfiguracja uruchamiania, testowania i budowania projektu.
+
+**Foundation** – podstawowy framework systemowy.
+
+**Core Data** – framework do zarządzania trwałymi danymi.
+
+**Instruments** – narzędzie do analizy wydajności aplikacji.
+
+**Info.plist** – konfiguracja aplikacji.
+
+**App Store Connect** – platforma używana między innymi do dystrybucji aplikacji w App Store.
+
+## 32. Najważniejsze do zapamiętania
+
+Xcode to **IDE firmy Apple**.
+
+Xcode działa na **macOS**.
+
+Głównym językiem używanym obecnie w Xcode jest **Swift**.
+
+Starsze aplikacje mogą wykorzystywać **Objective-C**.
+
+**SwiftUI** służy do tworzenia nowoczesnych interfejsów użytkownika.
+
+**UIKit** jest starszym, ale nadal szeroko wykorzystywanym frameworkiem UI.
+
+**Simulator** pozwala testować aplikację bez fizycznego urządzenia.
+
+**Debugger** pomaga znajdować błędy.
+
+**Instruments** służy do analizy wydajności.
+
+**Xcode umożliwia cały proces od pisania kodu, przez testowanie, aż po przygotowanie aplikacji do publikacji.**

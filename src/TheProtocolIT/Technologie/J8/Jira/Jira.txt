@@ -1,0 +1,486 @@
+# Jira
+
+## 1. Czym jest Jira?
+
+Jira to narzędzie do zarządzania projektami, zadaniami oraz procesami pracy, rozwijane przez firmę Atlassian.
+
+Jira jest szczególnie popularna w zespołach IT, które tworzą oprogramowanie, zarządzają błędami, planują sprinty i śledzą postępy prac.
+
+Narzędzie umożliwia organizowanie pracy zespołu w jednym miejscu, przypisywanie zadań do konkretnych osób, ustalanie priorytetów, definiowanie terminów oraz monitorowanie realizacji projektu.
+
+Jira jest wykorzystywana między innymi przez programistów, testerów QA, analityków biznesowych, Scrum Masterów, Product Ownerów i kierowników projektów.
+
+## 2. Do czego służy Jira?
+
+Jira pozwala zarządzać całym cyklem życia zadania – od zgłoszenia problemu lub pomysłu aż do jego rozwiązania.
+
+Najważniejsze zastosowania Jiry to:
+
+- zarządzanie zadaniami projektowymi,
+- planowanie sprintów w Scrumie,
+- zarządzanie tablicami Kanban,
+- zgłaszanie i śledzenie błędów,
+- planowanie wydań oprogramowania,
+- zarządzanie backlogiem produktu,
+- monitorowanie postępów zespołu,
+- raportowanie wyników pracy,
+- śledzenie czasu pracy,
+- organizowanie współpracy między zespołami.
+
+Przykładowo tester QA może utworzyć zgłoszenie błędu dotyczącego logowania do aplikacji, przypisać je programiście, określić priorytet, dodać zrzut ekranu i śledzić naprawę aż do ponownego przetestowania.
+
+## 3. Najważniejsze produkty i obszary Jiry
+
+Ekosystem Atlassian obejmuje kilka narzędzi przeznaczonych do różnych zastosowań.
+
+[Atlassian Developer Solutions | Atlassian](https://images.openai.com/static-rsc-4/aOr0XL75kL4dAZ4lJTCF57rTV1j-JAX1ZRG7ZZJcQtX_F7T5LJ-pobFobTxRS1MAbE7yn93pGMl8xLH6cdZyAxlJH_aQH0QrERAKWlavCjJ6MWPI5UZ7bgT1WLDR9xFAV027voKrnvevx3vpcJ6u0v9qONiyAgYNYuKLSdjzwv0?purpose=inline)
+
+Jira
+
+Narzędzie do zarządzania projektami, zadaniami, backlogiem, sprintami i przepływem pracy w zespołach IT oraz innych zespołach.
+
+[Ticketing Software by Jira Service Management | Atlassian](https://images.openai.com/static-rsc-4/JbD38l5fzUZlcBN-Qavrj8OMjz2cly2NWntpTJ37CKE81I9FRGhIlhsZ6DBroeCxfcf8bmrCcF5xjOzVCHmC6_zfJ1Dl0r_gi2m_QNV4L5b0w-yZyQrwb9rE-SvH0F-r5vbkEoL1bIQ8n6ERGbct2gbC2_RZwD7IWH6NVvtIaWY?purpose=inline)
+
+Jira Service Management
+
+Rozwiązanie do obsługi zgłoszeń serwisowych, incydentów, wniosków użytkowników i procesów ITSM.
+
+[Introduction to Jira Product Discovery views | Atlassian](https://images.openai.com/static-rsc-4/MWx1eRboSRzpaaxzaXYeIFqosykl8TsWN1zZO5OVBlucuSxfu3-JKabI_JbasWiwn_hKNmyObGDtVaxt_GBvdr2yaCpzDhVqTAboV46C1khJTg-70VK08X-jakSxNmh21wur4jfL2Fvp2qDuqcGk9mUWCzOKlBUgAT76w_oGBpI?purpose=inline)
+
+Jira Product Discovery
+
+Narzędzie wspierające zbieranie pomysłów, ustalanie priorytetów oraz planowanie rozwoju produktu.
+
+Dostępne funkcje zależą od produktu, planu subskrypcji oraz konfiguracji organizacji.
+
+## 4. Projekty w Jira
+
+Projekt jest przestrzenią, w której zespół organizuje powiązane zadania i procesy.
+
+Przykładowo projekt może dotyczyć tworzenia aplikacji internetowej dla przychodni.
+
+W takim projekcie można organizować zadania dotyczące:
+
+- rejestracji pacjentów,
+- logowania użytkowników,
+- rezerwacji wizyt,
+- integracji z bazą danych,
+- testów API,
+- poprawiania błędów.
+
+Projekt może posiadać własne typy zgłoszeń, tablice, workflow, uprawnienia i raporty.
+
+## 5. Issues – zgłoszenia i zadania
+
+W Jira podstawową jednostką pracy jest issue, czyli zgłoszenie.
+
+Może ono reprezentować zadanie, błąd, wymaganie, pomysł lub większy element pracy.
+
+Najważniejsze typy zgłoszeń to:
+
+| Typ      | Znaczenie                                          |
+| -------- | -------------------------------------------------- |
+| Epic     | Duży obszar funkcjonalności obejmujący wiele zadań |
+| Story    | Wymaganie opisane z perspektywy użytkownika        |
+| Task     | Konkretne zadanie do wykonania                     |
+| Bug      | Błąd w aplikacji                                   |
+| Sub-task | Mniejsze zadanie będące częścią innego zgłoszenia  |
+
+Dostępne typy i ich nazwy mogą być dostosowywane przez administratora.
+
+Przykład zgłoszenia:
+
+BUG-125
+
+Błąd logowania użytkownika
+
+High
+
+Typ
+
+Bug
+
+Status
+
+In Progress
+
+Przypisany do
+
+Programista
+
+Priorytet
+
+Wysoki
+
+Opis: Po podaniu poprawnego hasła aplikacja zwraca błąd 500 zamiast umożliwić zalogowanie.
+
+## 6. Workflow – przepływ pracy
+
+Workflow określa, przez jakie etapy przechodzi zgłoszenie.
+
+Przykładowy przepływ:
+
+To Do
+
+Zadanie oczekuje na realizację
+
+In Progress
+
+Prace są w toku
+
+In Review
+
+Kod lub rozwiązanie jest sprawdzane
+
+Done
+
+Zadanie zostało zakończone
+
+Workflow może zawierać dodatkowe statusy, warunki przejścia i automatyczne akcje.
+
+Przykładowo zgłoszenie błędu może przechodzić przez etapy `Open`, `In Progress`, `Ready for Testing`, `Testing` i `Closed`.
+
+## 7. Scrum w Jira
+
+Scrum to framework zwinnego zarządzania pracą, w którym zespół realizuje zadania w krótkich iteracjach zwanych sprintami.
+
+Jira wspiera Scrum poprzez:
+
+- Product Backlog,
+- Sprint Planning,
+- Sprint Backlog,
+- tablicę sprintu,
+- estymację zadań,
+- wykres Burndown,
+- raporty sprintów,
+- śledzenie realizacji celu sprintu.
+
+Przykład:
+
+Zespół planuje dwutygodniowy sprint, w którym ma przygotować rejestrację użytkowników i odzyskiwanie hasła.
+
+Zadania są wybierane z backlogu, przypisywane do sprintu, a następnie przesuwane przez kolejne etapy realizacji.
+
+## 8. Kanban w Jira
+
+Kanban to metoda zarządzania przepływem pracy, która koncentruje się na wizualizacji zadań i kontrolowaniu liczby prac wykonywanych jednocześnie.
+
+Typowa tablica Kanban wygląda tak:
+
+To Do
+
+Test logowania
+
+Dokumentacja API
+
+In Progress
+
+Naprawa błędu
+
+Done
+
+Test API
+
+W przeciwieństwie do Scrum, Kanban nie wymaga pracy w sprintach o stałej długości.
+
+Tablica Kanban pozwala obserwować aktualny stan pracy i identyfikować miejsca, w których zadania zaczynają się kumulować.
+
+## 9. Backlog
+
+Backlog to uporządkowana lista zadań i wymagań oczekujących na realizację.
+
+W Jira można zarządzać priorytetami, estymacjami, epikami oraz zadaniami zaplanowanymi na przyszłość.
+
+Przykładowy backlog:
+
+1. Rejestracja użytkownika.
+2. Logowanie użytkownika.
+3. Resetowanie hasła.
+4. Dodawanie wizyt.
+5. Wysyłanie powiadomień.
+6. Testy integracyjne.
+
+Product Owner może zmieniać kolejność zadań w zależności od wartości biznesowej i aktualnych potrzeb projektu.
+
+## 10. Priorytety i estymacja
+
+Jira pozwala określać ważność zadań i szacować nakład pracy.
+
+Przykładowe priorytety:
+
+- Highest,
+- High,
+- Medium,
+- Low,
+- Lowest.
+
+Nazwy mogą się różnić zależnie od konfiguracji.
+
+Do estymacji w Scrumie wykorzystuje się często Story Points, czyli względną ocenę złożoności zadania.
+
+Przykładowa skala:
+
+| Story Points | Orientacyjna złożoność              |
+| ------------ | ----------------------------------- |
+| 1            | Bardzo mała                         |
+| 2            | Mała                                |
+| 3            | Umiarkowana                         |
+| 5            | Większa                             |
+| 8            | Duża                                |
+| 13           | Bardzo duża lub wymagająca podziału |
+
+Story Points nie są bezpośrednim przelicznikiem godzin pracy.
+
+## 11. JQL – Jira Query Language
+
+JQL to język zapytań umożliwiający wyszukiwanie i filtrowanie zgłoszeń.
+
+Przykład:
+
+```
+project = APP
+```
+
+Wyświetla zgłoszenia z projektu `APP`.
+
+Zadania przypisane do bieżącego użytkownika:
+
+```
+assignee = currentUser()
+```
+
+Błędy, które nie zostały zakończone:
+
+```
+issuetype = Bug AND statusCategory != Done
+```
+
+Zadania o wysokim priorytecie:
+
+```
+priority = High ORDER BY created DESC
+```
+
+JQL jest przydatny do tworzenia filtrów, raportów oraz spersonalizowanych widoków pracy.
+
+## 12. Automatyzacja w Jira
+
+Jira oferuje mechanizmy automatyzacji pozwalające wykonywać akcje po wystąpieniu określonych zdarzeń.
+
+Reguła automatyzacji zazwyczaj składa się z:
+
+- Trigger – zdarzenie uruchamiające regułę.
+- Condition – warunek, który musi zostać spełniony.
+- Action – działanie wykonywane przez regułę.
+
+Przykłady:
+
+- automatyczne przypisanie zgłoszenia,
+- wysłanie powiadomienia po zmianie statusu,
+- utworzenie zadania podrzędnego,
+- aktualizacja pól po określonym zdarzeniu,
+- przypomnienie o zbliżającym się terminie.
+
+## 13. Integracje z innymi narzędziami
+
+Jira może współpracować z wieloma narzędziami wykorzystywanymi w procesie wytwarzania oprogramowania.
+
+| Narzędzie  | Zastosowanie integracji                       |
+| ---------- | --------------------------------------------- |
+| Confluence | Dokumentacja techniczna i projektowa          |
+| Bitbucket  | Repozytoria kodu i informacje o zmianach      |
+| GitHub     | Powiązanie zgłoszeń z kodem i pull requestami |
+| GitLab     | Śledzenie pracy i powiązanie z procesem CI/CD |
+| Jenkins    | Powiązanie zadań z budowaniem i wdrażaniem    |
+| Slack      | Powiadomienia o zmianach w zgłoszeniach       |
+| Xray       | Zarządzanie testami w Jira                    |
+
+Zakres integracji zależy od konfiguracji, uprawnień i dostępnych aplikacji.
+
+## 14. Jira w pracy testera QA
+
+Jira jest szczególnie przydatna dla testerów oprogramowania.
+
+Tester może w niej:
+
+- zgłaszać błędy,
+- tworzyć zadania testowe,
+- opisywać przypadki odtworzenia błędu,
+- przypisywać priorytety,
+- dołączać zrzuty ekranu i logi,
+- śledzić naprawy,
+- wykonywać retesty,
+- raportować wyniki testowania,
+- powiązać błędy z wymaganiami.
+
+Przykładowe zgłoszenie błędu powinno zawierać:
+
+Summary: Logowanie nie działa po wygaśnięciu sesji.
+
+Environment: Chrome, Windows 11, środowisko testowe.
+
+Preconditions: Użytkownik jest zalogowany, a sesja wygasła.
+
+Steps to Reproduce:
+
+1. Zaloguj się do aplikacji.
+2. Poczekaj na wygaśnięcie sesji.
+3. Spróbuj przejść do panelu użytkownika.
+
+Expected Result: Aplikacja przekierowuje użytkownika do logowania.
+
+Actual Result: Aplikacja wyświetla błąd 500.
+
+Priority: High.
+
+Tak przygotowane zgłoszenie ułatwia programiście odtworzenie i naprawienie problemu.
+
+## 15. Jira a test management
+
+Sama Jira służy przede wszystkim do zarządzania pracą i zgłoszeniami.
+
+Jeśli zespół potrzebuje rozbudowanego zarządzania przypadkami testowymi, planami testów, wykonaniami i raportami, można zastosować dodatkowe rozwiązania, na przykład Xray lub inne narzędzia do zarządzania testami.
+
+Przykładowa struktura pracy QA:
+
+```
+Requirement
+    ↓
+Test Case
+    ↓
+Test Execution
+    ↓
+Test Result
+    ↓
+Bug, jeśli test zakończył się niepowodzeniem
+```
+
+Dokładny model zależy od wykorzystywanego narzędzia i sposobu organizacji testów.
+
+## 16. Raporty i dashboardy
+
+Jira pozwala tworzyć dashboardy oraz raporty przedstawiające stan projektu.
+
+Popularne raporty Scrum obejmują:
+
+- Burndown Chart,
+- Sprint Report,
+- Velocity Chart,
+- Cumulative Flow Diagram.
+
+Dashboardy mogą prezentować między innymi:
+
+- liczbę otwartych błędów,
+- zadania przypisane do użytkownika,
+- zadania według priorytetu,
+- postęp sprintu,
+- zgłoszenia oczekujące na rozwiązanie.
+
+Raporty pomagają zespołowi identyfikować problemy i podejmować decyzje na podstawie danych.
+
+## 17. Jira a inne narzędzia
+
+| Narzędzie     | Główne zastosowanie                                                     |
+| ------------- | ----------------------------------------------------------------------- |
+| Jira          | Zarządzanie zadaniami, projektami i procesami                           |
+| Trello        | Proste tablice zadań i wizualizacja pracy                               |
+| Asana         | Zarządzanie projektami i współpracą zespołową                           |
+| Azure DevOps  | Zarządzanie pracą oraz integracja z procesem wytwarzania oprogramowania |
+| GitHub Issues | Zarządzanie zgłoszeniami bezpośrednio przy repozytorium                 |
+| Linear        | Zarządzanie zadaniami i procesem tworzenia oprogramowania               |
+
+Wybór narzędzia zależy od potrzeb zespołu, sposobu pracy i wykorzystywanego ekosystemu technologicznego.
+
+## 18. Zalety Jiry
+
+- Ułatwia organizowanie pracy zespołu.
+- Pozwala śledzić postęp realizacji zadań.
+- Obsługuje Scrum i Kanban.
+- Umożliwia szczegółowe zarządzanie błędami.
+- Pozwala automatyzować powtarzalne czynności.
+- Oferuje filtrowanie za pomocą JQL.
+- Wspiera raportowanie i dashboardy.
+- Integruje się z wieloma narzędziami IT.
+- Ułatwia współpracę między testerami, programistami i analitykami.
+
+## 19. Wady i ograniczenia Jiry
+
+- Duża liczba funkcji może utrudniać początkującym rozpoczęcie pracy.
+- Rozbudowana konfiguracja wymaga odpowiedniej wiedzy administracyjnej.
+- Niektóre funkcje i integracje mogą wymagać dodatkowych opłat.
+- Nieprawidłowo zaprojektowany workflow może komplikować pracę zespołu.
+- Nadmierna liczba pól i statusów może zwiększać ilość pracy administracyjnej.
+- Zaawansowane zarządzanie przypadkami testowymi może wymagać dodatkowego narzędzia.
+
+## 20. Najważniejsze pojęcia do zapamiętania
+
+```
+Jira
+Atlassian
+Project
+Issue
+Epic
+Story
+Task
+Bug
+Sub-task
+Workflow
+Status
+Backlog
+Sprint
+Scrum
+Kanban
+Story Points
+Priority
+Assignee
+Reporter
+JQL
+Dashboard
+Automation
+CI/CD
+Test Case
+Test Execution
+```
+
+## 21. Jira – schemat ekosystemu
+
+```
+JIRA
+│
+├── Project Management
+│   ├── Projects
+│   ├── Issues
+│   ├── Backlog
+│   └── Releases
+│
+├── Agile
+│   ├── Scrum
+│   ├── Kanban
+│   ├── Sprints
+│   └── Story Points
+│
+├── Workflow
+│   ├── Status
+│   ├── Transitions
+│   └── Automation
+│
+├── Reporting
+│   ├── Dashboard
+│   ├── Burndown
+│   ├── Velocity
+│   └── JQL
+│
+├── QA
+│   ├── Bug Tracking
+│   ├── Test Management
+│   └── Test Execution
+│
+└── Integrations
+    ├── GitHub
+    ├── GitLab
+    ├── Jenkins
+    ├── Confluence
+    └── Xray
+```
+
+Podsumowanie: Jira to jedno z najważniejszych narzędzi do zarządzania pracą w zespołach IT. Warto ją poznać szczególnie wtedy, gdy planujesz pracować jako tester QA, programista, analityk biznesowy lub Scrum Master. W pracy testera szczególnie przydatne są: tworzenie zgłoszeń błędów, zarządzanie workflow, priorytety, JQL, raportowanie oraz integracja z narzędziami do testowania.

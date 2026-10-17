@@ -1,0 +1,818 @@
+# Unreal Engine
+
+## 1. Czym jest Unreal Engine?
+
+Unreal Engine jest silnikiem do tworzenia gier komputerowych oraz zaawansowanych aplikacji 3D.
+
+Unreal Engine jest rozwijany przez firmę Epic Games.
+
+Silnik pozwala tworzyć między innymi gry 2D i 3D, aplikacje VR i AR, symulacje, wizualizacje architektoniczne oraz interaktywne środowiska.
+
+Unreal Engine jest szczególnie znany z zaawansowanej grafiki 3D, systemów oświetlenia, fizyki oraz narzędzi do tworzenia dużych światów.
+
+## 2. Unreal Engine a języki programowania
+
+Unreal Engine wykorzystuje przede wszystkim język **C++**.
+
+C++ pozwala tworzyć bardziej zaawansowaną logikę aplikacji i gier.
+
+Unreal Engine posiada również system **Blueprints**, który pozwala tworzyć logikę za pomocą wizualnych elementów połączonych ze sobą w grafie.
+
+Dzięki Blueprints można tworzyć wiele mechanizmów gry bez konieczności pisania całego kodu C++.
+
+## 3. Unreal Editor
+
+**Unreal Editor** jest środowiskiem graficznym służącym do tworzenia projektów Unreal Engine.
+
+Pozwala między innymi tworzyć poziomy, dodawać obiekty, konfigurować materiały, światła, kamery oraz testować grę.
+
+Najważniejsze elementy edytora obejmują między innymi:
+
+```text
+Viewport
+Outliner
+Details
+Content Browser
+World Settings
+Output Log
+```
+
+## 4. Project
+
+Projekt Unreal Engine zawiera wszystkie elementy potrzebne do stworzenia aplikacji lub gry.
+
+Projekt może zawierać:
+
+```text
+Maps
+Blueprints
+C++ Classes
+Materials
+Meshes
+Textures
+Animations
+Sounds
+Particles
+UI
+```
+
+Projekt Unreal Engine może być tworzony między innymi z wykorzystaniem gotowych szablonów.
+
+## 5. Level
+
+**Level** reprezentuje określone środowisko gry.
+
+Level może zawierać:
+
+```text
+Characters
+Environment
+Lights
+Cameras
+Enemies
+Weapons
+Interactive Objects
+Effects
+```
+
+W innych silnikach, takich jak Unity, podobną rolę pełni pojęcie **Scene**.
+
+## 6. Actor
+
+**Actor** jest jednym z podstawowych elementów Unreal Engine.
+
+Actor reprezentuje obiekt, który może zostać umieszczony w świecie gry.
+
+Przykładami Actorów mogą być:
+
+```text
+Player
+Enemy
+Weapon
+Vehicle
+Light
+Camera
+Door
+Trigger
+```
+
+Actor może posiadać komponenty określające jego właściwości i zachowanie.
+
+## 7. Components
+
+Komponenty pozwalają dodawać funkcjonalności do Actorów.
+
+Przykładowe komponenty to:
+
+```text
+Static Mesh Component
+Skeletal Mesh Component
+Camera Component
+Audio Component
+Collision Component
+Movement Component
+```
+
+Dzięki komponentom można budować bardziej złożone obiekty z mniejszych elementów.
+
+## 8. Pawn
+
+**Pawn** jest specjalnym typem Actora, który może być kontrolowany przez użytkownika lub AI.
+
+Pawn reprezentuje między innymi ciało lub obiekt sterowany w świecie gry.
+
+Może być wykorzystany jako podstawa dla gracza, pojazdu albo innej kontrolowanej jednostki.
+
+## 9. Character
+
+**Character** jest specjalizowanym typem Pawna przeznaczonym przede wszystkim do reprezentowania postaci.
+
+Posiada gotowe mechanizmy związane z poruszaniem się postaci.
+
+Character jest często wykorzystywany jako baza dla głównego bohatera gry.
+
+Przykładowa hierarchia może wyglądać tak:
+
+```text
+Actor
+  ↓
+Pawn
+  ↓
+Character
+```
+
+## 10. Controller
+
+Controller odpowiada za sterowanie Pawnem.
+
+Można wyróżnić między innymi:
+
+```text
+PlayerController
+AIController
+```
+
+`PlayerController` obsługuje sterowanie związane z graczem.
+
+`AIController` może sterować Pawnem za pomocą sztucznej inteligencji.
+
+## 11. GameMode
+
+**GameMode** określa podstawowe zasady działania danej gry lub poziomu.
+
+Może definiować między innymi:
+
+```text
+Default Pawn
+Player Controller
+Game State
+HUD
+Rules
+```
+
+Przykładowo GameMode może określać, jaka postać zostanie utworzona dla gracza po rozpoczęciu rozgrywki.
+
+## 12. GameState
+
+**GameState** przechowuje informacje dotyczące aktualnego stanu gry.
+
+Może zawierać informacje takie jak:
+
+```text
+Score
+Game Time
+Current Round
+Team Information
+Match State
+```
+
+GameState jest szczególnie ważny w grach wieloosobowych.
+
+## 13. PlayerState
+
+**PlayerState** przechowuje informacje dotyczące konkretnego gracza.
+
+Może zawierać między innymi:
+
+```text
+Player Name
+Score
+Team
+Statistics
+Player Status
+```
+
+W trybie multiplayer PlayerState może być wykorzystywany do przechowywania informacji o poszczególnych graczach.
+
+## 14. Blueprint
+
+**Blueprints** są wizualnym systemem programowania Unreal Engine.
+
+Zamiast pisać kod, programista może tworzyć graf złożony z węzłów.
+
+Przykładowy schemat może wyglądać tak:
+
+```text
+Event BeginPlay
+       ↓
+   Delay
+       ↓
+ Print String
+```
+
+Blueprint może wykonywać logikę gry, obsługiwać zdarzenia, sterować obiektami oraz reagować na interakcje gracza.
+
+## 15. Blueprint Class
+
+**Blueprint Class** jest klasą tworzoną za pomocą systemu Blueprint.
+
+Może być wykorzystana jako podstawa dla konkretnego obiektu gry.
+
+Przykładowo można stworzyć:
+
+```text
+BP_Player
+BP_Enemy
+BP_Door
+BP_Weapon
+BP_Vehicle
+```
+
+Blueprint może posiadać własne komponenty, zmienne, funkcje oraz zdarzenia.
+
+## 16. C++ w Unreal Engine
+
+Unreal Engine pozwala tworzyć własne klasy C++.
+
+Klasy Unreal Engine często wykorzystują makra oraz system refleksji silnika.
+
+Przykładowa klasa może wyglądać następująco:
+
+```cpp
+UCLASS()
+class AMyCharacter : public ACharacter
+{
+    GENERATED_BODY()
+};
+```
+
+`UCLASS()` informuje system Unreal Engine, że dana klasa jest klasą zarządzaną przez system refleksji Unreal.
+
+## 17. UObject
+
+`UObject` jest podstawową klasą wielu elementów systemu Unreal Engine.
+
+Wiele klas Unreal Engine dziedziczy bezpośrednio lub pośrednio po `UObject`.
+
+System `UObject` zapewnia między innymi obsługę refleksji, właściwości silnika oraz zarządzanie pamięcią przez **Garbage Collector**.
+
+## 18. UPROPERTY
+
+`UPROPERTY()` jest makrem używanym do oznaczania właściwości C++ obsługiwanych przez system Unreal Engine.
+
+Przykład:
+
+```cpp
+UPROPERTY(EditAnywhere)
+float Health;
+```
+
+Dzięki odpowiednim specyfikatorom właściwość może być między innymi dostępna w Unreal Editor.
+
+## 19. UFUNCTION
+
+`UFUNCTION()` jest makrem pozwalającym oznaczyć funkcję jako funkcję obsługiwaną przez system Unreal Engine.
+
+Przykład:
+
+```cpp
+UFUNCTION()
+void TakeDamage();
+```
+
+Funkcje mogą być również dostępne z poziomu Blueprintów, jeżeli zostaną odpowiednio oznaczone.
+
+## 20. Reflection System
+
+Unreal Engine posiada system refleksji pozwalający silnikowi znać informacje o klasach, właściwościach i funkcjach.
+
+System ten jest wykorzystywany między innymi przez:
+
+```text
+Blueprints
+Editor
+Serialization
+Networking
+Garbage Collection
+```
+
+Makra takie jak `UCLASS`, `UPROPERTY` oraz `UFUNCTION` są częścią tego systemu.
+
+## 21. Garbage Collection
+
+Unreal Engine posiada system automatycznego zarządzania pamięcią dla obiektów opartych na `UObject`.
+
+System Garbage Collection wyszukuje obiekty, które nie są już używane, i może zwolnić zajmowaną przez nie pamięć.
+
+Dzięki temu programista nie musi ręcznie zarządzać pamięcią wszystkich obiektów Unreal Engine.
+
+## 22. World
+
+**World** reprezentuje środowisko, w którym działają obiekty gry.
+
+World może zawierać między innymi:
+
+```text
+Actors
+Levels
+Game State
+Physics
+Lighting
+World Settings
+```
+
+W świecie gry znajdują się wszystkie elementy potrzebne do działania rozgrywki.
+
+## 23. Outliner
+
+**World Outliner** pokazuje Actory znajdujące się w aktualnym poziomie.
+
+Można dzięki niemu szybko znaleźć i organizować obiekty.
+
+Przykładowo:
+
+```text
+World
+ ├── Player
+ ├── Camera
+ ├── DirectionalLight
+ ├── Enemy
+ ├── Door
+ └── Environment
+```
+
+## 24. Details Panel
+
+Panel **Details** pozwala przeglądać i zmieniać właściwości zaznaczonego obiektu.
+
+Można tam zmieniać między innymi:
+
+```text
+Location
+Rotation
+Scale
+Components
+Materials
+Collision
+Variables
+```
+
+Jest podobny funkcjonalnie do panelu Inspector w Unity.
+
+## 25. Static Mesh
+
+**Static Mesh** reprezentuje nieruchomy model 3D.
+
+Może przedstawiać między innymi:
+
+```text
+Building
+Tree
+Rock
+Weapon
+Vehicle
+Furniture
+```
+
+Static Mesh może posiadać materiały oraz ustawienia związane z kolizją.
+
+## 26. Skeletal Mesh
+
+**Skeletal Mesh** jest modelem 3D posiadającym strukturę kości.
+
+Jest wykorzystywany przede wszystkim do animowanych postaci.
+
+Przykładowo postać może posiadać:
+
+```text
+Head
+Spine
+Arm
+Hand
+Leg
+Foot
+```
+
+Kości mogą być wykorzystywane do sterowania animacją modelu.
+
+## 27. Animation
+
+Unreal Engine posiada rozbudowany system animacji.
+
+Można tworzyć animacje takie jak:
+
+```text
+Idle
+Walk
+Run
+Jump
+Attack
+Death
+Reload
+```
+
+Animacje można łączyć za pomocą systemów sterowania animacją.
+
+## 28. Animation Blueprint
+
+**Animation Blueprint** pozwala definiować sposób sterowania animacjami postaci.
+
+Można w nim tworzyć między innymi:
+
+```text
+Animation States
+Transitions
+Blend Spaces
+Animation Logic
+```
+
+Przykładowo postać może przełączać się pomiędzy `Idle`, `Walk` i `Run` w zależności od prędkości.
+
+## 29. Physics
+
+Unreal Engine posiada system fizyki wykorzystywany do symulowania zachowania obiektów.
+
+Fizyka może obejmować między innymi:
+
+```text
+Gravity
+Collision
+Forces
+Rigid Bodies
+Vehicles
+Destruction
+```
+
+Unreal Engine wykorzystuje rozwiązania systemu **Chaos** do wielu zastosowań związanych z fizyką.
+
+## 30. Collision
+
+Collision pozwala określać sposób, w jaki obiekty reagują na kontakt z innymi obiektami.
+
+Można między innymi określić, czy obiekt:
+
+```text
+Blocks
+Overlaps
+Ignores
+```
+
+inny obiekt.
+
+Kolizje są wykorzystywane między innymi przy ruchu postaci, broniach, pojazdach oraz interaktywnych obiektach.
+
+## 31. Materials
+
+Material określa wygląd powierzchni obiektu.
+
+Materiał może definiować między innymi:
+
+```text
+Color
+Roughness
+Metallic
+Normal
+Opacity
+Emission
+```
+
+Materiały Unreal Engine mogą być tworzone za pomocą **Material Editor**.
+
+## 32. Material Editor
+
+Material Editor pozwala tworzyć materiały za pomocą systemu węzłów.
+
+Przykładowa struktura może wyglądać tak:
+
+```text
+Texture
+   ↓
+Multiply
+   ↓
+Base Color
+   ↓
+Material
+```
+
+Dzięki temu można tworzyć bardzo zaawansowane materiały proceduralne.
+
+## 33. Nanite
+
+**Nanite** jest technologią wirtualizowanej geometrii firmy Epic Games.
+
+Pozwala efektywnie obsługiwać bardzo szczegółowe modele 3D.
+
+Technologia jest szczególnie przydatna przy tworzeniu bardzo szczegółowych środowisk oraz obiektów.
+
+Nanite jest jednym z ważnych elementów nowoczesnego renderowania w Unreal Engine.
+
+## 34. Lumen
+
+**Lumen** jest systemem globalnego oświetlenia i odbić w Unreal Engine.
+
+Pozwala dynamicznie obliczać między innymi:
+
+```text
+Global Illumination
+Reflections
+Indirect Lighting
+```
+
+Lumen jest szczególnie przydatny w projektach wykorzystujących dynamiczne oświetlenie.
+
+## 35. Niagara
+
+**Niagara** jest systemem efektów wizualnych Unreal Engine.
+
+Pozwala tworzyć między innymi:
+
+```text
+Fire
+Smoke
+Rain
+Sparks
+Explosion
+Magic Effects
+Particles
+```
+
+Niagara wykorzystuje system oparty na emiterach i systemach cząsteczek.
+
+## 36. Audio
+
+Unreal Engine posiada system obsługi dźwięku.
+
+Można tworzyć między innymi:
+
+```text
+Music
+Sound Effects
+Ambient Sounds
+3D Audio
+Voice
+```
+
+System **MetaSounds** pozwala tworzyć bardziej zaawansowane i proceduralne zachowania dźwięku.
+
+## 37. User Interface
+
+Unreal Engine posiada system tworzenia interfejsów użytkownika.
+
+Jednym z najważniejszych narzędzi jest **UMG**, czyli Unreal Motion Graphics.
+
+UMG pozwala tworzyć:
+
+```text
+Menus
+Buttons
+Health Bars
+Score
+Inventory
+HUD
+Dialogs
+```
+
+Interfejsy mogą być tworzone w dużej części za pomocą narzędzi wizualnych.
+
+## 38. HUD
+
+**HUD**, czyli Heads-Up Display, przedstawia informacje dostępne dla gracza podczas rozgrywki.
+
+Może zawierać:
+
+```text
+Health
+Ammo
+Score
+Mini-map
+Objectives
+Timer
+```
+
+## 39. AI
+
+Unreal Engine posiada narzędzia do tworzenia sztucznej inteligencji.
+
+AI może sterować przeciwnikami, zwierzętami oraz innymi jednostkami.
+
+Można wykorzystywać między innymi:
+
+```text
+AI Controller
+Behavior Tree
+Blackboard
+Navigation System
+EQS
+```
+
+## 40. Behavior Tree
+
+**Behavior Tree** pozwala definiować zachowanie sztucznej inteligencji.
+
+Przykładowy przeciwnik może wykonywać:
+
+```text
+Patrol
+   ↓
+Detect Player
+   ↓
+Chase Player
+   ↓
+Attack Player
+   ↓
+Return to Patrol
+```
+
+Behavior Tree pozwala tworzyć bardziej złożone zachowania bez pisania całej logiki w tradycyjnym kodzie.
+
+## 41. Blackboard
+
+**Blackboard** przechowuje informacje wykorzystywane przez AI.
+
+Może przechowywać między innymi:
+
+```text
+Target Actor
+Target Location
+Current State
+Patrol Point
+Distance to Player
+```
+
+Behavior Tree może korzystać z informacji zapisanych w Blackboard.
+
+## 42. Navigation System
+
+Navigation System pozwala AI poruszać się po świecie gry.
+
+System wykorzystuje między innymi **NavMesh**, czyli obszar określający przestrzeń, po której AI może się poruszać.
+
+Przykładowo przeciwnik może znaleźć drogę do gracza omijając przeszkody.
+
+## 43. World Partition
+
+**World Partition** jest systemem przeznaczonym do zarządzania dużymi światami gry.
+
+Pozwala dzielić świat na mniejsze fragmenty i ładować odpowiednie części zależnie od potrzeb.
+
+Jest szczególnie przydatny podczas tworzenia dużych, otwartych światów.
+
+## 44. Multiplayer
+
+Unreal Engine posiada rozbudowane możliwości tworzenia gier wieloosobowych.
+
+Silnik obsługuje między innymi:
+
+```text
+Replication
+Networking
+Server
+Client
+Multiplayer Sessions
+```
+
+**Replication** pozwala synchronizować stan obiektów pomiędzy serwerem a klientami.
+
+## 45. Gameplay Ability System
+
+**Gameplay Ability System**, czyli GAS, jest frameworkiem Unreal Engine przeznaczonym do tworzenia złożonych mechanizmów związanych z umiejętnościami postaci.
+
+Może być wykorzystywany do:
+
+```text
+Abilities
+Attributes
+Effects
+Cooldowns
+Gameplay Tags
+```
+
+System jest szczególnie przydatny w większych projektach posiadających rozbudowaną mechanikę postaci.
+
+## 46. Unreal Engine i VR
+
+Unreal Engine może być wykorzystywany do tworzenia aplikacji VR.
+
+Można tworzyć między innymi:
+
+```text
+VR Games
+Simulations
+Training Applications
+Architectural Visualization
+```
+
+Silnik posiada narzędzia pozwalające obsługiwać urządzenia oraz kontrolery VR.
+
+## 47. Unreal Engine i AR
+
+Unreal Engine może również być wykorzystywany do tworzenia aplikacji rzeczywistości rozszerzonej.
+
+AR pozwala łączyć elementy cyfrowe z rzeczywistym środowiskiem.
+
+Technologia może być wykorzystywana między innymi w wizualizacjach, symulacjach oraz aplikacjach interaktywnych.
+
+## 48. Unreal Engine i MetaHuman
+
+**MetaHuman** jest technologią firmy Epic Games przeznaczoną do tworzenia realistycznych cyfrowych ludzi.
+
+MetaHuman może być wykorzystywany między innymi do tworzenia:
+
+```text
+Characters
+NPC
+Digital Humans
+Cinematic Characters
+```
+
+System pozwala uzyskać bardzo szczegółowe modele postaci.
+
+## 49. Unreal Engine i film
+
+Unreal Engine nie jest przeznaczony wyłącznie do gier.
+
+Może być wykorzystywany również w:
+
+```text
+Film
+Television
+Animation
+Virtual Production
+Architecture
+Automotive
+Simulation
+```
+
+Unreal Engine jest szczególnie ważny w **Virtual Production**, gdzie silnik może być wykorzystywany do tworzenia wirtualnych środowisk podczas produkcji filmowej.
+
+## 50. Unreal Engine a Unity
+
+Unreal Engine i Unity są silnikami wykorzystywanymi do tworzenia gier i aplikacji 3D.
+
+Unreal Engine jest silnie związany z C++ oraz systemem Blueprints.
+
+Unity wykorzystuje przede wszystkim C#.
+
+Unreal Engine posiada bardzo rozbudowane narzędzia do tworzenia zaawansowanej grafiki 3D.
+
+Unity jest również szeroko wykorzystywane w grach, aplikacjach mobilnych, VR, AR oraz innych projektach interaktywnych.
+
+Oba silniki posiadają systemy komponentów, fizyki, animacji, materiałów, audio oraz interfejsów użytkownika.
+
+## 51. Unreal Engine – najważniejsze informacje do zapamiętania
+
+Unreal Engine jest silnikiem do tworzenia gier i aplikacji 3D.
+
+Unreal Engine jest rozwijany przez Epic Games.
+
+Głównym językiem programowania jest C++.
+
+Blueprints pozwalają tworzyć logikę za pomocą wizualnego programowania.
+
+`Actor` jest podstawowym typem obiektu umieszczanego w świecie.
+
+`Pawn` jest obiektem, który może być kontrolowany.
+
+`Character` jest specjalizowanym Pawnem przeznaczonym przede wszystkim do postaci.
+
+`PlayerController` odpowiada za sterowanie gracza.
+
+`AIController` może sterować jednostkami AI.
+
+`GameMode` definiuje podstawowe zasady gry.
+
+`GameState` przechowuje informacje o aktualnym stanie rozgrywki.
+
+`PlayerState` przechowuje informacje dotyczące konkretnego gracza.
+
+`UObject` jest podstawą wielu klas Unreal Engine.
+
+`UPROPERTY()` oznacza właściwości obsługiwane przez system Unreal Engine.
+
+`UFUNCTION()` oznacza funkcje obsługiwane przez system Unreal Engine.
+
+`Nanite` odpowiada za wirtualizowaną geometrię.
+
+`Lumen` odpowiada za dynamiczne globalne oświetlenie i odbicia.
+
+`Niagara` służy do tworzenia efektów cząsteczkowych.
+
+`UMG` służy do tworzenia interfejsów użytkownika.
+
+`Behavior Tree` pozwala definiować zachowanie AI.
+
+`Blackboard` przechowuje dane wykorzystywane przez AI.
+
+`World Partition` pomaga zarządzać dużymi światami.
+
+Unreal Engine może być wykorzystywany w grach, VR, AR, symulacjach, filmie, architekturze i produkcji wirtualnej.

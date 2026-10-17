@@ -1,0 +1,701 @@
+# ESLint
+
+## 1. Czym jest ESLint?
+
+ESLint to narzędzie do **statycznej analizy kodu JavaScript i TypeScript**.
+
+Jego zadaniem jest wykrywanie potencjalnych błędów, problemów ze stylem kodu oraz niepożądanych praktyk programistycznych.
+
+ESLint analizuje kod bez konieczności jego uruchamiania.
+
+Można więc traktować ESLint jako **linter**, czyli narzędzie sprawdzające kod źródłowy.
+
+## 2. Linter
+
+Linter to program, który analizuje kod źródłowy i wyszukuje określone problemy.
+
+Przykładowo linter może wykryć:
+
+nieużywane zmienne,
+
+niezdefiniowane zmienne,
+
+błędy składniowe,
+
+niepoprawne konstrukcje,
+
+problemy ze stylem,
+
+niepożądane praktyki programistyczne.
+
+Schemat:
+
+```text
+Kod źródłowy
+     ↓
+   ESLint
+     ↓
+Analiza kodu
+     ↓
+Błędy / ostrzeżenia
+```
+
+## 3. JavaScript
+
+ESLint został pierwotnie stworzony przede wszystkim dla JavaScript.
+
+Może analizować kod wykorzystujący między innymi:
+
+ES6+,
+
+ES Modules,
+
+funkcje,
+
+klasy,
+
+async/await,
+
+Promise,
+
+destrukturyzację,
+
+arrow functions.
+
+Przykład:
+
+```javascript
+const name = "Marcin";
+
+console.log(name);
+```
+
+ESLint może sprawdzić, czy taki kod spełnia ustalone reguły projektu.
+
+## 4. TypeScript
+
+ESLint może być również wykorzystywany w projektach TypeScript.
+
+W przypadku TypeScript często stosuje się ekosystem:
+
+```text
+ESLint
+   +
+typescript-eslint
+   ↓
+Analiza TypeScript
+```
+
+`typescript-eslint` dostarcza narzędzia umożliwiające wykorzystanie ESLint z TypeScriptem.
+
+## 5. Static Analysis
+
+ESLint wykonuje **static analysis**, czyli analizę kodu bez uruchamiania programu.
+
+Przykładowo:
+
+```javascript
+const x = 10;
+
+console.log(y);
+```
+
+ESLint może wykryć, że `y` nie zostało zdefiniowane.
+
+Program nie musi zostać uruchomiony, aby taki problem został wskazany.
+
+## 6. Rules
+
+Podstawą działania ESLint są **rules**, czyli reguły.
+
+Każda reguła sprawdza określony rodzaj problemu.
+
+Przykładowo reguła:
+
+```text
+no-unused-vars
+```
+
+może wykrywać nieużywane zmienne.
+
+Inna reguła:
+
+```text
+no-console
+```
+
+może zgłaszać używanie `console`.
+
+## 7. Errors i Warnings
+
+Reguły ESLint mogą być ustawione jako:
+
+`error` – problem traktowany jako błąd.
+
+`warn` – problem traktowany jako ostrzeżenie.
+
+`off` – reguła wyłączona.
+
+Przykład:
+
+```json
+{
+  "rules": {
+    "no-unused-vars": "error",
+    "no-console": "warn"
+  }
+}
+```
+
+## 8. Konfiguracja
+
+ESLint pozwala dostosować zasady analizy do projektu.
+
+Współczesne wersje ESLint wykorzystują przede wszystkim konfigurację **Flat Config**.
+
+Typowym plikiem konfiguracyjnym jest:
+
+```text
+eslint.config.js
+```
+
+Można w nim określić między innymi:
+
+reguły,
+
+obsługiwane pliki,
+
+pluginy,
+
+preset'y,
+
+parsery,
+
+konfiguracje dla różnych części projektu.
+
+## 9. Flat Config
+
+**Flat Config** jest współczesnym systemem konfiguracji ESLint.
+
+Przykład:
+
+```javascript
+import js from "@eslint/js";
+
+export default [
+    js.configs.recommended
+];
+```
+
+Pozwala definiować konfigurację ESLint w sposób bardziej bezpośredni i modułowy.
+
+Starsze projekty mogą nadal posiadać konfiguracje oparte na `.eslintrc`.
+
+## 10. .eslintrc
+
+Starsze wersje ESLint często wykorzystywały pliki takie jak:
+
+```text
+.eslintrc.json
+.eslintrc.js
+.eslintrc.yml
+```
+
+Przykład:
+
+```json
+{
+  "rules": {
+    "semi": "error",
+    "quotes": ["error", "single"]
+  }
+}
+```
+
+W nowych projektach preferowany jest jednak Flat Config.
+
+## 11. Plugins
+
+Pluginy rozszerzają możliwości ESLint.
+
+Plugin może dodawać:
+
+nowe reguły,
+
+nowe konfiguracje,
+
+obsługę określonego frameworka,
+
+obsługę dodatkowych konstrukcji języka.
+
+Przykładowo popularnym pluginem jest:
+
+```text
+eslint-plugin-react
+```
+
+który dodaje reguły związane z Reactem.
+
+## 12. Parser
+
+Parser odpowiada za przekształcenie kodu źródłowego do struktury, którą ESLint może analizować.
+
+W przypadku TypeScript często wykorzystywany jest parser dostarczany przez:
+
+```text
+typescript-eslint
+```
+
+Dzięki temu ESLint może analizować składnię TypeScript.
+
+## 13. Presets / Configs
+
+ESLint oraz jego pluginy mogą dostarczać gotowe konfiguracje.
+
+Gotowa konfiguracja zawiera zestaw reguł przygotowanych dla określonego zastosowania.
+
+Przykładowo można użyć konfiguracji:
+
+```javascript
+js.configs.recommended
+```
+
+Dzięki temu nie trzeba ręcznie definiować każdej reguły.
+
+## 14. Recommended Rules
+
+ESLint posiada zestawy rekomendowanych reguł.
+
+Ich zadaniem jest wykrywanie częstych problemów w kodzie.
+
+Przykładowo konfiguracja recommended może wykrywać:
+
+niezdefiniowane zmienne,
+
+problemy ze składnią,
+
+niektóre błędne konstrukcje,
+
+nieosiągalny kod.
+
+## 15. Uruchamianie ESLint
+
+ESLint można instalować w projekcie za pomocą npm.
+
+Przykładowo:
+
+```bash
+npm install --save-dev eslint
+```
+
+Następnie można uruchomić:
+
+```bash
+npx eslint .
+```
+
+Kropka oznacza analizowanie plików w bieżącym projekcie zgodnie z konfiguracją.
+
+## 16. package.json
+
+ESLint jest zazwyczaj instalowany jako zależność developerska.
+
+W `package.json` może znajdować się:
+
+```json
+{
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}
+```
+
+Można również dodać skrypt:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint ."
+  }
+}
+```
+
+Wtedy można uruchomić:
+
+```bash
+npm run lint
+```
+
+## 17. Auto-fix
+
+Jedną z bardzo przydatnych funkcji ESLint jest automatyczne poprawianie części problemów.
+
+Służy do tego:
+
+```bash
+npx eslint . --fix
+```
+
+ESLint może automatycznie poprawić reguły, które obsługują mechanizm autofix.
+
+Nie wszystkie problemy mogą być jednak naprawione automatycznie.
+
+## 18. Unused Variables
+
+Jednym z typowych problemów wykrywanych przez ESLint są nieużywane zmienne.
+
+Przykład:
+
+```javascript
+const name = "Marcin";
+const age = 25;
+
+console.log(name);
+```
+
+Jeżeli reguła `no-unused-vars` jest aktywna, ESLint może zgłosić, że `age` nie jest używane.
+
+## 19. Undefined Variables
+
+ESLint może również wykrywać użycie niezdefiniowanych zmiennych.
+
+Przykład:
+
+```javascript
+console.log(username);
+```
+
+Jeżeli `username` nie zostało wcześniej zdefiniowane, ESLint może zgłosić problem.
+
+Jedną z reguł odpowiedzialnych za takie sprawdzanie jest:
+
+```text
+no-undef
+```
+
+## 20. Code Style
+
+ESLint może również kontrolować styl kodu.
+
+Można określić między innymi zasady dotyczące:
+
+średników,
+
+cudzysłowów,
+
+spacji,
+
+nawiasów,
+
+nazewnictwa,
+
+formatowania określonych konstrukcji.
+
+ESLint może więc pomóc utrzymać spójny styl kodu w całym projekcie.
+
+## 21. ESLint a Prettier
+
+ESLint i Prettier często są używane razem, ale mają różne główne zadania.
+
+**ESLint** koncentruje się na jakości kodu i wykrywaniu problemów.
+
+**Prettier** koncentruje się przede wszystkim na automatycznym formatowaniu kodu.
+
+Można więc stosować:
+
+```text
+ESLint
+   ↓
+Czy kod jest poprawny i zgodny z zasadami?
+
+Prettier
+   ↓
+Jak kod powinien wyglądać?
+```
+
+W projektach JavaScript i TypeScript często wykorzystuje się oba narzędzia.
+
+## 22. ESLint i React
+
+ESLint może być używany w aplikacjach React.
+
+Popularny plugin:
+
+```text
+eslint-plugin-react
+```
+
+dodaje reguły związane z Reactem.
+
+Można również korzystać z narzędzi związanych z React Hooks.
+
+ESLint może dzięki temu wykrywać część problemów charakterystycznych dla aplikacji React.
+
+## 23. ESLint i Vue
+
+ESLint może być również używany w projektach Vue.
+
+Popularnym rozwiązaniem jest:
+
+```text
+eslint-plugin-vue
+```
+
+Plugin dodaje reguły pozwalające analizować między innymi pliki `.vue`.
+
+## 24. ESLint i Angular
+
+ESLint może być wykorzystywany również w projektach Angular.
+
+W ekosystemie Angular stosuje się między innymi:
+
+```text
+typescript-eslint
+```
+
+oraz konfiguracje i pluginy dostosowane do Angulara.
+
+ESLint jest obecnie popularnym rozwiązaniem zastępującym wcześniejsze podejście oparte na TSLint.
+
+## 25. ESLint w IDE
+
+ESLint może być zintegrowany z IDE i edytorami kodu.
+
+Popularne środowiska, takie jak:
+
+Visual Studio Code,
+
+WebStorm,
+
+IntelliJ IDEA,
+
+mogą wyświetlać problemy ESLint bezpośrednio podczas pisania kodu.
+
+Przykładowo:
+
+```text
+const unused = 10;
+      ^^^^^^
+      warning
+```
+
+Dzięki temu programista może poprawić problem jeszcze przed uruchomieniem aplikacji.
+
+## 26. ESLint w CI/CD
+
+ESLint może być uruchamiany podczas procesu **CI/CD**.
+
+Przykładowy pipeline:
+
+```text
+Developer
+    ↓
+Git Push
+    ↓
+CI Pipeline
+    ↓
+ESLint
+    ↓
+Tests
+    ↓
+Build
+```
+
+Jeżeli ESLint wykryje błędy skonfigurowane jako `error`, pipeline może zostać zatrzymany.
+
+Pozwala to nie dopuszczać niezgodnego kodu do kolejnych etapów procesu.
+
+## 27. ESLint i Git Hooks
+
+ESLint może być uruchamiany automatycznie przed wykonaniem określonych operacji Git.
+
+Popularnym rozwiązaniem jest **Husky**.
+
+Można na przykład skonfigurować:
+
+```text
+git commit
+     ↓
+ESLint
+     ↓
+Commit
+```
+
+Dzięki temu problemy mogą być wykrywane jeszcze przed wysłaniem kodu do repozytorium.
+
+## 28. ESLint w dużym projekcie
+
+W dużym projekcie ESLint może pełnić funkcję wspólnego standardu jakości kodu.
+
+Cały zespół może korzystać z jednej konfiguracji.
+
+Przykładowo:
+
+```text
+Project
+│
+├── eslint.config.js
+├── package.json
+├── src/
+└── tests/
+```
+
+Dzięki temu kod różnych programistów może podlegać tym samym zasadom.
+
+## 29. Zalety ESLint
+
+ESLint wykrywa problemy bez uruchamiania aplikacji.
+
+Pomaga utrzymywać wysoką jakość kodu.
+
+Pozwala wymuszać jednolite zasady w zespole.
+
+Obsługuje JavaScript i może być używany z TypeScript.
+
+Może być rozszerzany za pomocą pluginów.
+
+Posiada mechanizm automatycznego poprawiania części problemów.
+
+Może być zintegrowany z IDE.
+
+Może być uruchamiany w CI/CD.
+
+## 30. Wady ESLint
+
+ESLint może wymagać odpowiedniej konfiguracji.
+
+Zbyt duża liczba reguł może utrudniać pracę programistom.
+
+Nie wszystkie problemy wykryte przez ESLint są rzeczywistymi błędami aplikacji.
+
+ESLint nie zastępuje testów jednostkowych, integracyjnych ani end-to-end.
+
+Nie sprawdza zachowania aplikacji w taki sposób jak testy uruchamiające kod.
+
+## 31. ESLint a testy
+
+ESLint i testy mają różne zadania.
+
+ESLint analizuje strukturę i jakość kodu.
+
+Testy sprawdzają zachowanie programu.
+
+Przykładowo:
+
+```text
+ESLint
+ ↓
+"Czy kod spełnia określone zasady?"
+
+Tests
+ ↓
+"Czy aplikacja działa zgodnie z oczekiwaniami?"
+```
+
+Najlepiej stosować oba mechanizmy.
+
+## 32. ESLint a TypeScript
+
+W projekcie TypeScript typowy zestaw może wyglądać tak:
+
+```text
+TypeScript
+     ↓
+typescript-eslint
+     ↓
+ESLint
+     ↓
+Analiza kodu
+```
+
+TypeScript Compiler (`tsc`) oraz ESLint mają różne zadania.
+
+`tsc` przede wszystkim sprawdza poprawność typów i kompiluje TypeScript.
+
+ESLint analizuje kod pod kątem reguł jakości i stylu.
+
+## 33. Przykładowa konfiguracja
+
+Współczesny projekt może posiadać konfigurację:
+
+```javascript
+import js from "@eslint/js";
+
+export default [
+    js.configs.recommended,
+    {
+        rules: {
+            "no-unused-vars": "warn",
+            "no-console": "warn"
+        }
+    }
+];
+```
+
+Dzięki temu projekt korzysta z gotowych reguł oraz dodatkowych zasad zdefiniowanych przez zespół.
+
+## 34. Zastosowania ESLint
+
+ESLint jest wykorzystywany między innymi w:
+
+aplikacjach JavaScript,
+
+aplikacjach TypeScript,
+
+React,
+
+Vue,
+
+Angular,
+
+Node.js,
+
+Next.js,
+
+backendach,
+
+frontendach,
+
+projektach monorepo,
+
+procesach CI/CD.
+
+## 35. Najważniejsze pojęcia
+
+**ESLint** – narzędzie do statycznej analizy JavaScript i TypeScript.
+
+**Linter** – narzędzie wykrywające problemy w kodzie.
+
+**Rule** – pojedyncza reguła analizy.
+
+**Plugin** – rozszerzenie ESLint.
+
+**Parser** – komponent analizujący składnię kodu.
+
+**Flat Config** – współczesny system konfiguracji ESLint.
+
+**Preset / Config** – gotowy zestaw reguł.
+
+**Warning** – ostrzeżenie.
+
+**Error** – błąd.
+
+**Autofix** – automatyczne poprawianie obsługiwanych problemów.
+
+**typescript-eslint** – narzędzia umożliwiające wykorzystanie ESLint z TypeScriptem.
+
+**Prettier** – narzędzie przede wszystkim do automatycznego formatowania kodu.
+
+**CI/CD** – proces automatycznego budowania, testowania i wdrażania aplikacji.
+
+## 36. Podsumowanie
+
+ESLint to jedno z najważniejszych narzędzi ekosystemu JavaScript i TypeScript służących do **statycznej analizy kodu**.
+
+Pozwala wykrywać błędy, nieużywane zmienne, problemy ze stylem oraz niepożądane konstrukcje.
+
+Dzięki regułom i pluginom można dostosować ESLint do konkretnego projektu.
+
+ESLint może być używany razem z **TypeScript, React, Vue, Angular, Node.js, Prettier, Git Hooks oraz CI/CD**.
+
+**W skrócie: ESLint = linter + static analysis + rules + plugins + JavaScript/TypeScript + jakość kodu + automatyzacja.**

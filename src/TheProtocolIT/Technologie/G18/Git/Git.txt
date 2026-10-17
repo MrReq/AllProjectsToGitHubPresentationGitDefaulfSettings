@@ -1,0 +1,143 @@
+# Git
+
+## 1. Czym jest Git?
+
+Git to rozproszony system kontroli wersji (Version Control System), który umożliwia śledzenie zmian w kodzie źródłowym, dokumentach i innych plikach projektu.
+
+Git pozwala programistom zapisywać kolejne wersje projektu, wracać do wcześniejszych zmian oraz pracować nad tym samym oprogramowaniem w zespole.
+
+Został stworzony przez Linusa Torvaldsa w 2005 roku.
+
+## 2. Do czego służy Git?
+
+Git służy do zarządzania historią zmian w projekcie i kontrolowania kolejnych wersji plików.
+
+Umożliwia zapisywanie zmian w postaci commitów, czyli punktów kontrolnych w historii projektu.
+
+Pozwala tworzyć gałęzie (branches), dzięki którym można rozwijać nowe funkcje bez ingerowania w główną wersję kodu.
+
+Ułatwia łączenie zmian wprowadzonych przez różnych programistów oraz rozwiązywanie konfliktów podczas pracy zespołowej.
+
+## 3. Najważniejsze pojęcia w Git
+
+Repository (repozytorium) to miejsce przechowujące pliki projektu oraz historię ich zmian.
+
+Commit to zapis określonego zestawu zmian wraz z opisem i informacjami o autorze.
+
+Branch (gałąź) to niezależna linia rozwoju projektu, wykorzystywana na przykład do tworzenia nowych funkcji.
+
+Merge to operacja łączenia zmian pochodzących z różnych gałęzi.
+
+Clone oznacza utworzenie lokalnej kopii istniejącego repozytorium.
+
+Pull pobiera zmiany z repozytorium zdalnego i integruje je z aktualną gałęzią.
+
+Push wysyła lokalne commity do repozytorium zdalnego.
+
+Staging area to obszar, w którym przygotowuje się zmiany przeznaczone do zapisania w commicie.
+
+## 4. Najważniejsze komendy Git
+
+`git init` tworzy nowe lokalne repozytorium Git.
+
+`git clone URL` pobiera kopię istniejącego repozytorium.
+
+`git status` pokazuje aktualny stan plików i repozytorium.
+
+`git add .` dodaje zmienione pliki do obszaru przygotowania zmian.
+
+`git commit -m "Opis zmian"` zapisuje przygotowane zmiany w historii projektu.
+
+`git log` wyświetla historię commitów.
+
+`git branch` pokazuje dostępne gałęzie.
+
+`git switch -c nazwa-galezi` tworzy nową gałąź i przełącza na nią.
+
+`git merge nazwa-galezi` łączy wskazaną gałąź z aktualną gałęzią.
+
+`git pull` pobiera i integruje zmiany z repozytorium zdalnego.
+
+`git push` wysyła lokalne commity do repozytorium zdalnego.
+
+`git diff` pokazuje różnice pomiędzy wersjami plików.
+
+`git restore nazwa-pliku` przywraca plik do stanu z ostatniego commita, odrzucając jego niezapisane zmiany.
+
+## 5. Git a GitHub
+
+Git jest systemem kontroli wersji instalowanym i uruchamianym lokalnie na komputerze.
+
+GitHub to internetowa platforma do przechowywania repozytoriów Git, współpracy programistów, przeglądania kodu i zarządzania projektami.
+
+Alternatywami dla GitHuba są GitLab oraz Bitbucket.
+
+Git może działać bez GitHuba, ale GitHub wykorzystuje Gita do zarządzania historią kodu i współpracą zespołową.
+
+## 6. Przykładowy przebieg pracy z Git
+
+Podczas tworzenia aplikacji w Javie możesz najpierw utworzyć repozytorium, a następnie zapisywać kolejne etapy rozwoju projektu.
+
+Typowy przebieg pracy wygląda następująco:
+
+1. `git init` – utworzenie repozytorium.
+2. `git add .` – przygotowanie zmian do zapisania.
+3. `git commit -m "Initial commit"` – zapis pierwszej wersji projektu.
+4. `git switch -c feature/login` – utworzenie gałęzi dla funkcji logowania.
+5. Wprowadzenie zmian w kodzie.
+6. `git add .` oraz `git commit -m "Add login feature"` – zapis nowych zmian.
+7. `git push` – wysłanie commitów do skonfigurowanego repozytorium zdalnego.
+
+W praktyce przed wysłaniem zmian warto sprawdzić `git status`, a przy pracy zespołowej również pobrać aktualne zmiany z repozytorium zdalnego.
+
+## 7. Plik .gitignore
+
+`.gitignore` to plik konfiguracyjny określający, które nieśledzone pliki i katalogi Git powinien pomijać.
+
+Jest przydatny do ignorowania plików tymczasowych, katalogów kompilacji, plików środowiska IDE oraz lokalnych ustawień.
+
+Przykładowa zawartość pliku `.gitignore` dla projektu Java i IntelliJ IDEA:
+
+```
+target/
+.idea/
+*.iml
+*.class
+.env
+```
+
+Dzięki temu wymienione pliki i katalogi nie będą dodawane do repozytorium, o ile nie są już śledzone przez Git.
+
+## 8. Zalety Git
+
+Git pozwala dokładnie śledzić historię zmian i odtwarzać wcześniejsze wersje projektu.
+
+Umożliwia równoległą pracę nad wieloma funkcjami dzięki wykorzystaniu gałęzi.
+
+Wspiera współpracę zespołową i integrację z narzędziami CI/CD.
+
+Jest darmowy, otwartoźródłowy i dostępny na najpopularniejszych systemach operacyjnych.
+
+## 9. Wady i ograniczenia Git
+
+Początkujący użytkownicy mogą mieć trudności ze zrozumieniem gałęzi, merge'owania i rozwiązywania konfliktów.
+
+Niektóre operacje, takie jak rebase czy reset, wymagają ostrożności, ponieważ mogą zmienić historię lub usunąć lokalne zmiany.
+
+Git sam w sobie nie zapewnia hostingu repozytorium zdalnego ani kompletnego systemu do zarządzania projektem.
+
+## 10. Znaczenie Git w pracy informatyka
+
+Git jest jednym z podstawowych narzędzi pracy programistów, testerów automatyzujących, administratorów systemów i inżynierów DevOps.
+
+Jest często wykorzystywany w projektach Java, Spring Boot, Python, JavaScript, C++ oraz w aplikacjach tworzonych z użyciem wielu innych technologii.
+
+Znajomość Gita jest ważną umiejętnością podczas nauki programowania, przygotowywania portfolio na GitHubie i pracy w zespołach informatycznych.
+
+## 11. Podsumowanie
+
+Git to rozproszony system kontroli wersji, który pozwala śledzić zmiany w plikach, zapisywać historię projektu, tworzyć gałęzie i współpracować z innymi programistami.
+
+Najważniejsze komendy do opanowania na początek to `git status`, `git add`, `git commit`, `git log`, `git branch`, `git pull` oraz `git push`.
+
+Regularne korzystanie z Gita pomaga utrzymywać porządek w projektach i bezpieczniej rozwijać oprogramowanie.

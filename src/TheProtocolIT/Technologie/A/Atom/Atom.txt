@@ -1,0 +1,187 @@
+Atom — notatka
+
+1. Czym jest Atom?
+
+Atom to edytor kodu źródłowego stworzony przez firmę GitHub.
+
+Był przeznaczony dla programistów, którzy potrzebowali elastycznego środowiska do edycji kodu w wielu językach programowania.
+
+Atom oferował rozbudowane możliwości personalizacji, system rozszerzeń oraz integrację z narzędziami programistycznymi.
+
+Edytor był oparty na technologiach webowych, takich jak HTML, CSS i JavaScript, oraz wykorzystywał platformę Electron.
+
+**Ważne:** Atom został oficjalnie wycofany 15 grudnia 2022 roku i nie jest już aktywnie rozwijany przez GitHub.
+
+2. Do czego służył Atom?
+
+Atom służył do pisania, edytowania i organizowania kodu źródłowego.
+
+Umożliwiał pracę nad projektami w językach takich jak JavaScript, Python, Java, C++, HTML i CSS.
+
+Programiści wykorzystywali go również do edycji plików konfiguracyjnych, dokumentacji, skryptów i plików tekstowych.
+
+Dzięki rozszerzeniom można było dostosować edytor do konkretnych technologii i sposobu pracy.
+
+3. Najważniejsze funkcje Atoma
+
+Atom oferował podświetlanie składni, które ułatwiało rozpoznawanie elementów kodu.
+
+Umożliwiał automatyczne uzupełnianie kodu, wyszukiwanie tekstu oraz pracę na wielu plikach jednocześnie.
+
+Obsługiwał dzielenie edytora na kilka paneli, dzięki czemu można było porównywać pliki lub pracować nad różnymi fragmentami projektu.
+
+Pozwalał instalować motywy wizualne i pakiety rozszerzające jego funkcjonalność.
+
+Dzięki integracji z Git programiści mogli wykonywać część operacji związanych z kontrolą wersji bezpośrednio w edytorze.
+
+4. Języki programowania
+
+Atom obsługiwał wiele języków programowania dzięki wbudowanym mechanizmom edycji oraz dodatkowym pakietom.
+
+Można było wykorzystywać go do pracy z JavaScriptem, Pythonem, Javą, C++, C#, PHP, Ruby i innymi językami.
+
+Podświetlanie składni pomagało rozpoznawać słowa kluczowe, zmienne, funkcje i komentarze.
+
+W zależności od zainstalowanych rozszerzeń edytor mógł również oferować analizę kodu, uzupełnianie składni i integrację z narzędziami danego języka.
+
+Atom nie był jednak pełnym środowiskiem IDE i w bardziej zaawansowanych projektach często wymagał dodatkowych narzędzi.
+
+5. Pakiety i rozszerzenia
+
+Jedną z najważniejszych zalet Atoma był system pakietów rozszerzających możliwości edytora.
+
+Pakiety mogły dodawać obsługę nowych języków, narzędzia do formatowania kodu, integracje z systemami kontroli wersji i dodatkowe funkcje edytora.
+
+Użytkownicy mogli również tworzyć własne rozszerzenia.
+
+System pakietów sprawiał, że Atom można było dostosować do różnych zastosowań programistycznych.
+
+Po zakończeniu rozwoju edytora dostępność i kompatybilność niektórych pakietów może być ograniczona.
+
+6. Interfejs użytkownika
+
+Interfejs Atoma składał się z obszaru edycji kodu, panelu plików i dodatkowych paneli narzędziowych.
+
+Drzewo projektu pozwalało przeglądać strukturę katalogów i otwierać pliki.
+
+Edytor umożliwiał pracę na wielu kartach i dzielenie obszaru roboczego na osobne widoki.
+
+Motywy wizualne pozwalały zmieniać wygląd interfejsu i kolorystykę kodu.
+
+Dzięki temu użytkownik mógł dopasować środowisko do własnych preferencji.
+
+7. Atom a Git i GitHub
+
+Atom został stworzony przez GitHub, dlatego integracja z systemem kontroli wersji Git była ważnym elementem jego funkcjonalności.
+
+Programiści mogli przeglądać zmodyfikowane pliki i wykonywać wybrane operacje związane z repozytorium.
+
+Git pozwala śledzić historię zmian, tworzyć gałęzie i współpracować nad kodem z innymi programistami.
+
+GitHub umożliwia przechowywanie repozytoriów online oraz współpracę nad projektami.
+
+Atom był edytorem kodu, Git systemem kontroli wersji, a GitHub platformą do hostowania repozytoriów i współpracy.
+
+8. Technologia Electron
+
+Atom był zbudowany z wykorzystaniem platformy Electron.
+
+Electron umożliwia tworzenie aplikacji desktopowych przy użyciu technologii webowych, takich jak HTML, CSS i JavaScript.
+
+Dzięki temu programiści mogli rozwijać interfejs aplikacji podobnie jak interfejs strony internetowej.
+
+Electron pozwala uruchamiać aplikacje na różnych systemach operacyjnych przy wykorzystaniu wspólnej bazy kodu.
+
+Jednocześnie aplikacje oparte na Electron mogą zużywać więcej pamięci niż niektóre natywne edytory.
+
+9. Atom a Visual Studio Code
+
+Atom i Visual Studio Code to edytory kodu, które oferowały podświetlanie składni, rozszerzenia i narzędzia wspomagające programowanie.
+
+Oba rozwiązania wykorzystywały technologie webowe i zapewniały możliwości personalizacji.
+
+Visual Studio Code oferuje rozbudowany ekosystem rozszerzeń, integrację z narzędziami debugowania oraz aktywny rozwój.
+
+Atom został wycofany, dlatego nie jest dobrym pierwszym wyborem dla nowych projektów.
+
+Jeśli szukasz nowoczesnego edytora kodu, warto rozważyć Visual Studio Code, a w przypadku większych projektów również pełne środowiska IDE.
+
+10. Atom a IDE
+
+Edytor kodu koncentruje się przede wszystkim na tworzeniu i edytowaniu plików źródłowych.
+
+IDE, czyli Integrated Development Environment, zazwyczaj oferuje dodatkowo rozbudowane narzędzia do budowania, debugowania, testowania i analizowania projektów.
+
+Atom mógł uzyskać dodatkowe funkcje dzięki rozszerzeniom, ale nie zapewniał wszystkich możliwości specjalistycznych IDE w standardowej instalacji.
+
+Przykładami pełnych środowisk IDE są IntelliJ IDEA, Visual Studio i PyCharm.
+
+Wybór między edytorem a IDE zależy od języka programowania, wielkości projektu i wymaganych narzędzi.
+
+11. Zalety Atoma
+
+Atom oferował dużą możliwość personalizacji dzięki pakietom i motywom.
+
+Obsługiwał wiele języków programowania i różne rodzaje plików.
+
+Zapewniał wygodny interfejs oraz funkcje ułatwiające pracę z kodem.
+
+Pozwalał rozszerzać funkcjonalność za pomocą JavaScriptu i innych technologii webowych.
+
+Integracja z Git ułatwiała wykonywanie wybranych operacji związanych z kontrolą wersji.
+
+12. Wady Atoma
+
+Atom został oficjalnie wycofany, dlatego nie otrzymuje już standardowych aktualizacji i poprawek bezpieczeństwa od GitHub.
+
+Jego ekosystem rozszerzeń nie jest rozwijany w taki sposób jak ekosystem współczesnych edytorów.
+
+W niektórych konfiguracjach Atom mógł zużywać dużo pamięci i działać wolniej od lżejszych edytorów.
+
+Zaawansowane funkcje programistyczne często wymagały instalowania dodatkowych pakietów.
+
+Z tego powodu korzystanie z Atoma w nowych projektach jest zazwyczaj mniej praktyczne niż korzystanie z aktywnie rozwijanych narzędzi.
+
+13. Plan nauki edytorów kodu
+
+Na początku warto poznać podstawowe funkcje edytora, takie jak otwieranie projektów, wyszukiwanie tekstu i praca na wielu plikach.
+
+Następnie należy nauczyć się korzystać z terminala i uruchamiać programy napisane w wybranym języku.
+
+Kolejnym krokiem jest poznanie Git oraz podstawowej pracy z repozytoriami.
+
+Później warto opanować formatowanie kodu, debugowanie, rozszerzenia i integrację z narzędziami programistycznymi.
+
+Do współczesnej nauki programowania lepiej wybrać aktywnie rozwijany edytor, na przykład Visual Studio Code, albo środowisko IDE odpowiednie dla danego języka.
+
+14. Najważniejsze pojęcia
+
+Atom — wycofany edytor kodu źródłowego stworzony przez GitHub.
+
+GitHub — platforma do hostowania repozytoriów i współpracy nad kodem.
+
+Git — rozproszony system kontroli wersji.
+
+Electron — platforma do tworzenia aplikacji desktopowych z wykorzystaniem technologii webowych.
+
+Syntax Highlighting — podświetlanie składni kodu za pomocą kolorów.
+
+Package — rozszerzenie dodające funkcje do edytora.
+
+Theme — motyw zmieniający wygląd interfejsu.
+
+IDE — zintegrowane środowisko programistyczne.
+
+Debugging — proces analizowania i wyszukiwania błędów w programie.
+
+Repository — repozytorium przechowujące pliki projektu i historię zmian.
+
+15. W skrócie
+
+Atom był edytorem kodu stworzonym przez GitHub, który umożliwiał programowanie w wielu językach i rozbudowę funkcji za pomocą pakietów.
+
+Wyróżniał się personalizacją, integracją z Git i wykorzystaniem technologii Electron.
+
+Ponieważ został wycofany 15 grudnia 2022 roku, do nauki programowania i nowych projektów warto wybrać aktywnie rozwijane narzędzie, takie jak Visual Studio Code.
+
+Dodaj praktyczny przykład użycia AtomaSkróć powtarzające się sekcje notatki

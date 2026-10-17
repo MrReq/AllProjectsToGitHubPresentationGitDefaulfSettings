@@ -1,0 +1,304 @@
+ASP.NET — notatka
+
+1. Czym jest ASP.NET?
+
+ASP.NET to platforma firmy Microsoft służąca do tworzenia aplikacji internetowych, interfejsów API oraz usług działających po stronie serwera.
+
+Jest częścią ekosystemu .NET i umożliwia budowanie aplikacji przy użyciu języków takich jak C#.
+
+ASP.NET pozwala obsługiwać żądania HTTP, przetwarzać dane, komunikować się z bazami danych oraz generować odpowiedzi dla przeglądarek i innych aplikacji.
+
+Współczesnym rozwiązaniem jest ASP.NET Core, które jest wieloplatformowe i może działać na systemach Windows, Linux oraz macOS.
+
+2. Do czego służy ASP.NET?
+
+ASP.NET służy do tworzenia różnego rodzaju aplikacji internetowych.
+
+Można za jego pomocą budować strony internetowe, aplikacje biznesowe, systemy zarządzania użytkownikami oraz platformy e-commerce.
+
+Technologia umożliwia również tworzenie REST API, z których korzystają aplikacje frontendowe, mobilne i inne systemy.
+
+ASP.NET jest często wykorzystywany w aplikacjach korporacyjnych, systemach finansowych oraz rozwiązaniach integrujących wiele usług.
+
+3. Czym jest ASP.NET Core?
+
+ASP.NET Core to nowoczesna, wieloplatformowa implementacja platformy ASP.NET.
+
+Umożliwia tworzenie aplikacji internetowych i usług działających na środowisku .NET.
+
+Charakteryzuje się wysoką wydajnością, modułową architekturą oraz obsługą wstrzykiwania zależności.
+
+Może działać na własnym serwerze Kestrel, za serwerem proxy lub w środowiskach chmurowych.
+
+ASP.NET Core jest zalecanym wyborem przy rozpoczynaniu nowych projektów internetowych w ekosystemie .NET.
+
+4. Język C# i środowisko .NET
+
+ASP.NET Core jest najczęściej wykorzystywany razem z językiem C#.
+
+C# służy do implementowania logiki biznesowej, kontrolerów, usług i dostępu do danych.
+
+Platforma .NET zapewnia środowisko uruchomieniowe, biblioteki standardowe oraz narzędzia potrzebne do budowania aplikacji.
+
+Do tworzenia projektów można wykorzystywać Visual Studio, Visual Studio Code lub JetBrains Rider.
+
+W projektach ASP.NET Core często stosuje się również NuGet do zarządzania pakietami.
+
+5. Jak działa aplikacja ASP.NET Core?
+
+Aplikacja internetowa odbiera żądania HTTP od przeglądarki lub innego klienta.
+
+Żądanie przechodzi przez skonfigurowany potok obsługi żądań, w którym mogą działać między innymi mechanizmy uwierzytelniania, autoryzacji i routingu.
+
+Następnie odpowiedni endpoint lub kontroler wykonuje logikę aplikacji.
+
+Jeżeli jest to konieczne, aplikacja komunikuje się z bazą danych lub inną usługą.
+
+Na końcu zwraca odpowiedź HTTP, na przykład dokument HTML, dane JSON albo kod informujący o błędzie.
+
+6. Kontrolery i routing
+
+Kontroler to klasa obsługująca określone żądania HTTP i realizująca odpowiednią logikę aplikacji.
+
+Routing określa, która metoda lub funkcja powinna obsłużyć żądanie o danym adresie i rodzaju.
+
+W ASP.NET Core można tworzyć kontrolery MVC, kontrolery API oraz endpointy oparte na Minimal APIs.
+
+Przykładowy kontroler API w języku C# wygląda następująco:
+
+```
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    [HttpGet]
+    public IActionResult GetProducts()
+    {
+        var products = new[]
+        {
+            new { Id = 1, Name = "Laptop" },
+            new { Id = 2, Name = "Monitor" }
+        };
+
+        return Ok(products);
+    }
+}
+```
+
+Po skonfigurowaniu kontrolerów żądanie `GET /api/products` może zwrócić listę produktów w formacie JSON.
+
+Atrybut `ApiController` udostępnia funkcje przydatne w tworzeniu API, a `Route` określa trasę kontrolera.
+
+Metoda `Ok()` zwraca odpowiedź HTTP 200 wraz z przekazanymi danymi.
+
+7. REST API w ASP.NET Core
+
+ASP.NET Core umożliwia tworzenie interfejsów API, które pozwalają innym aplikacjom korzystać z funkcji serwera.
+
+REST API często wykorzystuje metody HTTP GET, POST, PUT, PATCH i DELETE.
+
+GET służy zazwyczaj do pobierania danych.
+
+POST służy zazwyczaj do tworzenia nowych zasobów.
+
+PUT służy do zastępowania zasobu, natomiast PATCH do jego częściowej aktualizacji.
+
+DELETE służy do usuwania zasobu.
+
+API może zwracać dane w formacie JSON i komunikować się z frontendem napisanym na przykład w Angularze, React lub Vue.
+
+8. MVC — Model, View, Controller
+
+MVC to wzorzec architektoniczny dzielący aplikację na trzy główne elementy.
+
+Model reprezentuje dane oraz logikę związaną z ich przetwarzaniem.
+
+View odpowiada za prezentację informacji użytkownikowi.
+
+Controller odbiera żądania i koordynuje działanie pozostałych elementów.
+
+ASP.NET Core MVC pozwala tworzyć aplikacje internetowe generujące strony HTML po stronie serwera.
+
+Jest szczególnie przydatny w aplikacjach, w których serwer odpowiada zarówno za logikę, jak i przygotowanie widoków.
+
+9. Razor Pages i Blazor
+
+Razor Pages to podejście do tworzenia stron internetowych w ASP.NET Core, w którym logika obsługi strony jest organizowana wokół poszczególnych stron.
+
+Razor to mechanizm pozwalający łączyć kod C# z szablonami HTML.
+
+Blazor umożliwia tworzenie interaktywnych interfejsów użytkownika przy użyciu C# i komponentów Razor.
+
+W zależności od modelu działania Blazor może wykonywać kod interfejsu na serwerze lub w przeglądarce za pomocą WebAssembly.
+
+Razor Pages i Blazor są różnymi rozwiązaniami, dlatego wybór zależy od wymagań aplikacji i sposobu budowania interfejsu.
+
+10. Entity Framework Core i bazy danych
+
+Entity Framework Core to biblioteka ORM używana do komunikacji z bazami danych w aplikacjach .NET.
+
+ORM pozwala odwzorowywać tabele i rekordy bazy danych na klasy oraz obiekty w C#.
+
+Entity Framework Core współpracuje między innymi z SQL Server, PostgreSQL i SQLite poprzez odpowiednich dostawców.
+
+Umożliwia wykonywanie zapytań, dodawanie i aktualizowanie danych oraz zarządzanie migracjami schematu bazy.
+
+ASP.NET Core często wykorzystuje Entity Framework Core do realizowania operacji CRUD.
+
+11. Dependency Injection
+
+Dependency Injection, czyli wstrzykiwanie zależności, pozwala przekazywać klasom potrzebne im obiekty zamiast tworzyć je bezpośrednio wewnątrz tych klas.
+
+ASP.NET Core posiada wbudowany kontener do zarządzania zależnościami.
+
+Usługi można rejestrować z różnymi cyklami życia, takimi jak Singleton, Scoped i Transient.
+
+Singleton oznacza jedną instancję usługi w obrębie kontenera.
+
+Scoped oznacza jedną instancję w danym zakresie, który w aplikacjach internetowych zazwyczaj odpowiada pojedynczemu żądaniu.
+
+Transient oznacza tworzenie nowej instancji przy każdym pobraniu usługi z kontenera.
+
+Wstrzykiwanie zależności ułatwia testowanie, wymianę implementacji oraz utrzymywanie czytelnej architektury aplikacji.
+
+12. Middleware
+
+Middleware to element potoku przetwarzania żądań HTTP w ASP.NET Core.
+
+Każdy middleware może wykonać określoną operację przed przekazaniem żądania dalej lub po otrzymaniu odpowiedzi.
+
+Middleware może odpowiadać między innymi za obsługę błędów, przekierowania HTTPS, uwierzytelnianie i autoryzację.
+
+Kolejność rejestracji middleware ma znaczenie dla działania aplikacji.
+
+Nieprawidłowa konfiguracja potoku może powodować problemy z dostępem do endpointów lub obsługą błędów.
+
+13. Uwierzytelnianie i autoryzacja
+
+Uwierzytelnianie polega na ustaleniu, kim jest użytkownik.
+
+Autoryzacja określa, do jakich zasobów i operacji użytkownik ma dostęp.
+
+ASP.NET Core obsługuje między innymi pliki cookie, systemy tożsamości oraz uwierzytelnianie za pomocą tokenów, takich jak JWT.
+
+Dostęp do endpointów można ograniczać za pomocą atrybutu `[Authorize]`.
+
+Dla publicznych endpointów można zastosować `[AllowAnonymous]`, jeżeli nie wymagają uwierzytelnienia.
+
+Bezpieczna aplikacja powinna również prawidłowo przechowywać hasła, chronić sekrety i sprawdzać uprawnienia po stronie serwera.
+
+14. Testowanie aplikacji ASP.NET Core
+
+Aplikacje ASP.NET Core można testować za pomocą testów jednostkowych, integracyjnych i testów end-to-end.
+
+Testy jednostkowe sprawdzają pojedyncze klasy lub metody w izolacji.
+
+Testy integracyjne weryfikują współpracę komponentów, takich jak kontrolery, middleware i baza danych.
+
+Do testowania można wykorzystywać xUnit, NUnit lub MSTest.
+
+W testach integracyjnych przydatna jest klasa `WebApplicationFactory`, która pozwala uruchamiać aplikację w kontrolowanym środowisku testowym.
+
+Testowanie pomaga wykrywać błędy przed wdrożeniem aplikacji na środowisko produkcyjne.
+
+15. Wdrażanie aplikacji
+
+Aplikacje ASP.NET Core można uruchamiać lokalnie, na serwerach Linux i Windows, w kontenerach Docker oraz w chmurze.
+
+Do wdrożeń można wykorzystywać Microsoft Azure, AWS i inne platformy obsługujące aplikacje .NET.
+
+Typowy proces CI/CD obejmuje budowanie projektu, uruchamianie testów, publikowanie artefaktów i wdrażanie nowej wersji aplikacji.
+
+Do zarządzania zależnościami wykorzystuje się NuGet, a do budowania projektów narzędzia takie jak `dotnet build` i `dotnet publish`.
+
+W środowisku produkcyjnym należy zadbać o konfigurację, logowanie, monitoring, bezpieczeństwo oraz zarządzanie sekretami.
+
+16. ASP.NET a ASP.NET Core
+
+ASP.NET w starszym znaczeniu obejmuje przede wszystkim technologię związaną z klasycznym .NET Framework.
+
+ASP.NET Core jest nowoczesną, wieloplatformową platformą rozwijaną dla współczesnego .NET.
+
+Klasyczny ASP.NET jest związany głównie z systemem Windows i .NET Framework.
+
+ASP.NET Core działa również na Linuxie i macOS oraz jest standardowym wyborem dla nowych aplikacji internetowych w .NET.
+
+W dokumentacji i rozmowach technicznych warto rozróżniać te nazwy, ponieważ różnią się architekturą i sposobem konfiguracji.
+
+17. Zalety ASP.NET Core
+
+ASP.NET Core zapewnia wysoką wydajność i obsługę nowoczesnych aplikacji internetowych.
+
+Umożliwia tworzenie REST API, stron serwerowych oraz usług dla aplikacji mobilnych i frontendowych.
+
+Posiada wbudowane mechanizmy routingu, middleware, Dependency Injection i obsługi konfiguracji.
+
+Dobrze integruje się z językiem C#, platformą .NET i narzędziami Microsoftu.
+
+Może działać na różnych systemach operacyjnych i wspiera wdrażanie aplikacji w kontenerach.
+
+18. Wady ASP.NET Core
+
+Nauka platformy wymaga poznania języka C#, platformy .NET i podstaw działania protokołu HTTP.
+
+Większe aplikacje wymagają świadomego projektowania architektury, bezpieczeństwa i obsługi błędów.
+
+Niektóre biblioteki oraz rozwiązania przeznaczone dla klasycznego .NET Framework nie są bezpośrednio zgodne z ASP.NET Core.
+
+Osoby korzystające z ekosystemu Java lub JavaScript muszą poznać inne narzędzia i konwencje.
+
+19. Plan nauki ASP.NET Core
+
+Na początku warto opanować podstawy C#, programowania obiektowego i platformy .NET.
+
+Następnie należy poznać routing, kontrolery, Minimal APIs, middleware i Dependency Injection.
+
+Kolejnym krokiem jest stworzenie REST API obsługującego operacje CRUD.
+
+Później warto dodać bazę danych z Entity Framework Core, walidację danych i obsługę błędów.
+
+Następnie należy nauczyć się uwierzytelniania, autoryzacji oraz pisania testów jednostkowych i integracyjnych.
+
+Na koniec warto opublikować aplikację i skonfigurować podstawowy proces CI/CD.
+
+Dobrym projektem praktycznym jest system zarządzania zadaniami z użytkownikami, bazą danych, REST API i testami.
+
+20. Najważniejsze pojęcia
+
+ASP.NET — platforma Microsoftu do tworzenia aplikacji internetowych.
+
+ASP.NET Core — wieloplatformowa platforma do budowania nowoczesnych aplikacji i API w .NET.
+
+C# — język programowania często wykorzystywany do tworzenia aplikacji ASP.NET Core.
+
+.NET — platforma uruchomieniowa i zestaw bibliotek do tworzenia aplikacji.
+
+REST API — interfejs umożliwiający komunikację pomiędzy aplikacjami za pomocą HTTP.
+
+MVC — wzorzec architektoniczny oparty na Modelu, Widoku i Kontrolerze.
+
+Razor Pages — model tworzenia stron internetowych w ASP.NET Core.
+
+Blazor — technologia tworzenia interaktywnych interfejsów użytkownika z wykorzystaniem C# i komponentów Razor.
+
+Entity Framework Core — biblioteka ORM do komunikacji z bazami danych.
+
+Dependency Injection — mechanizm przekazywania obiektom ich zależności.
+
+Middleware — komponent przetwarzający żądania i odpowiedzi HTTP.
+
+JWT — format tokenów często wykorzystywany do uwierzytelniania i przekazywania informacji o użytkowniku.
+
+NuGet — menedżer pakietów dla platformy .NET.
+
+CI/CD — automatyzacja budowania, testowania i wdrażania aplikacji.
+
+21. W skrócie
+
+ASP.NET Core to nowoczesna platforma do tworzenia aplikacji internetowych i REST API w ekosystemie .NET.
+
+Pozwala budować bezpieczne, wydajne i skalowalne systemy z wykorzystaniem C#, baz danych i nowoczesnych narzędzi programistycznych.
+
+Warto ją poznać, jeśli interesujesz się backendem, tworzeniem aplikacji biznesowych lub pracą jako programista .NET.

@@ -1,0 +1,227 @@
+Android Studio — notatka
+
+1. Czym jest Android Studio?
+
+Android Studio to oficjalne zintegrowane środowisko programistyczne (IDE) przeznaczone do tworzenia aplikacji na system Android.
+
+Jest rozwijane przez Google i bazuje na platformie IntelliJ IDEA.
+
+Android Studio umożliwia pisanie kodu, projektowanie interfejsów użytkownika, zarządzanie zależnościami, uruchamianie aplikacji, testowanie oraz analizowanie błędów.
+
+Najczęściej wykorzystuje się je do tworzenia aplikacji w językach Kotlin i Java.
+
+2. Do czego służy Android Studio?
+
+Android Studio jest wykorzystywane na różnych etapach tworzenia aplikacji mobilnych.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie natywnych aplikacji na Androida.
+- Pisanie i edytowanie kodu w Kotlinie oraz Javie.
+- Projektowanie interfejsów użytkownika.
+- Uruchamianie aplikacji na emulatorach i fizycznych urządzeniach.
+- Wykrywanie błędów i debugowanie kodu.
+- Zarządzanie bibliotekami i zależnościami projektu.
+- Pisanie i uruchamianie testów.
+- Budowanie plików APK i AAB.
+- Przygotowywanie aplikacji do publikacji w Google Play.
+
+3. Najważniejsze elementy Android Studio
+
+Android Studio zawiera wiele narzędzi, które ułatwiają pracę programisty.
+
+- **Code Editor** — edytor kodu z podpowiedziami, autouzupełnianiem i analizą błędów.
+- **Project View** — widok struktury projektu i jego plików.
+- **Layout Editor** — narzędzie do wizualnego projektowania interfejsów opartych na widokach XML.
+- **Compose Preview** — podgląd interfejsów tworzonych za pomocą Jetpack Compose.
+- **Device Manager** — zarządzanie emulatorami Androida.
+- **SDK Manager** — instalowanie i aktualizowanie komponentów Android SDK.
+- **Logcat** — przeglądanie logów systemowych i komunikatów aplikacji.
+- **Debugger** — analizowanie działania programu krok po kroku.
+- **Profiler** — analizowanie zużycia pamięci, procesora i innych zasobów.
+- **Gradle** — narzędzie odpowiedzialne za budowanie projektu i zarządzanie zależnościami.
+
+4. Języki programowania
+
+Android Studio obsługuje kilka technologii wykorzystywanych przy tworzeniu aplikacji mobilnych.
+
+**Kotlin** jest rekomendowanym przez Google językiem do tworzenia nowych natywnych aplikacji na Androida.
+
+**Java** jest nadal szeroko wykorzystywana w istniejących projektach i może być używana do tworzenia nowych aplikacji.
+
+**C i C++** można wykorzystywać za pomocą Android NDK, gdy potrzebny jest kod natywny.
+
+Do opisywania interfejsów można używać XML albo Jetpack Compose, który pozwala tworzyć interfejsy deklaratywnie w Kotlinie.
+
+5. Struktura projektu Android Studio
+
+Typowy projekt Android Studio zawiera kilka istotnych plików i katalogów.
+
+- `app/` — główny moduł aplikacji.
+- `src/main/java/` lub `src/main/kotlin/` — kod źródłowy aplikacji.
+- `src/main/res/` — zasoby, takie jak grafiki, ikony, teksty i układy XML.
+- `AndroidManifest.xml` — deklaracje komponentów aplikacji i wymaganych uprawnień.
+- `build.gradle.kts` — konfiguracja budowania projektu lub modułu, zależnie od jego lokalizacji.
+- `settings.gradle.kts` — konfiguracja projektu i jego modułów.
+- `gradle/` — pliki związane z konfiguracją Gradle Wrappera.
+
+Dokładna struktura zależy od wybranego szablonu i konfiguracji projektu.
+
+6. Tworzenie pierwszego projektu
+
+Aby rozpocząć pracę z Android Studio, należy wykonać kilka podstawowych kroków.
+
+1. Pobierz i zainstaluj Android Studio.
+2. Uruchom program i wybierz opcję utworzenia nowego projektu.
+3. Wybierz odpowiedni szablon, na przykład Empty Activity.
+4. Podaj nazwę aplikacji i wybierz język programowania.
+5. Skonfiguruj minimalną obsługiwaną wersję Androida.
+6. Poczekaj na synchronizację Gradle.
+7. Utwórz emulator lub podłącz telefon.
+8. Uruchom aplikację za pomocą przycisku Run.
+
+Po wykonaniu tych kroków Android Studio zbuduje aplikację i uruchomi ją na wybranym urządzeniu.
+
+7. Projektowanie interfejsu użytkownika
+
+Android Studio umożliwia tworzenie interfejsów użytkownika na dwa główne sposoby.
+
+**XML Views** — interfejs jest opisywany za pomocą plików XML, a logika obsługi znajduje się zwykle w Kotlinie lub Javie.
+
+**Jetpack Compose** — interfejs jest budowany za pomocą funkcji Kotlinowych, które opisują wygląd i zachowanie elementów.
+
+Jetpack Compose jest nowoczesnym, deklaratywnym podejściem do tworzenia interfejsów Androida.
+
+XML Views nadal występuje w wielu istniejących aplikacjach i jest przydatny podczas pracy ze starszymi projektami.
+
+8. Emulator i uruchamianie aplikacji
+
+Android Studio zawiera narzędzia umożliwiające uruchamianie aplikacji na wirtualnych urządzeniach.
+
+Emulator pozwala testować aplikację bez posiadania fizycznego telefonu.
+
+Można skonfigurować różne rozmiary ekranów, wersje Androida i parametry urządzenia.
+
+Aplikację można również uruchomić na prawdziwym telefonie po włączeniu opcji programistycznych i debugowania USB.
+
+Testowanie na rzeczywistym urządzeniu jest ważne, ponieważ emulator nie zawsze odzwierciedla wszystkie zachowania sprzętu.
+
+9. Debugowanie i Logcat
+
+Debugowanie polega na analizowaniu działania programu w celu znalezienia i usunięcia błędów.
+
+Android Studio umożliwia ustawianie breakpointów, czyli punktów zatrzymania wykonywania programu.
+
+Po zatrzymaniu programu można sprawdzić wartości zmiennych, prześledzić stos wywołań i wykonywać kod krok po kroku.
+
+Logcat wyświetla komunikaty aplikacji oraz systemu Android, które pomagają diagnozować problemy.
+
+Przykładowo można użyć klasy `Log` w Kotlinie lub Javie, aby zapisywać komunikaty diagnostyczne.
+
+10. Gradle i zależności
+
+Gradle odpowiada za automatyzację procesu budowania aplikacji Android.
+
+Pozwala kompilować kod, zarządzać zależnościami, uruchamiać testy i tworzyć pliki instalacyjne.
+
+Biblioteki zewnętrzne dodaje się zwykle w pliku `build.gradle.kts` modułu aplikacji.
+
+Przykładowa zależność w Kotlin DSL:
+
+`implementation("androidx.core:core-ktx:<wersja>")`
+
+W rzeczywistym projekcie należy podać konkretną, zgodną wersję biblioteki.
+
+Android Studio pomaga synchronizować konfigurację Gradle i sygnalizuje część błędów związanych z zależnościami.
+
+11. Testowanie aplikacji
+
+Android Studio udostępnia narzędzia do różnych rodzajów testów.
+
+- **Testy jednostkowe** — sprawdzają pojedyncze klasy lub metody, często bez uruchamiania całego Androida.
+- **Testy instrumentacyjne** — uruchamiają kod testowy na urządzeniu lub emulatorze.
+- **Testy interfejsu użytkownika** — sprawdzają działanie elementów aplikacji i interakcje użytkownika.
+- **Testy ręczne** — polegają na samodzielnym sprawdzaniu działania aplikacji.
+
+Do testów jednostkowych często wykorzystuje się JUnit, a do testowania interfejsu można używać Espresso lub narzędzi przeznaczonych do Jetpack Compose.
+
+12. Generowanie plików APK i AAB
+
+Android Studio umożliwia przygotowanie aplikacji do instalacji i dystrybucji.
+
+**APK (Android Package)** to pakiet aplikacji, który można instalować na urządzeniach z Androidem.
+
+**AAB (Android App Bundle)** to format publikacyjny, z którego Google Play może generować odpowiednie pakiety instalacyjne dla urządzeń użytkowników.
+
+Wersja debug służy głównie do testowania.
+
+Wersja release jest przygotowywana do dystrybucji i może wymagać podpisania odpowiednim kluczem.
+
+Klucz podpisujący wersję produkcyjną należy przechowywać bezpiecznie.
+
+13. Android Studio a inne narzędzia
+
+- **Android Studio** — środowisko do tworzenia aplikacji na Androida.
+- **Android SDK** — zestaw bibliotek i narzędzi potrzebnych do budowania oraz testowania aplikacji.
+- **IntelliJ IDEA** — ogólne środowisko programistyczne, na którego platformie bazuje Android Studio.
+- **Visual Studio Code** — edytor kodu, który można wykorzystywać w różnych projektach, ale nie zastępuje w pełni narzędzi Android Studio.
+- **Xcode** — środowisko do tworzenia aplikacji na platformy Apple, takie jak iOS.
+- **Flutter** — framework umożliwiający tworzenie aplikacji wieloplatformowych, również z użyciem Android Studio jako środowiska pracy.
+- **Gradle** — system budowania wykorzystywany przez typowe projekty Androida.
+
+14. Zalety Android Studio
+
+- Jest oficjalnym środowiskiem do tworzenia aplikacji na Androida.
+- Oferuje integrację z Android SDK i emulatorem.
+- Zapewnia podpowiedzi kodu oraz wykrywanie wielu błędów.
+- Ułatwia debugowanie i analizowanie wydajności aplikacji.
+- Obsługuje Kotlin, Javę oraz rozwiązania oparte na C i C++.
+- Zawiera narzędzia do testowania i przygotowywania aplikacji do publikacji.
+- Integruje się z Git i innymi narzędziami wykorzystywanymi w pracy zespołowej.
+
+15. Wady i ograniczenia Android Studio
+
+- Może zużywać dużo pamięci RAM i mocy procesora.
+- Pierwsza konfiguracja środowiska bywa czasochłonna.
+- Synchronizacja Gradle i pobieranie zależności mogą wydłużać uruchamianie projektu.
+- Emulator wymaga odpowiednich zasobów komputera.
+- Początkujący mogą mieć trudności ze zrozumieniem struktury projektu i konfiguracji budowania.
+- Różne wersje bibliotek, SDK i Gradle mogą powodować problemy ze zgodnością.
+
+16. Plan nauki Android Studio
+
+Na początku warto poznać interfejs programu, tworzenie projektów i obsługę SDK Managera.
+
+Następnie należy nauczyć się podstaw Kotlina oraz uruchamiania aplikacji na emulatorze.
+
+Kolejnym krokiem powinno być tworzenie interfejsów w Jetpack Compose lub XML oraz obsługa przycisków i zdarzeń.
+
+Później warto poznać cykl życia komponentów Androida, nawigację, zapisywanie danych i komunikację z API REST.
+
+Na końcu dobrze jest nauczyć się debugowania, pisania testów, korzystania z Gita oraz budowania wersji release.
+
+17. Najważniejsze pojęcia
+
+- **IDE** — zintegrowane środowisko programistyczne.
+- **Android Studio** — środowisko do tworzenia aplikacji na Androida.
+- **Kotlin** — rekomendowany język do tworzenia nowych natywnych aplikacji Android.
+- **Java** — język wykorzystywany w wielu aplikacjach Android.
+- **Android SDK** — biblioteki i narzędzia dla programistów Androida.
+- **Jetpack Compose** — deklaratywny sposób tworzenia interfejsów.
+- **Gradle** — narzędzie do budowania projektu i zarządzania zależnościami.
+- **Emulator** — wirtualne urządzenie z systemem Android.
+- **Logcat** — narzędzie do przeglądania logów.
+- **Debugger** — narzędzie do analizowania wykonywania programu.
+- **APK** — pakiet instalacyjny aplikacji Android.
+- **AAB** — format pakietu aplikacji przeznaczony między innymi do publikacji w Google Play.
+- **JUnit** — framework do testów jednostkowych.
+
+18. W skrócie
+
+Android Studio to podstawowe środowisko pracy dla programistów tworzących aplikacje na Androida.
+
+Umożliwia pisanie kodu, projektowanie interfejsów, uruchamianie aplikacji, debugowanie, testowanie oraz przygotowywanie plików do publikacji.
+
+Najważniejsze technologie, które warto poznać razem z Android Studio, to Kotlin, Android SDK, Gradle, Jetpack Compose i Git.
+
+Dodaj praktyczny projekt w KotlinieUtwórz tabelę Kotlin kontra Java

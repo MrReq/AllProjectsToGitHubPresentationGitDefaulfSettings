@@ -1,0 +1,798 @@
+# Haskell
+
+## 1. Czym jest Haskell
+
+Haskell to funkcyjny język programowania ogólnego przeznaczenia.
+
+Haskell jest językiem statycznie typowanym.
+
+Haskell wykorzystuje silny system typów.
+
+Jedną z najważniejszych cech Haskella jest czysto funkcyjny model programowania.
+
+Haskell jest również językiem deklaratywnym.
+
+Język został zaprojektowany z naciskiem na możliwość tworzenia kodu łatwego do analizowania matematycznego i formalnego.
+
+## 2. Historia Haskella
+
+Haskell został zaprojektowany przez grupę badaczy zajmujących się programowaniem funkcyjnym.
+
+Pierwsza wersja standardu Haskell została opublikowana w 1990 roku.
+
+Nazwa języka pochodzi od nazwiska matematyka Haskella Curry'ego.
+
+Haskell rozwijał się jako język przeznaczony zarówno do badań naukowych, jak i praktycznego programowania.
+
+Jedną z najważniejszych współczesnych wersji standardu był Haskell 2010.
+
+## 3. Programowanie funkcyjne
+
+Haskell jest przede wszystkim językiem funkcyjnym.
+
+W programowaniu funkcyjnym funkcje są traktowane jako podstawowe elementy programu.
+
+Funkcje mogą być przekazywane jako argumenty.
+
+Funkcje mogą być zwracane przez inne funkcje.
+
+Funkcje mogą być przypisywane do nazw.
+
+Takie funkcje nazywa się funkcjami pierwszej klasy.
+
+## 4. Czystość funkcji
+
+W Haskellu bardzo ważne są pure functions.
+
+Funkcja czysta dla tych samych argumentów zawsze zwraca ten sam wynik.
+
+Funkcja czysta nie powinna powodować ukrytych efektów ubocznych.
+
+Przykładowo:
+
+```haskell
+add :: Int -> Int -> Int
+add x y = x + y
+```
+
+Funkcja `add` zawsze zwróci taki sam wynik dla tych samych wartości `x` i `y`.
+
+## 5. Efekty uboczne
+
+Efekty uboczne obejmują między innymi zapis do pliku, komunikację sieciową, odczyt danych od użytkownika oraz zmianę stanu.
+
+Haskell nie eliminuje efektów ubocznych całkowicie.
+
+Zamiast tego system typów pozwala wyraźnie rozdzielać kod czysty od kodu wykonującego efekty.
+
+Jednym z najważniejszych mechanizmów służących do tego celu jest `IO`.
+
+## 6. Lazy Evaluation
+
+Haskell wykorzystuje leniwe obliczanie.
+
+Lazy evaluation oznacza, że wyrażenie może zostać obliczone dopiero wtedy, gdy jego wynik jest rzeczywiście potrzebny.
+
+Pozwala to między innymi pracować z potencjalnie nieskończonymi strukturami danych.
+
+Przykładowo:
+
+```haskell
+numbers = [1..]
+```
+
+Lista `numbers` jest nieskończona.
+
+Nie oznacza to jednak, że wszystkie elementy są natychmiast obliczane.
+
+Możemy pobrać tylko pierwsze kilka elementów:
+
+```haskell
+take 5 numbers
+```
+
+Wynikiem będzie:
+
+```text
+[1,2,3,4,5]
+```
+
+## 7. Typowanie statyczne
+
+Haskell posiada statyczny system typów.
+
+Typy są sprawdzane podczas kompilacji.
+
+Dzięki temu wiele błędów może zostać wykrytych jeszcze przed uruchomieniem programu.
+
+Haskell posiada również bardzo silny system inferencji typów.
+
+Programista często nie musi jawnie podawać wszystkich typów.
+
+## 8. Type Inference
+
+Type inference oznacza automatyczne wnioskowanie typów.
+
+Przykładowo:
+
+```haskell
+double x = x + x
+```
+
+Kompilator może wywnioskować odpowiedni typ funkcji na podstawie użytych operacji.
+
+Możemy również jawnie określić typ:
+
+```haskell
+double :: Int -> Int
+double x = x + x
+```
+
+Pierwsza część to sygnatura typu funkcji.
+
+## 9. Sygnatury typów
+
+Sygnatura typu opisuje, jakie argumenty przyjmuje funkcja i jaki typ zwraca.
+
+Przykład:
+
+```haskell
+multiply :: Int -> Int -> Int
+```
+
+Oznacza to funkcję przyjmującą `Int` i zwracającą funkcję, która przyjmuje `Int` i zwraca `Int`.
+
+W praktyce możemy traktować ją jako funkcję:
+
+```text
+Int × Int → Int
+```
+
+## 10. Currying
+
+Currying jest jedną z ważnych koncepcji programowania funkcyjnego.
+
+Funkcja przyjmująca wiele argumentów może być reprezentowana jako seria funkcji jednoargumentowych.
+
+Przykładowo:
+
+```haskell
+add :: Int -> Int -> Int
+```
+
+Możemy wywołać:
+
+```haskell
+add 2 3
+```
+
+Wynikiem jest:
+
+```text
+5
+```
+
+Możemy również częściowo zastosować funkcję:
+
+```haskell
+addTwo = add 2
+```
+
+Teraz `addTwo` jest funkcją oczekującą na jeden argument.
+
+```haskell
+addTwo 5
+```
+
+zwróci:
+
+```text
+7
+```
+
+## 11. Rekurencja
+
+Rekurencja jest bardzo często wykorzystywana w Haskellu.
+
+Przykład obliczania silni:
+
+```haskell
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+```
+
+Wywołanie:
+
+```haskell
+factorial 5
+```
+
+zwróci:
+
+```text
+120
+```
+
+## 12. Pattern Matching
+
+Pattern matching pozwala dopasowywać wartości do określonych wzorców.
+
+Przykład:
+
+```haskell
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+```
+
+Pierwsza definicja obsługuje przypadek `0`.
+
+Druga definicja obsługuje pozostałe wartości.
+
+Pattern matching jest bardzo ważnym elementem programowania w Haskellu.
+
+## 13. Guards
+
+Guards pozwalają definiować różne zachowania funkcji zależnie od warunku.
+
+Przykład:
+
+```haskell
+classify :: Int -> String
+classify x
+    | x < 0     = "negative"
+    | x == 0    = "zero"
+    | otherwise = "positive"
+```
+
+`otherwise` oznacza tutaj przypadek domyślny.
+
+## 14. Listy
+
+Lista jest jedną z podstawowych struktur danych w Haskellu.
+
+Przykład:
+
+```haskell
+numbers :: [Int]
+numbers = [1, 2, 3, 4, 5]
+```
+
+Możemy wykonywać na listach różne operacje.
+
+Przykładowo:
+
+```haskell
+head [1,2,3]
+```
+
+zwraca:
+
+```text
+1
+```
+
+Natomiast:
+
+```haskell
+tail [1,2,3]
+```
+
+zwraca:
+
+```text
+[2,3]
+```
+
+## 15. List Comprehension
+
+Haskell obsługuje list comprehensions.
+
+Przykład:
+
+```haskell
+[x * 2 | x <- [1..5]]
+```
+
+Wynikiem będzie:
+
+```text
+[2,4,6,8,10]
+```
+
+Możemy również dodawać warunki:
+
+```haskell
+[x | x <- [1..10], even x]
+```
+
+Wynikiem będzie:
+
+```text
+[2,4,6,8,10]
+```
+
+## 16. Higher-Order Functions
+
+Higher-order function to funkcja, która przyjmuje inną funkcję jako argument lub zwraca funkcję jako wynik.
+
+Jest to bardzo ważny element Haskella.
+
+Przykładem jest `map`.
+
+```haskell
+map (*2) [1,2,3,4]
+```
+
+Wynikiem będzie:
+
+```text
+[2,4,6,8]
+```
+
+## 17. Map
+
+`map` stosuje funkcję do każdego elementu kolekcji.
+
+Przykład:
+
+```haskell
+map (+1) [1,2,3]
+```
+
+Wynik:
+
+```text
+[2,3,4]
+```
+
+Jest to odpowiednik wielu operacji znanych z innych języków programowania.
+
+## 18. Filter
+
+`filter` wybiera elementy spełniające określony warunek.
+
+Przykład:
+
+```haskell
+filter even [1,2,3,4,5,6]
+```
+
+Wynik:
+
+```text
+[2,4,6]
+```
+
+## 19. Fold
+
+Funkcje `fold` służą do redukowania kolekcji do pojedynczego wyniku.
+
+Przykład:
+
+```haskell
+foldl (+) 0 [1,2,3,4]
+```
+
+Wynikiem będzie:
+
+```text
+10
+```
+
+Popularne funkcje to między innymi `foldl` oraz `foldr`.
+
+## 20. Tuple
+
+Tuple pozwala przechowywać kilka wartości różnych typów.
+
+Przykład:
+
+```haskell
+person :: (String, Int)
+person = ("Adam", 25)
+```
+
+Tuple `(String, Int)` zawiera tekst oraz liczbę całkowitą.
+
+Możemy mieć również tuple zawierające więcej elementów.
+
+## 21. Algebraic Data Types
+
+Haskell pozwala definiować własne typy danych.
+
+Przykład:
+
+```haskell
+data Person = Person String Int
+```
+
+Możemy następnie utworzyć wartość:
+
+```haskell
+person = Person "Adam" 25
+```
+
+Algebraic Data Types są jednym z najważniejszych elementów systemu typów Haskella.
+
+## 22. Sum Types
+
+Możemy zdefiniować typ posiadający kilka możliwych wariantów.
+
+Przykład:
+
+```haskell
+data Result
+    = Success Int
+    | Failure String
+```
+
+Wartość może być więc `Success` albo `Failure`.
+
+Jest to przykład sum type.
+
+## 23. Product Types
+
+Typ:
+
+```haskell
+data Person = Person String Int
+```
+
+posiada jednocześnie kilka wartości.
+
+Możemy traktować go jako przykład product type.
+
+Product types pozwalają łączyć kilka informacji w jedną strukturę.
+
+## 24. Maybe
+
+`Maybe` jest bardzo ważnym typem Haskella.
+
+Służy między innymi do reprezentowania wartości, która może nie istnieć.
+
+`Maybe` posiada dwa podstawowe warianty:
+
+```haskell
+Just value
+Nothing
+```
+
+Przykład:
+
+```haskell
+findUser :: Int -> Maybe String
+```
+
+Funkcja może zwrócić znalezionego użytkownika albo `Nothing`.
+
+Dzięki temu brak wartości jest reprezentowany jawnie.
+
+## 25. Either
+
+`Either` pozwala reprezentować wynik mogący być jednym z dwóch wariantów.
+
+Najczęściej jeden wariant reprezentuje sukces, a drugi błąd.
+
+Przykład:
+
+```haskell
+Either String Int
+```
+
+Może oznaczać:
+
+```text
+Left "error"
+```
+
+albo:
+
+```text
+Right 42
+```
+
+## 26. Typeclass
+
+Typeclass pozwala definiować wspólny interfejs dla różnych typów.
+
+Przykładem jest `Eq`.
+
+Typ należący do `Eq` może być porównywany za pomocą operatorów równości.
+
+Innym przykładem jest `Ord`, który umożliwia porównywanie wartości.
+
+Popularnym typeclass jest również `Show`, który umożliwia konwersję wartości do reprezentacji tekstowej.
+
+## 27. Polimorfizm
+
+Haskell posiada silny mechanizm polimorfizmu.
+
+Funkcja może działać dla wielu typów, jeśli spełniają odpowiednie wymagania.
+
+Przykładowo:
+
+```haskell
+identity :: a -> a
+identity x = x
+```
+
+Funkcja `identity` może przyjąć dowolny typ.
+
+```haskell
+identity 5
+```
+
+oraz:
+
+```haskell
+identity "Hello"
+```
+
+są poprawne.
+
+## 28. Monady
+
+Monady są jednym z najbardziej znanych, ale również najczęściej niezrozumianych elementów Haskella.
+
+Monada jest abstrakcją pozwalającą między innymi kontrolować sposób łączenia operacji posiadających określony kontekst.
+
+`Maybe` może być używane jako monada.
+
+`IO` również jest monadą.
+
+Monady pozwalają zachować czystość funkcji jednocześnie umożliwiając pracę z efektami.
+
+## 29. IO
+
+`IO` reprezentuje operacje wejścia i wyjścia.
+
+Przykładowo:
+
+```haskell
+main :: IO ()
+main = putStrLn "Hello World!"
+```
+
+`putStrLn` wypisuje tekst na ekran.
+
+`main` jest akcją typu `IO`.
+
+Dzięki temu efekty wejścia i wyjścia są wyraźnie reprezentowane przez system typów.
+
+## 30. Hello World
+
+Najprostszy program Haskell może wyglądać tak:
+
+```haskell
+main :: IO ()
+main = putStrLn "Hello, World!"
+```
+
+Program można skompilować za pomocą kompilatora GHC.
+
+## 31. GHC
+
+GHC oznacza Glasgow Haskell Compiler.
+
+GHC jest najważniejszym i najczęściej używanym kompilatorem Haskella.
+
+GHC umożliwia kompilowanie programów Haskell do kodu wykonywalnego.
+
+GHC posiada również interaktywną powłokę GHCi.
+
+## 32. GHCi
+
+GHCi jest interaktywnym środowiskiem Haskella.
+
+Możemy w nim testować wyrażenia bez tworzenia pełnego programu.
+
+Przykład:
+
+```text
+ghci
+```
+
+Następnie:
+
+```haskell
+2 + 3
+```
+
+otrzymamy:
+
+```text
+5
+```
+
+Możemy również zdefiniować funkcję:
+
+```haskell
+double x = x * 2
+```
+
+i następnie:
+
+```haskell
+double 10
+```
+
+otrzymamy:
+
+```text
+20
+```
+
+## 33. Cabal
+
+Cabal jest systemem budowania i zarządzania pakietami Haskella.
+
+Pozwala definiować zależności projektu.
+
+Pozwala budować aplikacje.
+
+Pozwala również tworzyć i publikować pakiety.
+
+## 34. Stack
+
+Stack jest narzędziem do zarządzania projektami Haskell.
+
+Ułatwia zarządzanie zależnościami i środowiskiem kompilacji.
+
+Stack może współpracować z GHC.
+
+W praktyce można spotkać zarówno Cabal, jak i Stack.
+
+## 35. Biblioteki Haskella
+
+Haskell posiada rozbudowany ekosystem bibliotek.
+
+Biblioteki są dostępne między innymi w serwisie Hackage.
+
+Można znaleźć biblioteki do obsługi baz danych, HTTP, JSON, kryptografii, testowania oraz wielu innych zastosowań.
+
+## 36. Zastosowania Haskella
+
+Haskell może być wykorzystywany do tworzenia aplikacji backendowych.
+
+Może być wykorzystywany do tworzenia narzędzi systemowych.
+
+Jest wykorzystywany w badaniach naukowych.
+
+Może być wykorzystywany w finansach.
+
+Może być wykorzystywany do tworzenia kompilatorów.
+
+Może być wykorzystywany w analizie danych.
+
+Może być wykorzystywany w systemach wymagających wysokiej poprawności kodu.
+
+## 37. Haskell w finansach
+
+Haskell jest znany z zastosowań w branży finansowej.
+
+Silny system typów może pomagać w tworzeniu kodu, w którym ważna jest poprawność.
+
+Funkcyjny model programowania ułatwia tworzenie przewidywalnych funkcji.
+
+Haskell był wykorzystywany między innymi do tworzenia systemów związanych z analizą finansową i przetwarzaniem transakcji.
+
+## 38. Haskell a Java
+
+Java jest przede wszystkim językiem obiektowym i imperatywnym.
+
+Haskell jest przede wszystkim językiem funkcyjnym.
+
+Java wykorzystuje klasy i obiekty.
+
+Haskell wykorzystuje przede wszystkim funkcje i typy algebraiczne.
+
+Java domyślnie wykorzystuje ewaluację gorliwą.
+
+Haskell domyślnie wykorzystuje ewaluację leniwą.
+
+Oba języki posiadają statyczne systemy typów.
+
+## 39. Haskell a Python
+
+Python jest językiem dynamicznie typowanym.
+
+Haskell jest językiem statycznie typowanym.
+
+Python jest językiem wieloparadygmatowym.
+
+Haskell jest przede wszystkim funkcyjny.
+
+Python wykorzystuje przede wszystkim eager evaluation.
+
+Haskell wykorzystuje lazy evaluation.
+
+Haskell jest bardziej rygorystyczny pod względem systemu typów.
+
+## 40. Zalety Haskella
+
+Haskell posiada bardzo silny system typów.
+
+Haskell wspiera programowanie funkcyjne.
+
+Haskell pozwala tworzyć funkcje czyste i przewidywalne.
+
+Inferencja typów zmniejsza ilość kodu potrzebnego do deklarowania typów.
+
+Typy algebraiczne pozwalają bardzo precyzyjnie modelować dane.
+
+Leniwe obliczanie umożliwia pracę z dużymi i nieskończonymi strukturami danych.
+
+Haskell może pomagać w tworzeniu bezpiecznego i łatwego do testowania kodu.
+
+## 41. Wady Haskella
+
+Haskell może być trudny dla osób rozpoczynających naukę programowania funkcyjnego.
+
+Niektóre koncepcje, takie jak monady, wymagają czasu na zrozumienie.
+
+Leniwa ewaluacja może powodować problemy z wydajnością lub zużyciem pamięci, jeśli kod nie jest odpowiednio zaprojektowany.
+
+Ekosystem Haskella jest znacznie mniejszy niż ekosystemy Java, JavaScript czy Python.
+
+Na rynku pracy liczba ofert wymagających Haskella jest stosunkowo niewielka.
+
+## 42. Dlaczego warto uczyć się Haskella
+
+Nauka Haskella może bardzo dobrze rozwijać sposób myślenia programistycznego.
+
+Haskell pozwala lepiej zrozumieć funkcje wyższego rzędu.
+
+Pozwala lepiej zrozumieć typy i polimorfizm.
+
+Pozwala zrozumieć takie koncepcje jak currying, pattern matching oraz monady.
+
+Wiedza zdobyta podczas nauki Haskella może być przydatna również w innych językach funkcyjnych.
+
+## 43. Najważniejsze pojęcia do zapamiętania
+
+**Haskell** — statycznie typowany, czysto funkcyjny język programowania.
+
+**Functional Programming** — paradygmat programowania oparty przede wszystkim na funkcjach.
+
+**Pure Function** — funkcja bez efektów ubocznych, dająca ten sam wynik dla tych samych argumentów.
+
+**Lazy Evaluation** — obliczanie wartości dopiero wtedy, gdy jest potrzebna.
+
+**Type Inference** — automatyczne wnioskowanie typów przez kompilator.
+
+**Pattern Matching** — dopasowywanie wartości do określonych wzorców.
+
+**Currying** — przekształcanie funkcji wieloargumentowej w serię funkcji jednoargumentowych.
+
+**Higher-Order Function** — funkcja przyjmująca funkcję jako argument lub zwracająca funkcję.
+
+**Map** — stosowanie funkcji do każdego elementu kolekcji.
+
+**Filter** — wybieranie elementów spełniających warunek.
+
+**Fold** — redukowanie kolekcji do pojedynczej wartości.
+
+**ADT** — Algebraic Data Type, własny typ danych zdefiniowany przez programistę.
+
+**Maybe** — typ reprezentujący wartość, która może istnieć lub jej nie być.
+
+**Either** — typ często używany do reprezentowania sukcesu lub błędu.
+
+**Typeclass** — mechanizm definiowania wspólnego interfejsu dla typów.
+
+**Monad** — abstrakcja pozwalająca łączyć operacje działające w określonym kontekście.
+
+**IO** — typ reprezentujący operacje wejścia i wyjścia.
+
+**GHC** — najważniejszy kompilator Haskella.
+
+**GHCi** — interaktywna konsola Haskella.
+
+**Cabal** — system budowania i zarządzania pakietami.
+
+**Stack** — narzędzie do zarządzania projektami Haskell.
+
+## 44. Haskell w jednym zdaniu
+
+Haskell to **statycznie typowany, czysto funkcyjny język programowania wykorzystujący silny system typów, funkcje pierwszej klasy, leniwą ewaluację, pattern matching i typy algebraiczne, dzięki czemu pozwala tworzyć bardzo przewidywalny i formalnie modelowalny kod**.

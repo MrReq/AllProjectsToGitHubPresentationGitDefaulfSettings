@@ -1,0 +1,453 @@
+1. Czym jest Android?
+
+Android to mobilny system operacyjny oparty na jądrze Linux, rozwijany głównie przez Google i wykorzystywany na smartfonach, tabletach, telewizorach, zegarkach oraz innych urządzeniach.
+
+System umożliwia uruchamianie aplikacji, zarządzanie sprzętem, obsługę sieci i korzystanie z funkcji takich jak aparat, GPS, Bluetooth czy ekran dotykowy.
+
+Android jest jedną z najważniejszych platform do tworzenia aplikacji mobilnych.
+
+Aplikacje na Androida można tworzyć między innymi w językach Kotlin i Java.
+
+2. System operacyjny Android
+
+System operacyjny zarządza zasobami urządzenia i umożliwia współpracę pomiędzy sprzętem a aplikacjami.
+
+Android kontroluje między innymi pamięć, procesy, dostęp do plików, komunikację sieciową i obsługę urządzeń zewnętrznych.
+
+Zapewnia również mechanizmy bezpieczeństwa, takie jak izolowanie aplikacji i kontrolowanie uprawnień.
+
+Android bazuje na jądrze Linux, ale zawiera dodatkowe komponenty przeznaczone do obsługi urządzeń mobilnych i aplikacji.
+
+3. Android a iOS
+
+Android jest systemem operacyjnym wykorzystywanym przez wielu producentów urządzeń, takich jak Samsung, Google, Xiaomi i Motorola.
+
+iOS jest systemem mobilnym rozwijanym przez Apple dla iPhone'ów.
+
+Android oferuje dużą różnorodność urządzeń i konfiguracji sprzętowych.
+
+iOS działa na sprzęcie kontrolowanym przez Apple, co pozwala na bardziej jednolite środowisko urządzeń.
+
+Obie platformy umożliwiają tworzenie aplikacji mobilnych, ale wykorzystują różne narzędzia, API i procesy publikowania.
+
+4. Android SDK
+
+Android SDK (Software Development Kit) to zestaw narzędzi i bibliotek potrzebnych do tworzenia aplikacji na Androida.
+
+Zawiera między innymi interfejsy programistyczne, narzędzia do budowania aplikacji i programy diagnostyczne.
+
+SDK umożliwia kompilowanie kodu, przygotowywanie pakietów instalacyjnych i testowanie aplikacji.
+
+Poszczególne wersje SDK odpowiadają określonym wersjom platformy Android.
+
+Programista wybiera odpowiednie ustawienia projektu, takie jak minimalna i docelowa wersja Androida.
+
+5. Android Studio
+
+Android Studio to oficjalne środowisko programistyczne do tworzenia aplikacji na Androida.
+
+Jest oparte na IntelliJ IDEA i udostępnia narzędzia do pisania kodu, projektowania interfejsów, debugowania i testowania.
+
+Android Studio zawiera edytor kodu, emulator urządzeń, integrację z Gradle i narzędzia do analizy wydajności.
+
+Pozwala również zarządzać zależnościami projektu i generować pakiety aplikacji.
+
+Jest podstawowym narzędziem wykorzystywanym przez wielu programistów Androida.
+
+6. Kotlin
+
+Kotlin to nowoczesny język programowania rozwijany przez JetBrains.
+
+Jest oficjalnie rekomendowany przez Google do tworzenia nowych aplikacji na Androida.
+
+Kotlin obsługuje między innymi programowanie obiektowe, funkcje wyższego rzędu, typy nullable i funkcje rozszerzające.
+
+Pozwala ograniczać część błędów związanych z wartością `null`.
+
+Język współpracuje z Javą, dzięki czemu w jednym projekcie można wykorzystywać biblioteki i kod napisany w obu językach.
+
+7. Java w Androidzie
+
+Java jest językiem programowania wykorzystywanym od lat do tworzenia aplikacji na Androida.
+
+Pozwala definiować klasy, interfejsy, metody i obiekty odpowiedzialne za logikę aplikacji.
+
+Wiele istniejących projektów Androida zawiera kod napisany w Javie.
+
+Programiści mogą korzystać z bibliotek Javy oraz interfejsów Android SDK zgodnie z ich kompatybilnością.
+
+Znajomość Javy jest przydatna podczas utrzymywania starszych aplikacji i pracy nad projektami wykorzystującymi ten język.
+
+8. Struktura projektu Android
+
+Projekt Androida składa się z kodu źródłowego, zasobów, konfiguracji budowania i testów.
+
+Folder `app` zawiera zwykle główny moduł aplikacji.
+
+Folder `src/main/java` lub `src/main/kotlin` przechowuje kod źródłowy.
+
+Folder `res` zawiera zasoby takie jak grafiki, teksty, kolory i układy interfejsu.
+
+Plik `AndroidManifest.xml` opisuje między innymi komponenty aplikacji i wymagane uprawnienia.
+
+Pliki Gradle określają konfigurację projektu, zależności i sposób budowania aplikacji.
+
+9. Activity
+
+Activity to komponent Androida reprezentujący określoną część interfejsu użytkownika.
+
+Może odpowiadać na przykład za ekran logowania, listę produktów lub szczegóły zamówienia.
+
+Activity uczestniczy w cyklu życia aplikacji i współpracuje z systemem operacyjnym podczas wyświetlania interfejsu.
+
+W nowoczesnych aplikacjach część interfejsu może być budowana za pomocą Jetpack Compose, a Activity pełni wtedy rolę kontenera dla treści.
+
+Większość współczesnych projektów korzysta z jednej głównej Activity i wielu ekranów zarządzanych przez odpowiednią architekturę nawigacji.
+
+10. Fragment
+
+Fragment reprezentuje część interfejsu, która może być umieszczana w Activity.
+
+Pozwala dzielić interfejs na mniejsze, wielokrotnie wykorzystywane elementy.
+
+Fragment ma własny cykl życia powiązany z cyklem życia komponentu nadrzędnego.
+
+Może być przydatny w aplikacjach wykorzystujących tradycyjne widoki Androida.
+
+W projektach opartych na Jetpack Compose wiele zastosowań Fragmentów można zastąpić kompozycjami i nawigacją Compose.
+
+11. Cykl życia Activity
+
+Activity przechodzi przez różne stany w trakcie uruchamiania, wyświetlania i zamykania ekranu.
+
+Metoda `onCreate()` jest wykorzystywana do początkowej konfiguracji Activity.
+
+Metoda `onStart()` jest wywoływana, gdy Activity staje się widoczna.
+
+Metoda `onResume()` oznacza, że Activity znajduje się na pierwszym planie i może wchodzić w interakcję z użytkownikiem.
+
+Metoda `onPause()` jest wywoływana, gdy Activity traci stan pełnej interaktywności na pierwszym planie.
+
+Metody `onStop()` i `onDestroy()` uczestniczą w dalszych etapach cyklu życia, zależnie od sytuacji.
+
+Zrozumienie cyklu życia jest ważne, ponieważ system może zatrzymywać lub odtwarzać komponenty w zależności od dostępnych zasobów.
+
+12. UI — User Interface
+
+UI (User Interface) oznacza interfejs użytkownika, czyli elementy aplikacji widoczne na ekranie.
+
+Obejmuje między innymi przyciski, pola tekstowe, menu, listy, ikony i paski nawigacyjne.
+
+Dobry interfejs powinien być czytelny, spójny i łatwy w obsłudze.
+
+Podczas projektowania należy uwzględniać różne rozmiary ekranów, orientacje urządzenia i potrzeby dostępności.
+
+Android oferuje narzędzia pozwalające tworzyć interfejsy zarówno za pomocą tradycyjnych widoków, jak i Jetpack Compose.
+
+13. XML Layouts
+
+XML Layouts to tradycyjny sposób definiowania interfejsu Androida za pomocą plików XML.
+
+W plikach tych określa się elementy interfejsu, ich rozmiary, położenie i właściwości.
+
+Przykładowe elementy to `TextView`, `Button`, `EditText` i `LinearLayout`.
+
+XML jest nadal wykorzystywany w wielu istniejących aplikacjach.
+
+W nowych projektach można zamiast niego wybrać Jetpack Compose, który umożliwia definiowanie interfejsu bezpośrednio w Kotlinie.
+
+14. Jetpack Compose
+
+Jetpack Compose to nowoczesny zestaw narzędzi do tworzenia natywnych interfejsów Androida.
+
+Pozwala definiować interfejs za pomocą funkcji kompozycyjnych w języku Kotlin.
+
+Zamiast ręcznie aktualizować każdy element widoku, programista opisuje interfejs na podstawie aktualnego stanu aplikacji.
+
+Gdy stan się zmienia, Compose może ponownie wyznaczyć odpowiednie fragmenty interfejsu.
+
+Compose upraszcza tworzenie dynamicznych ekranów i jest ważnym elementem współczesnego ekosystemu Androida.
+
+15. Material Design
+
+Material Design to system projektowania interfejsów rozwijany przez Google.
+
+Zawiera wytyczne dotyczące kolorów, typografii, układu, animacji i zachowania komponentów.
+
+Material Design pomaga tworzyć spójne i czytelne interfejsy.
+
+W aplikacjach Android można korzystać z komponentów Material dostępnych dla tradycyjnych widoków i Jetpack Compose.
+
+Przestrzeganie wytycznych projektowych ułatwia użytkownikom poruszanie się po aplikacji.
+
+16. Intents
+
+Intent to mechanizm komunikacji pomiędzy komponentami Androida.
+
+Może służyć do uruchamiania Activity, przekazywania danych lub inicjowania określonych działań systemowych.
+
+Explicit Intent wskazuje konkretny komponent, który ma zostać uruchomiony.
+
+Implicit Intent opisuje zamiar wykonania operacji, a system może znaleźć aplikację obsługującą dane działanie.
+
+Intents są wykorzystywane między innymi do otwierania stron internetowych, udostępniania plików i uruchamiania ekranów aplikacji.
+
+17. Uprawnienia — Permissions
+
+Android stosuje mechanizm uprawnień, który kontroluje dostęp aplikacji do wrażliwych zasobów urządzenia.
+
+Niektóre funkcje wymagają uzyskania zgody użytkownika, na przykład dostęp do aparatu, mikrofonu lub lokalizacji.
+
+Aplikacja powinna prosić tylko o uprawnienia potrzebne do działania.
+
+Część uprawnień należy deklarować w pliku manifestu, a uprawnienia niebezpieczne wymagają również odpowiedniego procesu uzyskania zgody w czasie działania.
+
+Prawidłowe zarządzanie uprawnieniami jest ważne dla bezpieczeństwa i zaufania użytkowników.
+
+18. AndroidManifest.xml
+
+`AndroidManifest.xml` to plik konfiguracyjny opisujący podstawowe informacje o aplikacji Android.
+
+Może zawierać deklaracje komponentów, uprawnień, funkcji urządzenia i innych ustawień.
+
+System wykorzystuje manifest do określania, jak aplikacja ma być zainstalowana i uruchamiana.
+
+Niektóre ustawienia są również generowane lub uzupełniane przez narzędzia budowania.
+
+Błędy w konfiguracji manifestu mogą powodować problemy z uruchamianiem aplikacji lub dostępem do określonych funkcji.
+
+19. Gradle
+
+Gradle to system automatyzacji budowania wykorzystywany w projektach Android.
+
+Odpowiada za kompilowanie kodu, zarządzanie zależnościami, uruchamianie testów i tworzenie pakietów aplikacji.
+
+W projektach Android używa się zwykle Android Gradle Plugin, który integruje proces budowania z narzędziami Androida.
+
+Konfiguracja Gradle określa między innymi wersje SDK, zależności i warianty budowania.
+
+Znajomość Gradle jest przydatna podczas rozwiązywania problemów z kompilacją i przygotowywania aplikacji do publikacji.
+
+20. Android Emulator
+
+Android Emulator umożliwia uruchamianie wirtualnych urządzeń Androida na komputerze.
+
+Pozwala testować aplikacje bez konieczności korzystania z fizycznego smartfona.
+
+Można wybrać różne wersje systemu, rozmiary ekranu i konfiguracje urządzeń.
+
+Emulator jest przydatny do sprawdzania interfejsu, nawigacji, zachowania aplikacji i obsługi różnych wersji Androida.
+
+Testowanie na rzeczywistych urządzeniach pozostaje jednak ważne, ponieważ emulator nie odwzorowuje idealnie wszystkich warunków sprzętowych.
+
+21. Android Debug Bridge — ADB
+
+ADB to narzędzie wiersza poleceń umożliwiające komunikację z urządzeniem Android lub emulatorem.
+
+Pozwala instalować aplikacje, uruchamiać polecenia, przeglądać logi i diagnozować problemy.
+
+Przykładowe polecenia to:
+
+`adb devices` — wyświetla podłączone urządzenia.
+
+`adb install app.apk` — instaluje aplikację z pliku APK.
+
+`adb logcat` — wyświetla logi systemowe i aplikacyjne.
+
+ADB jest szczególnie przydatny podczas testowania i debugowania aplikacji mobilnych.
+
+22. Bazy danych i przechowywanie danych
+
+Aplikacje Android mogą przechowywać dane lokalnie lub korzystać z usług zewnętrznych.
+
+DataStore służy do przechowywania niewielkich ilości ustawień i prostych danych aplikacji.
+
+Room jest biblioteką opartą na SQLite, która ułatwia pracę z lokalną relacyjną bazą danych.
+
+Pliki mogą być przechowywane w pamięci aplikacji lub w innych lokalizacjach zgodnie z uprawnieniami i zasadami systemu.
+
+W przypadku aplikacji internetowych dane mogą być pobierane z backendu i przechowywane na serwerze.
+
+Wybór rozwiązania zależy od ilości danych, sposobu dostępu oraz wymagań dotyczących pracy offline.
+
+23. REST API i komunikacja z serwerem
+
+REST API umożliwia komunikację aplikacji Android z backendem za pomocą protokołu HTTP.
+
+Aplikacja może pobierać dane, wysyłać formularze, logować użytkowników i synchronizować informacje z serwerem.
+
+W projektach Kotlin można wykorzystywać biblioteki takie jak Retrofit i OkHttp.
+
+Odpowiedzi serwera są często przesyłane w formacie JSON.
+
+W aplikacji należy prawidłowo obsługiwać błędy sieciowe, brak połączenia i odpowiedzi z kodami HTTP wskazującymi niepowodzenie.
+
+24. Kotlin Coroutines
+
+Kotlin Coroutines to mechanizm ułatwiający wykonywanie operacji asynchronicznych.
+
+Pozwala wykonywać zadania, takie jak zapytania sieciowe i operacje na danych, bez blokowania głównego wątku interfejsu.
+
+Dzięki temu aplikacja może zachować płynność działania podczas pobierania danych.
+
+Coroutines współpracują z bibliotekami Androida, takimi jak Room, Retrofit i Jetpack Compose.
+
+Prawidłowe zarządzanie zakresem korutyn pomaga ograniczać problemy związane z anulowaniem zadań i cyklem życia komponentów.
+
+25. Architektura aplikacji Android
+
+Architektura aplikacji określa sposób podziału kodu na komponenty i odpowiedzialności.
+
+Popularnym podejściem jest podział na warstwę interfejsu, warstwę domenową i warstwę danych.
+
+ViewModel przechowuje i przygotowuje stan potrzebny interfejsowi użytkownika.
+
+Repository odpowiada za organizację dostępu do źródeł danych, takich jak API i lokalna baza.
+
+Warstwa domenowa może zawierać reguły biznesowe i przypadki użycia.
+
+Dobra architektura ułatwia testowanie, rozwijanie i utrzymywanie aplikacji.
+
+26. ViewModel
+
+ViewModel jest komponentem Android Jetpack służącym do przechowywania stanu interfejsu i logiki powiązanej z ekranem.
+
+Pomaga zachować dane podczas zmian konfiguracji, takich jak obrót urządzenia.
+
+ViewModel może współpracować z Kotlin Coroutines i mechanizmami obserwowania stanu.
+
+Nie powinien bezpośrednio przechowywać referencji do widoków, które mogą zostać zniszczone.
+
+Oddzielenie logiki od interfejsu ułatwia testowanie i utrzymywanie kodu.
+
+27. Testowanie aplikacji Android
+
+Testowanie pozwala sprawdzać, czy aplikacja działa zgodnie z wymaganiami.
+
+Testy jednostkowe weryfikują działanie pojedynczych klas, funkcji i reguł biznesowych.
+
+Testy instrumentacyjne są uruchamiane na urządzeniu lub emulatorze i mogą sprawdzać działanie komponentów Androida.
+
+Testy interfejsu pozwalają kontrolować zachowanie ekranów, przycisków i nawigacji.
+
+W ekosystemie Androida wykorzystuje się między innymi JUnit, Espresso i narzędzia testowe Jetpack Compose.
+
+Dobrze zaplanowane testy pomagają wykrywać błędy przed publikacją aplikacji.
+
+28. Bezpieczeństwo aplikacji Android
+
+Bezpieczeństwo aplikacji obejmuje ochronę danych użytkownika, komunikacji sieciowej i lokalnie przechowywanych informacji.
+
+Dane poufne nie powinny być zapisywane bez odpowiedniej ochrony w zwykłych plikach ani umieszczane bezpośrednio w kodzie źródłowym.
+
+Komunikacja z serwerem powinna korzystać z HTTPS.
+
+Aplikacja powinna stosować minimalne wymagane uprawnienia i bezpiecznie zarządzać sesją użytkownika.
+
+Ważne jest również sprawdzanie danych wejściowych i prawidłowa obsługa błędów.
+
+29. Publikowanie aplikacji
+
+Aplikację Android można przygotować do dystrybucji jako APK lub Android App Bundle (AAB).
+
+APK jest pakietem instalacyjnym, który można zainstalować na zgodnym urządzeniu.
+
+AAB jest formatem publikacyjnym wykorzystywanym przez Google Play do generowania odpowiednich pakietów dla urządzeń użytkowników.
+
+Przed publikacją należy przygotować podpis aplikacji, sprawdzić jej zgodność z wymaganiami sklepu i przetestować najważniejsze funkcje.
+
+Po opublikowaniu warto monitorować awarie, opinie użytkowników i wyniki testów.
+
+30. Zastosowania Androida
+
+Android jest wykorzystywany w aplikacjach bankowych, komunikatorach, grach, systemach zakupowych i narzędziach biznesowych.
+
+Pozwala tworzyć aplikacje korzystające z GPS, aparatu, Bluetooth, czujników i innych funkcji urządzeń.
+
+Jest również stosowany w urządzeniach przemysłowych, systemach samochodowych i sprzęcie multimedialnym.
+
+Dzięki szerokiemu ekosystemowi Android daje wiele możliwości rozwoju zawodowego w programowaniu mobilnym.
+
+31. Zalety Androida
+
+Android działa na wielu rodzajach urządzeń i jest dostępny u różnych producentów.
+
+Oferuje rozbudowany zestaw narzędzi dla programistów.
+
+Kotlin, Java, Android Studio i Jetpack ułatwiają tworzenie nowoczesnych aplikacji.
+
+Platforma udostępnia wiele interfejsów API do obsługi sprzętu, sieci i multimediów.
+
+Duża liczba użytkowników sprawia, że aplikacje Android mogą docierać do szerokiego grona odbiorców.
+
+32. Wady i ograniczenia Androida
+
+Różnorodność urządzeń i wersji systemu może zwiększać złożoność testowania.
+
+Niektóre funkcje mogą działać inaczej w zależności od producenta i konfiguracji urządzenia.
+
+Aplikacje muszą uwzględniać ograniczenia baterii, pamięci i wydajności.
+
+Zmiany w systemie uprawnień i zasadach publikacji mogą wymagać aktualizowania aplikacji.
+
+Długoterminowe utrzymanie projektu wymaga regularnego aktualizowania bibliotek i testowania zgodności z nowymi wersjami Androida.
+
+33. Jak uczyć się Androida?
+
+Na początku warto poznać podstawy Kotlina oraz programowania obiektowego.
+
+Następnie należy zainstalować Android Studio i stworzyć prostą aplikację z kilkoma ekranami.
+
+Kolejnym krokiem jest nauka interfejsów w Jetpack Compose, obsługi zdarzeń i zarządzania stanem.
+
+Później warto poznać REST API, Room, ViewModel i Kotlin Coroutines.
+
+Po opanowaniu podstaw można stworzyć aplikację wykorzystującą logowanie, lokalną bazę danych i komunikację z backendem.
+
+34. Najważniejsze pojęcia
+
+Android — mobilny system operacyjny oparty na jądrze Linux.
+
+Android SDK — zestaw narzędzi i bibliotek do tworzenia aplikacji Android.
+
+Android Studio — środowisko programistyczne do tworzenia aplikacji mobilnych.
+
+Kotlin — język programowania rekomendowany przez Google do tworzenia nowych aplikacji Android.
+
+Java — język wykorzystywany w wielu aplikacjach Android.
+
+Activity — komponent reprezentujący część interfejsu aplikacji.
+
+Fragment — komponent interfejsu wykorzystywany w aplikacjach opartych na tradycyjnych widokach.
+
+Jetpack Compose — narzędzia do deklaratywnego tworzenia interfejsów Androida.
+
+Intent — mechanizm komunikacji pomiędzy komponentami Androida.
+
+AndroidManifest.xml — plik deklarujący podstawowe informacje o aplikacji.
+
+Gradle — system automatyzacji budowania projektu.
+
+ADB — narzędzie do komunikacji z urządzeniem Android.
+
+Room — biblioteka ułatwiająca pracę z lokalną bazą SQLite.
+
+ViewModel — komponent przechowujący stan interfejsu i powiązaną z nim logikę.
+
+Kotlin Coroutines — mechanizm obsługi zadań asynchronicznych.
+
+APK — pakiet instalacyjny aplikacji Android.
+
+AAB — format pakietu wykorzystywany do publikowania aplikacji w Google Play.
+
+35. W skrócie
+
+Android to jeden z najważniejszych systemów operacyjnych wykorzystywanych na urządzeniach mobilnych.
+
+Tworzenie aplikacji na Androida opiera się przede wszystkim na Kotlinie lub Javie oraz narzędziach Android SDK.
+
+Najważniejsze technologie to Android Studio, Jetpack Compose, Gradle, Room, ViewModel i Kotlin Coroutines.
+
+Opanowanie tych narzędzi pozwala tworzyć aplikacje mobilne, integrować je z backendem i przygotowywać je do publikacji.
+
+Dodaj praktyczny projekt AndroidaUporządkuj materiał według poziomów

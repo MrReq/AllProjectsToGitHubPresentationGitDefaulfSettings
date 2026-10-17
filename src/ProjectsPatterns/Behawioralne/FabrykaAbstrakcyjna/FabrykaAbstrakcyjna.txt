@@ -1,0 +1,377 @@
+# Wzorzec projektowy: Fabryka Abstrakcyjna (Abstract Factory)
+
+Fabryka Abstrakcyjna to kreacyjny wzorzec projektowy (Creational Design Pattern), który pozwala tworzyć rodziny powiązanych ze sobą obiektów bez konieczności określania ich konkretnych klas.
+
+Wzorzec ten jest szczególnie przydatny w Javie, gdy aplikacja musi obsługiwać różne warianty produktów, np. interfejsy graficzne dla Windows i macOS, różne rodzaje baz danych albo systemy obsługujące kilku dostawców usług.
+
+## 1. Jaki problem rozwiązuje ten wzorzec?
+
+Wyobraź sobie, że tworzysz aplikację, która ma działać w dwóch systemach operacyjnych: Windows i macOS.
+
+W każdym systemie musisz utworzyć dwa elementy interfejsu:
+
+- `Button` – przycisk.
+- `Checkbox` – pole wyboru.
+
+Bez Fabryki Abstrakcyjnej kod klienta musiałby samodzielnie wybierać konkretne klasy, np. `WindowsButton` lub `MacOSButton`. Przy większej liczbie produktów prowadziłoby to do licznych instrukcji `if-else` i silnego powiązania kodu z konkretnymi implementacjami.
+
+Rozwiązaniem jest stworzenie wspólnego interfejsu fabryki, która produkuje całą rodzinę kompatybilnych obiektów.
+
+GUIFactory
+
+Interfejs fabryki abstrakcyjnej
+
+`createButton()` · `createCheckbox()`
+
+WindowsFactory
+
+WindowsButton
+
+WindowsCheckbox
+
+MacOSFactory
+
+MacOSButton
+
+MacOSCheckbox
+
+Najważniejsza idea: wybierasz fabrykę dla danej rodziny produktów, a ona tworzy odpowiednie obiekty.
+
+## 2. Najważniejsze elementy wzorca
+
+| Element          | Rola                                                                       |
+| ---------------- | -------------------------------------------------------------------------- |
+| Abstract Factory | Interfejs definiujący metody tworzenia produktów.                          |
+| Concrete Factory | Konkretna fabryka tworząca określoną rodzinę produktów.                    |
+| Abstract Product | Interfejs produktu, np. `Button`.                                          |
+| Concrete Product | Konkretna implementacja produktu, np. `WindowsButton`.                     |
+| Client           | Kod korzystający z interfejsów, bez znajomości klas konkretnych produktów. |
+
+## 3. Przykład z życia codziennego
+
+Wyobraź sobie sklep meblowy oferujący dwa style wyposażenia.
+
+[Scandinavian Wood Dining Kitchen Room Chair Open Back Arm Chair - Clearhalo](https://images.openai.com/static-rsc-4/RuDFSBeU8WG2QIbI8B3aEAd-kQc1OqqJEmrkn_NESVoB3ewvLgnKtVc79-IutKYRvtz18X5M_ytg8xlB-CmeD8QQ31XM0jHXvt-8CoLXxaI-MT5H1lAxew2_5c080iZOmcivSyRTe5cgg5_Pp9RDTIxftZSr6NjlVwUm2_VZm1I?purpose=inline)
+
+Fabryka nowoczesna
+
+- Nowoczesne krzesło
+- Nowoczesny stół
+
+[Dining Tables  – Avego Antiques](https://images.openai.com/static-rsc-4/gtZe2YtxkYcPGqX2uSdprG9FUomLB8egtQlWwwmQwAuCFZ0V_OEuX4Xd9blX737ewbOolZmZMhNcYWBgxXpPLD2hjIaAkSJdifXFH0LKgMtyzVujXssw_M0KeDHDtI0JPzObgH0Nt7PVuM1r2ct0-fJUfMMNwWFSoKfhPqTKQSk?purpose=inline)
+
+Fabryka klasyczna
+
+- Klasyczne krzesło
+- Klasyczny stół
+
+Klient wybiera styl, a fabryka tworzy komplet pasujących do siebie produktów. Klient nie musi wiedzieć, jak powstaje krzesło ani stół.
+
+To właśnie istota wzorca Abstract Factory.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.baeldung.com\&sz=32)
+
+Baeldung
+
++1
+
+
+
+## 4. Implementacja w Javie
+
+Zbudujmy prosty projekt w IntelliJ IDEA. Zastosujemy przykład interfejsu graficznego dla Windows i macOS.
+
+Struktura projektu:
+
+```
+AbstractFactoryDemo/
+└── src/
+    ├── Button.java
+    ├── Checkbox.java
+    ├── WindowsButton.java
+    ├── MacOSButton.java
+    ├── WindowsCheckbox.java
+    ├── MacOSCheckbox.java
+    ├── GUIFactory.java
+    ├── WindowsFactory.java
+    ├── MacOSFactory.java
+    └── Main.java
+```
+
+### Krok 1. Tworzymy interfejsy produktów
+
+`Button.java`
+
+```
+public interface Button {
+    void render();
+}
+```
+
+`Checkbox.java`
+
+```
+public interface Checkbox {
+    void render();
+}
+```
+
+Są to produkty abstrakcyjne. Określają, co obiekty potrafią robić, ale nie określają szczegółów ich implementacji.
+
+### Krok 2. Tworzymy konkretne produkty
+
+`WindowsButton.java`
+
+```
+public class WindowsButton implements Button {
+
+    @Override
+    public void render() {
+        System.out.println("Przycisk Windows");
+    }
+}
+```
+
+`MacOSButton.java`
+
+```
+public class MacOSButton implements Button {
+
+    @Override
+    public void render() {
+        System.out.println("Przycisk macOS");
+    }
+}
+```
+
+`WindowsCheckbox.java`
+
+```
+public class WindowsCheckbox implements Checkbox {
+
+    @Override
+    public void render() {
+        System.out.println("Checkbox Windows");
+    }
+}
+```
+
+`MacOSCheckbox.java`
+
+```
+public class MacOSCheckbox implements Checkbox {
+
+    @Override
+    public void render() {
+        System.out.println("Checkbox macOS");
+    }
+}
+```
+
+Mamy już cztery konkretne produkty, należące do dwóch rodzin.
+
+### Krok 3. Tworzymy fabrykę abstrakcyjną
+
+`GUIFactory.java`
+
+```
+public interface GUIFactory {
+
+    Button createButton();
+
+    Checkbox createCheckbox();
+}
+```
+
+To najważniejszy element wzorca.
+
+Fabryka deklaruje dwie metody tworzące różne rodzaje produktów. Nie wskazuje jednak, jakie konkretne klasy mają zostać utworzone.
+
+### Krok 4. Tworzymy konkretne fabryki
+
+`WindowsFactory.java`
+
+```
+public class WindowsFactory implements GUIFactory {
+
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new WindowsCheckbox();
+    }
+}
+```
+
+`MacOSFactory.java`
+
+```
+public class MacOSFactory implements GUIFactory {
+
+    @Override
+    public Button createButton() {
+        return new MacOSButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new MacOSCheckbox();
+    }
+}
+```
+
+Każda fabryka tworzy produkty z własnej rodziny. Fabryka Windows nie zwraca produktów macOS, dzięki czemu zachowujemy spójność zestawu.
+
+### Krok 5. Tworzymy klasę uruchomieniową
+
+`Main.java`
+
+```
+public class Main {
+
+    public static void main(String[] args) {
+
+        GUIFactory factory = new WindowsFactory();
+
+        Button button = factory.createButton();
+        Checkbox checkbox = factory.createCheckbox();
+
+        button.render();
+        checkbox.render();
+
+        System.out.println("--- Zmiana rodziny produktów ---");
+
+        factory = new MacOSFactory();
+
+        button = factory.createButton();
+        checkbox = factory.createCheckbox();
+
+        button.render();
+        checkbox.render();
+    }
+}
+```
+
+### Wynik działania
+
+```
+Przycisk Windows
+Checkbox Windows
+--- Zmiana rodziny produktów ---
+Przycisk macOS
+Checkbox macOS
+```
+
+Zwróć uwagę na następujący fragment:
+
+```
+GUIFactory factory = new WindowsFactory();
+```
+
+Możesz zmienić go na:
+
+```
+GUIFactory factory = new MacOSFactory();
+```
+
+Pozostała część kodu korzystająca z `factory` nie wymaga zmian. To dlatego, że klient współpracuje z interfejsami, a nie z konkretnymi klasami.
+
+## 5. Jak działa cały wzorzec?
+
+1\. Wybór fabryki
+
+WindowsFactory lub MacOSFactory
+
+2\. Utworzenie produktów
+
+createButton() oraz createCheckbox()
+
+3\. Użycie produktów
+
+Klient wywołuje render() bez znajomości klas konkretnych.
+
+Wybór konkretnej fabryki może odbywać się podczas uruchamiania aplikacji na podstawie konfiguracji, systemu operacyjnego lub wstrzykniętej zależności.
+
+## 6. Zalety i wady
+
+| Zalety                                         | Wady                                                                                      |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Ogranicza zależność od konkretnych klas.       | Wymaga większej liczby interfejsów i klas.                                                |
+| Zapewnia spójność produktów w jednej rodzinie. | Dodanie nowego rodzaju produktu wymaga zmian w interfejsie fabryki i jej implementacjach. |
+| Ułatwia wymianę całej rodziny produktów.       | Może być zbyt skomplikowany dla małych aplikacji.                                         |
+| Ułatwia testowanie dzięki interfejsom.         | Trzeba odpowiednio zaprojektować rodziny produktów.                                       |
+
+## 7. Abstract Factory a Factory Method
+
+Te dwa wzorce łatwo pomylić.
+
+| Cecha                | Factory Method                              | Abstract Factory                                         |
+| -------------------- | ------------------------------------------- | -------------------------------------------------------- |
+| Główny cel           | Tworzenie produktu przez metodę fabrykującą | Tworzenie rodziny powiązanych produktów                  |
+| Przykład             | Tworzenie konkretnego rodzaju pojazdu       | Tworzenie całej rodziny elementów GUI                    |
+| Główna abstrakcja    | Metoda tworząca produkt                     | Interfejs fabryki z wieloma metodami tworzącymi produkty |
+| Przykładowe produkty | `ElectricCar`                               | `MacOSButton` i `MacOSCheckbox`                          |
+
+Factory Method koncentruje się na decyzji o utworzeniu produktu, natomiast Abstract Factory koordynuje tworzenie zestawu powiązanych produktów.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.baeldung.com\&sz=32)
+
+Baeldung
+
++1
+
+
+
+## 8. Kiedy warto stosować ten wzorzec?
+
+Stosuj Abstract Factory, gdy:
+
+- Aplikacja musi obsługiwać wiele rodzin powiązanych obiektów.
+- Produkty z jednej rodziny powinny być używane razem.
+- Chcesz zmieniać implementację całego zestawu bez przebudowy logiki biznesowej.
+- Chcesz, aby kod klienta zależał od interfejsów.
+
+Nie stosuj go automatycznie w każdym projekcie. Jeśli tworzysz tylko jeden rodzaj obiektu i nie masz różnych rodzin produktów, prostsza fabryka może wystarczyć.
+
+## 9. Sprawdź swoją wiedzę
+
+Miniquiz
+
+3 / 3
+
+1\. Jaki jest główny cel Abstract Factory?
+
+Tworzenie jednej instancji klasy
+
+Tworzenie rodzin powiązanych produktów
+
+Przechowywanie obiektów w bazie danych
+
+Dobrze! Fabryka abstrakcyjna tworzy rodziny powiązanych lub zależnych od siebie produktów.
+
+2\. Co definiuje GUIFactory?
+
+Interfejsy metod tworzących produkty
+
+Wyłącznie wygląd przycisku
+
+Kod uruchamiający aplikację
+
+Dobrze! GUIFactory deklaruje metody, takie jak createButton() i createCheckbox().
+
+3\. Dlaczego klient korzysta z typu GUIFactory?
+
+Żeby nie trzeba było tworzyć żadnych obiektów
+
+Żeby zależeć od konkretnej klasy WindowsFactory
+
+Żeby można było podmieniać konkretne fabryki
+
+Dobrze! Programowanie przez interfejs umożliwia zamianę fabryki bez zmiany kodu korzystającego z jej metod.
+
+Rozwiąż ponownie
+
+Najważniejsze do zapamiętania: Abstract Factory tworzy rodziny powiązanych produktów poprzez wspólny interfejs fabryki. Dzięki temu można wymieniać całe rodziny implementacji, nie uzależniając kodu klienta od konkretnych klas.

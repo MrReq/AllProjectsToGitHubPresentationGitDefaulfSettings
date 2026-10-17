@@ -1,0 +1,115 @@
+# Grafana
+
+## 1. Czym jest Grafana?
+
+Grafana to otwartoźródłowa platforma do wizualizacji danych, monitorowania systemów informatycznych oraz analizowania ich wydajności.
+
+Umożliwia tworzenie interaktywnych pulpitów nawigacyjnych (dashboards), na których można prezentować wykresy, tabele, statystyki i alerty dotyczące działania aplikacji oraz infrastruktury.
+
+Grafana jest często wykorzystywana w środowiskach DevOps, administracji systemami, monitorowaniu aplikacji i analizie danych w czasie rzeczywistym.
+
+## 2. Do czego służy Grafana?
+
+Grafana służy do monitorowania stanu serwerów, aplikacji, baz danych i usług chmurowych.
+
+Pozwala obserwować zużycie procesora, pamięci RAM, przestrzeni dyskowej i przepustowości sieci.
+
+Umożliwia analizowanie czasu odpowiedzi API, liczby błędów HTTP oraz liczby żądań obsługiwanych przez aplikację.
+
+Pozwala konfigurować alerty, które informują o problemach, takich jak przeciążenie serwera, wzrost liczby błędów lub niedostępność usługi.
+
+## 3. Najważniejsze funkcje Grafany
+
+Dashboards umożliwiają tworzenie pulpitów prezentujących najważniejsze dane systemowe i biznesowe.
+
+Panels to pojedyncze elementy pulpitu, na przykład wykresy liniowe, wykresy słupkowe, tabele i wskaźniki.
+
+Data Sources pozwalają łączyć Grafanę z różnymi źródłami danych, takimi jak Prometheus, Loki, Elasticsearch, PostgreSQL i InfluxDB.
+
+Alerting umożliwia definiowanie warunków alarmowych i wysyłanie powiadomień o wykrytych problemach.
+
+Explore pozwala samodzielnie analizować dane, wykonywać zapytania i badać nieprawidłowości bez konieczności tworzenia osobnego dashboardu.
+
+Plugins rozszerzają możliwości Grafany o dodatkowe źródła danych, wizualizacje i integracje.
+
+## 4. Jak działa Grafana?
+
+Grafana łączy się ze skonfigurowanymi źródłami danych i pobiera z nich informacje za pomocą odpowiednich zapytań.
+
+Następnie przekształca wyniki w czytelne wizualizacje, które można umieszczać na dashboardach.
+
+Administrator może skonfigurować alerty, aby system informował go o przekroczeniu określonych progów.
+
+Grafana nie musi samodzielnie zbierać wszystkich danych, ponieważ często współpracuje z innymi narzędziami odpowiedzialnymi za gromadzenie i przechowywanie metryk oraz logów.
+
+## 5. Grafana i Prometheus
+
+Grafana bardzo często współpracuje z Prometheusem, który służy do zbierania i przechowywania metryk czasowych.
+
+Prometheus gromadzi informacje o działaniu monitorowanych systemów, a Grafana prezentuje je w postaci wykresów i dashboardów.
+
+Przykładowo Prometheus może zbierać dane o wykorzystaniu procesora przez aplikację, a Grafana wyświetlać zmiany tego parametru w czasie.
+
+Połączenie tych narzędzi jest popularnym rozwiązaniem w monitorowaniu aplikacji oraz infrastruktury kontenerowej.
+
+## 6. Przykład zastosowania w projekcie Spring Boot
+
+Załóżmy, że tworzysz backend w Javie przy użyciu Spring Boot i bazy PostgreSQL.
+
+Możesz udostępnić metryki aplikacji za pomocą Spring Boot Actuator i Micrometer, a następnie skonfigurować Prometheusa do ich zbierania.
+
+Grafana może prezentować czas odpowiedzi endpointów, liczbę żądań, błędy HTTP i zużycie pamięci JVM.
+
+Dzięki temu łatwiej wykryjesz, czy aplikacja zaczyna działać wolniej lub czy określone operacje powodują problemy z wydajnością.
+
+## 7. Grafana a inne narzędzia monitorujące
+
+Grafana jest często porównywana z takimi narzędziami jak Kibana, Datadog i New Relic.
+
+Kibana jest szczególnie związana z analizą danych przechowywanych w Elasticsearch i ekosystemie Elastic.
+
+Datadog oferuje zintegrowaną platformę monitorowania infrastruktury, aplikacji i logów jako usługę.
+
+New Relic zapewnia narzędzia do monitorowania wydajności aplikacji i analizowania ich działania.
+
+Grafana wyróżnia się elastyczną integracją z wieloma źródłami danych i możliwością budowania własnych dashboardów.
+
+## 8. Zalety Grafany
+
+Grafana umożliwia prezentowanie dużej liczby parametrów systemowych na czytelnych dashboardach.
+
+Obsługuje wiele źródeł danych i może łączyć informacje pochodzące z różnych systemów.
+
+Pomaga szybciej identyfikować problemy z wydajnością i dostępnością aplikacji.
+
+Wspiera alertowanie i integrację z narzędziami wykorzystywanymi przez zespoły DevOps.
+
+Oferuje wersję otwartoźródłową oraz dodatkowe rozwiązania komercyjne i chmurowe.
+
+## 9. Wady i ograniczenia Grafany
+
+Grafana wymaga poprawnej konfiguracji źródeł danych, zapytań i dashboardów.
+
+Nie zapewnia automatycznie wszystkich funkcji gromadzenia i przechowywania metryk, dlatego często potrzebuje dodatkowych narzędzi.
+
+Przy dużej liczbie dashboardów i źródeł danych zarządzanie konfiguracją może stać się skomplikowane.
+
+Nieprawidłowo ustawione alerty mogą generować nadmierną liczbę powiadomień lub nie wykrywać istotnych problemów.
+
+## 10. Znaczenie Grafany w pracy informatyka
+
+Grafana jest przydatna dla administratorów systemów, programistów backendowych, inżynierów DevOps, SRE oraz specjalistów monitorowania infrastruktury.
+
+Programiści mogą analizować wydajność swoich aplikacji i wykrywać problemy pojawiające się podczas działania systemu.
+
+Administratorzy mogą obserwować stan serwerów i baz danych.
+
+Inżynierowie DevOps wykorzystują Grafanę do monitorowania kontenerów, Kubernetes i usług chmurowych.
+
+## 11. Podsumowanie
+
+Grafana to platforma do wizualizacji danych, monitorowania infrastruktury i analizowania wydajności aplikacji.
+
+Jej najważniejsze funkcje obejmują dashboardy, integrację ze źródłami danych, wizualizację metryk oraz alertowanie.
+
+Warto poznać Grafanę, jeśli interesujesz się Javą, Spring Bootem, Dockerem, Kubernetesem, Prometheusem lub inżynierią DevOps.

@@ -1,0 +1,551 @@
+# UML
+
+## 1. Czym jest UML?
+
+UML, czyli **Unified Modeling Language**, jest ustandaryzowanym językiem służącym do modelowania systemów.
+
+UML pozwala przedstawiać strukturę, zachowanie oraz sposób działania systemu za pomocą diagramów.
+
+UML jest szczególnie często wykorzystywany w inżynierii oprogramowania oraz podczas projektowania aplikacji.
+
+UML nie jest językiem programowania.
+
+UML jest językiem modelowania, który pomaga zaprojektować system przed jego implementacją.
+
+## 2. Do czego służy UML?
+
+UML pozwala opisywać wymagania systemu.
+
+UML pozwala przedstawiać klasy i obiekty występujące w systemie.
+
+UML pozwala przedstawiać relacje pomiędzy elementami systemu.
+
+UML pozwala opisywać zachowanie aplikacji.
+
+UML pomaga programistom, analitykom oraz projektantom wspólnie rozumieć projekt.
+
+Diagramy UML mogą być tworzone przed rozpoczęciem programowania albo podczas rozwijania istniejącego systemu.
+
+## 3. UML a programowanie obiektowe
+
+UML jest bardzo dobrze dopasowany do programowania obiektowego.
+
+Za pomocą UML można przedstawiać klasy, atrybuty, operacje oraz relacje pomiędzy klasami.
+
+Przykładowa klasa `Person` może posiadać atrybut `name` oraz operację `getName()`.
+
+W językach takich jak Java, C#, C++ czy Python model UML może być później odwzorowany na kod programu.
+
+## 4. Diagramy UML
+
+UML zawiera wiele rodzajów diagramów.
+
+Diagramy można podzielić między innymi na **diagramy strukturalne** oraz **diagramy behawioralne**.
+
+Diagramy strukturalne opisują, z jakich elementów składa się system.
+
+Diagramy behawioralne opisują zachowanie systemu.
+
+## 5. Diagram klas
+
+Diagram klas jest jednym z najważniejszych diagramów UML.
+
+Przedstawia klasy występujące w systemie oraz relacje pomiędzy nimi.
+
+Klasa jest przedstawiana w postaci prostokąta podzielonego zazwyczaj na trzy części.
+
+Pierwsza część zawiera nazwę klasy.
+
+Druga część zawiera atrybuty.
+
+Trzecia część zawiera operacje.
+
+Przykład:
+
+```text
++----------------------+
+|       Person         |
++----------------------+
+| - name: String       |
+| - age: int           |
++----------------------+
+| + getName(): String  |
+| + getAge(): int      |
++----------------------+
+```
+
+## 6. Widoczność elementów
+
+UML pozwala określać widoczność atrybutów oraz operacji.
+
+Symbol `+` oznacza element publiczny.
+
+Symbol `-` oznacza element prywatny.
+
+Symbol `#` oznacza element chroniony.
+
+Symbol `~` oznacza widoczność pakietową.
+
+Przykład:
+
+```text
++ publicMethod()
+- privateMethod()
+# protectedMethod()
+~ packageMethod()
+```
+
+## 7. Atrybut
+
+Atrybut opisuje właściwość klasy.
+
+Przykładowa klasa `Car` może posiadać atrybuty:
+
+```text
+- brand: String
+- model: String
+- year: int
+```
+
+Atrybut może posiadać nazwę oraz typ.
+
+W UML można również określać wartości domyślne oraz inne właściwości atrybutu.
+
+## 8. Operacja
+
+Operacja opisuje działanie, które może wykonywać obiekt danej klasy.
+
+Przykładowo klasa `Car` może posiadać:
+
+```text
++ startEngine(): void
++ accelerate(speed: int): void
++ getSpeed(): int
+```
+
+Operacja może posiadać parametry oraz typ zwracanej wartości.
+
+## 9. Obiekt
+
+Obiekt jest konkretną instancją klasy.
+
+Jeżeli istnieje klasa:
+
+```text
+Person
+```
+
+to konkretnym obiektem może być:
+
+```text
+john: Person
+```
+
+Obiekt posiada własne wartości atrybutów.
+
+Diagram obiektów przedstawia konkretne obiekty oraz ich zależności w określonym momencie.
+
+## 10. Dziedziczenie
+
+Dziedziczenie przedstawia relację pomiędzy klasą nadrzędną a klasą podrzędną.
+
+Przykładowo:
+
+```text
+Person
+   ▲
+   |
+Employee
+```
+
+`Employee` dziedziczy po `Person`.
+
+W UML dziedziczenie przedstawia się za pomocą linii zakończonej pustym trójkątem skierowanym w stronę klasy nadrzędnej.
+
+Dziedziczenie często określa się również jako relację **generalization**.
+
+## 11. Asocjacja
+
+Asocjacja oznacza relację pomiędzy klasami.
+
+Przykładowo `Student` może być powiązany z `University`.
+
+```text
+Student ---------------- University
+```
+
+Asocjacja może posiadać nazwę, role oraz liczności.
+
+## 12. Liczności
+
+Liczność określa, ile obiektów jednej klasy może być powiązanych z obiektem drugiej klasy.
+
+Najczęściej stosowane oznaczenia to:
+
+```text
+1       dokładnie jeden
+0..1    zero lub jeden
+*       dowolna liczba
+0..*    zero lub więcej
+1..*    jeden lub więcej
+```
+
+Przykładowo:
+
+```text
+Student 1 -------- 0..* Course
+```
+
+oznacza, że jeden student może być zapisany na zero lub wiele kursów.
+
+## 13. Agregacja
+
+Agregacja oznacza relację typu „całość–część”.
+
+Część może istnieć niezależnie od całości.
+
+Przykładowo uniwersytet może posiadać wydziały, ale wydział może być modelowany jako element, który może istnieć niezależnie od konkretnego obiektu uniwersytetu.
+
+Agregację oznacza się pustym rombem.
+
+```text
+University ◇-------- Department
+```
+
+## 14. Kompozycja
+
+Kompozycja jest silniejszą formą relacji „całość–część”.
+
+W kompozycji część jest silnie związana z konkretną całością.
+
+Jeżeli całość przestaje istnieć, jej części również przestają istnieć w ramach tego modelu.
+
+Kompozycję oznacza się wypełnionym rombem.
+
+```text
+Order ◆-------- OrderItem
+```
+
+Przykładowo po usunięciu zamówienia jego pozycje mogą również zostać usunięte.
+
+## 15. Zależność
+
+Zależność oznacza, że jeden element systemu korzysta z innego elementu.
+
+Przykładowo jedna klasa może używać innej klasy jako parametru metody.
+
+Zależność jest zazwyczaj przedstawiana za pomocą przerywanej strzałki.
+
+```text
+ClassA - - - - > ClassB
+```
+
+## 16. Interfejs
+
+UML pozwala również przedstawiać interfejsy.
+
+Interfejs definiuje zestaw operacji, które mogą być implementowane przez klasy.
+
+Przykład:
+
+```text
+<<interface>>
+Payment
+----------------
++ pay(): void
+```
+
+Klasa może implementować interfejs.
+
+```text
+CreditCard - - - -▷ Payment
+```
+
+## 17. Diagram przypadków użycia
+
+Diagram przypadków użycia, czyli **Use Case Diagram**, przedstawia funkcjonalności systemu z punktu widzenia użytkowników.
+
+Pokazuje przede wszystkim aktorów oraz przypadki użycia.
+
+Przykładowym aktorem może być:
+
+```text
+Customer
+```
+
+Przykładowymi przypadkami użycia mogą być:
+
+```text
+Login
+Make Order
+Cancel Order
+View Orders
+```
+
+## 18. Aktor
+
+Aktor reprezentuje użytkownika lub zewnętrzny system, który wchodzi w interakcję z systemem.
+
+Aktor nie musi być człowiekiem.
+
+Aktorem może być również inny system, urządzenie albo usługa zewnętrzna.
+
+Przykładowo:
+
+```text
+Customer
+Administrator
+Payment System
+Email Service
+```
+
+## 19. Include
+
+Relacja `<<include>>` oznacza, że jeden przypadek użycia zawsze wykorzystuje inny przypadek użycia.
+
+Przykładowo:
+
+```text
+Make Order
+     |
+     | <<include>>
+     v
+Authenticate User
+```
+
+Oznacza to, że uwierzytelnienie jest częścią wykonywania danego przypadku użycia.
+
+## 20. Extend
+
+Relacja `<<extend>>` oznacza opcjonalne rozszerzenie zachowania przypadku użycia.
+
+Przykładowo:
+
+```text
+Make Payment
+     ^
+     |
+ <<extend>>
+     |
+Apply Discount
+```
+
+Dodatkowe zachowanie może zostać wykonane w określonych warunkach.
+
+## 21. Diagram sekwencji
+
+Diagram sekwencji przedstawia komunikację pomiędzy obiektami w określonej kolejności czasowej.
+
+Pokazuje, jakie komunikaty są wysyłane pomiędzy elementami systemu.
+
+Przykładowy scenariusz logowania może wyglądać tak:
+
+```text
+User -> LoginPage: enterCredentials()
+LoginPage -> AuthService: authenticate()
+AuthService -> Database: findUser()
+Database --> AuthService: user
+AuthService --> LoginPage: success
+LoginPage --> User: loggedIn
+```
+
+Diagram sekwencji jest szczególnie przydatny do przedstawiania przebiegu konkretnego scenariusza.
+
+## 22. Diagram aktywności
+
+Diagram aktywności przedstawia przepływ działań w systemie.
+
+Może przypominać klasyczny schemat blokowy.
+
+Można na nim przedstawiać:
+
+```text
+start
+działania
+decyzje
+równoległość
+zakończenie
+```
+
+Przykładowy proces:
+
+```text
+Start
+  ↓
+Login
+  ↓
+[Credentials correct?]
+  ↓ Yes
+Dashboard
+  ↓
+End
+```
+
+## 23. Diagram stanów
+
+Diagram stanów pokazuje możliwe stany obiektu oraz przejścia pomiędzy nimi.
+
+Przykładowo zamówienie może mieć stany:
+
+```text
+New
+ ↓
+Confirmed
+ ↓
+Processing
+ ↓
+Shipped
+ ↓
+Delivered
+```
+
+Zmiana stanu może nastąpić w wyniku określonego zdarzenia.
+
+## 24. Diagram komponentów
+
+Diagram komponentów przedstawia większe elementy systemu oraz zależności pomiędzy nimi.
+
+Komponentem może być na przykład:
+
+```text
+Web Application
+Authentication Service
+Payment Service
+Database
+Notification Service
+```
+
+Diagram komponentów jest szczególnie przydatny podczas projektowania architektury aplikacji.
+
+## 25. Diagram wdrożenia
+
+Diagram wdrożenia, czyli **Deployment Diagram**, przedstawia fizyczne środowisko, w którym działa system.
+
+Może pokazywać między innymi:
+
+```text
+Client
+Server
+Database Server
+Cloud
+Network
+Application Server
+```
+
+Pozwala zobaczyć, gdzie poszczególne elementy systemu są uruchamiane.
+
+## 26. Diagram pakietów
+
+Diagram pakietów przedstawia organizację elementów systemu w pakiety.
+
+Można dzięki niemu pokazać strukturę dużej aplikacji.
+
+Przykładowo:
+
+```text
+com.application
+ ├── controllers
+ ├── services
+ ├── repositories
+ ├── models
+ └── utils
+```
+
+## 27. Diagram komunikacji
+
+Diagram komunikacji pokazuje współpracę obiektów oraz komunikaty przesyłane pomiędzy nimi.
+
+Podobnie jak diagram sekwencji może przedstawiać interakcje pomiędzy obiektami.
+
+Główny nacisk jest jednak położony na strukturę komunikacji pomiędzy obiektami.
+
+## 28. Diagram czasowy
+
+Diagram czasowy, czyli **Timing Diagram**, przedstawia zmiany stanów obiektów w czasie.
+
+Jest szczególnie przydatny w systemach, w których istotne są zależności czasowe.
+
+Może być stosowany między innymi przy projektowaniu systemów czasu rzeczywistego.
+
+## 29. UML w procesie tworzenia oprogramowania
+
+UML może być wykorzystany na wielu etapach tworzenia systemu.
+
+Najpierw można wykorzystać diagramy przypadków użycia do przedstawienia wymagań.
+
+Następnie diagramy klas mogą pomóc zaprojektować strukturę systemu.
+
+Diagramy sekwencji mogą pokazać sposób realizacji konkretnych scenariuszy.
+
+Diagramy aktywności mogą przedstawić procesy biznesowe.
+
+Diagramy komponentów i wdrożenia mogą pomóc zaprojektować architekturę systemu.
+
+## 30. UML a dokumentacja
+
+Diagramy UML mogą być częścią dokumentacji projektu.
+
+Pozwalają przedstawić skomplikowane zależności w bardziej przejrzysty sposób niż sam opis tekstowy.
+
+Dobrze przygotowany diagram może ułatwić późniejsze rozwijanie i utrzymywanie systemu.
+
+## 31. Narzędzia do UML
+
+Diagramy UML można tworzyć za pomocą wielu narzędzi.
+
+Popularne narzędzia to między innymi **Visual Paradigm**, **StarUML**, **Enterprise Architect**, **Lucidchart**, **draw.io** oraz **PlantUML**.
+
+PlantUML pozwala tworzyć diagramy za pomocą tekstowych definicji.
+
+Przykładowo prosty diagram klas może wyglądać tak:
+
+```text
+@startuml
+
+class Person {
+    - name : String
+    + getName() : String
+}
+
+class Student {
+    - index : int
+}
+
+Person <|-- Student
+
+@enduml
+```
+
+## 32. UML – najważniejsze informacje do zapamiętania
+
+UML oznacza **Unified Modeling Language**.
+
+UML jest językiem modelowania, a nie językiem programowania.
+
+UML służy do przedstawiania struktury i zachowania systemów.
+
+Diagram klas przedstawia klasy, atrybuty, operacje i relacje.
+
+Diagram przypadków użycia przedstawia aktorów oraz funkcjonalności systemu.
+
+Diagram sekwencji przedstawia komunikację pomiędzy obiektami w czasie.
+
+Diagram aktywności przedstawia przepływ działań.
+
+Diagram stanów przedstawia stany obiektu i przejścia między nimi.
+
+Diagram komponentów przedstawia komponenty systemu i ich zależności.
+
+Diagram wdrożenia przedstawia fizyczne środowisko uruchomieniowe systemu.
+
+Dziedziczenie jest oznaczane linią z pustym trójkątem.
+
+Agregacja jest oznaczana pustym rombem.
+
+Kompozycja jest oznaczana wypełnionym rombem.
+
+`1`, `0..1`, `0..*` oraz `1..*` określają liczności relacji.
+
+`<<include>>` oznacza obowiązkowe wykorzystanie innego przypadku użycia.
+
+`<<extend>>` oznacza opcjonalne rozszerzenie przypadku użycia.

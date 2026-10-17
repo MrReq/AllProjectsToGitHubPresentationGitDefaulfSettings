@@ -1,0 +1,273 @@
+ArchiMate — notatka
+
+1. Czym jest ArchiMate?
+
+ArchiMate to język modelowania architektury przedsiębiorstwa (Enterprise Architecture), który umożliwia przedstawianie struktury organizacji, jej procesów biznesowych, aplikacji oraz infrastruktury technologicznej.
+
+Został opracowany w celu ułatwienia opisywania zależności pomiędzy biznesem a IT.
+
+ArchiMate pozwala tworzyć modele pokazujące, w jaki sposób cele biznesowe są realizowane przez procesy, aplikacje, dane i technologie.
+
+Jest rozwijany przez The Open Group i często wykorzystywany razem z metodyką TOGAF.
+
+2. Do czego służy ArchiMate?
+
+ArchiMate służy do dokumentowania i analizowania architektury przedsiębiorstwa.
+
+Pozwala przedstawić, jak organizacja działa obecnie oraz jak powinna wyglądać po planowanych zmianach.
+
+Może być wykorzystywany do planowania transformacji cyfrowej, modernizacji systemów informatycznych i integracji aplikacji.
+
+Ułatwia również komunikację pomiędzy architektami IT, programistami, analitykami biznesowymi, kierownikami projektów i osobami zarządzającymi organizacją.
+
+Przykładowo bank może wykorzystać ArchiMate do pokazania zależności pomiędzy procesem udzielania kredytu, aplikacją bankową, bazą danych klientów i infrastrukturą serwerową.
+
+3. Czym jest architektura przedsiębiorstwa?
+
+Architektura przedsiębiorstwa (Enterprise Architecture) opisuje sposób funkcjonowania organizacji oraz powiązania pomiędzy jej celami, procesami, informacjami, aplikacjami i technologiami.
+
+Jej zadaniem jest zapewnienie, że rozwój systemów informatycznych wspiera potrzeby biznesowe.
+
+Architektura przedsiębiorstwa pomaga również identyfikować powielające się systemy, niepotrzebne koszty i problemy związane z integracją.
+
+ArchiMate dostarcza języka, za pomocą którego można przedstawić tę architekturę w uporządkowanej i zrozumiałej formie.
+
+4. Podstawowe warstwy ArchiMate
+
+ArchiMate wykorzystuje kilka warstw pozwalających opisywać różne aspekty organizacji.
+
+Warstwa biznesowa (Business Layer) przedstawia procesy biznesowe, role, uczestników, usługi i produkty organizacji.
+
+Warstwa aplikacji (Application Layer) opisuje aplikacje, ich funkcje, interfejsy oraz współpracę pomiędzy systemami.
+
+Warstwa technologiczna (Technology Layer) przedstawia infrastrukturę techniczną, węzły, urządzenia, oprogramowanie systemowe i sieci.
+
+W nowszych wersjach standardu występują również między innymi elementy związane ze strategią, motywacją, implementacją i migracją.
+
+Warstwy pozwalają pokazać, jak wymagania biznesowe przekładają się na rozwiązania aplikacyjne i techniczne.
+
+5. Warstwa biznesowa
+
+Warstwa biznesowa przedstawia działalność organizacji z perspektywy jej celów i operacji.
+
+Może zawierać aktorów biznesowych, role, procesy, funkcje, usługi i obiekty biznesowe.
+
+Business Actor oznacza podmiot uczestniczący w działalności organizacji, na przykład klienta lub pracownika.
+
+Business Role opisuje rolę pełnioną przez osobę lub inny podmiot.
+
+Business Process przedstawia uporządkowany ciąg działań prowadzących do określonego wyniku.
+
+Business Service opisuje usługę udostępnianą przez organizację klientowi lub innemu uczestnikowi.
+
+Przykładem procesu biznesowego może być obsługa zamówienia w sklepie internetowym.
+
+6. Warstwa aplikacji
+
+Warstwa aplikacji opisuje systemy informatyczne oraz ich funkcje.
+
+Application Component reprezentuje komponent aplikacyjny, na przykład system CRM lub moduł obsługi zamówień.
+
+Application Function przedstawia funkcjonalność realizowaną przez aplikację.
+
+Application Service opisuje usługę udostępnianą przez aplikację innym komponentom lub procesom.
+
+Data Object reprezentuje dane wykorzystywane lub przetwarzane przez aplikacje.
+
+Przykładowo aplikacja sprzedażowa może udostępniać usługę sprawdzania dostępności produktu i korzystać z obiektu danych reprezentującego zamówienie.
+
+7. Warstwa technologiczna
+
+Warstwa technologiczna przedstawia infrastrukturę, na której działają aplikacje.
+
+Może obejmować serwery, urządzenia, sieci, systemy operacyjne, środowiska uruchomieniowe i inne elementy infrastruktury.
+
+Node reprezentuje zasób obliczeniowy lub środowisko, na którym mogą działać komponenty technologiczne albo aplikacyjne.
+
+System Software opisuje oprogramowanie systemowe, na przykład system operacyjny lub środowisko wykonawcze.
+
+Technology Service przedstawia usługę technologiczną udostępnianą innym elementom architektury.
+
+Przykładowo aplikacja Java może działać na serwerze Linux, w kontenerze Docker, z bazą PostgreSQL i komunikacją przez sieć.
+
+8. Warstwa strategii i motywacji
+
+ArchiMate pozwala modelować również powody, dla których organizacja wprowadza określone zmiany.
+
+Elementy motywacyjne obejmują między innymi interesariuszy, cele, wymagania, ograniczenia i zasady.
+
+Stakeholder reprezentuje osobę lub grupę zainteresowaną określonym rozwiązaniem.
+
+Goal opisuje cel, który organizacja chce osiągnąć.
+
+Requirement przedstawia wymaganie, które powinno zostać spełnione.
+
+Constraint oznacza ograniczenie wpływające na sposób realizacji rozwiązania.
+
+Elementy strategii mogą opisywać zasoby, zdolności organizacji, działania strategiczne i oczekiwane rezultaty.
+
+Dzięki temu model może wyjaśniać nie tylko to, jak działa system, lecz również dlaczego został zaprojektowany w określony sposób.
+
+9. Warstwa implementacji i migracji
+
+Warstwa implementacji i migracji pozwala przedstawiać planowanie zmian architektonicznych.
+
+Może opisywać pakiety prac, projekty, rezultaty, wydarzenia i stany przejściowe.
+
+Work Package reprezentuje zestaw prac prowadzących do określonego wyniku.
+
+Deliverable oznacza rezultat, który ma zostać dostarczony.
+
+Plateau opisuje stabilny stan architektury w określonym momencie.
+
+Gap przedstawia różnicę pomiędzy stanem obecnym a docelowym.
+
+Przykładowo firma może modelować przejście od lokalnej aplikacji do rozwiązania działającego w chmurze.
+
+ArchiMate pozwala wtedy pokazać, które elementy należy zmienić, jakie rezultaty powstaną i jak poszczególne etapy są ze sobą powiązane.
+
+10. Relacje w ArchiMate
+
+Relacje określają zależności pomiędzy elementami modelu.
+
+Association oznacza ogólne powiązanie pomiędzy elementami.
+
+Realization wskazuje, że jeden element realizuje lub urzeczywistnia inny element.
+
+Serving pokazuje, że jeden element udostępnia funkcjonalność lub usługę innemu elementowi.
+
+Assignment opisuje przypisanie odpowiedzialności, zachowania albo wykonania do określonego elementu strukturalnego.
+
+Access przedstawia dostęp do obiektów danych, na przykład odczyt lub zapis.
+
+Triggering opisuje zależność czasową lub przyczynową pomiędzy zachowaniami.
+
+Flow przedstawia przepływ informacji, wartości lub innych elementów pomiędzy składnikami architektury.
+
+Composition oznacza silny związek całości z jej częściami.
+
+Aggregation reprezentuje relację całości i części o słabszym charakterze.
+
+Dobór właściwej relacji jest ważny, ponieważ różne połączenia mają różne znaczenie w modelu.
+
+11. Przykład zastosowania ArchiMate
+
+Załóżmy, że firma prowadzi sklep internetowy.
+
+Klient składa zamówienie, system sprzedażowy przetwarza dane, a aplikacja magazynowa sprawdza dostępność produktów.
+
+Systemy działają na infrastrukturze serwerowej i korzystają z bazy danych.
+
+W modelu ArchiMate można przedstawić klienta jako Business Actor, składanie zamówienia jako Business Process, system sprzedażowy jako Application Component, a bazę danych jako element infrastruktury danych.
+
+Następnie można połączyć te elementy relacjami pokazującymi, w jaki sposób proces biznesowy korzysta z usług aplikacyjnych i jak aplikacje są wspierane przez technologię.
+
+Taki model ułatwia analizę zależności oraz planowanie zmian w systemie.
+
+12. ArchiMate a UML
+
+UML jest językiem modelowania wykorzystywanym przede wszystkim w projektowaniu i analizie systemów informatycznych.
+
+Pozwala tworzyć diagramy klas, przypadków użycia, sekwencji, aktywności i inne modele opisujące strukturę oraz zachowanie oprogramowania.
+
+ArchiMate koncentruje się na architekturze przedsiębiorstwa i zależnościach pomiędzy biznesem, aplikacjami i technologią.
+
+UML jest szczególnie przydatny podczas projektowania szczegółów aplikacji.
+
+ArchiMate jest przydatny podczas planowania architektury całej organizacji i powiązań pomiędzy jej systemami.
+
+Oba języki mogą się uzupełniać w jednym projekcie.
+
+13. ArchiMate a TOGAF
+
+TOGAF to metodyka i zbiór wskazówek wspierających rozwój oraz zarządzanie architekturą przedsiębiorstwa.
+
+ArchiMate jest językiem modelowania, który można wykorzystać do wizualizacji architektury tworzonej w ramach podejścia TOGAF.
+
+TOGAF pomaga określić sposób organizacji procesu architektonicznego.
+
+ArchiMate pomaga przedstawić architekturę za pomocą standardowych elementów i relacji.
+
+W praktyce organizacja może wykorzystywać TOGAF do planowania transformacji, a ArchiMate do dokumentowania stanu obecnego i docelowego.
+
+14. Narzędzia do modelowania ArchiMate
+
+Do tworzenia diagramów ArchiMate można wykorzystać narzędzia wspierające standard tego języka.
+
+Przykładem jest Archi, czyli popularne narzędzie do modelowania architektury przedsiębiorstwa.
+
+Istnieją również komercyjne platformy architektoniczne oferujące funkcje zarządzania modelami, repozytoriami i dokumentacją.
+
+Wybór narzędzia zależy od wielkości projektu, wymagań organizacji i potrzeby współpracy zespołowej.
+
+Podczas nauki warto zacząć od prostego diagramu obejmującego proces biznesowy, aplikację i infrastrukturę.
+
+15. Zalety ArchiMate
+
+ArchiMate umożliwia przedstawianie architektury przedsiębiorstwa w uporządkowany sposób.
+
+Pomaga zrozumieć zależności pomiędzy procesami biznesowymi, aplikacjami i technologią.
+
+Ułatwia komunikację pomiędzy zespołami biznesowymi i technicznymi.
+
+Pozwala dokumentować stan obecny, stan docelowy oraz planowane zmiany.
+
+Jest przydatny w analizie wpływu zmian systemowych na pozostałe elementy organizacji.
+
+16. Wady ArchiMate
+
+Nauka języka wymaga poznania wielu elementów i relacji.
+
+Rozbudowane modele mogą stać się trudne do odczytania, jeśli zawierają zbyt dużo szczegółów na jednym diagramie.
+
+Nieprawidłowe dobieranie relacji może prowadzić do błędnej interpretacji architektury.
+
+ArchiMate nie zastępuje szczegółowych diagramów projektowych UML ani dokumentacji technicznej.
+
+W praktyce potrzebne jest również regularne aktualizowanie modeli, aby odpowiadały rzeczywistemu stanowi organizacji.
+
+17. Plan nauki ArchiMate
+
+Na początku warto poznać ideę architektury przedsiębiorstwa oraz podstawowe warstwy języka.
+
+Następnie należy nauczyć się rozpoznawać elementy biznesowe, aplikacyjne i technologiczne.
+
+Kolejnym krokiem powinno być poznanie najważniejszych relacji, takich jak Serving, Realization, Assignment i Flow.
+
+Później warto przygotować diagram dla prostego systemu, na przykład sklepu internetowego lub aplikacji bankowej.
+
+Na koniec dobrze jest rozbudować model o cele biznesowe, wymagania i plan migracji do nowej architektury.
+
+18. Najważniejsze pojęcia
+
+ArchiMate — język modelowania architektury przedsiębiorstwa.
+
+Enterprise Architecture — architektura opisująca strukturę organizacji, procesy, aplikacje i technologię.
+
+Business Layer — warstwa przedstawiająca działalność biznesową.
+
+Application Layer — warstwa opisująca aplikacje i ich funkcje.
+
+Technology Layer — warstwa przedstawiająca infrastrukturę techniczną.
+
+Business Process — proces biznesowy prowadzący do określonego wyniku.
+
+Application Component — komponent aplikacyjny reprezentujący część systemu informatycznego.
+
+Technology Service — usługa technologiczna udostępniana innym elementom architektury.
+
+Realization — relacja pokazująca, że jeden element realizuje inny element.
+
+Serving — relacja wskazująca, że element udostępnia usługę innemu elementowi.
+
+TOGAF — metodyka i zbiór wskazówek dotyczących architektury przedsiębiorstwa.
+
+UML — język modelowania wykorzystywany przede wszystkim przy analizie i projektowaniu systemów.
+
+19. W skrócie
+
+ArchiMate to standardowy język modelowania architektury przedsiębiorstwa, który pozwala przedstawić zależności pomiędzy biznesem, aplikacjami i infrastrukturą IT.
+
+Pomaga analizować stan obecny, projektować stan docelowy i planować transformację organizacji.
+
+Warto go poznać, jeśli interesujesz się architekturą systemów, analizą biznesową, projektowaniem rozwiązań IT lub metodyką TOGAF.

@@ -1,0 +1,184 @@
+# DB2
+
+## 1. Czym jest DB2?
+
+IBM Db2 to system zarządzania relacyjnymi bazami danych (RDBMS), opracowany przez firmę IBM.
+
+Służy do przechowywania, organizowania, przetwarzania i analizowania danych wykorzystywanych przez aplikacje biznesowe.
+
+Db2 obsługuje język SQL i jest wykorzystywany między innymi w bankowości, ubezpieczeniach, administracji oraz dużych systemach korporacyjnych.
+
+Platforma jest dostępna w różnych wariantach, obejmujących rozwiązania dla systemów Linux, Unix i Windows, środowisk chmurowych oraz systemów IBM Z i IBM i.
+
+## 2. Do czego służy DB2?
+
+- Przechowywanie danych w relacyjnych bazach danych.
+- Obsługa transakcji w systemach biznesowych.
+- Wykonywanie zapytań SQL i analizowanie dużych zbiorów danych.
+- Zarządzanie danymi klientów, zamówieniami, płatnościami i produktami.
+- Integracja z aplikacjami napisanymi w Javie, C++, Pythonie i innych językach.
+- Zapewnianie spójności, bezpieczeństwa i dostępności danych.
+- Obsługa systemów przetwarzających wiele transakcji jednocześnie.
+
+## 3. Najważniejsze cechy DB2
+
+Relacyjny model danych
+
+Dane są przechowywane w tabelach składających się z wierszy i kolumn, które można łączyć za pomocą kluczy i relacji.
+
+Obsługa SQL
+
+Db2 umożliwia tworzenie tabel, dodawanie rekordów, aktualizowanie danych oraz wykonywanie złożonych zapytań.
+
+Transakcje i ACID
+
+System wspiera właściwości ACID, które pomagają zapewnić poprawność operacji bazodanowych, szczególnie w przypadku transakcji biznesowych.
+
+Bezpieczeństwo
+
+Udostępnia mechanizmy uwierzytelniania, kontroli uprawnień i ochrony danych.
+
+Wysoka wydajność
+
+Oferuje optymalizator zapytań, indeksy i mechanizmy wspierające efektywne przetwarzanie dużych ilości danych.
+
+Integracja z aplikacjami
+
+Może współpracować z aplikacjami Java poprzez JDBC oraz z innymi językami przy użyciu odpowiednich sterowników i bibliotek.
+
+## 4. Jak działa DB2?
+
+Aplikacja
+
+Java, Python, C++ lub aplikacja biznesowa
+
+IBM Db2
+
+Silnik SQL, transakcje, indeksy i optymalizacja zapytań
+
+Dane
+
+Tabele, rekordy, indeksy i pliki bazy danych
+
+Aplikacja wysyła zapytania do serwera Db2, na przykład w celu pobrania informacji o klientach.
+
+Silnik bazy danych analizuje zapytanie, wybiera sposób jego wykonania i zwraca wynik aplikacji.
+
+## 5. Przykładowe zapytania SQL w DB2
+
+Tworzenie tabeli pracowników:
+
+```
+CREATE TABLE employees (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    salary DECIMAL(10, 2)
+);
+```
+
+Dodawanie rekordu:
+
+```
+INSERT INTO employees (id, name, salary)
+VALUES (1, 'Adam Kowalski', 7500.00);
+```
+
+Pobieranie pracowników zarabiających więcej niż 6000:
+
+```
+SELECT name, salary
+FROM employees
+WHERE salary > 6000
+ORDER BY salary DESC;
+```
+
+Aktualizacja wynagrodzenia:
+
+```
+UPDATE employees
+SET salary = 8000.00
+WHERE id = 1;
+```
+
+Przykład pobierania pierwszych pięciu rekordów:
+
+```
+SELECT *
+FROM employees
+ORDER BY id
+FETCH FIRST 5 ROWS ONLY;
+```
+
+Składnia Db2 jest w dużej mierze zgodna ze standardem SQL, ale niektóre funkcje i szczegóły składni różnią się od Oracle, PostgreSQL czy Microsoft SQL Server.
+
+## 6. Najważniejsze narzędzia związane z DB2
+
+- IBM Db2 – podstawowy silnik relacyjnej bazy danych.
+- IBM Data Management Console – interfejs do monitorowania i zarządzania obsługiwanymi środowiskami Db2.
+- IBM Data Studio – narzędzie znane z wcześniejszych środowisk Db2, wykorzystywane do pracy z bazami i SQL.
+- Db2 Command Line Processor (CLP) – narzędzie wiersza poleceń do wykonywania poleceń SQL i administracyjnych.
+- JDBC – interfejs umożliwiający łączenie aplikacji Java z Db2.
+- IBM Db2 Connect – rozwiązania umożliwiające łączność z wybranymi systemami Db2, w szczególności na platformach IBM Z i IBM i.
+
+Dostępność poszczególnych narzędzi zależy od wersji i rodzaju wdrożenia Db2.
+
+## 7. DB2 a inne bazy danych
+
+| System               | Charakterystyka                                                                |
+| -------------------- | ------------------------------------------------------------------------------ |
+| IBM Db2              | Baza danych stosowana w systemach korporacyjnych i środowiskach IBM            |
+| Oracle Database      | Rozbudowany system relacyjnych baz danych dla przedsiębiorstw                  |
+| PostgreSQL           | Otwarta relacyjna baza danych o szerokim zastosowaniu                          |
+| MySQL                | Popularna baza danych wykorzystywana między innymi w aplikacjach internetowych |
+| Microsoft SQL Server | Relacyjna baza danych silnie zintegrowana z ekosystemem Microsoft              |
+
+Wybór odpowiedniego systemu zależy od wymagań aplikacji, istniejącej infrastruktury, kosztów i kompetencji zespołu.
+
+## 8. Zalety i wady DB2
+
+Zalety:
+
+- Dojrzałe rozwiązanie do obsługi krytycznych systemów biznesowych.
+- Zaawansowane mechanizmy transakcyjne i bezpieczeństwa.
+- Dobre możliwości integracji z infrastrukturą IBM.
+- Obsługa SQL i wielu typowych operacji relacyjnych.
+- Narzędzia do optymalizacji zapytań oraz monitorowania wydajności.
+
+Wady:
+
+- Niektóre wdrożenia i licencje mogą być kosztowne.
+- Administracja dużymi środowiskami wymaga specjalistycznej wiedzy.
+- Mniejsza popularność w części nowych projektów internetowych niż PostgreSQL czy MySQL.
+- Migracja do innych baz danych może wymagać zmian w SQL, procedurach i konfiguracji aplikacji.
+
+## 9. DB2 na rynku pracy
+
+Znajomość Db2 jest przydatna szczególnie w przedsiębiorstwach wykorzystujących infrastrukturę IBM.
+
+Może być wymagana na stanowiskach takich jak:
+
+- Database Administrator (DBA).
+- SQL Developer.
+- Database Developer.
+- Backend Developer.
+- Data Engineer.
+- Mainframe Developer.
+
+Warto łączyć naukę Db2 z SQL, transakcjami, indeksami, optymalizacją zapytań, modelowaniem danych oraz integracją z Javą i JDBC.
+
+## 10. Jak zacząć naukę DB2?
+
+Najlepiej rozpocząć od podstaw SQL, czyli tworzenia tabel, kluczy głównych i obcych, operacji CRUD oraz łączenia tabel za pomocą `JOIN`.
+
+Następnie warto nauczyć się indeksów, transakcji, widoków, procedur składowanych i analizy planów wykonania zapytań.
+
+Kolejnym krokiem może być stworzenie niewielkiej aplikacji Java, która łączy się z Db2 przez JDBC i umożliwia zarządzanie klientami lub zamówieniami.
+
+Materiały do nauki:
+
+- [Oficjalna strona IBM Db2](https://www.ibm.com/products/db2)
+- [Dokumentacja IBM Db2](https://www.ibm.com/docs/en/db2)
+- [Dokumentacja Db2 11.5](https://www.ibm.com/docs/en/db2/11.5.x)
+- [Dokumentacja Db2 12.1](https://www.ibm.com/docs/en/db2/12.1.x)
+
+Podsumowanie: IBM Db2 to relacyjny system bazodanowy przeznaczony przede wszystkim do profesjonalnych zastosowań biznesowych. Jeśli uczysz się Javy i SQL, warto poznać go jako uzupełnienie wiedzy o relacyjnych bazach danych, szczególnie jeśli interesuje Cię praca w dużych organizacjach i środowiskach IBM.

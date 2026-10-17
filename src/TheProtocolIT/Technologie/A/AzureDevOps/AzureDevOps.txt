@@ -1,0 +1,258 @@
+Azure DevOps — notatka
+
+1. Czym jest Azure DevOps?
+
+Azure DevOps to platforma firmy Microsoft przeznaczona do planowania pracy zespołów programistycznych, zarządzania kodem źródłowym, automatyzacji budowania aplikacji, testowania oraz wdrażania oprogramowania.
+
+Pomaga połączyć cały proces tworzenia oprogramowania w jednym środowisku.
+
+Azure DevOps jest wykorzystywane przez programistów, testerów QA, administratorów systemów, inżynierów DevOps oraz kierowników projektów IT.
+
+Platforma może współpracować między innymi z Javą, .NET, Pythonem, JavaScriptem, Dockerem, Kubernetesem i wieloma innymi technologiami.
+
+2. Do czego służy Azure DevOps?
+
+Azure DevOps wspiera cały cykl życia oprogramowania, od planowania zadań po wdrożenie aplikacji na środowisko produkcyjne.
+
+Najważniejsze zastosowania to:
+
+- Zarządzanie zadaniami i wymaganiami projektu.
+- Przechowywanie kodu źródłowego w repozytoriach Git.
+- Współpraca programistów nad wspólnym kodem.
+- Automatyczne budowanie aplikacji.
+- Uruchamianie testów jednostkowych i integracyjnych.
+- Automatyzacja wdrażania oprogramowania.
+- Monitorowanie postępu prac zespołu.
+- Przechowywanie pakietów i artefaktów.
+- Tworzenie procesów CI/CD.
+- Integracja z narzędziami chmurowymi i narzędziami zewnętrznymi.
+
+3. Najważniejsze usługi Azure DevOps
+
+Azure DevOps składa się z kilku głównych usług, które odpowiadają za różne etapy pracy nad oprogramowaniem.
+
+**Azure Boards** służy do zarządzania zadaniami, błędami, wymaganiami i planowaniem pracy zespołu.
+
+**Azure Repos** umożliwia przechowywanie kodu źródłowego w repozytoriach Git oraz zarządzanie wersjami.
+
+**Azure Pipelines** automatyzuje budowanie, testowanie i wdrażanie aplikacji.
+
+**Azure Test Plans** wspiera planowanie testów, zarządzanie przypadkami testowymi i rejestrowanie wyników testowania.
+
+**Azure Artifacts** umożliwia przechowywanie i udostępnianie pakietów, na przykład bibliotek Maven, pakietów npm i pakietów NuGet.
+
+Poszczególne usługi można integrować, aby tworzyć spójny proces pracy nad projektem.
+
+4. Azure Boards — zarządzanie zadaniami
+
+Azure Boards umożliwia organizowanie pracy zespołu przy użyciu zadań i elementów pracy nazywanych Work Items.
+
+Można w nim tworzyć między innymi:
+
+- **Epic** — duży cel lub obszar funkcjonalny projektu.
+- **Feature** — większa funkcjonalność systemu.
+- **User Story** — wymaganie opisujące funkcję z perspektywy użytkownika.
+- **Task** — konkretne zadanie do wykonania.
+- **Bug** — zgłoszony błąd oprogramowania.
+
+Dostępne są również tablice Kanban, backlogi, sprinty oraz wykresy pomagające śledzić postęp prac.
+
+Przykładowo, w projekcie Spring Boot można utworzyć User Story dotyczącą rejestracji użytkownika, a następnie podzielić ją na zadania związane z kontrolerem, serwisem, repozytorium i testami.
+
+5. Azure Repos — kontrola wersji
+
+Azure Repos umożliwia przechowywanie kodu źródłowego i zarządzanie historią zmian.
+
+Obsługuje repozytoria Git oraz system kontroli wersji Team Foundation Version Control (TFVC).
+
+Git pozwala programistom pracować na osobnych gałęziach, zapisywać zmiany i łączyć kod w ramach wspólnego projektu.
+
+Azure Repos obsługuje Pull Requesty, dzięki którym można przeglądać kod przed połączeniem zmian z główną gałęzią.
+
+Przykładowe polecenia Git:
+
+```
+git clone https://dev.azure.com/ORGANIZACJA/PROJEKT/_git/REPOZYTORIUM
+git checkout -b feature/login
+git add .
+git commit -m "Add login functionality"
+git push origin feature/login
+```
+
+W adresie repozytorium należy zastąpić przykładowe wartości prawidłowymi danymi projektu.
+
+6. Azure Pipelines — automatyzacja CI/CD
+
+Azure Pipelines służy do automatycznego budowania, testowania i wdrażania aplikacji.
+
+CI oznacza Continuous Integration, czyli ciągłą integrację zmian w kodzie.
+
+CD może oznaczać Continuous Delivery lub Continuous Deployment, czyli automatyzację przygotowania i wdrażania kolejnych wersji oprogramowania.
+
+Pipeline może uruchamiać się po przesłaniu zmian do repozytorium, utworzeniu Pull Requesta lub zgodnie z harmonogramem.
+
+Przykładowy pipeline dla projektu Java wykorzystującego Maven:
+
+```
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: Maven@4
+    inputs:
+      mavenPomFile: pom.xml
+      goals: clean verify
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+```
+
+Przykład pokazuje podstawowy proces uruchamiania komend Maven i publikowania wyników testów jednostkowych.
+
+W praktycznym projekcie należy dodatkowo skonfigurować odpowiednią wersję JDK oraz pozostałe ustawienia wymagane przez aplikację.
+
+7. Azure Test Plans — testowanie oprogramowania
+
+Azure Test Plans wspiera zarządzanie testami w projektach informatycznych.
+
+Pozwala tworzyć plany testów, przypadki testowe, zestawy testów i rejestrować wyniki wykonania testów.
+
+Tester QA może przygotować przypadek testowy dotyczący logowania, określając warunki początkowe, kroki oraz oczekiwany rezultat.
+
+Następnie może przeprowadzić test, zapisać wynik i powiązać wykryty błąd z odpowiednim elementem pracy.
+
+W zależności od konfiguracji i wykorzystywanych narzędzi wyniki automatycznych testów można również publikować w pipeline'ach.
+
+Azure Test Plans jest szczególnie przydatne w zespołach, które potrzebują uporządkowanego zarządzania testami manualnymi i śledzenia wymagań.
+
+8. Azure Artifacts — zarządzanie pakietami
+
+Azure Artifacts umożliwia przechowywanie i udostępnianie pakietów wykorzystywanych przez aplikacje.
+
+Może pełnić funkcję prywatnego repozytorium bibliotek dla zespołu programistycznego.
+
+Obsługuje między innymi ekosystemy Maven, npm, NuGet, Python i Universal Packages.
+
+W projekcie Java można wykorzystać Azure Artifacts do publikowania wewnętrznych bibliotek, z których korzystają inne aplikacje.
+
+Dzięki temu zespoły mogą współdzielić komponenty bez konieczności kopiowania ich kodu do każdego projektu.
+
+9. Przykład zastosowania Azure DevOps w projekcie Java
+
+Załóżmy, że tworzysz backend w Java i Spring Boot.
+
+Kod przechowujesz w Azure Repos, a zadania planujesz w Azure Boards.
+
+Po przesłaniu zmian Azure Pipelines pobiera kod, uruchamia Maven, kompiluje aplikację i wykonuje testy.
+
+Jeżeli proces zakończy się poprawnie, pipeline może przygotować plik JAR lub obraz Dockera.
+
+Następnie aplikacja może zostać wdrożona na skonfigurowane środowisko testowe albo produkcyjne.
+
+Wyniki testów, błędy i informacje o wdrożeniu pomagają zespołowi ocenić, czy zmiana jest gotowa do udostępnienia użytkownikom.
+
+10. Azure DevOps a GitHub
+
+GitHub jest platformą do hostowania repozytoriów Git, współpracy nad kodem i automatyzacji procesów programistycznych.
+
+GitHub Actions pozwala tworzyć przepływy pracy do budowania, testowania i wdrażania aplikacji.
+
+Azure DevOps oferuje zintegrowany zestaw narzędzi obejmujący planowanie pracy, repozytoria, pipeline'y, testy i pakiety.
+
+Obie platformy mogą współpracować ze sobą, na przykład GitHub może przechowywać kod, a Azure Pipelines wykonywać proces CI/CD.
+
+Wybór zależy od potrzeb zespołu, istniejącej infrastruktury, wymagań organizacyjnych oraz preferowanych narzędzi.
+
+11. Azure DevOps a Jira
+
+Jira jest narzędziem do zarządzania projektami, zadaniami i procesami pracy zespołów.
+
+Azure Boards pełni podobną funkcję w ekosystemie Azure DevOps.
+
+Azure DevOps obejmuje jednak również repozytoria kodu, pipeline'y, zarządzanie pakietami i funkcje związane z testowaniem.
+
+Jira może być integrowana z GitHubem, Azure Repos oraz innymi narzędziami programistycznymi.
+
+Jeżeli zespół korzysta już z Jira, nie musi rezygnować z niej, aby używać Azure Pipelines.
+
+12. Azure DevOps w pracy testera QA
+
+Azure DevOps jest przydatne dla testerów manualnych i automatyzujących testy.
+
+Tester może analizować wymagania w Azure Boards, przygotowywać przypadki testowe i zgłaszać błędy.
+
+W pipeline'ach można uruchamiać testy automatyczne, na przykład napisane w JUnit, Selenium lub innych frameworkach.
+
+Po wykonaniu testów wyniki mogą być publikowane w Azure DevOps i analizowane przez zespół.
+
+Przykładowy proces obejmuje:
+
+- Odczytanie wymagania w Azure Boards.
+- Przygotowanie przypadku testowego.
+- Wykonanie testu manualnego lub automatycznego.
+- Zapisanie wyniku testu.
+- Zgłoszenie błędu i powiązanie go z wymaganiem.
+- Ponowne uruchomienie testów po poprawce programisty.
+
+13. Zalety Azure DevOps
+
+- Integruje wiele narzędzi wykorzystywanych w procesie tworzenia oprogramowania.
+- Umożliwia automatyzację budowania, testowania i wdrażania aplikacji.
+- Wspiera współpracę programistów i testerów.
+- Pozwala śledzić zadania, błędy i wymagania.
+- Obsługuje repozytoria Git i Pull Requesty.
+- Integruje się z usługami Azure oraz wieloma narzędziami zewnętrznymi.
+- Może być wykorzystywane w małych projektach i dużych organizacjach.
+
+14. Wady i ograniczenia Azure DevOps
+
+- Początkujący użytkownicy mogą potrzebować czasu na poznanie wszystkich usług.
+- Konfiguracja bardziej złożonych pipeline'ów wymaga wiedzy o CI/CD.
+- Niektóre funkcje i limity zależą od planu oraz modelu licencjonowania.
+- Niewłaściwa konfiguracja uprawnień może prowadzić do problemów z bezpieczeństwem.
+- Zarządzanie wieloma projektami i pipeline'ami wymaga uporządkowanych zasad pracy.
+
+15. Jak zacząć naukę Azure DevOps?
+
+Najpierw poznaj podstawy Gita, repozytoriów i Pull Requestów.
+
+Następnie naucz się tworzyć zadania i tablice w Azure Boards.
+
+Kolejnym krokiem jest skonfigurowanie Azure Repos i umieszczenie w nim prostego projektu.
+
+Później przygotuj pipeline w Azure Pipelines, który buduje aplikację i uruchamia testy.
+
+Następnie poznaj publikowanie artefaktów, zarządzanie sekretami oraz wdrażanie aplikacji na środowisko testowe.
+
+Na koniec warto nauczyć się integrować pipeline'y z Dockerem, chmurą Azure i automatycznymi testami QA.
+
+Dobrym projektem ćwiczeniowym jest backend Spring Boot z bazą PostgreSQL, repozytorium Git oraz pipeline'em wykonującym kompilację i testy.
+
+16. Najważniejsze pojęcia
+
+- **Azure Boards** — zarządzanie zadaniami, błędami i wymaganiami.
+- **Azure Repos** — repozytoria kodu źródłowego.
+- **Azure Pipelines** — automatyzacja budowania, testowania i wdrażania.
+- **Azure Test Plans** — planowanie i zarządzanie testami.
+- **Azure Artifacts** — przechowywanie pakietów i bibliotek.
+- **Git** — system kontroli wersji.
+- **Pull Request** — propozycja połączenia zmian w kodzie po ich przeglądzie.
+- **CI** — ciągła integracja zmian w kodzie.
+- **CD** — ciągłe dostarczanie lub wdrażanie oprogramowania.
+- **Pipeline** — zautomatyzowany proces wykonywania kolejnych etapów pracy.
+- **Agent** — środowisko wykonujące zadania pipeline'u.
+- **Artifact** — plik lub pakiet wytworzony podczas procesu budowania.
+- **Test Case** — przypadek testowy opisujący warunki, kroki i oczekiwany wynik.
+- **YAML** — format tekstowy często wykorzystywany do definiowania pipeline'ów.
+
+17. W skrócie
+
+Azure DevOps to platforma wspierająca cały proces tworzenia oprogramowania, od planowania zadań po automatyczne testowanie i wdrażanie aplikacji.
+
+Najważniejsze usługi to Azure Boards, Azure Repos, Azure Pipelines, Azure Test Plans i Azure Artifacts.
+
+Dla programisty Java oraz testera QA szczególnie przydatne są repozytoria Git, pipeline'y CI/CD, automatyczne testy i śledzenie błędów.
+
+Dodaj praktyczny projekt krok po krokuUtwórz tabelę usług Azure DevOps

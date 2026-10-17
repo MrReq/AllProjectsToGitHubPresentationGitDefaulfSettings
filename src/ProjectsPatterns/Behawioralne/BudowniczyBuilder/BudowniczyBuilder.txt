@@ -1,0 +1,389 @@
+# Wzorzec projektowy Builder (Budowniczy) — Java
+
+Nauczymy się wzorca Builder od podstaw, tak abyś potrafił wyjaśnić jego działanie, rozpoznać go na diagramie UML i samodzielnie zaimplementować go w Javie.
+
+## 1. Czym jest wzorzec Builder?
+
+Builder (Budowniczy) to kreacyjny wzorzec projektowy, który pozwala tworzyć złożone obiekty krok po kroku, oddzielając proces ich budowania od reprezentacji końcowego obiektu.
+
+W praktyce oznacza to, że zamiast przekazywać kilkanaście argumentów do konstruktora, możesz konfigurować obiekt za pomocą czytelnych metod.
+
+[Build a complex object - by Ray Chong](https://images.openai.com/static-rsc-4/GlYgw5BCJEVFweoQBAZ1SWEyUiUFFgqBWXRZbJmQg5qiwqNmVsJgJpHlZrje86TYVAj0yF9hHkPgGDVq2Fknp4eFjfD378pwIsadnrUKBzwDqZ-WO7Qz9ThtfotH8viFSZ8WJvmKdUnJ0cjGCIWxkIR3okBu08TsHXAMPMS4zbo?purpose=inline)
+
+Wyobraź sobie, że tworzysz aplikację do zamawiania kawy. Klient może wybrać:
+
+- rodzaj kawy,
+- rozmiar kubka,
+- ilość mleka,
+- ilość cukru,
+- dodatkowy syrop,
+- temperaturę napoju.
+
+Nie każdy klient chce wszystkie dodatki. Builder pozwala zbudować zamówienie, wybierając tylko potrzebne opcje.
+
+Najważniejsza idea: budujemy obiekt etapami, a na końcu otrzymujemy gotowy obiekt.
+
+## 2. Jaki problem rozwiązuje Builder?
+
+Załóżmy, że masz klasę `Computer`, która opisuje komputer.
+
+```
+public class Computer {
+    private String processor;
+    private int ram;
+    private int storage;
+    private String graphicsCard;
+    private boolean wifi;
+}
+```
+
+Komputer może mieć wiele parametrów. Możesz napisać konstruktor:
+
+```
+Computer computer = new Computer(
+    "Intel i7",
+    32,
+    1000,
+    "NVIDIA RTX",
+    true
+);
+```
+
+To rozwiązanie staje się problematyczne, gdy parametrów jest dużo.
+
+- Trudno zapamiętać kolejność argumentów.
+- Trudno rozpoznać, co oznacza każda przekazana wartość.
+- Przy wielu opcjonalnych parametrach pojawiają się liczne konstruktory.
+- Kod tworzący obiekt staje się mało czytelny.
+
+Można też stosować settery, ale wtedy obiekt może przez pewien czas istnieć w niekompletnym lub nieprawidłowym stanie.
+
+Builder rozwiązuje ten problem, umożliwiając czytelne konfigurowanie obiektu przed jego utworzeniem.
+
+## 3. Implementacja Buildera w Javie
+
+Zbudujemy komputer za pomocą klasy `Computer` oraz wewnętrznej klasy `ComputerBuilder`.
+
+Przykład 1 — klasa produktu i jej budowniczy
+
+```
+public class Computer {
+
+    private final String processor;
+    private final int ram;
+    private final int storage;
+    private final String graphicsCard;
+    private final boolean wifi;
+
+    private Computer(ComputerBuilder builder) {
+        this.processor = builder.processor;
+        this.ram = builder.ram;
+        this.storage = builder.storage;
+        this.graphicsCard = builder.graphicsCard;
+        this.wifi = builder.wifi;
+    }
+
+    public static class ComputerBuilder {
+
+        private final String processor;
+        private int ram = 8;
+        private int storage = 256;
+        private String graphicsCard = "Integrated";
+        private boolean wifi = true;
+
+        public ComputerBuilder(String processor) {
+            this.processor = processor;
+        }
+
+        public ComputerBuilder ram(int ram) {
+            this.ram = ram;
+            return this;
+        }
+
+        public ComputerBuilder storage(int storage) {
+            this.storage = storage;
+            return this;
+        }
+
+        public ComputerBuilder graphicsCard(String graphicsCard) {
+            this.graphicsCard = graphicsCard;
+            return this;
+        }
+
+        public ComputerBuilder wifi(boolean wifi) {
+            this.wifi = wifi;
+            return this;
+        }
+
+        public Computer build() {
+            return new Computer(this);
+        }
+    }
+
+    public void showConfiguration() {
+        System.out.println("Procesor: " + processor);
+        System.out.println("RAM: " + ram + " GB");
+        System.out.println("Dysk: " + storage + " GB");
+        System.out.println("Karta graficzna: " + graphicsCard);
+        System.out.println("Wi-Fi: " + wifi);
+    }
+}
+```
+
+### Jak użyć tego kodu?
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+        Computer computer = new Computer.ComputerBuilder("Intel i7")
+                .ram(32)
+                .storage(1000)
+                .graphicsCard("NVIDIA RTX")
+                .wifi(true)
+                .build();
+
+        computer.showConfiguration();
+    }
+}
+```
+
+Wynik:
+
+```
+Procesor: Intel i7
+RAM: 32 GB
+Dysk: 1000 GB
+Karta graficzna: NVIDIA RTX
+Wi-Fi: true
+```
+
+Zwróć uwagę na czytelność:
+
+```
+Computer computer = new Computer.ComputerBuilder("Intel i7")
+        .ram(32)
+        .storage(1000)
+        .build();
+```
+
+Od razu widać, co konfigurujemy. Nie musimy podawać wszystkich parametrów, ponieważ pozostałe mogą przyjąć wartości domyślne.
+
+## 4. Jak dokładnie działa Builder?
+
+1\. Tworzymy budowniczego
+
+`new ComputerBuilder("Intel i7")`
+
+2\. Konfigurujemy parametry
+
+`.ram(32).storage(1000)`
+
+3\. Wywołujemy `build()`
+
+Budowniczy tworzy gotowy obiekt `Computer`.
+
+Prześledźmy trzy najważniejsze elementy.
+
+A. Metody konfiguracyjne
+
+```
+public ComputerBuilder ram(int ram) {
+    this.ram = ram;
+    return this;
+}
+```
+
+Metoda zapisuje wybraną wartość w budowniczym, a następnie zwraca `this`, czyli ten sam obiekt budowniczego.
+
+B. Łańcuchowe wywoływanie metod
+
+Ponieważ metoda zwraca `ComputerBuilder`, możemy wywołać następną metodę bez tworzenia nowej zmiennej.
+
+```
+builder.ram(32).storage(1000).wifi(true);
+```
+
+Taki styl nazywamy method chaining.
+
+C. Metoda `build()`
+
+```
+public Computer build() {
+    return new Computer(this);
+}
+```
+
+To właśnie tutaj powstaje końcowy obiekt. Konstruktor `Computer` pobiera skonfigurowane wartości z budowniczego.
+
+W naszym przykładzie konstruktor produktu jest prywatny, więc zwykły kod z zewnątrz nie może wywołać go bezpośrednio. Zachęca to do tworzenia obiektów przez Builder.
+
+## 5. Czy Builder wymaga osobnej klasy?
+
+Nie. W Javie bardzo często spotkasz Builder jako statyczną klasę wewnętrzną produktu, tak jak w naszym przykładzie.
+
+Istnieje również klasyczna wersja wzorca z osobnymi klasami:
+
+- `Product` — gotowy produkt,
+- `Builder` — interfejs definiujący kroki budowania,
+- `ConcreteBuilder` — implementacja budowniczego,
+- `Director` — opcjonalnie steruje kolejnością budowania.
+
+W rozbudowanym rozwiązaniu poszczególne budownicze mogą tworzyć różne reprezentacje produktu, a `Director` może odtwarzać gotowe konfiguracje. W codziennym kodzie Javy często wystarcza jednak prostszy Builder z metodami zwracającymi `this`.
+
+## 6. Builder a zasady SOLID i hermetyzacja
+
+Builder dobrze współpracuje z zasadami programowania obiektowego.
+
+- Hermetyzacja — pola produktu mogą być prywatne, a konstruktor może być dostępny wyłącznie dla budowniczego.
+- Niezmienność (immutability) — zastosowanie `final` w polach produktu pozwala ustawić ich wartości podczas tworzenia obiektu i nie zmieniać ich później.
+- Single Responsibility Principle (SRP) — produkt reprezentuje dane i zachowanie, a Builder odpowiada za proces jego konfigurowania.
+- Walidacja — Builder może sprawdzać, czy parametry są prawidłowe, zanim powstanie gotowy obiekt.
+
+Przykładowa walidacja:
+
+```
+public ComputerBuilder ram(int ram) {
+    if (ram < 4) {
+        throw new IllegalArgumentException(
+            "RAM must be at least 4 GB"
+        );
+    }
+
+    this.ram = ram;
+    return this;
+}
+```
+
+Możesz również walidować wszystkie parametry w metodzie `build()`, np. upewnić się, że procesor nie jest pusty i że pojemność dysku jest dodatnia.
+
+Ważna uwaga: samo użycie Buildera nie gwarantuje poprawności obiektu. Walidację trzeba rzeczywiście zaimplementować, a produkt powinien być chroniony przed późniejszą niekontrolowaną zmianą danych.
+
+## 7. Kiedy stosować Builder?
+
+[Desktop & AIO  – Cyber Warehouse](https://images.openai.com/static-rsc-4/pr_i3K-p5O1LBmaeOsDcdFCFF5gW6JrdKO-6BsT6hNu6qkrMO8RwmyTWrLTVEQ-QfQRLuMqorWjjljBYYKCXlTLSPb6R9Apblt_vMaSiZJbjoEJRuTP81SHWA0X1q6o3VOGHog0g4AG5jScA2foIZ7bmOChv7RHvQhv-FlYrH0Q?purpose=inline)
+
+Konfiguracja z wieloma opcjami
+
+Komputery, samochody, zamówienia, raporty czy konfiguracje aplikacji. Użytkownik wybiera tylko te parametry, których potrzebuje.
+
+[Spotterful | Main Responsibilities and Required Skills for Java developer](https://images.openai.com/static-rsc-4/6x8I7Z1RbfbHxl3CCVRAZAbN95tmOKgTZthUvvsMy2vhM-mzy0WHi_mm97dz0cgcIy9frViineizMWAVn01_4GcbLRU1CTNkdw4ZO2QhQR7wjzLcB5zAX_E0HNyPUHrl0fvVNOzms0aQtYrodwIyIsnhf7DxcgTcVnbk76d4zCs?purpose=inline)
+
+Obiekty z wieloma polami
+
+DTO, obiekty konfiguracyjne i modele zawierające wiele parametrów opcjonalnych.
+
+[Caramel cappuccino Nutrition](https://images.openai.com/static-rsc-4/BOvYJoPKF-ir7e9-Jzu24mRix9aIhlq9PFeEoZ_yi71PNKzZ5vA-hSXruiod53EuJasm_eGwxUpxGFfMejOcavPRyPyVAKsQy7zSbiRVDdQOwGotq3RmdQRZB5SGnEKxAHW-FfjJMnK0NGplAo-gH3cOO8kp7CVaO8-Xm4x9hC0?purpose=inline)
+
+Stopniowe budowanie złożonego obiektu
+
+Zamówienie kawy, zamówienie w sklepie lub raport, do którego dodajesz kolejne elementy przed zatwierdzeniem.
+
+### Kiedy Builder nie jest potrzebny?
+
+Jeżeli klasa ma tylko dwa lub trzy proste parametry, zwykły konstruktor często będzie czytelniejszy.
+
+```
+Person person = new Person("Jan", 25);
+```
+
+Nie ma sensu tworzyć rozbudowanej struktury Buildera dla każdego obiektu. Wzorzec powinien rozwiązywać rzeczywisty problem, a nie tylko zwiększać liczbę klas.
+
+## 8. Builder a Factory — jaka jest różnica?
+
+To częste pytanie na rozmowach technicznych i egzaminach.
+
+| Cecha          | Builder                               | Factory                                              |
+| -------------- | ------------------------------------- | ---------------------------------------------------- |
+| Główny cel     | Budowanie obiektu krok po kroku       | Ukrycie logiki wyboru lub tworzenia obiektu          |
+| Typowy problem | Wiele parametrów i opcji konfiguracji | Wybór odpowiedniego typu obiektu                     |
+| Rezultat       | Skonfigurowany obiekt                 | Obiekt określonego typu                              |
+| Przykład       | Komputer z wybranymi podzespołami     | Utworzenie `EmailNotification` lub `SmsNotification` |
+
+Zapamiętaj: Factory odpowiada przede wszystkim na pytanie „jaki obiekt utworzyć?”, a Builder — „jak skonfigurować i zbudować ten obiekt?”.
+
+## 9. Builder w praktyce — ćwiczenie
+
+Teraz przejdźmy do samodzielnego zastosowania wzorca. Wyobraź sobie, że rozwijasz system zamawiania kawy.
+
+Twoim zadaniem jest stworzenie klasy `CoffeeOrder`, która będzie zawierała:
+
+- `size` — rozmiar kawy,
+- `milk` — czy dodano mleko,
+- `sugar` — liczba łyżeczek cukru,
+- `syrup` — rodzaj syropu.
+
+Wymagania:
+
+1. Rozmiar kawy jest obowiązkowy.
+2. Domyślnie mleko jest wyłączone.
+3. Domyślnie cukier wynosi `0`.
+4. Domyślnie syrop ma wartość `"None"`.
+5. Builder ma udostępniać metody `milk()`, `sugar()` i `syrup()`.
+6. Metoda `build()` ma zwracać gotowy obiekt `CoffeeOrder`.
+
+Przykładowe użycie, do którego powinieneś dążyć:
+
+```
+CoffeeOrder order = new CoffeeOrder.Builder("Large")
+        .milk(true)
+        .sugar(2)
+        .syrup("Caramel")
+        .build();
+```
+
+Nie musisz od razu tworzyć wszystkich elementów idealnie. Najważniejsze jest zrozumienie zależności między produktem, budowniczym i metodą `build()`.
+
+## 10. Sprawdź swoją wiedzę
+
+## Quiz: Builder
+
+4 / 4
+
+1\. Do jakiej kategorii wzorców należy Builder?
+
+Strukturalnych
+
+Kreacyjnych
+
+Behawioralnych
+
+Poprawna odpowiedź: Kreacyjnych. Builder jest wzorcem kreacyjnym, ponieważ dotyczy tworzenia obiektów.
+
+2\. Co najczęściej zwracają metody konfiguracyjne Buildera?
+
+null
+
+Gotowy produkt
+
+this, czyli budowniczego
+
+Dobrze! Zwracanie this umożliwia łańcuchowe wywoływanie metod.
+
+3\. Co robi metoda build()?
+
+Tworzy i zwraca gotowy obiekt
+
+Usuwa budowniczego
+
+Tworzy nowy interfejs
+
+Dobrze! build() finalizuje proces budowania i zwraca produkt.
+
+4\. Kiedy Builder jest szczególnie przydatny?
+
+Gdy każda klasa ma jedno pole
+
+Gdy obiekt ma wiele opcjonalnych parametrów
+
+Gdy chcemy wyłącznie posortować listę
+
+Dobrze! Builder poprawia czytelność i ułatwia konfigurację złożonych obiektów.
+
+## Wynik: 3 / 4
+
+Rozwiąż ponownie
+
+Najważniejsze do zapamiętania: Builder oddziela proces konstruowania obiektu od sposobu, w jaki obiekt jest wykorzystywany. W typowej implementacji Javy najważniejsze elementy to prywatny konstruktor produktu, klasa Builder, metody konfigurujące zwracające `this` oraz metoda `build()`, która tworzy gotowy obiekt.
+
+Następny krok to napisanie własnej klasy `CoffeeOrder` w IntelliJ IDEA. Możesz wkleić tutaj swoje rozwiązanie, a sprawdzę je pod kątem poprawności, czytelności i zgodności ze wzorcem Builder.

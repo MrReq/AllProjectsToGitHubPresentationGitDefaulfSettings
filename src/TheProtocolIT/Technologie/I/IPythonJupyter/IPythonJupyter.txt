@@ -1,0 +1,147 @@
+# IPython i Jupyter – notatka
+
+## 1. Czym jest IPython?
+
+IPython (Interactive Python) to interaktywna powłoka programistyczna dla języka Python, która umożliwia wykonywanie kodu i analizowanie wyników bez konieczności tworzenia osobnego pliku programu.
+
+IPython rozszerza standardowy interpreter Pythona o dodatkowe funkcje, takie jak wygodniejsze uzupełnianie kodu, historia poleceń, rozbudowane wyświetlanie wyników oraz polecenia specjalne.
+
+Jest szczególnie przydatny podczas eksperymentowania z kodem, analizowania danych, testowania algorytmów i pracy z bibliotekami naukowymi.
+
+## 2. Czym jest Jupyter?
+
+Jupyter to projekt rozwijający interaktywne środowiska obliczeniowe, które umożliwiają łączenie kodu, wyników jego wykonania, tekstu, wzorów matematycznych, tabel i wykresów w jednym dokumencie.
+
+Najbardziej znanym narzędziem projektu jest Jupyter Notebook, w którym użytkownik pracuje z komórkami zawierającymi kod lub treści opisowe.
+
+Jupyter obsługuje wiele języków programowania za pomocą odpowiednich jąder (kernels), między innymi Python, R i Julia.
+
+## 3. Różnica między IPython a Jupyter
+
+| Cecha                | IPython                                  | Jupyter                                          |
+| -------------------- | ---------------------------------------- | ------------------------------------------------ |
+| Główne zastosowanie  | Interaktywna praca z Pythonem            | Interaktywne środowiska obliczeniowe             |
+| Forma pracy          | Powłoka terminalowa i jądro obliczeniowe | Notebooki, interfejsy webowe i inne narzędzia    |
+| Wykonywanie kodu     | Przede wszystkim Python                  | Wiele języków przez odpowiednie jądra            |
+| Wizualizacja wyników | Obsługiwana, zależnie od środowiska      | Rozbudowana prezentacja wykresów, tabel i tekstu |
+| Typowe zastosowanie  | Eksperymenty i testowanie kodu           | Analiza danych, nauka, dokumentacja i badania    |
+
+IPython jest często wykorzystywany jako jądro Pythona w Jupyter Notebook.
+
+## 4. Czym jest Jupyter Notebook?
+
+[Reproducible reports with Jupyter - zerokspot.com](https://images.openai.com/static-rsc-4/EgOy9VdMHlUnhEm52ukWknVvpbeWVAhuZvL089BNCkNn_eyqipE1ko4nMhnMMFKZ-2qwp8avyHOTKwax7LXEZbEEio2ezJRv_iuDfJKeieXjiv5WERLot39KcMLPhDwMriR8_1xOHGEAba8HnBGzYufZN6Wb-hmkDO6YU0z5Ssc?purpose=inline)
+
+[zerokspot.com](https://zerokspot.com/weblog/2019/09/23/reproducible-reports-with-jupyter/)
+
+Jupyter Notebook to interaktywne środowisko, w którym kod wykonuje się w oddzielnych komórkach.
+
+Użytkownik może uruchamiać wybrane fragmenty programu, obserwować wyniki i modyfikować kod bez ponownego uruchamiania całego dokumentu.
+
+Notebooki mogą zawierać tekst formatowany za pomocą Markdown, wzory matematyczne, tabele, wykresy oraz wyniki obliczeń.
+
+Dokumenty są zwykle zapisywane w formacie `.ipynb`, który opiera się na strukturze JSON.
+
+## 5. Najważniejsze funkcje
+
+Interaktywne wykonywanie kodu pozwala uruchamiać pojedyncze komórki i od razu sprawdzać rezultaty.
+
+Markdown umożliwia tworzenie opisów, nagłówków, list i dokumentacji obok kodu.
+
+Wizualizacja danych pozwala prezentować wykresy, tabele i inne wyniki bezpośrednio w notebooku.
+
+Historia poleceń ułatwia powracanie do wcześniej wykonywanych operacji.
+
+Integracja z bibliotekami Pythona umożliwia korzystanie z narzędzi takich jak NumPy, pandas, Matplotlib, scikit-learn i TensorFlow.
+
+Udostępnianie analiz pozwala zapisywać kod, wyniki oraz wyjaśnienia w jednym pliku, co jest przydatne podczas nauki i pracy zespołowej.
+
+## 6. Przykład wykorzystania IPython i Jupyter
+
+W komórce notebooka można wpisać następujący kod:
+
+```
+import statisticstemperatures = [18, 21, 23, 19, 25, 22]average = statistics.mean(temperatures)print("Temperatury:", temperatures)print("Średnia temperatura:", average)
+```
+
+Po uruchomieniu komórki otrzymamy:
+
+```
+Temperatury: [18, 21, 23, 19, 25, 22]
+Średnia temperatura: 21.333333333333332
+```
+
+Można następnie dodać kolejną komórkę, utworzyć wykres temperatur lub obliczyć inne statystyki.
+
+Takie podejście pozwala stopniowo rozwijać analizę i dokumentować kolejne kroki.
+
+## 7. Instalacja i uruchamianie
+
+Do korzystania z Jupyter i IPython potrzebny jest Python oraz środowisko, w którym można instalować pakiety.
+
+Instalacja podstawowych narzędzi za pomocą `pip`:
+
+```
+python -m pip install ipython notebook
+```
+
+Uruchomienie interaktywnej powłoki IPython:
+
+```
+ipython
+```
+
+Uruchomienie Jupyter Notebook:
+
+```
+jupyter notebook
+```
+
+Polecenie uruchamia lokalny serwer i udostępnia interfejs notebooków w przeglądarce.
+
+Alternatywą jest JupyterLab, który zapewnia bardziej rozbudowane środowisko pracy z notebookami, plikami i terminalem.
+
+## 8. Najważniejsze zastosowania
+
+- Data Science – analizowanie, czyszczenie i wizualizowanie danych.
+- Machine Learning – eksperymentowanie z algorytmami uczenia maszynowego.
+- Edukacja – nauka programowania poprzez wykonywanie kodu krok po kroku.
+- Matematyka i statystyka – wykonywanie obliczeń oraz prezentowanie wzorów.
+- Badania naukowe – dokumentowanie eksperymentów i wyników.
+- Prototypowanie – szybkie sprawdzanie pomysłów przed stworzeniem pełnej aplikacji.
+
+## 9. Zalety i wady
+
+Zalety:
+
+- Umożliwia szybkie testowanie kodu.
+- Łączy kod, wyniki i dokumentację w jednym miejscu.
+- Ułatwia tworzenie wykresów i analiz danych.
+- Współpracuje z wieloma bibliotekami naukowymi.
+- Jest bezpłatny i otwartoźródłowy.
+
+Wady:
+
+- Kolejność wykonywania komórek może prowadzić do trudnych do zauważenia błędów stanu programu.
+- Duże notebooki mogą stać się nieczytelne i trudne w utrzymaniu.
+- Nie zastępuje w pełni tradycyjnego IDE podczas tworzenia dużych aplikacji.
+- Udostępnienie samego notebooka nie zawsze gwarantuje odtworzenie wyników bez odpowiednich bibliotek i danych.
+
+## 10. IPython i Jupyter a inne narzędzia
+
+| Narzędzie          | Główne zastosowanie                        |
+| ------------------ | ------------------------------------------ |
+| IPython            | Interaktywna powłoka Pythona               |
+| Jupyter Notebook   | Notebooki z kodem i wynikami               |
+| JupyterLab         | Rozbudowane środowisko pracy z notebookami |
+| Google Colab       | Notebooki uruchamiane w chmurze            |
+| PyCharm            | IDE do tworzenia aplikacji Python          |
+| Visual Studio Code | Edytor kodu z obsługą Pythona i notebooków |
+
+## 11. Co warto zapamiętać?
+
+IPython to interaktywna powłoka i jądro obliczeniowe dla Pythona, natomiast Jupyter to ekosystem narzędzi umożliwiających interaktywną pracę z kodem, danymi i dokumentacją.
+
+Jupyter Notebook jest szczególnie przydatny w analizie danych, Data Science, Machine Learning i edukacji.
+
+Najważniejsza różnica polega na tym, że IPython skupia się na interaktywnym wykonywaniu kodu Python, a Jupyter udostępnia środowisko, w którym można łączyć kod z opisami i wynikami obliczeń.

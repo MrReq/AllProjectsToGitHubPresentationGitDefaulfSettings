@@ -1,0 +1,451 @@
+# Bower — notatka
+
+## 1. Czym jest Bower?
+
+Bower to menedżer pakietów przeznaczony głównie dla projektów frontendowych.
+
+Służył do pobierania, instalowania i zarządzania bibliotekami JavaScript, CSS oraz innymi zależnościami używanymi w aplikacjach webowych.
+
+Bower był szczególnie popularny w czasach, gdy frontendowe projekty korzystały z dużej liczby bibliotek JavaScript.
+
+Obecnie Bower jest technologią starszą i w nowych projektach został w dużej mierze zastąpiony przez npm oraz inne nowoczesne narzędzia.
+
+## 2. Menedżer pakietów
+
+Menedżer pakietów pozwala instalować gotowe biblioteki zamiast tworzyć wszystko samodzielnie.
+
+Bower automatyzował pobieranie zależności projektu.
+
+Dzięki temu programista mógł określić, jakich bibliotek potrzebuje projekt.
+
+Bower pobierał odpowiednie wersje bibliotek i umieszczał je w projekcie.
+
+## 3. Frontend
+
+Bower był przede wszystkim narzędziem frontendowym.
+
+Był używany do zarządzania bibliotekami JavaScript, CSS, HTML oraz innymi zasobami wykorzystywanymi przez przeglądarkę.
+
+Przykładami bibliotek instalowanych przez Bower były jQuery, AngularJS, Bootstrap oraz Underscore.
+
+## 4. Bower a JavaScript
+
+Bower bardzo często był wykorzystywany w projektach JavaScript.
+
+Pozwalał instalować biblioteki bez konieczności ręcznego pobierania plików z ich stron internetowych.
+
+Programista mógł zdefiniować zależności projektu, a Bower zajmował się ich pobraniem.
+
+## 5. Instalacja Bower
+
+Bower był instalowany przy użyciu npm.
+
+npm pełnił tutaj rolę narzędzia, za pomocą którego instalowano sam program Bower.
+
+Po instalacji można było korzystać z polecenia `bower` w terminalu.
+
+## 6. bower.json
+
+Najważniejszym plikiem konfiguracyjnym projektu Bower był `bower.json`.
+
+Plik ten przechowywał informacje o projekcie oraz jego zależnościach.
+
+Można było w nim określić między innymi nazwę projektu, wersję oraz wymagane biblioteki.
+
+## 7. dependencies
+
+Sekcja `dependencies` w `bower.json` określała biblioteki wymagane przez aplikację.
+
+Dzięki niej Bower wiedział, jakie pakiety powinien zainstalować.
+
+Przykładowo projekt mógł wymagać konkretnej wersji jQuery oraz Bootstrap.
+
+## 8. devDependencies
+
+Bower obsługiwał również zależności przeznaczone do pracy deweloperskiej.
+
+Mogły one być wykorzystywane podczas tworzenia lub budowania projektu.
+
+Nie wszystkie narzędzia pomocnicze musiały być wymagane przez samą aplikację w środowisku produkcyjnym.
+
+## 9. Instalowanie pakietu
+
+Bower pozwalał instalować biblioteki za pomocą polecenia `bower install`.
+
+Można było wskazać nazwę pakietu, który miał zostać pobrany.
+
+Pobrana biblioteka była następnie umieszczana w katalogu projektu przeznaczonym na zależności Bowera.
+
+## 10. bower_components
+
+Domyślnym katalogiem przeznaczonym na biblioteki Bowera był `bower_components`.
+
+W tym katalogu znajdowały się zainstalowane zależności projektu.
+
+Każda biblioteka mogła posiadać własny katalog wewnątrz `bower_components`.
+
+## 11. Instalowanie konkretnej wersji
+
+Bower pozwalał określić wersję instalowanej biblioteki.
+
+Było to ważne, ponieważ różne wersje biblioteki mogły mieć różne API oraz zachowanie.
+
+Określenie wersji pomagało zachować przewidywalność projektu.
+
+## 12. Aktualizowanie pakietów
+
+Bower umożliwiał aktualizowanie wcześniej zainstalowanych zależności.
+
+Aktualizacja pozwalała pobrać nowsze wersje bibliotek.
+
+Należało jednak uważać na aktualizacje, ponieważ zmiana wersji biblioteki mogła spowodować problemy z istniejącym kodem.
+
+## 13. Usuwanie pakietów
+
+Bower umożliwiał również usuwanie niepotrzebnych bibliotek.
+
+Usunięcie pakietu pozwalało ograniczyć liczbę zależności projektu.
+
+Było to szczególnie ważne w większych projektach frontendowych.
+
+## 14. Rejestr Bowera
+
+Bower posiadał własny system rejestracji pakietów.
+
+Dzięki niemu można było wyszukiwać biblioteki dostępne dla projektów Bower.
+
+Programista mógł następnie zainstalować wybrany pakiet za pomocą jego nazwy.
+
+## 15. GitHub
+
+Wiele bibliotek instalowanych za pomocą Bowera było przechowywanych na GitHubie.
+
+Bower mógł korzystać z repozytoriów Git jako źródła pakietów.
+
+Pozwalało to instalować również biblioteki, które nie znajdowały się w głównym rejestrze Bowera.
+
+## 16. Bower i Git
+
+Bower był często używany razem z Git.
+
+Kod aplikacji był przechowywany w repozytorium Git, natomiast Bower zarządzał bibliotekami frontendowymi.
+
+W projekcie można było przechowywać konfigurację zależności zamiast wszystkich bibliotek bezpośrednio w repozytorium.
+
+## 17. Bower i jQuery
+
+jQuery była jedną z bibliotek bardzo często instalowanych za pomocą Bowera.
+
+Zamiast ręcznie pobierać pliki jQuery, programista mógł zainstalować bibliotekę jako zależność projektu.
+
+Bower pobierał odpowiednią wersję biblioteki.
+
+## 18. Bower i Bootstrap
+
+Bootstrap również był popularnym pakietem instalowanym za pomocą Bowera.
+
+Pozwalało to szybko dodać do projektu gotowy framework CSS oraz związane z nim zasoby JavaScript.
+
+Dzięki temu frontend mógł korzystać z gotowego systemu komponentów i stylów.
+
+## 19. Bower i AngularJS
+
+Bower był szczególnie popularny w starszych projektach wykorzystujących AngularJS.
+
+Biblioteka AngularJS mogła zostać zdefiniowana jako zależność projektu.
+
+Bower pobierał AngularJS oraz wymagane przez projekt biblioteki.
+
+## 20. Zależności
+
+Zależność to biblioteka lub pakiet wymagany przez projekt.
+
+Bower pozwalał opisywać zależności w sposób deklaratywny.
+
+Programista określał czego potrzebuje projekt, a narzędzie zajmowało się pobraniem odpowiednich plików.
+
+## 21. Wersjonowanie
+
+Bower korzystał z systemu wersjonowania pakietów.
+
+Pozwalało to określać, jakie wersje bibliotek są akceptowane przez projekt.
+
+Wersjonowanie pomagało ograniczać problemy wynikające z przypadkowego użycia niekompatybilnej wersji biblioteki.
+
+## 22. SemVer
+
+Bower mógł korzystać z zasad Semantic Versioning.
+
+Semantic Versioning opisuje wersję za pomocą trzech głównych części.
+
+Są to wersja major, minor oraz patch.
+
+Zmiana major może oznaczać niekompatybilne zmiany w API.
+
+Zmiana minor zwykle oznacza dodanie funkcjonalności przy zachowaniu kompatybilności wstecznej.
+
+Zmiana patch zwykle oznacza poprawki błędów.
+
+## 23. bower install
+
+Polecenie `bower install` służyło do instalowania zależności.
+
+Mogło również odczytać konfigurację projektu i pobrać biblioteki określone w `bower.json`.
+
+Było to jedno z podstawowych poleceń Bowera.
+
+## 24. bower update
+
+Polecenie `bower update` służyło do aktualizowania zależności.
+
+Pozwalało pobrać nowsze wersje pakietów zgodne z określonymi ograniczeniami wersji.
+
+Aktualizowanie zależności powinno być wykonywane ostrożnie.
+
+## 25. bower uninstall
+
+Polecenie `bower uninstall` służyło do usuwania zainstalowanego pakietu.
+
+Pozwalało usunąć bibliotekę, która nie była już potrzebna.
+
+## 26. bower list
+
+Bower posiadał również polecenia pozwalające wyświetlać informacje o zainstalowanych zależnościach.
+
+Dzięki temu można było sprawdzić, jakie biblioteki znajdują się w projekcie.
+
+## 27. Bower a npm
+
+Bower i npm są menedżerami pakietów, ale były projektowane z nieco innym przeznaczeniem.
+
+Bower skupiał się przede wszystkim na zależnościach frontendowych.
+
+npm początkowo było menedżerem pakietów dla Node.js, ale z czasem stało się podstawowym narzędziem zarządzania zależnościami w ekosystemie JavaScript.
+
+## 28. Bower a Node.js
+
+Bower był narzędziem frontendowym, ale jego instalacja i uruchamianie były związane z ekosystemem Node.js.
+
+Sam Bower nie był jednak frameworkiem Node.js.
+
+Jego głównym zadaniem było zarządzanie zależnościami przeznaczonymi dla aplikacji webowych.
+
+## 29. Bower a Webpack
+
+Webpack jest narzędziem do budowania aplikacji frontendowych.
+
+Bower natomiast zajmował się głównie pobieraniem i zarządzaniem zależnościami.
+
+W starszych projektach można było spotkać Bowera używanego razem z narzędziami budującymi takimi jak Webpack lub Gulp.
+
+## 30. Bower a Gulp
+
+Gulp jest narzędziem automatyzującym zadania związane z budowaniem projektu.
+
+Bower dostarczał biblioteki, natomiast Gulp mógł następnie przetwarzać ich pliki.
+
+Przykładowo Gulp mógł wykonywać minifikację, łączenie plików oraz kopiowanie zasobów.
+
+## 31. Bower a Grunt
+
+Grunt jest kolejnym starszym narzędziem automatyzacji procesów frontendowych.
+
+Bower mógł dostarczać zależności, które następnie były wykorzystywane przez zadania wykonywane przez Grunta.
+
+## 32. Automatyzacja
+
+Bower pozwalał ograniczyć ręczne pobieranie bibliotek.
+
+Dzięki temu proces przygotowania środowiska projektu był bardziej powtarzalny.
+
+Konfiguracja zależności mogła być przechowywana razem z kodem projektu.
+
+## 33. Frontend dependencies
+
+W starszych aplikacjach frontendowych bardzo ważne było oddzielenie kodu aplikacji od zewnętrznych bibliotek.
+
+Bower pełnił rolę narzędzia zarządzającego tymi bibliotekami.
+
+Pozwalał projektowi określić, jakie zależności powinny być dostępne.
+
+## 34. Bower i pliki statyczne
+
+Biblioteki instalowane przez Bower często składały się z plików JavaScript, CSS, obrazów lub innych zasobów statycznych.
+
+Aplikacja mogła następnie odwoływać się do tych plików podczas działania w przeglądarce.
+
+Był to jeden z charakterystycznych sposobów wykorzystania Bowera.
+
+## 35. Bower i HTML
+
+Pliki bibliotek instalowanych przez Bower mogły być dołączane do dokumentów HTML.
+
+Przykładowo strona mogła odwoływać się do pliku JavaScript znajdującego się w `bower_components`.
+
+Dzięki temu biblioteka mogła być używana przez kod aplikacji.
+
+## 36. Bower i CSS
+
+Bower pozwalał również zarządzać bibliotekami CSS.
+
+Było to przydatne w przypadku frameworków takich jak Bootstrap.
+
+Biblioteka CSS mogła być pobrana jako zależność i następnie wykorzystana przez stronę internetową.
+
+## 37. Bower i biblioteki
+
+Jednym z głównych założeń Bowera było uproszczenie zarządzania wieloma bibliotekami.
+
+Projekt nie musiał ręcznie przechowywać informacji o każdej pobranej bibliotece.
+
+Informacje o zależnościach mogły być zapisane w `bower.json`.
+
+## 38. Konfiguracja projektu
+
+Konfiguracja Bowera pozwalała określić sposób działania menedżera pakietów.
+
+Można było między innymi określić katalog, w którym mają znajdować się komponenty.
+
+Pozwalało to dopasować strukturę zależności do konkretnego projektu.
+
+## 39. Bower w starszych projektach
+
+Bower był bardzo popularny w starszych aplikacjach webowych.
+
+Można go spotkać szczególnie w projektach wykorzystujących starsze wersje AngularJS, jQuery, Bootstrap oraz inne biblioteki frontendowe.
+
+Znajomość Bowera może być przydatna podczas utrzymywania starszych aplikacji.
+
+## 40. Dlaczego Bower stracił popularność?
+
+Rozwój npm sprawił, że osobny menedżer zależności frontendowych stał się mniej potrzebny.
+
+Ekosystem JavaScript zaczął coraz częściej korzystać z npm jako wspólnego systemu zarządzania pakietami.
+
+Nowoczesne narzędzia frontendowe również zostały mocno zintegrowane z npm.
+
+## 41. Bower a współczesny frontend
+
+W nowych projektach Bower jest rzadko wybieranym rozwiązaniem.
+
+Znacznie częściej wykorzystuje się npm, pnpm lub Yarn.
+
+Narzędzia takie jak Vite, Webpack oraz wiele frameworków frontendowych są obecnie mocno związane z ekosystemem npm.
+
+## 42. Migracja z Bowera
+
+Starszy projekt korzystający z Bowera można migrować do npm.
+
+Wymaga to między innymi przeniesienia zależności z `bower.json` do `package.json`.
+
+Należy również sprawdzić sposób importowania bibliotek w kodzie projektu.
+
+## 43. Bower w utrzymaniu legacy
+
+Znajomość Bowera może być przydatna podczas pracy z systemami legacy.
+
+Starsze aplikacje mogą nadal posiadać `bower.json` oraz katalog `bower_components`.
+
+W takich projektach programista może być zmuszony do rozumienia istniejącego procesu instalowania zależności.
+
+## 44. Typowy workflow
+
+Najpierw tworzono projekt frontendowy.
+
+Następnie instalowano Bowera.
+
+Kolejnym krokiem było utworzenie lub skonfigurowanie `bower.json`.
+
+Następnie dodawano wymagane biblioteki jako zależności.
+
+Bower pobierał biblioteki do katalogu `bower_components`.
+
+Kod aplikacji korzystał następnie z pobranych plików.
+
+## 45. Zalety Bowera
+
+Bower upraszczał pobieranie bibliotek frontendowych.
+
+Pozwalał deklaratywnie określać zależności projektu.
+
+Ułatwiał korzystanie z konkretnych wersji bibliotek.
+
+Dobrze integrował się ze starszym ekosystemem frontendowym.
+
+## 46. Ograniczenia Bowera
+
+Bower jest obecnie technologią przestarzałą w porównaniu z nowoczesnym ekosystemem JavaScript.
+
+Jego model zarządzania zależnościami był prostszy niż rozwiązania stosowane obecnie.
+
+Współczesne aplikacje frontendowe zazwyczaj korzystają z npm, pnpm lub Yarn.
+
+## 47. Bower i nauka frontendu
+
+Bower nie jest obecnie technologią, którą należy traktować jako podstawowe narzędzie do tworzenia nowych aplikacji.
+
+Warto jednak znać jego podstawy, ponieważ można spotkać go w starszych projektach.
+
+Najważniejsze jest zrozumienie, czym są zależności i jak menedżery pakietów rozwiązują problem ich instalowania.
+
+## 48. Bower i DevOps
+
+Bower mógł być wykorzystywany w procesach automatycznego budowania aplikacji.
+
+Pipeline mógł instalować zależności, wykonywać zadania Gulp lub Grunt, a następnie tworzyć wersję produkcyjną aplikacji.
+
+Współcześnie podobne procesy są najczęściej realizowane przy użyciu npm oraz nowoczesnych narzędzi CI/CD.
+
+## 49. Bower i bezpieczeństwo
+
+Zależności zewnętrzne mogą zawierać podatności bezpieczeństwa.
+
+Dlatego ważne jest kontrolowanie wersji oraz źródeł bibliotek.
+
+W przypadku starszych projektów należy również sprawdzić, czy używane biblioteki nie są już niewspierane.
+
+## 50. Bower a rozwój aplikacji
+
+Bower pokazuje jeden z etapów rozwoju ekosystemu frontendowego.
+
+Początkowo dużym problemem było ręczne zarządzanie bibliotekami JavaScript i CSS.
+
+Menedżery pakietów zaczęły automatyzować ten proces.
+
+Z czasem npm przejął dużą część tego zastosowania i stał się podstawowym elementem współczesnego ekosystemu JavaScript.
+
+## 51. Jak uczyć się Bower?
+
+Najpierw warto zrozumieć, czym jest menedżer pakietów.
+
+Następnie należy poznać plik `bower.json`.
+
+Kolejnym krokiem jest poznanie instalowania, aktualizowania i usuwania zależności.
+
+Warto również zrozumieć katalog `bower_components`.
+
+Następnie dobrze porównać Bowera z npm.
+
+Na końcu warto uruchomić mały starszy projekt frontendowy wykorzystujący Bower i prześledzić sposób instalowania jego zależności.
+
+## 52. Najważniejsze pojęcia
+
+Bower — starszy menedżer pakietów dla projektów frontendowych.
+
+Package Manager — narzędzie służące do zarządzania bibliotekami i zależnościami.
+
+`bower.json` — plik opisujący projekt oraz jego zależności.
+
+`bower_components` — domyślny katalog przechowujący biblioteki instalowane przez Bower.
+
+Dependency — biblioteka wymagana przez projekt.
+
+`bower install` — polecenie instalowania zależności.
+
+`bower update` — polecenie aktualizowania zależności.
+
+`bower uninstall` — polecenie usuwania zależności.
+
+npm — współczesny menedżer pakietów JavaScript, który w dużej mierze zastąpił Bowera.
+
+Legacy — starszy system lub projekt, który nadal może wymagać technologii takich jak Bower.

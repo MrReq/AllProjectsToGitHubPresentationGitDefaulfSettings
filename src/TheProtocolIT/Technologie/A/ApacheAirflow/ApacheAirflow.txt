@@ -1,0 +1,308 @@
+Apache Airflow — notatka
+
+1. Czym jest Apache Airflow?
+
+Apache Airflow to platforma open source służąca do programowania, planowania, uruchamiania i monitorowania przepływów pracy (workflow).
+
+Została stworzona przez Airbnb, a następnie przekazana do Apache Software Foundation.
+
+Airflow umożliwia definiowanie zadań oraz zależności między nimi za pomocą kodu, najczęściej w języku Python.
+
+Jest wykorzystywany przede wszystkim do automatyzacji procesów przetwarzania danych, integracji systemów, budowania potoków ETL oraz uruchamiania cyklicznych zadań.
+
+Ważne jest to, że Airflow przede wszystkim koordynuje wykonywanie zadań, a nie samodzielnie przetwarza wszystkie dane.
+
+2. Do czego służy Apache Airflow?
+
+Apache Airflow pomaga automatyzować procesy, które składają się z wielu powiązanych ze sobą operacji.
+
+Najważniejsze zastosowania to:
+
+- Automatyzacja przepływów danych.
+- Planowanie zadań uruchamianych cyklicznie.
+- Budowanie procesów ETL i ELT.
+- Pobieranie danych z API i baz danych.
+- Czyszczenie oraz transformowanie danych.
+- Przygotowywanie danych do analizy i raportowania.
+- Koordynowanie procesów uczenia modeli machine learning.
+- Uruchamianie skryptów Python i poleceń systemowych.
+- Monitorowanie przebiegu zadań i obsługa błędów.
+- Integracja usług chmurowych i systemów bazodanowych.
+
+Przykładowo Airflow może codziennie pobierać dane sprzedażowe, przekształcać je, zapisywać w hurtowni danych i uruchamiać generowanie raportu.
+
+3. Jak działa Apache Airflow?
+
+Airflow organizuje procesy w postaci DAG-ów, czyli skierowanych grafów acyklicznych.
+
+Każdy DAG opisuje zadania oraz zależności określające kolejność ich wykonywania.
+
+Przykładowy proces może wyglądać następująco:
+
+1. Pobranie danych z API.
+2. Walidacja pobranych danych.
+3. Przekształcenie danych.
+4. Zapis wyników w bazie danych.
+5. Wygenerowanie raportu.
+
+Jeśli zadanie zapisujące dane zależy od poprawnego zakończenia transformacji, Airflow nie uruchomi go przed spełnieniem tej zależności.
+
+Platforma pozwala również planować wykonania, ponawiać nieudane zadania i monitorować ich status.
+
+4. Najważniejsze elementy Apache Airflow
+
+- **DAG (Directed Acyclic Graph)** — graf opisujący zadania i zależności między nimi.
+- **Task** — pojedyncze zadanie wykonywane w ramach DAG-a.
+- **Operator** — szablon określający rodzaj zadania, na przykład uruchomienie funkcji Python lub wykonanie zapytania SQL.
+- **Scheduler** — komponent odpowiedzialny za planowanie uruchomień i przygotowywanie zadań do wykonania.
+- **Executor** — mechanizm określający sposób uruchamiania zadań.
+- **Worker** — proces lub środowisko wykonujące zadania, zależnie od architektury instalacji.
+- **Metadata Database** — baza przechowująca informacje o DAG-ach, uruchomieniach, zadaniach i ich statusach.
+- **Web UI** — interfejs przeglądarkowy do monitorowania i zarządzania przepływami pracy.
+- **Hook** — komponent ułatwiający połączenie z zewnętrznym systemem, na przykład bazą danych.
+- **Connection** — konfiguracja połączenia z usługą zewnętrzną.
+- **XCom** — mechanizm przekazywania niewielkich wartości między zadaniami.
+
+5. DAG — serce Airflow
+
+DAG to centralny element Airflow.
+
+Określa, jakie zadania mają zostać wykonane, w jakiej kolejności i według jakiego harmonogramu.
+
+DAG musi być acykliczny, co oznacza, że zależności nie mogą tworzyć pętli.
+
+Przykładowo zadania mogą być połączone w następujący sposób:
+
+`Pobierz dane → Sprawdź dane → Przetwórz dane → Zapisz wyniki`
+
+Jeśli dwa zadania nie zależą od siebie, Airflow może wykonać je równolegle, o ile pozwalają na to konfiguracja i dostępne zasoby.
+
+DAG definiuje się zazwyczaj w pliku Python, który Airflow odczytuje i interpretuje.
+
+6. Przykładowy DAG w Pythonie
+
+Poniższy przykład pokazuje prosty przepływ pracy z dwoma zadaniami.
+
+```
+from datetime import datetime
+
+from airflow.sdk import dag, task
+
+
+@dag(
+    dag_id="example_pipeline",
+    schedule="@daily",
+    start_date=datetime(2026, 1, 1),
+    catchup=False,
+)
+def example_pipeline():
+
+    @task
+    def extract():
+        print("Pobieranie danych")
+
+    @task
+    def transform():
+        print("Przetwarzanie danych")
+
+    extract() >> transform()
+
+
+example_pipeline()
+```
+
+W tym przykładzie pierwsze zadanie symuluje pobieranie danych, a drugie ich przetwarzanie.
+
+Operator `>>` określa zależność, dzięki której `transform` zostanie wykonane po `extract`.
+
+Przykład wykorzystuje współczesny interfejs TaskFlow API z pakietu `airflow.sdk`, dostępny w nowszych wersjach Airflow 3.x.
+
+W starszych wersjach, w tym Airflow 2.x, często stosuje się importy z `airflow.decorators`.
+
+7. Operatory i TaskFlow API
+
+Operatory określają, jaki rodzaj pracy ma wykonać Airflow.
+
+Przykładowe operatory obejmują:
+
+- `PythonOperator` — uruchamia funkcję Python.
+- `BashOperator` — wykonuje polecenie powłoki.
+- `SQLExecuteQueryOperator` — wykonuje zapytania SQL za pośrednictwem skonfigurowanego połączenia.
+- Operatory dostarczane przez dodatkowe pakiety providerów — integrują Airflow z usługami i platformami zewnętrznymi.
+
+Współczesnym sposobem tworzenia zadań Python jest również TaskFlow API, wykorzystujące dekoratory `@task` i `@dag`.
+
+TaskFlow API pozwala definiować zadania jako funkcje oraz wygodnie przekazywać między nimi wyniki.
+
+Wybór konkretnego operatora zależy od wersji Airflow i rodzaju wykonywanej operacji.
+
+8. Harmonogram zadań
+
+Airflow umożliwia uruchamianie DAG-ów według określonego harmonogramu.
+
+Można skonfigurować między innymi:
+
+- Uruchamianie codziennie.
+- Uruchamianie co godzinę.
+- Uruchamianie w określone dni tygodnia.
+- Uruchamianie zgodnie z wyrażeniem cron.
+- Uruchamianie ręczne.
+- Uruchamianie w reakcji na określone zdarzenia lub warunki, jeśli skonfigurowano odpowiednie mechanizmy.
+
+Przykładowe wartości harmonogramu:
+
+- `@hourly` — harmonogram godzinowy.
+- `@daily` — harmonogram dzienny.
+- `@weekly` — harmonogram tygodniowy.
+- `0 6 * * *` — harmonogram cron odpowiadający godzinie 06:00 każdego dnia.
+
+Rzeczywisty moment wykonania zależy od harmonogramu, strefy czasowej i sposobu definiowania przedziałów danych.
+
+9. ETL i ELT
+
+Airflow jest często wykorzystywany do organizowania procesów ETL i ELT.
+
+**ETL (Extract, Transform, Load)** oznacza pobranie danych, ich przekształcenie i zapisanie w miejscu docelowym.
+
+**ELT (Extract, Load, Transform)** polega na załadowaniu danych do systemu docelowego, a następnie wykonaniu transformacji w tym systemie.
+
+Przykładowy proces ETL może wyglądać następująco:
+
+1. Pobranie danych z API.
+2. Oczyszczenie danych przy użyciu Pythona.
+3. Sprawdzenie poprawności rekordów.
+4. Zapis danych w PostgreSQL.
+5. Wygenerowanie raportu.
+
+Airflow koordynuje te etapy, natomiast właściwe przetwarzanie danych może wykonywać Python, SQL, Spark lub inne narzędzia.
+
+10. Integracja z bazami danych i API
+
+Airflow umożliwia koordynowanie operacji wykonywanych na wielu systemach zewnętrznych.
+
+Może współpracować między innymi z PostgreSQL, MySQL, hurtowniami danych, usługami chmurowymi i interfejsami API.
+
+Do połączeń wykorzystuje się odpowiednie hooki, operatory i pakiety providerów.
+
+Przykładowo DAG może pobierać dane z API, zapisywać je w PostgreSQL i uruchamiać zapytania SQL sprawdzające jakość danych.
+
+Dane dostępowe należy przechowywać w bezpiecznej konfiguracji połączeń lub menedżerze sekretów, a nie bezpośrednio w kodzie DAG-a.
+
+11. XCom — przekazywanie danych między zadaniami
+
+XCom umożliwia przekazywanie niewielkich wartości pomiędzy zadaniami DAG-a.
+
+Może służyć do przekazania identyfikatora pliku, liczby przetworzonych rekordów albo ścieżki do wygenerowanego raportu.
+
+Nie jest przeznaczony do przesyłania bardzo dużych zbiorów danych.
+
+Duże dane lepiej zapisywać w bazie danych, magazynie obiektowym lub innym systemie przechowywania, a pomiędzy zadaniami przekazywać jedynie identyfikatory lub lokalizacje tych danych.
+
+Takie podejście ogranicza obciążenie infrastruktury Airflow i ułatwia skalowanie przepływów pracy.
+
+12. Monitorowanie i obsługa błędów
+
+Airflow oferuje interfejs użytkownika, który umożliwia sprawdzanie przebiegu DAG-ów i poszczególnych zadań.
+
+Można w nim analizować statusy wykonania, logi, zależności i historię uruchomień.
+
+Platforma pozwala również konfigurować ponowne próby wykonania zadań po wystąpieniu błędu.
+
+Przydatne mechanizmy obejmują:
+
+- Retry — ponowne próby wykonania zadania.
+- Timeout — ograniczenie maksymalnego czasu wykonania.
+- Logs — logi pomagające ustalić przyczynę błędu.
+- Alerting — powiadomienia o niepowodzeniach, jeśli skonfigurowano odpowiednią integrację.
+- Task dependencies — zależności zapobiegające uruchamianiu zadań przed zakończeniem wymaganych etapów.
+
+W dobrze zaprojektowanym przepływie pracy zadania powinny być możliwie idempotentne, aby ponowne wykonanie nie powodowało niepożądanych skutków.
+
+13. Architektura i skalowanie
+
+Architektura Airflow zależy od sposobu wdrożenia.
+
+W typowej instalacji występują komponenty odpowiedzialne za harmonogram, wykonywanie zadań, interfejs użytkownika i przechowywanie metadanych.
+
+Do przechowywania metadanych wykorzystuje się bazę danych, na przykład PostgreSQL.
+
+W zależności od konfiguracji zadania mogą być wykonywane w procesach lokalnych, przez CeleryExecutor lub w środowisku Kubernetes.
+
+W większych instalacjach można rozdzielać zadania między wiele workerów, aby zwiększyć równoległość i dostępność zasobów.
+
+Skalowanie wymaga odpowiedniego zaprojektowania infrastruktury, połączeń, ograniczeń współbieżności i obsługi błędów.
+
+14. Apache Airflow a inne narzędzia
+
+- **Apache Airflow** — platforma do programowania, planowania i monitorowania przepływów pracy.
+- **Apache Kafka** — platforma do przesyłania i przetwarzania strumieni zdarzeń.
+- **Apache NiFi** — narzędzie do automatyzacji przepływu danych między systemami.
+- **Apache Spark** — silnik rozproszonego przetwarzania dużych zbiorów danych.
+- **Prefect** — platforma do definiowania i uruchamiania przepływów pracy.
+- **Dagster** — platforma do organizowania procesów danych z naciskiem na ich zasoby i zależności.
+- **Jenkins** — narzędzie automatyzacji CI/CD, często wykorzystywane do budowania i wdrażania oprogramowania.
+
+Airflow jest szczególnie przydatny, gdy trzeba koordynować wiele zależnych od siebie zadań danych według harmonogramu.
+
+Nie zastępuje jednak silnika przetwarzania danych, takiego jak Spark, ani systemu przesyłania zdarzeń, takiego jak Kafka.
+
+15. Zalety Apache Airflow
+
+- Umożliwia definiowanie przepływów pracy w Pythonie.
+- Zapewnia harmonogramowanie zadań.
+- Ułatwia zarządzanie zależnościami między zadaniami.
+- Udostępnia interfejs do monitorowania wykonań.
+- Wspiera ponowne próby i obsługę błędów.
+- Integruje się z bazami danych, API i usługami chmurowymi.
+- Umożliwia rozbudowę za pomocą operatorów, hooków i providerów.
+- Sprawdza się w złożonych procesach ETL i ELT.
+- Może być skalowany na potrzeby większych przepływów pracy.
+
+16. Wady i ograniczenia Apache Airflow
+
+- Wymaga konfiguracji i utrzymywania infrastruktury.
+- Bardziej złożone DAG-i mogą być trudne w debugowaniu.
+- Nie jest przeznaczony przede wszystkim do przetwarzania strumieniowego w czasie rzeczywistym.
+- Nie powinien służyć do przesyłania dużych zbiorów danych między zadaniami za pomocą XCom.
+- Niektóre integracje wymagają dodatkowych pakietów providerów.
+- Źle zaprojektowane DAG-i mogą powodować nadmierne obciążenie schedulera lub bazy metadanych.
+- Wdrożenia produkcyjne wymagają monitorowania, zabezpieczenia dostępu i zarządzania sekretami.
+
+17. Plan nauki Apache Airflow
+
+Na początku warto poznać podstawy Pythona, SQL oraz przetwarzania danych.
+
+Następnie należy uruchomić Airflow w środowisku testowym i poznać jego interfejs użytkownika.
+
+Kolejnym krokiem jest stworzenie pierwszego DAG-a z kilkoma zadaniami i zależnościami.
+
+Później warto nauczyć się harmonogramowania, operatorów, TaskFlow API, XCom oraz obsługi błędów.
+
+Następnie dobrze jest zbudować przepływ ETL, który pobiera dane z API, przetwarza je i zapisuje w PostgreSQL.
+
+Na końcu warto poznać wdrażanie Airflow w Dockerze, zarządzanie połączeniami, testowanie DAG-ów i podstawy skalowania.
+
+18. Najważniejsze pojęcia
+
+- **Apache Airflow** — platforma do orkiestracji przepływów pracy.
+- **DAG** — graf zadań i zależności.
+- **Task** — pojedyncze zadanie w przepływie pracy.
+- **Operator** — komponent określający rodzaj zadania.
+- **Scheduler** — komponent planujący wykonywanie zadań.
+- **Executor** — mechanizm określający sposób wykonywania zadań.
+- **Worker** — środowisko wykonujące zadania.
+- **Metadata Database** — baza przechowująca metadane Airflow.
+- **XCom** — mechanizm przekazywania niewielkich wartości między zadaniami.
+- **ETL** — pobieranie, transformowanie i ładowanie danych.
+- **ELT** — pobieranie, ładowanie i transformowanie danych.
+- **Hook** — komponent ułatwiający połączenie z zewnętrznym systemem.
+- **Retry** — ponowna próba wykonania zadania.
+- **TaskFlow API** — sposób definiowania zadań za pomocą funkcji i dekoratorów.
+
+19. W skrócie
+
+Apache Airflow to platforma służąca do automatyzowania i monitorowania przepływów pracy, szczególnie w inżynierii danych.
+
+Pozwala definiować zależności między zadaniami, uruchamiać je według harmonogramu i kontrolować ich wykonanie.
+
+Najważniejsze zagadnienia do poznania to DAG-i, operatory, TaskFlow API, harmonogramowanie, XCom oraz integracja z Pythonem i bazami danych.

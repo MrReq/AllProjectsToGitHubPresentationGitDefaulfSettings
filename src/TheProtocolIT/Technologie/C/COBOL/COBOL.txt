@@ -1,0 +1,135 @@
+# COBOL
+
+## 1. Czym jest COBOL?
+
+COBOL (Common Business-Oriented Language) to jeden z najstarszych języków programowania wysokiego poziomu, zaprojektowany przede wszystkim do przetwarzania danych biznesowych, finansowych i administracyjnych.
+
+Język powstał pod koniec lat 50. XX wieku, a jego pierwsza specyfikacja została opublikowana w 1960 roku.
+
+COBOL jest wykorzystywany przede wszystkim w systemach bankowych, ubezpieczeniowych, księgowych i administracyjnych, w których ważne są niezawodność, obsługa dużych zbiorów danych oraz zgodność z istniejącymi systemami.
+
+Pomimo swojego wieku nadal działa w wielu organizacjach, szczególnie na komputerach typu mainframe.
+
+## 2. Najważniejsze cechy COBOL
+
+- Czytelna składnia – język wykorzystuje konstrukcje przypominające język angielski.
+- Przetwarzanie danych biznesowych – obsługuje rekordy, pliki, raporty i operacje finansowe.
+- Precyzyjna arytmetyka dziesiętna – umożliwia wykonywanie obliczeń pieniężnych z kontrolą liczby miejsc dziesiętnych.
+- Przetwarzanie wsadowe – dobrze nadaje się do wykonywania dużych partii operacji, np. rozliczeń miesięcznych.
+- Obsługa dużych zbiorów danych – wspiera przetwarzanie rekordów i plików o ustalonej strukturze.
+- Dojrzały ekosystem – jest stosowany w istniejących systemach przedsiębiorstw od wielu dekad.
+- Przenośność między platformami – istnieją kompilatory i implementacje dla różnych środowisk, chociaż konkretne możliwości zależą od implementacji.
+
+## 3. Przykład programu w COBOL
+
+Poniższy program wyświetla komunikat w konsoli.
+
+```
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO.
+
+PROCEDURE DIVISION.
+    DISPLAY "Witaj, programisto!".
+    STOP RUN.
+```
+
+Wynik:
+
+```
+Witaj, programisto!
+```
+
+Program składa się z kilku podstawowych elementów:
+
+- `IDENTIFICATION DIVISION` – zawiera informacje identyfikujące program.
+- `PROGRAM-ID` – określa jego nazwę.
+- `PROCEDURE DIVISION` – zawiera instrukcje wykonywane przez program.
+- `DISPLAY` – wyświetla tekst.
+- `STOP RUN` – kończy działanie programu.
+
+### Przykład obliczeń finansowych
+
+COBOL jest szczególnie przydatny w systemach, które wykonują operacje pieniężne.
+
+```
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CALCULATE-TOTAL.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PRICE PIC 9(5)V99 VALUE 120.50.
+01 QUANTITY PIC 9(3) VALUE 3.
+01 TOTAL PIC 9(7)V99.
+
+PROCEDURE DIVISION.
+    COMPUTE TOTAL = PRICE * QUANTITY.
+    DISPLAY "Wartosc calkowita: " TOTAL.
+    STOP RUN.
+```
+
+W tym przykładzie:
+
+- `PIC 9(5)V99` określa liczbę z pięcioma cyframi przed częścią dziesiętną i dwiema po niej.
+- `V` oznacza domyślne, niewyświetlane położenie separatora dziesiętnego.
+- `COMPUTE` wykonuje obliczenie.
+- `DISPLAY` prezentuje wynik.
+
+Wynik reprezentuje wartość `361.50`, choć sposób jej formatowania na ekranie zależy od definicji pola i implementacji.
+
+## 4. Najważniejsze elementy języka COBOL
+
+- Identification Division – identyfikacja programu.
+- Environment Division – opis środowiska i konfiguracji wejścia oraz wyjścia.
+- Data Division – deklarowanie zmiennych, rekordów i struktur danych.
+- Procedure Division – implementacja logiki programu.
+- PIC (PICTURE) – określanie formatu i rodzaju danych.
+- PERFORM – wykonywanie procedur i powtarzanie operacji.
+- IF / ELSE – instrukcje warunkowe.
+- EVALUATE – instrukcja wielowariantowego wyboru.
+- READ / WRITE – odczytywanie i zapisywanie rekordów plików.
+- COPY – włączanie współdzielonych definicji kodu.
+
+## 5. Do czego wykorzystuje się COBOL?
+
+- Bankowość – obsługa transakcji, rachunków i rozliczeń.
+- Ubezpieczenia – przetwarzanie polis, składek i wypłat.
+- Księgowość – przygotowywanie raportów i rozliczeń finansowych.
+- Administracja publiczna – obsługa dużych systemów przetwarzających dane obywateli i świadczenia.
+- Systemy mainframe – uruchamianie krytycznych aplikacji biznesowych.
+- Migracja i utrzymanie systemów legacy – rozwijanie oraz integrowanie istniejących aplikacji z nowoczesnymi usługami.
+
+## 6. COBOL a inne języki programowania
+
+| Język   | Charakterystyka                                                          |
+| ------- | ------------------------------------------------------------------------ |
+| COBOL   | Przetwarzanie danych biznesowych i utrzymywanie systemów korporacyjnych. |
+| Java    | Aplikacje biznesowe, backend, systemy rozproszone i usługi internetowe.  |
+| C       | Programowanie systemowe i wydajne oprogramowanie niskopoziomowe.         |
+| Python  | Automatyzacja, analiza danych, AI i tworzenie aplikacji.                 |
+| SQL     | Pobieranie i modyfikowanie danych w relacyjnych bazach danych.           |
+| Fortran | Obliczenia naukowe i numeryczne.                                         |
+
+## 7. Zalety i wady COBOL
+
+Zalety:
+
+- Czytelna składnia dostosowana do operacji biznesowych.
+- Dobre wsparcie przetwarzania rekordów i plików.
+- Precyzyjne typy liczbowe przydatne w obliczeniach finansowych.
+- Długa historia wykorzystania w krytycznych systemach przedsiębiorstw.
+- Duża wartość przy utrzymywaniu istniejących systemów legacy.
+
+Wady:
+
+- Mniejsza popularność w nowych projektach niż Java, Python czy JavaScript.
+- Ograniczona liczba nowych projektów wykorzystujących COBOL jako główny język.
+- Utrzymywanie starszych systemów może wymagać znajomości specyficznych środowisk mainframe.
+- Integracja z nowoczesnymi technologiami może wymagać dodatkowych narzędzi i warstw komunikacyjnych.
+
+## 8. Dlaczego warto znać COBOL?
+
+COBOL jest szczególnie przydatny osobom zainteresowanym bankowością, systemami finansowymi, komputerami mainframe oraz utrzymywaniem infrastruktury przedsiębiorstw.
+
+Znajomość tego języka może być atutem w organizacjach, które rozwijają i modernizują wieloletnie systemy biznesowe.
+
+Dla programisty Java nauka COBOL pozwala lepiej zrozumieć starsze systemy korporacyjne, integrację aplikacji oraz migrację danych i procesów biznesowych do nowoczesnych architektur.

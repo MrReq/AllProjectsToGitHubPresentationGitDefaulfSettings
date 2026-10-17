@@ -1,0 +1,368 @@
+ASP.NET MVC — notatka
+
+1. Czym jest ASP.NET MVC?
+
+ASP.NET MVC to framework firmy Microsoft służący do tworzenia aplikacji internetowych w technologii .NET z wykorzystaniem wzorca architektonicznego Model-View-Controller.
+
+Pozwala budować dynamiczne strony internetowe, aplikacje biznesowe, panele administracyjne oraz systemy obsługujące dane użytkowników.
+
+Technologia wykorzystuje język C# i tradycyjnie działa na platformie .NET Framework.
+
+ASP.NET MVC jest poprzednikiem nowoczesnego ASP.NET Core MVC i jest przeznaczony przede wszystkim dla istniejących aplikacji opartych na klasycznym .NET Framework.
+
+2. Do czego służy ASP.NET MVC?
+
+ASP.NET MVC służy do tworzenia aplikacji internetowych, w których serwer obsługuje żądania HTTP i generuje strony HTML.
+
+Można go wykorzystywać do budowania sklepów internetowych, systemów rezerwacyjnych, portali informacyjnych i aplikacji firmowych.
+
+Framework pozwala obsługiwać formularze, walidować dane, komunikować się z bazami danych i kontrolować dostęp użytkowników.
+
+Umożliwia również oddzielenie logiki aplikacji od sposobu prezentowania informacji.
+
+3. Czym jest wzorzec MVC?
+
+MVC to wzorzec architektoniczny dzielący aplikację na trzy elementy: Model, View i Controller.
+
+Model reprezentuje dane oraz logikę związaną z ich przetwarzaniem.
+
+View odpowiada za prezentację informacji użytkownikowi, najczęściej w postaci HTML.
+
+Controller odbiera żądania, wywołuje odpowiednią logikę i wybiera widok lub inną odpowiedź.
+
+Podział ten ułatwia organizowanie kodu, testowanie aplikacji i rozwijanie poszczególnych elementów niezależnie od siebie.
+
+4. Jak działa ASP.NET MVC?
+
+Użytkownik otwiera stronę internetową w przeglądarce.
+
+Przeglądarka wysyła żądanie HTTP do serwera aplikacji.
+
+Mechanizm routingu ustala, który kontroler i która akcja powinny obsłużyć żądanie.
+
+Kontroler pobiera dane i wykonuje odpowiednie operacje.
+
+Następnie przekazuje dane do widoku, który generuje HTML.
+
+Gotowa odpowiedź jest wysyłana do przeglądarki użytkownika.
+
+Przykładowy przepływ wygląda następująco:
+
+Przeglądarka → Routing → Controller → Model lub warstwa danych → View → HTML.
+
+5. Model
+
+Model reprezentuje dane wykorzystywane przez aplikację.
+
+Może opisywać takie obiekty jak użytkownik, produkt, zamówienie lub pracownik.
+
+W ASP.NET MVC model jest często implementowany jako klasa C# z właściwościami.
+
+Przykładowy model produktu:
+
+```
+public class Product
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+
+    public decimal Price { get; set; }
+}
+```
+
+Klasa `Product` reprezentuje produkt zawierający identyfikator, nazwę i cenę.
+
+W większych aplikacjach warto oddzielać modele domenowe od modeli przeznaczonych do wyświetlania danych w widokach.
+
+6. View
+
+View to część aplikacji odpowiedzialna za prezentowanie informacji użytkownikowi.
+
+W ASP.NET MVC widoki są zwykle zapisywane w plikach `.cshtml`.
+
+Wykorzystują składnię Razor, która pozwala łączyć kod HTML z wyrażeniami C#.
+
+Przykładowy widok `Details.cshtml`:
+
+```
+@model Product
+
+<h1>@Model.Name</h1>
+
+<p>Cena: @Model.Price zł</p>
+```
+
+Widok otrzymuje obiekt `Product` i wyświetla jego nazwę oraz cenę.
+
+Widoki powinny koncentrować się na prezentacji danych, a nie na realizacji całej logiki biznesowej.
+
+7. Controller
+
+Controller obsługuje żądania HTTP i koordynuje działanie aplikacji.
+
+Zawiera metody nazywane akcjami, które mogą zwracać widoki, przekierowania lub inne odpowiedzi.
+
+Kontrolery w klasycznym ASP.NET MVC zazwyczaj dziedziczą po klasie `System.Web.Mvc.Controller`.
+
+Przykładowy kontroler:
+
+```
+using System.Web.Mvc;
+
+public class ProductsController : Controller
+{
+    public ActionResult Details()
+    {
+        var product = new Product
+        {
+            Id = 1,
+            Name = "Laptop",
+            Price = 3500
+        };
+
+        return View(product);
+    }
+}
+```
+
+Akcja `Details()` tworzy przykładowy obiekt produktu i przekazuje go do widoku.
+
+Przy standardowej konfiguracji widok można umieścić w katalogu `Views/Products/Details.cshtml`.
+
+8. Routing
+
+Routing określa, który kontroler i która akcja mają obsłużyć dany adres URL.
+
+W klasycznym ASP.NET MVC routing konfiguruje się zwykle w pliku `RouteConfig.cs`.
+
+Przykładowa konfiguracja:
+
+```
+routes.MapRoute(
+    name: "Default",
+    url: "{controller}/{action}/{id}",
+    defaults: new
+    {
+        controller = "Home",
+        action = "Index",
+        id = UrlParameter.Optional
+    }
+);
+```
+
+Adres `/Products/Details/5` może wskazywać kontroler `ProductsController`, akcję `Details` i identyfikator o wartości `5`.
+
+Routing umożliwia tworzenie czytelnych adresów i kierowanie żądań do odpowiednich części aplikacji.
+
+9. Razor i składnia widoków
+
+Razor to mechanizm pozwalający tworzyć dynamiczne strony HTML z wykorzystaniem C#.
+
+Pliki widoków mają rozszerzenie `.cshtml`.
+
+Znak `@` umożliwia wstawianie wyrażeń C# do kodu HTML.
+
+Przykładowy widok wyświetlający listę produktów:
+
+```
+@model IEnumerable<Product>
+
+<h1>Lista produktów</h1>
+
+<ul>
+@foreach (var product in Model)
+{
+    <li>@product.Name — @product.Price zł</li>
+}
+</ul>
+```
+
+Kod iteruje po kolekcji produktów i wyświetla nazwę oraz cenę każdego z nich.
+
+Razor automatycznie koduje standardowe wyrażenia wyjściowe, co pomaga ograniczać ryzyko ataków XSS.
+
+10. Layouts i Partial Views
+
+Layout to wspólny szablon strony zawierający elementy takie jak nagłówek, menu nawigacyjne i stopka.
+
+Pozwala zachować spójny wygląd wielu widoków bez powielania tego samego kodu HTML.
+
+Partial View to fragment widoku, który można wykorzystywać w różnych częściach aplikacji.
+
+Przykładowo formularz kontaktowy lub sekcję prezentującą produkt można umieścić w osobnym widoku częściowym.
+
+Mechanizmy te ułatwiają ponowne wykorzystywanie elementów interfejsu i utrzymywanie kodu.
+
+11. Formularze i walidacja danych
+
+ASP.NET MVC umożliwia obsługę formularzy HTML i przesyłanie danych do kontrolerów.
+
+Dane są przekazywane do akcji za pomocą parametrów lub obiektów modelu.
+
+Walidację można definiować przy użyciu atrybutów, takich jak `[Required]`, `[StringLength]` i `[Range]`.
+
+Przykładowy model formularza:
+
+```
+using System.ComponentModel.DataAnnotations;
+
+public class ProductInputModel
+{
+    [Required]
+    public string Name { get; set; }
+
+    [Range(0.01, 100000)]
+    public decimal Price { get; set; }
+}
+```
+
+W kontrolerze można sprawdzić `ModelState.IsValid`, aby ustalić, czy przekazane dane spełniają wymagania walidacji.
+
+Walidacja po stronie serwera jest konieczna również wtedy, gdy formularz sprawdza dane w przeglądarce.
+
+12. Bazy danych i Entity Framework
+
+ASP.NET MVC może współpracować z bazami danych przy użyciu Entity Framework lub innych bibliotek dostępu do danych.
+
+Entity Framework umożliwia odwzorowanie tabel i rekordów bazy danych na obiekty C#.
+
+Aplikacja może pobierać dane, dodawać nowe rekordy, aktualizować istniejące informacje i usuwać niepotrzebne dane.
+
+Przykładowo kontroler produktów może pobrać listę produktów z bazy danych i przekazać ją do widoku.
+
+W większych projektach warto umieszczać operacje dostępu do danych w osobnej warstwie, zamiast wykonywać wszystkie operacje bezpośrednio w kontrolerze.
+
+13. Dependency Injection i warstwa biznesowa
+
+Dependency Injection to mechanizm pozwalający przekazywać klasom potrzebne im zależności.
+
+W klasycznym ASP.NET MVC można korzystać z zewnętrznych kontenerów Dependency Injection.
+
+Logikę biznesową warto umieszczać w osobnych serwisach, które kontrolery wywołują w celu realizacji operacji.
+
+Przykładowo `ProductService` może odpowiadać za pobieranie produktów, sprawdzanie reguł biznesowych i przygotowywanie danych.
+
+Takie podejście ułatwia testowanie i ogranicza odpowiedzialność kontrolerów.
+
+14. Uwierzytelnianie i autoryzacja
+
+Uwierzytelnianie polega na ustaleniu tożsamości użytkownika.
+
+Autoryzacja określa, czy użytkownik może wykonać określoną operację.
+
+Klasyczny ASP.NET MVC obsługuje mechanizmy uwierzytelniania oparte między innymi na plikach cookie i integracji z systemami tożsamości.
+
+Dostęp do kontrolera lub akcji można ograniczyć atrybutem `[Authorize]`.
+
+Przykładowo panel administratora może być dostępny wyłącznie dla zalogowanych użytkowników z odpowiednimi uprawnieniami.
+
+W aplikacji należy również prawidłowo chronić hasła, formularze i dane użytkowników.
+
+15. Testowanie aplikacji ASP.NET MVC
+
+Aplikacje ASP.NET MVC można testować za pomocą testów jednostkowych i integracyjnych.
+
+Testy jednostkowe pozwalają sprawdzać logikę serwisów i zachowanie poszczególnych akcji kontrolerów.
+
+Testy integracyjne sprawdzają współpracę wielu komponentów aplikacji.
+
+Do testowania można wykorzystać między innymi NUnit, MSTest lub xUnit.
+
+Warto również sprawdzać walidację formularzy, obsługę błędów, routing i uprawnienia użytkowników.
+
+Testy pomagają ograniczać ryzyko błędów podczas rozwoju i utrzymania aplikacji.
+
+16. ASP.NET MVC a ASP.NET Core MVC
+
+ASP.NET MVC jest klasycznym frameworkiem związanym z platformą .NET Framework.
+
+ASP.NET Core MVC jest nowocześniejszą implementacją wzorca MVC, działającą na współczesnej platformie .NET.
+
+Klasyczny ASP.NET MVC jest przeznaczony głównie dla aplikacji działających w środowisku Windows i opartych na .NET Framework.
+
+ASP.NET Core MVC obsługuje również systemy Linux i macOS oraz nowoczesne modele wdrażania, w tym kontenery.
+
+Oba rozwiązania wykorzystują wzorzec MVC, ale różnią się architekturą, konfiguracją i dostępnymi mechanizmami.
+
+Przy tworzeniu nowej aplikacji zazwyczaj warto rozważyć ASP.NET Core MVC, natomiast klasyczny ASP.NET MVC pozostaje istotny przy utrzymywaniu starszych systemów.
+
+17. Zalety ASP.NET MVC
+
+ASP.NET MVC zapewnia czytelny podział odpowiedzialności pomiędzy modele, widoki i kontrolery.
+
+Ułatwia organizowanie kodu w większych aplikacjach internetowych.
+
+Pozwala tworzyć dynamiczne strony HTML i obsługiwać formularze.
+
+Integruje się z językiem C#, bazami danych i narzędziami ekosystemu .NET Framework.
+
+Udostępnia mechanizmy routingu, walidacji, uwierzytelniania i autoryzacji.
+
+Jest przydatny podczas rozwijania i utrzymywania istniejących aplikacji biznesowych.
+
+18. Wady ASP.NET MVC
+
+Klasyczny ASP.NET MVC jest związany z .NET Framework i ma bardziej ograniczone możliwości uruchamiania na różnych systemach operacyjnych niż ASP.NET Core MVC.
+
+Rozpoczęcie pracy wymaga poznania C#, HTTP, routingu i zasad działania wzorca MVC.
+
+Nieprawidłowy podział odpowiedzialności może prowadzić do rozbudowanych kontrolerów i trudnego w utrzymaniu kodu.
+
+Tworzenie nowoczesnych, bardzo interaktywnych interfejsów może wymagać dodatkowego JavaScriptu lub osobnej technologii frontendowej.
+
+W przypadku nowych projektów należy uwzględnić długoterminowe wsparcie technologii i możliwości migracji do nowszego rozwiązania.
+
+19. Plan nauki ASP.NET MVC
+
+Na początku warto opanować podstawy C#, programowania obiektowego i działania aplikacji internetowych.
+
+Następnie należy poznać wzorzec MVC, kontrolery, akcje, routing i widoki Razor.
+
+Kolejnym krokiem jest stworzenie formularzy z walidacją danych oraz obsługi błędów.
+
+Później warto zintegrować aplikację z bazą danych za pomocą Entity Framework.
+
+Następnie należy nauczyć się uwierzytelniania, autoryzacji i pisania testów.
+
+Dobrym projektem praktycznym jest system zarządzania produktami z listą, szczegółami, dodawaniem, edycją, usuwaniem i bazą danych.
+
+Jeżeli celem jest nauka nowoczesnego backendu .NET, warto później przejść do ASP.NET Core MVC.
+
+20. Najważniejsze pojęcia
+
+ASP.NET MVC — klasyczny framework do tworzenia aplikacji internetowych na platformie .NET Framework.
+
+MVC — wzorzec architektoniczny oparty na Modelu, Widoku i Kontrolerze.
+
+Model — obiekt reprezentujący dane lub elementy logiki domenowej.
+
+View — widok odpowiedzialny za prezentowanie informacji użytkownikowi.
+
+Controller — komponent obsługujący żądania HTTP i koordynujący działanie aplikacji.
+
+Routing — mechanizm kierujący żądania do odpowiednich kontrolerów i akcji.
+
+Razor — mechanizm tworzenia dynamicznych widoków HTML z wykorzystaniem C#.
+
+Partial View — fragment widoku wykorzystywany ponownie w różnych częściach aplikacji.
+
+Entity Framework — technologia ORM ułatwiająca komunikację z bazą danych.
+
+ModelState — obiekt przechowujący między innymi wyniki walidacji danych przesłanych do kontrolera.
+
+Dependency Injection — mechanizm dostarczania klasom ich zależności.
+
+Authentication — proces ustalania tożsamości użytkownika.
+
+Authorization — określanie uprawnień użytkownika.
+
+CRUD — operacje tworzenia, odczytywania, aktualizowania i usuwania danych.
+
+21. W skrócie
+
+ASP.NET MVC to klasyczny framework Microsoftu do tworzenia aplikacji internetowych w C# z wykorzystaniem wzorca Model-View-Controller.
+
+Umożliwia obsługę żądań HTTP, generowanie stron HTML, walidację formularzy i integrację z bazami danych.
+
+Warto go poznać, aby rozumieć istniejące aplikacje oparte na .NET Framework, a przy tworzeniu nowych systemów internetowych rozważyć ASP.NET Core MVC.

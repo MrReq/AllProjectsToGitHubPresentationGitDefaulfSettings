@@ -1,0 +1,101 @@
+# Gatling
+
+## 1. Czym jest Gatling?
+
+Gatling to narzędzie do testowania wydajności i obciążenia aplikacji internetowych, interfejsów API oraz systemów informatycznych.
+
+Pozwala symulować dużą liczbę użytkowników korzystających jednocześnie z aplikacji, aby sprawdzić, jak system zachowuje się przy normalnym i bardzo dużym obciążeniu.
+
+Gatling jest szczególnie przydatny w pracy testerów oprogramowania, inżynierów QA oraz programistów zajmujących się optymalizacją wydajności systemów.
+
+## 2. Do czego służy Gatling?
+
+Gatling służy przede wszystkim do sprawdzania, czy aplikacja działa poprawnie i szybko, gdy korzysta z niej wielu użytkowników jednocześnie.
+
+Umożliwia wykrywanie problemów z wydajnością, takich jak długi czas odpowiedzi serwera, przeciążenie bazy danych czy ograniczona przepustowość API.
+
+Pozwala również sprawdzać, jak aplikacja zachowuje się podczas stopniowego zwiększania liczby użytkowników.
+
+## 3. Najważniejsze rodzaje testów
+
+Testy obciążeniowe (Load Testing) polegają na sprawdzaniu działania aplikacji przy przewidywanym, typowym obciążeniu.
+
+Testy przeciążeniowe (Stress Testing) sprawdzają, jak system zachowuje się po przekroczeniu jego normalnych możliwości.
+
+Testy wydajnościowe (Performance Testing) służą do oceny szybkości działania aplikacji, czasu odpowiedzi i przepustowości.
+
+Testy wytrzymałościowe (Soak Testing) polegają na utrzymywaniu obciążenia przez dłuższy czas w celu wykrycia problemów, które pojawiają się dopiero po wielu godzinach działania.
+
+## 4. Jak działa Gatling?
+
+Gatling wykorzystuje scenariusze testowe, które opisują czynności wykonywane przez wirtualnych użytkowników.
+
+Tester definiuje żądania HTTP, parametry testu oraz liczbę użytkowników, którzy mają rozpocząć korzystanie z aplikacji.
+
+Narzędzie wykonuje test, zbiera dane dotyczące odpowiedzi serwera i generuje raport z wynikami.
+
+Raport może zawierać informacje o czasie odpowiedzi, liczbie udanych i nieudanych żądań oraz przepustowości systemu.
+
+## 5. Gatling i języki programowania
+
+Gatling pozwala definiować scenariusze testowe za pomocą kodu.
+
+Najczęściej wykorzystywanym językiem jest Scala, ale Gatling oferuje również wsparcie dla Java i JavaScript w zależności od używanego interfejsu i wersji narzędzia.
+
+Dzięki temu można tworzyć rozbudowane scenariusze, korzystać ze zmiennych, parametrów, pętli i danych testowych.
+
+## 6. Przykładowe zastosowanie
+
+Załóżmy, że tworzysz aplikację internetową z backendem w Spring Boot i bazą danych PostgreSQL.
+
+Chcesz sprawdzić, czy aplikacja będzie działać poprawnie, gdy jednocześnie zaloguje się do niej 1000 użytkowników.
+
+Za pomocą Gatlinga możesz przygotować test, który symuluje logowanie użytkowników i wysyłanie żądań do API.
+
+Po zakończeniu testu analizujesz raport, aby sprawdzić, czy serwer odpowiada wystarczająco szybko oraz czy pojawiają się błędy.
+
+## 7. Zalety Gatlinga
+
+Gatling umożliwia symulowanie dużej liczby użytkowników przy stosunkowo niewielkim wykorzystaniu zasobów.
+
+Pozwala automatyzować testy wydajnościowe i uruchamiać je w procesach CI/CD.
+
+Generuje czytelne raporty ułatwiające analizowanie wyników testów.
+
+Umożliwia zapisywanie scenariuszy testowych w kodzie i przechowywanie ich w systemie kontroli wersji, takim jak Git.
+
+## 8. Wady Gatlinga
+
+Tworzenie bardziej zaawansowanych scenariuszy może wymagać znajomości programowania.
+
+Analizowanie wyników testów wymaga wiedzy na temat wydajności aplikacji, serwerów i baz danych.
+
+Testowanie bardzo dużego obciążenia może wymagać odpowiednio wydajnej infrastruktury oraz właściwej konfiguracji środowiska testowego.
+
+## 9. Gatling a inne narzędzia
+
+Gatling konkuruje z takimi narzędziami jak Apache JMeter, k6 oraz Locust.
+
+JMeter oferuje rozbudowany interfejs graficzny i szeroki ekosystem dodatków.
+
+k6 umożliwia tworzenie testów wydajnościowych w JavaScript i dobrze sprawdza się w automatyzacji.
+
+Locust pozwala definiować scenariusze obciążeniowe w Pythonie.
+
+Gatling jest szczególnie interesujący dla osób, które preferują definiowanie testów w kodzie i chcą integrować je z procesami automatyzacji.
+
+## 10. Znaczenie Gatlinga w pracy testera QA
+
+Znajomość Gatlinga może być przydatna w pracy testera automatyzującego, Performance Test Engineera oraz inżyniera QA.
+
+Pozwala rozszerzyć kompetencje poza standardowe testowanie funkcjonalne i pomaga zrozumieć, jak aplikacje zachowują się pod dużym obciążeniem.
+
+Warto poznać podstawy HTTP, REST API, kodów odpowiedzi, czasu odpowiedzi oraz analizy raportów, zanim przejdzie się do tworzenia zaawansowanych scenariuszy.
+
+## 11. Podsumowanie
+
+Gatling to narzędzie do automatyzacji testów wydajnościowych, które pozwala symulować ruch użytkowników, mierzyć szybkość odpowiedzi aplikacji i wykrywać problemy z wydajnością.
+
+Jest wykorzystywany przede wszystkim do testowania aplikacji internetowych, backendów oraz interfejsów API.
+
+Dla osoby rozwijającej się w kierunku QA Automation nauka Gatlinga stanowi wartościowe uzupełnienie wiedzy o testowaniu API i automatyzacji testów.

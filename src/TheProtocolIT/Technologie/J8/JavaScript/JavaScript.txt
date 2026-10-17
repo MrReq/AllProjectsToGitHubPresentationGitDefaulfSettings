@@ -1,0 +1,1537 @@
+# JavaScript
+
+## 1. Czym jest JavaScript?
+
+JavaScript to wysokopoziomowy, dynamicznie typowany język programowania, który został stworzony przede wszystkim z myślą o tworzeniu interaktywnych stron internetowych.
+
+Dzisiaj JavaScript jest znacznie bardziej uniwersalny.
+
+Można go wykorzystywać do tworzenia:
+
+- stron internetowych,
+- aplikacji webowych,
+- aplikacji backendowych,
+- REST API,
+- aplikacji desktopowych,
+- aplikacji mobilnych,
+- narzędzi CLI,
+- aplikacji czasu rzeczywistego,
+- serwerów,
+- aplikacji wykorzystujących WebSocket,
+- aplikacji wykorzystujących AI i Machine Learning.
+
+JavaScript jest jednym z najważniejszych języków ekosystemu Web.
+
+## 2. JavaScript a Java
+
+Pomimo podobnej nazwy JavaScript i Java są różnymi językami.
+
+Java:
+
+```text
+JVM
+silne typowanie
+backend
+Spring
+aplikacje biznesowe
+```
+
+JavaScript:
+
+```text
+Browser
+dynamiczne typowanie
+frontend
+Node.js
+web
+backend
+```
+
+Nie należy traktować JavaScript jako odmiany Javy.
+
+## 3. Gdzie działa JavaScript?
+
+JavaScript może być wykonywany w różnych środowiskach.
+
+Najważniejsze to:
+
+```text
+Przeglądarka
+│
+├── Chrome
+├── Firefox
+├── Edge
+└── Safari
+
+Serwer
+│
+├── Node.js
+├── Deno
+└── Bun
+```
+
+W przeglądarce JavaScript jest wykonywany przez silnik JavaScript.
+
+Przykładowe silniki:
+
+```text
+V8        → Chrome, Node.js
+SpiderMonkey → Firefox
+JavaScriptCore → Safari
+```
+
+## 4. ECMAScript
+
+ECMAScript jest standardem, na którym opiera się JavaScript.
+
+Można to uprościć:
+
+```text
+ECMAScript
+    ↓
+standard języka
+    ↓
+JavaScript
+```
+
+Kolejne wersje standardu wprowadzają nowe funkcjonalności.
+
+Szczególnie ważnym momentem było **ES2015**, czyli **ES6**.
+
+ES6 wprowadził między innymi:
+
+```text
+let
+const
+class
+arrow functions
+template literals
+destructuring
+modules
+Promise
+Map
+Set
+```
+
+## 5. Podstawowa składnia
+
+Najprostszy program:
+
+```javascript
+console.log("Hello World");
+```
+
+`console.log()` wyświetla informacje w konsoli.
+
+Komentarz jednoliniowy:
+
+```javascript
+// komentarz
+```
+
+Komentarz wieloliniowy:
+
+```javascript
+/*
+    komentarz
+    wieloliniowy
+*/
+```
+
+## 6. Zmienne
+
+JavaScript posiada trzy podstawowe sposoby deklarowania zmiennych:
+
+```javascript
+var
+let
+const
+```
+
+Obecnie najczęściej wykorzystuje się:
+
+```javascript
+let
+const
+```
+
+Przykład:
+
+```javascript
+let age = 25;
+const name = "Marcin";
+```
+
+`const` oznacza, że zmiennej nie można ponownie przypisać.
+
+```javascript
+const age = 25;
+
+// age = 30; // błąd
+```
+
+`let` pozwala na zmianę wartości:
+
+```javascript
+let age = 25;
+
+age = 30;
+```
+
+`var` jest starszym sposobem deklarowania zmiennych i w nowoczesnym JavaScript zazwyczaj preferuje się `let` oraz `const`.
+
+## 7. Typy danych
+
+JavaScript jest **dynamicznie typowany**.
+
+Oznacza to, że typ zmiennej nie musi być deklarowany podczas jej tworzenia.
+
+```javascript
+let value = 10;
+```
+
+Później:
+
+```javascript
+value = "Hello";
+```
+
+Podstawowe typy:
+
+```text
+string
+number
+bigint
+boolean
+undefined
+null
+symbol
+object
+```
+
+## 8. String
+
+Tekst można zapisać między innymi za pomocą:
+
+```javascript
+let name = "Marcin";
+let city = 'Warszawa';
+```
+
+Można również używać template literals:
+
+```javascript
+let name = "Marcin";
+
+console.log(`Hello ${name}`);
+```
+
+Template literals wykorzystują znak:
+
+```text
+`
+```
+
+i pozwalają łatwo wstawiać zmienne do tekstu.
+
+## 9. Number
+
+JavaScript wykorzystuje typ `number`.
+
+```javascript
+let age = 25;
+let price = 19.99;
+```
+
+Ten sam typ obsługuje liczby całkowite oraz zmiennoprzecinkowe.
+
+JavaScript posiada również:
+
+```javascript
+Infinity
+-Infinity
+NaN
+```
+
+`NaN` oznacza:
+
+**Not a Number**
+
+## 10. Boolean
+
+Typ logiczny posiada dwie wartości:
+
+```javascript
+true
+false
+```
+
+Przykład:
+
+```javascript
+let isLogged = true;
+```
+
+Możemy wykorzystywać go w instrukcjach warunkowych.
+
+## 11. Null i Undefined
+
+`undefined` oznacza zazwyczaj brak przypisanej wartości.
+
+```javascript
+let name;
+
+console.log(name);
+```
+
+Rezultat:
+
+```text
+undefined
+```
+
+`null` oznacza jawnie ustawiony brak wartości.
+
+```javascript
+let user = null;
+```
+
+Są to różne wartości.
+
+## 12. Operatory
+
+JavaScript posiada między innymi:
+
+```text
++
+-
+*
+/
+%
+**
+```
+
+Przykład:
+
+```javascript
+let result = 10 + 5;
+```
+
+Operatory porównania:
+
+```text
+==
+===
+!=
+!==
+>
+<
+>=
+<=
+```
+
+Szczególnie ważny jest operator:
+
+```javascript
+===
+```
+
+który sprawdza zarówno wartość, jak i typ.
+
+Przykład:
+
+```javascript
+5 === 5
+```
+
+daje:
+
+```text
+true
+```
+
+Natomiast:
+
+```javascript
+5 === "5"
+```
+
+daje:
+
+```text
+false
+```
+
+## 13. Instrukcje warunkowe
+
+Podstawowa konstrukcja:
+
+```javascript
+if (age >= 18) {
+    console.log("Adult");
+} else {
+    console.log("Underage");
+}
+```
+
+Możemy używać również:
+
+```javascript
+else if
+```
+
+Przykład:
+
+```javascript
+if (age >= 18) {
+    console.log("Adult");
+} else if (age >= 13) {
+    console.log("Teenager");
+} else {
+    console.log("Child");
+}
+```
+
+## 14. Operator ternarny
+
+Krótszy zapis warunku:
+
+```javascript
+let result = age >= 18 ? "Adult" : "Underage";
+```
+
+Schemat:
+
+```text
+warunek ? wartośćJeśliTrue : wartośćJeśliFalse
+```
+
+## 15. Switch
+
+Możemy wykorzystać:
+
+```javascript
+switch (day) {
+    case "Monday":
+        console.log("Start");
+        break;
+
+    case "Friday":
+        console.log("End");
+        break;
+
+    default:
+        console.log("Other day");
+}
+```
+
+## 16. Pętle
+
+JavaScript posiada kilka rodzajów pętli.
+
+### for
+
+```javascript
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+```
+
+### while
+
+```javascript
+while (condition) {
+    // kod
+}
+```
+
+### do...while
+
+```javascript
+do {
+    // kod
+} while (condition);
+```
+
+### for...of
+
+Służy między innymi do iterowania po elementach tablic.
+
+```javascript
+for (const name of names) {
+    console.log(name);
+}
+```
+
+### for...in
+
+Służy przede wszystkim do iterowania po właściwościach obiektu.
+
+```javascript
+for (const key in user) {
+    console.log(key);
+}
+```
+
+## 17. Funkcje
+
+Funkcja to fragment kodu wykonujący określone zadanie.
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+```
+
+Wywołanie:
+
+```javascript
+let result = add(2, 3);
+```
+
+## 18. Arrow Functions
+
+Nowoczesny JavaScript umożliwia stosowanie funkcji strzałkowych.
+
+```javascript
+const add = (a, b) => {
+    return a + b;
+};
+```
+
+Można zapisać krócej:
+
+```javascript
+const add = (a, b) => a + b;
+```
+
+Arrow functions są bardzo często używane w:
+
+```text
+map()
+filter()
+reduce()
+forEach()
+Promise
+React
+```
+
+## 19. Tablice
+
+Tablica może przechowywać wiele wartości.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+```
+
+Dostęp:
+
+```javascript
+numbers[0];
+```
+
+Długość:
+
+```javascript
+numbers.length;
+```
+
+Dodawanie:
+
+```javascript
+numbers.push(6);
+```
+
+Usuwanie ostatniego elementu:
+
+```javascript
+numbers.pop();
+```
+
+Dodawanie na początku:
+
+```javascript
+numbers.unshift(0);
+```
+
+Usuwanie pierwszego:
+
+```javascript
+numbers.shift();
+```
+
+## 20. Najważniejsze metody tablic
+
+JavaScript posiada bardzo rozbudowane API tablic.
+
+Najważniejsze:
+
+```text
+push()
+pop()
+shift()
+unshift()
+slice()
+splice()
+concat()
+includes()
+indexOf()
+find()
+findIndex()
+some()
+every()
+map()
+filter()
+reduce()
+forEach()
+sort()
+reverse()
+```
+
+### map()
+
+Tworzy nową tablicę na podstawie elementów.
+
+```javascript
+const numbers = [1, 2, 3];
+
+const doubled = numbers.map(n => n * 2);
+```
+
+Rezultat:
+
+```text
+[2, 4, 6]
+```
+
+### filter()
+
+Filtruje elementy.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+const even = numbers.filter(n => n % 2 === 0);
+```
+
+Rezultat:
+
+```text
+[2, 4]
+```
+
+### reduce()
+
+Pozwala sprowadzić wiele wartości do jednej.
+
+```javascript
+const numbers = [1, 2, 3, 4];
+
+const sum = numbers.reduce(
+    (total, n) => total + n,
+    0
+);
+```
+
+Rezultat:
+
+```text
+10
+```
+
+## 21. Obiekty
+
+Obiekt przechowuje dane w postaci właściwości.
+
+```javascript
+const user = {
+    name: "Marcin",
+    age: 25,
+    city: "Warszawa"
+};
+```
+
+Dostęp:
+
+```javascript
+user.name;
+```
+
+lub:
+
+```javascript
+user["name"];
+```
+
+Możemy również przechowywać funkcje:
+
+```javascript
+const user = {
+    name: "Marcin",
+
+    sayHello() {
+        console.log("Hello");
+    }
+};
+```
+
+## 22. Destructuring
+
+Destructuring pozwala wygodnie wyciągać wartości.
+
+```javascript
+const user = {
+    name: "Marcin",
+    age: 25
+};
+
+const { name, age } = user;
+```
+
+Dla tablic:
+
+```javascript
+const numbers = [10, 20];
+
+const [a, b] = numbers;
+```
+
+## 23. Spread Operator
+
+Spread operator:
+
+```text
+...
+```
+
+Przykład:
+
+```javascript
+const numbers = [1, 2, 3];
+
+const copy = [...numbers];
+```
+
+Możemy łączyć tablice:
+
+```javascript
+const a = [1, 2];
+const b = [3, 4];
+
+const result = [...a, ...b];
+```
+
+Można go również wykorzystywać z obiektami:
+
+```javascript
+const user = {
+    name: "Marcin",
+    age: 25
+};
+
+const updatedUser = {
+    ...user,
+    age: 26
+};
+```
+
+## 24. Rest Operator
+
+Rest również wykorzystuje:
+
+```text
+...
+```
+
+ale pozwala zebrać wiele wartości.
+
+```javascript
+function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+```
+
+Wywołanie:
+
+```javascript
+sum(1, 2, 3, 4);
+```
+
+## 25. Scope
+
+JavaScript posiada zakresy zmiennych.
+
+Najważniejsze pojęcia:
+
+```text
+global scope
+function scope
+block scope
+```
+
+`let` i `const` posiadają block scope.
+
+```javascript
+if (true) {
+    let value = 10;
+}
+
+// value nie jest dostępne tutaj
+```
+
+## 26. Hoisting
+
+JavaScript posiada mechanizm nazywany **hoistingiem**.
+
+Deklaracje niektórych zmiennych i funkcji są przetwarzane przed wykonaniem kodu.
+
+Ważne jest jednak rozróżnienie między:
+
+```text
+var
+let
+const
+function
+```
+
+`let` i `const` znajdują się przed inicjalizacją w tzw. **Temporal Dead Zone**.
+
+## 27. Closure
+
+Closure jest jednym z bardzo ważnych pojęć JavaScript.
+
+Funkcja może pamiętać zmienne z zakresu, w którym została utworzona.
+
+```javascript
+function counter() {
+
+    let count = 0;
+
+    return function () {
+        count++;
+        return count;
+    };
+}
+```
+
+Możemy następnie:
+
+```javascript
+const next = counter();
+
+next();
+next();
+next();
+```
+
+Wyniki:
+
+```text
+1
+2
+3
+```
+
+## 28. this
+
+`this` wskazuje na kontekst, w którym funkcja jest wykonywana.
+
+Przykład:
+
+```javascript
+const user = {
+
+    name: "Marcin",
+
+    sayHello() {
+        console.log(this.name);
+    }
+};
+```
+
+W przypadku arrow functions zachowanie `this` jest inne niż w klasycznych funkcjach.
+
+Jest to jeden z ważniejszych tematów JavaScript.
+
+## 29. Klasy
+
+JavaScript posiada składnię klas.
+
+```javascript
+class Person {
+
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    sayHello() {
+        console.log(`Hello ${this.name}`);
+    }
+}
+```
+
+Tworzenie obiektu:
+
+```javascript
+const person = new Person("Marcin", 25);
+```
+
+## 30. Dziedziczenie
+
+Klasy mogą dziedziczyć po innych klasach.
+
+```javascript
+class Animal {
+
+    eat() {
+        console.log("Eating");
+    }
+}
+
+class Dog extends Animal {
+
+    bark() {
+        console.log("Barking");
+    }
+}
+```
+
+`Dog` posiada metodę `eat()` odziedziczoną po `Animal`.
+
+## 31. Moduły
+
+Nowoczesny JavaScript posiada system modułów.
+
+Eksport:
+
+```javascript
+export function add(a, b) {
+    return a + b;
+}
+```
+
+Import:
+
+```javascript
+import { add } from "./math.js";
+```
+
+Możemy również stosować:
+
+```javascript
+export default
+```
+
+oraz:
+
+```javascript
+import something from "./file.js";
+```
+
+Moduły są podstawą organizowania większych aplikacji JavaScript.
+
+## 32. DOM
+
+DOM oznacza:
+
+**Document Object Model**
+
+Przeglądarka reprezentuje stronę HTML jako strukturę obiektów.
+
+JavaScript może manipulować DOM.
+
+Przykład:
+
+```javascript
+const title = document.querySelector("h1");
+
+title.textContent = "Hello World";
+```
+
+Możemy zmieniać:
+
+- tekst,
+- HTML,
+- style,
+- klasy CSS,
+- atrybuty,
+- elementy strony.
+
+## 33. Eventy
+
+JavaScript może reagować na zdarzenia użytkownika.
+
+Przykład:
+
+```javascript
+const button = document.querySelector("#button");
+
+button.addEventListener("click", () => {
+    console.log("Clicked!");
+});
+```
+
+Popularne eventy:
+
+```text
+click
+submit
+input
+change
+mouseover
+keydown
+keyup
+load
+scroll
+```
+
+## 34. Fetch API
+
+JavaScript może komunikować się z serwerem.
+
+Przykład:
+
+```javascript
+fetch("/api/users")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    });
+```
+
+Nowocześniejsza wersja z `async/await`:
+
+```javascript
+async function getUsers() {
+
+    const response = await fetch("/api/users");
+
+    const data = await response.json();
+
+    console.log(data);
+}
+```
+
+## 35. Promise
+
+Promise reprezentuje rezultat operacji asynchronicznej.
+
+Promise może znajdować się w stanie:
+
+```text
+pending
+fulfilled
+rejected
+```
+
+Przykład:
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    resolve("Success");
+});
+```
+
+Możemy wykorzystać:
+
+```javascript
+then()
+catch()
+finally()
+```
+
+## 36. Async / Await
+
+`async` i `await` upraszczają pracę z kodem asynchronicznym.
+
+```javascript
+async function getUser() {
+
+    const response = await fetch("/api/user");
+
+    const user = await response.json();
+
+    return user;
+}
+```
+
+Jest to obecnie jeden z najważniejszych sposobów obsługi operacji asynchronicznych w JavaScript.
+
+## 37. JSON
+
+JSON oznacza:
+
+**JavaScript Object Notation**
+
+Jest bardzo często wykorzystywany do komunikacji między frontendem i backendem.
+
+Przykład:
+
+```json
+{
+    "name": "Marcin",
+    "age": 25
+}
+```
+
+JavaScript może zamienić JSON na obiekt:
+
+```javascript
+const user = JSON.parse(json);
+```
+
+Obiekt na JSON:
+
+```javascript
+const json = JSON.stringify(user);
+```
+
+## 38. Node.js
+
+Node.js pozwala uruchamiać JavaScript poza przeglądarką.
+
+Dzięki Node.js JavaScript może być wykorzystywany na backendzie.
+
+Możemy tworzyć:
+
+```text
+serwery
+REST API
+mikroserwisy
+CLI
+narzędzia developerskie
+aplikacje czasu rzeczywistego
+```
+
+Node.js wykorzystuje między innymi silnik:
+
+```text
+V8
+```
+
+## 39. npm
+
+npm oznacza:
+
+**Node Package Manager**
+
+Jest jednym z najważniejszych elementów ekosystemu JavaScript.
+
+Instalacja pakietu:
+
+```bash
+npm install express
+```
+
+Inicjalizacja projektu:
+
+```bash
+npm init
+```
+
+Plik:
+
+```text
+package.json
+```
+
+zawiera informacje o projekcie i jego zależnościach.
+
+## 40. Frameworki i biblioteki
+
+Ekosystem JavaScript posiada ogromną liczbę bibliotek i frameworków.
+
+Frontend:
+
+```text
+React
+Angular
+Vue
+Svelte
+```
+
+Backend:
+
+```text
+Node.js
+Express
+NestJS
+Fastify
+```
+
+Narzędzia:
+
+```text
+Vite
+Webpack
+Babel
+ESLint
+Prettier
+```
+
+Testowanie:
+
+```text
+Jest
+Vitest
+Mocha
+Cypress
+Playwright
+```
+
+## 41. TypeScript
+
+TypeScript jest nadzbiorem JavaScript.
+
+Dodaje między innymi system typów.
+
+JavaScript:
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+```
+
+TypeScript:
+
+```typescript
+function add(a: number, b: number): number {
+    return a + b;
+}
+```
+
+TypeScript jest bardzo popularny przy tworzeniu dużych aplikacji.
+
+## 42. JavaScript w frontendzie
+
+Typowa aplikacja webowa może wyglądać następująco:
+
+```text
+HTML
+ ↓
+struktura strony
+
+CSS
+ ↓
+wygląd
+
+JavaScript
+ ↓
+logika i interakcje
+```
+
+Przykładowo:
+
+```text
+HTML → przycisk
+CSS → wygląd przycisku
+JavaScript → reakcja na kliknięcie
+```
+
+## 43. JavaScript w backendzie
+
+Możemy stworzyć architekturę:
+
+```text
+Frontend
+   ↓
+REST API
+   ↓
+Node.js
+   ↓
+Service
+   ↓
+Database
+```
+
+Przykładowe bazy danych:
+
+```text
+PostgreSQL
+MySQL
+MongoDB
+Redis
+```
+
+## 44. JavaScript i REST API
+
+JavaScript może zarówno korzystać z REST API, jak i sam je tworzyć.
+
+Frontend:
+
+```javascript
+fetch("/api/products");
+```
+
+Backend może obsługiwać:
+
+```text
+GET
+POST
+PUT
+PATCH
+DELETE
+```
+
+Przykładowy endpoint:
+
+```text
+GET /api/products
+```
+
+## 45. JavaScript i WebSocket
+
+WebSocket pozwala na komunikację w czasie rzeczywistym.
+
+Można go wykorzystywać w:
+
+```text
+czatach
+grach online
+powiadomieniach
+systemach monitoringu
+aplikacjach finansowych
+```
+
+Przykład:
+
+```javascript
+const socket = new WebSocket("ws://localhost:8080");
+
+socket.onmessage = event => {
+    console.log(event.data);
+};
+```
+
+## 46. Testowanie JavaScript
+
+Do testowania JavaScript wykorzystuje się między innymi:
+
+```text
+Jest
+Vitest
+Mocha
+Jasmine
+Cypress
+Playwright
+```
+
+Test jednostkowy może wyglądać następująco:
+
+```javascript
+test("adds numbers", () => {
+    expect(2 + 3).toBe(5);
+});
+```
+
+Playwright i Cypress są szczególnie popularne przy testach aplikacji webowych.
+
+## 47. Debugowanie
+
+JavaScript można debugować między innymi za pomocą narzędzi deweloperskich przeglądarki.
+
+W Chrome:
+
+```text
+F12
+```
+
+Najważniejsze zakładki:
+
+```text
+Elements
+Console
+Sources
+Network
+Application
+Performance
+Memory
+```
+
+Możemy stosować:
+
+```javascript
+console.log()
+console.error()
+console.warn()
+debugger
+```
+
+## 48. ESLint
+
+ESLint służy do analizowania kodu JavaScript i wykrywania potencjalnych problemów.
+
+Może wykrywać między innymi:
+
+- błędy,
+- nieużywane zmienne,
+- problemy ze stylem kodu,
+- potencjalnie niebezpieczne konstrukcje.
+
+## 49. Prettier
+
+Prettier jest narzędziem do automatycznego formatowania kodu.
+
+Przykładowo może automatycznie uporządkować:
+
+```javascript
+const user={name:"Marcin",age:25}
+```
+
+do:
+
+```javascript
+const user = {
+    name: "Marcin",
+    age: 25
+};
+```
+
+## 50. JavaScript – najważniejsze obszary nauki
+
+Jeżeli chcesz dobrze znać JavaScript, warto przejść przez:
+
+```text
+1. Składnia
+2. Zmienne
+3. Typy danych
+4. Operatory
+5. if / else
+6. switch
+7. Pętle
+8. Funkcje
+9. Arrow Functions
+10. Tablice
+11. Obiekty
+12. Destructuring
+13. Spread / Rest
+14. Scope
+15. Hoisting
+16. Closure
+17. this
+18. Prototypy
+19. Klasy
+20. Dziedziczenie
+21. Moduły
+22. DOM
+23. Eventy
+24. JSON
+25. Promise
+26. Async / Await
+27. Fetch API
+28. Error Handling
+29. LocalStorage
+30. Web APIs
+31. Node.js
+32. npm
+33. REST API
+34. TypeScript
+35. Testowanie
+36. Git
+37. React / Angular / Vue
+38. Backend
+39. WebSocket
+40. Docker
+```
+
+## 51. Ekosystem JavaScript
+
+Najważniejsze elementy można zapamiętać tak:
+
+```text
+JAVASCRIPT
+│
+├── LANGUAGE
+│   ├── Variables
+│   ├── Functions
+│   ├── Objects
+│   ├── Classes
+│   ├── Arrays
+│   ├── Scope
+│   ├── Closure
+│   └── Prototype
+│
+├── ASYNC
+│   ├── Promise
+│   ├── async
+│   ├── await
+│   └── Fetch
+│
+├── BROWSER
+│   ├── DOM
+│   ├── Events
+│   ├── Web APIs
+│   └── LocalStorage
+│
+├── BACKEND
+│   ├── Node.js
+│   ├── Express
+│   ├── NestJS
+│   └── REST API
+│
+├── FRONTEND
+│   ├── React
+│   ├── Angular
+│   ├── Vue
+│   └── Svelte
+│
+├── TOOLING
+│   ├── npm
+│   ├── Vite
+│   ├── Babel
+│   ├── ESLint
+│   └── Prettier
+│
+├── TESTING
+│   ├── Jest
+│   ├── Vitest
+│   ├── Cypress
+│   └── Playwright
+│
+└── TYPING
+    └── TypeScript
+```
+
+## 52. JavaScript – najważniejsze pojęcia do zapamiętania
+
+Jeżeli przygotowujesz się do pracy w IT, szczególnie warto bardzo dobrze rozumieć:
+
+```text
+let / const
+var
+primitive types
+objects
+arrays
+functions
+arrow functions
+scope
+closure
+hoisting
+this
+prototype
+class
+inheritance
+destructuring
+spread
+rest
+map
+filter
+reduce
+Promise
+async / await
+event loop
+DOM
+events
+Fetch API
+JSON
+modules
+Node.js
+npm
+REST API
+TypeScript
+```
+
+**Najważniejsza różnica względem Javy:** JavaScript jest językiem dynamicznie typowanym i posiada bardzo specyficzny model wykonywania oparty między innymi na **event loop, callbackach, Promise, closure i prototypach**. To właśnie te elementy warto szczególnie dobrze opanować, jeśli chcesz przejść od podstawowego JavaScriptu do poziomu profesjonalnego.

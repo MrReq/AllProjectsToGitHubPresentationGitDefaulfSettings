@@ -1,0 +1,191 @@
+# Delphi
+
+## 1. Czym jest Delphi?
+
+Delphi to środowisko programistyczne IDE oraz platforma do tworzenia aplikacji, oparta na języku programowania Object Pascal.
+
+Technologia została pierwotnie opracowana przez firmę Borland, a obecnie jest rozwijana przez firmę Embarcadero.
+
+Delphi umożliwia szybkie tworzenie aplikacji z graficznym interfejsem użytkownika, programów biznesowych, narzędzi desktopowych oraz aplikacji bazodanowych.
+
+Jest szczególnie znane z podejścia RAD (Rapid Application Development), które pozwala budować aplikacje przez wizualne projektowanie interfejsu i łączenie komponentów z kodem.
+
+## 2. Do czego służy Delphi?
+
+- Tworzenie aplikacji desktopowych na Windows.
+- Budowanie programów biznesowych i systemów zarządzania przedsiębiorstwem.
+- Tworzenie aplikacji obsługujących bazy danych.
+- Projektowanie interfejsów graficznych.
+- Rozwijanie systemów wykorzystywanych w firmach i instytucjach.
+- Tworzenie narzędzi do przetwarzania danych.
+- Budowanie aplikacji wieloplatformowych przy wykorzystaniu odpowiednich bibliotek i narzędzi.
+- Utrzymywanie i rozwijanie starszych systemów napisanych w Delphi.
+
+## 3. Najważniejsze cechy Delphi
+
+Object Pascal
+
+Delphi wykorzystuje język Object Pascal, który obsługuje programowanie proceduralne i obiektowe, w tym klasy, dziedziczenie, interfejsy oraz wyjątki.
+
+RAD – Rapid Application Development
+
+Środowisko umożliwia szybkie tworzenie aplikacji poprzez projektowanie interfejsu metodą przeciągnij i upuść.
+
+VCL
+
+Visual Component Library to biblioteka komponentów wykorzystywana przede wszystkim do tworzenia aplikacji desktopowych dla Windows.
+
+FireMonkey (FMX)
+
+Framework pozwalający budować aplikacje z interfejsem graficznym na wybrane platformy, między innymi Windows, macOS, iOS i Android, zależnie od wersji i konfiguracji.
+
+Integracja z bazami danych
+
+Delphi oferuje narzędzia do łączenia aplikacji z relacyjnymi bazami danych, takimi jak PostgreSQL, MySQL, Oracle czy Microsoft SQL Server.
+
+Kompilacja natywna
+
+Delphi umożliwia kompilowanie kodu do natywnych aplikacji dla obsługiwanych platform.
+
+## 4. Jak wygląda praca w Delphi?
+
+[Delphi Overview - Embarcadero](https://images.openai.com/static-rsc-4/ay3d_ofR5cHlYuedzX1FcGfUpqI7Z_N-1jymjRFK2w4oV5DYb4vZJqZTJ_BVHngYTR9pM-uBdp-qgALffH1LZBETsog_IBTdE5rLQRMhfmgWVYCHiQI7GQnTV5D_49_4pQQbfsV9_I4N89nTfzokNnSE2Iiuav-doVmjpvNAaZU?purpose=inline)
+
+[Getting Rid of Description Pane in Delphi 2010](https://images.openai.com/static-rsc-4/PMVAiQ_2gLWYBQ7G9AD_006qKmx92U6piwePYh_mzOx7czca24oAZljaZaLE1jNOhf30N5UlC-SPy9qjazUjHYOGEJ2yJqZBjSyu9gXYkAO7ELpsQxNpRlEAmf56fG6i4AdP-IIdW_rry0S09khHvQwcghfYhPB6Kgx6qm7yn10?purpose=inline)
+
+[Rad Studio 10.3 - IDE Clean - General - uniGUI Discussion Forums](https://images.openai.com/static-rsc-4/GL6WC9F9aEu75_ya-oE3gfMH0l-s6T9I6_HU8OOwHR0_UROp52BzoTm6iGKYKG5w3ICDYsYO1yTDyIki1vB86dA7OmoJWoovoA9c-ADGnWedPhq1BqMgMGJNKrTFdneciOqzaNgQSrswWLr6lEoQdOGALJmsE3tK5jvXbbcEHlc?purpose=inline)
+
+8
+
+Typowa praca z Delphi składa się z kilku etapów.
+
+1. Programista tworzy projekt w środowisku IDE.
+2. Projektuje okna i elementy interfejsu użytkownika.
+3. Dodaje logikę programu w języku Object Pascal.
+4. Łączy aplikację z bazą danych lub innymi usługami.
+5. Kompiluje program i testuje jego działanie.
+
+Dzięki wizualnemu projektantowi wiele elementów interfejsu można przygotować bez ręcznego pisania całego kodu odpowiedzialnego za ich rozmieszczenie.
+
+## 5. Przykład programowania w Delphi
+
+Poniższy przykład przedstawia prosty program napisany w Object Pascal.
+
+```
+program HelloDelphi;
+
+{$APPTYPE CONSOLE}
+
+begin
+  WriteLn('Hello, Delphi!');
+  WriteLn('Witaj w programowaniu!');
+  ReadLn;
+end.
+```
+
+Instrukcja `begin` rozpoczyna blok kodu, a `end.` kończy program.
+
+Funkcja `WriteLn()` wyświetla tekst w konsoli.
+
+Instrukcja `ReadLn` pozwala zaczekać na wprowadzenie danych z klawiatury.
+
+Przykład klasy w Object Pascal:
+
+```
+type
+  TPerson = class
+  private
+    FName: string;
+  public
+    constructor Create(AName: string);
+    procedure Introduce;
+  end;
+
+constructor TPerson.Create(AName: string);
+begin
+  FName := AName;
+end;
+
+procedure TPerson.Introduce;
+begin
+  WriteLn('Mam na imię ', FName);
+end;
+```
+
+Klasa `TPerson` przechowuje imię osoby i udostępnia metodę `Introduce()`.
+
+Prefiks `T` jest często stosowaną konwencją nazewnictwa typów i klas w Delphi.
+
+## 6. Najważniejsze narzędzia związane z Delphi
+
+- Delphi IDE – główne środowisko do pisania, projektowania, kompilowania i debugowania aplikacji.
+- Object Pascal – język programowania używany w Delphi.
+- VCL – biblioteka komponentów interfejsu dla Windows.
+- FireMonkey – framework interfejsów graficznych dla wielu platform.
+- FireDAC – technologia dostępu do baz danych.
+- RAD Studio – środowisko programistyczne Embarcadero, obejmujące Delphi i C++Builder.
+- Debugger – narzędzie do analizowania działania programu i wyszukiwania błędów.
+
+## 7. Delphi a inne technologie
+
+| Technologia           | Główne zastosowanie                                      |
+| --------------------- | -------------------------------------------------------- |
+| Delphi                | Aplikacje natywne i biznesowe w Object Pascal            |
+| Java                  | Aplikacje backendowe, biznesowe i wieloplatformowe       |
+| C# i .NET             | Aplikacje biznesowe, desktopowe, webowe i usługi         |
+| C++                   | Oprogramowanie systemowe, wydajne aplikacje i gry        |
+| Visual Basic .NET     | Aplikacje biznesowe w ekosystemie .NET                   |
+| Lazarus i Free Pascal | Alternatywne środowisko i kompilator związane z Pascalem |
+
+Delphi wyróżnia się szczególnie wygodnym projektowaniem interfejsów i możliwością rozwijania aplikacji natywnych.
+
+## 8. Zalety i wady Delphi
+
+Zalety:
+
+- Szybkie tworzenie aplikacji z interfejsem graficznym.
+- Czytelny język Object Pascal.
+- Dostęp do rozbudowanych bibliotek komponentów.
+- Możliwość tworzenia wydajnych aplikacji natywnych.
+- Dobre wsparcie dla aplikacji bazodanowych.
+- Przydatność w utrzymywaniu istniejących systemów biznesowych.
+
+Wady:
+
+- Mniejsza popularność niż Java, C# czy JavaScript w wielu nowych projektach.
+- Ekosystem i rynek pracy są bardziej wyspecjalizowane.
+- Zaawansowane możliwości środowiska komercyjnego mogą wiązać się z kosztami licencji.
+- Rozwijanie aplikacji wieloplatformowych zależy od wybranego frameworka i dostępnych funkcji.
+
+## 9. Delphi na rynku pracy
+
+Delphi jest wykorzystywane przede wszystkim w firmach utrzymujących istniejące aplikacje biznesowe oraz w organizacjach rozwijających specjalistyczne oprogramowanie desktopowe.
+
+Przydatne stanowiska to:
+
+- Delphi Developer.
+- Object Pascal Developer.
+- Desktop Application Developer.
+- Database Application Developer.
+- Software Maintenance Engineer.
+
+Znajomość Delphi warto połączyć z SQL, bazami danych, programowaniem obiektowym, testowaniem oprogramowania i integracją z zewnętrznymi systemami.
+
+## 10. Jak zacząć naukę Delphi?
+
+Najlepiej rozpocząć od podstaw Object Pascal, obejmujących zmienne, typy danych, instrukcje warunkowe, pętle, procedury i funkcje.
+
+Następnie warto poznać klasy, konstruktory, dziedziczenie, interfejsy i obsługę wyjątków.
+
+Kolejnym krokiem jest stworzenie aplikacji okienkowej, na przykład kalkulatora, menedżera kontaktów albo prostego systemu zarządzania produktami.
+
+Na dalszym etapie warto nauczyć się obsługi baz danych za pomocą FireDAC oraz tworzenia aplikacji z wykorzystaniem VCL lub FireMonkey.
+
+Materiały do nauki:
+
+- [Oficjalna strona Delphi](https://www.embarcadero.com/products/delphi)
+- [Dokumentacja RAD Studio](https://docwiki.embarcadero.com/RADStudio/)
+- [Bezpłatne narzędzia Embarcadero](https://www.embarcadero.com/free-tools)
+- [Free Pascal – alternatywny kompilator Pascal](https://www.freepascal.org/)
+
+Podsumowanie: Delphi to środowisko programistyczne wykorzystujące Object Pascal, przeznaczone przede wszystkim do tworzenia aplikacji desktopowych, biznesowych i bazodanowych. Jest szczególnie przydatne przy szybkim budowaniu interfejsów graficznych oraz rozwijaniu istniejących systemów przedsiębiorstw.

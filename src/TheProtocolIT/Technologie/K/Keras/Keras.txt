@@ -1,0 +1,614 @@
+# Keras
+
+## 1. Czym jest Keras?
+
+**Keras** to wysokopoziomowy framework API służący do tworzenia, trenowania i wdrażania modeli **uczenia maszynowego i deep learningu**.
+
+Keras pozwala stosunkowo łatwo budować sieci neuronowe bez konieczności samodzielnego implementowania wszystkich operacji matematycznych.
+
+Jest szczególnie popularny w Pythonie.
+
+## 2. Do czego wykorzystuje się Keras?
+
+Keras można wykorzystywać między innymi do:
+
+- klasyfikacji danych,
+- regresji,
+- rozpoznawania obrazów,
+- klasyfikacji obrazów,
+- rozpoznawania obiektów,
+- przetwarzania tekstu,
+- analizy sentymentu,
+- rozpoznawania mowy,
+- prognozowania szeregów czasowych,
+- budowania modeli generatywnych,
+- eksperymentowania z sieciami neuronowymi.
+
+Przykładowo można stworzyć model:
+
+```text
+Obraz kota
+    ↓
+Sieć neuronowa
+    ↓
+Kot: 97%
+Pies: 3%
+```
+
+## 3. Keras a TensorFlow
+
+Keras często kojarzony jest z **TensorFlow**.
+
+Współczesny Keras może działać jako wysokopoziomowy interfejs również dla różnych backendów obliczeniowych.
+
+Można więc myśleć o nim jako o warstwie ułatwiającej tworzenie modeli:
+
+```text
+        Keras
+          │
+    ┌─────┼─────┐
+    ▼     ▼     ▼
+TensorFlow JAX PyTorch
+```
+
+Dzięki temu programista może korzystać z prostego API Keras, podczas gdy właściwe obliczenia wykonywane są przez wybrany backend.
+
+## 4. Dlaczego Keras jest popularny?
+
+Jedną z największych zalet Keras jest **prostota API**.
+
+Zamiast ręcznie definiować wiele elementów sieci neuronowej, można wykorzystać gotowe warstwy.
+
+Przykładowo:
+
+```python
+from keras import Sequential
+from keras.layers import Dense
+
+model = Sequential([
+    Dense(128, activation="relu"),
+    Dense(10, activation="softmax")
+])
+```
+
+Już kilka linii kodu pozwala zdefiniować podstawową sieć neuronową.
+
+## 5. Model
+
+Najważniejszym elementem Keras jest **model**.
+
+Model reprezentuje strukturę sieci neuronowej i określa sposób przetwarzania danych.
+
+Przykładowo:
+
+```text
+Input
+  ↓
+Dense
+  ↓
+Dense
+  ↓
+Output
+```
+
+## 6. Warstwy
+
+Sieć neuronowa składa się z **warstw (layers)**.
+
+Keras udostępnia wiele gotowych rodzajów warstw.
+
+Najważniejsze to:
+
+**Dense** — klasyczna warstwa w pełni połączona.
+
+**Conv2D** — warstwa konwolucyjna używana między innymi w analizie obrazów.
+
+**LSTM** — warstwa stosowana między innymi do danych sekwencyjnych.
+
+**GRU** — alternatywa dla LSTM.
+
+**Dropout** — pomaga ograniczać overfitting.
+
+**BatchNormalization** — normalizuje wartości podczas treningu.
+
+**Embedding** — reprezentuje dane dyskretne, np. słowa, jako wektory.
+
+## 7. Sequential
+
+**Sequential** jest jednym z najprostszych sposobów budowania modelu.
+
+Warstwy są układane jedna po drugiej.
+
+```python
+from keras import Sequential
+from keras.layers import Dense
+
+model = Sequential([
+    Dense(128, activation="relu"),
+    Dense(64, activation="relu"),
+    Dense(10, activation="softmax")
+])
+```
+
+Można to przedstawić:
+
+```text
+Input
+  ↓
+Dense 128
+  ↓
+Dense 64
+  ↓
+Dense 10
+  ↓
+Output
+```
+
+## 8. Functional API
+
+Keras pozwala również tworzyć bardziej zaawansowane architektury za pomocą **Functional API**.
+
+Jest to przydatne, gdy model nie jest prostym ciągiem warstw.
+
+Można tworzyć między innymi:
+
+- wiele wejść,
+- wiele wyjść,
+- rozgałęzienia,
+- połączenia pomiędzy odległymi warstwami.
+
+Schemat może wyglądać tak:
+
+```text
+          ┌── Layer A ──┐
+Input ────┤             ├── Output
+          └── Layer B ──┘
+```
+
+## 9. Compile
+
+Po zdefiniowaniu modelu trzeba określić sposób jego trenowania.
+
+Służy do tego:
+
+```python
+model.compile(...)
+```
+
+Podczas kompilacji określa się między innymi:
+
+- optimizer,
+- funkcję straty,
+- metryki.
+
+Przykład:
+
+```python
+model.compile(
+    optimizer="adam",
+    loss="categorical_crossentropy",
+    metrics=["accuracy"]
+)
+```
+
+## 10. Optimizer
+
+**Optimizer** określa sposób aktualizowania parametrów modelu podczas uczenia.
+
+Popularnym optymalizatorem jest:
+
+```text
+Adam
+```
+
+Inne przykłady:
+
+- SGD,
+- RMSprop,
+- AdamW.
+
+Optimizer pomaga modelowi stopniowo zmniejszać funkcję straty.
+
+## 11. Loss Function
+
+**Loss function**, czyli funkcja straty, mierzy różnicę pomiędzy przewidywaniem modelu a prawidłowym wynikiem.
+
+Przykładowo:
+
+```text
+Prawidłowa odpowiedź → Kot
+Model → Pies
+
+          ↓
+
+       duży loss
+```
+
+Jeżeli model zaczyna poprawnie przewidywać wyniki:
+
+```text
+Prawidłowa odpowiedź → Kot
+Model → Kot
+
+          ↓
+
+       mały loss
+```
+
+Przykładowe funkcje straty:
+
+**Binary Crossentropy** — klasyfikacja binarna.
+
+**Categorical Crossentropy** — klasyfikacja wieloklasowa.
+
+**Sparse Categorical Crossentropy** — klasyfikacja wieloklasowa z etykietami liczbowymi.
+
+**Mean Squared Error (MSE)** — często używane w regresji.
+
+## 12. Activation Functions
+
+Funkcje aktywacji pozwalają sieci neuronowej uczyć się nieliniowych zależności.
+
+Popularne funkcje to:
+
+```text
+ReLU
+Sigmoid
+Tanh
+Softmax
+```
+
+### ReLU
+
+```python
+activation="relu"
+```
+
+Jest bardzo często stosowana w warstwach ukrytych.
+
+### Sigmoid
+
+```python
+activation="sigmoid"
+```
+
+Często stosowana przy klasyfikacji binarnej.
+
+### Softmax
+
+```python
+activation="softmax"
+```
+
+Często stosowana w ostatniej warstwie klasyfikacji wieloklasowej.
+
+## 13. Fit
+
+Do trenowania modelu wykorzystuje się:
+
+```python
+model.fit(...)
+```
+
+Przykład:
+
+```python
+model.fit(
+    x_train,
+    y_train,
+    epochs=10,
+    batch_size=32
+)
+```
+
+Model otrzymuje dane treningowe i wielokrotnie analizuje przykłady, aktualizując swoje parametry.
+
+## 14. Epoch
+
+**Epoch** oznacza jedno pełne przejście modelu przez cały zbiór treningowy.
+
+Jeżeli mamy:
+
+```python
+epochs=10
+```
+
+model przejdzie przez dane treningowe 10 razy.
+
+## 15. Batch size
+
+**Batch size** określa, ile przykładów model przetwarza przed wykonaniem aktualizacji parametrów.
+
+Przykładowo:
+
+```python
+batch_size=32
+```
+
+oznacza przetwarzanie danych w grupach po 32 przykłady.
+
+## 16. Validation
+
+Podczas treningu można wykorzystywać dane walidacyjne.
+
+Przykładowo:
+
+```python
+model.fit(
+    x_train,
+    y_train,
+    validation_data=(x_val, y_val),
+    epochs=10
+)
+```
+
+Dzięki temu możemy obserwować, jak model radzi sobie z danymi, których nie używa bezpośrednio do aktualizacji parametrów.
+
+## 17. Evaluate
+
+Po treningu model można ocenić:
+
+```python
+model.evaluate(x_test, y_test)
+```
+
+Pozwala to sprawdzić jego działanie na zbiorze testowym.
+
+## 18. Predict
+
+Do wykonywania predykcji wykorzystuje się:
+
+```python
+model.predict(x_new)
+```
+
+Przykładowo:
+
+```text
+Nowy obraz
+    ↓
+model.predict()
+    ↓
+[0.02, 0.95, 0.03]
+```
+
+Model może następnie określić najbardziej prawdopodobną klasę.
+
+## 19. Overfitting
+
+Jednym z problemów w machine learningu jest **overfitting**, czyli przeuczenie modelu.
+
+Model może bardzo dobrze zapamiętać dane treningowe, ale słabo działać na nowych danych.
+
+```text
+Training data → bardzo dobra skuteczność
+Test data     → słaba skuteczność
+```
+
+Keras oferuje mechanizmy pomagające ograniczać ten problem.
+
+Przykładem jest:
+
+```python
+Dropout(...)
+```
+
+## 20. Callbacks
+
+**Callbacks** pozwalają wykonywać określone działania podczas treningu.
+
+Przykłady:
+
+**EarlyStopping** — może zakończyć trening, gdy model przestaje się poprawiać.
+
+**ModelCheckpoint** — zapisuje model podczas treningu.
+
+**ReduceLROnPlateau** — może zmniejszyć learning rate, gdy poprawa wyników się zatrzyma.
+
+## 21. CNN w Keras
+
+Keras jest bardzo często wykorzystywany do tworzenia **Convolutional Neural Networks**, czyli CNN.
+
+CNN są szczególnie popularne w analizie obrazów.
+
+Przykładowa architektura:
+
+```text
+Image
+  ↓
+Conv2D
+  ↓
+MaxPooling2D
+  ↓
+Conv2D
+  ↓
+MaxPooling2D
+  ↓
+Flatten
+  ↓
+Dense
+  ↓
+Output
+```
+
+## 22. RNN, LSTM i dane sekwencyjne
+
+Keras pozwala również budować modele przeznaczone do danych sekwencyjnych.
+
+Przykładem jest:
+
+```python
+LSTM(...)
+```
+
+Może być używany między innymi do:
+
+- analizy tekstu,
+- prognozowania szeregów czasowych,
+- analizy sekwencji.
+
+## 23. Embedding
+
+Warstwa **Embedding** jest często używana w przetwarzaniu języka naturalnego.
+
+Pozwala reprezentować dyskretne elementy, np. słowa, jako wektory liczbowe.
+
+```text
+"kot"
+   ↓
+Embedding
+   ↓
+[0.21, -0.13, 0.72, ...]
+```
+
+Dzięki temu model może pracować z reprezentacją liczbową tekstu.
+
+## 24. Transfer Learning
+
+Keras może być wykorzystywany do **transfer learningu**.
+
+Zamiast trenować ogromną sieć od zera, można wykorzystać istniejący model i dostosować go do konkretnego problemu.
+
+Schemat:
+
+```text
+Gotowy model
+     ↓
+Pretrained weights
+     ↓
+Dostosowanie
+     ↓
+Nowe zadanie
+```
+
+Jest to bardzo popularne w computer vision.
+
+## 25. Keras i GPU
+
+Trening głębokich sieci neuronowych może wymagać ogromnej liczby obliczeń.
+
+Dlatego modele Keras mogą korzystać z akceleratorów sprzętowych, takich jak GPU.
+
+```text
+CPU
+→ dobre do wielu zadań
+
+GPU
+→ bardzo dobre do równoległych obliczeń ML
+```
+
+## 26. Typowy workflow w Keras
+
+Praca z Keras często wygląda tak:
+
+```text
+1. Przygotowanie danych
+        ↓
+2. Podział danych
+        ↓
+3. Zdefiniowanie modelu
+        ↓
+4. Dodanie warstw
+        ↓
+5. Compile
+        ↓
+6. Fit
+        ↓
+7. Validation
+        ↓
+8. Evaluate
+        ↓
+9. Predict
+        ↓
+10. Deployment
+```
+
+## 27. Prosty przykład
+
+Przykładowa sieć:
+
+```python
+import keras
+from keras import layers
+
+model = keras.Sequential([
+    layers.Dense(64, activation="relu"),
+    layers.Dense(32, activation="relu"),
+    layers.Dense(1, activation="sigmoid")
+])
+
+model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)
+```
+
+Następnie:
+
+```python
+model.fit(
+    x_train,
+    y_train,
+    epochs=10,
+    batch_size=32
+)
+```
+
+Po treningu:
+
+```python
+model.evaluate(x_test, y_test)
+```
+
+i:
+
+```python
+model.predict(x_test)
+```
+
+## 28. Keras — najważniejsze pojęcia
+
+**Keras** → API do tworzenia modeli ML i deep learning.
+
+**Model** → struktura sieci neuronowej.
+
+**Layer** → warstwa sieci.
+
+**Sequential** → model z warstwami ułożonymi kolejno.
+
+**Functional API** → sposób tworzenia bardziej złożonych modeli.
+
+**Compile** → konfiguracja procesu uczenia.
+
+**Fit** → trening modelu.
+
+**Evaluate** → ocena modelu.
+
+**Predict** → wykonywanie predykcji.
+
+**Epoch** → pełne przejście przez dane treningowe.
+
+**Batch size** → liczba przykładów w jednym batchu.
+
+**Optimizer** → sposób aktualizowania parametrów modelu.
+
+**Loss** → miara błędu modelu.
+
+**Activation function** → funkcja aktywacji neuronu.
+
+**Dropout** → technika ograniczania overfittingu.
+
+**Callback** → mechanizm wykonywania działań podczas treningu.
+
+**CNN** → sieci szczególnie przydatne przy obrazach.
+
+**LSTM** → sieć przeznaczona między innymi do danych sekwencyjnych.
+
+**Embedding** → reprezentacja elementów dyskretnych jako wektorów.
+
+**Transfer Learning** → wykorzystanie wcześniej wytrenowanego modelu.
+
+## 29. Keras w jednym zdaniu
+
+**Keras to wysokopoziomowe API do tworzenia, trenowania, oceniania i wdrażania modeli machine learning oraz deep learning, szczególnie popularne w Pythonie.**

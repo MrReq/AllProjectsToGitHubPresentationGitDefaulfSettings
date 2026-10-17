@@ -1,0 +1,920 @@
+# Figma
+
+## Czym jest Figma?
+
+Figma to internetowe narzędzie służące przede wszystkim do **projektowania interfejsów użytkownika (UI)**, tworzenia **prototypów**, projektowania stron internetowych, aplikacji mobilnych oraz systemów projektowych.
+
+Figma działa głównie w przeglądarce i umożliwia wielu osobom jednoczesną pracę nad tym samym projektem.
+
+Jest bardzo popularna wśród **UX/UI Designerów, grafików, programistów, Product Designerów oraz zespołów projektowych**.
+
+Figma może być wykorzystywana zarówno do prostych projektów graficznych, jak i do projektowania całych aplikacji i rozbudowanych systemów designu.
+
+## Do czego służy Figma?
+
+Figma może służyć do:
+
+Projektowania stron internetowych.
+
+Projektowania aplikacji mobilnych.
+
+Projektowania aplikacji desktopowych.
+
+Tworzenia interfejsów użytkownika.
+
+Tworzenia makiet.
+
+Tworzenia wireframe'ów.
+
+Tworzenia prototypów.
+
+Projektowania systemów Design System.
+
+Tworzenia ikon i prostych grafik wektorowych.
+
+Przygotowywania materiałów dla programistów.
+
+Współpracy projektowej.
+
+Testowania pomysłów na interfejs.
+
+## Figma jako narzędzie UI/UX
+
+Figma jest szczególnie mocno związana z procesem **UI/UX Design**.
+
+UX oznacza **User Experience**, czyli doświadczenie użytkownika.
+
+UI oznacza **User Interface**, czyli interfejs użytkownika.
+
+Projektant UX może w Figmie przygotować strukturę aplikacji i sposób poruszania się użytkownika po systemie.
+
+Projektant UI może następnie zaprojektować wygląd poszczególnych ekranów.
+
+Przykładowy proces:
+
+```text
+Pomysł
+  ↓
+Research
+  ↓
+User Flow
+  ↓
+Wireframe
+  ↓
+UI Design
+  ↓
+Prototype
+  ↓
+Testy
+  ↓
+Implementacja
+```
+
+## Figma w przeglądarce
+
+Jedną z najważniejszych cech Figmy jest możliwość pracy bezpośrednio w przeglądarce.
+
+Projekt może być przechowywany w chmurze.
+
+Dzięki temu można otworzyć go na innym komputerze i kontynuować pracę.
+
+Figma posiada również aplikację desktopową.
+
+## Pliki Figma
+
+Projekty Figmy są organizowane w ramach:
+
+**Organization**
+
+**Workspace**
+
+**Team**
+
+**Project**
+
+**File**
+
+**Page**
+
+Wewnątrz pliku można tworzyć wiele stron.
+
+Przykładowo:
+
+```text
+Projekt aplikacji
+│
+├── Login
+├── Dashboard
+├── Users
+├── Settings
+└── Components
+```
+
+## Canvas
+
+Canvas jest główną przestrzenią roboczą Figmy.
+
+Na canvasie umieszczamy między innymi:
+
+Frames.
+
+Shapes.
+
+Text.
+
+Images.
+
+Components.
+
+Prototypes.
+
+Elementy można dowolnie przesuwać, skalować i organizować.
+
+## Frame
+
+**Frame** jest jednym z najważniejszych elementów Figmy.
+
+Można traktować go jako obszar reprezentujący konkretny ekran lub kontener.
+
+Przykładowo możemy utworzyć frame dla:
+
+iPhone'a.
+
+Desktopu.
+
+Tabletu.
+
+Strony internetowej.
+
+Dashboardu.
+
+Modalnego okna.
+
+Przykład:
+
+```text
+┌──────────────────────────┐
+│          Login           │
+│                          │
+│  Email                   │
+│  [____________________]  │
+│                          │
+│  Password                │
+│  [____________________]  │
+│                          │
+│       [ LOGIN ]          │
+└──────────────────────────┘
+```
+
+## Layers
+
+Figma wykorzystuje system warstw (**Layers**).
+
+Każdy element projektu może znajdować się na określonej warstwie.
+
+Przykładowo:
+
+```text
+Login Page
+│
+├── Background
+├── Logo
+├── Email Input
+├── Password Input
+├── Login Button
+└── Forgot Password
+```
+
+Warstwy można grupować, zmieniać ich kolejność i umieszczać jedne elementy wewnątrz innych.
+
+## Auto Layout
+
+**Auto Layout** jest jedną z najważniejszych funkcji Figmy.
+
+Pozwala tworzyć elastyczne układy elementów.
+
+Zamiast ręcznie ustawiać każdy element, możemy określić:
+
+kierunek.
+
+odstępy.
+
+padding.
+
+wyrównanie.
+
+sposób zmiany rozmiaru.
+
+Przykład:
+
+```text
+┌─────────────────────────┐
+│  Icon   Button Text     │
+└─────────────────────────┘
+```
+
+Jeżeli tekst przycisku się wydłuży, Auto Layout może automatycznie zwiększyć szerokość przycisku.
+
+Jest to bardzo podobne do sposobu, w jaki działają nowoczesne layouty CSS.
+
+## Constraints
+
+Constraints określają, jak element powinien zachowywać się podczas zmiany rozmiaru jego kontenera.
+
+Możemy określić na przykład:
+
+Left.
+
+Right.
+
+Top.
+
+Bottom.
+
+Center.
+
+Scale.
+
+Dzięki temu projektant może symulować zachowanie interfejsu na różnych rozdzielczościach.
+
+## Components
+
+**Components** pozwalają tworzyć wielokrotnie wykorzystywane elementy interfejsu.
+
+Przykładem może być:
+
+Button.
+
+Input.
+
+Checkbox.
+
+Navbar.
+
+Card.
+
+Modal.
+
+Menu.
+
+Avatar.
+
+Możemy stworzyć jeden komponent:
+
+```text
+Button
+```
+
+i następnie używać go w wielu miejscach projektu.
+
+Zmiana komponentu głównego może automatycznie wpływać na jego instancje.
+
+## Component Sets i Variants
+
+Figma pozwala tworzyć warianty komponentów.
+
+Przykładowo jeden komponent Button może posiadać warianty:
+
+```text
+Button
+├── Primary
+├── Secondary
+├── Disabled
+├── Loading
+└── Destructive
+```
+
+Możemy również mieć różne rozmiary:
+
+```text
+Small
+Medium
+Large
+```
+
+Dzięki temu możemy stworzyć jeden system komponentów zamiast tworzyć każdy przycisk osobno.
+
+## Variables
+
+Figma posiada również system **Variables**.
+
+Variables pozwalają przechowywać wartości wykorzystywane w wielu elementach projektu.
+
+Może to być na przykład:
+
+kolor.
+
+spacing.
+
+rozmiar.
+
+promień zaokrąglenia.
+
+wartość typograficzna.
+
+Przykładowo:
+
+```text
+color.primary = #2563EB
+spacing.medium = 16px
+radius.medium = 8px
+```
+
+Jeżeli zmienimy wartość zmiennej, elementy wykorzystujące tę zmienną mogą zostać automatycznie zaktualizowane.
+
+## Design System
+
+Figma bardzo dobrze nadaje się do tworzenia **Design Systemów**.
+
+Design System określa wspólne zasady projektowania aplikacji.
+
+Może zawierać:
+
+Kolory.
+
+Typografię.
+
+Ikony.
+
+Spacing.
+
+Gridy.
+
+Komponenty.
+
+Przyciski.
+
+Formularze.
+
+Menu.
+
+Karty.
+
+Modale.
+
+Przykładowo:
+
+```text
+Design System
+│
+├── Colors
+├── Typography
+├── Spacing
+├── Icons
+├── Buttons
+├── Inputs
+├── Cards
+├── Navigation
+└── Modals
+```
+
+## Typography
+
+Figma umożliwia tworzenie i zarządzanie tekstem.
+
+Możemy definiować:
+
+Font Family.
+
+Font Size.
+
+Font Weight.
+
+Line Height.
+
+Letter Spacing.
+
+Text Alignment.
+
+Przykładowy system typografii:
+
+```text
+H1 → 48px / Bold
+H2 → 36px / Bold
+H3 → 24px / Semibold
+Body → 16px / Regular
+Small → 14px / Regular
+```
+
+## Kolory
+
+W Figmie możemy definiować kolory projektu.
+
+Możemy używać:
+
+HEX.
+
+RGB.
+
+HSL.
+
+RGBA.
+
+Możemy również zapisywać kolory jako zmienne lub style.
+
+Przykład:
+
+```text
+Primary: #2563EB
+Background: #FFFFFF
+Text: #111827
+Success: #16A34A
+Error: #DC2626
+```
+
+## Styles
+
+Figma pozwala tworzyć style wielokrotnego użytku.
+
+Możemy tworzyć między innymi:
+
+Color Styles.
+
+Text Styles.
+
+Effect Styles.
+
+Grid Styles.
+
+Dzięki temu zachowanie projektu jest bardziej spójne.
+
+## Prototypowanie
+
+Figma pozwala tworzyć interaktywne prototypy.
+
+Możemy połączyć dwa ekrany:
+
+```text
+Login
+  ↓ kliknięcie Login
+Dashboard
+```
+
+Użytkownik może następnie przejść przez przygotowany prototyp tak, jakby korzystał z prawdziwej aplikacji.
+
+## Prototype
+
+W trybie Prototype możemy określać:
+
+Trigger.
+
+Action.
+
+Animation.
+
+Destination.
+
+Przykład:
+
+```text
+Click
+  ↓
+Navigate To
+  ↓
+Dashboard
+```
+
+Możemy również wykorzystywać animacje i przejścia pomiędzy ekranami.
+
+## Smart Animate
+
+**Smart Animate** pozwala tworzyć płynne animacje pomiędzy odpowiednio przygotowanymi elementami.
+
+Przykładowo:
+
+```text
+Button State 1
+      ↓
+   Animation
+      ↓
+Button State 2
+```
+
+Dzięki temu można stworzyć bardziej realistyczny prototyp.
+
+## Wireframe
+
+Wireframe jest uproszczonym szkicem interfejsu.
+
+Jego zadaniem nie jest prezentowanie finalnego wyglądu aplikacji, ale pokazanie:
+
+układu.
+
+hierarchii informacji.
+
+nawigacji.
+
+funkcji.
+
+Przykład:
+
+```text
+┌───────────────────────────┐
+│          HEADER           │
+├────────┬──────────────────┤
+│ MENU   │                  │
+│        │     CONTENT      │
+│        │                  │
+│        │                  │
+└────────┴──────────────────┘
+```
+
+Figma może być wykorzystywana zarówno do wireframe'ów, jak i finalnego UI.
+
+## Responsive Design
+
+Figma pozwala projektować interfejsy przeznaczone na różne urządzenia.
+
+Możemy przygotować między innymi:
+
+Desktop.
+
+Laptop.
+
+Tablet.
+
+Mobile.
+
+Przykład:
+
+```text
+Desktop
+┌──────────────────────────────┐
+│ Menu │       Content          │
+└──────────────────────────────┘
+
+Mobile
+┌──────────────┐
+│    Header    │
+├──────────────┤
+│   Content    │
+└──────────────┘
+```
+
+Dzięki Auto Layout, Constraints i właściwej strukturze komponentów można projektować interfejsy łatwiejsze do dostosowania do różnych rozmiarów ekranu.
+
+## Współpraca
+
+Jedną z największych zalet Figmy jest możliwość współpracy wielu osób nad jednym projektem.
+
+Kilka osób może jednocześnie:
+
+edytować projekt.
+
+komentować elementy.
+
+przeglądać zmiany.
+
+prowadzić dyskusję.
+
+Dzięki temu Figma dobrze nadaje się do pracy zespołowej.
+
+## Comments
+
+Figma posiada system komentarzy.
+
+Możemy dodać komentarz bezpośrednio do konkretnego elementu projektu.
+
+Przykładowo projektant może napisać:
+
+```text
+"Zmień kolor przycisku na kolor Primary."
+```
+
+Programista może następnie zobaczyć komentarz i wprowadzić odpowiednią zmianę w kodzie.
+
+## Dev Mode
+
+**Dev Mode** jest funkcją skierowaną przede wszystkim do programistów.
+
+Pozwala łatwiej analizować projekt przygotowany przez designera.
+
+Programista może sprawdzić między innymi:
+
+wymiary.
+
+odstępy.
+
+kolory.
+
+fonty.
+
+CSS.
+
+wartości komponentów.
+
+zasoby graficzne.
+
+Pozwala to zmniejszyć różnicę pomiędzy projektem a implementacją.
+
+## Figma → kod
+
+Figma nie jest narzędziem służącym bezpośrednio do programowania aplikacji.
+
+Projekt może jednak zostać wykorzystany jako źródło informacji dla programisty.
+
+Przykładowy proces:
+
+```text
+Figma
+  ↓
+UI Design
+  ↓
+Dev Mode
+  ↓
+HTML / CSS / JavaScript
+  ↓
+Frontend
+```
+
+W przypadku aplikacji:
+
+```text
+Figma
+  ↓
+Design
+  ↓
+React / Angular / Vue
+  ↓
+Frontend Application
+```
+
+## Figma i frontend
+
+Figma jest bardzo często wykorzystywana razem z technologiami frontendowymi.
+
+Przykładowo:
+
+```text
+Figma
+ ↓
+HTML
+ ↓
+CSS
+ ↓
+JavaScript
+```
+
+lub:
+
+```text
+Figma
+ ↓
+React
+ ↓
+TypeScript
+ ↓
+CSS
+```
+
+Projektant przygotowuje wygląd aplikacji, a frontend developer implementuje go w kodzie.
+
+## Figma i Zeplin
+
+Figma może być również porównywana z **Zeplin**.
+
+Zeplin koncentruje się przede wszystkim na przekazywaniu projektów designerów programistom.
+
+Figma natomiast jest przede wszystkim kompletnym środowiskiem do projektowania, prototypowania i współpracy.
+
+Możliwy jest również workflow:
+
+```text
+Figma
+  ↓
+Design
+  ↓
+Zeplin / Dev Mode
+  ↓
+Developer
+  ↓
+Code
+```
+
+## Figma i FigJam
+
+**FigJam** jest narzędziem firmy Figma przeznaczonym przede wszystkim do współpracy i pracy koncepcyjnej.
+
+Można w nim tworzyć:
+
+tablice.
+
+diagramy.
+
+mapy myśli.
+
+User Flows.
+
+Brainstormingi.
+
+Journey Maps.
+
+Schematy.
+
+Przykładowo:
+
+```text
+Pomysł
+  ↓
+FigJam
+  ↓
+UX Flow
+  ↓
+Figma
+  ↓
+UI Design
+  ↓
+Prototype
+```
+
+## Figma Slides
+
+Figma posiada również narzędzie **Figma Slides**, które służy do tworzenia prezentacji.
+
+Można dzięki temu tworzyć prezentacje wykorzystujące elementy projektów przygotowanych w Figmie.
+
+## Pluginy
+
+Figma posiada system pluginów rozszerzających możliwości programu.
+
+Pluginy mogą pomagać między innymi w:
+
+generowaniu treści.
+
+tworzeniu ikon.
+
+automatyzacji.
+
+generowaniu danych.
+
+pracy z kolorami.
+
+tworzeniu makiet.
+
+eksportowaniu elementów.
+
+Integracji z innymi narzędziami.
+
+## Import i eksport
+
+Figma pozwala pracować z różnymi formatami.
+
+Możemy między innymi importować obrazy oraz wykorzystywać pliki SVG.
+
+Elementy można eksportować jako:
+
+PNG.
+
+JPG.
+
+SVG.
+
+PDF.
+
+W przypadku implementacji webowej szczególnie przydatne są często:
+
+SVG dla ikon i grafik wektorowych.
+
+PNG dla grafik wymagających przezroczystości.
+
+JPG dla fotografii.
+
+## Figma w procesie tworzenia aplikacji
+
+Typowy proces może wyglądać następująco:
+
+```text
+1. Pomysł
+      ↓
+2. Research
+      ↓
+3. User Flow
+      ↓
+4. Wireframe
+      ↓
+5. UI Design
+      ↓
+6. Design System
+      ↓
+7. Prototype
+      ↓
+8. Testy
+      ↓
+9. Dev Mode
+      ↓
+10. Implementacja
+```
+
+## Zalety Figmy
+
+Figma działa w przeglądarce.
+
+Umożliwia współpracę w czasie rzeczywistym.
+
+Posiada bardzo dobre narzędzia do projektowania UI.
+
+Umożliwia tworzenie prototypów.
+
+Posiada Auto Layout.
+
+Posiada Components.
+
+Posiada Variants.
+
+Posiada Variables.
+
+Posiada Design Systems.
+
+Posiada Dev Mode.
+
+Automatycznie zapisuje projekty w chmurze.
+
+Posiada rozbudowany ekosystem pluginów.
+
+Jest wykorzystywana przez projektantów i programistów.
+
+## Wady Figmy
+
+Praca z bardzo dużymi projektami może być wymagająca.
+
+Zaawansowane funkcje mogą wymagać czasu na naukę.
+
+Nie zastępuje profesjonalnych narzędzi do zaawansowanej edycji fotografii.
+
+Nie zastępuje pełnego środowiska programistycznego.
+
+Nie każdy element projektu można automatycznie zamienić na wysokiej jakości kod.
+
+## Figma – najważniejsze pojęcia
+
+**Frame** – obszar reprezentujący ekran lub kontener.
+
+**Layer** – warstwa projektu.
+
+**Component** – wielokrotnie używany element interfejsu.
+
+**Instance** – wykorzystanie komponentu.
+
+**Variant** – wariant komponentu.
+
+**Auto Layout** – automatyczne układanie elementów.
+
+**Constraints** – określanie zachowania elementu podczas zmiany rozmiaru.
+
+**Variables** – przechowywanie wielokrotnie wykorzystywanych wartości.
+
+**Prototype** – interaktywny model aplikacji.
+
+**Design System** – zbiór zasad i komponentów projektu.
+
+**Dev Mode** – tryb przeznaczony między innymi do przekazywania projektu programistom.
+
+**FigJam** – narzędzie do współpracy, brainstormingu i tworzenia diagramów.
+
+**Plugin** – rozszerzenie funkcjonalności Figmy.
+
+## Figma – najważniejsze do zapamiętania
+
+Figma jest narzędziem do projektowania interfejsów i prototypów.
+
+Jest bardzo popularna w UX/UI Design.
+
+Działa głównie w chmurze i umożliwia współpracę w czasie rzeczywistym.
+
+**Frame** reprezentuje ekran lub kontener.
+
+**Component** pozwala wielokrotnie wykorzystywać element.
+
+**Auto Layout** umożliwia tworzenie elastycznych układów.
+
+**Variables** pozwalają przechowywać wartości wykorzystywane w projekcie.
+
+**Prototype** pozwala symulować działanie aplikacji.
+
+**Design System** pozwala utrzymywać spójność całego produktu.
+
+**Dev Mode** ułatwia przekazywanie projektu programistom.
+
+Figma może być wykorzystywana razem z HTML, CSS, JavaScript, React, Angular, Vue i innymi technologiami frontendowymi.
+
+Najprościej zapamiętać:
+
+```text
+Figma
+  ↓
+UX/UI Design
+  ↓
+Wireframe
+  ↓
+UI Design
+  ↓
+Components + Auto Layout
+  ↓
+Design System
+  ↓
+Prototype
+  ↓
+Dev Mode
+  ↓
+Frontend
+```

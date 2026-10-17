@@ -1,0 +1,227 @@
+# LangChain – kompletna notatka
+
+## 1. Czym jest LangChain?
+
+LangChain to otwartoźródłowy framework służący do tworzenia aplikacji wykorzystujących duże modele językowe (LLM – Large Language Models), takie jak modele OpenAI, Anthropic czy Google.
+
+Ułatwia łączenie modeli AI z danymi, bazami danych, interfejsami API, narzędziami zewnętrznymi i innymi elementami aplikacji.
+
+Zamiast samodzielnie pisać cały kod odpowiedzialny za komunikację z modelem, obsługę promptów czy pobieranie informacji, programista może korzystać z gotowych komponentów LangChain.
+
+Framework jest wykorzystywany przede wszystkim do budowania chatbotów, asystentów AI, systemów wyszukiwania informacji, aplikacji RAG oraz agentów AI.
+
+[LangChain Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/z5XkAAVhCgViUN2BonrSvbHFna5avSh6A3TCGPtvXScnnJLdrLJZZXc2ZIpgqqNKgOFs6peovYgYLZLfp3FFzkfLTUHAlUf-h-eJk7ETHNjJgRAjE8FPYIllzBj4jPA8ogPgkW9IQkg2vDhZiZPqjtZs-MXYRjuioBL63zxQd3U?purpose=inline)
+
+[LangChain Unveiled: The Power Layer for Large Language Models | by Uttam | Medium](https://images.openai.com/static-rsc-4/2-YUTBKcNWV_7HG814B3U3j3zuPhEh-Gv-7v1MNUa9ROeqb5eVmk1QvGxu_WgV1l9l8nrOXsB1BCMpvHccKl3zcQA_kOoLQeUSRR97_dYcAJAE04yD4E9c4uqx7fEMSi-4HELIvC3UUVitifSI7SxREVLqaCpnFFdOSZsuf9XzA?purpose=inline)
+
+[Understanding LangChain and LangGraph: A Practical Guide](https://images.openai.com/static-rsc-4/Obk7A3ROmCQsT2YQK5YKs5P6E8vBOGtuwF4VL-dPC7nbKi3Oo4m42HPKSH0DtLRvd5eoIYdupwyQP8HjIDBngKRUuvhEQF98J-21fySJqXXNhxLoFbfcZL1pfbwAcXYQ64ttwsXYfgCY3xtu-qSh-VBaWCHOGMrzIqLWVcBQq2A?purpose=inline)
+
+8
+
+## 2. Do czego służy LangChain?
+
+LangChain pozwala budować aplikacje, w których model AI nie tylko generuje tekst, ale również korzysta z zewnętrznych źródeł informacji i wykonuje określone zadania.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie chatbotów odpowiadających na pytania użytkowników.
+- Łączenie modeli językowych z dokumentami PDF, plikami tekstowymi i bazami danych.
+- Budowanie systemów RAG, które wyszukują informacje w określonych źródłach przed wygenerowaniem odpowiedzi.
+- Integracja modeli AI z REST API oraz innymi usługami.
+- Tworzenie agentów, którzy wybierają narzędzia potrzebne do wykonania zadania.
+- Automatyzacja analizy dokumentów, klasyfikacji tekstu i streszczania treści.
+- Budowanie asystentów do obsługi klienta, edukacji i analizy danych.
+
+Przykładowo można utworzyć asystenta, który odpowiada na pytania dotyczące uprawy ryżu, korzystając z dokumentacji agronomicznej, danych pogodowych oraz informacji przechowywanych w bazie danych.
+
+## 3. Jak działa LangChain?
+
+Typowa aplikacja wykorzystująca LangChain składa się z kilku elementów.
+
+1\. Użytkownik
+
+Zadaje pytanie lub przekazuje polecenie
+
+2\. Prompt i logika aplikacji
+
+Przygotowanie instrukcji i kontekstu
+
+3\. Model językowy (LLM)
+
+Interpretacja pytania i generowanie odpowiedzi
+
+4\. Narzędzia lub wyszukiwanie danych
+
+Opcjonalne użycie API, dokumentów, bazy danych lub retrievera
+
+5\. Odpowiedź dla użytkownika
+
+Wynik wygenerowany na podstawie dostępnych informacji
+
+Nie każda aplikacja musi zawierać wszystkie te elementy. Prosty chatbot może komunikować się bezpośrednio z modelem, natomiast bardziej zaawansowany system może korzystać z wyszukiwania dokumentów, narzędzi i pamięci stanu rozmowy.
+
+## 4. Najważniejsze komponenty LangChain
+
+Models (modele) odpowiadają za komunikację z modelami językowymi i innymi modelami AI.
+
+Prompts (prompty) pozwalają przygotowywać instrukcje przekazywane modelowi oraz dynamicznie uzupełniać je o dane użytkownika.
+
+Messages (wiadomości) reprezentują wiadomości użytkownika, asystenta i komunikaty systemowe.
+
+Output parsers (parsery wyjścia) pomagają przekształcać odpowiedzi modelu do oczekiwanych formatów, na przykład JSON lub określonej struktury danych.
+
+Tools (narzędzia) pozwalają modelowi korzystać z funkcji aplikacji, API, wyszukiwarki lub innych dostępnych operacji.
+
+Retrievers (mechanizmy wyszukiwania) pobierają dokumenty lub fragmenty informacji istotne dla danego pytania.
+
+Document loaders (moduły ładowania dokumentów) służą do odczytywania danych z plików, stron internetowych i innych źródeł.
+
+Text splitters (dzielniki tekstu) dzielą duże dokumenty na mniejsze fragmenty, które łatwiej przetwarzać i wyszukiwać.
+
+Embeddings (wektory osadzeń) reprezentują tekst jako wektory liczbowe, umożliwiając między innymi wyszukiwanie semantyczne.
+
+Vector stores (bazy wektorowe) przechowują wektory i pozwalają wyszukiwać podobne treści. Przykładami są Chroma i Qdrant.
+
+## 5. LangChain a RAG
+
+RAG (Retrieval-Augmented Generation) to technika, w której aplikacja wyszukuje odpowiednie informacje w zewnętrznych źródłach i przekazuje je modelowi jako kontekst do wygenerowania odpowiedzi.
+
+LangChain udostępnia komponenty ułatwiające budowanie takich systemów.
+
+Przykładowy proces RAG wygląda następująco:
+
+1. Aplikacja wczytuje dokumentację.
+2. Dokumenty są dzielone na mniejsze fragmenty.
+3. Fragmenty są zamieniane na wektory za pomocą modelu embeddings.
+4. Wektory są zapisywane w bazie wektorowej.
+5. Użytkownik zadaje pytanie.
+6. Aplikacja wyszukuje fragmenty najbardziej związane z pytaniem.
+7. Model otrzymuje pytanie oraz znaleziony kontekst.
+8. Model generuje odpowiedź opartą na dostarczonych informacjach.
+
+RAG jest przydatny, gdy model powinien odpowiadać na podstawie własnej dokumentacji firmy, instrukcji technicznych, materiałów edukacyjnych lub danych branżowych.
+
+Warto pamiętać, że RAG nie gwarantuje poprawności odpowiedzi. Jakość zależy między innymi od jakości dokumentów, wyszukiwania i sposobu przygotowania kontekstu.
+
+## 6. LangChain a agenci AI
+
+Agent AI to system, w którym model może decydować, jakie narzędzia wykorzystać do realizacji zadania.
+
+Przykładowo użytkownik pyta o aktualne warunki pogodowe dla konkretnego gospodarstwa.
+
+Agent może:
+
+- rozpoznać, że potrzebuje danych pogodowych;
+- wywołać zewnętrzne API;
+- przeanalizować otrzymane dane;
+- porównać je z informacjami o uprawie;
+- przygotować odpowiedź dla użytkownika.
+
+LangChain ułatwia tworzenie agentów wyposażonych w narzędzia, natomiast LangGraph pozwala budować bardziej rozbudowane przepływy pracy, w tym procesy z wieloma krokami, trwałym stanem, punktami kontrolnymi i obsługą interwencji człowieka.
+
+Agent nie wykonuje automatycznie dowolnych operacji — jego możliwości zależą od udostępnionych narzędzi i zabezpieczeń aplikacji.
+
+## 7. LangChain, LangGraph i LangSmith – różnice
+
+[LangChain - Partner Ecosystem | MongoDB](https://images.openai.com/static-rsc-4/XFgDhJXhGfSAGUFZeG8KDYHPCvHBDtPNtRoNH4-j_ThOcv1TfVbAv-vLM99Wi5g6yksscqygP9bXC-9EjIvfq92LVcR3rRSCWZUT5FxM-XUoAzdtQcikAXJmB0LMbidgqKoKHs5xWVsQnIHyEF43mufdsEU5FehmA_h-FIVEWQo?purpose=inline)
+
+LangChain
+
+Framework do budowania aplikacji LLM, integrowania modeli, promptów, narzędzi i wyszukiwania danych.
+
+[Cognee - Open-Source Agent Memory Platform](https://images.openai.com/static-rsc-4/wL63mMHjP9A4nG7QHBfJUeUo29Z8_5vwHzEJEymfNWI92wcSfSDSK3DN1KAjBF_KzENTQBuV3lOp_Bv2N5i2LyVyNRI9nROlb71BDgT896s6U_MgivtiGv0HgtO85XYEOz2GSWE5NlbnVCiV7-B4wYrSpb_REXAGSUVIU9MrWjU?purpose=inline)
+
+LangGraph
+
+Framework do projektowania sterowanych przepływów pracy i agentów AI, które zachowują stan i realizują zadania wieloetapowo.
+
+[LangSmith (LangChain) Free SVG, PNG,... · LobeHub](https://images.openai.com/static-rsc-4/EMHjvYomZrR_oXfiUX8gVpWYdrMbtI11Dt2Ie3kCYOsbk5gPOQTFt26wztKD45XO2w7gh89eg94dtM6s6_IXvNqY5rnmlAiEONZYQOYRS6YPgAd0ku6JiXfRyeqNgIZbVDB6iuwvC8yII8_cbBXPSS3FOQtvlArK6Muf1ALhNMs?purpose=inline)
+
+LangSmith
+
+Platforma wspierająca obserwowalność, śledzenie wywołań, testowanie i ocenę jakości aplikacji opartych na modelach językowych i agentach.
+
+Narzędzia te mogą współpracować, ale nie są tym samym produktem i nie trzeba zawsze używać wszystkich jednocześnie.
+
+## 8. W jakich językach programowania działa LangChain?
+
+LangChain oferuje przede wszystkim biblioteki dla dwóch ekosystemów:
+
+- Python – popularny wybór do prototypowania, analizy danych i budowania aplikacji AI.
+- JavaScript / TypeScript – rozwiązanie dla aplikacji internetowych i backendów działających w ekosystemie JavaScript.
+
+W ekosystemie JavaScript/TypeScript biblioteka jest często określana jako LangChain.js.
+
+LangChain nie jest samodzielnym modelem AI. Do generowania odpowiedzi zazwyczaj potrzebuje dostępu do obsługiwanego modelu, a niektóre integracje wymagają dodatkowych bibliotek, konfiguracji i kluczy API.
+
+## 9. Przykład zastosowania LangChain w Pythonie
+
+Poniższy przykład pokazuje podstawową komunikację z modelem OpenAI za pomocą współczesnego interfejsu LangChain.
+
+Najpierw należy zainstalować wymagane pakiety:
+
+```
+pip install -U langchain langchain-openai
+```
+
+Następnie ustawić zmienną środowiskową `OPENAI_API_KEY` z własnym kluczem API i uruchomić kod:
+
+```
+from langchain_openai import ChatOpenAIfrom langchain_core.messages import HumanMessagemodel = ChatOpenAI(model="gpt-4.1-mini")response = model.invoke([    HumanMessage(        content="Wyjaśnij, czym jest sztuczna inteligencja."    )])print(response.content)
+```
+
+W tym przykładzie:
+
+- `ChatOpenAI` tworzy obiekt komunikujący się z modelem.
+- `HumanMessage` reprezentuje wiadomość użytkownika.
+- `invoke()` wysyła wiadomość do modelu i zwraca odpowiedź.
+- `response.content` zawiera wygenerowaną treść.
+
+Nazwa modelu musi odpowiadać modelowi dostępnemu dla danego konta i używanego API.
+
+## 10. Zalety LangChain
+
+- Upraszcza integrację modeli językowych z aplikacjami.
+- Udostępnia gotowe komponenty do pracy z promptami, dokumentami i narzędziami.
+- Pozwala łączyć różne źródła danych i dostawców modeli.
+- Przyspiesza prototypowanie aplikacji AI.
+- Ułatwia budowę systemów RAG i agentów.
+- Wspiera rozwój bardziej rozbudowanych aplikacji poprzez integrację z innymi narzędziami ekosystemu.
+
+## 11. Wady i ograniczenia LangChain
+
+- Dodatkowa warstwa abstrakcji może utrudniać debugowanie.
+- API i dostępne integracje mogą zmieniać się między wersjami.
+- Proste aplikacje nie zawsze wymagają całego frameworka.
+- Konfiguracja RAG wymaga wiedzy o wyszukiwaniu, embeddings i bazach danych.
+- Koszty działania zależą między innymi od wykorzystanego modelu, liczby zapytań i ilości przetwarzanych tokenów.
+- Błędne prompty, nieodpowiednie dokumenty i słabe zabezpieczenia mogą prowadzić do błędnych odpowiedzi lub niepożądanych działań agenta.
+
+## 12. LangChain a inne rozwiązania
+
+| Technologia     | Główne przeznaczenie                                                    |
+| --------------- | ----------------------------------------------------------------------- |
+| LangChain       | Budowanie aplikacji wykorzystujących LLM, narzędzia i dane              |
+| LangGraph       | Sterowanie złożonymi przepływami pracy i agentami                       |
+| LlamaIndex      | Łączenie modeli AI z danymi i budowanie systemów RAG                    |
+| Haystack        | Budowanie aplikacji wyszukiwania, RAG i przetwarzania dokumentów        |
+| OpenAI API      | Bezpośrednie korzystanie z modeli i ich funkcji                         |
+| Semantic Kernel | Integracja modeli AI z aplikacjami, szczególnie w ekosystemie Microsoft |
+
+LangChain jest dobrym wyborem, gdy aplikacja wymaga połączenia kilku komponentów AI, źródeł danych i narzędzi. Przy prostym wywołaniu modelu bez dodatkowej logiki wystarczające może być bezpośrednie użycie API.
+
+## 13. Gdzie można nauczyć się LangChain?
+
+- Oficjalna strona: [LangChain](https://www.langchain.com/).
+- Dokumentacja: [LangChain Docs](https://docs.langchain.com/).
+- Dokumentacja LangGraph: [LangGraph – Python](https://docs.langchain.com/oss/python/langgraph/overview).
+- Dokumentacja LangSmith: [LangSmith](https://docs.langchain.com/langsmith/home).
+- Repozytorium źródłowe: [LangChain na GitHubie](https://github.com/langchain-ai/langchain).
+
+## 14. Podsumowanie
+
+LangChain to framework do tworzenia aplikacji opartych na dużych modelach językowych. Ułatwia integrację modeli AI z promptami, dokumentami, bazami danych, narzędziami i zewnętrznymi API.
+
+Jest szczególnie przydatny podczas tworzenia chatbotów, systemów RAG oraz agentów AI. Wraz z LangGraph i LangSmith tworzy ekosystem wspierający budowę, sterowanie i testowanie bardziej zaawansowanych rozwiązań wykorzystujących sztuczną inteligencję.
+
+Najważniejsze pojęcia do zapamiętania to LLM, prompt, embeddings, retriever, vector store, RAG, agent, tool calling oraz LangGraph.

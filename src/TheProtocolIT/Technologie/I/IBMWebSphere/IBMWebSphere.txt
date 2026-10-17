@@ -1,0 +1,104 @@
+# IBM WebSphere – notatka
+
+## 1. Czym jest IBM WebSphere?
+
+IBM WebSphere to rodzina produktów i technologii firmy IBM przeznaczonych do tworzenia, wdrażania, uruchamiania i zarządzania aplikacjami korporacyjnymi.
+
+Technologie WebSphere są wykorzystywane przede wszystkim w dużych systemach biznesowych, które wymagają wysokiej dostępności, bezpieczeństwa, skalowalności oraz integracji z innymi systemami.
+
+Jednym z najbardziej znanych produktów tej rodziny jest IBM WebSphere Application Server (WAS), czyli serwer aplikacyjny przeznaczony do uruchamiania aplikacji opartych na technologiach Java i Jakarta EE, zależnie od wersji serwera.
+
+## 2. Do czego służy IBM WebSphere?
+
+- Uruchamianie aplikacji Java – udostępnia środowisko do wykonywania aplikacji serwerowych.
+- Obsługa aplikacji korporacyjnych – wspiera systemy bankowe, ubezpieczeniowe, logistyczne i biznesowe.
+- Zarządzanie połączeniami z bazami danych – umożliwia konfigurację źródeł danych i pul połączeń.
+- Bezpieczeństwo – wspiera uwierzytelnianie, autoryzację i konfigurację zabezpieczeń aplikacji.
+- Zarządzanie transakcjami – pomaga kontrolować operacje obejmujące wiele zasobów.
+- Skalowanie aplikacji – w odpowiednich konfiguracjach pozwala rozkładać obciążenie pomiędzy instancje serwerów.
+- Integracja systemów – wybrane produkty z rodziny WebSphere wspierają komunikację i wymianę danych między aplikacjami.
+
+## 3. Najważniejsze produkty i technologie
+
+IBM WebSphere Application Server (WAS) to tradycyjny serwer aplikacyjny, który zapewnia środowisko do uruchamiania aplikacji korporacyjnych Java EE oraz zarządzania ich konfiguracją.
+
+IBM WebSphere Liberty to nowoczesny, modułowy serwer aplikacyjny zaprojektowany z myślą o szybkim uruchamianiu aplikacji, elastycznej konfiguracji i wdrożeniach w środowiskach kontenerowych.
+
+IBM WebSphere Hybrid Edition to oferta obejmująca rozwiązania WebSphere przeznaczone do obsługi aplikacji w różnych środowiskach, w tym tradycyjnych i chmurowych.
+
+IBM MQ, historycznie znany również pod nazwą WebSphere MQ, to technologia kolejkowania komunikatów, która umożliwia niezawodną wymianę informacji między aplikacjami.
+
+IBM WebSphere Application Server Network Deployment to wariant tradycyjnego serwera WAS przeznaczony do zarządzania rozbudowanymi środowiskami, obejmującymi wiele serwerów i klastrów.
+
+## 4. Jak działa WebSphere Application Server?
+
+WebSphere Application Server działa pomiędzy aplikacją a infrastrukturą serwerową.
+
+Klient
+
+Przeglądarka lub inna aplikacja
+
+Serwer WWW / Reverse Proxy
+
+Przyjmuje i przekazuje żądania HTTP
+
+IBM WebSphere Application Server
+
+Wykonuje logikę biznesową aplikacji Java
+
+Baza danych i inne systemy
+
+PostgreSQL, Db2, systemy zewnętrzne lub usługi
+
+Kiedy użytkownik wysyła żądanie do aplikacji internetowej, serwer aplikacyjny przetwarza je, wykonuje odpowiednią logikę biznesową, komunikuje się z bazą danych i zwraca wynik.
+
+WebSphere zapewnia przy tym usługi infrastrukturalne, takie jak zarządzanie zasobami, konfiguracją i bezpieczeństwem.
+
+## 5. IBM WebSphere a Java i Spring Boot
+
+WebSphere jest szczególnie związany z aplikacjami korporacyjnymi opartymi na Javie.
+
+| Technologia   | Rola                                                         |
+| ------------- | ------------------------------------------------------------ |
+| Java          | Język programowania                                          |
+| Jakarta EE    | Zestaw specyfikacji do tworzenia aplikacji korporacyjnych    |
+| IBM WebSphere | Serwer aplikacyjny do uruchamiania obsługiwanych aplikacji   |
+| Spring Boot   | Framework ułatwiający tworzenie aplikacji Java               |
+| Maven         | Narzędzie do budowania projektów i zarządzania zależnościami |
+
+Tradycyjne aplikacje Java EE mogą być wdrażane na odpowiednio zgodnych wersjach WebSphere.
+
+Aplikacje Spring Boot często działają samodzielnie, z wbudowanym serwerem, ale możliwość wdrożenia ich na WebSphere zależy od rodzaju aplikacji, wersji serwera i sposobu pakowania.
+
+WebSphere Liberty jest jedną z opcji stosowanych w nowoczesnych środowiskach Java, w tym w wybranych wdrożeniach aplikacji Spring.
+
+## 6. Zalety IBM WebSphere
+
+- Wspiera uruchamianie rozbudowanych aplikacji korporacyjnych.
+- Oferuje mechanizmy bezpieczeństwa i zarządzania dostępem.
+- Umożliwia zarządzanie pulami połączeń i transakcjami.
+- W odpowiednich edycjach obsługuje klastry oraz wysoką dostępność.
+- Integruje się z bazami danych i innymi technologiami IBM.
+- Liberty umożliwia tworzenie lżejszych środowisk i wdrożeń kontenerowych.
+
+## 7. Wady i ograniczenia
+
+- Tradycyjne środowiska WebSphere mogą być skomplikowane w konfiguracji i utrzymaniu.
+- Licencjonowanie i utrzymanie dużych instalacji mogą generować znaczne koszty.
+- Zgodność aplikacji zależy od wersji Javy, serwera i obsługiwanych specyfikacji.
+- Migracja starszych aplikacji może wymagać zmian w kodzie i konfiguracji.
+- W przypadku prostych aplikacji wdrożenie pełnego serwera korporacyjnego może być niepotrzebnie złożone.
+
+## 8. Przykłady zastosowania
+
+IBM WebSphere może być wykorzystywany do uruchamiania systemów bankowych obsługujących transakcje, aplikacji ubezpieczeniowych zarządzających polisami, systemów logistycznych przetwarzających zamówienia oraz platform korporacyjnych integrujących wiele usług.
+
+Przykładowo bank może wdrożyć aplikację Java na WebSphere, połączyć ją z bazą danych i skonfigurować mechanizmy bezpieczeństwa oraz wysokiej dostępności.
+
+## 9. Co warto zapamiętać?
+
+IBM WebSphere to rodzina technologii korporacyjnych, z których najbardziej znanym elementem jest WebSphere Application Server.
+
+Jest to środowisko służące do uruchamiania aplikacji serwerowych, szczególnie tych opartych na Javie i technologiach korporacyjnych.
+
+Najważniejsze rozróżnienie: WebSphere Application Server uruchamia aplikacje, WebSphere Liberty oferuje modułowy serwer aplikacyjny, a IBM MQ odpowiada za wymianę komunikatów między systemami.

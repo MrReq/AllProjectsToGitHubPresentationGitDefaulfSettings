@@ -1,0 +1,579 @@
+# Kafka
+
+## 1. Czym jest Kafka?
+
+**Apache Kafka** to rozproszona platforma do przesyłania, przetwarzania i przechowywania dużych ilości danych w czasie rzeczywistym.
+
+Kafka jest przede wszystkim wykorzystywana jako **system komunikacji między aplikacjami**, szczególnie w architekturach mikroserwisowych.
+
+Pozwala aplikacjom wysyłać komunikaty, czyli **wiadomości (messages)**, do Kafki, a inne aplikacje mogą je później odczytywać.
+
+Kafka została pierwotnie stworzona przez LinkedIn, a obecnie jest projektem rozwijanym w ramach **Apache Software Foundation**.
+
+Najprościej można myśleć o Kafce jak o bardzo wydajnym, rozproszonym systemie **„producent → magazyn wiadomości → konsument”**.
+
+## 2. Do czego wykorzystuje się Kafkę?
+
+Kafka jest wykorzystywana między innymi do:
+
+- komunikacji między mikroserwisami,
+- przetwarzania danych w czasie rzeczywistym,
+- przesyłania logów,
+- zbierania danych z wielu aplikacji,
+- obsługi zdarzeń biznesowych,
+- budowania systemów event-driven,
+- integracji różnych systemów,
+- analizy dużych strumieni danych,
+- przesyłania danych telemetrycznych,
+- monitorowania aplikacji,
+- budowania pipeline'ów danych.
+
+Przykładowo sklep internetowy może wysłać do Kafki zdarzenie:
+
+`OrderCreated`
+
+Następnie wiele różnych usług może zareagować na to samo zdarzenie.
+
+Jedna usługa może zająć się płatnością.
+
+Druga może zmniejszyć stan magazynowy.
+
+Trzecia może wysłać wiadomość e-mail.
+
+Czwarta może zapisać informacje do systemu analitycznego.
+
+## 3. Kafka a klasyczny system komunikatów
+
+W klasycznym systemie komunikatów często mamy:
+
+**Producer → Queue → Consumer**
+
+W Kafce wygląda to bardziej jak:
+
+**Producer → Topic → wielu Consumerów**
+
+Najważniejsza różnica polega na tym, że Kafka **przechowuje wiadomości przez określony czas**, zamiast po prostu usuwać je natychmiast po odebraniu.
+
+Dzięki temu wiele różnych konsumentów może niezależnie odczytywać te same dane.
+
+## 4. Najważniejsze pojęcia w Kafka
+
+### Producer
+
+**Producer** to aplikacja, która wysyła wiadomości do Kafki.
+
+Przykładowo aplikacja sklepu może wysłać:
+
+`OrderCreated`
+
+Producer nie musi wiedzieć, kto później odbierze tę wiadomość.
+
+### Consumer
+
+**Consumer** to aplikacja, która odczytuje wiadomości z Kafki.
+
+Może na przykład odbierać:
+
+`OrderCreated`
+
+i na tej podstawie rozpocząć proces płatności.
+
+### Topic
+
+**Topic** to logiczny kanał, do którego producenci wysyłają wiadomości.
+
+Można wyobrazić sobie topic jako kategorię wiadomości.
+
+Przykładowo:
+
+`orders`
+
+`payments`
+
+`notifications`
+
+`logs`
+
+Producer wysyła wiadomość do konkretnego topicu.
+
+Consumer odczytuje wiadomości z tego topicu.
+
+### Partition
+
+**Partition** to fragment topicu.
+
+Topic może mieć wiele partycji.
+
+Przykładowo:
+
+```text
+orders
+ ├── Partition 0
+ ├── Partition 1
+ ├── Partition 2
+ └── Partition 3
+```
+
+Partycje pozwalają Kafce rozdzielać dane pomiędzy różne serwery i zwiększać wydajność.
+
+### Offset
+
+**Offset** określa pozycję wiadomości w konkretnej partycji.
+
+Przykładowo:
+
+```text
+Partition 0
+
+Offset 0 → Order A
+Offset 1 → Order B
+Offset 2 → Order C
+Offset 3 → Order D
+```
+
+Consumer może dzięki temu wiedzieć, które wiadomości już przetworzył.
+
+### Broker
+
+**Broker** to serwer Kafki przechowujący dane.
+
+Jeden broker może obsługiwać wiele partycji.
+
+W środowisku produkcyjnym zwykle mamy wiele brokerów.
+
+```text
+Kafka Cluster
+
+Broker 1
+Broker 2
+Broker 3
+```
+
+### Cluster
+
+**Kafka Cluster** to grupa współpracujących brokerów.
+
+Przykładowo:
+
+```text
+Kafka Cluster
+│
+├── Broker 1
+├── Broker 2
+└── Broker 3
+```
+
+Dzięki klastrowi Kafka może zapewniać wysoką dostępność i skalowanie.
+
+## 5. Jak działa Kafka?
+
+Przykładowy przepływ:
+
+```text
+        Producer
+            │
+            ▼
+       Kafka Topic
+            │
+     ┌──────┴──────┐
+     ▼             ▼
+ Consumer A     Consumer B
+```
+
+Producer wysyła wiadomość do topicu.
+
+Kafka zapisuje wiadomość w odpowiedniej partycji.
+
+Consumer może pobrać wiadomość.
+
+Wiadomość pozostaje w Kafce przez określony czas zgodnie z konfiguracją retencji.
+
+Inny consumer może później odczytać tę samą wiadomość.
+
+## 6. Consumer Group
+
+**Consumer Group** to grupa consumerów współpracujących ze sobą przy odczytywaniu danych.
+
+Przykładowo:
+
+```text
+Topic: orders
+
+Partition 0 ──► Consumer A
+Partition 1 ──► Consumer B
+Partition 2 ──► Consumer C
+```
+
+Każda partycja w ramach jednej consumer group jest w danym momencie obsługiwana przez jednego consumera.
+
+Dzięki temu można zwiększać wydajność poprzez dodawanie kolejnych consumerów.
+
+## 7. Kafka i mikroserwisy
+
+Kafka jest bardzo popularna w architekturze **mikroserwisowej**.
+
+Przykładowo możemy mieć:
+
+```text
+Order Service
+      │
+      ▼
+    Kafka
+      │
+ ┌────┼───────────┐
+ ▼    ▼           ▼
+Payment  Stock   Notification
+Service  Service Service
+```
+
+Order Service publikuje zdarzenie:
+
+`OrderCreated`
+
+Pozostałe mikroserwisy mogą je odebrać i wykonać swoje zadania.
+
+Dzięki temu usługi nie muszą być bezpośrednio połączone ze sobą.
+
+## 8. Event-Driven Architecture
+
+Kafka bardzo dobrze pasuje do **architektury sterowanej zdarzeniami**, czyli **Event-Driven Architecture**.
+
+Zamiast mówić:
+
+> „Uruchom teraz metodę w innym serwisie”
+
+aplikacja może opublikować:
+
+> „Wydarzyło się X”.
+
+Przykładowo:
+
+```text
+UserRegistered
+OrderCreated
+PaymentCompleted
+ProductUpdated
+InvoiceGenerated
+```
+
+Inne systemy mogą reagować na te zdarzenia.
+
+## 9. Retencja danych
+
+Kafka może przechowywać wiadomości przez określony czas.
+
+Przykładowo:
+
+```text
+retention = 7 days
+```
+
+oznacza, że dane mogą być przechowywane przez około 7 dni.
+
+Po upływie czasu Kafka może usunąć starsze rekordy.
+
+Istnieją również inne mechanizmy zarządzania przechowywaniem danych, między innymi związane z rozmiarem logów.
+
+## 10. Kolejność wiadomości
+
+Kafka gwarantuje kolejność wiadomości **w obrębie jednej partycji**.
+
+Przykładowo:
+
+```text
+Partition 0
+
+Order A
+Order B
+Order C
+Order D
+```
+
+Consumer odczyta je w tej kolejności.
+
+Nie należy jednak zakładać globalnej kolejności pomiędzy wszystkimi partycjami.
+
+## 11. Replication
+
+Kafka może tworzyć kopie partycji na różnych brokerach.
+
+Przykładowo:
+
+```text
+Partition 0
+
+Broker 1 → Leader
+Broker 2 → Replica
+Broker 3 → Replica
+```
+
+Jeżeli jeden broker przestanie działać, system może wykorzystać replikę.
+
+Dzięki temu Kafka może zapewnić wysoką dostępność danych.
+
+## 12. Leader i Replica
+
+Dla danej partycji jeden broker pełni rolę **leader**, a pozostałe mogą posiadać jej repliki.
+
+Producerzy i consumenci komunikują się z leaderem partycji.
+
+Jeżeli leader przestanie działać, Kafka może wybrać innego brokera jako leadera.
+
+## 13. Kafka Streams
+
+**Kafka Streams** to biblioteka pozwalająca tworzyć aplikacje przetwarzające dane znajdujące się w Kafka.
+
+Można dzięki niej wykonywać między innymi:
+
+- filtrowanie,
+- mapowanie,
+- agregację,
+- łączenie strumieni,
+- transformację danych,
+- analizę danych w czasie rzeczywistym.
+
+Przykładowo:
+
+```text
+orders
+   │
+   ▼
+Kafka Streams
+   │
+   ▼
+sales-statistics
+```
+
+## 14. Kafka Connect
+
+**Kafka Connect** służy do integracji Kafki z zewnętrznymi systemami.
+
+Może na przykład przesyłać dane:
+
+```text
+Database → Kafka
+```
+
+albo:
+
+```text
+Kafka → Database
+```
+
+Dzięki gotowym connectorom można integrować Kafkę z różnymi bazami danych, systemami i usługami.
+
+## 15. Kafka vs RabbitMQ
+
+Kafka i RabbitMQ są systemami komunikacji, ale mają nieco inne zastosowania.
+
+**Kafka** jest szczególnie dobra w przypadku:
+
+- dużych ilości danych,
+- streamingu,
+- event-driven architecture,
+- logów,
+- analityki w czasie rzeczywistym,
+- wysokiej przepustowości.
+
+**RabbitMQ** często wykorzystuje się do:
+
+- klasycznego message brokeringu,
+- kolejek zadań,
+- routingu wiadomości,
+- komunikacji między aplikacjami.
+
+Kafka jest bardziej nastawiona na **trwały strumień zdarzeń i wysoką przepustowość**, natomiast RabbitMQ często pełni rolę klasycznego brokera wiadomości.
+
+## 16. Kafka vs ActiveMQ
+
+**ActiveMQ** jest klasycznym brokerem wiadomości obsługującym między innymi JMS.
+
+Kafka natomiast została zaprojektowana przede wszystkim jako rozproszona platforma do obsługi dużych strumieni zdarzeń.
+
+Można więc spotkać:
+
+```text
+Java Application
+      │
+      ▼
+   ActiveMQ
+      │
+      ▼
+   Consumer
+```
+
+ale również:
+
+```text
+Java Application
+      │
+      ▼
+    Kafka
+      │
+      ├── Consumer A
+      ├── Consumer B
+      └── Consumer C
+```
+
+## 17. Kafka w Javie
+
+Kafka posiada oficjalne biblioteki dla Javy.
+
+Producer może wysłać wiadomość do topicu.
+
+Przykładowa koncepcja wygląda tak:
+
+```java
+KafkaProducer<String, String> producer;
+```
+
+Następnie aplikacja może wysłać rekord:
+
+```java
+producer.send(
+    new ProducerRecord<>("orders", "OrderCreated")
+);
+```
+
+Consumer może natomiast korzystać z:
+
+```java
+KafkaConsumer<String, String> consumer;
+```
+
+i odczytywać wiadomości z topicu.
+
+## 18. Kafka w Spring Boot
+
+Kafka jest bardzo często wykorzystywana razem ze **Spring Boot**.
+
+Spring oferuje projekt **Spring for Apache Kafka**, który upraszcza tworzenie producerów i consumerów.
+
+Przykładowo consumer może wyglądać koncepcyjnie tak:
+
+```java
+@KafkaListener(topics = "orders")
+public void receive(String message) {
+    System.out.println(message);
+}
+```
+
+Dzięki temu aplikacja może automatycznie reagować na wiadomości z topicu.
+
+## 19. Kafka w Dockerze
+
+Kafka często uruchamiana jest również w kontenerach.
+
+Przykładowa architektura może wyglądać tak:
+
+```text
+Docker
+│
+├── Kafka
+└── Kafka UI
+```
+
+Dzięki Dockerowi można szybko stworzyć lokalne środowisko do nauki i testowania.
+
+## 20. Zalety Kafki
+
+Najważniejsze zalety Kafki to:
+
+- bardzo wysoka przepustowość,
+- skalowanie poziome,
+- obsługa dużych ilości danych,
+- rozproszenie,
+- replikacja danych,
+- trwałe przechowywanie rekordów,
+- możliwość ponownego odczytania wiadomości,
+- obsługa wielu consumerów,
+- dobre dopasowanie do mikroserwisów,
+- obsługa danych w czasie rzeczywistym,
+- możliwość przetwarzania strumieni danych.
+
+## 21. Wady Kafki
+
+Kafka może być bardziej skomplikowana niż prosty broker wiadomości.
+
+Trzeba zrozumieć między innymi:
+
+- topic,
+- partition,
+- offset,
+- consumer group,
+- replication,
+- broker,
+- retention.
+
+Konfiguracja klastra produkcyjnego również może być znacznie bardziej skomplikowana niż uruchomienie prostego brokera.
+
+## 22. Najważniejszy przykład do zapamiętania
+
+Wyobraź sobie sklep internetowy.
+
+Klient składa zamówienie.
+
+```text
+Klient
+  │
+  ▼
+Order Service
+  │
+  │ OrderCreated
+  ▼
+ Kafka
+  │
+  ├──────────────► Payment Service
+  │
+  ├──────────────► Warehouse Service
+  │
+  ├──────────────► Notification Service
+  │
+  └──────────────► Analytics Service
+```
+
+Order Service nie musi bezpośrednio komunikować się ze wszystkimi pozostałymi usługami.
+
+Publikuje tylko zdarzenie:
+
+`OrderCreated`
+
+Kafka dostarcza je odpowiednim konsumentom.
+
+To jest jeden z najważniejszych powodów, dla których Kafka jest tak popularna w **mikroserwisach i architekturze event-driven**.
+
+## 23. Kafka — najważniejsze pojęcia do zapamiętania
+
+**Kafka** — rozproszona platforma do obsługi strumieni danych.
+
+**Producer** — wysyła wiadomości.
+
+**Consumer** — odbiera wiadomości.
+
+**Topic** — logiczny kanał przechowywania wiadomości.
+
+**Partition** — fragment topicu umożliwiający skalowanie.
+
+**Offset** — pozycja rekordu w partycji.
+
+**Broker** — serwer Kafki.
+
+**Cluster** — grupa brokerów.
+
+**Consumer Group** — grupa consumerów współdzielących pracę.
+
+**Replication** — tworzenie kopii danych.
+
+**Leader** — broker odpowiedzialny za obsługę danej partycji.
+
+**Kafka Streams** — przetwarzanie strumieni danych.
+
+**Kafka Connect** — integracja Kafki z zewnętrznymi systemami.
+
+**Retention** — czas przechowywania danych.
+
+**Event** — informacja o zdarzeniu, które miało miejsce.
+
+## 24. Kafka w jednym zdaniu
+
+**Apache Kafka to rozproszona platforma do przesyłania, przechowywania i przetwarzania dużych strumieni zdarzeń, szczególnie użyteczna w systemach czasu rzeczywistego, mikroserwisach i architekturze event-driven.**

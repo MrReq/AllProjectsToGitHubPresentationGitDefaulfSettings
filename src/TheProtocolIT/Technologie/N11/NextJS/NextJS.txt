@@ -1,0 +1,328 @@
+# Next.js – kompleksowa notatka
+
+## 1. Czym jest Next.js?
+
+[Next.js Logo Vector Free Download | Logowik](https://images.openai.com/static-rsc-4/mUgR9EQlKOc0ZIpOnhYZhazJ_YVofBYxjwNAr2HRG48-5wFR7xu-bUB-hKVXhSf_lZgjCMNUuw8TQiIDYJEFKZScc0e7fU_GLJLrhPVR5FPYMjNMTFDySkF2UEyM8_bIHu6rKHeNhicN21gYi0dN-xuySfa7tZTocg14sJoQVMo?purpose=inline)
+
+[Next.js App Router: Explained](https://images.openai.com/static-rsc-4/Krax5NYwSkPVyVmoHqX2C5ZdnhDHhPWdGRzHYk3PLNlKtHXZvQ9jvx0V3q60hMmMW8N3uu6o0I9nS0BpjuKi6mmNqgmMk2a6liy9oT8yyt3bX4AleWcAmbzqMnpd7KJdk0U6Mc76LazWi5jYb_XXCUmJi5I836l17kbkq0TxPWo?purpose=inline)
+
+[Dynamic routes recipes from Next.js App Router](https://images.openai.com/static-rsc-4/kt1vXb0oWXgWUsWdRMmZPZxyKBpCBmXFaA90Ise2wUoqIUnjl-zLpplWiHMEhgiJIMQBrdDhfn-ZFjeslvauS2XPtpk1t6kVtKtky547YY48wGdYc1epA4TTwQ-kXv6ZoZxuH4JcYArXaalsnRDysnPo1T97dHsVeeUfGJ0WtA0?purpose=inline)
+
+8
+
+Next.js to framework oparty na bibliotece React, służący do tworzenia nowoczesnych aplikacji internetowych.
+
+Jest rozwijany przez firmę Vercel i wykorzystuje JavaScript lub TypeScript do budowania interfejsów użytkownika oraz funkcjonalności wykonywanych po stronie serwera.
+
+React odpowiada przede wszystkim za budowanie interfejsu użytkownika, natomiast Next.js rozszerza jego możliwości o routing, renderowanie po stronie serwera, generowanie stron statycznych, optymalizację zasobów i mechanizmy backendowe.
+
+Next.js umożliwia tworzenie zarówno prostych stron internetowych, jak i rozbudowanych aplikacji biznesowych, sklepów internetowych, paneli administracyjnych oraz platform SaaS.
+
+## 2. Do czego służy Next.js?
+
+Next.js jest wykorzystywany przede wszystkim do tworzenia aplikacji internetowych, które wymagają wydajnego renderowania, dobrej optymalizacji oraz uporządkowanej architektury.
+
+Najważniejsze zastosowania Next.js to:
+
+- Tworzenie stron internetowych i portali.
+- Budowanie sklepów internetowych.
+- Tworzenie paneli administracyjnych.
+- Budowanie aplikacji SaaS.
+- Tworzenie blogów i systemów CMS.
+- Tworzenie aplikacji wykorzystujących REST API.
+- Budowanie aplikacji z uwierzytelnianiem użytkowników.
+- Tworzenie stron zoptymalizowanych pod kątem SEO.
+- Integracja z bazami danych i zewnętrznymi usługami.
+- Budowanie aplikacji full-stack, czyli obejmujących frontend i wybrane funkcje backendowe.
+
+Przykładowo Next.js może zostać wykorzystany do stworzenia platformy, w której użytkownik loguje się na konto, przegląda produkty, składa zamówienia i zarządza swoimi danymi.
+
+## 3. Jak działa Next.js?
+
+Next.js wykorzystuje React do tworzenia komponentów interfejsu użytkownika, a następnie zapewnia mechanizmy odpowiedzialne za routing, renderowanie i obsługę żądań.
+
+Jedną z jego najważniejszych cech jest możliwość wykonywania części pracy po stronie serwera, zanim strona zostanie przesłana do przeglądarki.
+
+Użytkownik
+
+Otwiera stronę w przeglądarce
+
+Next.js
+
+Routing, pobieranie danych i renderowanie
+
+Serwer i źródła danych
+
+API, baza danych lub usługi zewnętrzne
+
+HTML i interaktywność
+
+Przeglądarka wyświetla stronę i obsługuje interakcje
+
+Dokładny przebieg zależy od zastosowanej metody renderowania i rodzaju komponentów.
+
+W Next.js można renderować strony na serwerze, generować je wcześniej podczas budowania aplikacji lub wykorzystywać renderowanie po stronie klienta.
+
+## 4. Najważniejsze sposoby renderowania
+
+Next.js oferuje kilka mechanizmów dostarczania treści użytkownikowi.
+
+SSR (Server-Side Rendering) oznacza renderowanie strony na serwerze podczas obsługi żądania.
+
+SSG (Static Site Generation) polega na generowaniu stron statycznych podczas budowania aplikacji.
+
+ISR (Incremental Static Regeneration) umożliwia odświeżanie wygenerowanych stron statycznych bez konieczności pełnego ponownego budowania całej aplikacji.
+
+CSR (Client-Side Rendering) polega na renderowaniu interfejsu po stronie przeglądarki z wykorzystaniem JavaScriptu.
+
+RSC (React Server Components) to mechanizm Reacta pozwalający wykonywać komponenty po stronie serwera, bez konieczności przesyłania całego ich kodu do przeglądarki.
+
+W nowoczesnym Next.js, wykorzystującym App Router, komponenty są domyślnie komponentami serwerowymi, chyba że zostaną odpowiednio oznaczone jako komponenty klienckie.
+
+## 5. Routing w Next.js
+
+Routing określa, jaka strona lub funkcjonalność ma zostać wyświetlona po wejściu pod konkretny adres URL.
+
+Next.js oferuje system routingu oparty na strukturze katalogów i plików.
+
+W nowszym podejściu wykorzystuje się przede wszystkim App Router, oparty na katalogu `app`.
+
+Przykładowa struktura projektu:
+
+```
+my-app/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── about/
+│   │   └── page.tsx
+│   └── products/
+│       └── page.tsx
+├── components/
+├── public/
+├── package.json
+└── tsconfig.json
+```
+
+Plik `app/page.tsx` odpowiada za stronę główną.
+
+Plik `app/about/page.tsx` odpowiada za adres `/about`.
+
+Plik `app/products/page.tsx` odpowiada za adres `/products`.
+
+Plik `layout.tsx` definiuje wspólny układ stron, na przykład nawigację, nagłówek i stopkę.
+
+Next.js udostępnia również Pages Router, czyli starszy system routingu oparty na katalogu `pages`, który nadal jest obsługiwany.
+
+## 6. Tworzenie komponentów w Next.js
+
+Next.js wykorzystuje komponenty Reacta, które pozwalają dzielić interfejs na mniejsze, wielokrotnie wykorzystywane elementy.
+
+Przykładowy komponent strony:
+
+```
+export default function HomePage() {
+  return (
+    <main>
+      <h1>Witaj w Next.js!</h1>
+      <p>To moja pierwsza aplikacja.</p>
+    </main>
+  );
+}
+```
+
+Funkcja `HomePage` zwraca strukturę interfejsu zapisaną w JSX.
+
+Next.js wykorzystuje ten komponent jako stronę główną, jeśli znajduje się on w pliku `app/page.tsx`.
+
+### Komponenty serwerowe i klienckie
+
+Komponenty serwerowe wykonują się po stronie serwera i mogą bezpośrednio korzystać z dostępnych tam zasobów.
+
+Komponenty klienckie są potrzebne między innymi wtedy, gdy interfejs korzysta ze stanu Reacta, obsługi zdarzeń lub API przeglądarki.
+
+Przykładowy komponent kliencki:
+
+```
+'use client';
+
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Kliknięto {count} razy
+    </button>
+  );
+}
+```
+
+Dyrektywa `'use client'` oznacza granicę między komponentami serwerowymi i klienckimi.
+
+Nie trzeba oznaczać wszystkich komponentów jako klienckie. Warto używać tej dyrektywy tylko tam, gdzie jest potrzebna interaktywność po stronie przeglądarki.
+
+## 7. API i funkcje backendowe
+
+Next.js pozwala implementować wybrane funkcje backendowe bez konieczności tworzenia osobnego serwera API dla każdej aplikacji.
+
+W App Router można wykorzystać Route Handlers, definiowane w plikach `route.ts`.
+
+Przykładowa struktura:
+
+```
+app/
+└── api/
+    └── users/
+        └── route.ts
+```
+
+Przykładowa implementacja:
+
+```
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  return NextResponse.json([
+    { id: 1, name: 'Anna' },
+    { id: 2, name: 'Piotr' },
+  ]);
+}
+```
+
+Po uruchomieniu aplikacji endpoint `GET /api/users` zwróci dane w formacie JSON.
+
+Next.js obsługuje również Server Actions, czyli funkcje serwerowe, które mogą być wywoływane z interfejsu aplikacji w celu wykonania określonych operacji.
+
+Przy projektowaniu funkcji backendowych należy pamiętać o walidacji danych, kontroli dostępu i bezpiecznym przechowywaniu sekretów.
+
+## 8. Integracja z bazami danych
+
+Next.js może współpracować z różnymi bazami danych i narzędziami do ich obsługi.
+
+Najczęściej wykorzystywane rozwiązania to:
+
+| Technologia | Zastosowanie                            |
+| ----------- | --------------------------------------- |
+| PostgreSQL  | Relacyjna baza danych                   |
+| MySQL       | Relacyjna baza danych                   |
+| MongoDB     | Dokumentowa baza NoSQL                  |
+| Prisma      | ORM ułatwiający dostęp do danych        |
+| Drizzle ORM | Lekki ORM oparty na TypeScripcie        |
+| Redis       | Przechowywanie danych w pamięci i cache |
+
+Połączenie z bazą danych powinno być realizowane w odpowiednim kontekście serwerowym.
+
+Dane dostępowe, hasła i klucze API nie powinny być umieszczane w kodzie przesyłanym do przeglądarki.
+
+## 9. Optymalizacja stron internetowych
+
+Next.js zawiera funkcje, które ułatwiają optymalizowanie wydajności aplikacji.
+
+Image Optimization pozwala optymalizować obrazy za pomocą komponentu `Image`.
+
+Font Optimization ułatwia ładowanie czcionek i ograniczanie problemów z ich wyświetlaniem.
+
+Code Splitting pozwala dzielić kod na mniejsze fragmenty, aby nie przesyłać od razu całego kodu aplikacji.
+
+Caching umożliwia przechowywanie i ponowne wykorzystywanie wyników określonych operacji, zależnie od konfiguracji.
+
+Prefetching pozwala wcześniej pobierać zasoby potrzebne do nawigacji, gdy spełnione są odpowiednie warunki.
+
+Dzięki tym mechanizmom Next.js może poprawiać czas ładowania stron, komfort korzystania z aplikacji oraz jej widoczność w wyszukiwarkach.
+
+Nie oznacza to jednak, że każda aplikacja Next.js automatycznie będzie szybka. Wydajność zależy również od jakości kodu, bazy danych, hostingu i sposobu renderowania.
+
+## 10. Next.js a SEO
+
+SEO, czyli Search Engine Optimization, obejmuje działania mające poprawić widoczność strony w wynikach wyszukiwania.
+
+Next.js oferuje funkcje, które ułatwiają tworzenie stron przyjaznych wyszukiwarkom.
+
+Najważniejsze z nich to:
+
+- Generowanie treści HTML po stronie serwera.
+- Możliwość tworzenia statycznych stron.
+- Definiowanie tytułów i opisów stron.
+- Generowanie metadanych Open Graph.
+- Obsługa plików `sitemap.xml` i `robots.txt`.
+- Możliwość stosowania danych strukturalnych.
+
+Dzięki tym rozwiązaniom można przygotować strony, których podstawowa treść jest dostępna bez konieczności oczekiwania na pełne wykonanie kodu JavaScript w przeglądarce.
+
+SEO zależy jednak również od jakości treści, struktury strony, linkowania, dostępności oraz wielu innych czynników.
+
+## 11. Next.js a inne technologie frontendowe
+
+[Making a custom 404 page in Next.js - DEV Community](https://images.openai.com/static-rsc-4/bLlalbNp6jrlR_MDbXrZboKQVewUYbl540tPaxrKHfeYhkUuIbcY24EuZwqdvoz2T6syE51AVhW2nzEAnbXMhFU1S9FS9hfRUHcmE0rqe4-MftFGYbc3hxELPbunRQ4RO1h7brQUYFBkCbuY4CGkHzzUDPnQR728ILI1Y17qp2M?purpose=inline)
+
+Next.js
+
+Framework Reacta oferujący routing, różne metody renderowania, optymalizację i funkcje serwerowe.
+
+[React Logo, Interactive, JavaScript, Web Development, Library PNG](https://images.openai.com/static-rsc-4/Fl2k_M2MV9G60-G7WybCJohvSsz5vwqQsQppvr32F68EV081GHJtW9RJC9qzUmIyqYoKRib8QukYMDHeoi9S68vPmo6QWCkUSZ04wokMQon4iVyQtTjASZavNLZps_OHoxGIXYHG61QQxMlUTbtbDTcfPlPzUqtZndtSvw9CQCM?purpose=inline)
+
+React
+
+Biblioteka do budowania interfejsów użytkownika. Sama nie zapewnia kompletnego frameworka aplikacyjnego.
+
+[Angular | Enterprise Front-End Development - Adaca](https://images.openai.com/static-rsc-4/HacVK1FpTUdAEv7Ly5co5gAOnQZncsATcHoUyw2lbLpCi1w5IsPM76cQUN2PkDW6Avzq8BuyhDCHb_kQe4FLnBQnCq1R_qkPKv4ntoBKyeDEK-G8H4WRFYN-RuKYXniX681LFdqxF90uTka_ISaPPwTKJcY4cVAClxLEjCcFjak?purpose=inline)
+
+Angular
+
+Kompletny framework frontendowy z własnym systemem komponentów, routingu i narzędzi.
+
+[Vuejs original wordmark logo - free Icon PNG, SVG](https://images.openai.com/static-rsc-4/m7-JLc87zYcWIzKWmBnwy9SYuJrMHWF5-m5bF-dkWHBdnT2NIm9pk5BCwCr_P5DdL_MFF37m3HaQH6YfyBk6YH-MlJ622eEp01F3S64RjSF0GUoSdgW2tYxXb7FYJ8zbums0CGP6WcMocyOceIYRQsKf3UM7Dix9kqJen-gYZT0?purpose=inline)
+
+Vue.js
+
+Progresywny framework JavaScript wykorzystywany do budowania interfejsów użytkownika.
+
+[Astro: A Lightweight Revolution in Frontend Architecture — Upgrading from Native HTML to Astro + React | by Renda Zhang | Medium](https://images.openai.com/static-rsc-4/sQSlsMuyoqTH0103xHYJxp5QqyP2fqVSZsCzq5d1yezmfpVArbaTD4-O2Z1XtUu1AFSZyEZgfizcUZIcodWLnNZd86Cm-gRlcLd3AppEPhgnsJtYIn4WAh85xG5arG7w2tEh55rFc1UqSQNf5Stjj9w4qsjgmBrz6mstZfXS5R8?purpose=inline)
+
+Astro
+
+Framework szczególnie przydatny do stron z dużą ilością treści i ograniczoną ilością JavaScriptu po stronie klienta.
+
+Next.js jest dobrym wyborem, gdy aplikacja wykorzystuje Reacta i potrzebuje routingu, renderowania serwerowego oraz funkcji backendowych.
+
+Sam React daje większą swobodę w wyborze dodatkowych narzędzi, natomiast Next.js dostarcza wiele mechanizmów w ramach jednego rozwiązania.
+
+## 12. Zalety Next.js
+
+- Umożliwia tworzenie aplikacji full-stack w ekosystemie Reacta.
+- Oferuje wiele metod renderowania stron.
+- Zapewnia routing oparty na plikach.
+- Ułatwia optymalizację obrazów i innych zasobów.
+- Wspiera TypeScript.
+- Oferuje mechanizmy przydatne w SEO.
+- Pozwala integrować aplikację z bazami danych i zewnętrznymi usługami.
+- Nadaje się do tworzenia zarówno małych stron, jak i dużych aplikacji biznesowych.
+
+## 13. Wady Next.js
+
+- Wymaga znajomości Reacta i JavaScriptu lub TypeScriptu.
+- Różnice między komponentami serwerowymi i klienckimi mogą być początkowo trudne do zrozumienia.
+- Mechanizmy cache'owania i renderowania wymagają odpowiedniej konfiguracji.
+- Aplikacje korzystające z funkcji serwerowych wymagają odpowiedniego środowiska wdrożeniowego.
+- Rozbudowane funkcje frameworka mogą zwiększać złożoność małych projektów.
+- Nie zastępuje wszystkich potrzeb związanych z backendem, bezpieczeństwem i zarządzaniem infrastrukturą.
+
+## 14. Najważniejsze pojęcia do zapamiętania
+
+- Next.js – framework oparty na React.
+- React – biblioteka do budowania interfejsów użytkownika.
+- TypeScript – język rozszerzający JavaScript o system typów.
+- App Router – system routingu oparty na katalogu `app`.
+- Pages Router – starszy system routingu oparty na katalogu `pages`.
+- SSR – renderowanie strony na serwerze podczas obsługi żądania.
+- SSG – generowanie stron statycznych podczas budowania aplikacji.
+- ISR – mechanizm aktualizowania wygenerowanych stron statycznych.
+- Server Components – komponenty wykonywane po stronie serwera.
+- Client Components – komponenty obsługujące między innymi interakcje po stronie przeglądarki.
+- Route Handlers – mechanizm definiowania endpointów HTTP.
+- Server Actions – funkcje serwerowe wywoływane z aplikacji.
+- SEO – optymalizacja widoczności strony w wyszukiwarkach.
+
+Podsumowanie: Next.js to framework Reacta służący do tworzenia nowoczesnych aplikacji internetowych. Łączy możliwości budowania interfejsów użytkownika z routingiem, renderowaniem po stronie serwera, generowaniem stron statycznych i wybranymi funkcjami backendowymi. Jest szczególnie przydatny przy tworzeniu sklepów internetowych, portali, aplikacji SaaS oraz stron wymagających dobrej wydajności i optymalizacji SEO.

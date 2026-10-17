@@ -1,0 +1,554 @@
+# JUnit – kompleksowa notatka o technologii
+
+## 1. Czym jest JUnit?
+
+JUnit to popularny framework do automatycznego testowania aplikacji napisanych w języku Java.
+
+Pozwala programistom tworzyć testy jednostkowe (unit tests), które sprawdzają, czy poszczególne metody i klasy działają zgodnie z oczekiwaniami.
+
+JUnit jest szczególnie ważny w procesie tworzenia oprogramowania, ponieważ pomaga szybko wykrywać błędy i sprawdzać, czy zmiany w kodzie nie powodują problemów w istniejących funkcjonalnościach.
+
+JUnit jest powszechnie wykorzystywany w projektach Java tworzonych w IntelliJ IDEA, Eclipse, Maven, Gradle i Spring Boot.
+
+## 2. Do czego służy JUnit?
+
+JUnit umożliwia:
+
+- Automatyczne testowanie metod i klas.
+- Sprawdzanie poprawności wyników obliczeń.
+- Weryfikowanie wyjątków zgłaszanych przez aplikację.
+- Testowanie przypadków poprawnych i błędnych.
+- Sprawdzanie zachowania aplikacji dla różnych danych wejściowych.
+- Automatyczne uruchamianie testów podczas budowania projektu.
+- Wykrywanie regresji, czyli błędów w funkcjonalnościach, które wcześniej działały poprawnie.
+- Integrację testów z systemami CI/CD, takimi jak Jenkins czy GitHub Actions.
+- Testowanie komponentów aplikacji Spring Boot.
+
+JUnit jest również ważnym narzędziem dla testerów automatyzujących testy oraz programistów przygotowujących się do pracy w obszarze QA Automation.
+
+## 3. JUnit 4 a JUnit 5
+
+W projektach Java można spotkać różne wersje JUnit.
+
+JUnit 4
+
+Starsza wersja frameworka, wykorzystująca między innymi adnotacje `@Test`, `@Before` i `@After`. Wciąż występuje w starszych projektach.
+
+JUnit 5
+
+Nowsza generacja, zbudowana z modułów Platform, Jupiter i Vintage. Oferuje m.in. `@BeforeEach`, `@AfterEach`, testy parametryzowane oraz rozbudowane mechanizmy rozszerzeń.
+
+W nowych projektach najczęściej warto uczyć się JUnit 5, czyli przede wszystkim modelu programowania JUnit Jupiter.
+
+## 4. Jak dodać JUnit do projektu?
+
+### Maven
+
+W pliku `pom.xml` dodaj zależność testową:
+
+```
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.12.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
+To przykład konkretnej wersji JUnit 5.12.2; w nowym projekcie warto sprawdzić aktualną stabilną wersję albo użyć wersji zarządzanej przez Spring Boot.
+
+Testy umieszcza się standardowo w katalogu:
+
+```
+src
+├── main
+│   └── java
+│       └── com/example/Calculator.java
+└── test
+    └── java
+        └── com/example/CalculatorTest.java
+```
+
+### Gradle
+
+W pliku `build.gradle` można wykorzystać:
+
+```
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+```
+
+W przypadku Spring Boot często wystarczy zależność `spring-boot-starter-test`, która dostarcza JUnit oraz inne narzędzia testowe.
+
+## 5. Pierwszy test w JUnit
+
+Załóżmy, że tworzymy prostą klasę kalkulatora.
+
+Plik `Calculator.java`:
+
+```
+public class Calculator {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+}
+```
+
+Teraz przygotujemy testy tej klasy.
+
+Plik `CalculatorTest.java`:
+
+```
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CalculatorTest {
+
+    private final Calculator calculator = new Calculator();
+
+    @Test
+    void shouldAddTwoNumbers() {
+        int result = calculator.add(5, 3);
+
+        assertEquals(8, result);
+    }
+
+    @Test
+    void shouldSubtractTwoNumbers() {
+        int result = calculator.subtract(10, 4);
+
+        assertEquals(6, result);
+    }
+
+    @Test
+    void shouldMultiplyTwoNumbers() {
+        int result = calculator.multiply(3, 4);
+
+        assertEquals(12, result);
+    }
+}
+```
+
+Adnotacja `@Test` oznacza, że dana metoda jest testem.
+
+Metoda `assertEquals(8, result)` sprawdza, czy oczekiwana wartość `8` jest równa rzeczywistemu wynikowi.
+
+Jeżeli warunek jest spełniony, test przechodzi pomyślnie. Jeśli nie, JUnit zgłasza niepowodzenie testu.
+
+## 6. Najważniejsze adnotacje JUnit
+
+Adnotacje pozwalają określić, które metody są testami oraz jakie czynności należy wykonać przed testem lub po nim.
+
+| Adnotacja            | Zastosowanie                                             |
+| -------------------- | -------------------------------------------------------- |
+| `@Test`              | Oznacza metodę testową.                                  |
+| `@BeforeEach`        | Uruchamia metodę przed każdym testem.                    |
+| `@AfterEach`         | Uruchamia metodę po każdym teście.                       |
+| `@BeforeAll`         | Uruchamia metodę raz przed wszystkimi testami w klasie.  |
+| `@AfterAll`          | Uruchamia metodę raz po wszystkich testach w klasie.     |
+| `@DisplayName`       | Ustawia czytelną nazwę testu.                            |
+| `@Disabled`          | Wyłącza test lub klasę testową.                          |
+| `@Nested`            | Pozwala grupować powiązane testy w klasach wewnętrznych. |
+| `@RepeatedTest`      | Powtarza test określoną liczbę razy.                     |
+| `@ParameterizedTest` | Uruchamia test wielokrotnie dla różnych danych.          |
+| `@Tag`               | Oznacza test etykietą, np. `fast` lub `integration`.     |
+| `@Timeout`           | Określa limit czasu wykonania testu.                     |
+
+Przykład użycia `@BeforeEach` i `@DisplayName`:
+
+```
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class CalculatorTest {
+
+    private Calculator calculator;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
+
+    @Test
+    @DisplayName("Dodawanie dwóch liczb")
+    void shouldAddNumbers() {
+        assertEquals(10, calculator.add(7, 3));
+    }
+}
+```
+
+Metoda `setUp()` zostanie wykonana przed każdym testem, dzięki czemu każdy test otrzyma nową instancję kalkulatora.
+
+## 7. Metody asercji – Assertions
+
+Asercje są jednymi z najważniejszych elementów JUnit.
+
+Służą do porównywania oczekiwanych rezultatów z rzeczywistymi wynikami działania kodu.
+
+Najważniejsze metody z klasy `Assertions`:
+
+| Metoda                                      | Znaczenie                                                 |
+| ------------------------------------------- | --------------------------------------------------------- |
+| `assertEquals(expected, actual)`            | Sprawdza równość wartości.                                |
+| `assertNotEquals(expected, actual)`         | Sprawdza, czy wartości są różne.                          |
+| `assertTrue(condition)`                     | Sprawdza, czy warunek jest prawdziwy.                     |
+| `assertFalse(condition)`                    | Sprawdza, czy warunek jest fałszywy.                      |
+| `assertNull(object)`                        | Sprawdza, czy obiekt jest `null`.                         |
+| `assertNotNull(object)`                     | Sprawdza, czy obiekt nie jest `null`.                     |
+| `assertSame(expected, actual)`              | Sprawdza, czy obie referencje wskazują na ten sam obiekt. |
+| `assertNotSame(expected, actual)`           | Sprawdza, czy referencje wskazują na różne obiekty.       |
+| `assertThrows(Exception.class, executable)` | Sprawdza, czy wykonanie kodu zgłasza określony wyjątek.   |
+| `assertAll(...)`                            | Wykonuje kilka asercji, zbierając ich wyniki.             |
+
+Przykład:
+
+```
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class AssertionsTest {
+
+    @Test
+    void shouldCheckValues() {
+        assertEquals(10, 5 + 5);
+        assertNotEquals(12, 5 + 5);
+
+        assertTrue(10 > 5);
+        assertFalse(3 > 10);
+
+        assertNull(null);
+        assertNotNull("Java");
+    }
+}
+```
+
+Ważne jest rozróżnienie między `assertEquals()` a `assertSame()`.
+
+`assertEquals()` sprawdza równość wartości według metody `equals()`, natomiast `assertSame()` sprawdza tożsamość obiektów, czyli czy chodzi o dokładnie ten sam obiekt.
+
+## 8. Testowanie wyjątków
+
+Czasami chcemy sprawdzić, czy aplikacja prawidłowo reaguje na niepoprawne dane.
+
+Przykładowo dzielenie przez zero może być niedozwolone w naszej klasie kalkulatora.
+
+```
+public class Calculator {
+
+    public int divide(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException(
+                "Nie można dzielić przez zero"
+            );
+        }
+
+        return a / b;
+    }
+}
+```
+
+Test:
+
+```
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CalculatorTest {
+
+    private final Calculator calculator = new Calculator();
+
+    @Test
+    void shouldThrowExceptionWhenDividingByZero() {
+        IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> calculator.divide(10, 0)
+        );
+
+        assertEquals(
+            "Nie można dzielić przez zero",
+            exception.getMessage()
+        );
+    }
+}
+```
+
+`assertThrows()` sprawdza, czy podczas wykonania wskazanego fragmentu kodu wystąpi wyjątek odpowiedniego typu.
+
+To bardzo przydatne przy testowaniu walidacji danych, reguł biznesowych oraz obsługi błędów.
+
+## 9. Testy parametryzowane
+
+Test parametryzowany pozwala uruchomić tę samą metodę testową dla wielu zestawów danych.
+
+Dzięki temu nie trzeba pisać oddzielnego testu dla każdego przypadku.
+
+Przykład:
+
+```
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class CalculatorTest {
+
+    private final Calculator calculator = new Calculator();
+
+    @ParameterizedTest
+    @CsvSource({
+        "2, 3, 5",
+        "10, 5, 15",
+        "-2, 2, 0",
+        "0, 0, 0"
+    })
+    void shouldAddNumbers(
+            int a,
+            int b,
+            int expected) {
+
+        assertEquals(expected, calculator.add(a, b));
+    }
+}
+```
+
+Każdy wiersz w `@CsvSource` dostarcza kolejny zestaw parametrów do testu.
+
+Testy parametryzowane szczególnie dobrze sprawdzają się w testowaniu kalkulatorów, walidatorów, konwerterów, metod biznesowych i wielu przypadków brzegowych.
+
+## 10. Cykl życia testu
+
+JUnit pozwala kontrolować, co dzieje się przed testem, w trakcie testowania i po jego zakończeniu.
+
+@BeforeAll
+
+Jednorazowe przygotowanie zasobów
+
+@BeforeEach
+
+Przygotowanie środowiska testowego
+
+@Test
+
+Wykonanie testu i asercji
+
+@AfterEach
+
+Sprzątanie po teście
+
+@AfterAll
+
+Jednorazowe zwolnienie zasobów
+
+Domyślnie metody `@BeforeAll` i `@AfterAll` muszą być statyczne, jeśli nie zmieniono domyślnego cyklu życia instancji testowej.
+
+## 11. JUnit a testy jednostkowe, integracyjne i systemowe
+
+JUnit jest frameworkiem do uruchamiania testów, a nie osobnym rodzajem testowania.
+
+Można go wykorzystać do różnych poziomów testów.
+
+| Rodzaj testu      | Co sprawdza?                                                     | Przykład                                              |
+| ----------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
+| Test jednostkowy  | Pojedynczą klasę lub metodę, zwykle bez zewnętrznych zależności. | Obliczenie rabatu.                                    |
+| Test integracyjny | Współpracę kilku komponentów.                                    | Serwis współpracujący z bazą danych.                  |
+| Test webowy       | Zachowanie endpointu lub kontrolera.                             | Sprawdzenie odpowiedzi HTTP.                          |
+| Test end-to-end   | Przepływ funkcjonalności przez wiele warstw aplikacji.           | Rejestracja użytkownika od żądania do zapisu w bazie. |
+
+JUnit sam nie dostarcza wszystkich potrzebnych mechanizmów do każdego z tych testów.
+
+Na przykład testy aplikacji Spring Boot często korzystają również ze Spring Test, a testy API mogą korzystać z `MockMvc` lub `WebTestClient`.
+
+## 12. JUnit w Spring Boot
+
+W projektach Spring Boot testy są zwykle przechowywane w `src/test/java`.
+
+Przykładowa klasa testowa:
+
+```
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+}
+```
+
+`@SpringBootTest` uruchamia kontekst aplikacji Spring w celu sprawdzenia, czy aplikacja może zostać poprawnie zainicjalizowana.
+
+To test integracyjny, a nie typowy test jednostkowy, ponieważ może uruchamiać wiele komponentów aplikacji.
+
+W projektach wykorzystujących Spring Boot często spotyka się również:
+
+- `@WebMvcTest` – testowanie warstwy MVC.
+- `@DataJpaTest` – testowanie komponentów JPA.
+- `@MockBean` w starszych wersjach Spring Boot oraz `@MockitoBean` w nowszych rozwiązaniach Spring Framework – zastępowanie zależności obiektami mock.
+- Mockito – tworzenie atrap zależności, aby testować konkretną klasę w izolacji.
+
+## 13. JUnit i Mockito
+
+JUnit oraz Mockito często występują razem, ale pełnią różne funkcje.
+
+JUnit uruchamia testy i sprawdza wyniki za pomocą asercji.
+
+Mockito pozwala tworzyć obiekty zastępcze, które symulują zachowanie zależności, np. repozytorium lub zewnętrznego serwisu.
+
+Przykładowo, jeśli testujemy `UserService`, możemy zastąpić `UserRepository` mockiem, dzięki czemu nie musimy łączyć się z prawdziwą bazą danych.
+
+```
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+@ExtendWith(MockitoExtension.class)
+class UserServiceTest {
+
+    @Mock
+    private UserRepository userRepository;
+
+    @Test
+    void shouldFindUser() {
+        when(userRepository.findNameById(1L))
+            .thenReturn("Anna");
+
+        String result = userRepository.findNameById(1L);
+
+        assertEquals("Anna", result);
+        verify(userRepository).findNameById(1L);
+    }
+}
+```
+
+Przykład ilustruje działanie mocka. W rzeczywistym teście serwisu należy wywołać metodę serwisu, a repozytorium wykorzystać jako jego zależność.
+
+## 14. Uruchamianie testów
+
+Testy można uruchamiać na kilka sposobów.
+
+W IntelliJ IDEA: kliknij zieloną ikonę obok metody `@Test` albo klasy testowej.
+
+W Mavenie: użyj polecenia:
+
+```
+mvn test
+```
+
+W Gradle: użyj polecenia:
+
+```
+./gradlew test
+```
+
+Na Windows można również użyć:
+
+```
+.\gradlew.bat test
+```
+
+Wyniki testów można przeglądać w IDE, a Maven i Gradle mogą generować raporty z ich wykonania.
+
+## 15. Dobre praktyki pisania testów
+
+- Jeden test powinien skupiać się na konkretnym zachowaniu.
+- Testy powinny być niezależne od kolejności uruchamiania.
+- Należy uwzględniać przypadki poprawne, niepoprawne i brzegowe.
+- Nazwy testów powinny jasno opisywać oczekiwane zachowanie, np. `shouldThrowExceptionWhenEmailIsInvalid()`.
+- Testy jednostkowe powinny być szybkie i możliwie izolowane.
+- Nie należy uzależniać testów od przypadkowych danych ani od niekontrolowanego stanu zewnętrznych systemów.
+- Testy nie powinny tylko odtwarzać implementacji; powinny sprawdzać rzeczywiste wymagania.
+- Nie należy wyłączać testów tylko dlatego, że wykrywają błąd w kodzie.
+- Testy muszą być regularnie uruchamiane, najlepiej również w procesie CI.
+
+## 16. Zalety i ograniczenia JUnit
+
+Zalety:
+
+- Automatyzuje powtarzalne sprawdzanie kodu.
+- Ułatwia wykrywanie błędów na wczesnym etapie.
+- Wspiera rozwój oparty na testach (TDD).
+- Integruje się z Mavenem, Gradle, IntelliJ IDEA i Spring Boot.
+- Pozwala weryfikować poprawność zmian w kodzie.
+- Współpracuje z Mockito i innymi narzędziami testowymi.
+
+Ograniczenia:
+
+- Nie tworzy testów automatycznie na podstawie wymagań.
+- Nie gwarantuje, że aplikacja jest całkowicie wolna od błędów.
+- Do testowania interfejsów użytkownika i pełnych scenariuszy przeglądarkowych potrzebne są dodatkowe narzędzia, np. Selenium lub Playwright.
+- Testy integracyjne mogą wymagać dodatkowej konfiguracji, np. bazy danych lub kontenerów.
+
+## 17. Powiązane technologie
+
+[Software Hosting - Run Any Application | HidenCloud](https://images.openai.com/static-rsc-4/mKzcaCJP3O1QjLIvF2eqF3u0HEiJ3FLZVwFdd0kHduW77YIaPaAYtg6sh6MjNxcDK2QXsC6PaK7VoyAyoqdCv8zodVdt-AovKbP6jt1KJdztocJt-_gKxjK3DgiKGIIQ9qshqPbuHa1-hZkn6gbUM5gsZKcmBuQSfEpCpmx3NMg?purpose=inline)
+
+Java
+
+Język programowania, w którym pisane są testowane klasy.
+
+[Testing in Spring Boot with JUnit and Mockito: A Beginner’s Guide - DEV Community](https://images.openai.com/static-rsc-4/s2fe2QkowXfqlOC3kDAtGSvz_Ca8lp4csy_s1mY8aBktnpVKPEr-_i0JHFElGwLmNFkdNCc0Ye49rnprv1qr4TIWDhE40mjdbUgzegm5AA6EOUyiEhrz7DbnRKST_VUDQLug8g1pOkw5qbip0z_gD-hcfkJh20LWBgMRwbbxoNU?purpose=inline)
+
+Mockito
+
+Biblioteka do tworzenia mocków i izolowania testowanych komponentów.
+
+[Maven Original Wordmark PNG Logo — Download Free Transparent Logo](https://images.openai.com/static-rsc-4/3o9RvMCnZ-hcDAAH0dEqrWmuFa_HO39e8xzxfWq3fN8A0DPzLSPfcE50huUWREdxOp64v10xFA_UsIg6NeFJ7fMU4TiDZW2oFAN62pJ2Dt6tgt2IehFVHcyp2kdzzTMJoFNiCAZmNfxmoMa3FvlavQxZn6A1F1AgNQJv1o7Bh8I?purpose=inline)
+
+Maven
+
+Narzędzie do budowania projektów Java i uruchamiania testów.
+
+[Software Engineering Services and Solutions - CBTW | Collaboration Betters The World](https://images.openai.com/static-rsc-4/cXA39bJxPPtsxI2aHzY_geVIbCWxDG1ViuYywWky1iwmuY_8rmDdgQckDBwK2BM6rdTCttS4O5UIdxDLIjT1W7ILjU0MEYXG2pJwq-L32xWXTkAZJJON0nQsBoSgUHTMBLoRATgsbgrYbW0UHvTF675JIMCQMAvpwyaemJkuqe4?purpose=inline)
+
+Spring Boot
+
+Framework, którego aplikacje można testować przy użyciu JUnit i Spring Test.
+
+[nostuk - Worlds#1 Bootcamp | AI and ML | Cloud Computing | FSD | DevOps Programs](https://images.openai.com/static-rsc-4/GS4-QvZte5eEE6L73Nvc8DfqU0hftNRyamRzmIKOQ10W10ph1IQ7c-SurA3y9HubB9j5vtm0tzCNH-CGkMcLIT09DxaEw6qEt7V2QMmDgN9iTJxRBwF1wrFUDHLdVfuWm4SewihrW3q1_S7sbkPbk_-Gt4V3VIytgNc86NMFyDA?purpose=inline)
+
+Jenkins
+
+Serwer automatyzacji, który może uruchamiać testy JUnit podczas budowania i wdrażania aplikacji.
+
+## 18. Najważniejsze pojęcia do zapamiętania
+
+| Pojęcie            | Znaczenie                                                       |
+| ------------------ | --------------------------------------------------------------- |
+| JUnit              | Framework do uruchamiania testów w Javie.                       |
+| Unit test          | Test pojedynczej jednostki kodu.                                |
+| Test case          | Konkretny przypadek testowy.                                    |
+| Assertion          | Sprawdzenie oczekiwanego wyniku.                                |
+| Fixture            | Przygotowane środowisko i dane testowe.                         |
+| Mock               | Obiekt zastępujący rzeczywistą zależność.                       |
+| Regression testing | Sprawdzanie, czy zmiany nie zepsuły istniejących funkcji.       |
+| TDD                | Tworzenie testu przed implementacją funkcjonalności.            |
+| Test runner        | Mechanizm uruchamiający testy.                                  |
+| CI/CD              | Automatyzacja budowania, testowania i wdrażania oprogramowania. |
+
+Podsumowanie: JUnit to podstawowe narzędzie do automatycznego testowania aplikacji Java. Warto opanować adnotacje `@Test` i `@BeforeEach`, asercje, testowanie wyjątków, testy parametryzowane oraz współpracę JUnit z Mockito i Spring Boot. Te umiejętności są przydatne zarówno w pracy programisty Java, jak i w automatyzacji testów QA.

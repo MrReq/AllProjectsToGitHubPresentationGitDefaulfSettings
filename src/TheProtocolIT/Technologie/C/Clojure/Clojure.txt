@@ -1,0 +1,127 @@
+# Clojure
+
+## 1. Czym jest Clojure?
+
+Clojure to funkcyjny język programowania ogólnego przeznaczenia, oparty na Lispie i zaprojektowany z myślą o programowaniu funkcyjnym, niezmienności danych oraz współbieżności.
+
+Został stworzony przez Richa Hickeya i udostępniony w 2007 roku.
+
+Clojure działa przede wszystkim na maszynie wirtualnej Java (JVM), dzięki czemu może korzystać z wielu bibliotek i klas dostępnych w ekosystemie Javy.
+
+Język jest wykorzystywany do tworzenia systemów backendowych, przetwarzania danych, aplikacji serwerowych oraz rozwiązań wymagających niezawodnego zarządzania współbieżnością.
+
+## 2. Najważniejsze cechy Clojure
+
+- Programowanie funkcyjne – zachęca do budowania programów za pomocą funkcji i transformacji danych.
+- Niezmienność danych (immutability) – struktury danych są domyślnie niezmienne, co ogranicza problemy związane z ich współdzieleniem.
+- Homoikoniczność – kod programu jest reprezentowany za pomocą struktur danych języka, co ułatwia metaprogramowanie.
+- REPL – umożliwia interaktywne wykonywanie kodu i natychmiastowe sprawdzanie wyników.
+- Interoperacyjność z Javą – pozwala korzystać z klas i bibliotek Java dostępnych na JVM.
+- Współbieżność – oferuje mechanizmy zarządzania współdzielonym stanem, takie jak atoms, refs i agents.
+- Dynamiczne typowanie – zmienne nie wymagają deklarowania typów w taki sposób jak w Javie.
+- Makra – umożliwiają rozszerzanie składni języka i tworzenie własnych konstrukcji programistycznych.
+
+## 3. Składnia i przykład programu
+
+Clojure wykorzystuje notację prefiksową, w której operator lub nazwa funkcji występuje przed argumentami.
+
+Przykładowy program:
+
+```
+(ns hello-world)
+
+(defn greet [name]
+  (str "Witaj, " name "!"))
+
+(println (greet "Programisto"))
+```
+
+Wynik:
+
+```
+Witaj, Programisto!
+```
+
+Wyjaśnienie:
+
+- `ns` określa przestrzeń nazw.
+- `defn` definiuje funkcję.
+- `name` jest argumentem funkcji.
+- `str` łączy teksty.
+- `println` wyświetla wynik w konsoli.
+
+Kolejny przykład pokazuje pracę z kolekcjami i funkcjami wyższego rzędu:
+
+```
+(def numbers [1 2 3 4 5])
+
+(def doubled
+  (map #(* % 2) numbers))
+
+(println (filter even? doubled))
+```
+
+Wynik:
+
+```
+(2 4 6 8 10)
+```
+
+Funkcja `map` przekształca elementy kolekcji, a `filter` wybiera elementy spełniające określony warunek.
+
+## 4. Najważniejsze elementy języka Clojure
+
+- Funkcje (`defn`) – podstawowy sposób organizowania logiki programu.
+- Listy, wektory i mapy – struktury danych służące do przechowywania i przetwarzania informacji.
+- Sekwencje (seq) – wspólny sposób przetwarzania różnych kolekcji.
+- Makra – pozwalają tworzyć nowe konstrukcje językowe.
+- Atom – umożliwia bezpieczne aktualizowanie pojedynczej wartości współdzielonej między wątkami.
+- Ref – pozwala zarządzać współdzielonym stanem za pomocą transakcyjnej pamięci STM.
+- Agent – służy do asynchronicznego aktualizowania stanu.
+- Protocols – umożliwiają definiowanie zestawów operacji, które mogą być implementowane przez różne typy.
+- Namespaces – organizują kod w logiczne moduły.
+
+## 5. Gdzie wykorzystuje się Clojure?
+
+- Backend development – tworzenie serwerów i usług internetowych.
+- Przetwarzanie danych – transformowanie kolekcji, analizowanie informacji i budowanie potoków danych.
+- Systemy współbieżne – projektowanie aplikacji, w których wiele operacji działa jednocześnie.
+- Aplikacje JVM – rozszerzanie istniejących systemów Java o funkcje napisane w Clojure.
+- Automatyzacja – tworzenie skryptów i narzędzi programistycznych.
+- Programowanie reaktywne i funkcyjne – budowanie systemów opartych na transformacjach danych i kompozycji funkcji.
+
+## 6. Clojure a inne języki programowania
+
+| Język       | Charakterystyka                                                                |
+| ----------- | ------------------------------------------------------------------------------ |
+| Clojure     | Funkcyjny Lisp działający głównie na JVM, z naciskiem na niezmienność danych.  |
+| Java        | Język wieloparadygmatowy, powszechnie stosowany w aplikacjach korporacyjnych.  |
+| Scala       | Łączy programowanie obiektowe i funkcyjne oraz działa na JVM.                  |
+| Common Lisp | Rodzina języków Lisp o rozbudowanych możliwościach metaprogramowania.          |
+| Python      | Język o czytelnej składni, popularny w automatyzacji, analizie danych i AI.    |
+| JavaScript  | Język wykorzystywany głównie w aplikacjach internetowych i środowisku Node.js. |
+
+## 7. Zalety i wady Clojure
+
+Zalety:
+
+- Wspiera tworzenie kodu funkcyjnego i łatwego do testowania.
+- Niezmienność danych pomaga ograniczać błędy związane ze współdzielonym stanem.
+- Umożliwia korzystanie z ekosystemu Javy.
+- Oferuje rozbudowane możliwości metaprogramowania dzięki makrom.
+- REPL przyspiesza eksperymentowanie i rozwijanie funkcji.
+
+Wady:
+
+- Składnia Lispowa może być trudna dla osób przyzwyczajonych do języków z klasyczną składnią.
+- Mniejsza popularność niż Java, Python czy JavaScript ogranicza liczbę dostępnych ofert pracy.
+- Niektóre biblioteki i narzędzia mogą wymagać dodatkowej konfiguracji.
+- Dynamiczne typowanie nie zapewnia wszystkich zabezpieczeń typów dostępnych w językach statycznie typowanych.
+
+## 8. Dlaczego warto znać Clojure?
+
+Clojure jest wartościowym językiem dla osób zainteresowanych programowaniem funkcyjnym, projektowaniem systemów współbieżnych i alternatywnymi sposobami organizowania kodu.
+
+Dla programisty Java szczególnie interesująca jest możliwość korzystania z JVM oraz poznania podejścia do niezmienności danych i współbieżności, które może poprawić sposób projektowania aplikacji backendowych.
+
+Nawet jeśli nie planujesz używać Clojure zawodowo, jego poznanie może poszerzyć wiedzę o programowaniu funkcyjnym i pomóc w pisaniu bardziej modularnego oraz przewidywalnego kodu.

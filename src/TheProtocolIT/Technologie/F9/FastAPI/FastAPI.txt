@@ -1,0 +1,939 @@
+# FastAPI
+
+## Czym jest FastAPI?
+
+FastAPI to nowoczesny, szybki framework języka Python przeznaczony przede wszystkim do tworzenia **API oraz aplikacji backendowych**.
+
+Jest szczególnie popularny przy tworzeniu **REST API**, mikroserwisów oraz aplikacji wykorzystujących **sztuczną inteligencję i uczenie maszynowe**.
+
+FastAPI został zaprojektowany z myślą o wysokiej wydajności, prostocie tworzenia aplikacji oraz automatycznej walidacji danych.
+
+FastAPI wykorzystuje między innymi **Starlette** do obsługi warstwy webowej oraz **Pydantic** do walidacji i serializacji danych.
+
+Jedną z jego najważniejszych cech jest natywne wsparcie dla programowania asynchronicznego przy użyciu `async` i `await`.
+
+## Do czego służy FastAPI?
+
+FastAPI można wykorzystywać do tworzenia:
+
+REST API.
+
+Backendów aplikacji webowych.
+
+Mikroserwisów.
+
+Serwisów obsługujących aplikacje mobilne.
+
+API dla aplikacji frontendowych.
+
+Serwisów dla aplikacji AI i Machine Learning.
+
+API komunikujących się z bazami danych.
+
+Systemów IoT.
+
+Systemów wymagających dużej liczby jednoczesnych połączeń.
+
+## FastAPI a Python
+
+FastAPI jest frameworkiem napisanym dla języka **Python**.
+
+Przykładowa aplikacja FastAPI może wyglądać bardzo prosto:
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
+```
+
+Po uruchomieniu aplikacja udostępnia endpoint:
+
+```text
+GET /
+```
+
+który zwróci:
+
+```json
+{
+    "message": "Hello World"
+}
+```
+
+## Instalacja FastAPI
+
+FastAPI można zainstalować za pomocą `pip`:
+
+```bash
+pip install fastapi
+```
+
+Do uruchamiania aplikacji często wykorzystuje się również **Uvicorn**:
+
+```bash
+pip install "uvicorn[standard]"
+```
+
+Można też zainstalować oba pakiety jednocześnie:
+
+```bash
+pip install "fastapi[standard]"
+```
+
+## Uvicorn
+
+Uvicorn jest serwerem ASGI, który może uruchamiać aplikacje FastAPI.
+
+Przykładowo:
+
+```bash
+uvicorn main:app --reload
+```
+
+gdzie:
+
+`main` oznacza plik `main.py`.
+
+`app` oznacza obiekt FastAPI znajdujący się w tym pliku.
+
+`--reload` powoduje automatyczne przeładowywanie aplikacji po zmianach w kodzie.
+
+Standardowo aplikacja będzie dostępna pod:
+
+```text
+http://127.0.0.1:8000
+```
+
+## Endpoint
+
+Endpoint jest konkretnym adresem API, który wykonuje określoną operację.
+
+Przykład:
+
+```python
+@app.get("/users")
+def get_users():
+    return [
+        {"id": 1, "name": "Jan"},
+        {"id": 2, "name": "Anna"}
+    ]
+```
+
+Endpoint:
+
+```text
+GET /users
+```
+
+zwraca listę użytkowników.
+
+## Metody HTTP
+
+FastAPI obsługuje standardowe metody HTTP.
+
+`GET` służy najczęściej do pobierania danych.
+
+`POST` służy do tworzenia nowych danych.
+
+`PUT` służy do pełnej aktualizacji danych.
+
+`PATCH` służy do częściowej aktualizacji danych.
+
+`DELETE` służy do usuwania danych.
+
+Przykład:
+
+```python
+@app.get("/users")
+def get_users():
+    pass
+
+@app.post("/users")
+def create_user():
+    pass
+
+@app.put("/users/{user_id}")
+def update_user(user_id: int):
+    pass
+
+@app.delete("/users/{user_id}")
+def delete_user(user_id: int):
+    pass
+```
+
+## Parametry ścieżki
+
+FastAPI umożliwia pobieranie parametrów bezpośrednio z adresu URL.
+
+```python
+@app.get("/users/{user_id}")
+def get_user(user_id: int):
+    return {"user_id": user_id}
+```
+
+Dla zapytania:
+
+```text
+GET /users/15
+```
+
+FastAPI przekaże:
+
+```python
+user_id = 15
+```
+
+Ważne jest również to, że `user_id: int` informuje FastAPI, że parametr powinien być liczbą całkowitą.
+
+## Query Parameters
+
+FastAPI obsługuje również parametry przekazywane po znaku `?`.
+
+Przykład:
+
+```python
+@app.get("/users")
+def get_users(limit: int = 10):
+    return {"limit": limit}
+```
+
+Możemy wykonać:
+
+```text
+GET /users?limit=20
+```
+
+Wtedy:
+
+```python
+limit = 20
+```
+
+Możemy mieć również kilka parametrów:
+
+```python
+@app.get("/users")
+def get_users(
+    limit: int = 10,
+    offset: int = 0
+):
+    return {
+        "limit": limit,
+        "offset": offset
+    }
+```
+
+Zapytanie:
+
+```text
+/users?limit=20&offset=40
+```
+
+## Request Body
+
+FastAPI pozwala definiować strukturę danych przesyłanych w treści żądania.
+
+Najczęściej wykorzystuje się do tego modele **Pydantic**.
+
+```python
+from pydantic import BaseModel
+
+class User(BaseModel):
+    name: str
+    age: int
+```
+
+Następnie:
+
+```python
+@app.post("/users")
+def create_user(user: User):
+    return user
+```
+
+Klient może przesłać:
+
+```json
+{
+    "name": "Jan",
+    "age": 25
+}
+```
+
+FastAPI automatycznie przekształci dane JSON do obiektu `User`.
+
+## Pydantic
+
+Pydantic jest jednym z najważniejszych elementów ekosystemu FastAPI.
+
+Służy przede wszystkim do:
+
+walidacji danych.
+
+Definiowania modeli danych.
+
+Konwersji danych.
+
+Serializacji.
+
+Deserializacji.
+
+Przykład:
+
+```python
+from pydantic import BaseModel
+
+class Product(BaseModel):
+    name: str
+    price: float
+    quantity: int
+```
+
+FastAPI może automatycznie sprawdzić, czy przesłane dane odpowiadają temu modelowi.
+
+Jeżeli klient wyśle nieprawidłowe dane, FastAPI automatycznie zwróci odpowiedź informującą o błędzie walidacji.
+
+## Walidacja danych
+
+Możemy definiować bardziej szczegółowe wymagania.
+
+```python
+from pydantic import BaseModel, Field
+
+class Product(BaseModel):
+    name: str = Field(min_length=3)
+    price: float = Field(gt=0)
+    quantity: int = Field(ge=1)
+```
+
+Oznacza to między innymi, że:
+
+`name` musi mieć co najmniej 3 znaki.
+
+`price` musi być większe od 0.
+
+`quantity` musi być większe lub równe 1.
+
+## Response Model
+
+Możemy określić również strukturę danych zwracanych przez API.
+
+```python
+class UserResponse(BaseModel):
+    id: int
+    name: str
+```
+
+Następnie:
+
+```python
+@app.get("/users/{user_id}", response_model=UserResponse)
+def get_user(user_id: int):
+    return {
+        "id": user_id,
+        "name": "Jan"
+    }
+```
+
+FastAPI będzie pilnował struktury odpowiedzi.
+
+## Automatyczna dokumentacja API
+
+Jedną z największych zalet FastAPI jest automatyczne generowanie dokumentacji API.
+
+Po uruchomieniu aplikacji możemy wejść na:
+
+```text
+/docs
+```
+
+FastAPI udostępnia tam interaktywną dokumentację **Swagger UI**.
+
+Możemy bezpośrednio z przeglądarki wykonywać zapytania do API.
+
+Dostępna jest również dokumentacja ReDoc:
+
+```text
+/redoc
+```
+
+FastAPI automatycznie generuje specyfikację **OpenAPI**.
+
+Domyślnie znajduje się ona pod:
+
+```text
+/openapi.json
+```
+
+## Async i await
+
+FastAPI bardzo dobrze współpracuje z programowaniem asynchronicznym.
+
+Przykład:
+
+```python
+@app.get("/users")
+async def get_users():
+    users = await get_users_from_database()
+    return users
+```
+
+`async` oznacza, że funkcja jest asynchroniczna.
+
+`await` pozwala oczekiwać na zakończenie operacji asynchronicznej bez blokowania całego procesu.
+
+Jest to szczególnie przydatne podczas wykonywania operacji I/O, takich jak:
+
+zapytania do baz danych.
+
+komunikacja z innymi API.
+
+operacje sieciowe.
+
+odczyt danych.
+
+komunikacja z zewnętrznymi usługami.
+
+## Dependency Injection
+
+FastAPI posiada wbudowany mechanizm **Dependency Injection**.
+
+Służy on między innymi do współdzielenia logiki pomiędzy endpointami.
+
+Przykład:
+
+```python
+from fastapi import Depends
+
+def get_database():
+    return database
+
+@app.get("/users")
+def get_users(db = Depends(get_database)):
+    return db.get_users()
+```
+
+FastAPI automatycznie dostarczy zależność do endpointu.
+
+Mechanizm ten jest bardzo przydatny przy:
+
+bazach danych.
+
+autoryzacji.
+
+uwierzytelnianiu.
+
+konfiguracji.
+
+logowaniu.
+
+wspólnych usługach.
+
+## Obsługa błędów
+
+FastAPI pozwala łatwo zwracać błędy HTTP.
+
+```python
+from fastapi import HTTPException
+
+@app.get("/users/{user_id}")
+def get_user(user_id: int):
+    if user_id != 1:
+        raise HTTPException(
+            status_code=404,
+            detail="User not found"
+        )
+
+    return {"id": 1, "name": "Jan"}
+```
+
+Klient otrzyma:
+
+```json
+{
+    "detail": "User not found"
+}
+```
+
+oraz status HTTP:
+
+```text
+404 Not Found
+```
+
+## Status Codes
+
+FastAPI umożliwia określanie kodów HTTP.
+
+Przykład:
+
+```python
+from fastapi import status
+
+@app.post(
+    "/users",
+    status_code=status.HTTP_201_CREATED
+)
+def create_user():
+    return {"message": "User created"}
+```
+
+Najczęściej spotykane kody to:
+
+`200 OK` – żądanie zakończyło się sukcesem.
+
+`201 Created` – utworzono nowy zasób.
+
+`204 No Content` – operacja zakończyła się sukcesem, ale brak treści odpowiedzi.
+
+`400 Bad Request` – nieprawidłowe żądanie.
+
+`401 Unauthorized` – brak prawidłowego uwierzytelnienia.
+
+`403 Forbidden` – brak uprawnień.
+
+`404 Not Found` – zasób nie istnieje.
+
+`409 Conflict` – konflikt danych.
+
+`422 Unprocessable Entity` – dane nie przeszły walidacji.
+
+`500 Internal Server Error` – błąd po stronie serwera.
+
+## Middleware
+
+Middleware pozwala wykonywać określoną logikę przed lub po obsłużeniu żądania.
+
+Może być wykorzystywany między innymi do:
+
+logowania.
+
+obsługi CORS.
+
+autoryzacji.
+
+mierzenia czasu odpowiedzi.
+
+modyfikowania requestów i response'ów.
+
+Przykład:
+
+```python
+@app.middleware("http")
+async def log_requests(request, call_next):
+    response = await call_next(request)
+    return response
+```
+
+## CORS
+
+CORS, czyli **Cross-Origin Resource Sharing**, jest potrzebny, gdy frontend i backend działają na różnych domenach lub portach.
+
+Przykładowo:
+
+```text
+Frontend: http://localhost:3000
+Backend:  http://localhost:8000
+```
+
+Możemy skonfigurować CORS:
+
+```python
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+## Bazy danych
+
+FastAPI nie narzuca jednej konkretnej technologii bazodanowej.
+
+Może współpracować między innymi z:
+
+PostgreSQL.
+
+MySQL.
+
+SQLite.
+
+MariaDB.
+
+MongoDB.
+
+Redis.
+
+Można używać bibliotek takich jak:
+
+SQLAlchemy.
+
+SQLModel.
+
+asyncpg.
+
+psycopg.
+
+Motor.
+
+Przykładowa architektura może wyglądać tak:
+
+```text
+FastAPI
+   ↓
+Service
+   ↓
+Repository
+   ↓
+SQLAlchemy
+   ↓
+PostgreSQL
+```
+
+## FastAPI + SQLAlchemy
+
+SQLAlchemy jest bardzo popularnym narzędziem do pracy z relacyjnymi bazami danych w Pythonie.
+
+Można dzięki niemu tworzyć modele odpowiadające tabelom w bazie danych.
+
+Przykładowa architektura:
+
+```text
+Controller / Router
+        ↓
+Service
+        ↓
+Repository
+        ↓
+SQLAlchemy
+        ↓
+PostgreSQL
+```
+
+## Routery
+
+W większych aplikacjach nie powinno się umieszczać wszystkich endpointów w jednym pliku.
+
+FastAPI umożliwia podział API na routery.
+
+Przykład:
+
+```python
+from fastapi import APIRouter
+
+router = APIRouter(
+    prefix="/users",
+    tags=["Users"]
+)
+
+@router.get("/")
+def get_users():
+    return []
+```
+
+Następnie router można podłączyć do aplikacji:
+
+```python
+app.include_router(router)
+```
+
+Dzięki temu projekt jest znacznie bardziej uporządkowany.
+
+## Typowa struktura projektu
+
+Większa aplikacja FastAPI może wyglądać na przykład tak:
+
+```text
+app/
+├── main.py
+├── api/
+│   ├── users.py
+│   └── auth.py
+├── models/
+│   └── user.py
+├── schemas/
+│   └── user.py
+├── services/
+│   └── user_service.py
+├── repositories/
+│   └── user_repository.py
+├── database/
+│   └── database.py
+├── core/
+│   ├── config.py
+│   └── security.py
+└── dependencies/
+    └── dependencies.py
+```
+
+Taki podział pozwala oddzielić odpowiedzialności poszczególnych elementów aplikacji.
+
+## Authentication
+
+FastAPI może obsługiwać różne mechanizmy uwierzytelniania.
+
+Popularnym rozwiązaniem jest **JWT**.
+
+Przykładowy przepływ:
+
+```text
+POST /login
+      ↓
+sprawdzenie użytkownika
+      ↓
+wygenerowanie JWT
+      ↓
+klient otrzymuje token
+      ↓
+GET /users
+Authorization: Bearer TOKEN
+      ↓
+weryfikacja JWT
+      ↓
+dostęp do danych
+```
+
+FastAPI posiada narzędzia ułatwiające implementację OAuth2 i Bearer Token.
+
+## FastAPI a REST API
+
+FastAPI bardzo dobrze nadaje się do budowania REST API.
+
+Przykładowe API dla systemu użytkowników:
+
+```text
+GET    /users
+GET    /users/{id}
+POST   /users
+PUT    /users/{id}
+DELETE /users/{id}
+```
+
+Możemy dzięki temu stworzyć backend dla:
+
+aplikacji webowej.
+
+aplikacji mobilnej.
+
+aplikacji desktopowej.
+
+systemu AI.
+
+systemu IoT.
+
+mikroserwisu.
+
+## FastAPI w AI
+
+FastAPI jest szczególnie popularny w projektach związanych ze sztuczną inteligencją.
+
+Możemy na przykład stworzyć model Machine Learning:
+
+```text
+Frontend
+   ↓
+FastAPI
+   ↓
+Python ML Model
+   ↓
+Prediction
+   ↓
+JSON Response
+```
+
+Przykładowo:
+
+```python
+@app.post("/predict")
+def predict(data: PredictionRequest):
+    result = model.predict(data.features)
+
+    return {
+        "prediction": result
+    }
+```
+
+Dzięki temu model Pythonowy może być udostępniony jako API.
+
+## FastAPI a Flask
+
+FastAPI i Flask są frameworkami Pythona służącymi do tworzenia aplikacji webowych i API.
+
+FastAPI jest bardziej nastawione na nowoczesne API, typowanie, walidację danych i programowanie asynchroniczne.
+
+Flask jest starszym i bardzo dojrzałym frameworkiem o minimalistycznym podejściu.
+
+FastAPI automatycznie generuje dokumentację OpenAPI.
+
+Flask wymaga dodatkowych rozszerzeń do wielu funkcji, które FastAPI zapewnia bezpośrednio.
+
+FastAPI wykorzystuje Pydantic do walidacji danych.
+
+## FastAPI a Django
+
+FastAPI jest przede wszystkim frameworkiem do tworzenia API i lekkich backendów.
+
+Django jest znacznie bardziej rozbudowanym frameworkiem typu **batteries included**.
+
+Django posiada między innymi własny ORM, system administracyjny, mechanizmy uwierzytelniania oraz wiele gotowych komponentów.
+
+FastAPI jest natomiast często wybierane wtedy, gdy chcemy stworzyć:
+
+REST API.
+
+mikroserwis.
+
+backend aplikacji AI.
+
+wydajny serwis asynchroniczny.
+
+## Zalety FastAPI
+
+FastAPI jest szybkie.
+
+Posiada bardzo dobre wsparcie dla async/await.
+
+Automatycznie generuje dokumentację API.
+
+Automatycznie waliduje dane.
+
+Wykorzystuje Python type hints.
+
+Dobrze współpracuje z Pydantic.
+
+Dobrze nadaje się do REST API.
+
+Dobrze nadaje się do mikroserwisów.
+
+Jest stosunkowo proste do rozpoczęcia pracy.
+
+Dobrze sprawdza się w projektach AI i Machine Learning.
+
+## Wady FastAPI
+
+FastAPI nie dostarcza tak wielu gotowych funkcji jak Django.
+
+W większych projektach trzeba samodzielnie zaprojektować architekturę aplikacji.
+
+Trzeba dobrać odpowiednie rozwiązanie do obsługi bazy danych.
+
+Trzeba samodzielnie zdecydować o sposobie organizacji warstw aplikacji.
+
+Ekosystem jest mniejszy niż w przypadku najbardziej dojrzałych frameworków Pythona.
+
+## FastAPI w architekturze mikroserwisowej
+
+FastAPI bardzo dobrze nadaje się do tworzenia mikroserwisów.
+
+Przykładowa aplikacja może wyglądać tak:
+
+```text
+                 API Gateway
+                      ↓
+        ┌─────────────┼─────────────┐
+        ↓             ↓             ↓
+    User Service  AI Service   Payment Service
+      FastAPI       FastAPI        FastAPI
+        ↓             ↓             ↓
+    PostgreSQL      Model ML      PostgreSQL
+```
+
+Każdy mikroserwis może mieć własne endpointy, logikę biznesową oraz bazę danych.
+
+## FastAPI i Docker
+
+FastAPI bardzo dobrze współpracuje z Dockerem.
+
+Przykładowy przepływ:
+
+```text
+Kod Python
+    ↓
+FastAPI
+    ↓
+Docker Image
+    ↓
+Docker Container
+    ↓
+API
+```
+
+Możemy następnie uruchomić aplikację razem z bazą danych za pomocą Docker Compose.
+
+## FastAPI i Kubernetes
+
+FastAPI może być również wykorzystywane w środowisku Kubernetes.
+
+Przykładowo:
+
+```text
+Internet
+   ↓
+Ingress
+   ↓
+Service
+   ↓
+FastAPI Pods
+   ↓
+PostgreSQL
+```
+
+Kubernetes może uruchamiać wiele instancji aplikacji FastAPI i automatycznie nimi zarządzać.
+
+## FastAPI – najważniejsze elementy do zapamiętania
+
+FastAPI to framework Pythona do tworzenia API.
+
+Najczęściej wykorzystuje się go do tworzenia REST API i mikroserwisów.
+
+FastAPI korzysta z type hints Pythona.
+
+Pydantic odpowiada między innymi za walidację danych.
+
+Starlette zapewnia podstawową warstwę webową.
+
+Uvicorn jest popularnym serwerem ASGI używanym do uruchamiania aplikacji.
+
+FastAPI obsługuje `async` i `await`.
+
+FastAPI automatycznie generuje dokumentację Swagger UI.
+
+FastAPI generuje również dokumentację ReDoc.
+
+FastAPI wykorzystuje standard OpenAPI.
+
+FastAPI posiada Dependency Injection.
+
+FastAPI może współpracować z SQLAlchemy i wieloma innymi rozwiązaniami bazodanowymi.
+
+FastAPI dobrze nadaje się do aplikacji AI i Machine Learning.
+
+FastAPI dobrze sprawdza się w architekturze mikroserwisowej.
+
+FastAPI może być uruchamiane w Dockerze i Kubernetesie.
+
+**Najprościej zapamiętać:**
+
+```text
+FastAPI
+   ↓
+Python Backend
+   ↓
+REST API
+   ↓
+Pydantic + Type Hints
+   ↓
+OpenAPI + Swagger
+   ↓
+Async / Await
+   ↓
+Bazy danych / AI / Mikroserwisy
+```

@@ -1,0 +1,167 @@
+# Go (Golang)
+
+## 1. Czym jest Go?
+
+Go, nazywany również Golang, to kompilowany język programowania ogólnego przeznaczenia, stworzony przez firmę Google i udostępniony w 2009 roku.
+
+Został zaprojektowany z myślą o prostocie składni, wysokiej wydajności, łatwej kompilacji oraz efektywnym programowaniu współbieżnym.
+
+Go jest szczególnie popularny w tworzeniu backendów, usług sieciowych, mikrousług, narzędzi infrastrukturalnych i oprogramowania chmurowego.
+
+## 2. Do czego służy Go?
+
+Go służy do tworzenia wydajnych aplikacji serwerowych i systemów przetwarzających wiele żądań jednocześnie.
+
+Jest wykorzystywany do budowania interfejsów API, mikrousług oraz aplikacji komunikujących się przez sieć.
+
+Umożliwia tworzenie narzędzi wiersza poleceń, programów administracyjnych i oprogramowania infrastrukturalnego.
+
+Jest również stosowany w ekosystemie chmurowym, kontenerach i systemach rozproszonych.
+
+## 3. Najważniejsze cechy języka Go
+
+Prosta składnia ułatwia czytanie i utrzymywanie kodu.
+
+Kompilacja pozwala przekształcać kod źródłowy w wykonywalny plik binarny dla wybranego systemu i architektury.
+
+Goroutines umożliwiają uruchamianie lekkich zadań współbieżnych.
+
+Channels pozwalają komunikować się między goroutines i synchronizować ich pracę.
+
+Garbage Collector automatycznie zarządza odzyskiwaniem pamięci zajmowanej przez nieużywane obiekty.
+
+Static Typing oznacza, że typy danych są sprawdzane przez kompilator.
+
+Go Modules umożliwiają zarządzanie zależnościami i wersjami bibliotek.
+
+## 4. Podstawy programowania w Go
+
+Poniższy przykład przedstawia prosty program w języku Go.
+
+```
+package main
+
+import "fmt"
+
+func main() {
+    message := "Hello, World!"
+    fmt.Println(message)
+}
+```
+
+Instrukcja `package main` określa pakiet programu wykonywalnego.
+
+Instrukcja `import "fmt"` importuje bibliotekę standardową wykorzystywaną do formatowania i wyświetlania tekstu.
+
+Funkcja `main()` jest punktem wejścia programu.
+
+Operator `:=` pozwala zadeklarować zmienną i automatycznie wywnioskować jej typ.
+
+Funkcja `fmt.Println()` wyświetla komunikat w konsoli.
+
+## 5. Go i programowanie współbieżne
+
+Jedną z najważniejszych cech Go jest wbudowane wsparcie dla programowania współbieżnego.
+
+Goroutines pozwalają uruchamiać funkcje jako lekkie zadania współbieżne przy użyciu słowa kluczowego `go`.
+
+Channels umożliwiają przekazywanie danych między takimi zadaniami.
+
+Przykładowy kod:
+
+```
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func greet() {
+    fmt.Println("Hello from goroutine!")
+}
+
+func main() {
+    go greet()
+
+    time.Sleep(100 * time.Millisecond)
+}
+```
+
+W tym przykładzie funkcja `greet()` zostaje uruchomiona jako goroutine.
+
+W rzeczywistych aplikacjach zamiast polegać na `time.Sleep()` do synchronizacji zadań należy stosować odpowiednie mechanizmy, takie jak channels, `sync.WaitGroup` lub inne narzędzia synchronizacji.
+
+## 6. Zastosowanie Go w backendzie
+
+Go dobrze sprawdza się w tworzeniu serwerów HTTP i interfejsów API.
+
+Biblioteka standardowa zawiera pakiet `net/http`, który umożliwia budowanie serwerów internetowych bez konieczności korzystania z zewnętrznego frameworka.
+
+Go jest również wykorzystywany w mikrousługach, usługach przetwarzania danych i systemach obsługujących dużą liczbę połączeń.
+
+W połączeniu z PostgreSQL, Dockerem i Kubernetesem może stanowić podstawę nowoczesnej architektury backendowej.
+
+## 7. Popularne narzędzia i technologie związane z Go
+
+Go Modules służą do zarządzania zależnościami projektu.
+
+Gin to popularny framework do tworzenia aplikacji HTTP i REST API.
+
+Echo to framework internetowy oferujący narzędzia do budowania usług sieciowych.
+
+GORM to biblioteka ORM umożliwiająca pracę z relacyjnymi bazami danych.
+
+Delve to debugger wykorzystywany podczas analizowania działania programów Go.
+
+Go Test to wbudowane narzędzie do uruchamiania testów i benchmarków.
+
+Docker i Kubernetes są często wykorzystywane do uruchamiania i zarządzania aplikacjami napisanymi w Go.
+
+## 8. Zalety Go
+
+Go oferuje prostą składnię i stosunkowo łatwe wdrażanie się w język.
+
+Kompiluje kod do wydajnych plików wykonywalnych.
+
+Zapewnia wygodne mechanizmy współbieżności za pomocą goroutines i channels.
+
+Posiada rozbudowaną bibliotekę standardową oraz narzędzia do formatowania kodu, testowania i zarządzania zależnościami.
+
+Jest szczególnie przydatny przy budowaniu lekkich usług backendowych i narzędzi infrastrukturalnych.
+
+## 9. Wady i ograniczenia Go
+
+Go oferuje mniej rozbudowane mechanizmy abstrakcji niż niektóre języki, co może utrudniać tworzenie określonych rodzajów aplikacji.
+
+Obsługa błędów często wymaga jawnego sprawdzania zwracanych wartości błędów.
+
+Garbage Collector może wpływać na opóźnienia i zużycie pamięci w aplikacjach wymagających bardzo przewidywalnej wydajności.
+
+Go nie jest zazwyczaj pierwszym wyborem do tworzenia rozbudowanych aplikacji mobilnych ani interfejsów graficznych.
+
+## 10. Go a inne języki programowania
+
+Go i Java są wykorzystywane do tworzenia backendów, mikrousług oraz aplikacji serwerowych.
+
+Java oferuje rozbudowany ekosystem frameworków, w tym Spring Boot, natomiast Go wyróżnia się prostą składnią i lekkimi mechanizmami współbieżności.
+
+Go i Python mogą być wykorzystywane do automatyzacji oraz tworzenia usług sieciowych, ale Python jest szczególnie popularny w analizie danych i uczeniu maszynowym.
+
+Go i C++ znajdują zastosowanie w wydajnym oprogramowaniu, jednak C++ daje bardziej bezpośrednią kontrolę nad pamięcią i zasobami systemowymi.
+
+## 11. Znaczenie Go w pracy informatyka
+
+Go jest przydatny dla programistów backendowych, inżynierów DevOps, specjalistów chmurowych i osób rozwijających systemy rozproszone.
+
+Znajomość Go może być wartościowa przy pracy z mikrousługami, Kubernetesem, narzędziami sieciowymi oraz infrastrukturą chmurową.
+
+Dla programisty znającego już Javę nauka Go może być dobrym sposobem na poznanie innego podejścia do współbieżności, kompilacji i projektowania usług.
+
+## 12. Podsumowanie
+
+Go to kompilowany język programowania stworzony przez Google, który łączy prostą składnię, wysoką wydajność i wygodne mechanizmy programowania współbieżnego.
+
+Jest szeroko stosowany w backendzie, mikrousługach, systemach rozproszonych i narzędziach chmurowych.
+
+Warto poznać Go, jeśli interesujesz się nowoczesnymi aplikacjami serwerowymi, Dockerem, Kubernetesem i inżynierią DevOps.

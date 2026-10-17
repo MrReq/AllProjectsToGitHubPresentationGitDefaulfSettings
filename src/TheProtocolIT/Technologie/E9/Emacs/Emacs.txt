@@ -1,0 +1,693 @@
+# Emacs
+
+## 1. Czym jest Emacs?
+
+Emacs to rozbudowany, rozszerzalny edytor tekstu, który może pełnić również funkcję środowiska programistycznego.
+
+Emacs jest przede wszystkim kojarzony z systemami Unix i Linux, ale działa również na Windows oraz macOS.
+
+Jest rozwijany jako oprogramowanie open source.
+
+Najbardziej charakterystyczną cechą Emacsa jest jego ogromna możliwość konfiguracji i rozszerzania.
+
+## 2. GNU Emacs
+
+Najpopularniejszą implementacją jest **GNU Emacs**.
+
+GNU Emacs jest częścią projektu GNU.
+
+Emacs został pierwotnie stworzony przez Richarda Stallmana i Guya Steele'a w latach 70., a GNU Emacs został rozpoczęty przez Richarda Stallmana w 1984 roku.
+
+GNU Emacs jest obecnie rozwijany przez społeczność skupioną wokół projektu GNU.
+
+## 3. Emacs jako edytor tekstu
+
+Podstawowym zastosowaniem Emacsa jest edycja tekstu.
+
+Można w nim tworzyć i edytować:
+
+pliki tekstowe,
+
+dokumenty,
+
+konfiguracje,
+
+skrypty,
+
+kod źródłowy,
+
+notatki.
+
+Emacs posiada bardzo rozbudowane możliwości wyszukiwania, zastępowania i manipulowania tekstem.
+
+## 4. Emacs jako środowisko programistyczne
+
+Emacs może zostać skonfigurowany jako kompletne środowisko programistyczne.
+
+Może zapewniać:
+
+edytor kodu,
+
+autouzupełnianie,
+
+debugowanie,
+
+terminal,
+
+integrację z Git,
+
+zarządzanie projektami,
+
+analizę kodu,
+
+narzędzia do testowania,
+
+integrację z kompilatorami i interpreterami.
+
+Dlatego Emacs jest często wykorzystywany jako alternatywa dla klasycznych IDE.
+
+## 5. Emacs Lisp
+
+Jedną z najważniejszych cech Emacsa jest język **Emacs Lisp**, często nazywany również **Elisp**.
+
+Jest to dialekt języka Lisp wykorzystywany do rozszerzania i konfigurowania Emacsa.
+
+Dzięki Emacs Lisp użytkownik może zmieniać zachowanie edytora, tworzyć własne funkcje oraz instalować lub tworzyć rozszerzenia.
+
+Przykład:
+
+```elisp
+(message "Hello, Emacs!")
+```
+
+## 6. Konfiguracja Emacsa
+
+Konfiguracja Emacsa może być wykonywana za pomocą kodu Emacs Lisp.
+
+Tradycyjnym plikiem konfiguracyjnym jest:
+
+```text
+.emacs
+```
+
+lub:
+
+```text
+.emacs.d/init.el
+```
+
+W nowszych konfiguracjach często wykorzystywany jest również:
+
+```text
+~/.config/emacs/init.el
+```
+
+Konfiguracja może zawierać ustawienia wyglądu, skrótów klawiszowych, pluginów oraz zachowania edytora.
+
+## 7. Buffer
+
+Jednym z podstawowych pojęć w Emacsie jest **buffer**.
+
+Buffer reprezentuje obszar roboczy zawierający tekst lub inne informacje.
+
+Buffer może reprezentować na przykład:
+
+plik,
+
+terminal,
+
+wyniki wyszukiwania,
+
+listę procesów,
+
+dokument,
+
+informacje systemowe.
+
+Nie każdy buffer musi być bezpośrednio powiązany z plikiem.
+
+## 8. Window
+
+W Emacsie **window** oznacza obszar interfejsu, w którym wyświetlany jest buffer.
+
+Można podzielić ekran na wiele okien.
+
+Przykładowo:
+
+```text
+┌──────────────────────┬──────────────────────┐
+│                      │                      │
+│       Buffer 1       │       Buffer 2       │
+│                      │                      │
+├──────────────────────┴──────────────────────┤
+│                 Buffer 3                    │
+└─────────────────────────────────────────────┘
+```
+
+Pozwala to jednocześnie pracować z kilkoma plikami lub narzędziami.
+
+## 9. Frame
+
+**Frame** to główne okno Emacsa.
+
+Frame może zawierać wiele windows, a każde window może wyświetlać inny buffer.
+
+Można więc uprościć hierarchię:
+
+```text
+Frame
+ ├── Window → Buffer
+ ├── Window → Buffer
+ └── Window → Buffer
+```
+
+## 10. Mode
+
+Emacs wykorzystuje system **modes**, które określają sposób działania danego buffera.
+
+Najważniejsze są dwa rodzaje:
+
+**Major mode** – określa główny typ pracy z danym plikiem.
+
+**Minor mode** – dodaje dodatkową funkcjonalność.
+
+## 11. Major Mode
+
+Major mode jest przeznaczony dla konkretnego rodzaju dokumentu lub języka.
+
+Przykłady:
+
+`python-mode`
+
+`java-mode`
+
+`c-mode`
+
+`org-mode`
+
+`text-mode`
+
+Major mode może zapewniać kolorowanie składni, odpowiednie skróty klawiszowe i funkcje specyficzne dla danego języka.
+
+## 12. Minor Mode
+
+Minor mode dodaje dodatkową funkcjonalność niezależnie od głównego typu pliku.
+
+Przykładowo minor mode może odpowiadać za:
+
+automatyczne uzupełnianie,
+
+numerowanie linii,
+
+kontrolę wersji,
+
+formatowanie,
+
+obsługę snippetów.
+
+W jednym bufferze może działać jednocześnie wiele minor modes.
+
+## 13. Org Mode
+
+Jednym z najbardziej znanych rozszerzeń Emacsa jest **Org Mode**.
+
+Org Mode służy do organizowania informacji za pomocą zwykłego tekstu.
+
+Można go wykorzystywać do:
+
+notatek,
+
+tworzenia list zadań,
+
+planowania,
+
+zarządzania projektami,
+
+tworzenia dokumentacji,
+
+prowadzenia dziennika,
+
+tworzenia tabel,
+
+eksportowania dokumentów.
+
+Przykład:
+
+```text
+* Projekt
+** Zadania
+*** TODO Napisać kod
+*** DONE Przetestować aplikację
+```
+
+## 14. Emacs jako system organizacji pracy
+
+Dzięki Org Mode Emacs może pełnić funkcję osobistego systemu zarządzania informacjami.
+
+Można w nim przechowywać zadania, notatki, harmonogramy i dokumentację.
+
+Org Mode posiada również mechanizmy pracy z terminami i powtarzalnymi zadaniami.
+
+## 15. Packages
+
+Emacs posiada system pakietów umożliwiający instalowanie dodatkowych rozszerzeń.
+
+Pakiety mogą dodawać między innymi:
+
+obsługę nowych języków,
+
+autouzupełnianie,
+
+integrację z Git,
+
+narzędzia projektowe,
+
+debuggery,
+
+interfejsy do baz danych,
+
+ulepszenia edytora.
+
+Pakiety można instalować między innymi z repozytoriów takich jak **ELPA**, **MELPA** oraz **GNU ELPA**.
+
+## 16. MELPA
+
+**MELPA (Milkypostman's Emacs Lisp Package Archive)** jest popularnym repozytorium pakietów dla Emacsa.
+
+Zawiera dużą liczbę rozszerzeń tworzonych i utrzymywanych przez społeczność.
+
+MELPA jest bardzo często wykorzystywane przez użytkowników konfigurujących nowoczesne środowisko Emacs.
+
+## 17. ELPA
+
+**ELPA (Emacs Lisp Package Archive)** to system dystrybucji pakietów Emacs Lisp.
+
+Istnieje kilka repozytoriów ELPA, w tym GNU ELPA.
+
+Pakiety mogą być instalowane bezpośrednio z poziomu Emacsa.
+
+## 18. Autouzupełnianie
+
+Emacs może zapewniać inteligentne autouzupełnianie kodu.
+
+Jednym z popularnych współczesnych rozwiązań jest ekosystem oparty na **Corfu**, **Company** oraz **CAPF (Completion-at-Point Functions)**.
+
+Autouzupełnianie może podpowiadać nazwy funkcji, zmiennych, klas i innych elementów kodu.
+
+## 19. LSP
+
+Emacs może współpracować z **Language Server Protocol (LSP)**.
+
+LSP umożliwia dostarczanie funkcji takich jak:
+
+autouzupełnianie,
+
+nawigacja po kodzie,
+
+wyświetlanie informacji o symbolach,
+
+wykrywanie błędów,
+
+refaktoryzacja.
+
+Popularnym rozwiązaniem jest **Eglot**, który zapewnia integrację Emacsa z serwerami językowymi.
+
+## 20. Git
+
+Emacs może współpracować z systemem kontroli wersji Git.
+
+Jednym z najbardziej znanych rozszerzeń jest **Magit**.
+
+Magit zapewnia rozbudowany interfejs do wykonywania operacji Git.
+
+Można między innymi wykonywać:
+
+commit,
+
+push,
+
+pull,
+
+fetch,
+
+merge,
+
+rebase,
+
+branch,
+
+diff.
+
+Magit jest jednym z najbardziej cenionych rozszerzeń w ekosystemie Emacsa.
+
+## 21. Terminal
+
+Emacs może działać jako interfejs do terminala.
+
+Dostępne są między innymi:
+
+`term`
+
+`ansi-term`
+
+`eshell`
+
+`vterm`
+
+**Eshell** jest szczególnie interesujący, ponieważ nie jest klasycznym terminalem systemowym.
+
+Eshell jest powłoką zaimplementowaną w Emacs Lisp i zintegrowaną z Emacsem.
+
+## 22. Eshell
+
+Eshell pozwala wykonywać polecenia bez opuszczania Emacsa.
+
+Przykładowo:
+
+```text
+$ pwd
+$ ls
+$ git status
+```
+
+Można również korzystać z funkcji i mechanizmów Emacs Lisp.
+
+Dzięki temu Emacs może stać się centrum pracy programisty.
+
+## 23. Debugowanie
+
+Emacs może współpracować z debuggerami i narzędziami debugowania.
+
+W zależności od języka można korzystać między innymi z:
+
+GDB,
+
+DAP,
+
+debuggerów dostarczanych przez środowiska językowe.
+
+Rozszerzenie **Dap Mode** umożliwia wykorzystanie Debug Adapter Protocol.
+
+## 24. Projekty
+
+Emacs posiada narzędzia do zarządzania projektami.
+
+Jednym z podstawowych mechanizmów jest **Project.el**.
+
+Pozwala on między innymi odnajdywać pliki projektu i wykonywać operacje związane z projektem.
+
+Popularnym alternatywnym rozwiązaniem jest również **Projectile**.
+
+## 25. Dired
+
+**Dired** to menedżer plików dostępny bezpośrednio w Emacsie.
+
+Pozwala przeglądać katalogi oraz wykonywać operacje na plikach.
+
+Można między innymi:
+
+otwierać pliki,
+
+kopiować je,
+
+przenosić,
+
+usuwać,
+
+zmieniać ich nazwy.
+
+Dired pozwala więc zarządzać systemem plików bez opuszczania Emacsa.
+
+## 26. Wyszukiwanie
+
+Emacs posiada bardzo rozbudowane mechanizmy wyszukiwania.
+
+Można wyszukiwać tekst w aktualnym bufferze oraz w wielu plikach.
+
+Popularnymi narzędziami są:
+
+`isearch`
+
+`grep`
+
+`rgrep`
+
+`occur`
+
+`consult`
+
+`ripgrep` poprzez odpowiednie integracje.
+
+## 27. Makra klawiszowe
+
+Emacs pozwala nagrywać makra klawiszowe.
+
+Makro zapamiętuje wykonywane operacje i pozwala je później powtórzyć.
+
+Jest to szczególnie przydatne podczas wykonywania wielu identycznych operacji na tekście.
+
+## 28. Skróty klawiszowe
+
+Emacs jest silnie oparty na skrótach klawiszowych.
+
+Charakterystyczne są kombinacje wykorzystujące klawisze:
+
+`Ctrl`
+
+`Alt`
+
+`Meta`
+
+`Super`
+
+Przykładowo:
+
+`Ctrl+x Ctrl+s` – zapisanie pliku.
+
+`Ctrl+x Ctrl+f` – otwarcie pliku.
+
+`Ctrl+x Ctrl+c` – wyjście z Emacsa.
+
+`Ctrl+x b` – przełączenie buffera.
+
+`Ctrl+g` – przerwanie aktualnej operacji.
+
+## 29. Modalność działania
+
+Emacs nie jest edytorem modalnym w takim sensie jak Vim.
+
+W Vimie istnieją między innymi tryby normal, insert i visual.
+
+W Emacsie użytkownik może wykonywać polecenia za pomocą kombinacji klawiszy oraz funkcji dostępnych w aktywnych modes.
+
+Emacs posiada jednak własny bardzo rozbudowany system interakcji z użytkownikiem.
+
+## 30. Emacs i Vim
+
+Emacs i Vim są dwoma bardzo znanymi edytorami tekstu.
+
+Vim jest szczególnie znany z modalnego sposobu edycji tekstu.
+
+Emacs jest szczególnie znany z możliwości rozszerzania za pomocą Emacs Lisp.
+
+Vim koncentruje się mocno na efektywnej edycji tekstu.
+
+Emacs może zostać przekształcony w znacznie szersze środowisko pracy obejmujące edytor, terminal, Git, pocztę, notatki, kalendarz i wiele innych funkcji.
+
+## 31. Emacs i IDE
+
+Emacs sam w sobie jest edytorem tekstu, ale dzięki odpowiedniej konfiguracji może działać podobnie do pełnego IDE.
+
+Można skonfigurować:
+
+LSP,
+
+Git,
+
+debugger,
+
+terminal,
+
+testy,
+
+build system,
+
+autouzupełnianie,
+
+nawigację po projekcie.
+
+Dzięki temu programista może stworzyć własne środowisko dopasowane do swoich potrzeb.
+
+## 32. Emacs jako środowisko wielojęzyczne
+
+Emacs może obsługiwać wiele języków programowania.
+
+Można w nim pracować między innymi z:
+
+C,
+
+C++,
+
+Java,
+
+Python,
+
+JavaScript,
+
+TypeScript,
+
+Rust,
+
+Go,
+
+Lisp,
+
+Elixir,
+
+Haskell.
+
+Obsługa konkretnego języka często zależy od dostępnych modes, pakietów i konfiguracji LSP.
+
+## 33. Emacs i Lisp
+
+Emacs jest szczególnie interesujący z punktu widzenia programowania, ponieważ duża część jego funkcjonalności może być modyfikowana za pomocą Emacs Lisp.
+
+Użytkownik może napisać własną funkcję:
+
+```elisp
+(defun hello-user ()
+  (interactive)
+  (message "Hello!"))
+```
+
+Następnie może przypisać ją do skrótu klawiszowego.
+
+Oznacza to, że użytkownik może programować zachowanie samego edytora.
+
+## 34. Emacs jako platforma
+
+Emacs można traktować nie tylko jako edytor, ale również jako platformę programistyczną.
+
+Jego funkcjonalność może być rozszerzana przez:
+
+Emacs Lisp,
+
+pakiety,
+
+minor modes,
+
+major modes,
+
+zewnętrzne narzędzia,
+
+Language Servers.
+
+Dzięki temu dwie osoby mogą korzystać z zupełnie inaczej skonfigurowanych środowisk Emacs.
+
+## 35. Zastosowania Emacsa
+
+Emacs może być wykorzystywany do:
+
+programowania,
+
+edycji tekstu,
+
+tworzenia dokumentacji,
+
+zarządzania zadaniami,
+
+prowadzenia notatek,
+
+pracy z Git,
+
+pracy z terminalem,
+
+zarządzania projektami,
+
+pisania dokumentów,
+
+automatyzacji pracy,
+
+tworzenia własnych narzędzi.
+
+## 36. Zalety Emacsa
+
+Emacs jest niezwykle rozszerzalny.
+
+Można dostosować praktycznie każdy element jego działania.
+
+Posiada bardzo rozbudowany system skrótów i poleceń.
+
+Może obsługiwać wiele języków programowania.
+
+Posiada potężny system pakietów.
+
+Może integrować Git, LSP, terminal, debugowanie i narzędzia projektowe.
+
+Org Mode pozwala wykorzystywać Emacsa do zarządzania wiedzą i zadaniami.
+
+Emacs Lisp umożliwia programowanie i automatyzowanie samego środowiska.
+
+## 37. Wady Emacsa
+
+Emacs może być trudny do opanowania dla początkującego użytkownika.
+
+Liczba skrótów klawiszowych i poleceń może początkowo przytłaczać.
+
+Pełne skonfigurowanie Emacsa jako IDE może wymagać sporo czasu.
+
+Niektóre funkcje wymagają instalacji dodatkowych pakietów.
+
+W porównaniu z nowoczesnymi IDE wiele funkcji trzeba samodzielnie skonfigurować.
+
+## 38. Najważniejsze pojęcia
+
+**Emacs** – rozszerzalny edytor tekstu i środowisko pracy.
+
+**GNU Emacs** – najpopularniejsza implementacja Emacsa.
+
+**Emacs Lisp / Elisp** – język używany do rozszerzania i konfiguracji Emacsa.
+
+**Buffer** – obszar zawierający tekst lub inne dane.
+
+**Window** – obszar interfejsu wyświetlający buffer.
+
+**Frame** – główne okno Emacsa.
+
+**Major Mode** – tryb przeznaczony dla określonego rodzaju dokumentu lub języka.
+
+**Minor Mode** – dodatkowa funkcjonalność aktywna w bufferze.
+
+**Org Mode** – system notatek, zadań i organizacji informacji.
+
+**Package** – rozszerzenie Emacsa.
+
+**MELPA** – popularne repozytorium pakietów.
+
+**Magit** – rozbudowany interfejs Git dla Emacsa.
+
+**Eglot** – integracja Emacsa z Language Server Protocol.
+
+**LSP** – protokół komunikacji z serwerami językowymi.
+
+**Dired** – menedżer plików.
+
+**Eshell** – powłoka zintegrowana z Emacsem.
+
+**Project.el** – narzędzia do zarządzania projektami.
+
+**Isearch** – mechanizm wyszukiwania tekstu.
+
+## 39. Podsumowanie
+
+Emacs to znacznie więcej niż zwykły edytor tekstu.
+
+Jego największą cechą jest **rozszerzalność**.
+
+Za pomocą Emacs Lisp oraz systemu pakietów można stworzyć środowisko dopasowane praktycznie do dowolnego sposobu pracy.
+
+Emacs może pełnić funkcję edytora kodu, IDE, terminala, menedżera plików, narzędzia Git, systemu notatek oraz organizera zadań.
+
+Szczególnie ważnymi elementami ekosystemu są **Emacs Lisp, Org Mode, Magit, Eglot, Dired, Project.el oraz system pakietów**.
+
+**W skrócie: Emacs = edytor tekstu + Emacs Lisp + ogromna rozszerzalność + programowanie + Org Mode + Git + terminal + własna konfiguracja.**

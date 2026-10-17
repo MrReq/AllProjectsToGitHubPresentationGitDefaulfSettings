@@ -1,0 +1,170 @@
+# Apache Cordova
+
+## 1. Czym jest Cordova?
+
+[Artwork - Apache Cordova](https://images.openai.com/static-rsc-4/02ecdYc72IbF5nNgiMPkGUqinis2BV6x9s-Q2oXepsGPBDTuRz_ulRAXi2_6L7cf3-b3kENQfXgFT0wexHZbL-9H8BeFGl-NI2QO5NoWmr43JiEFyxBsT5xQHinvbK3RovZLCHo_W4iaUS3tRWKHFeXQ9KRB0GK2VB3Amyw1Z_I?purpose=inline)
+
+[cordova.apache.org](https://cordova.apache.org/artwork/)
+
+Apache Cordova to otwartoźródłowy framework umożliwiający tworzenie aplikacji mobilnych na Androida i iOS przy użyciu technologii internetowych, takich jak HTML, CSS i JavaScript.
+
+Zamiast pisać osobną aplikację natywną dla każdego systemu operacyjnego, programista może stworzyć wspólną aplikację internetową, która jest uruchamiana wewnątrz natywnego kontenera aplikacji mobilnej.
+
+Cordova pozwala również korzystać z wybranych funkcji urządzenia, takich jak aparat, geolokalizacja czy pamięć, za pośrednictwem odpowiednich pluginów.
+
+## 2. Najważniejsze cechy Cordova
+
+- Wieloplatformowość – możliwość tworzenia aplikacji na różne systemy mobilne z wykorzystaniem wspólnego kodu.
+- HTML, CSS i JavaScript – wykorzystanie technologii znanych z tworzenia stron internetowych.
+- Dostęp do funkcji urządzenia – obsługa aparatu, lokalizacji i innych funkcji za pomocą pluginów.
+- Pluginy – rozszerzanie możliwości aplikacji o dodatkowe funkcje.
+- WebView – wyświetlanie interfejsu internetowego wewnątrz aplikacji natywnej.
+- Integracja z istniejącymi bibliotekami – możliwość wykorzystywania wielu bibliotek JavaScript.
+- Natywne pakowanie aplikacji – generowanie projektów mobilnych, które można kompilować i dystrybuować na obsługiwanych platformach.
+
+## 3. Jak działa Cordova?
+
+Cordova łączy kod internetowy z natywną aplikacją mobilną.
+
+HTML + CSS + JavaScript
+
+Interfejs i logika aplikacji
+
+Cordova WebView
+
+Uruchamia interfejs internetowy w aplikacji
+
+Pluginy Cordova
+
+Pośredniczą w dostępie do funkcji urządzenia
+
+System operacyjny
+
+Android lub iOS
+
+Przykładowo aplikacja może wyświetlać formularz napisany w HTML, a po kliknięciu przycisku uruchamiać aparat za pomocą odpowiedniego pluginu.
+
+Dzięki temu znaczna część kodu może być współdzielona między platformami, choć nie wszystkie funkcje i zachowania będą identyczne na każdym urządzeniu.
+
+## 4. Przykład kodu Cordova
+
+Prosty interfejs aplikacji mobilnej może wyglądać następująco:
+
+```
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Moja aplikacja</title>
+</head>
+<body>
+    <h1>Witaj w aplikacji!</h1>
+
+    <button id="helloButton">
+        Kliknij mnie
+    </button>
+
+    <script>
+        document
+            .getElementById("helloButton")
+            .addEventListener("click", () => {
+                alert("Działam w aplikacji mobilnej!");
+            });
+    </script>
+</body>
+</html>
+```
+
+Ten kod stanowi prosty interfejs internetowy, który może zostać umieszczony w projekcie Cordova.
+
+Aby uzyskać działającą aplikację mobilną, należy dodatkowo utworzyć projekt Cordova, dodać odpowiednią platformę i przeprowadzić kompilację.
+
+## 5. Instalacja i podstawowe polecenia
+
+Cordova wykorzystuje środowisko Node.js oraz menedżer pakietów npm.
+
+Instalacja interfejsu wiersza poleceń:
+
+```
+npm install -g cordova
+```
+
+Utworzenie projektu:
+
+```
+cordova create MyApp com.example.myapp MyApp
+```
+
+Przejście do katalogu:
+
+```
+cd MyApp
+```
+
+Dodanie platformy Android:
+
+```
+cordova platform add android
+```
+
+Zbudowanie aplikacji:
+
+```
+cordova build android
+```
+
+Uruchomienie na skonfigurowanym urządzeniu lub emulatorze:
+
+```
+cordova run android
+```
+
+Do kompilowania Androida potrzebne są również odpowiednio skonfigurowane narzędzia Android SDK i wymagane komponenty środowiska Java.
+
+## 6. Do czego wykorzystuje się Cordova?
+
+- Aplikacje biznesowe – formularze, raporty i narzędzia wewnętrzne.
+- Aplikacje terenowe – programy korzystające z geolokalizacji i aparatu.
+- Proste aplikacje mobilne – wykorzystujące wspólny kod HTML, CSS i JavaScript.
+- Prototypy – szybkie przygotowywanie aplikacji na wiele platform.
+- Migracja aplikacji internetowych – opakowywanie istniejących interfejsów internetowych w aplikacje mobilne.
+
+## 7. Cordova a inne technologie
+
+| Technologia    | Charakterystyka                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------- |
+| Apache Cordova | Aplikacje oparte na HTML, CSS i JavaScript uruchamiane w WebView.                                          |
+| Ionic          | Framework do tworzenia aplikacji mobilnych, który może korzystać z Cordova lub Capacitor.                  |
+| Capacitor      | Środowisko uruchamiania aplikacji internetowych z dostępem do funkcji natywnych, często stosowane z Ionic. |
+| React Native   | Tworzenie aplikacji mobilnych przy użyciu React i natywnych komponentów interfejsu.                        |
+| Flutter        | Tworzenie aplikacji wieloplatformowych w języku Dart z własnym systemem renderowania interfejsu.           |
+| Android SDK    | Narzędzia do tworzenia natywnych aplikacji na Androida.                                                    |
+
+## 8. Zalety i wady Cordova
+
+Zalety:
+
+- Możliwość współdzielenia dużej części kodu między platformami.
+- Wykorzystanie popularnych technologii internetowych.
+- Dostęp do funkcji urządzenia poprzez pluginy.
+- Stosunkowo niski próg wejścia dla programistów frontendowych.
+- Przydatność przy prostych aplikacjach biznesowych.
+
+Wady:
+
+- Interfejs działa w WebView, dlatego wydajność i płynność mogą być gorsze niż w dobrze zoptymalizowanych aplikacjach natywnych.
+- Dostępność pluginów i ich kompatybilność mogą być ograniczone.
+- Konfiguracja platform mobilnych może wymagać dodatkowej wiedzy.
+- Złożone animacje i interfejsy wymagające intensywnej grafiki mogą być trudniejsze do zoptymalizowania.
+
+## 9. Dlaczego warto znać Cordova?
+
+Cordova jest przydatna dla osób znających HTML, CSS i JavaScript, które chcą zrozumieć tworzenie aplikacji mobilnych bez konieczności pisania całego kodu osobno dla Androida i iOS.
+
+Warto ją poznać, jeśli interesujesz się aplikacjami hybrydowymi, integracją funkcji mobilnych oraz migracją aplikacji internetowych na urządzenia przenośne.
+
+Przy rozpoczynaniu nowego projektu warto jednak porównać aktualne możliwości Cordova z Capacitor, Flutter i React Native, uwzględniając wymagania dotyczące wydajności, wsparcia platform i dostępności pluginów.
+
+Oficjalna strona: [Apache Cordova](https://cordova.apache.org/).

@@ -1,0 +1,248 @@
+# Wzorzec projektowy Prototype (Prototyp) w Javie
+
+Wzorzec Prototype (Prototyp) to kreacyjny wzorzec projektowy, który pozwala tworzyć nowe obiekty poprzez kopiowanie istniejących obiektów, zamiast konstruowania ich od początku.
+
+Jest szczególnie przydatny wtedy, gdy utworzenie obiektu jest kosztowne, obiekt ma wiele pól lub chcemy szybko tworzyć podobne obiekty z niewielkimi zmianami.
+
+## 1. Jak działa Prototype?
+
+Wyobraź sobie, że tworzysz grę komputerową i masz postać wojownika z określonym poziomem zdrowia, siłą ataku, bronią oraz zbroją.
+
+Zamiast za każdym razem ustawiać wszystkie właściwości od nowa, możesz skopiować istniejącego wojownika i zmienić tylko wybrane parametry.
+
+Oryginalny wojownik
+
+Zdrowie: 100 · Atak: 20 · Zbroja: stalowa
+
+Klonowanie obiektu
+
+Wojownik A
+
+Atak: 30
+
+Wojownik B
+
+Zdrowie: 150
+
+Każdy sklonowany obiekt może być niezależnie modyfikowany.
+
+## 2. Najważniejsze elementy wzorca
+
+- Prototype – definiuje sposób klonowania obiektu.
+- Concrete Prototype – konkretna klasa implementująca klonowanie.
+- Client – kod, który korzysta z prototypu, aby tworzyć kopie.
+
+W Javie można wykorzystać do tego własną metodę `copy()` lub `clone()`. W praktyce często wygodniejsza jest jawna metoda `copy()`, ponieważ pozwala dokładnie określić, które dane mają zostać skopiowane.
+
+## 3. Gotowy mini projekt w Javie
+
+Stworzymy prosty system kopiowania postaci do gry. Będzie to kompletny przykład, który możesz wkleić do IntelliJ IDEA i uruchomić.
+
+Dla uproszczenia wszystkie klasy umieścimy w jednym pliku `Main.java`.
+
+Main.java
+
+```
+
+interface Prototype<T> {
+    T copy();
+}
+
+class Character implements Prototype<Character> {
+
+    private String name;
+    private int health;
+    private int attack;
+    private String weapon;
+
+    public Character(String name, int health, int attack, String weapon) {
+        this.name = name;
+        this.health = health;
+        this.attack = attack;
+        this.weapon = weapon;
+    }
+
+    // Tworzymy kopię istniejącej postaci
+    @Override
+    public Character copy() {
+        return new Character(name, health, attack, weapon);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
+
+    public void showInfo() {
+        System.out.println("Imię: " + name);
+        System.out.println("Zdrowie: " + health);
+        System.out.println("Atak: " + attack);
+        System.out.println("Broń: " + weapon);
+        System.out.println("--------------------");
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // 1. Tworzymy oryginalny prototyp
+        Character warrior = new Character(
+                "Wojownik",
+                100,
+                20,
+                "Miecz"
+        );
+
+        // 2. Klonujemy prototyp
+        Character warrior2 = warrior.copy();
+
+        // 3. Modyfikujemy kopię
+        warrior2.setName("Elitarny Wojownik");
+        warrior2.setHealth(150);
+        warrior2.setAttack(35);
+        warrior2.setWeapon("Topór");
+
+        // 4. Wyświetlamy oba obiekty
+        System.out.println("ORYGINAŁ:");
+        warrior.showInfo();
+
+        System.out.println("KOPIA:");
+        warrior2.showInfo();
+
+        // 5. Sprawdzamy, czy to różne obiekty
+        System.out.println(
+                "Czy to ten sam obiekt? " + (warrior == warrior2)
+        );
+    }
+}
+
+```
+
+### Wynik działania programu
+
+```
+ORYGINAŁ:
+Imię: Wojownik
+Zdrowie: 100
+Atak: 20
+Broń: Miecz
+--------------------
+
+KOPIA:
+Imię: Elitarny Wojownik
+Zdrowie: 150
+Atak: 35
+Broń: Topór
+--------------------
+
+Czy to ten sam obiekt? false
+```
+
+## 4. Jak działa kod?
+
+Krok 1. Interfejs `Prototype<T>`
+
+Definiuje metodę `copy()`, którą implementują klasy obsługujące kopiowanie. Typ generyczny `T` pozwala zwracać konkretny typ obiektu bez rzutowania.
+
+Krok 2. Metoda `copy()`
+
+Instrukcja `return new Character(name, health, attack, weapon);` tworzy nowy obiekt i przepisuje do niego wartości pól oryginału.
+
+Krok 3. Modyfikacja kopii
+
+Zmieniamy właściwości `warrior2`, ale oryginalny obiekt `warrior` zachowuje swoje wartości.
+
+Krok 4. Porównanie obiektów
+
+Operator `==` zwraca `false`, ponieważ zmienne wskazują na dwa różne obiekty w pamięci.
+
+## 5. Płytkie i głębokie kopiowanie
+
+To bardzo ważne zagadnienie, szczególnie gdy przygotowujesz się do egzaminu z wzorców projektowych.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://docs.oracle.com\&sz=32)
+
+Oracle Documentation
+
++1
+
+
+
+Shallow copy — kopiowanie płytkie
+
+Kopiowane są wartości pól, ale jeśli pole przechowuje referencję do innego, mutowalnego obiektu, kopia i oryginał mogą współdzielić ten sam obiekt.
+
+Deep copy — kopiowanie głębokie
+
+Kopiowany jest również obiekt zagnieżdżony, dzięki czemu oryginał i kopia mogą niezależnie zmieniać jego stan.
+
+Przykład: jeśli postać ma pole `Weapon weapon`, to samo przypisanie `this.weapon = weapon` skopiuje referencję, a nie utworzy nowej broni. Wtedy zmiana broni może być widoczna w obu postaciach.
+
+W naszym projekcie `weapon` jest typu `String`, który jest niemutowalny, więc to uproszczenie jest bezpieczne.
+
+## 6. Kiedy warto stosować Prototype?
+
+- Gdy potrzebujesz wielu podobnych obiektów, np. przeciwników w grze.
+- Gdy obiekty mają skomplikowaną konfigurację.
+- Gdy tworzenie obiektu od podstaw jest kosztowne.
+- Gdy konkretny typ obiektu jest znany dopiero w trakcie działania programu.
+
+Nie warto stosować tego wzorca automatycznie. Jeśli obiekt jest prosty i łatwo go utworzyć konstruktorem, kopiowanie może nie przynieść żadnej korzyści.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://java-design-patterns.com\&sz=32)
+
+Java Design Patterns
+
++1
+
+
+
+## 7. Sprawdź swoją wiedzę
+
+1\. Jaki jest główny cel wzorca Prototype?
+
+Tworzenie obiektów przez kopiowanie istniejących
+
+Ukrywanie wszystkich konstruktorów
+
+Zapewnienie jednej instancji klasy
+
+Dobrze! Prototype pozwala tworzyć nowe obiekty na podstawie istniejących prototypów.
+
+2\. Co oznacza wynik \`warrior == warrior2\` równy \`false\`?
+
+Obiekty mają różne typy
+
+To dwie różne referencje do obiektów
+
+Kopiowanie się nie powiodło
+
+Dobrze! Obie zmienne wskazują na różne obiekty, nawet jeśli ich pola początkowo mają identyczne wartości.
+
+3\. Co może być problemem przy kopiowaniu płytkim?
+
+Nie można kopiować liczb
+
+Kopia zawsze ma inną klasę
+
+Oryginał i kopia mogą współdzielić mutowalny obiekt
+
+Dobrze! Kopiowanie samej referencji nie tworzy niezależnej kopii zagnieżdżonego obiektu.
+
+## Wynik: 3/3
+
+Rozwiąż ponownie
+
+Zapamiętaj: Prototype = tworzę nowy obiekt poprzez skopiowanie już istniejącego obiektu, a następnie mogę zmienić jego właściwości.

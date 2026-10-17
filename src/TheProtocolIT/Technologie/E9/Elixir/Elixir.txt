@@ -1,0 +1,761 @@
+# Elixir
+
+## 1. Czym jest Elixir?
+
+Elixir to funkcyjny język programowania ogólnego przeznaczenia, zaprojektowany z myślą o tworzeniu skalowalnych, odpornych na błędy i współbieżnych aplikacji.
+
+Elixir został stworzony przez José Valima i po raz pierwszy udostępniony publicznie w 2012 roku.
+
+Elixir działa na **BEAM**, czyli wirtualnej maszynie Erlanga.
+
+Dzięki wykorzystaniu BEAM Elixir dziedziczy wiele właściwości ekosystemu Erlanga, szczególnie w zakresie współbieżności, niezawodności i pracy rozproszonych systemów.
+
+## 2. Elixir a Erlang
+
+Elixir i Erlang są ze sobą bardzo mocno związane.
+
+Erlang jest starszym językiem stworzonym w firmie Ericsson z myślą między innymi o systemach telekomunikacyjnych.
+
+Elixir wykorzystuje tę samą maszynę wirtualną BEAM.
+
+Elixir oferuje jednak nowocześniejszą składnię oraz mechanizmy ułatwiające tworzenie aplikacji.
+
+Można więc powiedzieć:
+
+```text
+Erlang
+   ↓
+BEAM
+   ↑
+Elixir
+```
+
+Elixir może korzystać z bibliotek Erlanga, co daje mu dostęp do bardzo dojrzałego ekosystemu.
+
+## 3. Programowanie funkcyjne
+
+Elixir jest językiem funkcyjnym.
+
+W programowaniu funkcyjnym funkcje są traktowane jako podstawowe elementy programu.
+
+Duże znaczenie mają funkcje, niemutowalność danych oraz wyrażanie operacji poprzez transformacje danych.
+
+Przykład:
+
+```elixir
+numbers = [1, 2, 3, 4, 5]
+
+Enum.map(numbers, fn x -> x * 2 end)
+```
+
+Wynik:
+
+```text
+[2, 4, 6, 8, 10]
+```
+
+## 4. Niemutowalność danych
+
+Dane w Elixirze są niemutowalne.
+
+Oznacza to, że po utworzeniu wartości nie można jej bezpośrednio zmienić.
+
+Zamiast modyfikować istniejące dane, tworzy się nowe wartości.
+
+Przykład:
+
+```elixir
+x = 10
+x = x + 5
+```
+
+W tym przypadku nie zmieniamy obiektu `10`.
+
+Nazwa `x` zostaje powiązana z nową wartością.
+
+Niemutowalność ułatwia tworzenie aplikacji współbieżnych, ponieważ wiele procesów może bezpiecznie pracować na swoich danych.
+
+## 5. Pattern Matching
+
+Jedną z najważniejszych cech Elixira jest **pattern matching**, czyli dopasowywanie wzorców.
+
+Przykład:
+
+```elixir
+{x, y} = {10, 20}
+```
+
+Po wykonaniu:
+
+```text
+x = 10
+y = 20
+```
+
+Pattern matching może być używany nie tylko do przypisywania wartości, ale również do sterowania działaniem funkcji.
+
+Przykład:
+
+```elixir
+def greet({:ok, name}) do
+  "Hello #{name}"
+end
+```
+
+Funkcja zostanie wykorzystana wtedy, gdy argument będzie pasował do wzorca `{:ok, name}`.
+
+## 6. Typy danych
+
+Elixir posiada między innymi następujące typy danych:
+
+`integer` – liczby całkowite.
+
+`float` – liczby zmiennoprzecinkowe.
+
+`boolean` – `true` i `false`.
+
+`atom` – stała symboliczna.
+
+`string` – ciąg znaków.
+
+`list` – lista elementów.
+
+`tuple` – krotka elementów.
+
+`map` – struktura klucz-wartość.
+
+`function` – funkcja.
+
+Przykład:
+
+```elixir
+name = "Marcin"
+age = 25
+active = true
+```
+
+## 7. Atom
+
+Atom jest stałą, której wartość jest reprezentowana przez jej nazwę.
+
+Przykłady:
+
+```elixir
+:ok
+:error
+:admin
+:user
+```
+
+Atomy są bardzo często wykorzystywane do reprezentowania stanów lub wyników operacji.
+
+Typowym przykładem jest:
+
+```elixir
+{:ok, result}
+```
+
+albo:
+
+```elixir
+{:error, reason}
+```
+
+## 8. Tuple
+
+Tuple, czyli krotka, służy do przechowywania kilku wartości w jednej strukturze.
+
+Przykład:
+
+```elixir
+person = {"Marcin", 25}
+```
+
+Można również tworzyć zagnieżdżone tuple:
+
+```elixir
+{:ok, {"Marcin", 25}}
+```
+
+Tuple są często używane do zwracania wyników funkcji.
+
+## 9. List
+
+Lista przechowuje wiele elementów.
+
+Przykład:
+
+```elixir
+numbers = [1, 2, 3, 4, 5]
+```
+
+Lista może zawierać również różne typy danych:
+
+```elixir
+data = [1, "Elixir", true, :ok]
+```
+
+Listy są bardzo ważnym elementem programowania funkcyjnego w Elixirze.
+
+## 10. Map
+
+Map jest strukturą przechowującą pary klucz-wartość.
+
+Przykład:
+
+```elixir
+user = %{
+  name: "Marcin",
+  age: 25
+}
+```
+
+Dostęp do danych może wyglądać tak:
+
+```elixir
+user.name
+```
+
+Mapy są często wykorzystywane do reprezentowania obiektów danych.
+
+## 11. Funkcje
+
+Funkcje są podstawowym elementem programów napisanych w Elixirze.
+
+Przykład:
+
+```elixir
+def add(a, b) do
+  a + b
+end
+```
+
+Wywołanie:
+
+```elixir
+add(5, 3)
+```
+
+zwróci:
+
+```text
+8
+```
+
+## 12. Funkcje anonimowe
+
+Elixir pozwala tworzyć funkcje anonimowe.
+
+Przykład:
+
+```elixir
+add = fn a, b -> a + b end
+```
+
+Funkcję można następnie wywołać:
+
+```elixir
+add.(5, 3)
+```
+
+Funkcje anonimowe są często wykorzystywane razem z `Enum.map`, `Enum.filter` i innymi funkcjami przetwarzającymi kolekcje.
+
+## 13. Pipe Operator
+
+Bardzo charakterystycznym elementem Elixira jest operator pipe:
+
+```text
+|>
+```
+
+Pozwala on przekazywać wynik jednej funkcji jako argument kolejnej.
+
+Przykład:
+
+```elixir
+"hello world"
+|> String.upcase()
+|> String.reverse()
+```
+
+Zamiast tworzyć wiele zagnieżdżonych wywołań funkcji, można zapisać operacje jako czytelny ciąg transformacji.
+
+## 14. Enum
+
+Moduł `Enum` zawiera wiele funkcji służących do pracy z kolekcjami.
+
+Przykładowo:
+
+```elixir
+Enum.map([1, 2, 3], fn x -> x * 2 end)
+```
+
+zwraca:
+
+```text
+[2, 4, 6]
+```
+
+Inne popularne funkcje to:
+
+`Enum.filter/2`
+
+`Enum.reduce/3`
+
+`Enum.find/2`
+
+`Enum.any?/2`
+
+`Enum.all?/2`
+
+`Enum.sort/1`
+
+## 15. Pattern Matching w funkcjach
+
+Elixir pozwala definiować wiele wersji tej samej funkcji.
+
+Każda wersja może mieć inny wzorzec.
+
+Przykład:
+
+```elixir
+def greet(:admin) do
+  "Welcome, administrator!"
+end
+
+def greet(:user) do
+  "Welcome, user!"
+end
+```
+
+Elixir wybierze odpowiednią funkcję na podstawie przekazanego argumentu.
+
+## 16. Guards
+
+Guards umożliwiają dodawanie dodatkowych warunków do funkcji.
+
+Przykład:
+
+```elixir
+def check_age(age) when age >= 18 do
+  "Adult"
+end
+
+def check_age(age) when age < 18 do
+  "Minor"
+end
+```
+
+Guard może wykorzystywać określone funkcje i operatory do sprawdzania właściwości argumentów.
+
+## 17. Rekurencja
+
+W Elixirze rekurencja jest bardzo ważnym mechanizmem przetwarzania danych.
+
+Ponieważ dane są niemutowalne, zamiast zmieniać zmienną w pętli często wykorzystuje się rekurencję lub funkcje modułu `Enum`.
+
+Przykład:
+
+```elixir
+def sum([]), do: 0
+
+def sum([head | tail]) do
+  head + sum(tail)
+end
+```
+
+## 18. Brak klasycznych pętli
+
+Elixir nie wykorzystuje klasycznych pętli `for` i `while` w taki sposób jak Java czy C#.
+
+Zamiast tego często stosuje się:
+
+`Enum`
+
+`Stream`
+
+rekurencję
+
+pattern matching
+
+funkcje wyższego rzędu.
+
+Elixir posiada również konstrukcję `for`, ale służy ona przede wszystkim do tworzenia comprehensions.
+
+## 19. List Comprehension
+
+List comprehension umożliwia wygodne tworzenie nowych list.
+
+Przykład:
+
+```elixir
+for x <- [1, 2, 3, 4], x > 2 do
+  x * 2
+end
+```
+
+Wynik:
+
+```text
+[6, 8]
+```
+
+## 20. Procesy
+
+Jedną z najważniejszych cech Elixira są lekkie procesy.
+
+Proces w Elixirze nie jest tym samym co ciężki proces systemu operacyjnego.
+
+Procesy BEAM są bardzo lekkie i można ich uruchamiać bardzo dużo.
+
+Przykład:
+
+```elixir
+spawn(fn ->
+  IO.puts("Hello from process")
+end)
+```
+
+## 21. Concurrency
+
+Elixir został zaprojektowany z myślą o współbieżności.
+
+Wiele procesów może działać jednocześnie i komunikować się ze sobą za pomocą wiadomości.
+
+Przykładowo:
+
+```text
+Process A
+    │
+    │ message
+    ↓
+Process B
+```
+
+Dzięki temu Elixir dobrze nadaje się do systemów obsługujących dużą liczbę jednoczesnych operacji.
+
+## 22. Message Passing
+
+Procesy w Elixirze komunikują się poprzez przesyłanie wiadomości.
+
+Przykład:
+
+```elixir
+send(pid, {:hello, "world"})
+```
+
+Proces może odbierać wiadomości za pomocą `receive`.
+
+```elixir
+receive do
+  {:hello, message} ->
+    IO.puts(message)
+end
+```
+
+Model ten jest inspirowany modelem aktorów.
+
+## 23. OTP
+
+**OTP (Open Telecom Platform)** jest jednym z najważniejszych elementów ekosystemu Elixira i Erlanga.
+
+OTP dostarcza gotowe mechanizmy do budowania odpornych i współbieżnych systemów.
+
+Zawiera między innymi:
+
+GenServer,
+
+Supervisors,
+
+Application,
+
+GenStage,
+
+mechanizmy obsługi procesów i ich nadzorowania.
+
+## 24. GenServer
+
+`GenServer` jest zachowującym stan procesem zgodnym z modelem OTP.
+
+Może odbierać wiadomości i wykonywać określone operacje.
+
+Przykładowo może reprezentować:
+
+licznik,
+
+kolejkę,
+
+połączenie z zewnętrznym systemem,
+
+sesję użytkownika,
+
+stan aplikacji.
+
+## 25. Supervision Tree
+
+Jedną z charakterystycznych cech Elixira jest **supervision tree**.
+
+Supervisor obserwuje procesy i może je automatycznie uruchomić ponownie w przypadku awarii.
+
+Schemat może wyglądać tak:
+
+```text
+Supervisor
+   │
+   ├── Process A
+   ├── Process B
+   └── Process C
+```
+
+Jeżeli Process B zakończy się błędem, Supervisor może go ponownie uruchomić.
+
+## 26. Let it crash
+
+Ekosystem Erlanga i Elixira wykorzystuje filozofię określaną jako **"let it crash"**.
+
+Zamiast próbować zabezpieczać każdą możliwą sytuację w jednym procesie, pozwala się procesowi zakończyć w przypadku poważnego błędu.
+
+Następnie Supervisor może go ponownie uruchomić.
+
+Dzięki temu system może pozostać dostępny nawet wtedy, gdy pojedyncze procesy ulegają awarii.
+
+## 27. Fault tolerance
+
+Elixir jest bardzo dobrze przystosowany do tworzenia systemów odpornych na awarie.
+
+Mechanizmy OTP umożliwiają monitorowanie procesów, ich restartowanie oraz organizowanie zależności pomiędzy procesami.
+
+Jest to szczególnie istotne w systemach działających przez całą dobę.
+
+## 28. Phoenix
+
+**Phoenix** to popularny framework webowy dla Elixira.
+
+Umożliwia tworzenie aplikacji internetowych, API oraz aplikacji wykorzystujących komunikację w czasie rzeczywistym.
+
+Phoenix jest często wykorzystywany razem z Elixirem do tworzenia backendów.
+
+## 29. Phoenix LiveView
+
+Phoenix LiveView pozwala tworzyć interaktywne interfejsy internetowe przy dużym wykorzystaniu logiki po stronie serwera.
+
+Zmiany mogą być przesyłane do przeglądarki bez konieczności tworzenia dużej ilości kodu JavaScript po stronie klienta.
+
+LiveView jest szczególnie interesujące przy tworzeniu aplikacji wymagających interaktywności i aktualizacji danych w czasie rzeczywistym.
+
+## 30. Mix
+
+**Mix** jest podstawowym narzędziem do zarządzania projektami Elixira.
+
+Pozwala między innymi tworzyć projekty, zarządzać zależnościami, uruchamiać testy i wykonywać zadania związane z budowaniem aplikacji.
+
+Przykład utworzenia projektu:
+
+```bash
+mix new my_app
+```
+
+Uruchomienie testów:
+
+```bash
+mix test
+```
+
+## 31. Hex
+
+**Hex** jest menedżerem pakietów używanym w ekosystemie Elixira i Erlanga.
+
+Pozwala pobierać biblioteki i zarządzać zależnościami projektu.
+
+Zależności są definiowane między innymi w pliku:
+
+```text
+mix.exs
+```
+
+## 32. IEx
+
+**IEx (Interactive Elixir)** to interaktywna konsola Elixira.
+
+Można ją uruchomić poleceniem:
+
+```bash
+iex
+```
+
+Następnie można wykonywać kod Elixira bez tworzenia pełnego projektu.
+
+Przykład:
+
+```elixir
+iex> 2 + 3
+5
+```
+
+IEx jest bardzo przydatny do nauki języka, testowania funkcji i szybkiego eksperymentowania.
+
+## 33. Testowanie
+
+Elixir posiada własny framework testowy **ExUnit**.
+
+Przykład:
+
+```elixir
+defmodule MathTest do
+  use ExUnit.Case
+
+  test "adds numbers" do
+    assert 2 + 3 == 5
+  end
+end
+```
+
+Testy można uruchomić za pomocą:
+
+```bash
+mix test
+```
+
+## 34. Ecto
+
+**Ecto** jest popularną biblioteką Elixira przeznaczoną między innymi do pracy z bazami danych.
+
+Ecto zapewnia między innymi:
+
+zapytania,
+
+schematy,
+
+migracje,
+
+walidację danych,
+
+transakcje.
+
+Ecto często jest wykorzystywane w aplikacjach Phoenix.
+
+## 35. Zastosowania Elixira
+
+Elixir jest wykorzystywany między innymi do tworzenia:
+
+aplikacji webowych,
+
+REST API,
+
+systemów czasu rzeczywistego,
+
+systemów komunikacyjnych,
+
+systemów obsługujących duży ruch,
+
+systemów rozproszonych,
+
+mikroserwisów,
+
+systemów kolejkowych,
+
+aplikacji wymagających wysokiej współbieżności.
+
+## 36. Zalety Elixira
+
+Elixir zapewnia bardzo dobre wsparcie dla współbieżności.
+
+Jest przystosowany do tworzenia systemów rozproszonych.
+
+Posiada mechanizmy zwiększające odporność aplikacji na awarie.
+
+Procesy BEAM są bardzo lekkie.
+
+Niemutowalne dane upraszczają wiele problemów związanych ze współbieżnością.
+
+OTP dostarcza sprawdzone mechanizmy budowania niezawodnych systemów.
+
+Elixir posiada nowoczesną składnię i rozbudowany ekosystem.
+
+## 37. Wady Elixira
+
+Elixir ma mniejszy ekosystem niż najpopularniejsze języki takie jak Java, JavaScript, Python czy C#.
+
+Liczba dostępnych bibliotek może być mniejsza niż w przypadku największych ekosystemów programistycznych.
+
+Programiści przyzwyczajeni do programowania obiektowego mogą potrzebować czasu, aby przyzwyczaić się do programowania funkcyjnego.
+
+Specyficzny model współbieżności wymaga zrozumienia BEAM i OTP.
+
+## 38. Elixir vs Java
+
+Java jest językiem obiektowym i wykorzystuje JVM.
+
+Elixir jest językiem funkcyjnym i wykorzystuje BEAM.
+
+Java jest bardzo popularna w aplikacjach enterprise.
+
+Elixir szczególnie dobrze sprawdza się w systemach współbieżnych, rozproszonych i wymagających wysokiej dostępności.
+
+Oba języki mogą być wykorzystywane do tworzenia backendów, API i systemów działających na dużą skalę.
+
+## 39. Elixir vs Python
+
+Python jest językiem wieloparadygmatowym i posiada ogromny ekosystem bibliotek.
+
+Elixir skupia się mocniej na programowaniu funkcyjnym oraz współbieżności.
+
+Python jest bardzo popularny w data science, AI, automatyzacji i backendzie.
+
+Elixir jest szczególnie interesujący w systemach czasu rzeczywistego i systemach rozproszonych.
+
+## 40. Najważniejsze pojęcia
+
+**Elixir** – funkcyjny język programowania działający na BEAM.
+
+**Erlang** – język, którego ekosystem stanowi podstawę wielu mechanizmów wykorzystywanych przez Elixir.
+
+**BEAM** – maszyna wirtualna Erlanga i Elixira.
+
+**Functional Programming** – paradygmat programowania oparty między innymi na funkcjach i niemutowalności.
+
+**Pattern Matching** – dopasowywanie wartości do wzorców.
+
+**Pipe Operator** – operator `|>` umożliwiający łańcuchowe przekazywanie wyników.
+
+**Process** – lekki proces BEAM.
+
+**Concurrency** – możliwość wykonywania wielu operacji współbieżnie.
+
+**Message Passing** – komunikacja pomiędzy procesami za pomocą wiadomości.
+
+**OTP** – zestaw narzędzi i wzorców do budowania odpornych systemów.
+
+**GenServer** – proces implementujący standardowy model serwera OTP.
+
+**Supervisor** – proces nadzorujący inne procesy.
+
+**Supervision Tree** – hierarchia supervisorów i nadzorowanych procesów.
+
+**Phoenix** – framework webowy dla Elixira.
+
+**LiveView** – technologia Phoenix do tworzenia interaktywnych interfejsów.
+
+**Mix** – narzędzie do zarządzania projektami Elixira.
+
+**Hex** – menedżer pakietów.
+
+**IEx** – interaktywna konsola Elixira.
+
+**ExUnit** – framework testowy.
+
+**Ecto** – biblioteka do pracy z danymi i bazami danych.
+
+## 41. Podsumowanie
+
+Elixir to funkcyjny język programowania działający na maszynie wirtualnej **BEAM**.
+
+Największą siłą Elixira jest połączenie **współbieżności, skalowalności, odporności na awarie i programowania funkcyjnego**.
+
+Elixir wykorzystuje lekki model procesów oraz komunikację poprzez wiadomości.
+
+Dzięki **OTP, GenServer i Supervisorom** można tworzyć systemy, które potrafią automatycznie reagować na awarie poszczególnych procesów.
+
+Framework **Phoenix** umożliwia tworzenie aplikacji webowych i systemów czasu rzeczywistego.
+
+**W skrócie: Elixir = programowanie funkcyjne + BEAM + współbieżność + OTP + odporność na awarie + Phoenix.**

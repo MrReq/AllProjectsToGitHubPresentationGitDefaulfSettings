@@ -1,0 +1,173 @@
+# Llama – kompletna notatka
+
+## 1. Czym jest Llama?
+
+Llama to rodzina dużych modeli językowych (LLM – Large Language Models) rozwijanych przez firmę Meta. Modele te służą do przetwarzania i generowania języka naturalnego oraz do wykonywania zadań związanych ze sztuczną inteligencją.
+
+Llama może odpowiadać na pytania, streszczać dokumenty, generować kod, analizować tekst, wspomagać tłumaczenie i stanowić podstawę chatbotów oraz agentów AI.
+
+Jedną z najważniejszych cech tej rodziny jest możliwość uruchamiania wielu modeli we własnej infrastrukturze, zależnie od wariantu, wymagań sprzętowych i warunków licencji.
+
+Llama nie jest frameworkiem takim jak LangChain, lecz rodziną modeli AI, z którymi można integrować aplikacje napisane między innymi w Pythonie, Javie czy JavaScript.
+
+[AWS Marketplace: LLaMA 3.2 3b Boosted by openSUSE MultiCortex HPC](https://images.openai.com/static-rsc-4/4EkJ3krKrQiUzBSwrkTaZLH1LN4NLnBsoDuaDIRqzTEe3g99GV9i8rM095NMfkzLJ_MrtHZRAlcFRjP7z67rEIq_OSBf2ft4N2fJl2g49Jnu9JVPMHJnmeuxeBvPU-aqZ8As89sGk5CCDCEAA6P7SZC9427NdrpAh7X6yW7aZ6Q?purpose=inline)
+
+[What Is LLaMA? Inside Meta's Family of Open-Source AI Models](https://images.openai.com/static-rsc-4/mQToZue8ogizoiPfboef42MgCB1Bh-6UhvjMklPDSMqSomNFt-gaghn4ZRDO_GPg6uBDBLZ2AEB0wJfXYnWDpxyvFE5OzusujOMUwiAKydSu7eVUgCqMVOFi-yJHBisV2IdHffY0swVT_sMvzLI-xQUZBTS8dWaINOMfxTknkww?purpose=inline)
+
+[Local AI Coding Assistant Setup Guide with Ollama | Medium](https://images.openai.com/static-rsc-4/7qaWDC_x7bwIM9loFh1rV_8BySp4NvMOWSUWlcVhhuXDabdm6glEaF4YpH70SUISPYQUlc_z51_vvt0Lqq0PTEMcgYukZ1pu10eyby40vbhlHvG7Dsl1Zc_d4vGP2Dp-_Dxe8NrDzW8JMdxAo8zCM2HsNd4m04nNCkePLr04Lw0?purpose=inline)
+
+7
+
+## 2. Do czego służy Llama?
+
+Llama jest wykorzystywana do tworzenia aplikacji opartych na sztucznej inteligencji.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie chatbotów i wirtualnych asystentów.
+- Generowanie, wyjaśnianie i poprawianie kodu programistycznego.
+- Analizowanie, klasyfikowanie i streszczanie tekstów.
+- Budowanie systemów RAG, które odpowiadają na pytania na podstawie dokumentów.
+- Tworzenie agentów AI korzystających z narzędzi i API.
+- Automatyzacja obsługi klienta.
+- Przetwarzanie dokumentacji firmowej.
+- Wspomaganie nauki i tworzenia materiałów edukacyjnych.
+- Przetwarzanie danych w aplikacjach działających lokalnie lub na serwerach.
+- Budowanie aplikacji wykorzystujących tekst, a w obsługiwanych wariantach również obrazy lub inne rodzaje danych.
+
+Przykładowo można wykorzystać Llama do stworzenia asystenta, który analizuje dokumentację dotyczącą uprawy ryżu i odpowiada na pytania użytkowników na podstawie dostarczonych materiałów.
+
+## 3. Najważniejsze modele z rodziny Llama
+
+Meta rozwija kilka generacji modeli, różniących się możliwościami, rozmiarem i zastosowaniem. Do rodziny należą między innymi Llama 2, Llama 3, Llama 3.1, Llama 3.2, Llama 3.3 i Llama 4.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://ai.meta.com\&sz=32)
+
+Meta
+
++1
+
+
+
+[User Guide | Sleeptracker-AI®](https://images.openai.com/static-rsc-4/3ogZYQ1NUUuud5HwQX2lbx8ajuLUjbc2MX9Dr9sDeXGAp5BMD7BOn2TMnIeHuT2pskcgHz7d_Fc6c3fK0XqnlVo8rV_OR2kSMpBUB75cdkmxsjhc9L6vdqXlHEfsS2CF6j2jU209feq2Nz0q-ioX8laGN4b293o9i9CGLvBVkh0?purpose=inline)
+
+Llama 3
+
+Jedna z wcześniejszych generacji, obejmująca modele językowe przeznaczone między innymi do generowania tekstu i prowadzenia rozmów.
+
+[Medium](https://images.openai.com/static-rsc-4/AT2cZ0tU04U2LaUc7tqyTE-9dkhy9QKpNajep5uV3qGyARhhWxDm10FkXy01ZA7ZiFzZ4LuZJaVOjWIRusNVOTCryY34VvYnXZTDfGa-l-a3RVQOtbsTyy5lkSZOI6FELjYVRoNdpt7KahPkFFPuWM56hZ8BakyIO8LUILho3bo?purpose=inline)
+
+Llama 3.1
+
+Rodzina obejmująca warianty 8B, 70B i 405B. Modele te nadają się do wielu zadań językowych, programistycznych i analitycznych.
+
+[Fine-tune Llama 3.2 Vision with Unsloth](https://images.openai.com/static-rsc-4/qTgI90fHvtGaJF2gVpYR1mMuGx3agxC8LJ2aQ7cUWMKmuSF8Y8jI2gOwe9LyqHnVFCSvboM-YdM_ALmPqiHpHUl9Cr51c2WfTbMugi--w107I01dW-nxNN_UUaZIMgKJXAqVZW8ZsGwfMlVUYIwcT8OhpSHvkXVhvukHX4LZXgo?purpose=inline)
+
+Llama 3.2
+
+Obejmuje mniejsze modele 1B i 3B, a także warianty obsługujące obrazy 11B i 90B. Lżejsze wersje są przeznaczone między innymi do urządzeń o ograniczonych zasobach.
+
+[Meta: Llama 3.3 70B Instruct](https://images.openai.com/static-rsc-4/0Tsa7txaGwaLlrw8N9jyQl9l64Q3E4ghSVuyhh9ODcrI32qxRS52aZZf6GEfXi4xIy5r2RDsFG6TbNVewfI-PbKLzuO0Q00ggnydF62RMds30PfrnD9gleAqmz85KHS0hmctS1ffxnINrgAfygeLyh-aMFTlTR5bUeGldf4BjO4?purpose=inline)
+
+Llama 3.3
+
+Wariant 70B dostrojony do wykonywania instrukcji i zadań tekstowych.
+
+[Meta Llama 4 Scout & Maverick : Révolution de l'IA - Le Blog Du Webmaster](https://images.openai.com/static-rsc-4/npt1cWr_kRUfRsA6OoYL-3ERQ2ZNltCaT899fR5x-4MCfKdfnrPxeDpOP8-UytsvJIxM5bTi2IX-w4ewGb6tSKnLhMwkpjmp-jODXapjJHLdw0cnw8q7NFBCkOQjMHwqrAUrQ2PBEp-_glKX1u2iURL43q7DqSTllHyWfD5wFDk?purpose=inline)
+
+Llama 4
+
+Nowsza generacja modeli multimodalnych, obejmująca między innymi Scout i Maverick. Wykorzystuje architekturę Mixture of Experts (MoE) i obsługuje zadania związane z tekstem oraz obrazami.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://ai.meta.com\&sz=32)
+
+Meta
+
++1
+
+
+
+Oznaczenie, np. 8B, odnosi się do około 8 miliardów parametrów modelu. Większa liczba parametrów nie oznacza automatycznie lepszych wyników w każdym zadaniu.
+
+## 4. Jak uruchomić Llama lokalnie?
+
+Niektóre modele Llama można uruchomić na własnym komputerze lub serwerze, bez wysyłania zapytań do zewnętrznej usługi modelowej.
+
+Popularne rozwiązania to:
+
+- Ollama – upraszcza pobieranie i uruchamianie modeli lokalnych.
+- llama.cpp – umożliwia wydajne uruchamianie modeli, w tym skwantyzowanych, na różnych konfiguracjach sprzętowych.
+- Hugging Face Transformers – biblioteka do ładowania modeli, generowania tekstu i dalszych eksperymentów.
+- vLLM – narzędzie do wydajnego serwowania modeli, szczególnie w środowiskach serwerowych.
+
+Dostępność konkretnego modelu zależy od licencji, formatu plików i wybranego narzędzia.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://ai.meta.com\&sz=32)
+
+Meta
+
++1
+
+
+
+Przykład uruchomienia modelu przez Ollama:
+
+```
+ollama run llama3.2
+```
+
+To polecenie jest przykładem dla środowiska, w którym Ollama jest zainstalowana, a wskazany model jest dostępny w jego bibliotece. Wymagania sprzętowe zależą od wariantu i kwantyzacji.
+
+## 5. Llama a LangChain i LangGraph
+
+| Technologia  | Rola                                                             |
+| ------------ | ---------------------------------------------------------------- |
+| Llama        | Model AI generujący odpowiedzi i przetwarzający dane             |
+| LangChain    | Framework integrujący modele, prompty, narzędzia i źródła danych |
+| LangGraph    | Framework sterujący wieloetapowymi procesami i agentami AI       |
+| Ollama       | Narzędzie do lokalnego uruchamiania obsługiwanych modeli         |
+| Hugging Face | Ekosystem modeli, zbiorów danych i bibliotek AI                  |
+
+Technologie te można łączyć. Przykładowo Llama może generować odpowiedzi, LangChain może połączyć ją z dokumentacją, LangGraph może kontrolować przebieg pracy agenta, a Ollama może zapewnić lokalne środowisko wykonywania modelu.
+
+## 6. Zalety Llama
+
+- Dostępność wielu wariantów o różnych rozmiarach.
+- Możliwość uruchamiania wybranych modeli we własnej infrastrukturze.
+- Wsparcie dla tworzenia chatbotów, systemów RAG i agentów AI.
+- Możliwość dostrajania modeli do określonych zastosowań.
+- Integracja z popularnymi bibliotekami i narzędziami programistycznymi.
+- Potencjalnie większa kontrola nad danymi przy lokalnym przetwarzaniu.
+
+## 7. Wady i ograniczenia Llama
+
+- Większe modele wymagają znacznych zasobów pamięci i mocy obliczeniowej.
+- Jakość odpowiedzi zależy od wersji modelu, języka i rodzaju zadania.
+- Modele mogą generować błędne informacje.
+- Uruchamianie lokalne wymaga konfiguracji i odpowiedniego sprzętu.
+- Nie wszystkie warianty obsługują te same rodzaje danych i funkcje.
+- Licencje i zasady użytkowania należy sprawdzić dla konkretnego modelu; określenie „open source” nie oznacza, że wszystkie warunki są identyczne jak w projektach na licencji MIT lub Apache 2.0.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://dev.meta.ai\&sz=32)
+
+  Meta Model API
+
+  +1
+
+
+
+## 8. Gdzie można nauczyć się Llama?
+
+- Oficjalna strona: [Llama](https://www.llama.com/).
+- Dokumentacja i materiały dla programistów: [Meta Llama – Get Started](https://ai.meta.com/llama/get-started/).
+- Modele na Hugging Face: [Meta Llama na Hugging Face](https://huggingface.co/meta-llama).
+- Repozytorium modeli: [Llama Models na GitHubie](https://github.com/meta-llama/llama-models).
+- Ollama: [Ollama – uruchamianie modeli lokalnych](https://ollama.com/).
+
+## 9. Podsumowanie
+
+Llama to rodzina modeli sztucznej inteligencji rozwijanych przez Meta. Modele te umożliwiają generowanie tekstu, analizowanie informacji, wspomaganie programowania oraz budowanie chatbotów i agentów AI.
+
+Ich istotną zaletą jest możliwość samodzielnego wdrażania wielu wariantów i integrowania ich z własnymi aplikacjami.
+
+Najważniejsze pojęcia do zapamiętania to LLM, Meta, Llama 3, Llama 3.1, Llama 3.2, Llama 3.3, Llama 4, parametry modelu, kwantyzacja, inference, fine-tuning i RAG.

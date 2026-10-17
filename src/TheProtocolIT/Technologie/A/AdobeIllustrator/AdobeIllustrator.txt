@@ -1,0 +1,239 @@
+# Adobe Illustrator — notatka
+
+Adobe Illustrator to profesjonalny program firmy Adobe służący przede wszystkim do tworzenia i edycji grafiki wektorowej.
+
+Grafika wektorowa jest tworzona za pomocą punktów, linii, krzywych i kształtów opisanych matematycznie.
+
+Największą zaletą grafiki wektorowej jest możliwość dowolnego powiększania jej bez utraty jakości.
+
+Dlatego Illustrator bardzo dobrze nadaje się do projektowania logotypów, ikon, ilustracji, plakatów, wizytówek, materiałów reklamowych oraz elementów identyfikacji wizualnej.
+
+Grafika rastrowa działa inaczej, ponieważ składa się z pikseli.
+
+Do grafiki rastrowej należą między innymi pliki JPG, PNG, GIF oraz TIFF.
+
+Grafika rastrowa jest szczególnie dobrze przystosowana do pracy ze zdjęciami.
+
+Photoshop jest przykładem programu przeznaczonego głównie do grafiki rastrowej, natomiast Illustrator jest przeznaczony przede wszystkim do grafiki wektorowej.
+
+Jednym z podstawowych elementów Illustratora jest Artboard, czyli obszar roboczy, na którym tworzymy projekt.
+
+W jednym dokumencie możemy utworzyć wiele obszarów roboczych.
+
+Dzięki temu możemy na przykład przygotować kilka wersji logo lub kilka grafik w jednym pliku.
+
+Każdy element znajdujący się w projekcie nazywamy obiektem.
+
+Obiektem może być między innymi prostokąt, koło, linia, tekst, ikona lub całe logo.
+
+W Illustratorze bardzo ważnym pojęciem jest Path, czyli ścieżka.
+
+Ścieżka jest elementem wektorowym zbudowanym z punktów oraz odcinków lub krzywych.
+
+Punkty znajdujące się na ścieżce nazywamy Anchor Points, czyli punktami kotwiczenia.
+
+Za pomocą punktów kotwiczenia możemy kontrolować kształt obiektu.
+
+Selection Tool jest podstawowym narzędziem do zaznaczania i manipulowania całymi obiektami.
+
+Selection Tool jest oznaczony skrótem klawiszowym V.
+
+Za pomocą tego narzędzia możemy między innymi przesuwać, skalować i obracać obiekty.
+
+Direct Selection Tool służy natomiast do zaznaczania poszczególnych punktów oraz fragmentów ścieżki.
+
+Direct Selection Tool jest oznaczony skrótem klawiszowym A.
+
+Najprościej zapamiętać, że Selection Tool pozwala pracować z całym obiektem, a Direct Selection Tool pozwala pracować z jego poszczególnymi punktami.
+
+Jednym z najważniejszych narzędzi Illustratora jest Pen Tool.
+
+Pen Tool służy do tworzenia własnych ścieżek i precyzyjnych kształtów.
+
+Jego skrót klawiszowy to P.
+
+Kliknięcie w dwóch różnych miejscach za pomocą Pen Tool tworzy prostą linię.
+
+Kliknięcie i przeciągnięcie pozwala natomiast tworzyć krzywe.
+
+Krzywe tworzone za pomocą Pen Tool opierają się na krzywych Béziera.
+
+Pen Tool jest szczególnie przydatny podczas tworzenia logotypów, ikon oraz niestandardowych kształtów.
+
+Illustrator posiada również narzędzia do tworzenia podstawowych kształtów.
+
+Do najważniejszych należą Rectangle Tool, Ellipse Tool, Polygon Tool oraz Star Tool.
+
+Rectangle Tool służy do tworzenia prostokątów i kwadratów.
+
+Ellipse Tool służy do tworzenia elips i okręgów.
+
+Polygon Tool pozwala tworzyć wielokąty.
+
+Star Tool służy do tworzenia gwiazd.
+
+Podstawowe kształty można następnie łączyć i modyfikować, tworząc bardziej skomplikowane obiekty.
+
+Każdy obiekt może posiadać Fill oraz Stroke.
+
+Fill oznacza wypełnienie obiektu.
+
+Stroke oznacza jego obrys.
+
+Możemy więc na przykład utworzyć prostokąt z czerwonym wypełnieniem i czarnym obrysem.
+
+Możemy również całkowicie usunąć wypełnienie i pozostawić tylko obrys.
+
+W większych projektach bardzo ważną rolę odgrywają Layers, czyli warstwy.
+
+Warstwy pozwalają organizować elementy projektu i ułatwiają pracę z dużą liczbą obiektów.
+
+Warstwę można między innymi ukryć, zablokować lub zmienić jej kolejność.
+
+Możemy na przykład utworzyć osobną warstwę dla tła, osobną dla logo oraz osobną dla tekstu.
+
+Kilka obiektów możemy połączyć w jedną grupę.
+
+Grupowanie pozwala traktować wiele obiektów jako jeden element.
+
+Do grupowania służy skrót Ctrl + G.
+
+Do rozgrupowania służy skrót Ctrl + Shift + G.
+
+Bardzo ważnym narzędziem jest Pathfinder.
+
+Pathfinder pozwala wykonywać operacje na kilku nakładających się na siebie kształtach.
+
+Możemy dzięki niemu między innymi połączyć kilka kształtów w jeden obiekt.
+
+Możemy również odjąć jeden kształt od drugiego.
+
+Pathfinder jest często wykorzystywany podczas projektowania logotypów oraz ikon.
+
+Innym bardzo przydatnym narzędziem jest Shape Builder Tool.
+
+Shape Builder Tool pozwala szybko łączyć ze sobą fragmenty kształtów oraz usuwać ich części.
+
+Skrót klawiszowy dla Shape Builder Tool to Shift + M.
+
+Shape Builder często pozwala osiągnąć ten sam efekt co Pathfinder, ale w bardziej intuicyjny sposób.
+
+Illustrator posiada również rozbudowane możliwości pracy z tekstem.
+
+Do tworzenia tekstu służy Type Tool, którego skrót klawiszowy to T.
+
+Możemy zmieniać między innymi krój pisma, jego rozmiar, grubość, kolor oraz odstępy między znakami.
+
+Możemy również kontrolować odstępy między wierszami oraz sposób wyrównania tekstu.
+
+Bardzo ważną funkcją jest Create Outlines.
+
+Create Outlines zamienia tekst w kształty wektorowe.
+
+Po wykonaniu tej operacji litery nie są już zwykłym tekstem, lecz składają się z wektorowych ścieżek.
+
+Skrót klawiszowy dla Create Outlines to Ctrl + Shift + O.
+
+Create Outlines jest często używane wtedy, gdy chcemy mieć pewność, że wygląd tekstu nie zmieni się na innym komputerze lub podczas przygotowywania projektu do druku.
+
+Należy pamiętać, że po zamianie tekstu na obiekty nie możemy już normalnie edytować jego treści jako tekstu.
+
+Illustrator posiada również panel Align.
+
+Align pozwala precyzyjnie wyrównywać obiekty względem siebie lub względem obszaru roboczego.
+
+Możemy na przykład wyrównać kilka elementów do lewej krawędzi albo ustawić je dokładnie w jednej linii.
+
+Align pozwala również zachować równomierne odstępy pomiędzy obiektami.
+
+Do zmieniania położenia, rozmiaru oraz obrotu obiektów służą funkcje Transform.
+
+Za pomocą Transform możemy między innymi zmienić szerokość i wysokość obiektu.
+
+Możemy również zmienić jego położenie, skalę oraz kąt obrotu.
+
+Illustrator umożliwia także korzystanie z Clipping Mask.
+
+Clipping Mask pozwala ograniczyć widoczność jednego obiektu za pomocą innego kształtu.
+
+Możemy na przykład sprawić, że zdjęcie będzie widoczne tylko wewnątrz koła.
+
+Jest to bardzo przydatna technika podczas tworzenia grafik, ilustracji oraz materiałów reklamowych.
+
+Kolejną ważną funkcją są gradienty.
+
+Gradient pozwala na płynne przechodzenie jednego koloru w drugi.
+
+Możemy wykorzystać gradient na przykład do tworzenia efektów światła, cieniowania oraz bardziej zaawansowanych ilustracji.
+
+W Illustratorze bardzo ważne jest również prawidłowe zarządzanie kolorami.
+
+RGB jest modelem kolorów stosowanym przede wszystkim w przypadku ekranów.
+
+RGB oznacza Red, Green oraz Blue.
+
+RGB jest odpowiedni między innymi dla grafik przeznaczonych na strony internetowe, aplikacje oraz urządzenia elektroniczne.
+
+CMYK jest modelem kolorów stosowanym przede wszystkim w druku.
+
+CMYK oznacza Cyan, Magenta, Yellow oraz Key, czyli kolor czarny.
+
+Dlatego najprościej zapamiętać, że RGB jest przeznaczone głównie dla ekranów, a CMYK głównie dla druku.
+
+Illustrator posiada również Smart Guides, czyli inteligentne prowadnice.
+
+Pomagają one precyzyjnie ustawiać obiekty względem innych elementów projektu.
+
+Dzięki nim możemy na przykład łatwiej znaleźć środek obiektu lub ustawić kilka elementów w jednej linii.
+
+Ważna jest również kolejność obiektów.
+
+Jeżeli kilka obiektów znajduje się na sobie, możemy zdecydować, który z nich ma znajdować się na pierwszym planie, a który na drugim.
+
+Do tego służą funkcje Arrange.
+
+Możemy między innymi przesunąć obiekt na samą górę albo wysłać go na sam dół.
+
+Illustrator pozwala zapisywać projekty w wielu różnych formatach.
+
+Format AI jest natywnym formatem programu Adobe Illustrator.
+
+Plik AI najlepiej zachowuje informacje potrzebne do dalszej edycji projektu w Illustratorze.
+
+Format SVG jest popularny przede wszystkim w przypadku grafiki internetowej oraz ikon.
+
+SVG jest formatem wektorowym, dlatego grafika może być skalowana bez typowej dla grafiki rastrowej utraty jakości.
+
+Format PDF jest bardzo często wykorzystywany przy przygotowywaniu projektów do druku.
+
+PNG jest formatem rastrowym, który może zachowywać przezroczyste tło.
+
+JPG jest również formatem rastrowym, ale nie obsługuje przezroczystości w taki sposób jak PNG.
+
+Typowy proces projektowania logo w Illustratorze zaczyna się od przygotowania pomysłu i szkicu.
+
+Następnie tworzymy podstawowe kształty za pomocą Shape Tools lub Pen Tool.
+
+Kolejnym etapem może być połączenie albo odjęcie kształtów za pomocą Pathfinder lub Shape Builder.
+
+Następnie dobieramy kolory i typografię.
+
+Za pomocą Align ustawiamy wszystkie elementy w odpowiednich miejscach.
+
+Na końcu przygotowujemy projekt do wykorzystania i eksportujemy go do odpowiedniego formatu.
+
+Podczas nauki Illustratora najpierw warto dobrze opanować podstawowe narzędzia i sposób działania grafiki wektorowej.
+
+Następnie warto nauczyć się pracy ze ścieżkami, punktami kotwiczenia oraz Pen Tool.
+
+Kolejnym krokiem powinno być opanowanie Pathfinder, Shape Builder, Align oraz Transform.
+
+Po opanowaniu tych elementów można przejść do typografii, gradientów, masek oraz bardziej zaawansowanych technik.
+
+Najważniejsze jest zrozumienie, że Illustrator służy przede wszystkim do tworzenia grafiki wektorowej.
+
+Warto zapamiętać pojęcia Artboard, Object, Path, Anchor Point, Fill, Stroke, Layer, Group, Pen Tool, Pathfinder, Shape Builder, Clipping Mask, Align, Transform oraz Create Outlines.
+
+Warto również pamiętać o podstawowej zasadzie dotyczącej kolorów, czyli RGB dla ekranów oraz CMYK dla druku.
+
+Znajomość tych podstaw daje solidną bazę do dalszej nauki Adobe Illustratora.

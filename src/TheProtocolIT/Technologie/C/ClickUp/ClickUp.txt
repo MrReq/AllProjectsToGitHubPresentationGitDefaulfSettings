@@ -1,0 +1,127 @@
+# ClickUp
+
+## 1. Czym jest ClickUp?
+
+[What Is ClickUp Project Management? A Simple Guide](https://images.openai.com/static-rsc-4/uPMLm5hIEOHBNl6hkGr06uCT5gazwy3r2pomBdDgqwEy7ld5cV8KmEJCqW6IQpalrZYMcgZUHjZDDYjoukXS4djLc5am0PyYsjuu_4fbbS7pLINGJzU6iZAyCLTmdBWPv5JDsf2XaXGNgUEf8ljsOIW_pYZ4mJsxOZa2yykVzno?purpose=inline)
+
+[larksuite.com](https://www.larksuite.com/en_us/blog/clickup-project-management)
+
+ClickUp to platforma do zarządzania projektami, zadaniami, dokumentacją, współpracą zespołową i produktywnością, która łączy wiele funkcji organizacyjnych w jednym środowisku.
+
+Narzędzie pozwala planować projekty, przydzielać zadania członkom zespołu, monitorować postępy, ustalać terminy oraz tworzyć dokumentację projektową.
+
+ClickUp jest wykorzystywany w zespołach programistycznych, firmach, działach marketingu, zarządzaniu produktami i pracy indywidualnej.
+
+## 2. Najważniejsze funkcje ClickUp
+
+- Tasks – tworzenie zadań, podzadań, priorytetów i terminów realizacji.
+- Projects – organizowanie pracy w przestrzenie, foldery i listy.
+- Docs – tworzenie dokumentacji, notatek i instrukcji projektowych.
+- Views – prezentowanie zadań w formie listy, tablicy Kanban, kalendarza lub wykresu Gantta.
+- Dashboards – monitorowanie postępów, obciążenia zespołu i wskaźników projektu.
+- Automations – automatyczne wykonywanie określonych działań, np. zmiana statusu lub przypisanie zadania.
+- Time Tracking – rejestrowanie czasu poświęconego na zadania.
+- Goals – definiowanie celów i śledzenie postępów.
+- ClickUp Brain – funkcje AI wspomagające między innymi podsumowywanie informacji, pracę z dokumentami i zadaniami.
+- Integracje – łączenie ClickUp z innymi narzędziami, np. GitHub, Slack i Google Drive, zależnie od dostępnej integracji.
+
+## 3. Jak działa ClickUp?
+
+ClickUp organizuje pracę za pomocą hierarchii elementów.
+
+Workspace
+
+Cała organizacja lub obszar pracy
+
+Space
+
+Np. Development, Marketing, Nauka
+
+Folder i List
+
+Grupy projektów oraz konkretne zadania
+
+Task i Subtask
+
+Zadania, terminy, statusy i podzadania
+
+Przykładowo projekt tworzenia aplikacji internetowej można podzielić na zadania dotyczące backendu, frontendu, bazy danych, testów i wdrożenia.
+
+Każde zadanie może mieć osobę odpowiedzialną, termin, priorytet, opis, komentarze i powiązane dokumenty.
+
+## 4. ClickUp w projektach IT
+
+ClickUp może wspierać cały cykl życia projektu programistycznego.
+
+- Planowanie sprintów – dzielenie pracy na mniejsze zadania i ustalanie priorytetów.
+- Zarządzanie błędami – rejestrowanie bugów, określanie ich ważności i śledzenie napraw.
+- Backlog produktu – przechowywanie funkcjonalności oczekujących na realizację.
+- Dokumentacja techniczna – opisywanie architektury, API i wymagań.
+- Kontrola postępów – monitorowanie liczby zadań ukończonych i pozostałych do wykonania.
+- Współpraca zespołowa – komentowanie zadań i wymiana informacji między programistami, testerami oraz kierownikiem projektu.
+
+ClickUp może również wspierać metodyki Agile i Scrum, choć nie zastępuje automatycznie wszystkich procesów wymaganych przez te metodyki.
+
+## 5. Przykład wykorzystania ClickUp w projekcie AgriMind AI
+
+Dla aplikacji AgriMind AI możesz utworzyć przestrzeń projektu i podzielić pracę na następujące obszary:
+
+Backend – Spring Boot
+
+REST API, kontrolery, serwisy, walidacja i obsługa błędów.
+
+Baza danych – PostgreSQL
+
+Schemat bazy, encje, migracje Flyway i zapytania SQL.
+
+Moduł AI
+
+Integracja modelu językowego, dokumentacja rolnicza i wyszukiwanie RAG.
+
+Testy i wdrożenie
+
+JUnit, testy API, Docker i konfiguracja środowiska.
+
+Każdy obszar może mieć własną listę zadań, a poszczególne zadania mogą przechodzić przez statusy: „Do zrobienia”, „W trakcie”, „Do sprawdzenia” i „Ukończone”.
+
+Dzięki temu łatwiej ocenić, co zostało wykonane, jakie problemy blokują pracę i jakie działania należy podjąć w następnej kolejności.
+
+## 6. ClickUp a inne narzędzia
+
+| Narzędzie         | Główne zastosowanie                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------- |
+| ClickUp           | Zarządzanie projektami, zadaniami, dokumentacją i produktywnością w jednym środowisku. |
+| Jira              | Zarządzanie pracą zespołów programistycznych, backlogiem i procesami Agile.            |
+| Trello            | Proste zarządzanie zadaniami za pomocą tablic Kanban.                                  |
+| Notion            | Dokumentacja, notatki, bazy danych i organizacja wiedzy.                               |
+| Asana             | Zarządzanie projektami, zadaniami i współpracą zespołową.                              |
+| Microsoft Planner | Zarządzanie zadaniami, szczególnie w ekosystemie Microsoft 365.                        |
+
+ClickUp wyróżnia się szerokim zakresem funkcji dostępnych na jednej platformie, ale rozbudowana konfiguracja może być bardziej skomplikowana niż w prostszych narzędziach.
+
+## 7. Zalety i wady ClickUp
+
+Zalety:
+
+- Łączy zadania, dokumentację, cele i raportowanie.
+- Umożliwia wizualizację pracy na wiele sposobów.
+- Wspiera automatyzację powtarzalnych czynności.
+- Ułatwia współpracę w zespołach.
+- Może być wykorzystywany zarówno w projektach IT, jak i w organizacji osobistej.
+
+Wady:
+
+- Duża liczba funkcji może utrudniać początkującym rozpoczęcie pracy.
+- Rozbudowane przestrzenie i statusy wymagają przemyślanej konfiguracji.
+- Dostęp do niektórych funkcji zależy od planu subskrypcji.
+- Nadmierne rozbudowanie systemu zadań może zwiększyć ilość pracy administracyjnej zamiast ją ograniczać.
+
+## 8. Dlaczego warto znać ClickUp?
+
+ClickUp jest przydatny dla programistów, testerów QA, kierowników projektów, analityków biznesowych i osób prowadzących własne przedsięwzięcia.
+
+Pozwala rozwijać umiejętności planowania pracy, dzielenia dużych celów na mniejsze zadania, monitorowania postępów i dokumentowania decyzji.
+
+Dla osoby uczącej się programowania i rozwijającej własne projekty IT może być centralnym miejscem do organizowania nauki, zadań programistycznych, testów, dokumentacji oraz planów kolejnych wersji aplikacji.
+
+Oficjalna strona: [ClickUp](https://clickup.com/).

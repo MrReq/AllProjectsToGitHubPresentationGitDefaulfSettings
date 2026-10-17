@@ -1,0 +1,111 @@
+# Gremlin
+
+## 1. Czym jest Gremlin?
+
+Gremlin to język zapytań i przechodzenia po grafach, wykorzystywany do odczytywania, analizowania oraz modyfikowania danych zapisanych w bazach grafowych.
+
+Jest częścią projektu Apache TinkerPop, który dostarcza narzędzia do pracy z grafowymi bazami danych.
+
+Gremlin pozwala opisywać relacje między obiektami i wyszukiwać informacje poprzez przemieszczanie się po połączeniach w grafie.
+
+## 2. Do czego służy Gremlin?
+
+Gremlin jest wykorzystywany do pracy z danymi, które tworzą rozbudowaną sieć powiązań.
+
+Można go używać do wyszukiwania znajomych użytkownika w serwisie społecznościowym.
+
+Może służyć do analizowania połączeń między kontami bankowymi w celu wykrywania podejrzanych transakcji.
+
+Pozwala badać zależności między produktami, klientami i zamówieniami w systemach sprzedażowych.
+
+Jest przydatny w analizie sieci telekomunikacyjnych, grafów wiedzy oraz systemów rekomendacyjnych.
+
+## 3. Jak działa Gremlin?
+
+Gremlin operuje na grafie, który składa się z wierzchołków, krawędzi i właściwości.
+
+Wierzchołki (vertices) reprezentują obiekty, takie jak użytkownicy, produkty lub firmy.
+
+Krawędzie (edges) opisują relacje między obiektami, na przykład znajomość, zakup albo współpracę.
+
+Właściwości (properties) przechowują dodatkowe informacje, takie jak imię użytkownika, cena produktu czy data transakcji.
+
+Gremlin umożliwia przechodzenie od jednego wierzchołka do kolejnych zgodnie z określonymi relacjami.
+
+## 4. Przykład zapytania Gremlin
+
+Załóżmy, że graf zawiera użytkowników oraz relacje między nimi.
+
+Przykładowe zapytanie:
+
+```
+g.V().hasLabel('person').has('name', 'Anna').out('knows').values('name')
+```
+
+Zapytanie wyszukuje wierzchołek reprezentujący osobę o imieniu Anna, przechodzi po relacjach `knows` i zwraca imiona osób, które Anna zna.
+
+Najważniejsze elementy zapytania:
+
+- `g.V()` – rozpoczyna wyszukiwanie od wierzchołków grafu.
+- `hasLabel('person')` – wybiera wierzchołki oznaczone etykietą `person`.
+- `has('name', 'Anna')` – filtruje obiekty według właściwości `name`.
+- `out('knows')` – przechodzi po wychodzących krawędziach typu `knows`.
+- `values('name')` – zwraca wartości właściwości `name`.
+
+## 5. Gremlin a bazy danych grafowych
+
+Gremlin nie jest samodzielną bazą danych.
+
+Jest językiem zapytań, który może współpracować z różnymi systemami obsługującymi Apache TinkerPop i jego interfejsy.
+
+Przykładowe rozwiązania obsługujące Gremlin to:
+
+- Apache TinkerPop – projekt udostępniający Gremlin i narzędzia do pracy z grafami.
+- JanusGraph – rozproszona baza grafowa przeznaczona do obsługi dużych zbiorów danych.
+- Amazon Neptune – zarządzana usługa bazodanowa AWS obsługująca między innymi Gremlin.
+- Azure Cosmos DB for Apache Gremlin – usługa bazodanowa Microsoft Azure oferująca interfejs Gremlin.
+
+Zakres obsługiwanych funkcji może się różnić zależnie od konkretnej bazy danych.
+
+## 6. Gremlin a SQL
+
+SQL jest przede wszystkim językiem zapytań do relacyjnych baz danych, natomiast Gremlin jest przeznaczony do wykonywania operacji na grafach.
+
+W SQL często pobiera się dane z tabel i łączy je za pomocą instrukcji `JOIN`.
+
+W Gremlinie można przechodzić bezpośrednio między powiązanymi wierzchołkami grafu.
+
+Gremlin jest szczególnie przydatny wtedy, gdy najważniejsze są relacje i wieloetapowe powiązania między obiektami.
+
+SQL pozostaje naturalnym wyborem dla wielu systemów opartych na tabelach, transakcjach i uporządkowanych rekordach.
+
+## 7. Zalety Gremlin
+
+- Ułatwia analizowanie złożonych relacji między obiektami.
+- Pozwala wykonywać wieloetapowe przejścia po grafie.
+- Może współpracować z różnymi bazami grafowymi obsługującymi jego interfejsy.
+- Sprawdza się w systemach rekomendacyjnych, analizie sieci i grafach wiedzy.
+- Umożliwia wyrażanie operacji grafowych w postaci czytelnych sekwencji kroków.
+
+## 8. Wady i ograniczenia Gremlin
+
+- Składnia może być trudniejsza do opanowania dla osób znających wyłącznie SQL.
+- Efektywność zapytań zależy między innymi od struktury grafu, indeksów i implementacji bazy danych.
+- Nie każda baza obsługuje wszystkie funkcje Gremlin w identyczny sposób.
+- Do prostych danych tabelarycznych użycie bazy grafowej i Gremlina może być niepotrzebnie skomplikowane.
+
+## 9. Kiedy warto poznać Gremlin?
+
+Warto poznać Gremlin, jeśli planujesz pracować z bazami grafowymi, analizą relacji, systemami rekomendacyjnymi lub grafami wiedzy.
+
+Przydatna będzie również znajomość podstaw teorii grafów, takich jak wierzchołki, krawędzie, ścieżki i cykle.
+
+Dla programisty Java istotne jest to, że Apache TinkerPop udostępnia także biblioteki umożliwiające pracę z grafami z poziomu aplikacji.
+
+## 10. Podsumowanie
+
+Gremlin to język zapytań grafowych służący do wyszukiwania, analizowania i modyfikowania danych połączonych relacjami.
+
+Jest częścią ekosystemu Apache TinkerPop i współpracuje z wybranymi bazami grafowymi.
+
+Jego największą zaletą jest możliwość wygodnego przechodzenia przez złożone sieci powiązań między obiektami.

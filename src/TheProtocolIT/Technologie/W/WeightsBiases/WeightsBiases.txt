@@ -1,0 +1,974 @@
+# Weights & Biases (W&B)
+
+## 1. Czym jest Weights & Biases?
+
+**Weights & Biases (W&B)**, często zapisywane jako **wandb**, to platforma przeznaczona do **śledzenia, eksperymentowania, wizualizacji i zarządzania projektami związanymi z machine learningiem i sztuczną inteligencją**.
+
+W&B pomaga zespołom ML rejestrować informacje o przeprowadzanych eksperymentach.
+
+Można dzięki niemu śledzić między innymi:
+
+- parametry modeli,
+- hiperparametry,
+- metryki,
+- funkcje straty,
+- dokładność,
+- wykresy,
+- eksperymenty,
+- wersje modeli,
+- datasety,
+- artefakty,
+- wyniki treningu.
+
+Najprościej:
+
+**Weights & Biases pozwala odpowiedzieć na pytanie: „Co dokładnie zrobiłem podczas trenowania tego modelu i dlaczego ten eksperyment był lepszy od poprzedniego?”**
+
+## 2. Jaki problem rozwiązuje W&B?
+
+Załóżmy, że trenujesz model AI.
+
+Eksperyment 1:
+
+```text
+learning_rate = 0.001
+epochs = 10
+batch_size = 32
+accuracy = 87%
+```
+
+Eksperyment 2:
+
+```text
+learning_rate = 0.0005
+epochs = 20
+batch_size = 64
+accuracy = 91%
+```
+
+Po wykonaniu 50 eksperymentów bardzo trudno pamiętać, która konfiguracja dała najlepszy wynik.
+
+W&B pozwala automatycznie zapisywać takie informacje:
+
+```text
+Experiment 1 → 87%
+Experiment 2 → 91%
+Experiment 3 → 89%
+Experiment 4 → 94%
+...
+```
+
+Dzięki temu możemy porównywać eksperymenty.
+
+## 3. Machine Learning Experiment Tracking
+
+Jedną z najważniejszych funkcji W&B jest **experiment tracking**.
+
+Podczas treningu modelu możemy rejestrować:
+
+```text
+Training
+   ↓
+W&B
+   ↓
+Metrics
+Parameters
+Graphs
+Artifacts
+```
+
+Przykładowe metryki:
+
+```text
+loss
+accuracy
+precision
+recall
+F1-score
+learning rate
+```
+
+## 4. Run
+
+Jednym z podstawowych pojęć w W&B jest **Run**.
+
+**Run** reprezentuje pojedyncze uruchomienie eksperymentu.
+
+Przykładowo:
+
+```text
+Run 1
+learning_rate = 0.001
+epochs = 10
+accuracy = 87%
+
+Run 2
+learning_rate = 0.0005
+epochs = 20
+accuracy = 91%
+```
+
+Każdy Run może przechowywać własne parametry, metryki i inne informacje.
+
+## 5. Project
+
+W&B pozwala organizować eksperymenty w ramach **Projects**.
+
+Przykładowo:
+
+```text
+Project: Image Classification
+    |
+    +-- Run 1
+    +-- Run 2
+    +-- Run 3
+    +-- Run 4
+```
+
+W jednym projekcie możemy przechowywać wszystkie eksperymenty dotyczące określonego modelu lub problemu.
+
+## 6. Sweep
+
+**Sweep** służy do automatycznego testowania różnych konfiguracji hiperparametrów.
+
+Przykładowo chcemy sprawdzić:
+
+```text
+learning_rate:
+0.1
+0.01
+0.001
+0.0001
+```
+
+oraz:
+
+```text
+batch_size:
+16
+32
+64
+```
+
+Wtedy mamy wiele kombinacji:
+
+```text
+0.1 × 16
+0.1 × 32
+0.1 × 64
+0.01 × 16
+...
+```
+
+W&B Sweeps może pomagać w automatyzacji takiego procesu.
+
+## 7. Hyperparameter Tuning
+
+W&B może być wykorzystywany do **hyperparameter optimization**.
+
+Przykładowe hiperparametry:
+
+```text
+learning_rate
+batch_size
+epochs
+dropout
+optimizer
+hidden_size
+```
+
+Możemy określić zakres:
+
+```text
+learning_rate:
+0.0001 – 0.01
+```
+
+i pozwolić mechanizmowi Sweep testować różne wartości.
+
+## 8. Metric
+
+W&B umożliwia rejestrowanie metryk podczas treningu.
+
+Przykładowo:
+
+```python
+wandb.log({
+    "loss": loss,
+    "accuracy": accuracy
+})
+```
+
+W&B zapisuje dane, które później można oglądać na wykresach.
+
+## 9. Loss
+
+Podczas treningu modelu często monitorujemy funkcję straty:
+
+```text
+loss
+```
+
+Przykładowo:
+
+```text
+Epoch 1 → loss = 1.42
+Epoch 2 → loss = 1.08
+Epoch 3 → loss = 0.76
+Epoch 4 → loss = 0.52
+```
+
+W&B może przedstawić te dane jako wykres:
+
+```text
+Loss
+ |
+ |\
+ | \
+ |  \
+ |   \____
+ |
+ +----------------
+       Epoch
+```
+
+## 10. Accuracy
+
+Możemy również śledzić dokładność modelu:
+
+```text
+Epoch 1 → 72%
+Epoch 2 → 79%
+Epoch 3 → 85%
+Epoch 4 → 91%
+```
+
+Dzięki W&B można łatwo porównywać krzywe accuracy dla różnych eksperymentów.
+
+## 11. Dashboard
+
+W&B udostępnia **dashboardy**, na których można wizualizować wyniki eksperymentów.
+
+Możemy oglądać między innymi:
+
+```text
+Loss
+Accuracy
+Learning Rate
+Precision
+Recall
+F1
+```
+
+i porównywać wiele Runów.
+
+Schemat:
+
+```text
+             W&B Dashboard
+                    |
+       +------------+------------+
+       |            |            |
+      Loss       Accuracy      F1
+       |            |            |
+       +------------+------------+
+                    |
+              Compare Runs
+```
+
+## 12. Model Comparison
+
+Jedną z najważniejszych funkcji jest porównywanie modeli.
+
+Przykładowo:
+
+| Run | Learning Rate | Epochs | Accuracy |
+|---|---:|---:|---:|
+| Run 1 | 0.001 | 10 | 87% |
+| Run 2 | 0.0005 | 20 | 91% |
+| Run 3 | 0.0001 | 30 | 94% |
+
+Możemy szybko zauważyć, która konfiguracja działa najlepiej.
+
+## 13. W&B i PyTorch
+
+W&B bardzo dobrze integruje się z **PyTorch**.
+
+Przykładowo:
+
+```python
+import wandb
+
+wandb.init(
+    project="image-classification"
+)
+
+for epoch in range(10):
+    loss = train_model()
+
+    wandb.log({
+        "epoch": epoch,
+        "loss": loss
+    })
+```
+
+Podczas treningu dane są wysyłane do W&B.
+
+## 14. W&B i TensorFlow
+
+W&B może również współpracować z **TensorFlow**.
+
+Przykładowo można śledzić:
+
+```text
+training loss
+validation loss
+accuracy
+learning rate
+```
+
+Dzięki temu wyniki treningu są dostępne w jednym miejscu.
+
+## 15. W&B i Keras
+
+W&B posiada integracje również z **Keras**.
+
+Schemat:
+
+```text
+Keras
+  ↓
+Model Training
+  ↓
+W&B
+  ↓
+Metrics
+  ↓
+Dashboard
+```
+
+## 16. W&B i scikit-learn
+
+W&B może być wykorzystywany także z klasycznymi algorytmami machine learning.
+
+Przykładowo:
+
+```text
+scikit-learn
+     ↓
+Model
+     ↓
+Metrics
+     ↓
+W&B
+```
+
+Możemy rejestrować wyniki takich modeli jak:
+
+- Linear Regression,
+- Logistic Regression,
+- Decision Tree,
+- Random Forest,
+- SVM,
+- K-Means.
+
+## 17. Artifacts
+
+Bardzo ważnym elementem W&B są **Artifacts**.
+
+Artifact pozwala przechowywać i śledzić wersje danych oraz innych plików związanych z eksperymentem.
+
+Może to być:
+
+```text
+Dataset
+Model
+Checkpoint
+Configuration
+Prediction File
+```
+
+Przykładowo:
+
+```text
+Dataset v1
+Dataset v2
+Dataset v3
+```
+
+Możemy wiedzieć, z jakiej wersji danych został wytrenowany konkretny model.
+
+## 18. Dataset Versioning
+
+W machine learningu zmieniają się również datasety.
+
+Przykładowo:
+
+```text
+dataset_v1
+     ↓
+dataset_v2
+     ↓
+dataset_v3
+```
+
+W&B Artifacts pomaga śledzić te wersje.
+
+Jest to bardzo ważne dla **reproducibility**, czyli możliwości odtworzenia eksperymentu.
+
+## 19. Model Versioning
+
+Podobnie można śledzić wersje modeli:
+
+```text
+model_v1
+model_v2
+model_v3
+```
+
+Możemy wiedzieć:
+
+```text
+Model v3
+   ↓
+Dataset v5
+   ↓
+Run 27
+   ↓
+Accuracy = 94%
+```
+
+## 20. Reproducibility
+
+**Reproducibility** oznacza możliwość odtworzenia eksperymentu.
+
+Idealnie powinniśmy wiedzieć:
+
+```text
+Model
++
+Dataset
++
+Code Version
++
+Hyperparameters
++
+Environment
+=
+Experiment
+```
+
+W&B pomaga przechowywać informacje potrzebne do odtworzenia wyników.
+
+## 21. Checkpoints
+
+Podczas treningu model może być zapisywany w postaci checkpointów.
+
+Przykładowo:
+
+```text
+Epoch 10 → model_epoch10
+Epoch 20 → model_epoch20
+Epoch 30 → model_epoch30
+```
+
+W&B może pomóc w zarządzaniu i śledzeniu takich artefaktów.
+
+## 22. W&B Tables
+
+**W&B Tables** umożliwiają analizowanie danych tabelarycznych oraz wyników modeli.
+
+Można przykładowo przechowywać:
+
+```text
+Input
+Prediction
+Expected Value
+Confidence
+```
+
+Przykład:
+
+| Image | Prediction | Actual | Confidence |
+|---|---|---|---:|
+| image1 | Cat | Cat | 0.98 |
+| image2 | Dog | Cat | 0.64 |
+| image3 | Dog | Dog | 0.91 |
+
+Jest to bardzo przydatne przy analizowaniu jakości modelu.
+
+## 23. W&B dla Computer Vision
+
+W&B jest bardzo często wykorzystywany w projektach **Computer Vision**.
+
+Możemy śledzić:
+
+```text
+Images
+Bounding Boxes
+Predictions
+Masks
+Confidence Scores
+```
+
+Przykładowo model wykrywania obiektów może zwrócić:
+
+```text
+Car → 0.97
+Person → 0.92
+Dog → 0.88
+```
+
+W&B pozwala wizualizować takie wyniki.
+
+## 24. W&B dla NLP
+
+W&B może być również wykorzystywany w projektach **NLP**.
+
+Możemy śledzić:
+
+```text
+Text
+Prediction
+Expected Output
+Confidence
+```
+
+Przykładowe zastosowania:
+
+- klasyfikacja tekstu,
+- analiza sentymentu,
+- chatboty,
+- embeddings,
+- fine-tuning LLM,
+- generowanie tekstu.
+
+## 25. W&B i LLM
+
+W&B jest również wykorzystywany w projektach związanych z **Large Language Models**.
+
+Można monitorować:
+
+```text
+Training Loss
+Validation Loss
+Learning Rate
+Tokens
+Evaluation Metrics
+Model Versions
+```
+
+Przykładowa architektura:
+
+```text
+LLM Training
+     ↓
+W&B
+     |
+     +-- Metrics
+     +-- Hyperparameters
+     +-- Checkpoints
+     +-- Evaluations
+```
+
+## 26. W&B i fine-tuning
+
+Podczas fine-tuningu modelu można śledzić:
+
+```text
+Base Model
+    ↓
+Dataset
+    ↓
+Fine-Tuning
+    ↓
+W&B
+    ↓
+Evaluation
+```
+
+Możemy porównać:
+
+```text
+Base Model
+vs.
+Fine-Tuned Model
+```
+
+## 27. W&B Reports
+
+W&B pozwala tworzyć raporty przedstawiające wyniki eksperymentów.
+
+Można przygotować podsumowanie:
+
+```text
+Experiment
+    ↓
+Charts
+    ↓
+Tables
+    ↓
+Analysis
+    ↓
+Report
+```
+
+Jest to przydatne podczas współpracy zespołowej.
+
+## 28. W&B i zespoły
+
+W&B jest przeznaczone również do pracy zespołowej.
+
+Zamiast trzymać wyniki eksperymentów lokalnie na komputerach:
+
+```text
+Developer A → lokalne pliki
+Developer B → lokalne pliki
+Developer C → lokalne pliki
+```
+
+można mieć wspólną platformę:
+
+```text
+Developer A ─┐
+Developer B ─┼→ W&B Project
+Developer C ─┘
+```
+
+Każdy może analizować wyniki eksperymentów.
+
+## 29. W&B i MLOps
+
+W&B jest częścią ekosystemu **MLOps**.
+
+MLOps oznacza praktyki umożliwiające zarządzanie cyklem życia modeli ML.
+
+Przykładowy proces:
+
+```text
+Data
+ ↓
+Training
+ ↓
+Experiment Tracking
+ ↓
+Evaluation
+ ↓
+Model Registry
+ ↓
+Deployment
+ ↓
+Monitoring
+```
+
+W&B może wspierać wiele elementów tego procesu.
+
+## 30. Model Registry
+
+W ekosystemie W&B można zarządzać modelami przeznaczonymi do dalszego wykorzystania.
+
+Przykładowo:
+
+```text
+Model
+ ↓
+Evaluation
+ ↓
+Approved
+ ↓
+Production
+```
+
+Możemy więc odróżnić model eksperymentalny od modelu zaakceptowanego do wdrożenia.
+
+## 31. W&B i Git
+
+W projektach ML ważne jest śledzenie również kodu.
+
+Możemy połączyć:
+
+```text
+Git
++
+W&B
+```
+
+Przykładowo:
+
+```text
+Git Commit
+     ↓
+Training Run
+     ↓
+W&B
+     ↓
+Model
+```
+
+Dzięki temu łatwiej ustalić, jaka wersja kodu doprowadziła do konkretnego wyniku.
+
+## 32. W&B i Docker
+
+W środowisku produkcyjnym możemy również wykorzystać:
+
+```text
+Docker
++
+Python
++
+PyTorch
++
+W&B
+```
+
+Przykładowa architektura:
+
+```text
+Docker Container
+      |
+      +-- Python
+      +-- PyTorch
+      +-- Model
+      |
+      ↓
+     W&B
+```
+
+## 33. W&B i Kubernetes
+
+W większych projektach trening może odbywać się na infrastrukturze Kubernetes.
+
+Przykładowo:
+
+```text
+Kubernetes
+     |
+     +-- Training Job
+     |
+     +-- GPU
+     |
+     ↓
+    W&B
+```
+
+W&B przechowuje informacje o wynikach eksperymentu niezależnie od tego, gdzie został wykonany trening.
+
+## 34. W&B a MLflow
+
+W&B jest często porównywany z **MLflow**.
+
+| W&B | MLflow |
+|---|---|
+| Experiment Tracking | Experiment Tracking |
+| Metrics | Metrics |
+| Artifacts | Artifacts |
+| Model Management | Model Management |
+| Dashboards | UI |
+| Hyperparameter Sweeps | Hyperparameter Optimization |
+| MLOps | MLOps |
+| SaaS + możliwości lokalne | silny ekosystem open source |
+
+Oba rozwiązania mogą być wykorzystywane do zarządzania eksperymentami ML.
+
+## 35. W&B a TensorBoard
+
+**TensorBoard** również służy do wizualizacji procesu treningu.
+
+Możemy więc spotkać:
+
+```text
+PyTorch
+  ↓
+TensorBoard
+```
+
+lub:
+
+```text
+PyTorch
+  ↓
+W&B
+```
+
+W&B oferuje jednak szerszy zestaw funkcji związanych z zarządzaniem eksperymentami, artefaktami i współpracą.
+
+## 36. Prosty przykład
+
+Przykładowy kod Python:
+
+```python
+import wandb
+
+wandb.init(
+    project="my-ml-project",
+    config={
+        "learning_rate": 0.001,
+        "epochs": 10,
+        "batch_size": 32
+    }
+)
+
+for epoch in range(10):
+    loss = 1 / (epoch + 1)
+
+    wandb.log({
+        "epoch": epoch,
+        "loss": loss
+    })
+
+wandb.finish()
+```
+
+Tutaj:
+
+```text
+wandb.init()
+```
+
+rozpoczyna eksperyment.
+
+```text
+config
+```
+
+przechowuje parametry eksperymentu.
+
+```text
+wandb.log()
+```
+
+zapisuje metryki.
+
+```text
+wandb.finish()
+```
+
+kończy Run.
+
+## 37. Typowy workflow
+
+Praca z W&B może wyglądać tak:
+
+```text
+             DATASET
+                ↓
+           PREPROCESSING
+                ↓
+             TRAINING
+                ↓
+          wandb.init()
+                ↓
+       Log Metrics / Params
+                ↓
+          W&B Dashboard
+                ↓
+         Compare Experiments
+                ↓
+          Select Best Model
+                ↓
+          Model Registry
+                ↓
+            Deployment
+```
+
+## 38. Zalety Weights & Biases
+
+Najważniejsze zalety:
+
+- experiment tracking,
+- wizualizacja wyników,
+- porównywanie eksperymentów,
+- śledzenie hiperparametrów,
+- automatyzacja eksperymentów,
+- Sweeps,
+- zarządzanie artefaktami,
+- wersjonowanie danych,
+- wersjonowanie modeli,
+- integracja z PyTorch,
+- integracja z TensorFlow,
+- integracja z Keras,
+- wsparcie dla projektów LLM,
+- wsparcie dla Computer Vision,
+- współpraca zespołowa,
+- element ekosystemu MLOps.
+
+## 39. Wady W&B
+
+W&B ma również pewne ograniczenia.
+
+Jest dodatkowym narzędziem, którego trzeba nauczyć się i zintegrować z projektem.
+
+W przypadku bardzo prostych eksperymentów może być niepotrzebnie rozbudowany.
+
+W projektach wymagających pełnej kontroli nad infrastrukturą trzeba również dokładnie zaplanować sposób przechowywania danych i artefaktów.
+
+## 40. Kiedy warto używać W&B?
+
+W&B jest szczególnie przydatne, gdy:
+
+- trenujesz wiele modeli,
+- wykonujesz wiele eksperymentów,
+- optymalizujesz hiperparametry,
+- pracujesz z LLM,
+- wykonujesz fine-tuning,
+- tworzysz modele Computer Vision,
+- pracujesz zespołowo,
+- potrzebujesz wersjonowania modeli i datasetów,
+- budujesz proces MLOps.
+
+## 41. Weights & Biases – najważniejsze pojęcia
+
+**Weights & Biases (W&B)** – platforma do śledzenia i zarządzania eksperymentami machine learning.
+
+**wandb** – nazwa biblioteki Python oraz często używany skrót platformy.
+
+**Run** – pojedyncze uruchomienie eksperymentu.
+
+**Project** – zbiór powiązanych eksperymentów.
+
+**Config** – parametry i hiperparametry eksperymentu.
+
+**Metric** – wartość opisująca wynik modelu, np. loss lub accuracy.
+
+**Sweep** – automatyczne testowanie różnych konfiguracji hiperparametrów.
+
+**Artifact** – wersjonowany zasób, np. dataset lub model.
+
+**Dashboard** – wizualny panel przedstawiający wyniki.
+
+**Table** – narzędzie do analizowania danych i wyników modeli.
+
+**Model Registry** – zarządzanie modelami i ich wersjami.
+
+**Experiment Tracking** – rejestrowanie przebiegu eksperymentów.
+
+**MLOps** – praktyki związane z zarządzaniem cyklem życia modeli ML.
+
+## 42. W&B – najważniejszy schemat
+
+```text
+                       WEIGHTS & BIASES
+                              |
+          +-------------------+-------------------+
+          |                   |                   |
+     Experiment           Artifacts             Sweeps
+      Tracking          Versioning          Hyperparameters
+          |                   |                   |
+          +-------------------+-------------------+
+                              |
+                         Dashboard
+                              |
+                   +----------+----------+
+                   |                     |
+                Metrics               Models
+                   |                     |
+                   +----------+----------+
+                              |
+                         MLOps Workflow
+                              |
+                         Production
+```
+
+### Najważniejsze zdanie do zapamiętania
+
+**Weights & Biases (W&B) to platforma do śledzenia eksperymentów machine learning, monitorowania metryk, porównywania modeli, optymalizacji hiperparametrów oraz wersjonowania datasetów i modeli, szeroko wykorzystywana w projektach AI i MLOps.**

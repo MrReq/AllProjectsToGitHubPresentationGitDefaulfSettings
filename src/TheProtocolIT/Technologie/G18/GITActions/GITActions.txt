@@ -1,0 +1,147 @@
+# GitHub Actions
+
+## 1. Czym jest GitHub Actions?
+
+GitHub Actions to platforma automatyzacji dostępna w serwisie GitHub, która umożliwia automatyczne wykonywanie zadań związanych z tworzeniem, testowaniem i wdrażaniem oprogramowania.
+
+Pozwala uruchamiać określone operacje po wystąpieniu zdarzeń, takich jak przesłanie kodu do repozytorium, utworzenie pull requesta lub opublikowanie nowej wersji aplikacji.
+
+GitHub Actions jest wykorzystywany przede wszystkim do automatyzacji procesów CI/CD, czyli ciągłej integracji i ciągłego dostarczania lub wdrażania oprogramowania.
+
+## 2. Do czego służy GitHub Actions?
+
+GitHub Actions służy do automatycznego uruchamiania testów po wprowadzeniu zmian w kodzie.
+
+Umożliwia automatyczne kompilowanie aplikacji oraz sprawdzanie, czy projekt nie zawiera błędów.
+
+Pozwala budować artefakty, tworzyć obrazy Docker i publikować aplikacje na serwerach lub w chmurze.
+
+Może również automatyzować analizę jakości kodu, publikowanie dokumentacji oraz wykonywanie cyklicznych zadań.
+
+## 3. Najważniejsze pojęcia
+
+Workflow to zdefiniowany proces automatyzacji opisany w pliku YAML.
+
+Event to zdarzenie uruchamiające workflow, na przykład `push`, `pull_request` lub uruchomienie ręczne.
+
+Job to zestaw kroków wykonywanych na określonym środowisku wykonawczym.
+
+Step to pojedynczy krok zadania, na przykład uruchomienie testów albo wykonanie komendy powłoki.
+
+Action to gotowy lub własny komponent wielokrotnego użytku, który można wykorzystać w kroku workflow.
+
+Runner to środowisko, na którym wykonywane są zadania, na przykład maszyna wirtualna z systemem Ubuntu lub Windows.
+
+Artifact to plik lub zestaw plików wygenerowanych podczas działania workflow, które można zachować i wykorzystać później.
+
+## 4. Jak działa GitHub Actions?
+
+Programista przesyła zmiany do repozytorium GitHub.
+
+GitHub wykrywa określone zdarzenie i uruchamia odpowiedni workflow.
+
+Runner przygotowuje środowisko, pobiera kod i wykonuje zdefiniowane kroki.
+
+Workflow może skompilować aplikację, uruchomić testy jednostkowe oraz sprawdzić poprawność kodu.
+
+Po zakończeniu procesu GitHub Actions udostępnia wyniki, logi i informacje o ewentualnych błędach.
+
+## 5. Przykładowy plik GitHub Actions dla Javy
+
+Poniższy przykład przedstawia workflow, który automatycznie kompiluje projekt Maven i uruchamia testy jednostkowe po przesłaniu zmian do gałęzi `main` lub utworzeniu pull requesta.
+
+Plik należy zapisać pod ścieżką `.github/workflows/java-ci.yml` w repozytorium.
+
+```
+name: Java CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build and test
+        run: mvn -B verify
+```
+
+Po przesłaniu zmian GitHub Actions uruchomi proces budowania projektu i testowania.
+
+Komenda `mvn -B verify` wykonuje fazy cyklu Maven aż do fazy `verify`, włącznie, uruchamiając między innymi testy skonfigurowane w projekcie.
+
+Wersję Javy należy dostosować do wymagań projektu, a wersje używanych akcji regularnie aktualizować.
+
+## 6. GitHub Actions a CI/CD
+
+Continuous Integration (CI) polega na częstym integrowaniu zmian w kodzie i automatycznym sprawdzaniu ich poprawności.
+
+Continuous Delivery (CD) polega na automatycznym przygotowywaniu aplikacji do wdrożenia.
+
+Continuous Deployment oznacza automatyczne wdrażanie zmian na środowisko docelowe po spełnieniu określonych warunków.
+
+GitHub Actions pozwala tworzyć procesy obejmujące wszystkie te etapy.
+
+Przykładowo aplikacja Spring Boot może być automatycznie testowana, pakowana do pliku JAR, budowana jako obraz Docker i wdrażana na serwerze.
+
+## 7. Zalety GitHub Actions
+
+GitHub Actions jest zintegrowany z repozytoriami GitHub, dzięki czemu konfiguracja automatyzacji znajduje się razem z kodem projektu.
+
+Umożliwia automatyczne testowanie każdej zmiany i szybsze wykrywanie błędów.
+
+Udostępnia gotowe akcje, które pozwalają korzystać z narzędzi zewnętrznych bez tworzenia całej automatyzacji od podstaw.
+
+Pozwala definiować zależności między zadaniami i wykonywać niezależne zadania równolegle.
+
+Obsługuje również harmonogramy i ręczne uruchamianie workflow.
+
+## 8. Wady i ograniczenia GitHub Actions
+
+Konfiguracja bardziej rozbudowanych workflow może wymagać znajomości YAML, Git oraz zasad CI/CD.
+
+Darmowe limity i koszty zależą od planu, rodzaju repozytorium oraz wykorzystywanych runnerów.
+
+Nieprawidłowo skonfigurowane uprawnienia lub sekrety mogą stwarzać zagrożenia bezpieczeństwa.
+
+Korzystanie z akcji tworzonych przez inne osoby wymaga sprawdzenia ich wiarygodności i wersji.
+
+## 9. GitHub Actions a Jenkins
+
+GitHub Actions oferuje natywną integrację z GitHubem i umożliwia definiowanie procesów automatyzacji bezpośrednio w repozytorium.
+
+Jenkins jest rozbudowanym serwerem automatyzacji, który można samodzielnie hostować i dostosowywać za pomocą licznych wtyczek.
+
+GitHub Actions jest często wygodniejszy w projektach przechowywanych na GitHubie, natomiast Jenkins może być dobrym wyborem w organizacjach wymagających dużej kontroli nad własną infrastrukturą automatyzacji.
+
+## 10. Znaczenie GitHub Actions w pracy informatyka
+
+GitHub Actions jest przydatny dla programistów, testerów automatyzujących, inżynierów QA i specjalistów DevOps.
+
+Testerzy mogą wykorzystywać go do automatycznego uruchamiania testów jednostkowych, integracyjnych i API.
+
+Programiści mogą dzięki niemu sprawdzać, czy projekt poprawnie się kompiluje, zanim zmiany zostaną połączone z główną gałęzią.
+
+Inżynierowie DevOps mogą budować kompletne procesy wdrażania aplikacji do środowisk testowych i produkcyjnych.
+
+## 11. Podsumowanie
+
+GitHub Actions to narzędzie do automatyzacji procesów programistycznych, które pozwala uruchamiać testy, budować aplikacje i wdrażać oprogramowanie na podstawie zdarzeń zachodzących w repozytorium.
+
+Jego najważniejszymi elementami są workflow, eventy, joby, kroki, akcje i runnery.
+
+Znajomość GitHub Actions jest szczególnie wartościowa przy pracy z GitHubem, Javą, Mavenem, Spring Bootem, Dockerem oraz praktykami CI/CD.

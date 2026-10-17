@@ -1,0 +1,529 @@
+Adobe Photoshop — notatka
+
+1. Czym jest Adobe Photoshop?
+
+Adobe Photoshop to profesjonalny program firmy Adobe przeznaczony przede wszystkim do tworzenia, edycji i obróbki grafiki rastrowej.
+
+Grafika rastrowa składa się z pikseli, czyli małych punktów tworzących obraz.
+
+Photoshop jest szczególnie często wykorzystywany do obróbki zdjęć, retuszu, tworzenia grafik internetowych, fotomontaży, reklam, banerów oraz materiałów przeznaczonych do publikacji cyfrowej.
+
+Photoshop pozwala również tworzyć obrazy od podstaw, nawet jeśli nie zaczynamy od istniejącego zdjęcia.
+
+Najważniejszą rzeczą do zapamiętania jest to, że Photoshop jest przede wszystkim programem do pracy z grafiką rastrową i pikselami.
+
+2. Photoshop a Illustrator i Lightroom
+
+Photoshop różni się od innych programów Adobe przeznaczonych do pracy z grafiką.
+
+Illustrator służy przede wszystkim do tworzenia grafiki wektorowej.
+
+Photoshop służy przede wszystkim do edycji grafiki rastrowej.
+
+Lightroom służy przede wszystkim do organizowania dużych bibliotek zdjęć i ich niedestrukcyjnej obróbki.
+
+Możemy więc przyjąć prosty podział.
+
+Illustrator służy głównie do tworzenia logotypów, ikon i grafiki wektorowej.
+
+Photoshop służy głównie do szczegółowej edycji obrazów, zdjęć i fotomontaży.
+
+Lightroom służy głównie do zarządzania dużą liczbą zdjęć i ich szybkiej obróbki.
+
+3. Piksele i rozdzielczość
+
+Podstawowym elementem grafiki rastrowej jest piksel.
+
+Piksel jest pojedynczym punktem obrazu posiadającym określony kolor.
+
+Duża liczba pikseli tworzy kompletny obraz.
+
+Jeżeli mocno powiększymy grafikę rastrową, możemy zobaczyć pojedyncze piksele.
+
+Zjawisko to nazywamy pikselizacją.
+
+Rozdzielczość określa między innymi liczbę pikseli tworzących obraz.
+
+Przykładowo obraz o rozdzielczości 1920 × 1080 ma 1920 pikseli szerokości i 1080 pikseli wysokości.
+
+Większa rozdzielczość zazwyczaj oznacza większą ilość szczegółów, ale również większy rozmiar pliku.
+
+4. Tworzenie dokumentu
+
+Podczas tworzenia nowego dokumentu musimy określić jego podstawowe parametry.
+
+Możemy określić szerokość i wysokość dokumentu.
+
+Możemy również określić jednostkę, w której podawane są wymiary.
+
+Dla grafiki ekranowej często stosuje się piksele.
+
+Dla projektów przeznaczonych do druku często stosuje się centymetry lub milimetry.
+
+Ważnym parametrem jest również Resolution, czyli rozdzielczość.
+
+W przypadku druku często spotykana jest wartość 300 PPI.
+
+PPI oznacza liczbę pikseli przypadających na jeden cal obrazu.
+
+5. Warstwy
+
+Jednym z najważniejszych elementów Photoshopa są Layers, czyli warstwy.
+
+Warstwa pozwala przechowywać określone elementy obrazu niezależnie od innych elementów.
+
+Możemy na przykład mieć osobną warstwę dla tła, osobną dla zdjęcia oraz osobną dla tekstu.
+
+Dzięki warstwom możemy edytować poszczególne elementy bez konieczności zmieniania całego obrazu.
+
+Warstwy można ukrywać, blokować, kopiować, usuwać i zmieniać ich kolejność.
+
+Kolejność warstw ma znaczenie, ponieważ warstwa znajdująca się wyżej może zasłaniać warstwę znajdującą się niżej.
+
+Warstwy są podstawą bardziej zaawansowanej pracy w Photoshopie.
+
+6. Background
+
+W wielu dokumentach możemy spotkać specjalną warstwę o nazwie Background.
+
+Background oznacza tło obrazu.
+
+Warstwa tła może być biała, kolorowa lub zawierać grafikę.
+
+Możemy również odblokować warstwę Background i traktować ją jak zwykłą warstwę.
+
+7. Zaznaczanie
+
+Jedną z najważniejszych umiejętności w Photoshopie jest zaznaczanie fragmentów obrazu.
+
+Zaznaczenie określa obszar, na którym chcemy wykonać konkretną operację.
+
+Możemy na przykład zaznaczyć osobę i zmienić tylko jej jasność.
+
+Możemy również zaznaczyć fragment zdjęcia i usunąć go albo zmienić jego kolor.
+
+Photoshop posiada wiele narzędzi służących do tworzenia zaznaczeń.
+
+8. Marquee Tools
+
+Marquee Tool służy do tworzenia prostokątnych lub eliptycznych zaznaczeń.
+
+Rectangular Marquee Tool pozwala zaznaczyć prostokątny obszar.
+
+Elliptical Marquee Tool pozwala zaznaczyć eliptyczny obszar.
+
+Są to podstawowe narzędzia selekcji.
+
+9. Lasso Tools
+
+Lasso Tool pozwala tworzyć zaznaczenia o nieregularnym kształcie.
+
+Możemy ręcznie obrysować interesujący nas fragment obrazu.
+
+Polygonal Lasso Tool pozwala tworzyć zaznaczenie z prostych odcinków.
+
+Magnetic Lasso Tool może pomagać w automatycznym dopasowaniu zaznaczenia do krawędzi obiektu.
+
+10. Object Selection i Quick Selection
+
+Photoshop posiada również inteligentniejsze narzędzia do zaznaczania obiektów.
+
+Object Selection Tool pozwala wskazać konkretny obiekt znajdujący się na zdjęciu.
+
+Quick Selection Tool pozwala szybko zaznaczać obszary na podstawie podobieństwa kolorów i krawędzi.
+
+Narzędzia te są bardzo przydatne podczas wycinania osób, produktów lub innych obiektów ze zdjęć.
+
+11. Magic Wand
+
+Magic Wand Tool służy do zaznaczania obszarów o podobnym kolorze.
+
+Jeżeli na przykład mamy jednolite białe tło, możemy kliknąć je Magic Wand i utworzyć zaznaczenie obejmujące podobne kolory.
+
+Ważnym parametrem tego narzędzia jest Tolerance.
+
+Tolerance określa, jak duża może być różnica kolorów pomiędzy zaznaczonymi obszarami.
+
+12. Maski warstw
+
+Jednym z najważniejszych pojęć w Photoshopie jest Layer Mask.
+
+Maska pozwala ukrywać część warstwy bez jej fizycznego usuwania.
+
+Białe obszary maski oznaczają elementy widoczne.
+
+Czarne obszary maski oznaczają elementy ukryte.
+
+Szare obszary mogą powodować częściową przezroczystość.
+
+Najważniejsza zasada brzmi: biały pokazuje, czarny ukrywa.
+
+Maski są bardzo ważne, ponieważ pozwalają wykonywać edycję niedestrukcyjną.
+
+13. Eraser Tool
+
+Eraser Tool służy do usuwania fragmentów warstwy.
+
+Możemy za jego pomocą wymazywać piksele.
+
+Należy jednak pamiętać, że bezpośrednie wymazywanie może być operacją destrukcyjną.
+
+Dlatego w wielu sytuacjach lepiej wykorzystać maskę warstwy.
+
+14. Brush Tool
+
+Brush Tool jest jednym z podstawowych narzędzi Photoshopa.
+
+Służy do malowania za pomocą pędzla.
+
+Możemy zmieniać jego rozmiar, twardość, krycie oraz inne parametry.
+
+Pędzel jest wykorzystywany między innymi do retuszu, tworzenia masek oraz malowania.
+
+15. Clone Stamp
+
+Clone Stamp Tool pozwala kopiować fragment obrazu w inne miejsce.
+
+Możemy na przykład pobrać fragment skóry i wykorzystać go do zakrycia niewielkiej niedoskonałości.
+
+Clone Stamp jest często wykorzystywany podczas retuszu zdjęć.
+
+16. Healing Brush
+
+Healing Brush również służy do retuszu.
+
+Pozwala usuwać niedoskonałości skóry, drobne elementy oraz inne niepożądane fragmenty obrazu.
+
+W przeciwieństwie do zwykłego kopiowania pikseli narzędzie dopasowuje skopiowany fragment do otoczenia.
+
+17. Spot Healing Brush
+
+Spot Healing Brush pozwala szybko usuwać drobne niedoskonałości.
+
+Możemy nim na przykład usunąć małą plamkę, pryszcz albo drobny element znajdujący się na zdjęciu.
+
+Photoshop automatycznie analizuje otoczenie i próbuje uzupełnić usunięty fragment.
+
+18. Content-Aware Fill
+
+Content-Aware Fill pozwala usuwać większe obiekty ze zdjęcia.
+
+Photoshop analizuje otoczenie zaznaczonego elementu i próbuje automatycznie wypełnić powstałe miejsce.
+
+Technika ta może być wykorzystywana na przykład do usuwania ludzi, przedmiotów lub innych niepożądanych elementów ze zdjęcia.
+
+19. Crop Tool
+
+Crop Tool służy do kadrowania obrazu.
+
+Kadrowanie pozwala usunąć niepotrzebne fragmenty zdjęcia i zmienić jego kompozycję.
+
+Możemy również określić konkretne proporcje kadru.
+
+Przykładowymi proporcjami są 1:1, 4:3, 3:2 oraz 16:9.
+
+20. Move Tool i Free Transform
+
+Move Tool pozwala przesuwać elementy obrazu.
+
+Możemy przesuwać między innymi warstwy, zaznaczenia oraz obiekty.
+
+Free Transform pozwala zmieniać rozmiar, obracać, pochylać i deformować elementy.
+
+Do uruchomienia Free Transform często wykorzystuje się skrót Ctrl + T.
+
+21. Kolory
+
+Photoshop pozwala pracować z różnymi modelami kolorów.
+
+Najczęściej spotykane są RGB oraz CMYK.
+
+RGB oznacza Red, Green i Blue.
+
+RGB jest wykorzystywane przede wszystkim w przypadku grafiki przeznaczonej na ekrany.
+
+CMYK oznacza Cyan, Magenta, Yellow i Key, czyli kolor czarny.
+
+CMYK jest wykorzystywany przede wszystkim w przypadku materiałów przeznaczonych do druku.
+
+22. Foreground i Background Color
+
+Photoshop posiada dwa podstawowe kolory robocze.
+
+Są to Foreground Color oraz Background Color.
+
+Foreground Color jest kolorem pierwszoplanowym.
+
+Background Color jest kolorem tła.
+
+Kolory te są wykorzystywane między innymi podczas malowania, wypełniania oraz tworzenia gradientów.
+
+Kolory domyślne można szybko przywrócić za pomocą klawisza D.
+
+Klawisz X pozwala zamienić miejscami kolor pierwszoplanowy i kolor tła.
+
+23. Adjustments
+
+Photoshop pozwala zmieniać wygląd obrazu za pomocą różnych korekt.
+
+Możemy między innymi zmieniać jasność, kontrast, poziomy tonalne oraz kolory.
+
+Jednym z podstawowych narzędzi jest Brightness/Contrast.
+
+Brightness odpowiada za jasność obrazu.
+
+Contrast odpowiada za różnicę pomiędzy jasnymi i ciemnymi obszarami.
+
+24. Levels
+
+Levels pozwala kontrolować zakres tonalny obrazu.
+
+Możemy za jego pomocą kontrolować punkty czerni, bieli oraz średnie tony.
+
+Levels jest przydatne między innymi do poprawiania kontrastu i ekspozycji.
+
+25. Curves
+
+Curves jest bardziej zaawansowanym narzędziem do kontroli jasności i kontrastu.
+
+Pozwala precyzyjnie zmieniać różne zakresy tonalne obrazu.
+
+Możemy na przykład rozjaśnić światła i przyciemnić cienie.
+
+Curves może być również wykorzystywane do zaawansowanej korekcji kolorów.
+
+26. Hue/Saturation
+
+Hue/Saturation pozwala zmieniać kolory obrazu.
+
+Hue oznacza odcień koloru.
+
+Saturation oznacza nasycenie koloru.
+
+Lightness oznacza jego jasność.
+
+Możemy dzięki temu na przykład zmienić kolor ubrania osoby znajdującej się na zdjęciu.
+
+27. Color Balance
+
+Color Balance pozwala kontrolować rozkład kolorów w obrazie.
+
+Możemy za jego pomocą przesuwać kolorystykę zdjęcia w określonym kierunku.
+
+Narzędzie może być wykorzystywane między innymi do tworzenia określonego klimatu kolorystycznego.
+
+28. Adjustment Layers
+
+Bardzo ważnym pojęciem są Adjustment Layers, czyli warstwy dopasowania.
+
+Warstwa dopasowania pozwala zastosować korektę bez bezpośredniej modyfikacji oryginalnych pikseli.
+
+Dzięki temu możemy później zmienić ustawienia korekty albo ją wyłączyć.
+
+Adjustment Layers są więc jednym z podstawowych sposobów wykonywania niedestrukcyjnej edycji w Photoshopie.
+
+29. Blending Modes
+
+Blending Modes, czyli tryby mieszania warstw, określają sposób, w jaki jedna warstwa wpływa na warstwę znajdującą się pod nią.
+
+Przykładowym trybem jest Multiply.
+
+Multiply zazwyczaj przyciemnia obraz.
+
+Innym trybem jest Screen.
+
+Screen zazwyczaj rozjaśnia obraz.
+
+Overlay może zwiększać kontrast obrazu.
+
+Tryby mieszania są często wykorzystywane przy efektach świetlnych, teksturach i fotomontażach.
+
+30. Opacity i Fill
+
+Opacity określa przezroczystość warstwy lub narzędzia.
+
+Jeżeli Opacity wynosi 100%, element jest całkowicie widoczny.
+
+Jeżeli zmniejszymy Opacity, element staje się bardziej przezroczysty.
+
+Photoshop posiada również parametr Fill.
+
+Fill określa widoczność zawartości warstwy i może zachowywać się inaczej niż Opacity w przypadku niektórych efektów warstwy.
+
+31. Smart Objects
+
+Smart Object to specjalny rodzaj warstwy, który pozwala zachować oryginalną zawartość elementu.
+
+Smart Objects są szczególnie przydatne podczas skalowania i wielokrotnego wykorzystywania elementów.
+
+Pozwalają również stosować niektóre filtry w sposób bardziej niedestrukcyjny.
+
+Smart Objects są często wykorzystywane w profesjonalnym workflow.
+
+32. Filters
+
+Photoshop posiada dużą liczbę filtrów.
+
+Filtry pozwalają zmieniać wygląd obrazu lub tworzyć różnego rodzaju efekty.
+
+Możemy między innymi rozmywać obraz, wyostrzać go, dodawać szum albo stosować inne efekty.
+
+Jednym z popularnych filtrów jest Gaussian Blur.
+
+Gaussian Blur pozwala uzyskać efekt rozmycia.
+
+33. Typography — tekst
+
+Photoshop pozwala również tworzyć i edytować tekst.
+
+Do tego służy Type Tool.
+
+Możemy zmieniać między innymi krój pisma, rozmiar, kolor, grubość i wyrównanie tekstu.
+
+Tekst jest zazwyczaj tworzony jako osobna warstwa tekstowa.
+
+Dzięki temu możemy później zmienić jego treść bez konieczności tworzenia go od początku.
+
+34. Paths i Pen Tool
+
+Photoshop posiada również Pen Tool.
+
+Pen Tool pozwala tworzyć precyzyjne ścieżki wektorowe.
+
+Ścieżki mogą być wykorzystywane między innymi do tworzenia zaznaczeń, obrysów oraz precyzyjnego wycinania obiektów.
+
+Pen Tool jest szczególnie przydatny wtedy, gdy obiekt ma skomplikowaną lub bardzo precyzyjną krawędź.
+
+35. Prowadnice i linijki
+
+Photoshop posiada również prowadnice i linijki pomagające w precyzyjnym rozmieszczaniu elementów.
+
+Możemy korzystać z siatek, prowadnic oraz narzędzi wyrównujących.
+
+Jest to szczególnie przydatne podczas projektowania interfejsów, banerów oraz materiałów reklamowych.
+
+36. Retusz zdjęć
+
+Jednym z najpopularniejszych zastosowań Photoshopa jest retusz zdjęć.
+
+Retusz może obejmować usuwanie niedoskonałości skóry, poprawianie kolorów, usuwanie niepożądanych obiektów oraz poprawianie szczegółów.
+
+Do retuszu można wykorzystywać między innymi Healing Brush, Spot Healing Brush, Clone Stamp oraz maski.
+
+W profesjonalnej pracy warto wykonywać retusz w sposób niedestrukcyjny.
+
+Oznacza to między innymi pracę na osobnych warstwach, maskach oraz warstwach dopasowania.
+
+37. Fotomontaż
+
+Photoshop pozwala łączyć wiele zdjęć i elementów w jeden obraz.
+
+Proces taki nazywamy fotomontażem.
+
+Możemy na przykład wyciąć osobę z jednego zdjęcia i umieścić ją na innym tle.
+
+Do tego celu często wykorzystuje się zaznaczenia, maski warstw oraz warstwy.
+
+Ważne jest odpowiednie dopasowanie światła, kolorów, perspektywy i proporcji poszczególnych elementów.
+
+38. Historia zmian
+
+Photoshop posiada panel History.
+
+Panel History pozwala przeglądać wcześniejsze etapy pracy.
+
+Dzięki temu możemy cofnąć się do wcześniejszego stanu dokumentu.
+
+Do podstawowego cofania ostatniej operacji służy skrót Ctrl + Z.
+
+39. Zapisywanie projektu
+
+Natywnym formatem Photoshopa jest PSD.
+
+PSD zachowuje między innymi warstwy, maski, tekst, efekty oraz inne informacje potrzebne do dalszej edycji.
+
+Jeżeli chcemy zachować możliwość pełnej edycji projektu, warto zachować plik PSD.
+
+Do publikacji gotowego obrazu możemy natomiast wykorzystać między innymi JPEG, PNG, TIFF lub inne odpowiednie formaty.
+
+40. JPEG, PNG i PSD
+
+JPEG jest formatem rastrowym często wykorzystywanym do publikowania zdjęć i grafik.
+
+JPEG wykorzystuje kompresję stratną, dlatego wielokrotne zapisywanie obrazu w tym formacie może powodować pogorszenie jakości.
+
+PNG może zachowywać przezroczystość i jest często używany w przypadku grafik internetowych.
+
+PSD jest formatem roboczym Photoshopa i pozwala zachować strukturę projektu.
+
+Najważniejsze jest więc rozróżnienie, że PSD służy przede wszystkim do dalszej edycji projektu, a JPEG i PNG częściej służą do wykorzystania gotowej grafiki.
+
+41. Praca niedestrukcyjna
+
+Jedną z najważniejszych zasad profesjonalnej pracy w Photoshopie jest wykonywanie jak największej liczby operacji w sposób niedestrukcyjny.
+
+Zamiast bezpośrednio zmieniać oryginalne piksele, możemy korzystać z masek, warstw dopasowania, Smart Objects oraz osobnych warstw.
+
+Dzięki temu łatwiej zmienić decyzje podjęte wcześniej podczas edycji.
+
+Niedestrukcyjna praca pozwala również zachować większą kontrolę nad projektem.
+
+42. Typowy workflow w Photoshopie
+
+Typowa praca nad zdjęciem może rozpocząć się od otwarcia lub importowania fotografii.
+
+Następnie możemy utworzyć kopię warstwy lub wykorzystać Smart Object.
+
+Kolejnym etapem może być kadrowanie i prostowanie zdjęcia.
+
+Następnie możemy poprawić ekspozycję, kontrast i kolory.
+
+Później możemy wykonać retusz za pomocą narzędzi takich jak Healing Brush lub Clone Stamp.
+
+Jeżeli chcemy wykonać bardziej precyzyjne zmiany, możemy wykorzystać zaznaczenia i maski.
+
+Na końcu możemy dodać tekst, efekty lub inne elementy graficzne.
+
+Gotowy projekt zapisujemy jako PSD, jeśli chcemy zachować możliwość dalszej edycji.
+
+Następnie możemy wyeksportować gotową grafikę do odpowiedniego formatu.
+
+43. Jak uczyć się Photoshopa?
+
+Podczas nauki Photoshopa najpierw warto zrozumieć działanie pikseli i grafiki rastrowej.
+
+Następnie warto nauczyć się tworzenia dokumentów oraz pracy z warstwami.
+
+Kolejnym krokiem powinny być zaznaczenia i maski.
+
+Następnie warto opanować podstawowe narzędzia retuszu.
+
+Później można przejść do korekcji kolorów i jasności.
+
+Następnie warto nauczyć się pracy z tekstem, Smart Objects, filtrami oraz trybami mieszania.
+
+Na końcu można przejść do bardziej zaawansowanego retuszu, fotomontażu i profesjonalnej edycji.
+
+44. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to Pixel, Resolution, Layer, Background, Selection, Marquee Tool, Lasso Tool, Object Selection Tool, Magic Wand, Layer Mask, Brush Tool, Clone Stamp, Healing Brush, Spot Healing Brush, Content-Aware Fill, Crop Tool, Free Transform, RGB, CMYK, Levels, Curves, Hue/Saturation, Adjustment Layers, Blending Modes, Opacity, Smart Objects, Filters, Type Tool, Pen Tool, History oraz PSD.
+
+Najważniejsza zasada dotycząca Photoshopa jest taka, że program służy przede wszystkim do tworzenia i szczegółowej edycji grafiki rastrowej.
+
+Najważniejszymi elementami profesjonalnej pracy są warstwy, maski, zaznaczenia oraz niedestrukcyjne metody edycji.
+
+45. Photoshop, Lightroom i Illustrator — najważniejsza różnica
+
+Photoshop służy przede wszystkim do szczegółowej edycji grafiki rastrowej, retuszu zdjęć, fotomontażu i pracy na pikselach.
+
+Lightroom służy przede wszystkim do organizowania dużej biblioteki zdjęć oraz ich szybkiej i niedestrukcyjnej obróbki.
+
+Illustrator służy przede wszystkim do tworzenia i edycji grafiki wektorowej.
+
+Można więc zapamiętać prosty schemat.
+
+Photoshop oznacza przede wszystkim piksele i szczegółową edycję.
+
+Lightroom oznacza przede wszystkim bibliotekę zdjęć i szybką obróbkę.
+
+Illustrator oznacza przede wszystkim wektory i grafikę.

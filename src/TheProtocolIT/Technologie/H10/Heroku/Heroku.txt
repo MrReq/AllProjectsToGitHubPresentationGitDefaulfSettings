@@ -1,0 +1,790 @@
+# Heroku
+
+## 1. Czym jest Heroku
+
+Heroku to platforma chmurowa typu PaaS, czyli Platform as a Service.
+
+Heroku pozwala programistom wdrażać, uruchamiać i zarządzać aplikacjami bez konieczności samodzielnego konfigurowania całej infrastruktury serwerowej.
+
+Programista dostarcza kod aplikacji, a Heroku zajmuje się dużą częścią infrastruktury potrzebnej do jej uruchomienia.
+
+Heroku jest szczególnie znane z prostego procesu wdrażania aplikacji.
+
+Heroku należy do firmy Salesforce.
+
+## 2. Co oznacza PaaS
+
+PaaS oznacza Platform as a Service.
+
+W modelu PaaS dostawca chmurowy udostępnia środowisko potrzebne do uruchamiania aplikacji.
+
+Programista nie musi samodzielnie zarządzać między innymi systemem operacyjnym serwera, konfiguracją środowiska uruchomieniowego czy częścią infrastruktury.
+
+Możemy porównać różne modele:
+
+```text
+IaaS
+↓
+Zarządzasz większą częścią infrastruktury.
+
+PaaS
+↓
+Zarządzasz głównie aplikacją i jej konfiguracją.
+
+SaaS
+↓
+Korzystasz z gotowej aplikacji.
+```
+
+Heroku należy do kategorii PaaS.
+
+## 3. Jak działa Heroku
+
+Podstawowy przepływ wygląda następująco:
+
+```text
+Kod aplikacji
+      │
+      ▼
+     Git
+      │
+      ▼
+    Heroku
+      │
+      ▼
+  Build
+      │
+      ▼
+  Uruchomienie
+      │
+      ▼
+ Aplikacja WWW
+```
+
+Programista przesyła kod aplikacji do Heroku.
+
+Heroku rozpoznaje technologię projektu.
+
+Następnie przygotowuje środowisko uruchomieniowe.
+
+Aplikacja zostaje zbudowana i uruchomiona.
+
+## 4. Git
+
+Heroku od początku było mocno związane z Git.
+
+Można wdrażać aplikację poprzez Git.
+
+Przykładowo:
+
+```bash
+git add .
+git commit -m "Deploy application"
+git push heroku main
+```
+
+Po wykonaniu `git push` Heroku może automatycznie rozpocząć proces budowania i wdrażania aplikacji.
+
+## 5. Heroku CLI
+
+Heroku posiada narzędzie wiersza poleceń Heroku CLI.
+
+CLI pozwala zarządzać aplikacjami z poziomu terminala.
+
+Przykładowe polecenie:
+
+```bash
+heroku login
+```
+
+służy do zalogowania się do konta Heroku.
+
+Możemy następnie wykonywać operacje związane z aplikacjami.
+
+## 6. Heroku App
+
+Aplikacja utworzona w Heroku jest nazywana App.
+
+Przykładowo:
+
+```bash
+heroku create my-application
+```
+
+może utworzyć nową aplikację.
+
+Heroku przypisuje jej między innymi adres dostępowy.
+
+Aplikacja może posiadać własną konfigurację, zmienne środowiskowe, dodatki oraz procesy.
+
+## 7. Dynos
+
+Dyno jest podstawową jednostką uruchamiania aplikacji w Heroku.
+
+Dyno to izolowany kontener uruchamiający określony proces aplikacji.
+
+Przykładowo aplikacja może posiadać:
+
+```text
+Web Dyno
+Worker Dyno
+```
+
+Web Dyno obsługuje żądania HTTP.
+
+Worker Dyno może wykonywać zadania działające w tle.
+
+## 8. Procfile
+
+`Procfile` określa, jakie procesy mają być uruchamiane przez Heroku.
+
+Przykładowy `Procfile`:
+
+```text
+web: java -jar app.jar
+```
+
+W przypadku aplikacji Node.js może wyglądać tak:
+
+```text
+web: npm start
+```
+
+W przypadku Pythona:
+
+```text
+web: gunicorn app:app
+```
+
+Procfile pozwala Heroku wiedzieć, jak uruchomić aplikację.
+
+## 9. Buildpacks
+
+Buildpack określa sposób przygotowania aplikacji do uruchomienia.
+
+Heroku posiada buildpacki dla różnych technologii.
+
+Możemy spotkać buildpacki między innymi dla:
+
+```text
+Java
+Node.js
+Python
+Ruby
+PHP
+Go
+```
+
+Buildpack może wykryć zależności aplikacji, przygotować środowisko i stworzyć odpowiedni sposób uruchamiania aplikacji.
+
+## 10. Java na Heroku
+
+Heroku może uruchamiać aplikacje Java.
+
+Typowy projekt może wyglądać tak:
+
+```text
+Java Application
+      │
+      ▼
+    Maven
+      │
+      ▼
+   JAR file
+      │
+      ▼
+   Heroku Dyno
+```
+
+Heroku może wykorzystać `pom.xml` do określenia zależności i procesu budowania projektu.
+
+W przypadku Spring Boot aplikacja może zostać zbudowana do pliku JAR.
+
+## 11. Spring Boot i Heroku
+
+Heroku może być wykorzystywane do wdrażania aplikacji Spring Boot.
+
+Przykładowy przepływ:
+
+```text
+Spring Boot
+    │
+    ▼
+ Maven
+    │
+    ▼
+ application.jar
+    │
+    ▼
+ Heroku
+    │
+    ▼
+ Web Dyno
+```
+
+Aplikacja powinna nasłuchiwać na porcie przekazanym przez środowisko Heroku.
+
+W aplikacjach webowych port powinien być pobierany ze zmiennej środowiskowej `PORT`.
+
+## 12. Node.js na Heroku
+
+Heroku jest również bardzo popularne w projektach Node.js.
+
+Projekt może zawierać:
+
+```text
+package.json
+```
+
+Heroku może wykorzystać informacje z tego pliku do instalacji zależności i uruchomienia aplikacji.
+
+Przykładowy skrypt:
+
+```json
+{
+  "scripts": {
+    "start": "node server.js"
+  }
+}
+```
+
+Heroku może wtedy uruchomić:
+
+```bash
+npm start
+```
+
+## 13. Python na Heroku
+
+Heroku obsługuje również aplikacje Python.
+
+Projekt może zawierać między innymi:
+
+```text
+requirements.txt
+```
+
+plik ten określa zależności aplikacji.
+
+Przykładowo:
+
+```text
+Flask
+gunicorn
+```
+
+Aplikacja może być uruchamiana przez Gunicorn.
+
+## 14. Ruby na Heroku
+
+Ruby jest historycznie jednym z najważniejszych języków związanych z Heroku.
+
+Heroku zostało stworzone między innymi z myślą o łatwym wdrażaniu aplikacji Ruby on Rails.
+
+Projekt Rails może zostać wdrożony bez konieczności ręcznego konfigurowania serwera.
+
+## 15. Environment Variables
+
+Heroku pozwala przechowywać konfigurację aplikacji w zmiennych środowiskowych.
+
+Możemy przechowywać tam między innymi:
+
+```text
+DATABASE_URL
+API_KEY
+JWT_SECRET
+PORT
+```
+
+Zmienne można ustawiać za pomocą CLI.
+
+Przykładowo:
+
+```bash
+heroku config:set API_KEY=abc123
+```
+
+Aplikacja może następnie odczytać wartość ze środowiska.
+
+## 16. Config Vars
+
+W Heroku zmienne środowiskowe są często określane jako Config Vars.
+
+Możemy wyświetlić konfigurację:
+
+```bash
+heroku config
+```
+
+Możemy również ustawić wartość:
+
+```bash
+heroku config:set DATABASE_URL=...
+```
+
+oraz usunąć:
+
+```bash
+heroku config:unset DATABASE_URL
+```
+
+Config Vars są bardzo ważne dla konfiguracji aplikacji.
+
+## 17. Baza danych
+
+Heroku może współpracować z zewnętrznymi bazami danych.
+
+Jednym z najbardziej popularnych rozwiązań jest PostgreSQL.
+
+Aplikacja może otrzymać adres bazy danych poprzez:
+
+```text
+DATABASE_URL
+```
+
+Przykładowy przepływ:
+
+```text
+Heroku App
+    │
+    ▼
+Spring Boot
+    │
+    ▼
+PostgreSQL
+```
+
+## 18. Heroku Postgres
+
+Heroku oferuje usługę Heroku Postgres.
+
+Jest to zarządzana usługa PostgreSQL.
+
+Heroku zajmuje się dużą częścią infrastruktury bazy.
+
+Programista może skoncentrować się przede wszystkim na aplikacji.
+
+Baza może być połączona z aplikacją za pomocą Config Vars.
+
+## 19. Add-ons
+
+Add-ons są usługami, które można dołączać do aplikacji Heroku.
+
+Mogą zapewniać między innymi:
+
+```text
+PostgreSQL
+Redis
+monitoring
+logowanie
+wysyłanie e-maili
+```
+
+Dzięki Add-ons można rozszerzyć funkcjonalność aplikacji bez samodzielnego wdrażania całej infrastruktury.
+
+## 20. Heroku Redis
+
+Redis może być wykorzystywany jako cache lub magazyn danych typu key-value.
+
+Heroku może udostępniać zarządzane rozwiązania Redis poprzez system Add-ons.
+
+Może być to przydatne między innymi do:
+
+```text
+cache
+sesji
+kolejek
+tymczasowych danych
+```
+
+## 21. Logging
+
+Heroku posiada system logowania aplikacji.
+
+Możemy wyświetlać logi za pomocą:
+
+```bash
+heroku logs
+```
+
+Możemy również śledzić logi na żywo:
+
+```bash
+heroku logs --tail
+```
+
+Jest to bardzo przydatne podczas debugowania aplikacji.
+
+## 22. Monitoring
+
+Heroku umożliwia monitorowanie działania aplikacji.
+
+Można analizować między innymi:
+
+```text
+CPU
+pamięć
+liczbę procesów
+requesty
+logi
+```
+
+W bardziej zaawansowanych zastosowaniach można wykorzystywać zewnętrzne narzędzia monitoringowe dostępne jako Add-ons lub integracje.
+
+## 23. Scaling
+
+Heroku umożliwia skalowanie aplikacji.
+
+Możemy zwiększyć liczbę Dynos.
+
+Przykładowo:
+
+```text
+1 Web Dyno
+```
+
+może zostać zwiększony do:
+
+```text
+3 Web Dynos
+```
+
+Schemat:
+
+```text
+             Heroku
+                │
+        ┌───────┼───────┐
+        ▼       ▼       ▼
+     Dyno 1  Dyno 2  Dyno 3
+        │       │       │
+        └───────┼───────┘
+                ▼
+            Database
+```
+
+Pozwala to obsługiwać większy ruch.
+
+## 24. Horizontal Scaling
+
+Zwiększanie liczby Dynos jest przykładem skalowania poziomego.
+
+Zamiast zwiększać możliwości jednego procesu, uruchamiamy więcej instancji.
+
+Load balancing może następnie rozdzielać ruch pomiędzy dostępne Dynos.
+
+## 25. Vertical Scaling
+
+Heroku oferuje również różne rozmiary Dynos.
+
+Większy Dyno może posiadać więcej dostępnych zasobów.
+
+Możemy więc zwiększać zasoby pojedynczego procesu.
+
+Jest to przykład skalowania pionowego.
+
+## 26. Deployment Pipeline
+
+Heroku może być elementem procesu CI/CD.
+
+Przykładowy przepływ:
+
+```text
+GitHub
+   │
+   ▼
+Build
+   │
+   ▼
+Tests
+   │
+   ▼
+Heroku
+   │
+   ▼
+Production
+```
+
+Można również tworzyć oddzielne środowiska dla developmentu, testów i produkcji.
+
+## 27. GitHub Integration
+
+Heroku może integrować się z GitHubem.
+
+Po połączeniu repozytorium można skonfigurować automatyczne wdrażanie.
+
+Przykładowo:
+
+```text
+git push
+    │
+    ▼
+GitHub
+    │
+    ▼
+Heroku
+    │
+    ▼
+Build
+    │
+    ▼
+Deploy
+```
+
+Dzięki temu zmiany w repozytorium mogą automatycznie uruchamiać proces wdrażania.
+
+## 28. CI/CD
+
+Heroku może być częścią pełnego procesu CI/CD.
+
+CI oznacza Continuous Integration.
+
+CD oznacza Continuous Delivery lub Continuous Deployment.
+
+Przykładowy pipeline:
+
+```text
+Developer
+    │
+    ▼
+Git
+    │
+    ▼
+CI
+    │
+    ├── Build
+    ├── Unit Tests
+    └── Integration Tests
+            │
+            ▼
+          Heroku
+            │
+            ▼
+        Production
+```
+
+## 29. Heroku Container Registry
+
+Heroku może również uruchamiać aplikacje przy wykorzystaniu kontenerów.
+
+Można budować obraz Docker:
+
+```bash
+docker build -t my-app .
+```
+
+Następnie można przesłać go do odpowiedniego rejestru Heroku.
+
+Takie podejście daje większą kontrolę nad środowiskiem uruchomieniowym.
+
+## 30. Heroku a Docker
+
+Heroku i Docker rozwiązują różne problemy.
+
+Docker jest technologią konteneryzacji.
+
+Heroku jest platformą PaaS.
+
+Docker pozwala zapakować aplikację wraz z jej środowiskiem.
+
+Heroku zapewnia infrastrukturę, na której aplikacja może zostać uruchomiona.
+
+Można więc używać Dockera jako części procesu wdrażania aplikacji do Heroku.
+
+## 31. Heroku a AWS
+
+AWS jest bardzo rozbudowaną platformą chmurową.
+
+AWS daje programiście ogromną kontrolę nad infrastrukturą.
+
+Heroku oferuje wyższy poziom abstrakcji.
+
+Możemy uprościć różnicę:
+
+```text
+AWS
+↓
+Duża kontrola + większa złożoność
+
+Heroku
+↓
+Mniejsza kontrola + prostsze wdrażanie
+```
+
+Heroku jest szczególnie atrakcyjne dla zespołów, które chcą szybko wdrażać aplikacje bez zarządzania dużą ilością infrastruktury.
+
+## 32. Heroku a Kubernetes
+
+Heroku ukrywa dużą część infrastruktury przed programistą.
+
+Kubernetes daje bardzo dużą kontrolę nad sposobem uruchamiania kontenerów.
+
+Możemy porównać:
+
+```text
+Heroku
+↓
+"Chcę uruchomić aplikację."
+
+Kubernetes
+↓
+"Chcę szczegółowo określić, jak aplikacja ma działać w klastrze."
+```
+
+Heroku jest prostsze w rozpoczęciu pracy.
+
+Kubernetes oferuje większą elastyczność i kontrolę.
+
+## 33. Heroku a Vercel
+
+Vercel jest szczególnie popularny w świecie aplikacji frontendowych i Next.js.
+
+Heroku jest bardziej ogólną platformą PaaS.
+
+Heroku może być wykorzystywane do aplikacji backendowych napisanych między innymi w Javie, Node.js, Pythonie czy Ruby.
+
+Vercel jest szczególnie mocno zorientowany na frontend, serverless i edge computing.
+
+## 34. Twelve-Factor App
+
+Heroku jest mocno związane z filozofią Twelve-Factor App.
+
+Twelve-Factor App to zestaw zasad tworzenia nowoczesnych aplikacji chmurowych.
+
+Jedna z zasad mówi o przechowywaniu konfiguracji w środowisku, a nie bezpośrednio w kodzie.
+
+Inna zasada dotyczy traktowania procesów aplikacji jako stateless.
+
+Podejście to dobrze pasuje do architektury Heroku.
+
+## 35. Stateless Application
+
+Aplikacja stateless nie przechowuje istotnego stanu lokalnie w pojedynczym procesie.
+
+Jest to ważne podczas skalowania aplikacji.
+
+Jeżeli mamy kilka Dynos:
+
+```text
+Dyno 1
+Dyno 2
+Dyno 3
+```
+
+dowolny Dyno powinien móc obsłużyć kolejne żądanie użytkownika.
+
+Dane sesji mogą być przechowywane na przykład w Redisie lub bazie danych.
+
+## 36. Zalety Heroku
+
+Heroku jest proste w użyciu.
+
+Proces wdrażania aplikacji jest bardzo szybki.
+
+Platforma posiada integrację z Git.
+
+Heroku automatyzuje wiele elementów infrastruktury.
+
+Dostępne są gotowe buildpacki.
+
+Dostępne są Add-ons.
+
+Platforma obsługuje wiele popularnych języków programowania.
+
+Można łatwo skalować aplikacje.
+
+Można szybko tworzyć środowiska testowe i produkcyjne.
+
+## 37. Wady Heroku
+
+Heroku daje mniej kontroli nad infrastrukturą niż rozwiązania typu AWS czy Kubernetes.
+
+Koszty mogą być wyższe niż w przypadku samodzielnego zarządzania infrastrukturą.
+
+Niektóre zaawansowane scenariusze mogą wymagać dodatkowych usług.
+
+Platforma może być mniej elastyczna niż rozwiązania oparte bezpośrednio na IaaS lub Kubernetes.
+
+W przypadku bardzo dużych systemów organizacje często rozważają rozwiązania dające większą kontrolę nad infrastrukturą.
+
+## 38. Kiedy warto użyć Heroku
+
+Heroku dobrze sprawdza się przy szybkich wdrożeniach.
+
+Jest dobrym rozwiązaniem dla małych i średnich aplikacji.
+
+Jest przydatne podczas tworzenia MVP.
+
+Może być dobrym wyborem dla startupów.
+
+Może być wygodne podczas tworzenia projektów studenckich.
+
+Może być wykorzystywane do demonstracji aplikacji klientom.
+
+Może być również wykorzystywane przez zespoły, które chcą ograniczyć ilość pracy związanej z administracją serwerami.
+
+## 39. Przykładowa architektura
+
+Przykładowa aplikacja może wyglądać tak:
+
+```text
+                    INTERNET
+                        │
+                        ▼
+                    HEROKU
+                        │
+             ┌──────────┴──────────┐
+             ▼                     ▼
+        Web Dynos              Worker Dynos
+             │                     │
+             └──────────┬──────────┘
+                        ▼
+                  Heroku Postgres
+                        │
+                        ▼
+                   Redis / Add-on
+```
+
+Heroku zarządza uruchamianiem procesów aplikacji.
+
+PostgreSQL przechowuje dane.
+
+Redis może obsługiwać cache lub zadania wymagające szybkiego dostępu.
+
+## 40. Najważniejsze pojęcia do zapamiętania
+
+**Heroku** — platforma PaaS do wdrażania i uruchamiania aplikacji.
+
+**PaaS** — Platform as a Service.
+
+**App** — aplikacja utworzona na platformie Heroku.
+
+**Dyno** — jednostka uruchamiania procesu aplikacji.
+
+**Procfile** — plik określający procesy uruchamiane przez aplikację.
+
+**Buildpack** — mechanizm określający sposób budowania aplikacji.
+
+**Config Vars** — zmienne środowiskowe zawierające konfigurację aplikacji.
+
+**Add-ons** — dodatkowe usługi integrowane z aplikacją.
+
+**Heroku Postgres** — zarządzana usługa PostgreSQL.
+
+**Heroku Redis** — zarządzana usługa Redis.
+
+**Heroku CLI** — narzędzie wiersza poleceń do zarządzania Heroku.
+
+**Deployment** — proces wdrażania aplikacji.
+
+**Scaling** — zwiększanie zasobów lub liczby procesów aplikacji.
+
+**CI/CD** — automatyzacja budowania, testowania i wdrażania aplikacji.
+
+**Git** — system kontroli wersji często wykorzystywany do wdrażania aplikacji na Heroku.
+
+**Twelve-Factor App** — zbiór zasad projektowania aplikacji przeznaczonych do środowisk chmurowych.
+
+## 41. Heroku w jednym zdaniu
+
+Heroku to **platforma PaaS, która pozwala szybko wdrażać, uruchamiać, skalować i zarządzać aplikacjami bez konieczności samodzielnego zarządzania dużą częścią infrastruktury serwerowej**.

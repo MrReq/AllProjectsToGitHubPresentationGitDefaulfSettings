@@ -1,0 +1,228 @@
+# Wzorzec projektowy Fabryka (Factory Method) w Javie
+
+Wzorzec Fabryka — Factory Method to wzorzec kreacyjny, który pozwala tworzyć obiekty bez konieczności bezpośredniego wywoływania ich konstruktorów w kodzie klienta.
+
+Jego głównym celem jest oddzielenie procesu tworzenia obiektów od kodu, który z nich korzysta.
+
+## 1. Na czym polega Fabryka?
+
+Wyobraź sobie, że tworzysz aplikację obsługującą powiadomienia. Użytkownik może otrzymać wiadomość e-mail, SMS lub powiadomienie push.
+
+Bez wzorca Fabryki kod może wyglądać następująco:
+
+```
+EmailNotification email = new EmailNotification();
+email.send();
+```
+
+Jeśli później zechcesz zmienić sposób tworzenia powiadomień albo dodać nowy rodzaj, kod klienta może wymagać wielu zmian.
+
+Fabryka pozwala przenieść decyzję o tym, jaki obiekt utworzyć, do specjalnej metody lub klasy.
+
+Kod klienta
+
+Prosi o utworzenie powiadomienia.
+
+Fabryka
+
+Decyduje, którą implementację utworzyć.
+
+E-mail
+
+SMS
+
+Push
+
+## 2. Najważniejsze elementy wzorca
+
+- Produkt (Product) — interfejs lub klasa abstrakcyjna określająca wspólne zachowanie obiektów.
+- Konkretne produkty (Concrete Products) — klasy implementujące interfejs, np. `EmailNotification` i `SmsNotification`.
+- Fabryka (Creator) — deklaruje metodę tworzącą produkt.
+- Konkretna fabryka (Concrete Creator) — implementuje metodę tworzącą określony produkt.
+
+Warto rozróżnić dwa pojęcia: prosta fabryka to często zwykła klasa z metodą `create()`, natomiast Factory Method w klasycznej postaci wykorzystuje metodę fabrykującą, którą nadpisują konkretne klasy twórców.
+
+## 3. Gotowy przykład w Javie
+
+Zbudujemy prosty program, w którym fabryka tworzy różne rodzaje powiadomień.
+
+Poniższy przykład pokazuje klasyczny wzorzec Factory Method, w którym konkretne fabryki decydują o typie tworzonego obiektu.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://refactoring.guru\&sz=32)
+
+refactoring.guru
+
++1
+
+
+
+Cały kod umieść w jednym pliku `Main.java` w IntelliJ IDEA.
+
+```
+
+interface Notification {
+    void send(String message);
+}
+
+// Konkretny produkt 1
+class EmailNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("Wysyłam e-mail: " + message);
+    }
+}
+
+// Konkretny produkt 2
+class SmsNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("Wysyłam SMS: " + message);
+    }
+}
+
+// Konkretny produkt 3
+class PushNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("Wysyłam powiadomienie PUSH: " + message);
+    }
+}
+
+// Fabryka abstrakcyjna (Creator)
+abstract class NotificationFactory {
+
+    // Metoda wytwórcza
+    public abstract Notification createNotification();
+
+    // Wspólna logika korzystająca z produktu
+    public void notifyUser(String message) {
+        Notification notification = createNotification();
+        notification.send(message);
+    }
+}
+
+// Konkretna fabryka 1
+class EmailNotificationFactory extends NotificationFactory {
+
+    @Override
+    public Notification createNotification() {
+        return new EmailNotification();
+    }
+}
+
+// Konkretna fabryka 2
+class SmsNotificationFactory extends NotificationFactory {
+
+    @Override
+    public Notification createNotification() {
+        return new SmsNotification();
+    }
+}
+
+// Konkretna fabryka 3
+class PushNotificationFactory extends NotificationFactory {
+
+    @Override
+    public Notification createNotification() {
+        return new PushNotification();
+    }
+}
+
+// Klasa uruchomieniowa
+public class Main {
+
+    public static void main(String[] args) {
+
+        NotificationFactory factory;
+
+        factory = new EmailNotificationFactory();
+        factory.notifyUser("Witaj użytkowniku!");
+
+        factory = new SmsNotificationFactory();
+        factory.notifyUser("Twoje zamówienie jest gotowe.");
+
+        factory = new PushNotificationFactory();
+        factory.notifyUser("Masz nową wiadomość.");
+    }
+}
+
+```
+
+### Wynik działania
+
+```
+Wysyłam e-mail: Witaj użytkowniku!
+Wysyłam SMS: Twoje zamówienie jest gotowe.
+Wysyłam powiadomienie PUSH: Masz nową wiadomość.
+```
+
+## 4. Jak działa ten kod?
+
+Krok 1. Interfejs `Notification`
+
+Określa wspólną metodę `send()`. Każdy rodzaj powiadomienia musi ją zaimplementować.
+
+Krok 2. Konkretne produkty
+
+`EmailNotification`, `SmsNotification` i `PushNotification` realizują wysyłanie wiadomości na różne sposoby.
+
+Krok 3. Klasa `NotificationFactory`
+
+Deklaruje abstrakcyjną metodę `createNotification()`. Nie określa konkretnego typu powiadomienia.
+
+Krok 4. Konkretne fabryki
+
+Każda nadpisuje `createNotification()` i zwraca odpowiedni obiekt.
+
+Krok 5. Metoda `notifyUser()`
+
+Korzysta z utworzonego obiektu poprzez interfejs `Notification`. Nie musi wiedzieć, czy wysyła on e-mail, SMS czy powiadomienie push.
+
+## 5. Co zyskujemy dzięki Fabryce?
+
+| Bez wzorca                                                    | Z wzorcem Factory Method                                          |
+| ------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Kod często tworzy konkretne obiekty bezpośrednio.             | Tworzenie obiektów odbywa się przez metodę fabrykującą.           |
+| Zmiana sposobu tworzenia może wymagać zmian w kodzie klienta. | Nowy typ można dodać przez nową implementację produktu i fabryki. |
+| Kod klienta zależy od konkretnych klas.                       | Kod klienta może zależeć od abstrakcji.                           |
+
+Wzorzec ułatwia rozszerzanie aplikacji, ale dodaje kolejne klasy. Dlatego warto stosować go wtedy, gdy rzeczywiście potrzebujesz różnych wariantów tworzenia obiektów.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://refactoring.guru\&sz=32)
+
+refactoring.guru
+
++1
+
+
+
+## 6. Fabryka a Fabryka Abstrakcyjna
+
+Ponieważ poznajesz również inne wzorce kreacyjne, zapamiętaj tę różnicę:
+
+| Wzorzec          | Główne zadanie                                                             |
+| ---------------- | -------------------------------------------------------------------------- |
+| Factory Method   | Pozwala podklasom decydować, jaki pojedynczy produkt utworzyć.             |
+| Abstract Factory | Tworzy rodziny powiązanych produktów, które powinny ze sobą współpracować. |
+| Builder          | Pozwala konstruować złożony obiekt etapami.                                |
+
+## 7. Sprawdź swoją wiedzę
+
+Pytanie: Dlaczego metoda `createNotification()` zwraca typ `Notification`, a nie `EmailNotification`?
+
+Ponieważ Java nie pozwala zwracać konkretnych klas.
+
+Ponieważ fabryka może zwracać różne implementacje wspólnego interfejsu.
+
+Ponieważ interfejs sam tworzy obiekty.
+
+Ponieważ każda fabryka musi być klasą statyczną.
+
+Poprawna odpowiedź!
+
+Dzięki interfejsowi `Notification` kod klienta może obsługiwać różne rodzaje powiadomień bez zależności od ich konkretnych klas.
+
+Najważniejsze do zapamiętania: Fabryka Metoda pozwala oddzielić logikę korzystania z obiektów od decyzji o tym, jaki konkretny obiekt należy utworzyć.

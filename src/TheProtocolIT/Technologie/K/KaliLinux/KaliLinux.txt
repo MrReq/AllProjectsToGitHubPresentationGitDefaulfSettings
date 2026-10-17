@@ -1,0 +1,459 @@
+# Kali Linux
+
+## 1. Czym jest Kali Linux?
+
+**Kali Linux** to specjalistyczna dystrybucja systemu Linux oparta na Debianie, przeznaczona przede wszystkim do **cyberbezpieczeństwa, testów penetracyjnych, analizy bezpieczeństwa i informatyki śledczej**.
+
+Kali Linux jest rozwijany przez .
+
+System zawiera dużą liczbę gotowych narzędzi wykorzystywanych przez specjalistów bezpieczeństwa.
+
+Kali Linux jest przeznaczony głównie do pracy laboratoryjnej, audytów bezpieczeństwa oraz autoryzowanych testów systemów.
+
+## 2. Do czego wykorzystuje się Kali Linux?
+
+Kali Linux może być wykorzystywany do:
+
+- testów penetracyjnych,
+- audytów bezpieczeństwa,
+- analizy sieci,
+- analizy podatności,
+- testowania aplikacji webowych,
+- testowania bezpieczeństwa Wi-Fi,
+- analizy ruchu sieciowego,
+- analizy systemów,
+- digital forensics,
+- reverse engineeringu,
+- analizy malware,
+- OSINT,
+- pracy zespołów Red Team,
+- edukacji z zakresu cyberbezpieczeństwa.
+
+Najważniejsza zasada brzmi:
+
+**narzędzi bezpieczeństwa należy używać wyłącznie na systemach, do których masz uprawnienie.**
+
+## 3. Kali Linux a zwykły Linux
+
+Kali Linux jest pełnoprawnym systemem Linux, ale jego konfiguracja i zestaw programów są ukierunkowane na cyberbezpieczeństwo.
+
+Przykładowo:
+
+```text
+Ubuntu
+   │
+   ├── programowanie
+   ├── praca biurowa
+   ├── serwery
+   └── codzienne użytkowanie
+
+Kali Linux
+   │
+   ├── penetration testing
+   ├── network security
+   ├── digital forensics
+   ├── web security
+   └── security research
+```
+
+Nie oznacza to, że Kali Linux nie może być używany do normalnej pracy.
+
+Po prostu jego głównym przeznaczeniem jest **bezpieczeństwo informatyczne**.
+
+## 4. Podstawa systemu
+
+Kali Linux bazuje na **Debianie**.
+
+Oznacza to, że korzysta między innymi z:
+
+```text
+Linux Kernel
+      │
+      ▼
+   Debian
+      │
+      ▼
+ Kali Linux
+```
+
+Dzięki temu użytkownik może korzystać z wielu mechanizmów i narzędzi znanych z ekosystemu Debiana.
+
+## 5. Terminal
+
+Jednym z najważniejszych elementów pracy z Kali Linux jest **terminal**.
+
+Przykładowe podstawowe polecenia:
+
+```bash
+pwd
+```
+
+pokazuje aktualny katalog.
+
+```bash
+ls
+```
+
+wyświetla zawartość katalogu.
+
+```bash
+cd
+```
+
+zmienia katalog.
+
+```bash
+mkdir
+```
+
+tworzy katalog.
+
+```bash
+cp
+```
+
+kopiuje pliki.
+
+```bash
+mv
+```
+
+przenosi lub zmienia nazwę pliku.
+
+```bash
+rm
+```
+
+usuwa pliki.
+
+```bash
+sudo
+```
+
+uruchamia polecenie z uprawnieniami administratora.
+
+## 6. Zarządzanie pakietami
+
+Kali Linux korzysta z systemu pakietów Debiana.
+
+Najważniejszym narzędziem jest:
+
+```bash
+apt
+```
+
+Przykładowo:
+
+```bash
+sudo apt update
+```
+
+aktualizuje informacje o dostępnych pakietach.
+
+```bash
+sudo apt upgrade
+```
+
+aktualizuje zainstalowane pakiety.
+
+Instalowanie programu:
+
+```bash
+sudo apt install nazwa-pakietu
+```
+
+## 7. Nmap
+
+**Nmap** jest jednym z najbardziej znanych narzędzi dostępnych w Kali Linux.
+
+Służy między innymi do:
+
+- analizy sieci,
+- wykrywania hostów,
+- identyfikowania otwartych portów,
+- rozpoznawania usług,
+- przeprowadzania rekonesansu.
+
+Przykładowo:
+
+```bash
+nmap 192.168.1.10
+```
+
+może zostać wykorzystane do sprawdzenia usług na **własnym lub autoryzowanym urządzeniu**.
+
+## 8. Wireshark
+
+**Wireshark** jest analizatorem ruchu sieciowego.
+
+Pozwala obserwować pakiety przesyłane przez sieć.
+
+Można dzięki niemu analizować między innymi:
+
+- TCP,
+- UDP,
+- HTTP,
+- DNS,
+- TLS,
+- DHCP.
+
+Schemat:
+
+```text
+Sieć
+  │
+  ▼
+Pakiety
+  │
+  ▼
+Wireshark
+  │
+  ▼
+Analiza ruchu
+```
+
+## 9. Burp Suite
+
+**Burp Suite** jest narzędziem wykorzystywanym do testowania bezpieczeństwa aplikacji webowych.
+
+Może działać jako proxy pomiędzy przeglądarką a aplikacją.
+
+```text
+Browser
+   │
+   ▼
+Burp Suite
+   │
+   ▼
+Web Application
+```
+
+Pozwala analizować między innymi:
+
+- żądania HTTP,
+- odpowiedzi HTTP,
+- cookies,
+- nagłówki,
+- parametry,
+- mechanizmy uwierzytelniania.
+
+## 10. Metasploit Framework
+
+**Metasploit Framework** jest platformą wykorzystywaną do testów bezpieczeństwa.
+
+Pozwala specjalistom bezpieczeństwa badać, czy określone podatności mogą zostać wykorzystane w kontrolowanym środowisku.
+
+Metasploit jest często wykorzystywany w laboratoriach oraz podczas autoryzowanych testów penetracyjnych.
+
+## 11. John the Ripper
+
+**John the Ripper** jest narzędziem służącym między innymi do audytu bezpieczeństwa haseł.
+
+Może być wykorzystywany do sprawdzania, czy hasła znajdujące się w kontrolowanym środowisku są odpowiednio odporne.
+
+## 12. Hashcat
+
+**Hashcat** jest narzędziem do odzyskiwania haseł z hashy poprzez wykonywanie odpowiednich prób.
+
+Wykorzystuje między innymi możliwości procesorów oraz kart graficznych.
+
+Jego legalnym zastosowaniem jest między innymi **audyt własnych danych uwierzytelniających**.
+
+## 13. Aircrack-ng
+
+**Aircrack-ng** to zestaw narzędzi związanych z analizą bezpieczeństwa sieci bezprzewodowych.
+
+Może być wykorzystywany do testowania:
+
+- konfiguracji Wi-Fi,
+- mechanizmów bezpieczeństwa,
+- ruchu bezprzewodowego,
+- odporności sieci na określone ataki.
+
+Testy należy wykonywać wyłącznie na własnej sieci lub za zgodą właściciela.
+
+## 14. Gobuster
+
+**Gobuster** służy między innymi do wykrywania zasobów aplikacji internetowych.
+
+Może pomagać w odnajdywaniu:
+
+```text
+/admin
+/api
+/login
+/uploads
+/backup
+```
+
+w ramach autoryzowanego testu aplikacji.
+
+## 15. Nikto
+
+**Nikto** jest skanerem serwerów internetowych.
+
+Może sprawdzać między innymi:
+
+- konfigurację serwera,
+- znane problemy,
+- niebezpieczne pliki,
+- potencjalnie niebezpieczne konfiguracje.
+
+## 16. SQLmap
+
+**SQLmap** jest narzędziem służącym do automatyzacji testowania podatności typu **SQL Injection**.
+
+Wykorzystywane jest przede wszystkim podczas autoryzowanych testów aplikacji internetowych.
+
+Przykładowy scenariusz:
+
+```text
+Web Application
+       │
+       ▼
+   SQL Injection?
+       │
+       ▼
+    SQLmap
+```
+
+## 17. Social Engineering Toolkit
+
+**Social Engineering Toolkit (SET)** jest zestawem narzędzi związanych z testowaniem podatności wynikających z czynnika ludzkiego.
+
+Może być wykorzystywany w kontrolowanych kampaniach security awareness oraz autoryzowanych testach socjotechnicznych.
+
+## 18. John the Ripper, Hashcat i Metasploit
+
+Warto zapamiętać różnicę:
+
+**John the Ripper** → audyt haseł.
+
+**Hashcat** → wydajne odzyskiwanie haseł z hashy.
+
+**Metasploit** → testowanie podatności i eksploatacji w kontrolowanym środowisku.
+
+## 19. Kali Linux w Virtual Machine
+
+Kali Linux bardzo często uruchamia się jako **maszynę wirtualną**.
+
+Przykładowo:
+
+```text
+Windows
+   │
+   ▼
+VMware / VirtualBox
+   │
+   ▼
+Kali Linux
+```
+
+Jest to bardzo dobre rozwiązanie edukacyjne, ponieważ można stworzyć odizolowane laboratorium.
+
+## 20. Kali Linux i Docker
+
+Kali może również działać w kontenerach.
+
+```text
+Docker
+  │
+  └── Kali Linux Container
+```
+
+Jest to przydatne między innymi podczas tworzenia środowisk testowych.
+
+## 21. Kali Linux i Raspberry Pi
+
+Kali Linux może być również uruchamiany na niektórych urządzeniach ARM, w tym na wybranych modelach Raspberry Pi.
+
+Dzięki temu można tworzyć małe laboratoria bezpieczeństwa.
+
+## 22. Kali Linux i cyberbezpieczeństwo
+
+Kali Linux jest tylko **narzędziem**.
+
+Samo zainstalowanie Kali Linux nie oznacza, że ktoś posiada umiejętności z zakresu cyberbezpieczeństwa.
+
+Najważniejsze jest rozumienie:
+
+- sieci komputerowych,
+- TCP/IP,
+- DNS,
+- HTTP/HTTPS,
+- systemów Linux,
+- Windows,
+- baz danych,
+- programowania,
+- kryptografii,
+- bezpieczeństwa aplikacji.
+
+Dlatego naukę Kali Linux najlepiej połączyć z nauką podstaw sieci i systemów operacyjnych.
+
+## 23. Kali Linux a Ubuntu
+
+**Ubuntu** jest dystrybucją ogólnego zastosowania.
+
+**Kali Linux** jest dystrybucją wyspecjalizowaną w bezpieczeństwie.
+
+Można to zapamiętać:
+
+```text
+Ubuntu
+→ uniwersalny Linux
+
+Kali Linux
+→ Linux dla cyberbezpieczeństwa
+```
+
+Nie oznacza to, że Ubuntu nie nadaje się do cyberbezpieczeństwa.
+
+Po prostu Kali dostarcza wiele narzędzi bezpieczeństwa już w przygotowanym środowisku.
+
+## 24. Kali Linux — najważniejsze narzędzia
+
+Warto znać przynajmniej:
+
+| Narzędzie | Zastosowanie |
+|---|---|
+| **Nmap** | analiza sieci i portów |
+| **Wireshark** | analiza pakietów |
+| **Burp Suite** | bezpieczeństwo aplikacji webowych |
+| **Metasploit** | testowanie podatności |
+| **John the Ripper** | audyt haseł |
+| **Hashcat** | audyt hashy haseł |
+| **Aircrack-ng** | bezpieczeństwo Wi-Fi |
+| **Gobuster** | wykrywanie zasobów webowych |
+| **Nikto** | analiza serwerów WWW |
+| **SQLmap** | testowanie SQL Injection |
+| **SET** | testy socjotechniczne |
+
+## 25. Kali Linux — najważniejsze pojęcia
+
+**Kali Linux** — dystrybucja Linux przeznaczona głównie do cyberbezpieczeństwa.
+
+**Penetration Testing** — kontrolowane testowanie bezpieczeństwa systemu.
+
+**Reconnaissance** — zbieranie informacji o celu.
+
+**Vulnerability** — podatność.
+
+**Exploit** — metoda wykorzystania podatności.
+
+**Payload** — dane lub kod wykonywany w ramach określonego mechanizmu ataku/testu.
+
+**Network Scanning** — analiza urządzeń i usług w sieci.
+
+**Packet Analysis** — analiza pakietów sieciowych.
+
+**Digital Forensics** — analiza cyfrowych śladów i dowodów.
+
+**Red Team** — zespół symulujący działania atakującego w ramach autoryzowanego testu.
+
+**Blue Team** — zespół odpowiedzialny za ochronę i wykrywanie zagrożeń.
+
+**OSINT** — pozyskiwanie informacji z publicznie dostępnych źródeł.
+
+## 26. Kali Linux w jednym zdaniu
+
+**Kali Linux to specjalistyczna dystrybucja Linuksa oparta na Debianie, zawierająca szeroki zestaw narzędzi do testów penetracyjnych, analizy sieci, bezpieczeństwa aplikacji, digital forensics i badań nad bezpieczeństwem.**

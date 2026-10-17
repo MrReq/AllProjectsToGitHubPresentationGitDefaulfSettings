@@ -1,0 +1,170 @@
+Axure RP — notatka
+
+1. Czym jest Axure?
+
+Axure RP to narzędzie do projektowania interfejsów użytkownika (UI), tworzenia prototypów oraz dokumentowania działania aplikacji i stron internetowych.
+
+Jest wykorzystywane przede wszystkim przez projektantów UX/UI, analityków biznesowych, projektantów produktów cyfrowych i zespoły tworzące oprogramowanie.
+
+Axure pozwala przygotowywać zarówno proste makiety ekranów, jak i zaawansowane prototypy z interaktywnymi elementami, warunkami oraz zmiennymi.
+
+W przeciwieństwie do narzędzi skupiających się głównie na wyglądzie interfejsu, Axure oferuje rozbudowane możliwości symulowania zachowania aplikacji bez konieczności programowania jej pełnej wersji.
+
+2. Do czego służy Axure?
+
+Axure pomaga zaplanować wygląd i sposób działania aplikacji przed rozpoczęciem jej implementacji.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie makiet stron internetowych i aplikacji mobilnych.
+- Projektowanie interfejsów użytkownika.
+- Budowanie interaktywnych prototypów.
+- Testowanie przepływów użytkownika.
+- Symulowanie formularzy, menu, okien dialogowych i innych elementów.
+- Dokumentowanie wymagań funkcjonalnych.
+- Prezentowanie pomysłów klientom i zespołom programistycznym.
+- Weryfikowanie użyteczności projektu przed rozpoczęciem programowania.
+
+3. Czym jest prototypowanie?
+
+Prototypowanie polega na tworzeniu modelu przyszłej aplikacji, który pozwala sprawdzić jej wygląd i działanie przed zbudowaniem właściwego oprogramowania.
+
+Prototyp może być statyczny albo interaktywny.
+
+Statyczna makieta pokazuje przede wszystkim rozmieszczenie elementów na ekranie.
+
+Interaktywny prototyp pozwala użytkownikowi wykonywać działania, takie jak klikanie przycisków, wypełnianie formularzy czy przechodzenie pomiędzy ekranami.
+
+Axure umożliwia tworzenie zaawansowanych prototypów, które mogą odwzorowywać również warunki biznesowe i bardziej złożone interakcje.
+
+4. Najważniejsze funkcje Axure
+
+- **Wireframes** — tworzenie makiet przedstawiających strukturę i rozmieszczenie elementów interfejsu.
+- **Widgets** — wykorzystywanie gotowych elementów, takich jak przyciski, pola tekstowe, listy i obrazy.
+- **Interactions** — definiowanie reakcji interfejsu na działania użytkownika.
+- **Dynamic Panels** — tworzenie elementów posiadających różne stany, na przykład rozwijanego menu lub okna dialogowego.
+- **Variables** — przechowywanie wartości wykorzystywanych w logice prototypu.
+- **Conditions** — definiowanie warunków decydujących o zachowaniu interfejsu.
+- **Repeater** — prezentowanie powtarzalnych elementów, na przykład list produktów lub rekordów tabeli.
+- **Adaptive Views** — przygotowywanie wariantów projektu dla różnych rozmiarów ekranu.
+- **Documentation** — dokumentowanie elementów projektu oraz ich zachowania.
+- **Axure Cloud** — udostępnianie prototypów i współpraca nad projektami w chmurze, zależnie od dostępnego planu i konfiguracji.
+
+5. Jak działa Axure?
+
+Projektant rozpoczyna od utworzenia projektu i przygotowania podstawowego układu ekranu.
+
+Następnie dodaje elementy interfejsu, takie jak przyciski, pola formularza, nagłówki i obrazy.
+
+W kolejnym kroku definiuje interakcje, czyli określa, co ma się wydarzyć po wykonaniu konkretnej czynności przez użytkownika.
+
+Może na przykład ustawić, aby kliknięcie przycisku otwierało nowe okno, zmieniało stan elementu albo przechodziło do innej strony prototypu.
+
+Po zakończeniu projekt może zostać uruchomiony w trybie podglądu i udostępniony innym osobom do testowania.
+
+6. Przykład zastosowania
+
+Załóżmy, że projektujesz aplikację do zarządzania zadaniami.
+
+Na ekranie znajduje się pole tekstowe do wpisania nazwy zadania oraz przycisk „Dodaj zadanie”.
+
+W Axure możesz przygotować interaktywny prototyp, w którym użytkownik wpisuje nazwę zadania, a następnie klika przycisk.
+
+Po kliknięciu prototyp może wyświetlić nowe zadanie na liście.
+
+Możesz również dodać warunek, który wyświetli komunikat, jeżeli pole tekstowe jest puste.
+
+Dzięki temu możesz sprawdzić sposób działania interfejsu przed napisaniem kodu w JavaScript, Java lub innej technologii.
+
+7. Axure a UX/UI Design
+
+UX oznacza User Experience, czyli doświadczenie użytkownika podczas korzystania z produktu.
+
+UI oznacza User Interface, czyli interfejs użytkownika, obejmujący między innymi przyciski, formularze, kolory i typografię.
+
+Axure wspiera oba obszary, ale jest szczególnie przydatne do projektowania przepływów użytkownika i sprawdzania zachowania interfejsu.
+
+Projektant UX może wykorzystać Axure do sprawdzenia, czy użytkownik potrafi szybko znaleźć odpowiednią funkcję.
+
+Projektant UI może przygotować wygląd ekranów i zdefiniować interakcje pomiędzy ich elementami.
+
+8. Axure a analiza biznesowa
+
+Axure może być wykorzystywane przez analityków biznesowych do przedstawiania wymagań dotyczących systemu.
+
+Zamiast opisywać każdą funkcję wyłącznie tekstem, analityk może przygotować prototyp pokazujący oczekiwany sposób działania aplikacji.
+
+Przykładowo, prototyp systemu rezerwacji może prezentować wybór terminu, walidację formularza, podsumowanie rezerwacji i komunikaty o błędach.
+
+Takie podejście ułatwia uzgadnianie wymagań z klientem oraz zespołem programistycznym.
+
+Prototyp nie zastępuje jednak pełnej specyfikacji technicznej, jeżeli projekt wymaga szczegółowego opisu integracji, bezpieczeństwa lub logiki backendu.
+
+9. Axure a inne narzędzia
+
+**Figma** służy do projektowania interfejsów, prototypowania i współpracy zespołowej, a także udostępnia funkcje przekazywania projektów programistom.
+
+**Balsamiq** koncentruje się przede wszystkim na szybkim tworzeniu prostych makiet o szkicowym wyglądzie.
+
+**Adobe XD** było narzędziem do projektowania interfejsów i prototypów, ale jego rozwój został ograniczony.
+
+**Sketch** jest narzędziem do projektowania interfejsów, szczególnie w środowisku macOS.
+
+**Axure RP** wyróżnia się rozbudowanymi możliwościami tworzenia prototypów opartych na warunkach, zmiennych i złożonych interakcjach.
+
+Wybór narzędzia zależy od tego, czy najważniejsze jest projektowanie wizualne, szybkie tworzenie makiet, czy symulowanie szczegółowej logiki interfejsu.
+
+10. Zalety Axure
+
+- Umożliwia tworzenie zaawansowanych interaktywnych prototypów.
+- Pozwala symulować zachowanie aplikacji bez pisania jej pełnego kodu.
+- Wspiera dokumentowanie wymagań funkcjonalnych.
+- Ułatwia prezentowanie i testowanie pomysłów przed implementacją.
+- Pozwala tworzyć prototypy wykorzystujące zmienne, warunki i różne stany elementów.
+- Może usprawniać komunikację pomiędzy analitykami, projektantami i programistami.
+
+11. Wady i ograniczenia Axure
+
+- Nauka bardziej zaawansowanych funkcji może wymagać czasu.
+- Przy prostych projektach część możliwości może być niepotrzebna.
+- Tworzenie atrakcyjnych wizualnie projektów może być mniej wygodne dla osób przyzwyczajonych do innych narzędzi projektowych.
+- Prototyp nie jest automatycznie gotową aplikacją produkcyjną.
+- Dostępność funkcji współpracy i publikowania może zależeć od licencji oraz aktualnej oferty producenta.
+
+12. Jak zacząć naukę Axure?
+
+Na początku warto nauczyć się tworzenia stron prototypu i dodawania podstawowych elementów interfejsu.
+
+Następnie poznaj interakcje, zdarzenia kliknięcia, nawigację pomiędzy ekranami oraz dynamiczne panele.
+
+Kolejnym krokiem jest nauka zmiennych, warunków i walidacji formularzy.
+
+Później spróbuj przygotować kompletny prototyp aplikacji, na przykład systemu logowania, rezerwacji wizyt lub zarządzania zadaniami.
+
+Na końcu naucz się udostępniać prototyp i wykorzystywać go do zbierania informacji zwrotnych.
+
+13. Najważniejsze pojęcia
+
+- **Wireframe** — uproszczona makieta interfejsu.
+- **Prototype** — model prezentujący wygląd lub działanie przyszłej aplikacji.
+- **Widget** — element interfejsu, na przykład przycisk lub pole tekstowe.
+- **Interaction** — reakcja interfejsu na działanie użytkownika.
+- **Dynamic Panel** — element mogący przyjmować różne stany.
+- **Variable** — zmienna przechowująca wartość wykorzystywaną w prototypie.
+- **Condition** — warunek określający sposób wykonania działania.
+- **Repeater** — komponent służący do prezentowania powtarzalnych danych.
+- **User Flow** — ścieżka użytkownika prowadząca przez kolejne etapy korzystania z aplikacji.
+- **Usability Testing** — testowanie użyteczności produktu.
+- **Axure Cloud** — rozwiązania chmurowe związane z publikowaniem i współpracą nad prototypami.
+
+14. W skrócie
+
+Axure RP to narzędzie do tworzenia makiet, interaktywnych prototypów oraz dokumentowania zachowania interfejsów.
+
+Jest szczególnie przydatne w projektowaniu UX, analizie biznesowej i planowaniu funkcjonalności aplikacji.
+
+Jego największą zaletą jest możliwość symulowania złożonych interakcji przed rozpoczęciem właściwego programowania.
+
+Jeżeli chcesz rozwijać się w kierunku UX/UI Design lub analizy biznesowej IT, znajomość Axure może być przydatna, choć warto również poznać Figmę.
+
+Dodaj mini projekt w AxureDodaj przykładowe interakcje krok po kroku

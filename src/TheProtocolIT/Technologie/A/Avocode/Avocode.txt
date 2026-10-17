@@ -1,0 +1,148 @@
+# Avocode — notatka
+
+**1. Czym jest Avocode?**
+
+Avocode to narzędzie przeznaczone do współpracy między projektantami interfejsów użytkownika (UI/UX) a programistami.
+
+Umożliwia analizowanie projektów graficznych, odczytywanie parametrów elementów interfejsu oraz przygotowywanie materiałów potrzebnych do implementacji projektu w kodzie.
+
+Narzędzie powstało z myślą o ułatwieniu przekazywania projektów z programów graficznych do zespołów programistycznych.
+
+Avocode obsługiwało między innymi projekty pochodzące z programów Sketch, Adobe Photoshop i Adobe XD.
+
+**2. Do czego służy Avocode?**
+
+Avocode pomaga programistom odczytywać szczegóły projektu bez konieczności ręcznego analizowania każdego elementu w oryginalnym programie graficznym.
+
+Najważniejsze zastosowania to:
+
+- Analizowanie projektów interfejsów stron internetowych i aplikacji.
+- Odczytywanie wymiarów, odstępów, kolorów i typografii.
+- Sprawdzanie właściwości poszczególnych elementów graficznych.
+- Pobieranie ikon, obrazów i innych zasobów.
+- Odczytywanie wartości potrzebnych do przygotowania kodu CSS.
+- Współpraca projektantów z programistami frontendowymi.
+- Dodawanie komentarzy i przekazywanie informacji o projekcie.
+
+**3. Jak działa Avocode?**
+
+Projektant przygotowuje projekt interfejsu w odpowiednim programie graficznym.
+
+Następnie projekt jest udostępniany w Avocode, gdzie programista może go przeglądać i analizować.
+
+Programista wybiera interesujący go element, na przykład przycisk, ikonę lub pole tekstowe.
+
+Narzędzie pozwala sprawdzić właściwości wybranego elementu, takie jak szerokość, wysokość, kolor, marginesy czy krój pisma.
+
+Na podstawie tych informacji programista implementuje interfejs przy użyciu HTML, CSS, JavaScript lub technologii wykorzystywanej w danym projekcie.
+
+**4. Najważniejsze funkcje**
+
+- **Inspect** — analizowanie właściwości elementów projektu.
+- **CSS** — odczytywanie i generowanie fragmentów kodu stylów dla elementów interfejsu.
+- **Assets** — eksportowanie obrazów, ikon i innych zasobów graficznych.
+- **Measurements** — sprawdzanie wymiarów oraz odległości między elementami.
+- **Comments** — dodawanie komentarzy i przekazywanie uwag dotyczących projektu.
+- **Collaboration** — wspólna praca projektantów i programistów nad przekazaniem projektu do implementacji.
+
+Dostępność poszczególnych funkcji zależy od wersji narzędzia.
+
+**5. Avocode a UI/UX Design**
+
+UI oznacza User Interface, czyli interfejs użytkownika.
+
+UX oznacza User Experience, czyli doświadczenie użytkownika podczas korzystania z produktu.
+
+Projektant UI/UX przygotowuje wygląd i sposób działania interfejsu.
+
+Programista wykorzystuje projekt jako podstawę do stworzenia działającej strony internetowej lub aplikacji.
+
+Avocode pełniło funkcję pomostu między projektem graficznym a jego implementacją techniczną.
+
+**6. Avocode a frontend development**
+
+Frontend development polega na tworzeniu części aplikacji, którą użytkownik widzi i z którą bezpośrednio wchodzi w interakcję.
+
+Avocode pomagało programistom frontendowym odtwarzać wygląd projektu z większą dokładnością.
+
+Na przykład programista mógł sprawdzić kolor przycisku, jego wymiary, zaokrąglenie narożników i odstępy względem innych elementów.
+
+Następnie mógł odwzorować te właściwości w CSS.
+
+Avocode nie zastępowało jednak edytora kodu ani nie tworzyło automatycznie kompletnej, gotowej aplikacji.
+
+**7. Przykład zastosowania**
+
+Załóżmy, że projektant przygotował ekran logowania do aplikacji.
+
+Projekt zawiera pole adresu e-mail, pole hasła oraz przycisk „Zaloguj się”.
+
+Programista otwiera projekt w narzędziu do inspekcji i sprawdza wymiary pól, kolory, odstępy oraz typografię.
+
+Na tej podstawie może przygotować następujący fragment CSS:
+
+```
+.login-button {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+```
+
+Wartości w tym przykładzie są przykładowe i nie pochodzą z konkretnego projektu Avocode.
+
+**8. Avocode a inne narzędzia**
+
+- **Figma** — współczesne narzędzie do projektowania UI/UX, prototypowania i współpracy zespołowej, oferujące również funkcje przekazywania projektów programistom.
+- **Zeplin** — narzędzie do przekazywania projektów projektowych programistom oraz udostępniania specyfikacji interfejsu.
+- **Adobe XD** — narzędzie do projektowania interfejsów i prototypów, którego rozwój został ograniczony przez Adobe.
+- **Sketch** — narzędzie do projektowania interfejsów, szczególnie popularne w środowisku macOS.
+- **Visual Studio Code** — edytor kodu służący do implementacji projektu, a nie do samej inspekcji projektów graficznych.
+
+Najważniejsza różnica polega na tym, że Avocode koncentrowało się przede wszystkim na analizowaniu i przekazywaniu gotowych projektów do implementacji.
+
+**9. Zalety Avocode**
+
+- Ułatwiało komunikację między projektantami a programistami.
+- Pozwalało sprawdzać szczegółowe parametry elementów interfejsu.
+- Usprawniało eksportowanie zasobów graficznych.
+- Pomagało dokładniej odwzorowywać projekty w kodzie.
+- Ograniczało konieczność ręcznego przepisywania parametrów z programu graficznego.
+
+**10. Wady i ograniczenia**
+
+- Nie zastępuje narzędzia do programowania.
+- Nie jest pełnym środowiskiem do projektowania i prototypowania aplikacji.
+- Jego przydatność zależy od formatów projektów obsługiwanych przez daną wersję.
+- Współczesne alternatywy, szczególnie Figma, oferują wiele podobnych funkcji w ramach szerszego środowiska pracy.
+- Przed rozpoczęciem nowego projektu należy sprawdzić aktualną dostępność usługi i wsparcie techniczne, ponieważ Avocode jest narzędziem starszej generacji.
+
+**11. Czy warto uczyć się Avocode?**
+
+Jeżeli dopiero zaczynasz naukę frontend developmentu lub projektowania UI/UX, lepszym wyborem będzie obecnie poznanie Figmy.
+
+Warto jednak rozumieć, do czego służyło Avocode, ponieważ pomaga to poznać proces przekazywania projektów graficznych do programistów.
+
+Jeżeli pracujesz z istniejącym projektem, który korzysta z Avocode, znajomość jego funkcji może być przydatna.
+
+**12. Najważniejsze pojęcia**
+
+- **UI** — interfejs użytkownika.
+- **UX** — doświadczenie użytkownika.
+- **Frontend** — część aplikacji, z którą bezpośrednio korzysta użytkownik.
+- **Inspect** — analizowanie właściwości elementów projektu.
+- **CSS** — język określający wygląd elementów strony internetowej.
+- **Assets** — zasoby graficzne, takie jak ikony, obrazy i ilustracje.
+- **Handoff** — przekazanie projektu od projektanta do programisty.
+- **Prototyp** — model prezentujący wygląd lub działanie planowanego rozwiązania.
+
+**13. W skrócie**
+
+Avocode było narzędziem wspomagającym współpracę projektantów UI/UX z programistami.
+
+Umożliwiało analizowanie projektów graficznych, sprawdzanie parametrów elementów, eksportowanie zasobów oraz odczytywanie informacji potrzebnych do tworzenia kodu.
+
+Obecnie, przy nauce nowych technologii, warto skupić się przede wszystkim na Figmie oraz na umiejętności przekładania projektów UI na HTML, CSS i JavaScript.

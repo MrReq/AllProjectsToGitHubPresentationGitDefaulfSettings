@@ -1,0 +1,281 @@
+Apache NiFi — notatka
+
+1. Czym jest Apache NiFi?
+
+Apache NiFi to narzędzie open source służące do automatyzacji przepływu danych pomiędzy różnymi systemami, aplikacjami i źródłami informacji.
+
+Jest rozwijane przez Apache Software Foundation i umożliwia projektowanie przepływów danych za pomocą graficznego interfejsu.
+
+NiFi pozwala pobierać dane, przekształcać je, filtrować, przesyłać do innych systemów oraz monitorować cały proces.
+
+Jest wykorzystywane w integracji systemów, projektach Big Data, przetwarzaniu danych IoT i budowaniu potoków danych.
+
+2. Do czego służy Apache NiFi?
+
+Apache NiFi służy do automatyzacji przesyłania i przetwarzania danych pomiędzy różnymi źródłami oraz odbiorcami.
+
+Może pobierać dane z plików, baz danych, interfejsów API, kolejek komunikatów i systemów zewnętrznych.
+
+Następnie może je filtrować, zmieniać ich format, wzbogacać o dodatkowe informacje i przekazywać dalej.
+
+Przykładowo NiFi może pobierać dane pogodowe z API, przekształcać odpowiedź JSON i zapisywać wyniki w bazie PostgreSQL.
+
+Dzięki temu nie trzeba za każdym razem tworzyć osobnego programu do obsługi całego procesu integracji.
+
+3. Jak działa Apache NiFi?
+
+NiFi wykorzystuje przepływy danych, które składają się z połączonych ze sobą komponentów.
+
+Każdy komponent wykonuje określoną operację, na przykład pobiera dane, modyfikuje rekordy lub zapisuje plik.
+
+Dane przechodzą przez kolejne etapy zgodnie z zaprojektowanym przepływem.
+
+Użytkownik może obserwować stan komponentów, liczbę przetwarzanych elementów i ewentualne błędy.
+
+Przykładowy przepływ wygląda następująco:
+
+Źródło danych → pobieranie → filtrowanie → transformacja → zapis w systemie docelowym.
+
+4. FlowFile
+
+FlowFile jest podstawowym elementem danych przetwarzanym przez Apache NiFi.
+
+Składa się z zawartości (Content) oraz atrybutów (Attributes).
+
+Zawartość może obejmować tekst, dane JSON, pliki CSV, dokumenty XML lub dane binarne.
+
+Atrybuty przechowują metadane, takie jak nazwa pliku, typ danych, identyfikator rekordu czy czas utworzenia.
+
+Komponenty NiFi mogą analizować zarówno zawartość FlowFile, jak i jego atrybuty.
+
+Przykładowo FlowFile może zawierać dane zamówienia w formacie JSON oraz atrybut `filename` określający nazwę pliku źródłowego.
+
+5. Procesory (Processors)
+
+Procesory są komponentami odpowiedzialnymi za wykonywanie operacji na danych.
+
+Każdy procesor realizuje określone zadanie.
+
+Przykładowe procesory:
+
+- `GetFile` — pobiera pliki z określonego katalogu.
+- `PutFile` — zapisuje pliki w katalogu docelowym.
+- `InvokeHTTP` — wykonuje żądania HTTP do zewnętrznych usług.
+- `QueryDatabaseTable` — pobiera dane z tabeli bazy danych.
+- `PutDatabaseRecord` — zapisuje rekordy w bazie danych.
+- `UpdateAttribute` — dodaje lub modyfikuje atrybuty FlowFile.
+- `RouteOnAttribute` — kieruje dane do różnych ścieżek na podstawie atrybutów.
+- `JoltTransformJSON` — przekształca strukturę danych JSON przy użyciu specyfikacji Jolt.
+
+Dostępność konkretnych procesorów zależy od wersji NiFi i zainstalowanych rozszerzeń.
+
+6. Połączenia i kolejki
+
+Połączenia (Connections) łączą procesory i określają, w jaki sposób dane przemieszczają się pomiędzy nimi.
+
+Połączenia mogą zawierać kolejki oczekujących FlowFile.
+
+Kolejki umożliwiają oddzielenie etapów przetwarzania, gdy jeden procesor działa szybciej niż kolejny.
+
+Można skonfigurować limity liczby elementów i ilości danych oczekujących w kolejce.
+
+Jeśli kolejka osiągnie ustalony limit, NiFi może ograniczyć dalsze przekazywanie danych, zapewniając mechanizm kontroli przepływu.
+
+7. Proces Groups i zarządzanie przepływami
+
+Process Group pozwala grupować powiązane komponenty w logiczne części przepływu.
+
+Dzięki temu można oddzielić pobieranie danych, transformację i zapis do systemu docelowego.
+
+Większe procesy można organizować w hierarchię grup, co ułatwia zarządzanie rozbudowanymi rozwiązaniami.
+
+NiFi udostępnia graficzny interfejs, w którym użytkownik może dodawać komponenty, konfigurować ich ustawienia i łączyć je bez pisania całego programu od podstaw.
+
+8. Przykład zastosowania Apache NiFi
+
+Załóżmy, że firma pobiera dane o zamówieniach z zewnętrznego API i chce zapisywać je w bazie PostgreSQL.
+
+NiFi może realizować ten proces w kilku etapach.
+
+Najpierw procesor `InvokeHTTP` pobiera dane z API.
+
+Następnie odpowiednie procesory analizują odpowiedź i przekształcają jej strukturę.
+
+Kolejny etap sprawdza poprawność danych i odrzuca rekordy niespełniające wymagań.
+
+Na końcu procesor bazodanowy zapisuje przygotowane dane w PostgreSQL.
+
+Przykładowy schemat:
+
+```
+InvokeHTTP
+    |
+    v
+JoltTransformJSON
+    |
+    v
+ValidateRecord
+    |
+    v
+PutDatabaseRecord
+```
+
+Nazwy i konfiguracja procesorów muszą być dostosowane do rzeczywistego formatu odpowiedzi, schematu danych oraz wersji NiFi.
+
+9. Integracja z bazami danych
+
+Apache NiFi może współpracować z wieloma relacyjnymi bazami danych.
+
+Można integrować go między innymi z PostgreSQL, MySQL, Oracle i Microsoft SQL Server.
+
+Do komunikacji z bazami danych NiFi często wykorzystuje JDBC oraz odpowiednio skonfigurowane pule połączeń.
+
+Umożliwia pobieranie danych, wykonywanie zapytań SQL i zapisywanie rekordów.
+
+W przypadku dużych zbiorów danych warto zwrócić uwagę na wielkość partii, liczbę połączeń i sposób obsługi błędów.
+
+10. Integracja z API i systemami komunikatów
+
+NiFi umożliwia pobieranie i przesyłanie danych przez HTTP oraz HTTPS.
+
+Może współpracować z REST API i przetwarzać odpowiedzi w formatach takich jak JSON i XML.
+
+W zależności od dostępnych procesorów oraz konfiguracji może również integrować się z Apache Kafka, systemami plików i innymi platformami komunikacyjnymi.
+
+Przykładowo dane z aplikacji mogą trafiać do Kafka, a następnie być przekazywane do magazynu danych przez odpowiednio zaprojektowany przepływ.
+
+NiFi jest przydatny, gdy trzeba połączyć wiele źródeł danych i kontrolować sposób ich przekazywania.
+
+11. Apache NiFi a ETL i ELT
+
+ETL oznacza proces pobierania danych (Extract), przekształcania ich (Transform) i zapisywania w systemie docelowym (Load).
+
+ELT polega na pobraniu danych, załadowaniu ich do systemu docelowego, a następnie wykonaniu transformacji w tym systemie.
+
+Apache NiFi może realizować przepływy typu ETL i wspierać procesy ELT.
+
+Umożliwia pobieranie danych z wielu źródeł, wykonywanie transformacji i kierowanie wyników do odpowiednich odbiorców.
+
+W odróżnieniu od narzędzi skoncentrowanych wyłącznie na harmonogramowaniu zadań NiFi kładzie duży nacisk na przepływ danych, kolejki i kontrolę ich przesyłania.
+
+12. Apache NiFi a Apache Airflow
+
+Apache NiFi koncentruje się na przepływie danych pomiędzy systemami i ich bieżącym przetwarzaniu.
+
+Apache Airflow służy przede wszystkim do definiowania, planowania i monitorowania przepływów pracy, które często składają się z zadań wykonywanych w określonej kolejności.
+
+NiFi jest szczególnie przydatny przy integracji źródeł danych i ciągłym przesyłaniu informacji.
+
+Airflow sprawdza się między innymi przy harmonogramowaniu codziennych procesów analitycznych i zadań ETL.
+
+Narzędzia mogą być stosowane razem, gdy NiFi odpowiada za transport danych, a Airflow za koordynację większego procesu analitycznego.
+
+13. Apache NiFi a Apache Kafka
+
+Apache NiFi służy do pobierania, transformowania, kierowania i przesyłania danych pomiędzy systemami.
+
+Apache Kafka jest rozproszoną platformą strumieniowej wymiany zdarzeń, która przechowuje rekordy w tematach (Topics).
+
+NiFi może pobierać dane z różnych źródeł i wysyłać je do tematów Kafka.
+
+Kafka może następnie dostarczać te dane do wielu niezależnych aplikacji i konsumentów.
+
+NiFi koncentruje się na przepływach integracyjnych, natomiast Kafka na trwałym, skalowalnym przesyłaniu strumieni zdarzeń.
+
+14. Monitorowanie i obsługa błędów
+
+Apache NiFi umożliwia monitorowanie przepływów i sprawdzanie, które komponenty działają poprawnie.
+
+Użytkownik może obserwować liczbę przetwarzanych FlowFile, stan kolejek i problemy z wykonaniem operacji.
+
+Dane, których nie udało się przetworzyć, można skierować do osobnej ścieżki błędów.
+
+Warto zaprojektować ponawianie operacji, rejestrowanie przyczyn błędów i kontrolę liczby prób.
+
+NiFi obsługuje również mechanizmy śledzenia pochodzenia danych, znane jako Data Provenance.
+
+Data Provenance pomaga ustalić, skąd pochodziły dane i jakie operacje zostały na nich wykonane.
+
+15. Bezpieczeństwo Apache NiFi
+
+Apache NiFi może wykorzystywać uwierzytelnianie użytkowników i mechanizmy kontroli dostępu.
+
+Uprawnienia pozwalają określać, kto może przeglądać, modyfikować i uruchamiać poszczególne elementy przepływu.
+
+Komunikację można zabezpieczać za pomocą TLS.
+
+Dane uwierzytelniające do baz danych i usług zewnętrznych powinny być przechowywane w bezpieczny sposób, a nie bezpośrednio w treści przepływu.
+
+W środowiskach produkcyjnych ważne są również aktualizacje, ograniczenie dostępu sieciowego i prawidłowa konfiguracja certyfikatów.
+
+16. Zalety Apache NiFi
+
+Apache NiFi udostępnia graficzny interfejs do projektowania przepływów danych.
+
+Pozwala integrować wiele źródeł i odbiorców bez konieczności tworzenia osobnego programu dla każdego połączenia.
+
+Umożliwia monitorowanie przetwarzania, kontrolowanie kolejek i obsługę błędów.
+
+Wspiera transformację danych oraz integrację z bazami danych, API i platformami Big Data.
+
+Jest przydatny zarówno w projektach ETL, jak i w systemach przetwarzających dane w sposób ciągły.
+
+17. Wady Apache NiFi
+
+Bardzo rozbudowane przepływy mogą stać się trudne do utrzymania bez odpowiedniego nazewnictwa, dokumentacji i podziału na grupy.
+
+Wydajność zależy od konfiguracji komponentów, wielkości kolejek, dostępnych zasobów i szybkości systemów zewnętrznych.
+
+Zaawansowane transformacje mogą wymagać dodatkowego kodu lub specjalistycznej konfiguracji.
+
+Uruchomienie i utrzymanie środowiska produkcyjnego wymaga wiedzy o bezpieczeństwie, monitorowaniu i zarządzaniu danymi.
+
+NiFi nie zastępuje wszystkich narzędzi do analityki, harmonogramowania zadań ani rozproszonego przetwarzania danych.
+
+18. Plan nauki Apache NiFi
+
+Na początku warto poznać interfejs NiFi oraz podstawowe elementy, takie jak FlowFile, Processor i Connection.
+
+Następnie należy stworzyć przepływ pobierający pliki z katalogu i zapisujący je w innym miejscu.
+
+Kolejnym krokiem powinno być pobieranie danych z REST API i przekształcanie JSON.
+
+Później warto połączyć NiFi z bazą PostgreSQL i przećwiczyć zapisywanie rekordów.
+
+Na koniec dobrze jest poznać obsługę błędów, Data Provenance, zabezpieczenia oraz integrację z Apache Kafka.
+
+Dobrym projektem praktycznym jest przepływ pobierający dane z API, walidujący je i zapisujący w bazie danych.
+
+19. Najważniejsze pojęcia
+
+Apache NiFi — narzędzie do automatyzacji przepływu i integracji danych.
+
+FlowFile — jednostka przetwarzania składająca się z zawartości i atrybutów.
+
+Processor — komponent wykonujący określoną operację na danych.
+
+Connection — połączenie pomiędzy komponentami, które może zawierać kolejkę FlowFile.
+
+Process Group — grupa komponentów tworzących logiczną część przepływu.
+
+Data Provenance — mechanizm śledzenia pochodzenia danych i wykonywanych na nich operacji.
+
+ETL — pobieranie, przekształcanie i ładowanie danych.
+
+REST API — interfejs umożliwiający komunikację pomiędzy aplikacjami.
+
+JDBC — interfejs Javy służący do komunikacji z bazami danych.
+
+Back Pressure — mechanizm ograniczający przekazywanie danych, gdy kolejka osiąga określony limit.
+
+Apache Kafka — platforma do rozproszonej wymiany i przechowywania strumieni zdarzeń.
+
+Apache Airflow — narzędzie do planowania i koordynowania przepływów pracy.
+
+20. W skrócie
+
+Apache NiFi to narzędzie służące do automatyzacji przesyłania, transformowania i integrowania danych pomiędzy różnymi systemami.
+
+Jego najważniejsze elementy to FlowFile, procesory, połączenia, kolejki i graficzny interfejs do projektowania przepływów.
+
+Warto go poznać, jeśli interesujesz się Big Data, integracją systemów, ETL, automatyzacją procesów oraz przetwarzaniem danych z API i baz danych.

@@ -1,0 +1,403 @@
+1. Czym jest Amazon S3?
+
+Amazon S3 (Amazon Simple Storage Service) to usługa przechowywania danych w chmurze Amazon Web Services (AWS).
+
+Umożliwia przechowywanie i pobieranie plików, takich jak zdjęcia, dokumenty, kopie zapasowe, nagrania wideo, logi i pliki aplikacji.
+
+Amazon S3 jest usługą typu object storage, czyli przechowuje dane jako obiekty w kontenerach nazywanych bucketami.
+
+Usługa jest wykorzystywana w aplikacjach internetowych, systemach analitycznych, kopiach zapasowych oraz rozwiązaniach do przechowywania dużych ilości danych.
+
+2. Object Storage — przechowywanie obiektowe
+
+Object Storage to model przechowywania danych, w którym informacje są zapisywane jako niezależne obiekty.
+
+Każdy obiekt zawiera dane, metadane oraz identyfikator pozwalający go odnaleźć.
+
+W przeciwieństwie do tradycyjnego systemu plików obiekty są organizowane przede wszystkim za pomocą identyfikatorów i kluczy, a nie rzeczywistej hierarchii katalogów.
+
+Amazon S3 umożliwia przechowywanie bardzo dużych zbiorów danych bez konieczności samodzielnego zarządzania dyskami serwerów.
+
+Object Storage sprawdza się szczególnie przy przechowywaniu plików, kopii zapasowych, archiwów i danych analitycznych.
+
+3. Bucket
+
+Bucket to podstawowy kontener służący do przechowywania obiektów w Amazon S3.
+
+Każdy obiekt musi należeć do określonego bucketa.
+
+Bucket pozwala organizować dane oraz konfigurować zasady dostępu, wersjonowanie, szyfrowanie i cykl życia przechowywanych obiektów.
+
+Nazwy bucketów muszą spełniać reguły nazewnictwa AWS i w typowym modelu są unikalne globalnie w obrębie partycji AWS.
+
+Przykładowe nazwy bucketów to `agrimind-images`, `application-backups` i `company-documents-prod`.
+
+4. Object
+
+Object to pojedynczy element przechowywany w Amazon S3.
+
+Może reprezentować zdjęcie, dokument PDF, plik CSV, archiwum ZIP lub dowolne inne dane obsługiwane przez usługę.
+
+Obiekt składa się z zawartości, klucza identyfikującego go w buckecie oraz metadanych.
+
+Każdy obiekt ma własny adres umożliwiający jego identyfikację i pobranie przy odpowiednich uprawnieniach.
+
+Przykładem obiektu może być plik `profile.jpg` zapisany w buckecie aplikacji.
+
+5. Object Key
+
+Object Key to nazwa identyfikująca obiekt w obrębie bucketa.
+
+Klucz może zawierać znaki reprezentujące ścieżkę, na przykład `users/123/profile.jpg`.
+
+Taka nazwa wygląda jak ścieżka katalogów, ale w Amazon S3 jest kluczem obiektu, a nie dowodem istnienia tradycyjnych folderów.
+
+Prefiksy, takie jak `users/123/`, pozwalają logicznie organizować obiekty i wyszukiwać je według nazw.
+
+Odpowiednie nazewnictwo kluczy ułatwia utrzymywanie porządku w dużych zbiorach plików.
+
+6. Upload i Download
+
+Upload oznacza przesyłanie plików do Amazon S3.
+
+Download oznacza pobieranie przechowywanych obiektów.
+
+Pliki można przesyłać za pomocą AWS Management Console, AWS CLI, SDK dla różnych języków programowania lub bezpośrednio przez odpowiednie API.
+
+W przypadku dużych plików można wykorzystywać Multipart Upload, który dzieli przesyłanie na części.
+
+Mechanizm ten może zwiększyć odporność przesyłania dużych danych na przerwane połączenia.
+
+7. AWS Management Console
+
+AWS Management Console to internetowy panel umożliwiający zarządzanie usługami AWS.
+
+Za jego pomocą można tworzyć buckety, przesyłać pliki, przeglądać obiekty i konfigurować ich właściwości.
+
+Panel pozwala również zarządzać wersjonowaniem, regułami cyklu życia i ustawieniami bezpieczeństwa.
+
+Jest to wygodny sposób rozpoczęcia pracy z Amazon S3 bez konieczności pisania kodu.
+
+8. AWS CLI
+
+AWS CLI (AWS Command Line Interface) to narzędzie umożliwiające obsługę usług AWS z poziomu terminala.
+
+Pozwala automatyzować operacje wykonywane na bucketach i obiektach.
+
+Przykładowe polecenia to:
+
+```
+aws s3 ls
+aws s3 mb s3://agrimind-images
+aws s3 cp photo.jpg s3://agrimind-images/
+aws s3 cp s3://agrimind-images/photo.jpg .
+aws s3 sync ./images s3://agrimind-images/images/
+```
+
+Polecenie `aws s3 ls` wyświetla dostępne zasoby S3, do których użytkownik ma uprawnienia.
+
+Polecenie `aws s3 mb` tworzy bucket z uwzględnieniem wymagań danego regionu i konfiguracji.
+
+Polecenie `aws s3 cp` kopiuje pliki pomiędzy lokalnym systemem a S3.
+
+Polecenie `aws s3 sync` synchronizuje zawartość lokalnego katalogu z lokalizacją w S3 lub odwrotnie.
+
+Przed wykonaniem poleceń należy skonfigurować uwierzytelnianie AWS i sprawdzić uprawnienia.
+
+9. Amazon S3 a tradycyjny system plików
+
+Tradycyjny system plików organizuje dane w katalogach i plikach zarządzanych przez system operacyjny.
+
+Amazon S3 przechowuje obiekty identyfikowane za pomocą kluczy w obrębie bucketów.
+
+S3 nie jest zwykłym dyskiem sieciowym i nie udostępnia wszystkich operacji typowych dla systemów plików.
+
+Dostęp do obiektów odbywa się przede wszystkim za pośrednictwem API, SDK, AWS CLI lub kompatybilnych narzędzi.
+
+Model obiektowy sprawdza się szczególnie wtedy, gdy aplikacja potrzebuje przechowywać i udostępniać duże ilości plików.
+
+10. Klasy przechowywania — Storage Classes
+
+Amazon S3 oferuje różne klasy przechowywania danych, dopasowane do częstotliwości dostępu i wymagań dotyczących kosztów.
+
+S3 Standard jest przeznaczony do danych, do których dostęp jest częsty.
+
+S3 Intelligent-Tiering może automatycznie przenosić dane pomiędzy odpowiednimi poziomami dostępu w zależności od obserwowanego wykorzystania.
+
+S3 Standard-IA jest przeznaczony dla danych, do których dostęp jest rzadszy, ale nadal wymagany.
+
+S3 One Zone-IA przechowuje dane w jednej strefie dostępności i może być wykorzystywany dla odpowiednich danych odtwarzalnych.
+
+S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval i S3 Glacier Deep Archive są przeznaczone do różnych scenariuszy archiwizacji.
+
+Wybór klasy powinien uwzględniać częstotliwość odczytu, wymagany czas pobierania danych, trwałość i koszty operacji.
+
+11. Wersjonowanie — Versioning
+
+Versioning umożliwia zachowywanie wielu wersji tego samego obiektu.
+
+Po włączeniu wersjonowania nadpisanie obiektu tworzy kolejną wersję zamiast bezpowrotnie zastępować poprzednią.
+
+Wersjonowanie może pomóc odzyskać dane po przypadkowym nadpisaniu lub usunięciu obiektu.
+
+Każda wersja ma własny identyfikator wersji.
+
+Wersjonowanie nie zastępuje pełnej strategii kopii zapasowych, ale stanowi ważny element ochrony danych.
+
+12. Lifecycle Rules
+
+Lifecycle Rules to reguły automatyzujące zarządzanie cyklem życia obiektów.
+
+Mogą przenosić obiekty do tańszych klas przechowywania po określonym czasie.
+
+Mogą również usuwać dane, które nie są już potrzebne, zgodnie z ustalonymi zasadami.
+
+Przykładowo logi starsze niż określony czas mogą być przenoszone do klasy archiwalnej.
+
+Reguły cyklu życia pomagają ograniczać koszty i automatyzować utrzymywanie danych.
+
+13. Replikacja danych
+
+Amazon S3 umożliwia replikowanie obiektów pomiędzy bucketami.
+
+S3 Same-Region Replication (SRR) służy do replikacji w obrębie tego samego regionu AWS.
+
+S3 Cross-Region Replication (CRR) umożliwia replikowanie danych do innego regionu.
+
+Replikacja może wspierać wymagania dotyczące odzyskiwania po awarii, zgodności i dostępu do danych w różnych lokalizacjach.
+
+Wymaga odpowiedniej konfiguracji uprawnień, reguł replikacji i ustawień wersjonowania.
+
+Replikacja nie powinna być automatycznie traktowana jako pełny zamiennik kopii zapasowej, ponieważ niektóre niepożądane zmiany mogą zostać również odzwierciedlone.
+
+14. Bezpieczeństwo i uprawnienia
+
+Amazon S3 oferuje mechanizmy kontrolowania dostępu do bucketów i obiektów.
+
+IAM Policies określają, jakie operacje mogą wykonywać użytkownicy, role i aplikacje.
+
+Bucket Policies pozwalają definiować zasady dostępu na poziomie konkretnego bucketa.
+
+S3 Block Public Access umożliwia blokowanie konfiguracji prowadzących do niezamierzonego publicznego udostępnienia danych.
+
+Dostęp powinien być ograniczany do niezbędnego minimum.
+
+W środowisku produkcyjnym należy regularnie sprawdzać polityki dostępu i unikać przypadkowego publikowania poufnych plików.
+
+15. Szyfrowanie danych
+
+Amazon S3 obsługuje szyfrowanie danych przechowywanych w usłudze oraz bezpieczne przesyłanie ich przez sieć.
+
+SSE-S3 wykorzystuje klucze szyfrujące zarządzane przez Amazon S3.
+
+SSE-KMS wykorzystuje AWS Key Management Service do zarządzania kluczami szyfrującymi.
+
+SSE-C umożliwia dostarczanie własnych kluczy szyfrujących przez klienta przy odpowiednich operacjach.
+
+Wybór metody szyfrowania zależy od wymagań bezpieczeństwa i kontroli nad kluczami.
+
+Do poufnych danych należy również ograniczyć dostęp aplikacji, nawet jeśli obiekty są szyfrowane.
+
+16. Static Website Hosting
+
+Amazon S3 może służyć do hostowania statycznych stron internetowych.
+
+Statyczna strona składa się z plików HTML, CSS, JavaScript, obrazów i innych zasobów, które nie wymagają bezpośredniego wykonywania kodu serwerowego przez S3.
+
+Pliki strony można przesłać do bucketa i skonfigurować odpowiednie ustawienia hostingu.
+
+W środowisku produkcyjnym często wykorzystuje się Amazon CloudFront jako warstwę dostarczania treści.
+
+Należy pamiętać, że hosting statyczny w S3 samodzielnie nie zapewnia typowego endpointu HTTPS dla strony, dlatego przy publicznych stronach internetowych często stosuje się CloudFront i odpowiednio skonfigurowaną domenę.
+
+17. Amazon CloudFront
+
+Amazon CloudFront to usługa CDN (Content Delivery Network), która przyspiesza dostarczanie treści użytkownikom.
+
+Może pobierać pliki z Amazon S3 i udostępniać je z lokalizacji brzegowych bliżej odbiorców.
+
+CloudFront pomaga ograniczać opóźnienia i może zmniejszać liczbę bezpośrednich odczytów z bucketa.
+
+Można go również wykorzystać do obsługi HTTPS, własnej domeny i dodatkowych mechanizmów kontroli dostępu.
+
+Połączenie S3 i CloudFront jest często wykorzystywane do hostowania stron statycznych oraz dostarczania obrazów i plików aplikacji.
+
+18. Presigned URLs
+
+Presigned URL to adres URL umożliwiający wykonanie określonej operacji na obiekcie przez ograniczony czas.
+
+Może pozwolić użytkownikowi pobrać plik lub przesłać go do S3 bez udostępniania mu długoterminowych danych uwierzytelniających AWS.
+
+Adres jest generowany przez aplikację lub uprawnionego klienta na podstawie odpowiednich uprawnień.
+
+Po upływie określonego czasu adres przestaje być ważny.
+
+Presigned URLs są przydatne na przykład wtedy, gdy użytkownik przesyła zdjęcie bezpośrednio do S3 z poziomu aplikacji internetowej.
+
+19. Integracja z aplikacjami Java i Spring Boot
+
+Aplikacje Java mogą korzystać z Amazon S3 za pomocą AWS SDK for Java.
+
+SDK umożliwia tworzenie bucketów, przesyłanie plików, pobieranie obiektów i zarządzanie ich właściwościami.
+
+W aplikacji Spring Boot można wykorzystać usługę S3 do przechowywania zdjęć użytkowników, dokumentów i załączników.
+
+Zamiast zapisywać duże pliki bezpośrednio w relacyjnej bazie danych, aplikacja może przechowywać je w S3, a w bazie zapisywać ich klucze i metadane.
+
+Takie podejście pozwala oddzielić przechowywanie plików od danych biznesowych.
+
+20. Przykład wykorzystania Amazon S3 w Javie
+
+Poniższy przykład pokazuje przesłanie pliku do istniejącego bucketa za pomocą AWS SDK for Java w wersji 2.
+
+```
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+
+import java.nio.file.Path;
+
+public class S3UploadExample {
+
+    public static void main(String[] args) {
+        String bucket = "agrimind-images";
+        String key = "uploads/photo.jpg";
+        Path file = Path.of("photo.jpg");
+
+        try (S3Client s3 = S3Client.create()) {
+            PutObjectRequest request =
+                    PutObjectRequest.builder()
+                            .bucket(bucket)
+                            .key(key)
+                            .build();
+
+            s3.putObject(
+                    request,
+                    RequestBody.fromFile(file)
+            );
+
+            System.out.println("Plik przesłany do Amazon S3.");
+        }
+    }
+}
+```
+
+Przykład wymaga dodania odpowiedniej zależności `software.amazon.awssdk:s3` do projektu.
+
+SDK korzysta ze standardowego łańcucha dostarczania danych uwierzytelniających AWS, dlatego należy wcześniej skonfigurować uprawnienia i środowisko.
+
+Bucket musi już istnieć, a używana tożsamość musi mieć uprawnienie do przesyłania obiektów.
+
+W aplikacji produkcyjnej warto również obsłużyć błędy sieciowe, limity i ewentualne ponawianie operacji.
+
+21. Amazon S3 a relacyjne bazy danych
+
+Relacyjne bazy danych, takie jak PostgreSQL, MySQL i Oracle, przechowują dane w tabelach i umożliwiają wykonywanie zapytań SQL.
+
+Amazon S3 jest usługą przechowywania obiektów, a nie relacyjną bazą danych.
+
+S3 sprawdza się przy przechowywaniu dużych plików i danych, które nie wymagają typowych transakcji SQL.
+
+Relacyjna baza danych może przechowywać informacje o użytkowniku, nazwę pliku i klucz obiektu w S3.
+
+Sam plik może być przechowywany w S3, dzięki czemu baza danych nie musi przechowywać jego pełnej zawartości.
+
+22. Amazon S3 a Amazon EBS i Amazon EFS
+
+Amazon S3 jest usługą przechowywania obiektowego.
+
+Amazon EBS udostępnia wolumeny blokowe, które można podłączać do obsługiwanych instancji obliczeniowych.
+
+Amazon EFS jest zarządzanym systemem plików, który umożliwia współdzielenie plików pomiędzy wieloma klientami zgodnie z konfiguracją.
+
+S3 jest dobrym wyborem dla zdjęć, dokumentów, kopii zapasowych i archiwów.
+
+EBS sprawdza się w przypadku systemów wymagających dysku blokowego, na przykład dla obsługiwanej instancji bazy danych.
+
+EFS jest przydatny wtedy, gdy wiele zasobów potrzebuje dostępu do wspólnego systemu plików.
+
+23. Zalety Amazon S3
+
+Amazon S3 pozwala przechowywać duże ilości danych bez samodzielnego zarządzania fizycznymi dyskami.
+
+Usługa oferuje różne klasy przechowywania, dzięki czemu można dostosować koszty do sposobu korzystania z danych.
+
+Wersjonowanie, replikacja i reguły cyklu życia ułatwiają zarządzanie danymi.
+
+Integracja z innymi usługami AWS pozwala wykorzystywać S3 w aplikacjach internetowych, systemach analitycznych i procesach automatyzacji.
+
+Dostęp do danych można kontrolować za pomocą polityk i mechanizmów bezpieczeństwa AWS.
+
+24. Wady i ograniczenia Amazon S3
+
+Amazon S3 nie jest bezpośrednim zamiennikiem tradycyjnego systemu plików ani relacyjnej bazy danych.
+
+Koszty mogą obejmować przechowywanie danych, operacje API, pobieranie danych i transfer sieciowy.
+
+Niewłaściwe ustawienia uprawnień mogą prowadzić do niezamierzonego udostępnienia poufnych plików.
+
+Wybór klasy archiwalnej może wiązać się z dodatkowymi kosztami lub czasem oczekiwania na pobranie danych.
+
+Przed wdrożeniem należy zaplanować sposób organizacji obiektów, bezpieczeństwo, retencję danych i koszty operacyjne.
+
+25. Jak uczyć się Amazon S3?
+
+Na początku warto poznać pojęcia bucket, object i object key.
+
+Następnie należy przećwiczyć przesyłanie i pobieranie plików za pomocą AWS Management Console oraz AWS CLI.
+
+Kolejnym krokiem jest poznanie IAM, Bucket Policies, Block Public Access i szyfrowania.
+
+Później warto nauczyć się wersjonowania, Lifecycle Rules, replikacji i Presigned URLs.
+
+Po opanowaniu podstaw można zintegrować S3 z aplikacją Java lub Spring Boot, na przykład tworząc usługę przesyłania zdjęć użytkowników.
+
+26. Najważniejsze pojęcia
+
+Amazon S3 — usługa przechowywania danych w modelu obiektowym.
+
+Bucket — kontener przechowujący obiekty.
+
+Object — pojedynczy plik lub zbiór danych przechowywany w S3.
+
+Object Key — identyfikator obiektu w obrębie bucketa.
+
+Object Storage — model przechowywania danych jako niezależnych obiektów.
+
+AWS CLI — narzędzie wiersza poleceń do obsługi usług AWS.
+
+Storage Class — klasa przechowywania dostosowana do sposobu korzystania z danych.
+
+Versioning — mechanizm zachowywania wielu wersji obiektu.
+
+Lifecycle Rules — reguły automatyzujące cykl życia obiektów.
+
+Replication — kopiowanie obiektów pomiędzy bucketami.
+
+IAM — system zarządzania tożsamościami i uprawnieniami AWS.
+
+Bucket Policy — zasady kontroli dostępu do bucketa.
+
+SSE-S3 — szyfrowanie danych w S3 przy użyciu kluczy zarządzanych przez usługę.
+
+SSE-KMS — szyfrowanie z wykorzystaniem AWS Key Management Service.
+
+Amazon CloudFront — usługa CDN przyspieszająca dostarczanie treści.
+
+Presigned URL — czasowo ograniczony adres umożliwiający wykonanie operacji na obiekcie.
+
+Amazon EBS — usługa pamięci blokowej.
+
+Amazon EFS — zarządzany współdzielony system plików.
+
+27. W skrócie
+
+Amazon S3 to jedna z podstawowych usług AWS służąca do przechowywania plików i innych danych jako obiektów w bucketach.
+
+Jest wykorzystywany do przechowywania zdjęć, dokumentów, kopii zapasowych, archiwów i danych aplikacji.
+
+Najważniejsze zagadnienia to buckety, obiekty, klasy przechowywania, wersjonowanie, bezpieczeństwo i integracja z aplikacjami.
+
+Opanowanie Amazon S3 jest przydatne podczas nauki AWS, tworzenia aplikacji chmurowych oraz pracy z Javą, Spring Boot i architekturą mikroserwisową.
+
+Dodaj praktyczny mini-projekt S3Ujednolić polskie i angielskie terminy

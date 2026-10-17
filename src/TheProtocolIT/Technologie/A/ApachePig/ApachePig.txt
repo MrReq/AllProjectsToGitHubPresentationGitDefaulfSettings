@@ -1,0 +1,282 @@
+Apache Pig — notatka
+
+1. Czym jest Apache Pig?
+
+Apache Pig to narzędzie z ekosystemu Apache Hadoop służące do przetwarzania i analizowania dużych zbiorów danych.
+
+Umożliwia tworzenie przepływów przetwarzania danych przy użyciu języka Pig Latin, który został zaprojektowany z myślą o analizie danych na dużą skalę.
+
+Zamiast pisać rozbudowane programy w Javie wykorzystujące bezpośrednio mechanizm MapReduce, programista może opisać kolejne operacje na danych za pomocą prostszych instrukcji.
+
+Apache Pig był wykorzystywany przede wszystkim w środowiskach Big Data do przygotowywania danych, filtrowania rekordów, grupowania i wykonywania agregacji.
+
+2. Do czego służy Apache Pig?
+
+Apache Pig służy do przetwarzania dużych ilości danych przechowywanych w rozproszonych systemach plików.
+
+Może być wykorzystywany do filtrowania danych, łączenia zbiorów, sortowania rekordów i obliczania statystyk.
+
+Sprawdza się również w procesach ETL, czyli pobieraniu, przekształcaniu i przygotowywaniu danych do dalszej analizy.
+
+Przykładowo można wykorzystać go do przetworzenia logów serwera, usunięcia niepotrzebnych rekordów i obliczenia liczby żądań pochodzących z poszczególnych adresów IP.
+
+3. Czym jest Pig Latin?
+
+Pig Latin to język przepływu danych wykorzystywany w Apache Pig.
+
+Pozwala opisywać kolejne operacje wykonywane na zbiorach danych w sposób zbliżony do programowania deklaratywnego.
+
+Programista określa, jakie przekształcenia mają zostać wykonane, a Apache Pig przygotowuje plan ich realizacji.
+
+Pig Latin obsługuje między innymi filtrowanie, grupowanie, sortowanie, łączenie danych i agregacje.
+
+Nie jest to standardowy SQL, chociaż niektóre operacje przypominają instrukcje znane z języków zapytań bazodanowych.
+
+4. Jak działa Apache Pig?
+
+Apache Pig odczytuje skrypt zapisany w języku Pig Latin.
+
+Następnie analizuje instrukcje i tworzy logiczny plan przetwarzania danych.
+
+Plan jest optymalizowany, a później przekształcany w zadania wykonywane przez dostępny silnik przetwarzania.
+
+W klasycznych środowiskach Hadoop Pig wykorzystywał MapReduce do realizacji obliczeń.
+
+Dane wejściowe i wyniki mogły być przechowywane w systemie HDFS.
+
+Proces można przedstawić następująco:
+
+Dane wejściowe → skrypt Pig Latin → plan przetwarzania → wykonanie operacji → dane wynikowe.
+
+5. Podstawowe instrukcje Pig Latin
+
+Pig Latin udostępnia instrukcje pozwalające wykonywać operacje na zbiorach danych.
+
+`LOAD` służy do wczytywania danych ze źródła.
+
+`FILTER` wybiera rekordy spełniające określony warunek.
+
+`FOREACH` umożliwia wykonywanie operacji na poszczególnych rekordach.
+
+`GROUP` grupuje rekordy według wybranego pola.
+
+`JOIN` łączy zbiory danych na podstawie wspólnych wartości.
+
+`ORDER` sortuje rekordy.
+
+`DISTINCT` usuwa duplikaty.
+
+`STORE` zapisuje wyniki przetwarzania.
+
+Dzięki tym instrukcjom można budować wieloetapowe przepływy danych bez ręcznego implementowania każdego kroku przetwarzania rozproszonego.
+
+6. Przykład programu w Apache Pig
+
+Załóżmy, że plik zawiera dane dotyczące sprzedaży.
+
+Każdy rekord zawiera identyfikator produktu i wartość sprzedaży.
+
+Chcemy wczytać dane, wybrać sprzedaż powyżej 100 i zapisać wyniki do pliku.
+
+Przykładowy skrypt:
+
+```
+sales = LOAD '/data/sales.csv'
+    USING PigStorage(',')
+    AS (product_id:int, amount:double);
+
+filtered_sales = FILTER sales
+    BY amount > 100;
+
+STORE filtered_sales
+    INTO '/data/results'
+    USING PigStorage(',');
+```
+
+Instrukcja `LOAD` wczytuje dane z pliku lub lokalizacji dostępnej dla środowiska wykonawczego.
+
+`PigStorage(',')` określa separator pól.
+
+`FILTER` wybiera rekordy, których wartość sprzedaży przekracza 100.
+
+`STORE` zapisuje wyniki w określonej lokalizacji.
+
+W środowisku Hadoop ścieżki mogą wskazywać lokalizacje w HDFS, zależnie od konfiguracji.
+
+7. Grupowanie i agregacja danych
+
+Apache Pig pozwala grupować rekordy i wykonywać obliczenia na poszczególnych grupach.
+
+Można na przykład obliczyć całkowitą sprzedaż dla każdego produktu.
+
+Przykładowy skrypt:
+
+```
+sales = LOAD '/data/sales.csv'
+    USING PigStorage(',')
+    AS (product_id:int, amount:double);
+
+grouped_sales = GROUP sales BY product_id;
+
+total_sales = FOREACH grouped_sales
+    GENERATE group AS product_id,
+             SUM(sales.amount) AS total_amount;
+
+DUMP total_sales;
+```
+
+Instrukcja `GROUP` tworzy grupy rekordów według identyfikatora produktu.
+
+`SUM` oblicza sumę wartości sprzedaży w każdej grupie.
+
+`DUMP` wyświetla wyniki w środowisku wykonawczym, co jest przydatne podczas nauki i debugowania.
+
+8. Typy danych w Apache Pig
+
+Apache Pig obsługuje kilka podstawowych typów danych.
+
+`int` reprezentuje liczby całkowite.
+
+`long` reprezentuje większe liczby całkowite.
+
+`float` i `double` służą do przechowywania liczb zmiennoprzecinkowych.
+
+`chararray` przechowuje tekst.
+
+`bytearray` reprezentuje dane binarne lub dane, których typ nie został jeszcze określony.
+
+Oprócz typów prostych Pig obsługuje również bardziej złożone struktury danych.
+
+Tuple to uporządkowany zestaw pól.
+
+Bag to kolekcja krotek.
+
+Map to struktura przechowująca pary klucz–wartość.
+
+Te struktury pozwalają przetwarzać dane, które nie zawsze mają postać klasycznej tabeli relacyjnej.
+
+9. Apache Pig a Apache Hadoop
+
+Apache Hadoop to ekosystem technologii do rozproszonego przechowywania i przetwarzania dużych zbiorów danych.
+
+Apache Pig jest narzędziem działającym w tym ekosystemie, które upraszcza definiowanie operacji na danych.
+
+Hadoop dostarczał mechanizmy przechowywania i wykonywania obliczeń, natomiast Pig zapewniał język do opisywania przepływów przetwarzania.
+
+W klasycznej architekturze Pig mógł przekształcać skrypty Pig Latin w zadania MapReduce.
+
+Apache Pig nie jest zamiennikiem całego Hadoop, lecz narzędziem wykorzystującym jego możliwości.
+
+10. Apache Pig a Apache Hive
+
+Apache Pig i Apache Hive były wykorzystywane do przetwarzania dużych zbiorów danych w środowiskach Hadoop.
+
+Pig wykorzystuje język Pig Latin, który opisuje kolejne operacje na danych w formie przepływu przetwarzania.
+
+Hive wykorzystuje język HiveQL, który przypomina SQL i jest przeznaczony przede wszystkim do zapytań analitycznych.
+
+Pig był szczególnie przydatny przy tworzeniu wieloetapowych procesów ETL.
+
+Hive jest bardziej naturalnym wyborem dla osób, które chcą analizować dane za pomocą składni podobnej do SQL.
+
+Oba narzędzia należą do starszych technologii ekosystemu Hadoop, dlatego przed rozpoczęciem nowego projektu warto rozważyć również nowocześniejsze rozwiązania.
+
+11. Apache Pig a Apache Spark
+
+Apache Spark jest nowoczesnym silnikiem rozproszonego przetwarzania danych, obsługującym między innymi SQL, Python, Javę i Scalę.
+
+Apache Pig był historycznie powiązany z Hadoop i klasycznym przetwarzaniem MapReduce.
+
+Spark oferuje szersze możliwości w zakresie przetwarzania danych w pamięci, analityki i integracji z różnymi narzędziami.
+
+W nowych projektach Big Data Spark jest często rozważany zamiast Pig.
+
+Znajomość Pig nadal może być przydatna podczas utrzymywania starszych systemów i analizowania istniejących skryptów Hadoop.
+
+12. Zastosowania Apache Pig
+
+Apache Pig był stosowany do przygotowywania danych przed ich analizą.
+
+Mógł służyć do przetwarzania logów serwerowych i danych pochodzących z systemów internetowych.
+
+Wykorzystywano go również do czyszczenia danych, łączenia zbiorów i przygotowywania danych dla systemów raportowych.
+
+W środowiskach Big Data mógł stanowić jeden z etapów potoku ETL.
+
+Przykładowo firma mogła wczytywać pliki z danymi sprzedażowymi, usuwać nieprawidłowe rekordy, grupować sprzedaż według produktów i zapisywać wyniki w celu dalszej analizy.
+
+13. Zalety Apache Pig
+
+Pig Latin upraszczało pisanie złożonych przepływów przetwarzania danych.
+
+Pozwalało wykonywać wiele typowych operacji bez ręcznego programowania każdego zadania MapReduce.
+
+Obsługiwało różne struktury danych, w tym krotki, kolekcje krotek i mapy.
+
+Dobrze sprawdzało się w historycznych środowiskach Hadoop oraz w procesach ETL.
+
+Mogło ułatwiać przetwarzanie dużych zbiorów danych, gdy klasyczne programowanie w Javie było zbyt czasochłonne.
+
+14. Wady Apache Pig
+
+Apache Pig jest technologią starszą i rzadziej wykorzystywaną w nowych projektach niż wiele współczesnych narzędzi przetwarzania danych.
+
+Jego ekosystem jest silnie związany z Hadoop i klasycznymi rozwiązaniami Big Data.
+
+Osoby znające SQL mogą uznać Hive za łatwiejsze narzędzie do typowych analiz tabelarycznych.
+
+Dostępność środowisk, dokumentacji i wsparcia może być ograniczona w porównaniu z bardziej współczesnymi technologiami.
+
+Przed wykorzystaniem Pig w nowym systemie należy sprawdzić zgodność wersji, dostępność zależności i możliwości utrzymania całej infrastruktury.
+
+15. Plan nauki Apache Pig
+
+Na początku warto poznać podstawy Apache Hadoop, HDFS i ideę przetwarzania rozproszonego.
+
+Następnie należy nauczyć się składni Pig Latin oraz instrukcji `LOAD`, `FILTER`, `FOREACH` i `STORE`.
+
+Kolejnym krokiem powinno być ćwiczenie grupowania, łączenia zbiorów i wykonywania agregacji.
+
+Później warto przygotować prosty skrypt ETL przetwarzający dane sprzedażowe lub logi serwerowe.
+
+Na końcu dobrze jest porównać rozwiązanie w Pig z analogicznym przepływem w Apache Hive lub Apache Spark.
+
+16. Najważniejsze pojęcia
+
+Apache Pig — narzędzie do przetwarzania dużych zbiorów danych w ekosystemie Hadoop.
+
+Pig Latin — język służący do opisywania operacji na danych.
+
+Apache Hadoop — ekosystem rozproszonego przechowywania i przetwarzania danych.
+
+HDFS — rozproszony system plików Hadoop.
+
+MapReduce — model przetwarzania rozproszonego wykorzystywany przez klasyczny Hadoop.
+
+ETL — proces pobierania, przekształcania i ładowania danych.
+
+LOAD — instrukcja wczytująca dane.
+
+FILTER — instrukcja wybierająca rekordy spełniające warunek.
+
+FOREACH — instrukcja wykonująca operacje na rekordach.
+
+GROUP — instrukcja grupująca dane.
+
+JOIN — operacja łącząca zbiory danych.
+
+STORE — instrukcja zapisująca wyniki.
+
+Tuple — uporządkowany zestaw pól.
+
+Bag — kolekcja krotek.
+
+17. W skrócie
+
+Apache Pig to narzędzie Big Data, które umożliwiało przetwarzanie dużych zbiorów danych za pomocą języka Pig Latin.
+
+Było wykorzystywane przede wszystkim do operacji ETL, filtrowania, grupowania i transformowania danych w środowisku Hadoop.
+
+Obecnie warto znać je głównie podczas pracy ze starszymi systemami Big Data, natomiast w nowych projektach należy również rozważyć Apache Spark i Apache Hive.
+
+Dodaj przykład JOIN i DISTINCTSkróć powtarzające się informacje

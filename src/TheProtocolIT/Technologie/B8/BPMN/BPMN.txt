@@ -1,0 +1,561 @@
+# BPMN — notatka
+
+## 1. Czym jest BPMN?
+
+BPMN oznacza Business Process Model and Notation.
+
+BPMN jest standardem służącym do modelowania procesów biznesowych.
+
+Pozwala przedstawiać procesy w postaci diagramów.
+
+Diagram BPMN pokazuje, jakie czynności są wykonywane, w jakiej kolejności oraz jakie decyzje i zdarzenia występują podczas procesu.
+
+BPMN jest wykorzystywany zarówno przez analityków biznesowych, jak i osoby techniczne.
+
+## 2. Proces biznesowy
+
+Proces biznesowy to uporządkowany zbiór czynności prowadzących do osiągnięcia określonego celu.
+
+Przykładem procesu może być obsługa zamówienia klienta.
+
+Proces może rozpoczynać się od złożenia zamówienia.
+
+Następnie zamówienie może zostać zweryfikowane, opłacone, przygotowane i wysłane.
+
+BPMN pozwala przedstawić taki proces graficznie.
+
+## 3. Cel BPMN
+
+Głównym celem BPMN jest stworzenie zrozumiałego sposobu przedstawiania procesów.
+
+Diagram powinien być czytelny zarówno dla osób biznesowych, jak i technicznych.
+
+BPMN pozwala również analizować procesy przed ich implementacją w systemie informatycznym.
+
+## 4. Diagram BPMN
+
+Diagram BPMN przedstawia przebieg procesu za pomocą określonych elementów graficznych.
+
+Elementy są połączone przepływami.
+
+Dzięki temu można określić kolejność wykonywania czynności.
+
+Diagram może przedstawiać prosty proces albo bardzo rozbudowany proces organizacyjny.
+
+## 5. Podstawowe elementy BPMN
+
+Najważniejsze elementy BPMN można podzielić na kilka podstawowych grup.
+
+Należą do nich zdarzenia, aktywności, bramki, przepływy, pule i tory.
+
+Każda grupa ma określone znaczenie na diagramie.
+
+## 6. Event
+
+Event oznacza zdarzenie występujące podczas procesu.
+
+Zdarzenie może rozpoczynać proces, występować w jego trakcie albo kończyć proces.
+
+Na diagramie BPMN zdarzenia przedstawiane są za pomocą okręgów.
+
+Rodzaj obramowania i symbol znajdujący się wewnątrz określają rodzaj zdarzenia.
+
+## 7. Start Event
+
+Start Event oznacza początek procesu.
+
+Jest przedstawiany jako okrąg z cienkim obramowaniem.
+
+Start Event określa moment, w którym proces zaczyna się wykonywać.
+
+Proces może mieć określony warunek lub zdarzenie rozpoczynające jego wykonanie.
+
+## 8. End Event
+
+End Event oznacza zakończenie procesu.
+
+Jest przedstawiany jako okrąg z grubszym obramowaniem.
+
+Może wskazywać normalne zakończenie procesu albo zakończenie wynikające z określonego zdarzenia.
+
+## 9. Intermediate Event
+
+Intermediate Event oznacza zdarzenie występujące w trakcie procesu.
+
+Nie rozpoczyna ani nie musi kończyć całego procesu.
+
+Może między innymi reprezentować oczekiwanie na wiadomość, upływ czasu albo wystąpienie określonego warunku.
+
+## 10. Activity
+
+Activity oznacza czynność wykonywaną w ramach procesu.
+
+Na diagramie jest przedstawiana jako zaokrąglony prostokąt.
+
+Activity może reprezentować pojedynczą czynność albo bardziej złożoną część procesu.
+
+## 11. Task
+
+Task jest podstawowym rodzajem Activity.
+
+Reprezentuje pojedynczą czynność, której nie rozbijamy już na mniejsze elementy na danym poziomie modelu.
+
+Przykładem Task może być „Sprawdź zamówienie”.
+
+Innym przykładem może być „Wyślij fakturę”.
+
+## 12. Sub-Process
+
+Sub-Process jest czynnością zawierającą wewnątrz kolejny proces.
+
+Pozwala ukryć szczegóły bardziej złożonej części procesu.
+
+Dzięki temu główny diagram może pozostać czytelny.
+
+Sub-Process można następnie rozwinąć i przedstawić jego szczegółowy przebieg.
+
+## 13. Gateway
+
+Gateway służy do sterowania przepływem procesu.
+
+Pozwala między innymi podejmować decyzje oraz rozdzielać lub łączyć ścieżki procesu.
+
+Na diagramie BPMN Gateway jest przedstawiany za pomocą rombu.
+
+Rodzaj symbolu wewnątrz rombu określa rodzaj bramki.
+
+## 14. Exclusive Gateway
+
+Exclusive Gateway oznacza wybór jednej z dostępnych ścieżek.
+
+Jest często używany do reprezentowania decyzji.
+
+Przykładowo po sprawdzeniu płatności proces może przejść ścieżką „Płatność poprawna” albo „Płatność odrzucona”.
+
+Tylko jedna ścieżka zostaje wybrana.
+
+## 15. Parallel Gateway
+
+Parallel Gateway służy do wykonywania kilku ścieżek równocześnie.
+
+Jest oznaczany symbolem plusa wewnątrz rombu.
+
+Można go wykorzystać na przykład wtedy, gdy po zatwierdzeniu zamówienia jednocześnie trzeba przygotować przesyłkę i wygenerować dokument sprzedaży.
+
+## 16. Inclusive Gateway
+
+Inclusive Gateway pozwala wybrać jedną lub więcej dostępnych ścieżek.
+
+Jest oznaczany symbolem koła wewnątrz rombu.
+
+W zależności od spełnionych warunków może zostać uruchomiona więcej niż jedna ścieżka.
+
+## 17. Event-Based Gateway
+
+Event-Based Gateway pozwala podejmować decyzję na podstawie tego, które zdarzenie wystąpi jako pierwsze.
+
+Może być używany na przykład wtedy, gdy proces oczekuje na wiadomość od klienta albo upływ określonego czasu.
+
+Proces przechodzi do ścieżki odpowiadającej zdarzeniu, które wystąpiło.
+
+## 18. Sequence Flow
+
+Sequence Flow określa kolejność wykonywania elementów procesu.
+
+Jest przedstawiany za pomocą linii zakończonej strzałką.
+
+Pokazuje, który element procesu jest wykonywany przed kolejnym elementem.
+
+Sequence Flow służy przede wszystkim do łączenia elementów znajdujących się w tym samym procesie.
+
+## 19. Message Flow
+
+Message Flow reprezentuje komunikację pomiędzy uczestnikami procesu.
+
+Jest przedstawiany jako przerywana linia zakończona strzałką.
+
+Może reprezentować przekazanie wiadomości pomiędzy różnymi uczestnikami.
+
+Message Flow nie służy do określania zwykłej kolejności czynności wewnątrz jednego procesu.
+
+## 20. Association
+
+Association służy do powiązania elementu BPMN z dodatkową informacją.
+
+Może łączyć na przykład aktywność z adnotacją.
+
+Association nie reprezentuje kolejności wykonywania procesu.
+
+## 21. Pool
+
+Pool reprezentuje uczestnika procesu.
+
+Może przedstawiać organizację, firmę, system albo inną jednostkę uczestniczącą w procesie.
+
+Pool pozwala oddzielić różne uczestniczące strony.
+
+## 22. Lane
+
+Lane jest częścią Pool.
+
+Służy do podziału procesu na odpowiedzialności.
+
+Lane może reprezentować konkretną rolę, dział, stanowisko albo system.
+
+Przykładowo firma może być jednym Pool, a jej działy mogą być przedstawione jako osobne Lane.
+
+## 23. Pool i Lane
+
+Pool odpowiada przede wszystkim za uczestnika procesu.
+
+Lane służy do dalszego podziału odpowiedzialności wewnątrz uczestnika.
+
+Dzięki temu można łatwo określić, kto wykonuje daną czynność.
+
+## 24. Message
+
+Message oznacza informację przekazywaną pomiędzy uczestnikami.
+
+Może być reprezentowana przez Message Flow.
+
+Przykładem wiadomości może być zamówienie klienta przekazane do sklepu.
+
+Innym przykładem może być potwierdzenie płatności przesłane do systemu.
+
+## 25. Timer Event
+
+Timer Event reprezentuje zdarzenie związane z czasem.
+
+Może oznaczać konkretną datę, określoną godzinę albo upływ określonego czasu.
+
+Można go wykorzystać na przykład do modelowania procesu, który rozpoczyna się każdego dnia o określonej godzinie.
+
+## 26. Message Event
+
+Message Event jest związane z otrzymaniem albo wysłaniem wiadomości.
+
+Może reprezentować oczekiwanie procesu na wiadomość od innego uczestnika.
+
+Przykładem może być oczekiwanie na potwierdzenie płatności.
+
+## 27. Error Event
+
+Error Event reprezentuje wystąpienie błędu.
+
+Może być wykorzystywany do modelowania obsługi sytuacji wyjątkowych.
+
+Dzięki temu można przedstawić alternatywną ścieżkę wykonywaną po wystąpieniu błędu.
+
+## 28. Escalation Event
+
+Escalation Event reprezentuje eskalację problemu lub sytuacji wymagającej dodatkowej reakcji.
+
+Może być wykorzystany wtedy, gdy problem powinien zostać przekazany do osoby posiadającej większe uprawnienia.
+
+Przykładem może być przekazanie reklamacji do kierownika.
+
+## 29. Conditional Event
+
+Conditional Event jest związane ze spełnieniem określonego warunku.
+
+Proces może oczekiwać, aż warunek zostanie spełniony.
+
+Po jego spełnieniu wykonywana jest odpowiednia część procesu.
+
+## 30. Cancel Event
+
+Cancel Event służy do modelowania anulowania określonego procesu lub działania.
+
+Jest szczególnie związany z określonymi sytuacjami występującymi podczas wykonywania transakcji.
+
+## 31. Compensation
+
+Compensation służy do modelowania działań kompensacyjnych.
+
+Może być potrzebne, gdy wcześniejsza czynność została wykonana, ale późniejsza sytuacja wymaga jej odwrócenia.
+
+Przykładem może być zwrot pieniędzy po wcześniejszym wykonaniu płatności.
+
+## 32. Transaction
+
+Transaction pozwala modelować grupę czynności traktowanych jako określona transakcja.
+
+Może być wykorzystywana w sytuacjach, w których ważne jest prawidłowe wykonanie całego zestawu działań.
+
+W przypadku problemu można zastosować odpowiednią obsługę błędów lub kompensację.
+
+## 33. Data Object
+
+Data Object reprezentuje dane wykorzystywane lub tworzone przez proces.
+
+Może przedstawiać na przykład zamówienie, fakturę albo formularz.
+
+Pozwala pokazać, jakie informacje są związane z wykonywanymi czynnościami.
+
+## 34. Data Store
+
+Data Store reprezentuje miejsce przechowywania danych.
+
+Może odpowiadać na przykład bazie danych.
+
+Pokazuje, że proces odczytuje lub zapisuje dane w określonym magazynie.
+
+## 35. Data Input
+
+Data Input reprezentuje dane wejściowe wykorzystywane przez proces.
+
+Może być to na przykład formularz wypełniony przez klienta.
+
+## 36. Data Output
+
+Data Output reprezentuje dane wytworzone przez proces.
+
+Przykładem może być wygenerowana faktura albo raport.
+
+## 37. Group
+
+Group służy do wizualnego grupowania elementów diagramu.
+
+Nie zmienia przepływu procesu.
+
+Pomaga natomiast organizować i opisywać diagram.
+
+## 38. Text Annotation
+
+Text Annotation pozwala dodać komentarz tekstowy do diagramu.
+
+Może wyjaśniać znaczenie określonej czynności lub warunku.
+
+Nie wpływa na wykonanie procesu.
+
+## 39. Orkiestracja
+
+Orkiestracja przedstawia kolejność czynności wykonywanych w ramach konkretnego procesu lub uczestnika.
+
+Pokazuje, w jaki sposób dany uczestnik realizuje swoje działania.
+
+Jest często wykorzystywana do szczegółowego modelowania procesu wewnętrznego.
+
+## 40. Choreografia
+
+Choreografia skupia się na interakcjach pomiędzy uczestnikami.
+
+Pokazuje, jakie komunikaty są wymieniane pomiędzy stronami.
+
+Nie koncentruje się na szczegółowym przebiegu wewnętrznych czynności każdego uczestnika.
+
+## 41. Conversation
+
+Conversation służy do przedstawiania komunikacji pomiędzy uczestnikami na bardziej ogólnym poziomie.
+
+Pozwala pokazać, jakie rodzaje interakcji zachodzą pomiędzy uczestnikami procesu.
+
+## 42. Proces AS-IS
+
+AS-IS oznacza aktualny sposób realizacji procesu.
+
+Model AS-IS pokazuje, jak proces wygląda obecnie.
+
+Może być wykorzystany do znalezienia problemów, niepotrzebnych czynności oraz miejsc wymagających poprawy.
+
+## 43. Proces TO-BE
+
+TO-BE przedstawia docelowy sposób realizacji procesu.
+
+Pokazuje, jak proces powinien wyglądać po wprowadzeniu zmian.
+
+Porównanie modeli AS-IS i TO-BE pozwala określić planowane usprawnienia.
+
+## 44. Modelowanie procesu
+
+Modelowanie procesu rozpoczyna się od określenia jego celu.
+
+Następnie należy określić uczestników procesu.
+
+Kolejnym krokiem jest ustalenie czynności wykonywanych w procesie.
+
+Następnie określa się decyzje, zdarzenia oraz komunikację.
+
+Na końcu elementy są łączone odpowiednimi przepływami.
+
+## 45. Przykład procesu
+
+Proces obsługi zamówienia może rozpoczynać się od otrzymania zamówienia.
+
+Następnie pracownik sprawdza dostępność produktu.
+
+Jeżeli produktu nie ma, proces może zakończyć się informacją o braku dostępności.
+
+Jeżeli produkt jest dostępny, klient może przejść do płatności.
+
+Po poprawnej płatności zamówienie może zostać przygotowane do wysyłki.
+
+Następnie przesyłka zostaje wysłana do klienta.
+
+Proces kończy się po przekazaniu przesyłki do klienta.
+
+## 46. Warunki na diagramie
+
+Warunki pozwalają określić, którą ścieżką powinien przejść proces.
+
+Najczęściej są związane z Gateway.
+
+Przykładowym warunkiem może być „Kwota > 1000 zł”.
+
+Innym warunkiem może być „Płatność zaakceptowana”.
+
+## 47. Domyślna ścieżka
+
+W niektórych sytuacjach Gateway może posiadać ścieżkę domyślną.
+
+Ścieżka domyślna jest wykorzystywana wtedy, gdy żaden z pozostałych warunków nie zostanie spełniony.
+
+Pozwala to uniknąć sytuacji, w której proces nie ma dalszej ścieżki.
+
+## 48. Poprawne używanie BPMN
+
+Każdy element diagramu powinien mieć określone znaczenie.
+
+Należy używać odpowiednich typów przepływów.
+
+Sequence Flow nie powinien być używany do przedstawiania komunikacji pomiędzy oddzielnymi uczestnikami.
+
+Do komunikacji pomiędzy uczestnikami wykorzystuje się Message Flow.
+
+## 49. BPMN a UML
+
+BPMN i UML są różnymi standardami modelowania.
+
+UML jest szeroko wykorzystywany do modelowania systemów informatycznych.
+
+BPMN koncentruje się przede wszystkim na procesach biznesowych.
+
+Diagram aktywności UML może przedstawiać przepływ działań, ale BPMN posiada znacznie bardziej rozbudowaną semantykę związaną z procesami biznesowymi i komunikacją pomiędzy uczestnikami.
+
+## 50. BPMN a systemy informatyczne
+
+BPMN może być używany przed rozpoczęciem implementacji systemu.
+
+Pozwala najpierw zrozumieć proces biznesowy.
+
+Na podstawie procesu można następnie określić wymagania dla systemu.
+
+BPMN może więc stanowić pomost pomiędzy analizą biznesową a implementacją techniczną.
+
+## 51. BPMN i automatyzacja
+
+Procesy opisane w BPMN mogą być podstawą do automatyzacji procesów biznesowych.
+
+Niektóre platformy potrafią wykonywać procesy na podstawie modeli BPMN.
+
+W takim przypadku elementy diagramu mogą być powiązane z konkretnymi zadaniami wykonywanymi przez system.
+
+## 52. BPMN a workflow
+
+Workflow oznacza przepływ pracy.
+
+BPMN pozwala dokładnie opisać taki przepływ.
+
+Można określić kolejność czynności, osoby odpowiedzialne, decyzje, zdarzenia oraz komunikację.
+
+## 53. BPMN w analizie biznesowej
+
+Analityk biznesowy może wykorzystać BPMN do dokumentowania procesów organizacji.
+
+Diagram może być punktem wyjścia do rozmów z użytkownikami biznesowymi.
+
+Pozwala również łatwiej znaleźć niejasności i problemy w procesie.
+
+## 54. BPMN w projektach IT
+
+W projektach IT BPMN może być wykorzystywany podczas zbierania i analizowania wymagań.
+
+Pozwala przedstawić sposób działania organizacji przed stworzeniem rozwiązania informatycznego.
+
+Może również służyć do dokumentowania istniejącego systemu i jego procesów.
+
+## 55. Typowy workflow BPMN
+
+Najpierw określamy proces, który chcemy zamodelować.
+
+Następnie określamy jego początek i koniec.
+
+Później identyfikujemy uczestników procesu.
+
+Następnie zapisujemy wszystkie najważniejsze czynności.
+
+Potem dodajemy decyzje i zdarzenia.
+
+Następnie łączymy elementy odpowiednimi przepływami.
+
+Na końcu sprawdzamy, czy diagram jest logiczny i czytelny.
+
+## 56. Jak uczyć się BPMN?
+
+Najpierw warto nauczyć się podstawowych elementów, czyli Event, Activity, Gateway, Sequence Flow, Message Flow, Pool i Lane.
+
+Następnie warto nauczyć się różnicy pomiędzy Start Event, Intermediate Event i End Event.
+
+Kolejnym krokiem powinno być rozróżnienie Exclusive Gateway, Parallel Gateway i Inclusive Gateway.
+
+Następnie warto przećwiczyć tworzenie prostych procesów biznesowych.
+
+Dobrym ćwiczeniem jest zamodelowanie procesu zamówienia produktu.
+
+Kolejnym ćwiczeniem może być proces reklamacji, rekrutacji albo obsługi faktury.
+
+Na końcu warto nauczyć się bardziej zaawansowanych zdarzeń, komunikacji, Sub-Process oraz procesów AS-IS i TO-BE.
+
+## 57. Najważniejsze pojęcia
+
+BPMN — Business Process Model and Notation.
+
+Business Process — proces biznesowy.
+
+Event — zdarzenie.
+
+Start Event — rozpoczęcie procesu.
+
+Intermediate Event — zdarzenie występujące podczas procesu.
+
+End Event — zakończenie procesu.
+
+Activity — czynność.
+
+Task — pojedyncza czynność.
+
+Sub-Process — proces znajdujący się wewnątrz procesu.
+
+Gateway — element sterujący przepływem procesu.
+
+Exclusive Gateway — wybór jednej ścieżki.
+
+Parallel Gateway — równoległe wykonywanie wielu ścieżek.
+
+Inclusive Gateway — wybór jednej lub większej liczby ścieżek.
+
+Event-Based Gateway — wybór ścieżki zależny od wystąpienia zdarzenia.
+
+Sequence Flow — przepływ określający kolejność czynności.
+
+Message Flow — komunikacja pomiędzy uczestnikami.
+
+Association — powiązanie elementu z dodatkową informacją.
+
+Pool — uczestnik procesu.
+
+Lane — podział odpowiedzialności wewnątrz Pool.
+
+Message — komunikat przekazywany pomiędzy uczestnikami.
+
+Data Object — dane wykorzystywane przez proces.
+
+Data Store — miejsce przechowywania danych.
+
+AS-IS — obecny sposób realizacji procesu.
+
+TO-BE — docelowy sposób realizacji procesu.
+
+Orchestration — modelowanie przebiegu procesu konkretnego uczestnika.
+
+Choreography — modelowanie interakcji pomiędzy uczestnikami.

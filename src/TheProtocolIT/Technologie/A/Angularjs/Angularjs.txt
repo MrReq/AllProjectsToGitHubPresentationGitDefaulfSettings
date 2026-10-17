@@ -1,0 +1,322 @@
+AngularJS — notatka
+
+1. Czym jest AngularJS?
+
+AngularJS to starszy framework JavaScript opracowany przez Google, przeznaczony do tworzenia dynamicznych aplikacji internetowych.
+
+Został opublikowany w 2010 roku i umożliwiał budowanie aplikacji, w których interfejs automatycznie reaguje na zmiany danych.
+
+AngularJS wykorzystywał między innymi mechanizmy takie jak dwukierunkowe wiązanie danych, dyrektywy, kontrolery i Dependency Injection.
+
+Ważne jest rozróżnienie AngularJS od współczesnego Angulara, ponieważ są to odrębne generacje technologii o innej architekturze.
+
+AngularJS jest obecnie technologią historyczną, a jego oficjalne wsparcie zakończyło się w styczniu 2022 roku.
+
+2. Do czego służy AngularJS?
+
+AngularJS był wykorzystywany do tworzenia aplikacji frontendowych działających w przeglądarce internetowej.
+
+Najważniejsze zastosowania obejmowały:
+
+- Tworzenie aplikacji typu SPA (Single Page Application).
+- Budowanie formularzy i interaktywnych interfejsów.
+- Tworzenie paneli administracyjnych.
+- Wyświetlanie danych pobieranych z serwerów.
+- Komunikację z API za pomocą żądań HTTP.
+- Dynamiczne aktualizowanie zawartości strony.
+- Organizowanie kodu JavaScript w większych aplikacjach.
+
+AngularJS był szczególnie popularny w projektach internetowych rozwijanych w latach 2010–2018.
+
+Obecnie można go spotkać przede wszystkim w starszych systemach, które nadal wymagają utrzymania.
+
+3. Najważniejsze technologie
+
+AngularJS korzystał z kilku technologii webowych.
+
+- **JavaScript** — główny język programowania frameworka.
+- **HTML** — język opisujący strukturę strony internetowej.
+- **CSS** — język odpowiedzialny za wygląd interfejsu.
+- **JSON** — format często wykorzystywany do wymiany danych z backendem.
+- **HTTP** — protokół komunikacji z serwerami i API.
+
+W przeciwieństwie do współczesnego Angulara AngularJS nie wymagał TypeScriptu ani Angular CLI.
+
+Aplikacje AngularJS mogły być uruchamiane bezpośrednio w przeglądarce po załadowaniu odpowiednich plików JavaScript.
+
+4. Architektura AngularJS
+
+AngularJS organizował aplikację za pomocą kilku podstawowych elementów.
+
+- **Module** — definiował moduł aplikacji i grupował jej komponenty.
+- **Controller** — zarządzał danymi oraz logiką konkretnego obszaru interfejsu.
+- **Scope** — udostępniał dane i funkcje pomiędzy kontrolerem a widokiem.
+- **Directive** — rozszerzała HTML o dodatkowe zachowania.
+- **Service** — przechowywał logikę współdzieloną przez różne części aplikacji.
+- **Filter** — przekształcał dane przeznaczone do wyświetlenia.
+- **Template** — określał strukturę i sposób prezentacji widoku.
+
+Elementy te pozwalały oddzielić część odpowiedzialną za prezentację danych od logiki aplikacji.
+
+5. Moduły
+
+Moduł w AngularJS był podstawowym sposobem organizowania elementów aplikacji.
+
+Pozwalał grupować kontrolery, serwisy, dyrektywy i filtry.
+
+Przykładowy moduł:
+
+```
+var app = angular.module('myApp', []);
+```
+
+`myApp` to nazwa modułu aplikacji, a pusta tablica oznacza, że nie zadeklarowano w nim zależności od innych modułów.
+
+Moduł można było następnie wykorzystać w dokumencie HTML za pomocą dyrektywy `ng-app`.
+
+6. Kontrolery
+
+Kontrolery odpowiadały za udostępnianie danych i funkcji widokowi.
+
+W AngularJS kontrolery często wykorzystywały obiekt `$scope`, aby przekazywać wartości do szablonu HTML.
+
+Przykład:
+
+```
+var app = angular.module('myApp', []);
+
+app.controller('MainController', function ($scope) {
+    $scope.message = 'Witaj w AngularJS!';
+
+    $scope.sayHello = function () {
+        $scope.message = 'Witaj ponownie!';
+    };
+});
+```
+
+W tym przykładzie kontroler udostępnia zmienną `message` oraz funkcję `sayHello`.
+
+Po wywołaniu funkcji wartość wiadomości zostaje zmieniona, a widok może automatycznie wyświetlić nową wartość.
+
+7. Dyrektywy
+
+Dyrektywy rozszerzały HTML o funkcje AngularJS.
+
+Umożliwiały między innymi wyświetlanie danych, obsługę zdarzeń, generowanie list oraz warunkowe prezentowanie elementów.
+
+Najważniejsze dyrektywy to:
+
+- `ng-app` — wskazywała obszar działania aplikacji AngularJS.
+- `ng-controller` — przypisywała kontroler do fragmentu widoku.
+- `ng-model` — wiązała wartość pola formularza z danymi.
+- `ng-bind` — wyświetlała wartość wyrażenia.
+- `ng-repeat` — generowała elementy na podstawie kolekcji.
+- `ng-if` — warunkowo tworzyła element w widoku.
+- `ng-show` — pokazywała element, gdy warunek był spełniony.
+- `ng-hide` — ukrywała element, gdy warunek był spełniony.
+- `ng-click` — reagowała na kliknięcie użytkownika.
+
+Przykładowe zastosowanie:
+
+```
+<div ng-app="myApp" ng-controller="MainController">
+    <h1>{{ message }}</h1>
+
+    <button ng-click="sayHello()">
+        Kliknij mnie
+    </button>
+</div>
+```
+
+Po kliknięciu przycisku AngularJS wywołuje funkcję kontrolera i aktualizuje tekst wyświetlany w nagłówku.
+
+8. Dwukierunkowe wiązanie danych
+
+Jedną z najbardziej charakterystycznych funkcji AngularJS było dwukierunkowe wiązanie danych (two-way data binding).
+
+Oznaczało to, że zmiana wartości w polu formularza mogła aktualizować model danych, a zmiana modelu mogła aktualizować widok.
+
+Przykład:
+
+```
+<div ng-app="">
+    <input type="text" ng-model="username">
+
+    <p>Witaj, {{ username }}!</p>
+</div>
+```
+
+Po wpisaniu tekstu do pola wejściowego wiadomość powitalna aktualizuje się automatycznie.
+
+Mechanizm ten ograniczał konieczność ręcznego synchronizowania danych pomiędzy JavaScriptem a HTML-em.
+
+AngularJS wykorzystywał do tego między innymi mechanizm obserwowania zmian i cykl digest.
+
+9. Serwisy i Dependency Injection
+
+Serwisy umożliwiały przechowywanie logiki, która mogła być wykorzystywana przez wiele kontrolerów.
+
+Przykładowo serwis mógł pobierać dane z API, obsługiwać użytkowników albo wykonywać obliczenia biznesowe.
+
+AngularJS posiadał wbudowany mechanizm Dependency Injection, który automatycznie dostarczał wymagane zależności.
+
+Przykładowy serwis:
+
+```
+app.service('GreetingService', function () {
+    this.getMessage = function () {
+        return 'Witaj w aplikacji!';
+    };
+});
+```
+
+Kontroler mógł następnie otrzymać ten serwis jako zależność i wywołać jego metodę.
+
+Dzięki temu można było oddzielić logikę biznesową od logiki prezentacji.
+
+10. Komunikacja z backendem
+
+AngularJS umożliwiał wysyłanie żądań HTTP do serwerów i API.
+
+Do komunikacji często wykorzystywano usługę `$http`.
+
+Przykład:
+
+```
+app.controller('UsersController', function ($scope, $http) {
+    $http.get('/api/users')
+        .then(function (response) {
+            $scope.users = response.data;
+        })
+        .catch(function (error) {
+            console.error('Błąd pobierania użytkowników', error);
+        });
+});
+```
+
+W tym przykładzie aplikacja wysyła żądanie GET do endpointu `/api/users`.
+
+Po otrzymaniu odpowiedzi dane są przypisywane do zmiennej `users`.
+
+Backend może być napisany na przykład w Javie i Spring Boot, C#, Pythonie lub Node.js.
+
+11. Routing
+
+Routing pozwalał tworzyć aplikacje, w których użytkownik przechodzi między różnymi widokami bez pełnego przeładowania strony.
+
+W AngularJS często wykorzystywano moduł `ngRoute` albo bibliotekę UI-Router.
+
+Przykładowe widoki mogły obejmować:
+
+- `/home` — stronę główną.
+- `/users` — listę użytkowników.
+- `/products` — listę produktów.
+- `/login` — formularz logowania.
+
+Routing pozwalał powiązać ścieżkę URL z odpowiednim szablonem i kontrolerem.
+
+12. Filtry
+
+Filtry służyły do przekształcania danych prezentowanych użytkownikowi.
+
+Mogły formatować daty, liczby, waluty lub tekst.
+
+Przykłady w szablonach AngularJS:
+
+```
+<p>{{ price | currency }}</p>
+
+<p>{{ today | date:'yyyy-MM-dd' }}</p>
+
+<p>{{ username | uppercase }}</p>
+```
+
+Pierwszy przykład formatuje wartość jako walutę, drugi jako datę, a trzeci zamienia tekst na wielkie litery.
+
+Filtry ułatwiały prezentację danych bez konieczności ręcznego wykonywania wszystkich operacji w kontrolerze.
+
+13. Testowanie aplikacji
+
+AngularJS został zaprojektowany z myślą o testowalności aplikacji.
+
+Do testów jednostkowych często wykorzystywano Jasmine i Karma.
+
+Testy jednostkowe mogły sprawdzać działanie kontrolerów, serwisów, filtrów oraz innych elementów aplikacji.
+
+W starszych projektach można również spotkać Protractor, który służył do automatyzacji testów end-to-end.
+
+Protractor został wycofany, dlatego przy utrzymywaniu starszych aplikacji należy uwzględnić jego ograniczoną przydatność i dostępność współczesnych alternatyw.
+
+14. AngularJS a Angular
+
+AngularJS i Angular mają podobną nazwę, ale różnią się architekturą oraz sposobem tworzenia aplikacji.
+
+- **AngularJS** — starszy framework oparty na JavaScripcie, wykorzystujący między innymi kontrolery, `$scope` i dyrektywy `ng-*`.
+- **Angular** — nowsza platforma wykorzystująca przede wszystkim TypeScript, komponenty i nowoczesne mechanizmy reaktywne.
+- **AngularJS** — często spotykany w starszych aplikacjach wymagających utrzymania.
+- **Angular** — częściej wybierany przy tworzeniu nowych projektów opartych na tej rodzinie technologii.
+
+Przykładowo AngularJS wykorzystuje `$scope` do przekazywania danych do widoku, natomiast współczesny Angular opiera się przede wszystkim na komponentach i ich szablonach.
+
+Kod napisany dla AngularJS nie jest bezpośrednio zgodny z Angular, dlatego migracja może wymagać przebudowy architektury i przepisania części aplikacji.
+
+15. Zalety AngularJS
+
+- Umożliwiał szybkie tworzenie dynamicznych aplikacji internetowych.
+- Oferował dwukierunkowe wiązanie danych.
+- Ułatwiał organizowanie kodu za pomocą modułów, kontrolerów i serwisów.
+- Zapewniał wbudowany mechanizm Dependency Injection.
+- Oferował dyrektywy rozszerzające HTML.
+- Umożliwiał testowanie poszczególnych elementów aplikacji.
+- Był szeroko wykorzystywany w starszych projektach internetowych.
+
+16. Wady i ograniczenia AngularJS
+
+- Oficjalne wsparcie AngularJS zakończyło się w styczniu 2022 roku.
+- Technologia nie otrzymuje już standardowych aktualizacji bezpieczeństwa od zespołu AngularJS.
+- Starsze aplikacje mogą korzystać z przestarzałych bibliotek i zależności.
+- Mechanizm digest i obserwowania zmian może powodować problemy wydajnościowe w dużych aplikacjach.
+- Architektura różni się od współczesnego Angulara.
+- Rozwój nowych projektów w AngularJS zwykle nie jest zalecany.
+- Utrzymywanie aplikacji może wymagać specjalistycznej wiedzy o starszym ekosystemie JavaScript.
+
+Jeżeli aplikacja AngularJS jest nadal używana, warto przeprowadzić ocenę bezpieczeństwa, zaktualizować możliwe do aktualizacji zależności i zaplanować migrację.
+
+17. Plan nauki AngularJS
+
+Na początku warto poznać podstawy JavaScriptu, HTML i CSS.
+
+Następnie należy zrozumieć moduły, kontrolery, `$scope` oraz dyrektywy.
+
+Kolejnym krokiem jest nauka dwukierunkowego wiązania danych, filtrów i serwisów.
+
+Później warto poznać Dependency Injection, routing oraz komunikację z backendem przez `$http`.
+
+Na koniec można stworzyć prostą aplikację, na przykład listę zadań lub panel użytkownika, i dodać testy jednostkowe.
+
+Jeżeli celem jest zdobycie umiejętności do pracy przy nowych projektach frontendowych, po poznaniu podstaw AngularJS warto przejść do współczesnego Angulara albo Reacta.
+
+18. Najważniejsze pojęcia
+
+- **AngularJS** — starszy framework JavaScript do tworzenia aplikacji internetowych.
+- **Module** — element organizujący aplikację i jej zależności.
+- **Controller** — element udostępniający dane i funkcje widokowi.
+- **Scope** — obiekt łączący dane kontrolera z szablonem.
+- **Directive** — rozszerzenie HTML o zachowania AngularJS.
+- **Two-way data binding** — dwukierunkowe wiązanie danych.
+- **Service** — obiekt zawierający współdzieloną logikę.
+- **Dependency Injection** — mechanizm dostarczania zależności.
+- **ngRoute** — moduł do obsługi routingu.
+- **$http** — usługa służąca do wykonywania żądań HTTP.
+- **Filter** — mechanizm formatowania i przekształcania danych.
+- **SPA** — aplikacja internetowa aktualizująca widoki bez przeładowania całej strony.
+- **Jasmine** — framework do testowania JavaScriptu.
+- **Karma** — narzędzie do uruchamiania testów w przeglądarkach.
+
+19. W skrócie
+
+AngularJS to starszy framework JavaScript, który umożliwiał tworzenie dynamicznych aplikacji internetowych z wykorzystaniem kontrolerów, dyrektyw, serwisów i dwukierunkowego wiązania danych.
+
+Jego oficjalne wsparcie zakończyło się w styczniu 2022 roku, dlatego obecnie najważniejsze zastosowanie tej technologii to utrzymywanie i modernizowanie istniejących systemów.
+
+Do nowych projektów lepiej rozważyć współczesnego Angulara lub inne aktualnie rozwijane rozwiązanie frontendowe.

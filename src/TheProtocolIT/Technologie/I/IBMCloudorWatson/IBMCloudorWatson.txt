@@ -1,0 +1,97 @@
+# IBM Cloud oraz Watson – notatka
+
+## 1. Czym jest IBM Cloud?
+
+IBM Cloud to platforma chmurowa firmy IBM, która umożliwia tworzenie, uruchamianie, wdrażanie i utrzymywanie aplikacji oraz usług informatycznych przez Internet.
+
+Platforma oferuje zasoby obliczeniowe, bazy danych, pamięć masową, sieci, narzędzia bezpieczeństwa oraz usługi sztucznej inteligencji.
+
+IBM Cloud pozwala firmom korzystać z infrastruktury IT bez konieczności samodzielnego kupowania i utrzymywania wszystkich serwerów.
+
+Usługi mogą być wykorzystywane do budowania aplikacji internetowych, systemów biznesowych, rozwiązań analitycznych oraz systemów opartych na AI.
+
+## 2. Czym jest IBM Watson?
+
+IBM Watson to nazwa związana z technologiami sztucznej inteligencji rozwijanymi przez IBM, obejmującymi analizę języka naturalnego, przetwarzanie dokumentów, automatyzację oraz analizę danych.
+
+Watson zasłynął między innymi z systemu odpowiadającego na pytania w teleturnieju Jeopardy! w 2011 roku.
+
+Obecnie technologie IBM Watson są wykorzystywane przede wszystkim w rozwiązaniach biznesowych, takich jak asystenci AI, analiza dokumentów, obsługa klienta oraz automatyzacja procesów.
+
+Ważnym elementem współczesnej oferty IBM jest watsonx – portfolio narzędzi i produktów przeznaczonych do tworzenia, wdrażania i zarządzania rozwiązaniami AI.
+
+## 3. Najważniejsze różnice między IBM Cloud a Watson
+
+| Cecha                | IBM Cloud                                     | IBM Watson                                    |
+| -------------------- | --------------------------------------------- | --------------------------------------------- |
+| Główne przeznaczenie | Infrastruktura i usługi chmurowe              | Technologie AI i rozwiązania inteligentne     |
+| Zastosowanie         | Uruchamianie aplikacji, baz danych i serwerów | Analiza tekstu, dokumentów i danych           |
+| Użytkownicy          | Programiści, administratorzy, firmy           | Programiści AI, analitycy i firmy             |
+| Przykład             | Hosting aplikacji Java Spring Boot            | Asystent AI odpowiadający na pytania klientów |
+
+IBM Cloud jest platformą dostarczającą środowisko do uruchamiania systemów, natomiast Watson odnosi się do technologii AI i powiązanych z nimi produktów.
+
+## 4. Najważniejsze usługi i technologie
+
+IBM Cloud Virtual Servers umożliwiają uruchamianie maszyn wirtualnych, na których można instalować systemy operacyjne i aplikacje.
+
+IBM Cloud Kubernetes Service pozwala wdrażać oraz zarządzać aplikacjami kontenerowymi z wykorzystaniem Kubernetes.
+
+IBM Cloud Object Storage służy do przechowywania plików, kopii zapasowych, dokumentów i dużych zbiorów danych.
+
+IBM watsonx.ai to środowisko wspierające tworzenie aplikacji wykorzystujących modele sztucznej inteligencji, w tym modele generatywne.
+
+IBM watsonx.data wspiera zarządzanie danymi i korzystanie z nich w procesach analitycznych oraz AI.
+
+IBM watsonx.governance pomaga zarządzać ryzykiem, zgodnością i nadzorem nad systemami AI.
+
+## 5. Zastosowania IBM Cloud i Watson
+
+- Obsługa klienta – budowanie asystentów AI odpowiadających na pytania użytkowników.
+- Analiza dokumentów – przetwarzanie faktur, raportów i dokumentacji firmowej.
+- Finanse – analiza danych, wykrywanie nieprawidłowości i wspieranie procesów biznesowych.
+- Medycyna – wspomaganie analizy informacji i dokumentacji, z uwzględnieniem wymogów bezpieczeństwa.
+- Przemysł – analiza danych produkcyjnych i wspieranie przewidywania awarii.
+- Rolnictwo – analiza danych o uprawach, pogodzie i plonach oraz tworzenie asystentów wspierających gospodarstwa rolne.
+
+## 6. Zalety i ograniczenia
+
+Zaletami IBM Cloud są skalowalność, dostęp do zaawansowanych usług infrastrukturalnych, narzędzia bezpieczeństwa oraz możliwość integracji z rozwiązaniami biznesowymi.
+
+Technologie Watson i watsonx ułatwiają budowanie systemów AI oraz integrowanie ich z danymi i procesami przedsiębiorstwa.
+
+Ograniczeniami mogą być koszty usług chmurowych, złożoność konfiguracji, konieczność kontrolowania zużycia zasobów oraz potrzeba weryfikowania wyników generowanych przez modele AI.
+
+## 7. IBM Cloud i Watson w praktyce programisty
+
+Programista Java może wykorzystać IBM Cloud do wdrożenia aplikacji opartej na Spring Boot, połączenia jej z bazą danych oraz skonfigurowania monitorowania i zabezpieczeń.
+
+Następnie może zintegrować aplikację z usługami AI IBM, aby na przykład umożliwić użytkownikom zadawanie pytań dotyczących dokumentacji lub uzyskiwanie podsumowań danych.
+
+Przykładowa architektura takiego rozwiązania wygląda następująco:
+
+Interfejs użytkownika
+
+Aplikacja internetowa
+
+Java + Spring Boot
+
+Logika biznesowa i API REST
+
+Baza danych
+
+PostgreSQL
+
+Usługi AI
+
+IBM watsonx
+
+Przykładowa architektura aplikacji wdrożonej w środowisku chmurowym.
+
+## 8. Co warto zapamiętać?
+
+IBM Cloud to platforma chmurowa służąca do uruchamiania i zarządzania aplikacjami oraz infrastrukturą IT.
+
+IBM Watson to marka i rodzina technologii AI rozwijanych przez IBM, a watsonx obejmuje współczesne produkty przeznaczone do pracy z modelami AI, danymi i nadzorem nad sztuczną inteligencją.
+
+Oba rozwiązania mogą być wykorzystywane razem do tworzenia nowoczesnych aplikacji biznesowych, które łączą infrastrukturę chmurową, bazy danych i sztuczną inteligencję.

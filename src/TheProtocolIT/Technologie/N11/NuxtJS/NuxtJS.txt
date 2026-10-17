@@ -1,0 +1,398 @@
+# Nuxt.js – kompleksowa notatka
+
+[Nuxt - Simple and powerful web development](https://images.openai.com/static-rsc-4/3BBgkYTPpAkjznWUds7GN5Sxcqt_g8l9aFZQDlL9qfuUesCFGltcdESr6KNgx02il4Ca3n_mQczEpbMVhH1EtfewudjT9LUO4uNMzFl0EM409aOD4S0qZa-zyHlYhd2bSTBVKZ-7Vj5xT2Aq5mY6Pmqtm3CH6jsgrZrcmY7zFPE?purpose=inline)
+
+[What is Nuxt? The full-stack framework built on Vue.js | Contentful](https://images.openai.com/static-rsc-4/v4uMzzdlJEc9sMmAgD6NZc-xudDHtVeEvjyxgbHyiQT_O0WRX3ziR5Ls6FqYNi5YSVCSASNLXl5T3hQSsfrq1KwIBlNnQIEguVi5SeJIjW_DwcyAm5NlXTOOcWY1uk0utwm7F7Qm-PjHJfZifoAARVGp66ZN95XL95iPiWGMN_I?purpose=inline)
+
+[Introducing Nuxt DevTools · Nuxt Blog](https://images.openai.com/static-rsc-4/rVYEvsrOqhM8rOZmFWyksFJl5NaZkJpLpC92396NhQ57tJrdd7lf1D2pdJM-kPnftXH0oVMvIHc_Kye4R-2VL_A8l-XL65nRpLXJC8Sg5_vE1YiHSUdZlqLBQjog4MvYx5-JTPovnEhcSDre4cPPUbvGAv_xjYGX8Q0Qh8ACqiI?purpose=inline)
+
+8
+
+## 1. Czym jest Nuxt.js?
+
+Nuxt.js to framework oparty na bibliotece Vue.js, który służy do tworzenia nowoczesnych aplikacji internetowych, stron internetowych oraz aplikacji full-stack.
+
+Nuxt rozszerza możliwości Vue.js o gotowe mechanizmy, takie jak renderowanie po stronie serwera (SSR), generowanie statycznych stron (SSG), automatyczne routowanie, zarządzanie metadanymi SEO oraz obsługę endpointów backendowych.
+
+Dzięki Nuxtowi programista nie musi samodzielnie konfigurować wszystkich elementów aplikacji, ponieważ framework udostępnia wiele rozwiązań już na początku pracy.
+
+Nuxt.js jest szczególnie przydatny podczas tworzenia stron firmowych, blogów, sklepów internetowych, portali informacyjnych, paneli administracyjnych oraz aplikacji internetowych wymagających dobrej widoczności w wyszukiwarkach.
+
+Oficjalna strona: [nuxt.com](https://nuxt.com/)
+
+## 2. Związek Nuxt.js z Vue.js
+
+Nuxt.js jest zbudowany na bazie Vue.js, dlatego znajomość Vue znacznie ułatwia naukę Nuxta.
+
+[Vue.js Official Emblem | Modern JavaScript Framework Symbol  - freepng](https://images.openai.com/static-rsc-4/UMqaLwVo_rnZJJfZ_mf5M_Pg_gqRwZdpA5BjgnnEa7gGU0eiYul2nFpkyKRUCVe7qUvGLwmQZlbaY9mbXWEMWUHnvjIjVBb1trfTHhE5rTrG-MIVsDY4CMdTMSHtOTWgBWZq6LloXXUFbmMCsHbW5KxirUxBPDxaWt3bZuxqk9M?purpose=inline)
+
+Vue.js
+
+Biblioteka JavaScript do budowania interfejsów użytkownika i komponentów.
+
+[Nuxt: The Full-Stack Vue Framework](https://images.openai.com/static-rsc-4/YIAiF6nKY0pfPbz9FL0sJUJ4GXz3NldOpfiHghhtRh1DU_alZ6PBAwFRTc8j1u9U6729z1-gP0MKCyYxOBZ3US3QToCgXuTpoKZpXJ8UvsbgfCaUxvUIMPqHUQIZXMswWtFkniPnUk8CxF_VhoctblHgDbdZW7bvXMJtNIf0Dkk?purpose=inline)
+
+Nuxt.js
+
+Framework wykorzystujący Vue.js i dodający m.in. routing, SSR, SSG, obsługę serwera oraz konwencje organizacji projektu.
+
+Vue.js odpowiada przede wszystkim za budowanie interfejsu użytkownika.
+
+Nuxt.js zapewnia natomiast szerszą strukturę aplikacji, w której można połączyć frontend, renderowanie stron, pobieranie danych i wybrane funkcje backendowe.
+
+Przykładowo, w czystym Vue programista często sam wybiera i konfiguruje router.
+
+W Nuxt.js wystarczy umieścić odpowiedni plik w katalogu `pages`, aby framework automatycznie utworzył dla niego trasę.
+
+## 3. Najważniejsze możliwości Nuxt.js
+
+Server-Side Rendering (SSR) polega na generowaniu HTML strony na serwerze, zanim odpowiedź zostanie wysłana do przeglądarki.
+
+Static Site Generation (SSG) polega na wygenerowaniu stron HTML podczas budowania aplikacji, dzięki czemu mogą być później serwowane jako pliki statyczne.
+
+Client-Side Rendering (CSR) oznacza, że interfejs jest w dużej mierze budowany w przeglądarce za pomocą JavaScriptu.
+
+File-based routing to automatyczne tworzenie tras na podstawie plików w katalogu `pages`.
+
+Auto-imports umożliwiają automatyczne wykrywanie i udostępnianie wielu komponentów, funkcji Vue oraz funkcji Nuxta bez konieczności pisania osobnych instrukcji `import` w każdym pliku.
+
+Server API pozwala tworzyć endpointy backendowe wewnątrz projektu Nuxt, np. do obsługi żądań HTTP lub komunikacji z zewnętrznymi usługami.
+
+SEO obejmuje mechanizmy zarządzania tytułami stron, opisami, metadanymi i zawartością HTML, które mogą ułatwiać indeksowanie witryny przez wyszukiwarki.
+
+## 4. Routing, czyli system adresów URL
+
+Nuxt.js wykorzystuje routing oparty na strukturze katalogów i plików.
+
+Przykładowa struktura projektu:
+
+```
+my-nuxt-app/
+├── app.vue
+├── pages/
+│   ├── index.vue
+│   ├── about.vue
+│   └── products/
+│       ├── index.vue
+│       └── [id].vue
+├── components/
+├── layouts/
+├── composables/
+├── server/
+│   └── api/
+├── public/
+└── nuxt.config.ts
+```
+
+Poszczególne pliki mogą odpowiadać następującym adresom:
+
+| Plik                       | Adres                                    |
+| -------------------------- | ---------------------------------------- |
+| `pages/index.vue`          | `/`                                      |
+| `pages/about.vue`          | `/about`                                 |
+| `pages/products/index.vue` | `/products`                              |
+| `pages/products/[id].vue`  | `/products/123` dla identyfikatora `123` |
+
+Nawiasy kwadratowe oznaczają parametr dynamiczny.
+
+Dzięki temu można utworzyć jedną stronę szczegółów produktu, która wyświetla różne dane w zależności od identyfikatora w adresie URL.
+
+## 5. Komponenty Vue w Nuxt.js
+
+Komponenty są podstawowymi elementami interfejsu użytkownika.
+
+W Nuxt.js komponenty można umieszczać w katalogu `components`, a framework zazwyczaj udostępnia je automatycznie.
+
+Przykład komponentu `components/ProductCard.vue`:
+
+```
+<template>
+  <article class="product-card">
+    <h2>{{ name }}</h2>
+    <p>Cena: {{ price }} zł</p>
+  </article>
+</template>
+
+<script setup>
+defineProps({
+  name: String,
+  price: Number
+})
+</script>
+```
+
+Komponent można następnie wykorzystać na stronie:
+
+```
+<template>
+  <main>
+    <h1>Nasze produkty</h1>
+
+    <ProductCard
+      name="Laptop"
+      :price="3499"
+    />
+  </main>
+</template>
+```
+
+`defineProps()` pozwala określić dane przekazywane do komponentu.
+
+Zapis `:price="3499"` przekazuje liczbę, natomiast `name="Laptop"` przekazuje tekst.
+
+## 6. Praca z danymi i API
+
+Nuxt.js udostępnia funkcje, takie jak `useFetch()` oraz `useAsyncData()`, które ułatwiają pobieranie danych i integrację z API.
+
+Przykład pobrania listy produktów:
+
+```
+<script setup>
+const { data, status, error } =
+  await useFetch('/api/products')
+</script>
+
+<template>
+  <main>
+    <h1>Produkty</h1>
+
+    <p v-if="status === 'pending'">
+      Ładowanie produktów...
+    </p>
+
+    <p v-else-if="error">
+      Nie udało się pobrać produktów.
+    </p>
+
+    <ul v-else>
+      <li
+        v-for="product in data"
+        :key="product.id"
+      >
+        {{ product.name }}
+      </li>
+    </ul>
+  </main>
+</template>
+```
+
+W tym przykładzie `useFetch()` pobiera dane z endpointu `/api/products`.
+
+Właściwość `data` przechowuje otrzymane dane, `status` informuje o stanie operacji, a `error` pozwala obsłużyć błąd.
+
+Nuxt obsługuje również pobieranie danych podczas renderowania po stronie serwera, co może ograniczyć konieczność wykonywania dodatkowych żądań po uruchomieniu strony w przeglądarce.
+
+## 7. Backend w Nuxt.js
+
+Nuxt.js może obsługiwać nie tylko frontend, ale również wybrane operacje backendowe.
+
+Endpointy serwerowe umieszcza się zazwyczaj w katalogu `server/api`.
+
+Przykład pliku `server/api/hello.get.ts`:
+
+```
+export default defineEventHandler(() => {
+  return {
+    message: 'Hello from Nuxt API!'
+  }
+})
+```
+
+Endpoint będzie dostępny pod adresem:
+
+```
+GET /api/hello
+```
+
+Przykładowa odpowiedź JSON:
+
+```
+{
+  "message": "Hello from Nuxt API!"
+}
+```
+
+Nuxt wykorzystuje do obsługi serwera technologię H3, która zapewnia mechanizmy obsługi żądań i odpowiedzi HTTP.
+
+Takie rozwiązanie może wystarczyć w mniejszych aplikacjach, prototypach lub projektach, w których frontend i proste endpointy mają znajdować się w jednym repozytorium.
+
+W rozbudowanych systemach można połączyć Nuxt z oddzielnym backendem, np. Spring Boot, ASP.NET Core, Django lub NestJS.
+
+## 8. Renderowanie stron – SSR, SSG i CSR
+
+To jeden z najważniejszych tematów związanych z Nuxt.js.
+
+SSR – Server-Side Rendering
+
+Strona jest renderowana na serwerze w odpowiedzi na żądanie użytkownika. Przydatne, gdy zawartość zależy od aktualnych danych lub użytkownika.
+
+SSG – Static Site Generation
+
+Strony są generowane podczas budowania projektu. To dobre rozwiązanie dla dokumentacji, blogów i stron informacyjnych, których treść nie zmienia się przy każdym żądaniu.
+
+CSR – Client-Side Rendering
+
+Przeglądarka buduje interfejs na podstawie JavaScriptu. Może być odpowiednie dla interaktywnych paneli, w których SEO nie jest najważniejszym wymaganiem.
+
+Nuxt umożliwia stosowanie różnych strategii renderowania w zależności od wymagań aplikacji.
+
+Przykładowo, artykuły blogowe mogą być generowane statycznie, strony produktów renderowane na serwerze, a wybrane fragmenty panelu użytkownika aktualizowane po stronie klienta.
+
+Warto pamiętać, że SSR nie gwarantuje automatycznie wysokiej pozycji w Google, a SSG nie jest zawsze najlepszym rozwiązaniem. Ostateczny wybór zależy od aktualności danych, wydajności, kosztów infrastruktury i wymagań SEO.
+
+## 9. Nuxt.js a SEO
+
+SEO, czyli optymalizacja pod kątem wyszukiwarek, jest jedną z ważnych zalet Nuxta.
+
+Framework umożliwia między innymi ustawianie tytułów stron, opisów meta, danych Open Graph oraz innych elementów dokumentu HTML.
+
+Przykład:
+
+```
+<script setup>
+useSeoMeta({
+  title: 'Sklep internetowy',
+  description: 'Poznaj naszą ofertę produktów.',
+  ogTitle: 'Sklep internetowy',
+  ogDescription: 'Sprawdź dostępne produkty.'
+})
+</script>
+
+<template>
+  <h1>Witamy w naszym sklepie</h1>
+</template>
+```
+
+Dzięki temu można łatwiej przygotować strony z odpowiednimi metadanymi i treścią renderowaną na serwerze.
+
+W przypadku sklepów internetowych, stron firmowych i portali informacyjnych może to mieć duże znaczenie.
+
+## 10. Nuxt.js a TypeScript
+
+Nuxt.js dobrze współpracuje z TypeScriptem, który pozwala określać typy danych i wykrywać wiele błędów jeszcze przed uruchomieniem aplikacji.
+
+Przykład:
+
+```
+interface Product {
+  id: number
+  name: string
+  price: number
+}
+
+const product: Product = {
+  id: 1,
+  name: 'Laptop',
+  price: 3499
+}
+```
+
+Interfejs `Product` określa, jakie właściwości powinien mieć obiekt produktu.
+
+TypeScript jest szczególnie przydatny w większych aplikacjach, w których wiele komponentów, usług i endpointów współpracuje ze sobą.
+
+## 11. Nuxt.js a inne technologie
+
+| Technologia | Najważniejsze zastosowanie                                 |
+| ----------- | ---------------------------------------------------------- |
+| Vue.js      | Budowanie interfejsów użytkownika                          |
+| Nuxt.js     | Framework oparty na Vue do aplikacji SSR, SSG i full-stack |
+| Next.js     | Framework React do aplikacji webowych i full-stack         |
+| React       | Biblioteka do budowania interfejsów                        |
+| Angular     | Rozbudowany framework frontendowy                          |
+| SvelteKit   | Framework aplikacyjny oparty na Svelte                     |
+| NestJS      | Framework backendowy dla Node.js                           |
+| Express.js  | Lekki framework serwerowy dla Node.js                      |
+
+Najbardziej bezpośrednim odpowiednikiem Nuxt.js w ekosystemie React jest Next.js.
+
+Nuxt korzysta z Vue, a Next.js z Reacta.
+
+NestJS natomiast koncentruje się przede wszystkim na backendzie i nie jest bezpośrednim zamiennikiem Nuxta.
+
+## 12. Zalety Nuxt.js
+
+- Automatyczny routing – tworzenie tras na podstawie plików.
+- SSR i SSG – możliwość dopasowania sposobu renderowania do wymagań projektu.
+- Wsparcie SEO – łatwiejsze zarządzanie metadanymi i renderowaniem HTML.
+- Integracja z Vue.js – wykorzystanie komponentów, reaktywności i Composition API.
+- TypeScript – wsparcie dla typowania i rozwoju większych aplikacji.
+- Endpointy serwerowe – możliwość tworzenia prostych funkcji backendowych w tym samym projekcie.
+- Konwencje projektowe – mniej ręcznej konfiguracji i łatwiejsze zachowanie uporządkowanej struktury.
+- Ekosystem modułów – możliwość rozszerzania aplikacji o dodatkowe funkcjonalności.
+
+## 13. Wady Nuxt.js
+
+- Większa złożoność niż w czystym Vue – trzeba poznać dodatkowe konwencje i mechanizmy frameworka.
+- Różnice między serwerem a przeglądarką – kod korzystający z API przeglądarki, np. `window`, wymaga odpowiedniego miejsca wykonania.
+- Wymagania infrastrukturalne – aplikacja korzystająca z SSR może wymagać środowiska uruchomieniowego Node.js lub odpowiednio skonfigurowanego hostingu.
+- Dodatkowe koszty renderowania – SSR może zwiększać obciążenie serwera w porównaniu z prostym serwowaniem statycznych plików.
+- Konieczność świadomego zarządzania danymi – aplikacje z uwierzytelnianiem, cache i danymi użytkowników wymagają odpowiedniej konfiguracji bezpieczeństwa.
+- Krzywa uczenia się – oprócz Vue trzeba zrozumieć m.in. SSR, hydratację i mechanizmy serwerowe.
+
+## 14. Kiedy warto używać Nuxt.js?
+
+Nuxt.js warto rozważyć przede wszystkim w projektach, w których znaczenie mają SEO, szybkie dostarczanie pierwszej zawartości oraz wygodna organizacja aplikacji.
+
+Przykładowe zastosowania to sklepy internetowe, blogi, portale informacyjne, strony marketingowe, katalogi produktów, serwisy z treściami i aplikacje webowe korzystające z API.
+
+Do prostego interaktywnego interfejsu, który nie potrzebuje SSR ani rozbudowanego routingu, wystarczające może być samo Vue.js.
+
+Jeżeli natomiast aplikacja wymaga rozbudowanej logiki biznesowej, integracji z wieloma systemami, złożonych procesów lub niezależnego skalowania backendu, Nuxt można połączyć z oddzielnym serwerem napisanym np. w Spring Boot albo ASP.NET Core.
+
+## 15. Jak rozpocząć pracę z Nuxt.js?
+
+Do rozpoczęcia pracy potrzebujesz Node.js w wersji zgodnej z wymaganiami wybranej wersji Nuxta oraz menedżera pakietów, np. npm.
+
+Utworzenie nowego projektu:
+
+```
+npm create nuxt@latest my-nuxt-app
+```
+
+Przejdź do katalogu projektu:
+
+```
+cd my-nuxt-app
+```
+
+Uruchom serwer deweloperski:
+
+```
+npm run dev
+```
+
+Następnie otwórz adres wyświetlony w terminalu, zazwyczaj `http://localhost:3000`.
+
+Podstawowe pliki, które warto poznać na początku, to `app.vue`, katalog `pages`, katalog `components` oraz plik `nuxt.config.ts`.
+
+Dokumentacja: [Nuxt Documentation](https://nuxt.com/docs)
+
+## 16. Najważniejsze pojęcia
+
+| Pojęcie          | Znaczenie                                                                   |
+| ---------------- | --------------------------------------------------------------------------- |
+| Vue.js           | Biblioteka, na której bazuje Nuxt                                           |
+| SSR              | Renderowanie strony na serwerze                                             |
+| SSG              | Generowanie statycznych stron podczas budowania                             |
+| CSR              | Renderowanie po stronie przeglądarki                                        |
+| Hydratacja       | Podłączenie interaktywności Vue do HTML wygenerowanego wcześniej            |
+| Routing          | Mapowanie adresów URL na strony                                             |
+| Component        | Wielokrotnie wykorzystywalny element interfejsu                             |
+| Composable       | Funkcja współdzieląca logikę, często korzystająca z Composition API         |
+| `useFetch()`     | Funkcja Nuxta ułatwiająca pobieranie danych                                 |
+| `useAsyncData()` | Mechanizm asynchronicznego pobierania i udostępniania danych                |
+| Nitro            | Warstwa serwerowa Nuxta, odpowiadająca m.in. za endpointy i obsługę wdrożeń |
+| H3               | Framework HTTP wykorzystywany przez warstwę serwerową Nuxta                 |
+| SEO              | Optymalizacja strony pod kątem wyszukiwarek                                 |
+| TypeScript       | Rozszerzenie JavaScriptu zapewniające system typów                          |
+
+## 17. Podsumowanie
+
+Nuxt.js to framework oparty na Vue.js, który upraszcza tworzenie nowoczesnych aplikacji internetowych, łącząc komponenty frontendowe, routing, pobieranie danych, renderowanie stron i funkcje serwerowe.
+
+Jego największymi atutami są obsługa SSR i SSG, automatyczne routowanie, wsparcie SEO oraz uporządkowana struktura projektu.
+
+Warto uczyć się Nuxta po opanowaniu podstaw HTML, CSS, JavaScriptu i Vue.js, ponieważ znajomość tych technologii pozwala znacznie łatwiej zrozumieć jego działanie.
+
+Najważniejsze do zapamiętania: Vue.js służy do budowania interfejsów, natomiast Nuxt.js rozbudowuje Vue o narzędzia potrzebne do tworzenia kompletnych aplikacji webowych.

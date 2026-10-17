@@ -1,0 +1,158 @@
+# Databricks
+
+## 1. Czym jest Databricks?
+
+Databricks to chmurowa platforma danych, analityki i sztucznej inteligencji, która umożliwia przetwarzanie dużych zbiorów danych, budowanie potoków danych, trenowanie modeli uczenia maszynowego oraz tworzenie rozwiązań opartych na AI.
+
+Platforma została stworzona przez twórców związanych z projektem Apache Spark i rozwija koncepcję Lakehouse, łącząc możliwości jezior danych (Data Lakes) oraz hurtowni danych (Data Warehouses).
+
+Databricks jest wykorzystywany przez analityków danych, inżynierów danych, specjalistów Data Science oraz programistów tworzących rozwiązania AI.
+
+## 2. Do czego służy Databricks?
+
+- Przetwarzanie bardzo dużych zbiorów danych.
+- Integracja danych pochodzących z różnych systemów.
+- Budowanie i automatyzacja potoków ETL oraz ELT.
+- Analizowanie danych przy użyciu SQL, Pythona i Apache Spark.
+- Trenowanie modeli Machine Learning.
+- Tworzenie aplikacji wykorzystujących sztuczną inteligencję i modele językowe.
+- Budowanie hurtowni danych i raportów analitycznych.
+- Zarządzanie jakością, bezpieczeństwem i dostępem do danych.
+
+## 3. Najważniejsze cechy Databricks
+
+Lakehouse
+
+Architektura łącząca elastyczność jeziora danych z funkcjonalnościami hurtowni danych, takimi jak zarządzanie tabelami, transakcje i analityka SQL.
+
+Apache Spark
+
+Rozproszony silnik przetwarzania danych, który umożliwia wykonywanie obliczeń na dużych zbiorach danych z wykorzystaniem wielu maszyn.
+
+Delta Lake
+
+Warstwa przechowywania danych zapewniająca między innymi transakcje ACID, kontrolę wersji danych oraz mechanizmy wspierające niezawodne przetwarzanie.
+
+Databricks SQL
+
+Środowisko umożliwiające wykonywanie zapytań SQL, analizowanie danych i współpracę z narzędziami Business Intelligence.
+
+Machine Learning i AI
+
+Narzędzia wspierające eksperymenty, trenowanie modeli, śledzenie wyników i wdrażanie rozwiązań uczenia maszynowego.
+
+Unity Catalog
+
+Rozwiązanie służące do zarządzania danymi, uprawnieniami, katalogowaniem zasobów i kontrolą dostępu w środowisku Databricks.
+
+## 4. Jak działa Databricks?
+
+1\. Źródła danych
+
+Bazy SQL, pliki CSV i JSON, API, dane strumieniowe
+
+2\. Przetwarzanie danych
+
+Apache Spark, Python, SQL, procesy ETL i ELT
+
+3\. Przechowywanie danych
+
+Lakehouse, Delta Lake, tabele i pliki w chmurze
+
+4\. Wykorzystanie danych
+
+Raporty, analityka, Machine Learning i aplikacje AI
+
+Databricks integruje te etapy w jednym środowisku, dzięki czemu zespoły mogą łatwiej współpracować przy przygotowywaniu i wykorzystywaniu danych.
+
+## 5. Najważniejsze technologie związane z Databricks
+
+- Apache Spark – rozproszony silnik do przetwarzania dużych zbiorów danych.
+- Delta Lake – warstwa tabel danych z obsługą transakcji i wersjonowania.
+- Apache Kafka – technologia wykorzystywana do przesyłania i przetwarzania strumieni danych, którą można integrować z Databricks.
+- Python – język wykorzystywany do transformacji danych, analizy i uczenia maszynowego.
+- SQL – język zapytań do filtrowania, łączenia i analizowania danych.
+- PySpark – interfejs Pythona do pracy z Apache Spark.
+- MLflow – narzędzie do zarządzania eksperymentami Machine Learning i cyklem życia modeli.
+- Unity Catalog – katalog danych oraz mechanizmy zarządzania uprawnieniami i nadzorem nad danymi.
+
+## 6. Przykład wykorzystania Databricks w Pythonie
+
+Poniższy przykład pokazuje, jak w środowisku obsługującym PySpark wczytać plik CSV, przefiltrować dane i obliczyć sumę sprzedaży.
+
+```
+df = spark.read.csv(    "/Volumes/main/default/data/sales.csv",    header=True,    inferSchema=True)df_filtered = df.filter(df["amount"] > 100)df_filtered.groupBy("product").sum("amount").show()
+```
+
+Pierwsza instrukcja wczytuje dane z pliku CSV.
+
+Druga pozostawia rekordy, w których wartość sprzedaży przekracza 100.
+
+Trzecia grupuje rekordy według produktu i oblicza łączną wartość sprzedaży dla każdej grupy.
+
+W przykładzie wykorzystano przykładową ścieżkę do pliku w Databricks Unity Catalog Volumes, którą należy dostosować do własnego środowiska.
+
+## 7. Zalety i wady Databricks
+
+Zalety:
+
+- Umożliwia przetwarzanie ogromnych ilości danych.
+- Łączy inżynierię danych, analitykę i Machine Learning.
+- Integruje się z popularnymi usługami chmurowymi.
+- Obsługuje SQL, Python, Scala oraz inne technologie ekosystemu danych.
+- Ułatwia automatyzację procesów przetwarzania i przygotowywania danych.
+- Zapewnia narzędzia do kontroli dostępu, monitorowania i zarządzania danymi.
+
+Wady:
+
+- Nauka platformy wymaga znajomości podstaw baz danych i przetwarzania danych.
+- Zaawansowane środowiska mogą generować wysokie koszty infrastruktury i przetwarzania.
+- Wdrożenie wymaga przemyślenia architektury danych oraz uprawnień.
+- Dla małych aplikacji z prostą bazą danych platforma może być zbyt rozbudowana.
+
+## 8. Databricks a inne technologie
+
+| Technologia      | Główne zastosowanie                                  |
+| ---------------- | ---------------------------------------------------- |
+| Databricks       | Platforma do inżynierii danych, analityki i AI       |
+| Apache Spark     | Rozproszone przetwarzanie danych                     |
+| Snowflake        | Chmurowa platforma danych, szczególnie analityka SQL |
+| Microsoft Fabric | Zintegrowana platforma danych i analityki Microsoft  |
+| PostgreSQL       | Relacyjna baza danych                                |
+| Power BI         | Raportowanie i wizualizacja danych                   |
+
+Databricks nie jest po prostu bazą danych, taką jak PostgreSQL, lecz rozbudowaną platformą umożliwiającą budowanie całych procesów pracy z danymi.
+
+## 9. Databricks na rynku pracy
+
+Znajomość Databricks może być przydatna na stanowiskach związanych z analizą danych, inżynierią danych i sztuczną inteligencją.
+
+Najbardziej związane z platformą stanowiska to:
+
+- Data Engineer.
+- Data Scientist.
+- Machine Learning Engineer.
+- Analytics Engineer.
+- Big Data Engineer.
+- Data Platform Engineer.
+
+W ofertach pracy dotyczących Databricks często pojawiają się również Python, SQL, PySpark, Apache Spark, Delta Lake, Azure, AWS lub Google Cloud.
+
+## 10. Jak zacząć naukę Databricks?
+
+Najlepiej rozpocząć od SQL, Pythona i podstaw pracy z bazami danych.
+
+Następnie warto poznać Apache Spark, PySpark, formaty danych takie jak CSV, JSON i Parquet oraz zasady budowania procesów ETL.
+
+Kolejnym krokiem jest nauka Delta Lake, Databricks SQL, Unity Catalog i automatyzacji potoków danych.
+
+Na koniec warto zrealizować projekt praktyczny, na przykład system analizy sprzedaży, który pobiera dane z plików, przetwarza je i przygotowuje zestawienia dla raportów.
+
+Materiały do nauki:
+
+- [Oficjalna strona Databricks](https://www.databricks.com/)
+- [Dokumentacja Databricks](https://docs.databricks.com/)
+- [Materiały edukacyjne Databricks](https://www.databricks.com/learn)
+- [Dokumentacja PySpark](https://spark.apache.org/docs/latest/api/python/)
+
+Podsumowanie: Databricks to platforma przeznaczona do pracy z dużymi zbiorami danych, analityką i sztuczną inteligencją. Najwięcej korzyści z jej nauki osiągniesz, łącząc ją ze znajomością SQL, Pythona, Apache Spark i podstaw inżynierii danych.

@@ -1,0 +1,188 @@
+# Looker – kompletna notatka
+
+## 1. Czym jest Looker?
+
+Looker to platforma analityki biznesowej (Business Intelligence, BI) rozwijana przez Google Cloud, która umożliwia analizowanie danych, tworzenie raportów, budowanie dashboardów i udostępnianie wyników analiz użytkownikom w organizacji.
+
+Looker pozwala firmom przekształcać dane pochodzące z baz danych i hurtowni danych w informacje przydatne przy podejmowaniu decyzji biznesowych.
+
+Jedną z jego najważniejszych cech jest LookML – język modelowania danych, który pozwala definiować miary, wymiary, relacje i reguły analityczne w sposób wielokrotnego użytku.
+
+Looker jest przeznaczony przede wszystkim dla organizacji, które chcą zapewnić zespołom spójny dostęp do danych i ograniczyć sytuacje, w których różne działy obliczają te same wskaźniki na różne sposoby.
+
+[Introduction to LookML  |  Looker  |  Google Cloud Documentation](https://images.openai.com/static-rsc-4/VNS5Hfksw0CYWmij7y8PEMn_Zm6yC3lKPRLJbkBDhcGVoGWU9MifCUveDLJ3z6Oos7ODNvX577BdKOM5XzjoMzOBChxChFRjln2HmhvH2hcA5Lnt7ulWbGosMdLeTWY3LYsrZBWDvYk5Zo2xbGrSH4yrgTNhMqnI16l-i5rR6KA?purpose=inline)
+
+[Looker vs. Tableau: An In-Depth Data Analysis Showdown](https://images.openai.com/static-rsc-4/WwB2XKr0prRxzehmC2rhWByUPAGGlXCVd1m4-8owfNEMBSWHrwiO4g8mwfjyu34-y8AAo1ZmJlV3Idb1KfMYtpHZ3kTvPMg-sYIThsVcaodAw52ciiSgJe4Ht14K12_yTfMpTDjE5LtHQ9GxcY1TWMsAIqs684m6CEeEa7IST5Q?purpose=inline)
+
+[Dashboard with Looker Studio: Google Merch Shop — Sales Dashboard | by Andrean Yonathan | Medium](https://images.openai.com/static-rsc-4/ZVa_SYrb-S-5KbP-3LmYhm24Elei46_XzF3C2zDo9ZTlwEKYQ0FvZk4VvbisCSMPjSy0ObPKSlwByhPX6nC9jbiTKfY3_oxHbcMVUSHklyojUK_O9utz1hQifTBwKlP1AD26tb4KsHNZ5DrhtoKaBkIt_i2KBppuvRoGicANw0Y?purpose=inline)
+
+7
+
+Ważne: Looker i Looker Studio to dwa różne produkty Google. Looker jest platformą analityczną z warstwą modelowania danych, natomiast Looker Studio koncentruje się na tworzeniu i udostępnianiu raportów oraz wizualizacji.
+
+## 2. Do czego służy Looker?
+
+Looker jest wykorzystywany do analizy danych biznesowych oraz udostępniania wyników analiz pracownikom i kierownictwu.
+
+Najważniejsze zastosowania to:
+
+- Tworzenie dashboardów i raportów biznesowych.
+- Analizowanie przychodów, kosztów i rentowności.
+- Monitorowanie sprzedaży i efektywności zespołów.
+- Analizowanie zachowania użytkowników i klientów.
+- Tworzenie wspólnych definicji wskaźników KPI.
+- Łączenie danych z różnych tabel i źródeł obsługiwanych przez platformę.
+- Udostępnianie analiz użytkownikom biznesowym.
+- Eksplorowanie danych bez konieczności samodzielnego pisania każdego zapytania SQL.
+- Osadzanie analiz i wykresów w innych aplikacjach.
+- Wspieranie procesów podejmowania decyzji na podstawie danych.
+
+Przykładowo sklep internetowy może wykorzystać Looker do monitorowania przychodów, liczby zamówień, średniej wartości koszyka, współczynnika konwersji oraz wyników poszczególnych kampanii marketingowych.
+
+## 3. Jak działa Looker?
+
+Looker łączy się z obsługiwanym źródłem danych, wykorzystuje model analityczny do interpretowania zapytań użytkownika, a następnie prezentuje wyniki w formie tabel, wykresów i dashboardów.
+
+1\. Źródła danych
+
+Bazy danych i hurtownie danych
+
+2\. LookML – model danych
+
+Definicje wymiarów, miar, relacji i logiki biznesowej
+
+3\. Eksploracja danych
+
+Wybór pól, filtrów, grupowań i wskaźników
+
+4\. Raporty i dashboardy
+
+Wizualizacja wyników i udostępnianie analiz
+
+W typowej architekturze Looker generuje zapytania SQL na podstawie modelu i wyborów użytkownika, a następnie przekazuje je do podłączonego silnika bazodanowego. Wyniki są prezentowane w interfejsie analitycznym.
+
+## 4. LookML – najważniejszy element Lookera
+
+LookML to deklaratywny język modelowania danych wykorzystywany w platformie Looker.
+
+Pozwala definiować, w jaki sposób dane powinny być interpretowane przez użytkowników biznesowych i jak należy obliczać wskaźniki.
+
+W LookML można określać między innymi:
+
+- Dimensions – wymiary, czyli pola służące do opisywania i grupowania danych, np. nazwa produktu, data zamówienia czy kraj klienta.
+- Measures – miary, czyli obliczane wartości, np. łączny przychód, liczba zamówień czy średnia wartość sprzedaży.
+- Explores – obszary eksploracji danych, które określają, jakie dane i relacje użytkownik może analizować.
+- Views – definicje pól i logiki związanej z danym zbiorem danych.
+- Joins – połączenia pomiędzy zbiorami danych.
+- Access controls – mechanizmy kontroli dostępu, w tym rozwiązania służące do ograniczania widoczności danych.
+
+Przykładowy fragment LookML:
+
+```
+view: orders {
+  sql_table_name: ecommerce.orders ;;
+
+  dimension: order_id {
+    primary_key: yes
+    type: number
+    sql: ${TABLE}.id ;;
+  }
+
+  dimension: status {
+    type: string
+    sql: ${TABLE}.status ;;
+  }
+
+  measure: total_orders {
+    type: count
+    label: "Liczba zamówień"
+  }
+
+  measure: total_revenue {
+    type: sum
+    sql: ${TABLE}.total_amount ;;
+    label: "Przychód"
+  }
+}
+```
+
+W tym przykładzie zdefiniowano widok zamówień, wymiar identyfikatora i statusu oraz miary służące do obliczania liczby zamówień i łącznego przychodu.
+
+Nazwy tabel i kolumn są przykładowe i wymagają dostosowania do rzeczywistej bazy danych.
+
+## 5. Najważniejsze komponenty Lookera
+
+LookML odpowiada za modelowanie danych i centralne definiowanie logiki analitycznej.
+
+Explores pozwalają użytkownikom eksplorować dane i tworzyć zapytania przez wybieranie wymiarów, miar i filtrów.
+
+Dashboards prezentują zestaw wykresów, tabel i wskaźników na jednym ekranie.
+
+Looks to zapisane wyniki analiz, które można ponownie otwierać i wykorzystywać w dashboardach.
+
+PDT (Persistent Derived Tables) to tabele pochodne utrwalane w bazie danych, wykorzystywane w określonych konfiguracjach do poprawy wydajności lub organizacji logiki analitycznej.
+
+Schedules and deliveries umożliwiają planowanie dostarczania raportów i wyników analiz, zależnie od konfiguracji i dostępnych integracji.
+
+Looker API pozwala programowo wykonywać wybrane operacje na platformie, zarządzać treściami analitycznymi i integrować Looker z innymi aplikacjami.
+
+## 6. Looker a Looker Studio
+
+| Cecha                | Looker                                   | Looker Studio                                   |
+| -------------------- | ---------------------------------------- | ----------------------------------------------- |
+| Główne przeznaczenie | Analityka biznesowa i modelowanie danych | Raportowanie i wizualizacja danych              |
+| Modelowanie danych   | LookML                                   | Konfiguracja źródeł i pól raportu               |
+| Odbiorcy             | Organizacje i zespoły analityczne        | Analitycy, marketerzy i użytkownicy raportów    |
+| Eksploracja danych   | Centralnie definiowane modele i Explores | Interaktywne raporty i kontrolki                |
+| Integracja           | Platforma analityczna i API              | Łączenie źródeł danych i raportowanie           |
+| Typowe zastosowanie  | Spójna analityka w całej organizacji     | Raporty marketingowe, operacyjne i menedżerskie |
+
+Oba produkty mogą służyć do tworzenia wizualizacji, ale odpowiadają na nieco inne potrzeby.
+
+## 7. Looker a inne narzędzia BI
+
+| Technologia        | Główne przeznaczenie                                        |
+| ------------------ | ----------------------------------------------------------- |
+| Looker             | Analityka biznesowa i modelowanie danych za pomocą LookML   |
+| Looker Studio      | Raporty i wizualizacje danych                               |
+| Microsoft Power BI | Analityka, modelowanie danych i dashboardy                  |
+| Tableau            | Interaktywna analiza i wizualizacja danych                  |
+| Qlik Sense         | Analityka i eksploracja danych                              |
+| Metabase           | Samoobsługowa analityka i raportowanie                      |
+| Apache Superset    | Open-source'owa platforma eksploracji danych i wizualizacji |
+
+Looker jest szczególnie przydatny w organizacjach, które chcą utrzymywać wspólną logikę biznesową i spójne definicje wskaźników dla wielu zespołów.
+
+## 8. Zalety Lookera
+
+- Umożliwia centralne definiowanie wskaźników biznesowych.
+- Ogranicza powielanie logiki analitycznej w wielu raportach.
+- Udostępnia interaktywne narzędzia do eksploracji danych.
+- Pozwala tworzyć dashboardy i raporty.
+- Umożliwia integrację z aplikacjami za pomocą API.
+- Wspiera kontrolę dostępu do analiz i danych.
+- Współpracuje z obsługiwanymi bazami danych i hurtowniami danych.
+
+## 9. Wady i ograniczenia Lookera
+
+- Wymaga nauki LookML przy budowaniu zaawansowanych modeli danych.
+- Skuteczne wdrożenie wymaga dobrego zaprojektowania źródeł danych i relacji.
+- Wydajność zapytań zależy również od podłączonej bazy danych i jakości modelu.
+- Administracja, modelowanie i utrzymywanie platformy mogą wymagać specjalistycznej wiedzy.
+- Jest to produkt komercyjny, którego koszty zależą od warunków licencyjnych i wdrożenia.
+- Nie wszystkie organizacje potrzebują tak rozbudowanej warstwy modelowania danych.
+
+## 10. Gdzie można nauczyć się Lookera?
+
+- Oficjalna strona: [Google Cloud Looker](https://cloud.google.com/looker).
+- Dokumentacja: [Looker Documentation](https://cloud.google.com/looker/docs).
+- Dokumentacja LookML: [LookML – pojęcia i podstawy](https://cloud.google.com/looker/docs/lookml-terms-and-concepts).
+- Looker Studio: [Looker Studio](https://lookerstudio.google.com/).
+
+## 11. Podsumowanie
+
+Looker to platforma Business Intelligence rozwijana przez Google Cloud, służąca do analizowania danych, tworzenia raportów i udostępniania informacji biznesowych.
+
+Jego najważniejszą cechą jest LookML, który umożliwia centralne definiowanie wymiarów, miar i logiki analitycznej. Dzięki temu różne zespoły mogą korzystać ze spójnych wskaźników i analizować dane według wspólnych reguł.
+
+Najważniejsze pojęcia do zapamiętania to Business Intelligence, LookML, Dimensions, Measures, Explores, Views, Dashboards, Looks i Persistent Derived Tables (PDT).

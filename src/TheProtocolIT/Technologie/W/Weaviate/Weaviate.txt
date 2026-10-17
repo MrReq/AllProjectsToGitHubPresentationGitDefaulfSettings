@@ -1,0 +1,826 @@
+# Weaviate
+
+## 1. Czym jest Weaviate?
+
+**Weaviate** to **open-source’owa wektorowa baza danych (vector database)** przeznaczona przede wszystkim do przechowywania, wyszukiwania i analizowania danych reprezentowanych jako **wektory**.
+
+Weaviate jest szczególnie popularny w projektach związanych ze **sztuczną inteligencją, machine learningiem oraz generative AI**.
+
+Może być wykorzystywany między innymi do:
+
+- wyszukiwania semantycznego,
+- systemów RAG,
+- chatbotów AI,
+- wyszukiwania podobnych dokumentów,
+- rekomendacji,
+- wyszukiwania obrazów,
+- przechowywania embeddingów,
+- budowania systemów opartych na LLM.
+
+Najprościej można powiedzieć:
+
+**Weaviate pozwala wyszukiwać dane na podstawie ich znaczenia, a nie tylko dokładnego tekstu.**
+
+## 2. Dlaczego potrzebujemy bazy wektorowej?
+
+Klasyczne bazy danych bardzo dobrze radzą sobie z wyszukiwaniem dokładnych wartości.
+
+Przykładowo:
+
+```sql
+SELECT *
+FROM products
+WHERE name = 'iPhone 17';
+```
+
+Problem pojawia się, gdy chcemy wyszukać produkty **podobne znaczeniowo**.
+
+Użytkownik może napisać:
+
+```text
+telefon Apple z dużym ekranem
+```
+
+a w bazie może znajdować się:
+
+```text
+Apple iPhone 17 Pro Max
+```
+
+Pomimo że teksty nie są identyczne, ich znaczenie jest podobne.
+
+Do takich zastosowań wykorzystuje się **embeddingi** i bazy wektorowe takie jak Weaviate.
+
+## 3. Embedding
+
+**Embedding** to reprezentacja danych w postaci wektora liczb.
+
+Przykładowo zdanie:
+
+```text
+The cat is sitting on the sofa.
+```
+
+może zostać zamienione na wektor:
+
+```text
+[0.12, -0.45, 0.78, 0.21, ...]
+```
+
+Wektor może zawierać setki lub tysiące wartości.
+
+Podobne znaczeniowo teksty powinny mieć podobne reprezentacje wektorowe.
+
+Przykładowo:
+
+```text
+"Samochód elektryczny"
+```
+
+oraz:
+
+```text
+"Auto napędzane energią elektryczną"
+```
+
+będą miały embeddingi znajdujące się stosunkowo blisko siebie w przestrzeni wektorowej.
+
+## 4. Vector Database
+
+Weaviate jest przede wszystkim **vector database**.
+
+Baza wektorowa umożliwia:
+
+```text
+tekst
+  ↓
+embedding
+  ↓
+wektor
+  ↓
+Weaviate
+  ↓
+wyszukiwanie podobnych wektorów
+```
+
+Dzięki temu można znaleźć dane, które są podobne znaczeniowo do zapytania.
+
+## 5. Semantic Search
+
+Jednym z najważniejszych zastosowań Weaviate jest **semantic search**, czyli wyszukiwanie semantyczne.
+
+Tradycyjne wyszukiwanie:
+
+```text
+"samochód elektryczny"
+```
+
+szuka przede wszystkim dopasowania słów.
+
+Wyszukiwanie semantyczne może znaleźć również:
+
+```text
+Tesla Model 3
+pojazd z napędem elektrycznym
+auto EV
+samochód zasilany baterią
+```
+
+nawet jeśli zapytanie nie zawiera dokładnie tych samych słów.
+
+## 6. Vector Search
+
+Weaviate umożliwia wyszukiwanie najbliższych wektorów.
+
+Załóżmy, że mamy:
+
+```text
+Vector A → samochód
+Vector B → samochód elektryczny
+Vector C → pizza
+Vector D → motocykl
+```
+
+Jeżeli użytkownik wyszuka:
+
+```text
+pojazd elektryczny
+```
+
+Weaviate może znaleźć wektory najbardziej podobne do wektora zapytania.
+
+Schemat:
+
+```text
+Query
+  ↓
+Embedding
+  ↓
+Vector
+  ↓
+Weaviate
+  ↓
+Nearest Neighbors
+  ↓
+Najbardziej podobne dokumenty
+```
+
+## 7. Similarity Search
+
+Wyszukiwanie może wykorzystywać różne sposoby obliczania podobieństwa.
+
+Popularnym rozwiązaniem jest **cosine similarity**.
+
+W uproszczeniu:
+
+```text
+1.0  → bardzo podobne
+0.0  → brak podobieństwa
+-1.0 → przeciwne kierunki
+```
+
+W praktyce sposób interpretacji wyniku zależy od konkretnego modelu embeddingowego i konfiguracji.
+
+## 8. Hybrid Search
+
+Weaviate może również łączyć wyszukiwanie wektorowe z klasycznym wyszukiwaniem tekstowym.
+
+Jest to **hybrid search**.
+
+Możemy połączyć:
+
+```text
+Keyword Search
+       +
+Vector Search
+       ↓
+Hybrid Search
+```
+
+Przykładowo użytkownik wpisuje:
+
+```text
+Java Spring authentication
+```
+
+System może jednocześnie uwzględnić:
+
+- dokładne występowanie słów,
+- podobieństwo semantyczne.
+
+Dzięki temu wyniki mogą być bardziej trafne.
+
+## 9. RAG
+
+Jednym z najważniejszych zastosowań Weaviate jest **RAG – Retrieval-Augmented Generation**.
+
+RAG pozwala połączyć:
+
+```text
+LLM
++
+własne dane
++
+vector database
+```
+
+Przykładowy system:
+
+```text
+        USER
+          |
+          ↓
+       pytanie
+          |
+          ↓
+      Embedding
+          |
+          ↓
+      WEAVIATE
+          |
+          ↓
+   podobne dokumenty
+          |
+          ↓
+        LLM
+          |
+          ↓
+      odpowiedź
+```
+
+Model językowy otrzymuje odpowiednie fragmenty dokumentów znalezione przez Weaviate.
+
+## 10. Przykład RAG
+
+Załóżmy, że firma posiada dokumentację:
+
+```text
+regulamin.pdf
+instrukcja.pdf
+procedury.pdf
+cennik.pdf
+```
+
+Dokumenty są dzielone na fragmenty.
+
+Następnie każdy fragment jest zamieniany na embedding.
+
+```text
+PDF
+ ↓
+Chunking
+ ↓
+Embedding
+ ↓
+Weaviate
+```
+
+Użytkownik pyta:
+
+```text
+Ile kosztuje usługa X?
+```
+
+System:
+
+```text
+Pytanie
+ ↓
+Embedding
+ ↓
+Weaviate
+ ↓
+odpowiedni fragment cennika
+ ↓
+LLM
+ ↓
+odpowiedź
+```
+
+Dzięki temu LLM może odpowiadać na podstawie aktualnych danych firmy.
+
+## 11. Weaviate i LLM
+
+Weaviate może współpracować z modelami AI oraz dostawcami embeddingów.
+
+Może być wykorzystywany w architekturach z:
+
+- OpenAI,
+- Cohere,
+- Hugging Face,
+- innymi modelami embeddingowymi,
+- własnymi modelami.
+
+Ważne jest rozróżnienie:
+
+**LLM generuje odpowiedź.**
+
+**Model embeddingowy zamienia dane na wektory.**
+
+**Weaviate przechowuje i wyszukuje te wektory.**
+
+## 12. Collections
+
+Współczesny Weaviate wykorzystuje pojęcie **collections**.
+
+Collection można traktować jako zbiór obiektów określonego typu.
+
+Przykładowo:
+
+```text
+Documents
+Products
+Users
+Articles
+Movies
+```
+
+Collection może przechowywać dane wraz z ich wektorami.
+
+Przykładowy obiekt:
+
+```json
+{
+  "title": "Introduction to Java",
+  "category": "Programming",
+  "content": "Java is a programming language..."
+}
+```
+
+Do obiektu może być przypisany embedding.
+
+## 13. Properties
+
+Obiekty w Weaviate posiadają **properties**.
+
+Przykład:
+
+```text
+Document
+ ├── title
+ ├── content
+ ├── author
+ ├── category
+ └── createdAt
+```
+
+Properties mogą być wykorzystywane również do filtrowania wyników.
+
+## 14. Metadata
+
+Oprócz samego wektora możemy przechowywać dodatkowe informacje.
+
+Na przykład:
+
+```text
+document_id
+title
+author
+category
+date
+language
+source
+```
+
+Dzięki temu możemy powiedzieć:
+
+```text
+Znajdź podobne dokumenty,
+ale tylko z kategorii "Java".
+```
+
+## 15. Filtering
+
+Weaviate pozwala łączyć wyszukiwanie wektorowe z filtrowaniem.
+
+Przykładowo:
+
+```text
+Znajdź dokumenty podobne do:
+"Spring Security authentication"
+
+ale tylko:
+category = "Java"
+```
+
+Dzięki temu wyszukiwanie jest bardziej precyzyjne.
+
+## 16. CRUD
+
+Podobnie jak inne bazy danych, Weaviate umożliwia wykonywanie operacji na danych.
+
+Podstawowe operacje to:
+
+```text
+Create
+Read
+Update
+Delete
+```
+
+czyli:
+
+```text
+CRUD
+```
+
+Możemy:
+
+- dodawać obiekty,
+- pobierać obiekty,
+- aktualizować dane,
+- usuwać dane.
+
+## 17. API
+
+Weaviate udostępnia API, dzięki któremu aplikacje mogą komunikować się z bazą.
+
+Można wykorzystywać między innymi:
+
+- REST API,
+- GraphQL,
+- SDK.
+
+Weaviate posiada SDK dla popularnych języków programowania.
+
+Przykładowo można integrować go z:
+
+```text
+Python
+Java
+TypeScript
+JavaScript
+Go
+```
+
+## 18. Weaviate i Python
+
+Weaviate jest bardzo popularny w projektach AI tworzonych w Pythonie.
+
+Przykładowa architektura:
+
+```text
+Python
+  |
+  ↓
+AI application
+  |
+  ↓
+Embedding Model
+  |
+  ↓
+Weaviate
+```
+
+Może to być na przykład aplikacja wykorzystująca:
+
+```text
+FastAPI
++
+OpenAI
++
+Weaviate
+```
+
+## 19. Weaviate i Java
+
+Weaviate można również integrować z aplikacjami Java.
+
+Przykładowa architektura:
+
+```text
+Spring Boot
+     |
+     ↓
+AI Service
+     |
+     ↓
+Weaviate
+     |
+     ↓
+Vector Search
+```
+
+Jest to interesujące między innymi w aplikacjach wykorzystujących:
+
+```text
+Spring Boot
+Spring AI
+LLM
+RAG
+PostgreSQL
+Weaviate
+```
+
+## 20. Weaviate Cloud
+
+Weaviate może być uruchamiany lokalnie lub wykorzystywany jako usługa chmurowa.
+
+**Weaviate Cloud** pozwala korzystać z zarządzanej infrastruktury bez konieczności samodzielnego utrzymywania całej bazy.
+
+Jest to wygodne podczas tworzenia aplikacji produkcyjnych.
+
+## 21. Weaviate lokalnie
+
+Weaviate można również uruchomić lokalnie.
+
+Popularnym rozwiązaniem jest **Docker**.
+
+Przykładowa architektura:
+
+```text
+Docker
+  |
+  ↓
+Weaviate Container
+  |
+  ↓
+Vector Database
+```
+
+Jest to szczególnie wygodne podczas nauki i developmentu.
+
+## 22. Weaviate a PostgreSQL
+
+Weaviate i PostgreSQL mają inne główne zastosowania.
+
+**PostgreSQL**:
+
+```text
+relacyjne dane
+tabele
+SQL
+JOIN
+transakcje
+```
+
+**Weaviate**:
+
+```text
+wektory
+embeddingi
+semantic search
+similarity search
+RAG
+AI
+```
+
+Nie oznacza to jednak, że trzeba wybierać tylko jedną bazę.
+
+Można wykorzystać:
+
+```text
+PostgreSQL
+     +
+Weaviate
+```
+
+PostgreSQL przechowuje dane biznesowe, a Weaviate odpowiada za wyszukiwanie semantyczne.
+
+## 23. Weaviate a Qdrant
+
+Weaviate jest często porównywany z innymi vector databases.
+
+Jednym z jego konkurentów jest **Qdrant**.
+
+| Weaviate | Qdrant |
+|---|---|
+| Vector Database | Vector Database |
+| Open Source | Open Source |
+| Semantic Search | Semantic Search |
+| Hybrid Search | Hybrid Search |
+| RAG | RAG |
+| AI applications | AI applications |
+| Collections | Collections |
+| REST/API/SDK | REST/API/SDK |
+
+Obie technologie są bardzo interesujące w projektach AI.
+
+## 24. Weaviate a Elasticsearch
+
+**Elasticsearch** jest przede wszystkim wyszukiwarką i silnikiem analitycznym.
+
+Weaviate został zaprojektowany przede wszystkim z myślą o danych wektorowych i aplikacjach AI.
+
+Można jednak spotkać architektury wykorzystujące oba rozwiązania:
+
+```text
+Elasticsearch
+    ↓
+keyword search
+
+Weaviate
+    ↓
+semantic search
+```
+
+## 25. Weaviate w aplikacji AI
+
+Przykładowy system AI może wyglądać tak:
+
+```text
+              USER
+                |
+                ↓
+          Spring Boot
+                |
+        +-------+-------+
+        |               |
+        ↓               ↓
+      LLM           Weaviate
+        |               |
+        |          Vector Search
+        |               |
+        +-------+-------+
+                |
+                ↓
+             Answer
+```
+
+Można również dodać:
+
+```text
+PostgreSQL
+Docker
+Redis
+FastAPI
+OpenAI
+```
+
+tworząc kompletną architekturę AI.
+
+## 26. Zalety Weaviate
+
+Najważniejsze zalety Weaviate:
+
+- open source,
+- przeznaczenie do wyszukiwania wektorowego,
+- obsługa embeddingów,
+- semantic search,
+- hybrid search,
+- filtrowanie,
+- dobre zastosowanie w RAG,
+- integracja z ekosystemem AI,
+- API i SDK,
+- możliwość uruchomienia lokalnie,
+- możliwość wykorzystania chmury,
+- dobra integracja z aplikacjami AI.
+
+## 27. Wady Weaviate
+
+Weaviate nie zawsze jest najlepszym rozwiązaniem.
+
+Jest bardziej wyspecjalizowany niż klasyczne relacyjne bazy danych.
+
+Nie zastępuje PostgreSQL w typowych zastosowaniach biznesowych.
+
+Wymaga również zrozumienia:
+
+- embeddingów,
+- vector search,
+- similarity,
+- modeli embeddingowych,
+- chunkingu,
+- RAG.
+
+Przy bardzo prostym systemie wyszukiwania może być niepotrzebnie skomplikowany.
+
+## 28. Kiedy używać Weaviate?
+
+Weaviate warto rozważyć, gdy tworzysz:
+
+**Chatbota AI**
+
+```text
+User → LLM → Weaviate → Documents
+```
+
+**System RAG**
+
+```text
+Documents → Embeddings → Weaviate → LLM
+```
+
+**Semantic Search**
+
+```text
+Query → Embedding → Weaviate → Results
+```
+
+**System rekomendacji**
+
+```text
+User preferences
+       ↓
+Embedding
+       ↓
+Weaviate
+       ↓
+Similar products
+```
+
+**AI Knowledge Base**
+
+```text
+Company documents
+       ↓
+Embeddings
+       ↓
+Weaviate
+       ↓
+AI Assistant
+```
+
+## 29. Weaviate w projekcie AgriMind AI
+
+Weaviate może być szczególnie interesujący w projekcie takim jak **AgriMind AI**.
+
+Można przechowywać w nim wiedzę dotyczącą uprawy:
+
+```text
+choroby ryżu
+nawożenie
+nawadnianie
+szkodniki
+warunki pogodowe
+gleba
+odmiany ryżu
+instrukcje rolnicze
+dokumentacja
+```
+
+Następnie użytkownik może zapytać:
+
+```text
+Co zrobić, gdy liście ryżu zaczynają żółknąć?
+```
+
+System może:
+
+```text
+Pytanie
+ ↓
+Embedding
+ ↓
+Weaviate
+ ↓
+podobne informacje rolnicze
+ ↓
+LLM
+ ↓
+odpowiedź dla rolnika
+```
+
+Dzięki temu Weaviate może pełnić rolę **AI Knowledge Base** dla aplikacji.
+
+## 30. Najważniejsze pojęcia
+
+Jeżeli chcesz zapamiętać Weaviate na egzamin lub do pracy, zapamiętaj:
+
+**Weaviate** – open-source vector database.
+
+**Vector Database** – baza przeznaczona do przechowywania i wyszukiwania wektorów.
+
+**Embedding** – reprezentacja danych jako wektor liczb.
+
+**Semantic Search** – wyszukiwanie według znaczenia.
+
+**Vector Search** – wyszukiwanie podobnych wektorów.
+
+**Similarity Search** – wyszukiwanie danych podobnych do zapytania.
+
+**Hybrid Search** – połączenie wyszukiwania tekstowego i wektorowego.
+
+**RAG** – wykorzystanie wyszukiwania z bazy wiedzy do dostarczania LLM odpowiedniego kontekstu.
+
+**Collection** – zbiór obiektów w Weaviate.
+
+**Property** – właściwość obiektu.
+
+**Filtering** – ograniczenie wyników według określonych warunków.
+
+## 31. Weaviate – najważniejszy schemat
+
+```text
+                 WEAVIATE
+                     |
+       +-------------+-------------+
+       |             |             |
+    Vectors       Objects       Metadata
+       |             |             |
+       +-------------+-------------+
+                     |
+              Vector Search
+                     |
+             Semantic Search
+                     |
+                  RAG
+                     |
+                   LLM
+                     |
+                AI APP
+```
+
+Najważniejsze zdanie do zapamiętania:
+
+**Weaviate to wektorowa baza danych przeznaczona do przechowywania embeddingów i wykonywania wyszukiwania semantycznego, dzięki czemu jest szczególnie przydatna w aplikacjach AI, RAG, chatbotach i systemach rekomendacji.**

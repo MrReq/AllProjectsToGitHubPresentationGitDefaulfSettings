@@ -1,0 +1,143 @@
+# Concourse
+
+## 1. Czym jest Concourse?
+
+[Concourse Pipeline UI Explained - Concourse](https://images.openai.com/static-rsc-4/exr5nc8kwkCzhDOke_t0XSAAUyFp-kDTmcsI6N5slHqKGz_3aqST9JhpXFSF3rhB6NZ6ATB7b-2DyjcLCWbNX9YVSA9jOaKbEHoaTHUvgY_ugBofZNPMtSSN14NT7wjVSOR735fXI_armiwgJUZO29o5aZek76YVwLm7qq2230Y?purpose=inline)
+
+[concourse-ci.org](https://concourse-ci.org/blog/2018-08-17-concourse-pipeline-ui-explained/)
+
+Concourse, najczęściej określany jako Concourse CI, to otwartoźródłowa platforma do automatyzacji procesów CI/CD (Continuous Integration / Continuous Delivery).
+
+Narzędzie umożliwia definiowanie i uruchamianie potoków automatyzacji, które mogą pobierać kod źródłowy, budować aplikacje, wykonywać testy, tworzyć obrazy kontenerów i przygotowywać wdrożenia.
+
+Concourse wykorzystuje deklaratywną konfigurację opartą na plikach YAML oraz izolowane zadania wykonywane w kontenerach.
+
+## 2. Najważniejsze funkcje Concourse
+
+- Continuous Integration (CI) – automatyczne budowanie i testowanie kodu po zmianach w repozytorium.
+- Continuous Delivery (CD) – automatyzacja przygotowania oprogramowania do wdrożenia.
+- Pipelines – definiowanie całych procesów automatyzacji jako grafów zadań.
+- Tasks – wykonywanie konkretnych operacji, np. kompilacji i testów.
+- Resources – reprezentowanie źródeł danych, takich jak repozytoria Git, obrazy kontenerów i artefakty.
+- Jobs – grupowanie zadań w jednostki wykonywane w ramach potoku.
+- Konteneryzacja – izolowanie zadań w środowiskach kontenerowych.
+- Automatyczne uruchamianie – reagowanie na zmiany zasobów i zdarzenia zgodnie z konfiguracją.
+- Web UI – wizualizacja potoków, ich statusów i historii wykonań.
+
+## 3. Jak działa Concourse?
+
+Concourse organizuje automatyzację za pomocą potoków (pipelines), które składają się z zadań i zasobów.
+
+Przykładowy proces CI/CD:
+
+Repozytorium Git
+
+Programista wysyła zmiany do repozytorium
+
+Build
+
+Kompilacja aplikacji i pobranie zależności
+
+Test
+
+Testy jednostkowe i integracyjne
+
+Deploy
+
+Wdrożenie aplikacji, jeśli poprzednie etapy zakończą się powodzeniem
+
+Każdy etap może mieć własną konfigurację, zależności oraz warunki uruchomienia. Concourse odpowiada za koordynację zadań i prezentowanie wyników.
+
+## 4. Przykład konfiguracji Concourse CI
+
+Przykładowy plik YAML definiujący prosty potok budowania i testowania aplikacji Java z Mavenem:
+
+```
+resources:
+  - name: source-code
+    type: git
+    source:
+      uri: https://github.com/example/java-app.git
+      branch: main
+
+jobs:
+  - name: build-and-test
+    plan:
+      - get: source-code
+        trigger: true
+
+      - task: maven-test
+        config:
+          platform: linux
+          image_resource:
+            type: registry-image
+            source:
+              repository: maven
+              tag: "3.9-eclipse-temurin-21"
+          inputs:
+            - name: source-code
+          run:
+            path: bash
+            args:
+              - -ec
+              - |
+                cd source-code
+                mvn test
+```
+
+W tym przykładzie:
+
+- `resources` definiuje repozytorium Git jako źródło kodu.
+- `jobs` zawiera zadanie potoku.
+- `get` pobiera kod źródłowy.
+- `trigger: true` pozwala uruchamiać zadanie po wykryciu zmian w zasobie.
+- `task` uruchamia testy Maven w kontenerze z JDK.
+
+Jest to przykład edukacyjny — rzeczywisty potok może wymagać dodatkowej konfiguracji uprawnień, połączenia z repozytorium, obsługi artefaktów i wdrożeń.
+
+## 5. Do czego wykorzystuje się Concourse?
+
+- Automatyczne testowanie – uruchamianie testów po zmianach w kodzie.
+- Budowanie aplikacji – kompilowanie projektów Java, Go, Python i innych technologii.
+- Budowanie obrazów Docker – przygotowywanie obrazów kontenerów na potrzeby wdrożeń.
+- Wdrażanie aplikacji – automatyzacja publikowania nowych wersji oprogramowania.
+- Przetwarzanie danych – uruchamianie zaplanowanych zadań i procesów przetwarzania.
+- Automatyzacja infrastruktury – koordynowanie operacji związanych z konfiguracją środowisk.
+
+## 6. Concourse a inne narzędzia CI/CD
+
+| Narzędzie      | Charakterystyka                                                              |
+| -------------- | ---------------------------------------------------------------------------- |
+| Concourse CI   | Deklaratywne potoki, zasoby i zadania wykonywane w izolowanych środowiskach. |
+| Jenkins        | Rozbudowany serwer automatyzacji z dużym ekosystemem wtyczek.                |
+| GitHub Actions | Automatyzacja procesów bezpośrednio w ekosystemie GitHub.                    |
+| GitLab CI/CD   | Potoki automatyzacji zintegrowane z platformą GitLab.                        |
+| TeamCity       | Platforma CI/CD firmy JetBrains.                                             |
+| Tekton         | Framework do budowania potoków CI/CD opartych na Kubernetes.                 |
+
+## 7. Zalety i wady Concourse
+
+Zalety:
+
+- Konfiguracja potoków w postaci kodu.
+- Izolowanie zadań w kontenerach.
+- Czytelny model zasobów, zadań i potoków.
+- Możliwość odtwarzania i kontrolowania procesów automatyzacji.
+- Przydatność w złożonych środowiskach DevOps.
+
+Wady:
+
+- Wymaga poznania specyficznego modelu konfiguracji.
+- Samodzielne wdrożenie i utrzymanie platformy wymaga administracji.
+- W porównaniu z GitHub Actions może wymagać większego nakładu pracy przy konfiguracji początkowej.
+- Integracja z niektórymi narzędziami może wymagać dodatkowych zasobów lub skryptów.
+
+## 8. Dlaczego warto znać Concourse?
+
+Concourse jest przydatny osobom rozwijającym się w kierunku DevOps, automatyzacji wdrożeń i utrzymywania infrastruktury programistycznej.
+
+Pozwala lepiej zrozumieć CI/CD, deklaratywne potoki, konteneryzację i automatyczne testowanie oprogramowania.
+
+W projekcie Java i Spring Boot można wykorzystać go do pobierania kodu z Git, uruchamiania `mvn test`, budowania aplikacji i przygotowywania wdrożeń.
+
+Oficjalna strona: [Concourse CI](https://concourse-ci.org/).

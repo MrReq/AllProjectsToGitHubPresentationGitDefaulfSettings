@@ -1,0 +1,123 @@
+# Claude
+
+## 1. Czym jest Claude?
+
+Claude to rodzina modeli sztucznej inteligencji opracowanych przez firmę Anthropic.
+
+Claude jest asystentem AI, który potrafi analizować tekst, generować odpowiedzi, pisać i wyjaśniać kod, pracować z dokumentami oraz wspierać rozwiązywanie złożonych problemów.
+
+Jest wykorzystywany między innymi w programowaniu, analizie danych, tworzeniu treści, automatyzacji pracy oraz budowaniu aplikacji wykorzystujących modele językowe (LLM).
+
+## 2. Najważniejsze funkcje Claude
+
+- Generowanie tekstu – tworzenie artykułów, raportów, notatek, dokumentacji i wiadomości.
+- Programowanie – pisanie, analizowanie, refaktoryzowanie i debugowanie kodu.
+- Analiza dokumentów – praca z plikami, takimi jak PDF i dokumenty tekstowe, w zależności od dostępnych funkcji.
+- Rozumowanie i rozwiązywanie problemów – analizowanie wymagań, porównywanie rozwiązań i opracowywanie planów działania.
+- Praca z dużymi fragmentami kodu – analizowanie wielu plików i zależności w projekcie, jeśli zostały udostępnione.
+- Wsparcie nauki – wyjaśnianie trudnych zagadnień, przygotowywanie ćwiczeń i odpowiadanie na pytania.
+- Integracja przez API – umożliwienie programistom wykorzystywania modeli Claude we własnych aplikacjach.
+- Automatyzacja zadań – współpraca z narzędziami i wykonywanie określonych operacji w środowiskach, które udostępniają takie możliwości.
+
+## 3. Rodzina modeli Claude
+
+Anthropic rozwija modele Claude w różnych wariantach, które mogą różnić się możliwościami, szybkością działania i kosztem.
+
+- Claude Opus – rodzina modeli przeznaczonych do wymagających zadań, złożonego rozumowania i zaawansowanej pracy z kodem.
+- Claude Sonnet – modele ukierunkowane na równowagę między możliwościami, szybkością i kosztem.
+- Claude Haiku – modele zaprojektowane z myślą o szybkości i wydajnym wykonywaniu wielu zadań.
+
+Dostępność konkretnych wersji i ich możliwości zmieniają się w czasie.
+
+## 4. Claude w programowaniu
+
+Claude może pełnić rolę asystenta programisty, pomagając na różnych etapach tworzenia oprogramowania.
+
+- Java – wyjaśnianie klas, interfejsów, kolekcji, wyjątków i wielowątkowości.
+- Spring Boot – projektowanie REST API, kontrolerów, serwisów, repozytoriów i konfiguracji aplikacji.
+- SQL – przygotowywanie zapytań, projektowanie schematów baz danych i analizowanie błędów.
+- Python – tworzenie skryptów, automatyzacji i aplikacji wykorzystujących AI.
+- Testowanie – generowanie testów jednostkowych i integracyjnych oraz analizowanie przypadków brzegowych.
+- Refaktoryzacja – poprawianie struktury kodu, czytelności i podziału odpowiedzialności.
+- Analiza projektów – interpretowanie struktury repozytorium i proponowanie zmian w wielu plikach.
+
+Claude może także współpracować z narzędziami programistycznymi, takimi jak edytory kodu i terminal, za pośrednictwem rozwiązań takich jak Claude Code.
+
+## 5. Claude Code
+
+[Reduce iOS Development Time by 60% with Claude Code | by Osman Demiröz | Mar, 2026 | Medium](https://images.openai.com/static-rsc-4/__QlMX-Gt1xdjT6Kqdfv_TKf3b2_9YTp9NfKHAGvV-pHO8ZSPprqRjYLGKKIJOdGj_8i76-dGuZqNAmT4cvEHz8ANMUdXjr1zurAF0cQRcEmzi-rJ-PKkvKgCvM4hogRcz9IRsrNK9jDSZOJCv8m5-PtQukmuhOHOG0u09n0pqw?purpose=inline)
+
+[My Ultimate Claude Code Setup - by Jim Clyde Monge](https://images.openai.com/static-rsc-4/D2jfFk1z95adRYa_Rvz825txNAaJ4PU5xMoOXVSFsCyZsxABhGmw7CP5YGKK-txm3oTk3DRoAEd0alv3NSvvmTQVqxRWn5YhRxWOZtPJ_WGEuDnFvcvoi8guBoGFpBuYCS2qGevmLcDhsKleMJuHVKHbEBs8lBu_1qHEm1hIUi4?purpose=inline)
+
+[Getting started with Claude Code and CircleCI - CircleCI](https://images.openai.com/static-rsc-4/wc4MBiUeNpbL_K0Q8C8YHZwqjfIPPfsT7Fel9JmCCu-yD3gsLyFPoxxdXYWE9WidvnoVxP_9L4OJizlVIo3aimEBWB8JM_Yal7YMPijyApWUpGAU6y0b4sG5Ygvg0P6Q2ivO3yHfdbixDesyiFTCGZtU1bSQDp_onxGLVtvpHRw?purpose=inline)
+
+13
+
+Claude Code to narzędzie programistyczne firmy Anthropic, które umożliwia wykorzystanie modeli Claude do pracy bezpośrednio z projektem programistycznym.
+
+W zależności od konfiguracji może analizować pliki, proponować i wprowadzać zmiany w kodzie, uruchamiać testy oraz wykonywać polecenia w terminalu.
+
+Przykładowe zastosowania:
+
+- Analiza błędów w projekcie Java.
+- Refaktoryzacja kontrolerów i serwisów Spring Boot.
+- Tworzenie testów JUnit.
+- Przegląd zmian w repozytorium Git.
+- Pomoc w przygotowaniu dokumentacji technicznej.
+
+Zmiany wykonywane przez narzędzie należy weryfikować, a operacje wpływające na dane lub środowisko uruchomieniowe powinny być odpowiednio kontrolowane.
+
+## 6. Claude a ChatGPT
+
+| Cecha                     | Claude                                        | ChatGPT                                                       |
+| ------------------------- | --------------------------------------------- | ------------------------------------------------------------- |
+| Twórca                    | Anthropic                                     | OpenAI                                                        |
+| Główne zastosowanie       | Asystent AI do pracy, analizy i programowania | Asystent AI do pracy, nauki, tworzenia treści i programowania |
+| Praca z kodem             | Analiza kodu i wsparcie programowania         | Analiza kodu i wsparcie programowania                         |
+| Narzędzia programistyczne | Claude Code i integracje                      | Dostępne narzędzia i integracje, zależnie od planu            |
+| API                       | Anthropic API                                 | OpenAI API                                                    |
+| Modele                    | Rodzina Claude                                | Rodzina modeli OpenAI                                         |
+
+Nie ma jednego modelu, który zawsze będzie lepszy. Wyniki zależą od rodzaju zadania, konkretnej wersji modelu, jakości instrukcji oraz dostępnych narzędzi.
+
+## 7. Claude API
+
+Claude API pozwala integrować modele Anthropic z własnymi aplikacjami.
+
+Programista może przesyłać zapytania do modelu i wykorzystywać wygenerowane odpowiedzi w aplikacji internetowej, systemie obsługi klienta lub asystencie AI.
+
+Przykładowe zastosowania API:
+
+- Chatbot odpowiadający na pytania użytkowników.
+- Asystent analizujący dokumenty firmowe.
+- Narzędzie do streszczania raportów.
+- System wspierający analizę kodu.
+- Aplikacja RAG korzystająca z zewnętrznej bazy wiedzy.
+
+W projekcie Java i Spring Boot można przygotować backend komunikujący się z Claude API przez żądania HTTP lub odpowiednią bibliotekę kliencką.
+
+## 8. Zalety i ograniczenia Claude
+
+Zalety:
+
+- Przydatność w analizie i generowaniu kodu.
+- Możliwość pracy z obszernymi dokumentami i kontekstem, zależnie od modelu.
+- Wsparcie tworzenia dokumentacji i analizy wymagań.
+- Możliwość integracji z własnymi aplikacjami.
+- Narzędzia wspierające pracę nad całymi projektami programistycznymi.
+
+Ograniczenia:
+
+- Może generować błędne informacje lub kod.
+- Dostępność funkcji zależy od modelu, planu i środowiska.
+- Korzystanie z API może wiązać się z kosztami.
+- Kod i wyniki analiz wymagają testowania oraz weryfikacji.
+- Podczas pracy z poufnymi dokumentami trzeba uwzględnić zasady bezpieczeństwa i prywatności.
+
+## 9. Dlaczego warto znać Claude?
+
+Claude jest przydatny dla programistów, testerów oprogramowania, analityków, twórców aplikacji AI i osób automatyzujących pracę.
+
+Warto poznać zarówno aplikację Claude, jak i możliwości Claude Code oraz API Anthropic.
+
+Dla osoby rozwijającej się w Javie, Spring Boot i AI Claude może być narzędziem do analizy błędów, tworzenia testów, projektowania architektury oraz budowania prototypów aplikacji wykorzystujących sztuczną inteligencję.

@@ -1,0 +1,84 @@
+# Dimensions
+
+## 1. Czym są Dimensions?
+
+Dimensions to pojęcie informatyczne oznaczające wymiary danych, tablic, macierzy lub struktur przestrzennych.
+
+Termin ten występuje w wielu obszarach informatyki, między innymi w programowaniu, matematyce, analizie danych, grafice komputerowej i uczeniu maszynowym.
+
+Znaczenie zależy od kontekstu: w Pythonie może odnosić się do wymiarów tablicy, w bazach danych do wymiarów analitycznych, a w grafice komputerowej do wymiarów przestrzeni.
+
+## 2. Do czego wykorzystuje się Dimensions?
+
+- Określanie liczby osi tablic i tensorów.
+- Reprezentowanie danych jednowymiarowych, dwuwymiarowych i wielowymiarowych.
+- Opisywanie szerokości, wysokości i głębokości obiektów graficznych.
+- Organizowanie danych analitycznych według kategorii.
+- Przygotowywanie danych wejściowych dla modeli Machine Learning.
+- Kontrolowanie zgodności kształtów danych podczas obliczeń.
+
+## 3. Dimensions w programowaniu
+
+W programowaniu pojęcie wymiarów często odnosi się do liczby osi struktury danych.
+
+Przykładowo w Pythonie z biblioteką NumPy:
+
+```
+import numpy as npvector = np.array([10, 20, 30])matrix = np.array([    [1, 2, 3],    [4, 5, 6]])print(vector.ndim)  # 1print(matrix.ndim)  # 2print(vector.shape)  # (3,)print(matrix.shape)  # (2, 3)
+```
+
+Wektor ma jeden wymiar, natomiast macierz ma dwa wymiary: dwa wiersze i trzy kolumny.
+
+Warto odróżniać liczbę wymiarów (`ndim`) od kształtu danych (`shape`) i liczby elementów (`size`).
+
+## 4. Dimensions w bazach danych i Business Intelligence
+
+W analizie danych wymiar oznacza często kategorię, według której grupujemy i analizujemy wartości liczbowe.
+
+Przykładowymi wymiarami są:
+
+- Czas – dzień, miesiąc, rok.
+- Produkt – nazwa, kategoria, producent.
+- Lokalizacja – miasto, kraj, region.
+- Klient – segment, typ klienta, grupa wiekowa.
+
+Przykładowo w systemie sprzedażowym można analizować przychody według produktu, miesiąca i regionu.
+
+W modelowaniu hurtowni danych wymiary są często przechowywane w tabelach wymiarów (dimension tables), które współpracują z tabelą faktów (fact table).
+
+## 5. Dimensions w grafice komputerowej
+
+W grafice komputerowej wymiary określają rozmiary obiektów lub przestrzeni.
+
+- 2D – szerokość i wysokość, na przykład obraz lub interfejs aplikacji.
+- 3D – szerokość, wysokość i głębokość, na przykład model obiektu w grze.
+- Wymiary tekstury – liczba pikseli w poziomie i pionie.
+- Wymiary ekranu – rozdzielczość wyrażona w pikselach, np. 1920 × 1080.
+
+## 6. Dimensions w Machine Learning
+
+W uczeniu maszynowym wymiary opisują strukturę danych wejściowych, parametrów modelu i wyników obliczeń.
+
+Przykładowo obraz RGB o rozmiarze 224 × 224 piksele może być reprezentowany jako tablica o kształcie `(224, 224, 3)`, gdzie ostatnia wartość odpowiada kanałom kolorów.
+
+W przypadku tensorów wykorzystywanych w sieciach neuronowych dodatkowy wymiar często reprezentuje liczbę przykładów w partii (batch size).
+
+## 7. Zalety poprawnego rozumienia wymiarów
+
+- Ułatwia projektowanie struktur danych.
+- Pomaga unikać błędów związanych z niezgodnymi kształtami tablic.
+- Umożliwia poprawne wykonywanie operacji matematycznych.
+- Ułatwia organizowanie danych analitycznych.
+- Jest istotne podczas przetwarzania obrazów, tensorów i danych przestrzennych.
+
+## 8. Jak zacząć naukę?
+
+Warto rozpocząć od tablic jednowymiarowych i dwuwymiarowych, następnie poznać macierze, tensory oraz właściwości `shape`, `ndim` i `size` w NumPy.
+
+Materiały do nauki:
+
+- [NumPy – podstawy tablic](https://numpy.org/doc/stable/user/basics.html)
+- [PyTorch – tensory](https://pytorch.org/docs/stable/tensors.html)
+- [Microsoft Learn – modelowanie danych w Power BI](https://learn.microsoft.com/en-us/power-bi/transform-model/)
+
+Podsumowanie: Dimensions to pojęcie opisujące wymiary struktur danych, obiektów lub kategorii analitycznych. Jego dokładne znaczenie zależy od technologii i kontekstu, w którym jest używane.

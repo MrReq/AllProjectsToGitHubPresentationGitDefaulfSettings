@@ -1,0 +1,302 @@
+Ansible — notatka
+
+1. Czym jest Ansible?
+
+Ansible to narzędzie automatyzacji IT typu open source, wykorzystywane do zarządzania serwerami, konfigurowania systemów operacyjnych, wdrażania aplikacji oraz wykonywania powtarzalnych zadań administracyjnych.
+
+Jest rozwijane przez Red Hat i pozwala automatyzować pracę z wieloma komputerami oraz serwerami jednocześnie.
+
+Ansible wykorzystuje przede wszystkim pliki YAML, w których definiuje się instrukcje wykonywane na zarządzanych maszynach.
+
+Jedną z jego najważniejszych cech jest to, że standardowo nie wymaga instalowania osobnego agenta Ansible na każdym zarządzanym serwerze Linux, ponieważ wykorzystuje między innymi połączenia SSH.
+
+2. Do czego służy Ansible?
+
+Ansible jest wykorzystywane przede wszystkim w administracji systemami, DevOps i automatyzacji infrastruktury.
+
+Najważniejsze zastosowania to:
+
+- Automatyczna konfiguracja serwerów.
+- Instalowanie i aktualizowanie oprogramowania.
+- Zarządzanie użytkownikami i uprawnieniami.
+- Konfiguracja sieci i usług systemowych.
+- Wdrażanie aplikacji na serwerach.
+- Automatyzacja zadań administracyjnych.
+- Zarządzanie środowiskami testowymi i produkcyjnymi.
+- Przygotowywanie infrastruktury pod aplikacje Java, Spring Boot lub Node.js.
+- Automatyzacja operacji w środowiskach chmurowych.
+- Integracja z procesami CI/CD.
+
+Przykładowo Ansible może jednocześnie zainstalować Javę, skonfigurować usługę systemową i wdrożyć aplikację na kilkunastu serwerach.
+
+3. Jak działa Ansible?
+
+Ansible działa w modelu, w którym komputer sterujący wykonuje zadania na wybranych maszynach zarządzanych.
+
+Podstawowy proces wygląda następująco:
+
+1. Administrator przygotowuje listę serwerów.
+2. Tworzy plik YAML opisujący zadania do wykonania.
+3. Ansible nawiązuje połączenie z wybranymi maszynami.
+4. Wykonuje zdefiniowane operacje.
+5. Zwraca informacje o powodzeniu, zmianach lub błędach.
+
+W systemach Linux Ansible najczęściej komunikuje się przez SSH.
+
+W przypadku systemów Windows może wykorzystywać między innymi WinRM lub SSH, zależnie od konfiguracji.
+
+Ansible jest narzędziem deklaratywno-proceduralnym: opisujesz pożądany stan lub kolejność zadań, a moduły realizują określone operacje.
+
+4. Najważniejsze elementy Ansible
+
+Ansible składa się z kilku podstawowych elementów.
+
+- **Control Node** — komputer, na którym uruchamiane jest Ansible.
+- **Managed Nodes** — serwery lub urządzenia zarządzane przez Ansible.
+- **Inventory** — lista maszyn, na których mają być wykonywane zadania.
+- **Playbook** — plik YAML zawierający opis automatyzacji.
+- **Play** — część playbooka określająca grupę maszyn i zadania do wykonania.
+- **Task** — pojedyncze zadanie, na przykład instalacja pakietu.
+- **Module** — komponent realizujący konkretną operację.
+- **Role** — sposób organizowania automatyzacji w wielokrotnego użytku strukturę.
+- **Variables** — zmienne przechowujące wartości wykorzystywane podczas wykonywania zadań.
+- **Handlers** — zadania uruchamiane w odpowiedzi na określone zdarzenia, zwykle zgłoszone przez `notify`.
+
+5. Inventory
+
+Inventory to lista hostów i grup komputerów, którymi zarządza Ansible.
+
+Może być zapisane w formacie INI lub YAML, a w większych środowiskach może być generowane dynamicznie.
+
+Przykładowy plik `inventory.ini`:
+
+```
+[webservers]
+192.168.1.10
+192.168.1.11
+
+[databases]
+192.168.1.20
+```
+
+W tym przykładzie istnieją dwie grupy serwerów: `webservers` i `databases`.
+
+Dzięki grupom można wykonywać różne zadania na serwerach WWW i bazach danych.
+
+6. Playbook
+
+Playbook to plik YAML opisujący zadania, które Ansible ma wykonać.
+
+Przykładowy playbook instalujący Nginx na serwerach z rodziny Debian:
+
+```
+---
+- name: Konfiguracja serwera WWW
+  hosts: webservers
+  become: true
+
+  tasks:
+    - name: Instalacja Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Uruchomienie Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+```
+
+W tym przykładzie Ansible instaluje Nginx, uruchamia usługę i konfiguruje jej automatyczne uruchamianie podczas startu systemu.
+
+Moduł `apt` jest przeznaczony dla systemów korzystających z menedżera pakietów APT, dlatego przykład wymaga odpowiedniego systemu operacyjnego.
+
+7. Moduły Ansible
+
+Moduły realizują konkretne operacje na zarządzanych maszynach.
+
+Ansible udostępnia wiele gotowych modułów, dzięki którym nie trzeba samodzielnie pisać skryptów dla każdej czynności.
+
+Przykładowe moduły to:
+
+- `ansible.builtin.apt` — zarządzanie pakietami w systemach Debian i Ubuntu.
+- `ansible.builtin.dnf` — zarządzanie pakietami w systemach korzystających z DNF.
+- `ansible.builtin.copy` — kopiowanie plików.
+- `ansible.builtin.template` — generowanie plików konfiguracyjnych z szablonów.
+- `ansible.builtin.service` — zarządzanie usługami systemowymi.
+- `ansible.builtin.user` — zarządzanie kontami użytkowników.
+- `ansible.builtin.file` — zarządzanie plikami, katalogami i uprawnieniami.
+- `ansible.builtin.command` — wykonywanie poleceń.
+- `ansible.builtin.shell` — wykonywanie poleceń za pomocą powłoki systemowej.
+
+Warto preferować wyspecjalizowane moduły, gdy są dostępne, zamiast wykonywać wszystkie operacje przez `shell`.
+
+8. Idempotencja
+
+Idempotencja to jedna z najważniejszych cech Ansible.
+
+Oznacza, że wielokrotne wykonanie tego samego zadania powinno prowadzić do tego samego pożądanego stanu, bez wprowadzania niepotrzebnych zmian przy każdym uruchomieniu.
+
+Przykładowo zadanie instalujące pakiet ze stanem `present` nie powinno instalować go ponownie, jeśli jest już zainstalowany.
+
+Dzięki idempotencji playbooki można uruchamiać wielokrotnie, aby sprawdzać i przywracać wymaganą konfigurację.
+
+Nie wszystkie polecenia są jednak automatycznie idempotentne, dlatego należy odpowiednio dobierać moduły i warunki wykonywania zadań.
+
+9. Role i zmienne
+
+Role pomagają organizować większe projekty automatyzacji.
+
+Mogą zawierać zadania, zmienne, szablony, pliki i procedury obsługi zdarzeń.
+
+Przykładowo osobna rola może odpowiadać za konfigurację Nginx, inna za instalację Javy, a jeszcze inna za wdrożenie aplikacji.
+
+Zmienne pozwalają dostosowywać zachowanie playbooków do różnych środowisk bez kopiowania całego kodu.
+
+Przykładowe zmienne:
+
+```
+app_name: agrimind
+app_port: 9999
+java_package: openjdk-21-jdk
+```
+
+Dzięki temu można używać podobnej automatyzacji na środowiskach deweloperskim, testowym i produkcyjnym, zmieniając tylko odpowiednie wartości.
+
+10. Ansible Vault
+
+Ansible Vault to funkcja umożliwiająca szyfrowanie poufnych danych przechowywanych w plikach wykorzystywanych przez Ansible.
+
+Może służyć do ochrony haseł, kluczy API i innych sekretów.
+
+Jest szczególnie przydatna, gdy pliki automatyzacji są przechowywane w repozytorium Git.
+
+Przykładowe polecenie tworzące zaszyfrowany plik:
+
+`ansible-vault create secrets.yml`
+
+Plik można następnie wykorzystywać w playbookach, podając wymagane dane do odszyfrowania.
+
+Samo szyfrowanie pliku nie wystarcza, jeśli hasło do Vault lub klucze deszyfrujące są przechowywane w niebezpieczny sposób.
+
+11. Ansible a Docker i Kubernetes
+
+Ansible może współpracować z technologiami kontenerowymi, ale pełni inną rolę niż Docker i Kubernetes.
+
+- **Ansible** — automatyzuje konfigurację systemów, serwerów, aplikacji i infrastruktury.
+- **Docker** — umożliwia budowanie i uruchamianie kontenerów.
+- **Kubernetes** — zarządza wdrażaniem, skalowaniem i działaniem aplikacji kontenerowych w klastrach.
+- **Terraform** — służy przede wszystkim do deklaratywnego zarządzania infrastrukturą, na przykład zasobami chmurowymi.
+
+Przykładowo Ansible może przygotować serwer, zainstalować Docker Engine i wdrożyć aplikację, której kontenery będą następnie uruchamiane przez Docker lub zarządzane przez Kubernetes.
+
+Narzędzia te mogą się uzupełniać w jednym procesie DevOps.
+
+12. Ansible w DevOps i CI/CD
+
+Ansible jest często wykorzystywane do automatyzacji infrastruktury i wdrożeń aplikacji.
+
+Może współpracować z narzędziami takimi jak Jenkins, GitLab CI/CD i GitHub Actions.
+
+Przykładowy proces wdrożenia może wyglądać następująco:
+
+1. Programista wysyła kod do repozytorium Git.
+2. Pipeline CI buduje aplikację i uruchamia testy.
+3. Powstaje gotowy artefakt, na przykład plik JAR.
+4. Ansible kopiuje artefakt na serwer.
+5. Ansible aktualizuje konfigurację i restartuje usługę.
+6. System monitorowania sprawdza działanie aplikacji.
+
+Dzięki automatyzacji wdrożenia są bardziej powtarzalne, a ryzyko błędów wynikających z ręcznej konfiguracji może zostać ograniczone.
+
+13. Instalacja i podstawowe polecenia
+
+Ansible jest najczęściej uruchamiane z systemu Linux lub środowiska Linux dostępnego przez WSL.
+
+Na komputerze sterującym można zainstalować Ansible zgodnie z oficjalną dokumentacją i wymaganiami konkretnej wersji.
+
+Po instalacji przydatne są następujące polecenia:
+
+`ansible --version` — wyświetla wersję Ansible.
+
+`ansible-inventory --list -i inventory.ini` — wyświetla inventory w postaci przetworzonej przez Ansible.
+
+`ansible all -i inventory.ini -m ansible.builtin.ping` — sprawdza możliwość komunikacji z hostami w inventory.
+
+`ansible-playbook -i inventory.ini site.yml` — uruchamia playbook.
+
+Moduł `ping` w Ansible sprawdza przede wszystkim możliwość komunikacji i działania środowiska Python na zarządzanym hoście, a nie odpowiedź na klasyczne żądanie sieciowe ICMP.
+
+14. Ansible a Puppet i Chef
+
+Ansible konkuruje z innymi narzędziami do zarządzania konfiguracją infrastruktury.
+
+- **Ansible** — wykorzystuje playbooki YAML i standardowo nie wymaga agenta na zarządzanych hostach Linux.
+- **Puppet** — wykorzystuje własny model deklaratywnego zarządzania konfiguracją i często opiera się na agentach.
+- **Chef** — wykorzystuje między innymi kod Ruby do definiowania konfiguracji i zasobów infrastruktury.
+
+Ansible bywa łatwiejsze do rozpoczęcia nauki ze względu na czytelną składnię YAML i prosty model uruchamiania zadań.
+
+Wybór narzędzia zależy od skali infrastruktury, wymagań organizacji, istniejących kompetencji zespołu i sposobu zarządzania konfiguracją.
+
+15. Zalety Ansible
+
+- Automatyzuje powtarzalne zadania administracyjne.
+- Wykorzystuje czytelne pliki YAML.
+- Standardowo nie wymaga instalacji agenta na zarządzanych serwerach Linux.
+- Umożliwia zarządzanie wieloma serwerami jednocześnie.
+- Oferuje wiele gotowych modułów.
+- Wspiera idempotentne zarządzanie konfiguracją.
+- Integruje się z narzędziami CI/CD.
+- Ułatwia odtwarzanie konfiguracji środowisk.
+- Może być wykorzystywane do wdrażania aplikacji i zarządzania infrastrukturą chmurową.
+
+16. Wady i ograniczenia Ansible
+
+- Błędy w playbookach mogą wpłynąć na wiele serwerów jednocześnie.
+- Bardzo duże projekty wymagają dobrej organizacji ról, zmiennych i inventory.
+- Operacje na wielu hostach mogą trwać długo, jeśli nie zostaną odpowiednio zoptymalizowane.
+- Niektóre moduły i integracje wymagają dodatkowych bibliotek lub kolekcji.
+- Zarządzanie sekretami i uprawnieniami wymaga świadomej konfiguracji.
+- Nie każde zadanie można bezpiecznie wykonywać wielokrotnie bez dodatkowych warunków.
+- Automatyzacja nie zastępuje monitorowania, testowania ani przemyślanego zarządzania zmianami.
+
+17. Plan nauki Ansible
+
+Na początku warto poznać podstawy Linuxa, SSH, uprawnień systemowych i składni YAML.
+
+Następnie należy skonfigurować środowisko testowe i nauczyć się tworzyć inventory oraz proste playbooki.
+
+Kolejnym krokiem jest poznanie modułów do instalowania pakietów, kopiowania plików, zarządzania użytkownikami i uruchamiania usług.
+
+Później warto nauczyć się zmiennych, szablonów Jinja2, handlerów, ról i Ansible Vault.
+
+Następnie można zautomatyzować wdrożenie aplikacji Java lub Spring Boot na serwerze Linux.
+
+Na koniec warto zintegrować playbooki z pipeline CI/CD i nauczyć się bezpiecznie testować zmiany przed wdrożeniem produkcyjnym.
+
+18. Najważniejsze pojęcia
+
+- **Ansible** — narzędzie do automatyzacji IT.
+- **Inventory** — lista zarządzanych hostów i grup.
+- **Playbook** — plik YAML opisujący automatyzację.
+- **Task** — pojedyncze zadanie.
+- **Module** — komponent realizujący operację.
+- **Role** — uporządkowany zestaw elementów automatyzacji.
+- **Control Node** — komputer uruchamiający Ansible.
+- **Managed Node** — maszyna zarządzana przez Ansible.
+- **SSH** — protokół komunikacji zdalnej często używany przez Ansible.
+- **Idempotencja** — możliwość wielokrotnego wykonania zadania bez niepotrzebnych zmian stanu.
+- **Ansible Vault** — mechanizm szyfrowania poufnych danych.
+- **Handler** — zadanie uruchamiane w reakcji na powiadomienie.
+- **CI/CD** — automatyzacja integracji, testowania i wdrażania oprogramowania.
+- **Infrastructure as Code (IaC)** — zarządzanie infrastrukturą za pomocą plików i kodu.
+
+19. W skrócie
+
+Ansible to narzędzie DevOps służące do automatyzacji konfiguracji serwerów, wdrażania aplikacji i zarządzania infrastrukturą.
+
+Wykorzystuje playbooki YAML, inventory, moduły i połączenia zdalne, najczęściej przez SSH.
+
+Warto poznać Ansible, jeśli chcesz rozwijać się w kierunku DevOps, administracji Linuxem, automatyzacji wdrożeń lub zarządzania środowiskami aplikacji.

@@ -1,0 +1,615 @@
+# Bash — notatka
+
+## 1. Czym jest Bash?
+
+Bash to powłoka systemowa oraz interpreter wiersza poleceń.
+
+Nazwa Bash pochodzi od określenia Bourne Again Shell.
+
+Bash jest rozwinięciem starszej powłoki Bourne Shell, znanej jako `sh`.
+
+Bash jest bardzo często wykorzystywany w systemach Linux i Unix.
+
+Pozwala użytkownikowi komunikować się z systemem operacyjnym za pomocą poleceń.
+
+Bash może być wykorzystywany zarówno do wykonywania pojedynczych poleceń, jak i do tworzenia skryptów automatyzujących pracę.
+
+## 2. Shell
+
+Shell jest programem umożliwiającym użytkownikowi komunikację z systemem operacyjnym.
+
+Użytkownik wpisuje polecenie.
+
+Shell interpretuje to polecenie.
+
+Następnie system wykonuje odpowiednią operację.
+
+Można więc przedstawić podstawowy schemat działania.
+
+Użytkownik → polecenie → Shell → system operacyjny → wynik.
+
+## 3. Terminal
+
+Terminal jest programem, za pomocą którego możemy korzystać z powłoki.
+
+Po uruchomieniu terminala możemy wpisywać polecenia.
+
+Bash interpretuje wpisane polecenia i przekazuje je do wykonania systemowi.
+
+Terminal sam w sobie nie jest Bash.
+
+Terminal jest interfejsem umożliwiającym korzystanie z powłoki.
+
+## 4. Polecenia Bash
+
+Bash umożliwia wykonywanie wielu poleceń systemowych.
+
+Polecenia mogą służyć między innymi do pracy z plikami, katalogami, procesami i programami.
+
+Przykładem jest polecenie `ls`.
+
+Polecenie `ls` wyświetla zawartość bieżącego katalogu.
+
+Innym przykładem jest `pwd`.
+
+Polecenie `pwd` pokazuje aktualny katalog roboczy.
+
+## 5. pwd
+
+Polecenie `pwd` oznacza Print Working Directory.
+
+Służy ono do wyświetlenia aktualnej lokalizacji w systemie plików.
+
+Jeżeli znajdujemy się w katalogu `/home/user/projects`, polecenie `pwd` wyświetli tę ścieżkę.
+
+Jest to przydatne podczas poruszania się po systemie plików.
+
+## 6. ls
+
+Polecenie `ls` służy do wyświetlania zawartości katalogu.
+
+Polecenie `ls -l` wyświetla bardziej szczegółowe informacje o plikach.
+
+Polecenie `ls -a` pokazuje również pliki ukryte.
+
+Możemy połączyć obie opcje i użyć `ls -la`.
+
+Dzięki temu zobaczymy szczegółowe informacje również o plikach ukrytych.
+
+## 7. cd
+
+Polecenie `cd` służy do zmiany aktualnego katalogu.
+
+Możemy na przykład użyć `cd Documents`, aby przejść do katalogu Documents.
+
+Symbol `..` oznacza katalog nadrzędny.
+
+Polecenie `cd ..` pozwala przejść jeden poziom wyżej.
+
+Symbol `~` oznacza katalog domowy użytkownika.
+
+Polecenie `cd ~` pozwala przejść do katalogu domowego.
+
+## 8. mkdir
+
+Polecenie `mkdir` służy do tworzenia katalogów.
+
+Nazwa pochodzi od określenia Make Directory.
+
+Polecenie `mkdir project` utworzy katalog o nazwie project.
+
+Możemy również utworzyć kilka katalogów jednym poleceniem.
+
+## 9. touch
+
+Polecenie `touch` służy między innymi do tworzenia pustych plików.
+
+Polecenie `touch test.txt` utworzy plik `test.txt`, jeżeli taki plik jeszcze nie istnieje.
+
+Jeżeli plik już istnieje, `touch` może zmienić jego znaczniki czasu.
+
+## 10. cp
+
+Polecenie `cp` służy do kopiowania plików i katalogów.
+
+Nazwa pochodzi od określenia Copy.
+
+Polecenie `cp file.txt backup.txt` skopiuje plik `file.txt` do pliku `backup.txt`.
+
+Do kopiowania katalogów wraz z zawartością można wykorzystać odpowiednie opcje, na przykład `cp -r`.
+
+## 11. mv
+
+Polecenie `mv` służy do przenoszenia plików i katalogów.
+
+Nazwa pochodzi od określenia Move.
+
+Polecenie `mv file.txt documents/` przeniesie plik do katalogu documents.
+
+`mv` może również służyć do zmiany nazwy pliku.
+
+Polecenie `mv old.txt new.txt` zmieni nazwę pliku z `old.txt` na `new.txt`.
+
+## 12. rm
+
+Polecenie `rm` służy do usuwania plików.
+
+Polecenie `rm file.txt` usunie wskazany plik.
+
+Do usuwania katalogów wraz z zawartością można wykorzystać opcję `-r`.
+
+Polecenie `rm -r project` usunie katalog project wraz z jego zawartością.
+
+Polecenie `rm` należy stosować ostrożnie, ponieważ usunięte pliki nie są standardowo przenoszone do kosza.
+
+## 13. cat
+
+Polecenie `cat` pozwala wyświetlić zawartość pliku.
+
+Polecenie `cat file.txt` wyświetli zawartość pliku `file.txt`.
+
+`cat` może również służyć do łączenia zawartości kilku plików.
+
+Jest to jedno z podstawowych poleceń wykorzystywanych podczas pracy z plikami tekstowymi.
+
+## 14. echo
+
+Polecenie `echo` służy do wyświetlania tekstu.
+
+Polecenie `echo "Hello World"` wyświetli tekst Hello World.
+
+`echo` jest bardzo często wykorzystywane w skryptach Bash.
+
+Może również służyć do wyświetlania wartości zmiennych.
+
+## 15. Argumenty
+
+Polecenia Bash mogą przyjmować argumenty.
+
+Argument przekazuje dodatkowe informacje do wykonywanego polecenia.
+
+W poleceniu `mkdir project` poleceniem jest `mkdir`, a `project` jest argumentem.
+
+Argument określa w tym przypadku nazwę tworzonego katalogu.
+
+## 16. Opcje
+
+Polecenia mogą posiadać również opcje.
+
+Opcje zmieniają sposób działania polecenia.
+
+W poleceniu `ls -l` opcją jest `-l`.
+
+W poleceniu `ls -la` wykorzystujemy dwie opcje.
+
+Opcje pozwalają dostosować sposób działania polecenia do konkretnej sytuacji.
+
+## 17. Ścieżki
+
+Bash pozwala pracować ze ścieżkami plików i katalogów.
+
+Ścieżka może być absolutna lub względna.
+
+Ścieżka absolutna określa pełną lokalizację elementu w systemie plików.
+
+Przykładem jest `/home/user/project/file.txt`.
+
+Ścieżka względna odnosi się do aktualnego katalogu.
+
+Przykładem jest `project/file.txt`.
+
+## 18. Katalog bieżący i nadrzędny
+
+Symbol `.` oznacza bieżący katalog.
+
+Symbol `..` oznacza katalog nadrzędny.
+
+Możemy wykorzystać te symbole podczas poruszania się po systemie plików.
+
+Polecenie `cd ..` przenosi nas do katalogu nadrzędnego.
+
+Polecenie `./program` oznacza uruchomienie programu znajdującego się w bieżącym katalogu.
+
+## 19. Zmienne
+
+Bash pozwala tworzyć zmienne.
+
+Zmienna przechowuje określoną wartość.
+
+Przykładowo możemy utworzyć zmienną `name` za pomocą `name="Marcin"`.
+
+Wartość zmiennej możemy odczytać za pomocą `$name`.
+
+Polecenie `echo $name` wyświetli wartość przechowywaną w zmiennej.
+
+Podczas przypisywania wartości do zmiennej nie umieszczamy spacji wokół znaku `=`.
+
+## 20. Zmienne środowiskowe
+
+Bash korzysta również ze zmiennych środowiskowych.
+
+Zmienne środowiskowe przechowują informacje dostępne dla procesów uruchamianych w danym środowisku.
+
+Jedną z najważniejszych zmiennych środowiskowych jest `PATH`.
+
+Polecenie `echo $PATH` wyświetla zawartość zmiennej PATH.
+
+PATH zawiera katalogi, w których system szuka programów wykonywalnych.
+
+## 21. export
+
+Polecenie `export` pozwala udostępnić zmienną procesom potomnym.
+
+Możemy na przykład użyć `export APP_ENV="development"`.
+
+Zmienna `APP_ENV` będzie wtedy dostępna również dla programów uruchamianych z tego środowiska.
+
+Jest to szczególnie ważne podczas konfigurowania aplikacji i środowisk programistycznych.
+
+## 22. which
+
+Polecenie `which` pozwala sprawdzić lokalizację programu.
+
+Polecenie `which bash` może zwrócić ścieżkę do programu Bash.
+
+Jest to przydatne podczas sprawdzania, z którego programu korzysta system.
+
+## 23. Procesy
+
+Proces jest uruchomionym programem.
+
+Bash pozwala uruchamiać programy oraz współpracować z procesami systemowymi.
+
+Polecenie `ps` pozwala wyświetlić informacje o procesach.
+
+Polecenie `ps aux` pozwala wyświetlić bardziej szczegółową listę procesów.
+
+## 24. Uruchamianie programów
+
+Bash może służyć do uruchamiania innych programów.
+
+Możemy wpisać nazwę programu, jeżeli znajduje się on w jednym z katalogów określonych przez PATH.
+
+Możemy również podać bezpośrednią ścieżkę do programu.
+
+Przykładem może być `python script.py`.
+
+Bash uruchomi wtedy program Python z wykorzystaniem pliku `script.py`.
+
+## 25. Przekierowanie wyjścia
+
+Bash pozwala przekierowywać wynik polecenia do pliku.
+
+Symbol `>` służy do zapisania wyniku do pliku.
+
+Polecenie `echo "Hello" > output.txt` zapisze tekst do pliku `output.txt`.
+
+Jeżeli plik już istnieje, jego wcześniejsza zawartość zostanie zastąpiona.
+
+## 26. Dopisywanie do pliku
+
+Symbol `>>` służy do dopisywania danych do istniejącego pliku.
+
+Polecenie `echo "Another line" >> output.txt` dopisze tekst na końcu pliku.
+
+Istniejąca zawartość pliku pozostanie zachowana.
+
+Jest to przydatne między innymi podczas tworzenia plików logów.
+
+## 27. Standardowe strumienie
+
+Bash wykorzystuje trzy podstawowe strumienie wejścia i wyjścia.
+
+`stdin` oznacza standardowe wejście.
+
+`stdout` oznacza standardowe wyjście.
+
+`stderr` oznacza standardowe wyjście błędów.
+
+Można więc zapamiętać prosty schemat.
+
+`stdin` → wejście.
+
+`stdout` → normalny wynik programu.
+
+`stderr` → komunikaty błędów.
+
+## 28. Potoki
+
+Bash pozwala łączyć polecenia za pomocą potoków.
+
+Potok jest oznaczany symbolem `|`.
+
+Wynik jednego polecenia zostaje przekazany jako wejście do kolejnego polecenia.
+
+Przykładem jest `ls | grep ".txt"`.
+
+Pierwsze polecenie wyświetla zawartość katalogu.
+
+Drugie polecenie filtruje wynik i wyszukuje elementy zawierające określony tekst.
+
+Potoki są jedną z najważniejszych funkcji Bash.
+
+## 29. grep
+
+Polecenie `grep` służy do wyszukiwania tekstu.
+
+Polecenie `grep "error" log.txt` wyszuka w pliku `log.txt` linie zawierające tekst `error`.
+
+`grep` jest często wykorzystywany podczas analizowania logów.
+
+Może również współpracować z potokami.
+
+## 30. find
+
+Polecenie `find` służy do wyszukiwania plików i katalogów.
+
+Polecenie `find . -name "*.txt"` wyszuka pliki z rozszerzeniem `.txt` w bieżącym katalogu i jego podkatalogach.
+
+`find` pozwala wyszukiwać pliki według różnych kryteriów.
+
+Jest szczególnie przydatne podczas pracy z dużą strukturą katalogów.
+
+## 31. Historia poleceń
+
+Bash przechowuje historię wykonywanych poleceń.
+
+Polecenie `history` pozwala wyświetlić wcześniejsze polecenia.
+
+Możemy również używać klawisza strzałki w górę, aby przywołać poprzednie polecenia.
+
+Historia pozwala szybko ponownie wykonać wcześniej używane polecenia.
+
+## 32. Skróty klawiaturowe
+
+Bash obsługuje wiele skrótów klawiaturowych.
+
+`Ctrl + C` pozwala przerwać działający proces.
+
+`Ctrl + L` pozwala wyczyścić ekran terminala.
+
+`Ctrl + D` może zakończyć wejście lub sesję powłoki.
+
+Strzałka w górę pozwala przywołać poprzednie polecenie.
+
+## 33. Skrypty Bash
+
+Skrypt Bash jest plikiem zawierającym polecenia, które mogą zostać wykonane przez Bash.
+
+Skrypty często posiadają rozszerzenie `.sh`.
+
+Skrypt pozwala połączyć wiele poleceń w jeden automatyczny proces.
+
+Dzięki temu nie musimy za każdym razem wpisywać wszystkich poleceń ręcznie.
+
+## 34. Shebang
+
+Shebang znajduje się zazwyczaj na początku skryptu Bash.
+
+Najczęściej spotykaną formą jest `#!/bin/bash`.
+
+Informuje ona system, że skrypt powinien zostać wykonany przy użyciu interpretera Bash.
+
+Można również spotkać zapis `#!/usr/bin/env bash`.
+
+## 35. Uruchamianie skryptów
+
+Skrypt można uruchomić bezpośrednio za pomocą polecenia `bash script.sh`.
+
+Można również nadać plikowi prawo wykonywania.
+
+Służy do tego polecenie `chmod +x script.sh`.
+
+Po nadaniu uprawnienia skrypt można uruchomić za pomocą `./script.sh`.
+
+## 36. chmod
+
+Polecenie `chmod` służy do zmiany uprawnień plików i katalogów.
+
+Opcja `+x` dodaje prawo wykonywania.
+
+Polecenie `chmod +x script.sh` pozwala traktować skrypt jako plik wykonywalny.
+
+Uprawnienia plików są szczególnie ważne podczas pracy w systemach Linux i Unix.
+
+## 37. Instrukcja if
+
+Bash pozwala wykonywać kod warunkowo.
+
+Do tego celu wykorzystujemy instrukcję `if`.
+
+Warunek jest sprawdzany przed wykonaniem określonego fragmentu kodu.
+
+Jeżeli warunek jest prawdziwy, Bash wykonuje odpowiednie polecenia.
+
+Instrukcje warunkowe pozwalają tworzyć bardziej zaawansowane skrypty.
+
+## 38. Pętle
+
+Bash umożliwia wykonywanie tego samego fragmentu kodu wielokrotnie.
+
+Do tego celu można wykorzystać między innymi pętlę `for`.
+
+Możemy na przykład przejść przez wszystkie pliki `.txt` znajdujące się w katalogu.
+
+Pętle są bardzo przydatne podczas automatyzowania powtarzalnych operacji.
+
+## 39. Funkcje
+
+Bash pozwala definiować własne funkcje.
+
+Funkcja jest fragmentem kodu, który można wielokrotnie wywoływać.
+
+Funkcje pozwalają dzielić większy skrypt na mniejsze i bardziej uporządkowane części.
+
+Dzięki nim kod może być łatwiejszy do czytania i ponownego wykorzystania.
+
+## 40. Parametry skryptu
+
+Skrypt Bash może przyjmować argumenty przekazywane podczas jego uruchamiania.
+
+Jeżeli uruchomimy skrypt jako `./script.sh Marcin`, wartość `Marcin` będzie pierwszym argumentem.
+
+Pierwszy argument jest dostępny za pomocą `$1`.
+
+Drugi argument jest dostępny za pomocą `$2`.
+
+Nazwa uruchomionego skryptu jest dostępna za pomocą `$0`.
+
+Wszystkie argumenty można reprezentować za pomocą `$@`.
+
+## 41. Kod zakończenia
+
+Każde polecenie może zakończyć się określonym kodem.
+
+Kod `0` zazwyczaj oznacza poprawne wykonanie polecenia.
+
+Wartość różna od `0` zazwyczaj oznacza błąd lub inne niepowodzenie.
+
+Kod zakończenia ostatniego polecenia można sprawdzić za pomocą `$?`.
+
+Jest to bardzo ważne podczas tworzenia skryptów automatyzujących zadania.
+
+## 42. Bash w administracji systemem
+
+Bash jest bardzo często wykorzystywany do administracji systemami.
+
+Możemy za jego pomocą tworzyć katalogi, kopiować pliki, zmieniać uprawnienia oraz uruchamiać programy.
+
+Możemy również analizować logi i zarządzać procesami.
+
+Wiele zadań administracyjnych można dzięki Bashowi zautomatyzować.
+
+## 43. Bash w DevOps
+
+Bash jest bardzo ważnym narzędziem w środowisku DevOps.
+
+Może być wykorzystywany podczas budowania aplikacji.
+
+Może służyć do uruchamiania testów.
+
+Może również wykonywać skrypty wdrożeniowe.
+
+Bash często współpracuje z narzędziami takimi jak Git, Docker i Kubernetes.
+
+## 44. Bash i Git
+
+Git jest często używany z poziomu terminala.
+
+Możemy wykonywać polecenia takie jak `git status`, `git add`, `git commit` oraz `git push`.
+
+Bash pozwala łączyć polecenia Git z innymi poleceniami systemowymi.
+
+Możemy dzięki temu tworzyć skrypty automatyzujące pracę z repozytoriami.
+
+## 45. Bash i Docker
+
+Bash może być wykorzystywany do wykonywania poleceń Docker.
+
+Polecenie `docker ps` pozwala wyświetlić działające kontenery.
+
+Polecenie `docker build` może zostać wykorzystane do budowania obrazu.
+
+Polecenie `docker run` służy do uruchamiania kontenera.
+
+Bash pozwala połączyć te operacje w automatyczne skrypty.
+
+## 46. Bash i Kubernetes
+
+Bash jest również często wykorzystywany podczas pracy z Kubernetesem.
+
+Jednym z podstawowych narzędzi jest `kubectl`.
+
+Polecenie `kubectl get pods` pozwala wyświetlić informacje o podach.
+
+Bash może być wykorzystywany do tworzenia skryptów automatyzujących wykonywanie wielu poleceń `kubectl`.
+
+## 47. Bash w Windows
+
+Bash jest kojarzony przede wszystkim z systemami Linux i Unix.
+
+Można jednak korzystać z Bash również w systemie Windows.
+
+Jednym z rozwiązań jest Windows Subsystem for Linux, czyli WSL.
+
+WSL pozwala uruchamiać środowisko Linux bezpośrednio w systemie Windows.
+
+Bash jest również dostępny między innymi poprzez Git Bash.
+
+## 48. Bash i PowerShell
+
+Bash i PowerShell są powłokami systemowymi.
+
+Nie są jednak tym samym narzędziem.
+
+Bash jest szczególnie popularny w środowisku Linux i Unix.
+
+PowerShell został stworzony przez Microsoft i jest mocno związany z ekosystemem Windows.
+
+Obie powłoki pozwalają wykonywać polecenia i tworzyć skrypty.
+
+Ich składnia oraz sposób działania różnią się jednak od siebie.
+
+## 49. Automatyzacja
+
+Jednym z najważniejszych zastosowań Bash jest automatyzacja.
+
+Jeżeli określoną operację wykonujemy wielokrotnie, możemy zapisać ją w skrypcie.
+
+Skrypt może następnie wykonać wszystkie wymagane operacje automatycznie.
+
+Pozwala to ograniczyć liczbę powtarzalnych czynności wykonywanych ręcznie.
+
+## 50. Bezpieczeństwo
+
+Bash pozwala wykonywać operacje bezpośrednio na systemie.
+
+Niektóre polecenia mogą usuwać pliki, zmieniać uprawnienia lub modyfikować konfigurację.
+
+Dlatego należy zachować ostrożność podczas wykonywania nieznanych poleceń.
+
+Szczególną ostrożność należy zachować podczas korzystania z uprawnień administratora.
+
+## 51. Typowy workflow w Bash
+
+Typowa praca z Bash może rozpocząć się od uruchomienia terminala.
+
+Następnie możemy sprawdzić aktualną lokalizację za pomocą `pwd`.
+
+Możemy wyświetlić zawartość katalogu za pomocą `ls`.
+
+Następnie możemy przejść do odpowiedniego katalogu za pomocą `cd`.
+
+Możemy tworzyć, kopiować, przenosić i usuwać pliki za pomocą odpowiednich poleceń.
+
+Jeżeli wykonujemy wiele podobnych operacji, możemy zapisać je w skrypcie Bash.
+
+Skrypt możemy następnie uruchamiać wielokrotnie.
+
+## 52. Jak uczyć się Bash?
+
+Podczas nauki Bash najpierw warto nauczyć się podstawowych poleceń.
+
+Należy dobrze opanować `pwd`, `ls`, `cd`, `mkdir`, `touch`, `cp`, `mv`, `rm`, `cat` oraz `echo`.
+
+Następnie warto nauczyć się pracy ze ścieżkami i zmiennymi.
+
+Kolejnym krokiem powinny być przekierowania i potoki.
+
+Następnie warto poznać `grep`, `find` oraz podstawy pracy z procesami.
+
+Później można przejść do tworzenia skryptów Bash.
+
+Kolejnym etapem powinny być instrukcje warunkowe, pętle, funkcje oraz argumenty skryptów.
+
+Na końcu warto nauczyć się wykorzystywania Bash w Git, Dockerze, Kubernetesie i DevOps.
+
+## 53. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to Bash, Shell, terminal, interpreter, polecenie, argument, opcja, ścieżka, zmienna, zmienna środowiskowa, `PATH`, `stdin`, `stdout`, `stderr`, potok, przekierowanie, skrypt, shebang, `chmod`, funkcja, pętla, instrukcja warunkowa oraz kod zakończenia.
+
+Najważniejsza zasada dotycząca Bash jest taka, że **Bash jest powłoką i interpreterem poleceń pozwalającym komunikować się z systemem oraz automatyzować wykonywanie zadań za pomocą skryptów**.
+
+Bash jest szczególnie ważny podczas pracy z systemami Linux i Unix.
+
+Bash jest również bardzo przydatny w administracji systemami, programowaniu, DevOps, Git, Dockerze oraz Kubernetesie.

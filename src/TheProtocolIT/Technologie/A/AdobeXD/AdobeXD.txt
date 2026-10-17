@@ -1,0 +1,369 @@
+Adobe XD — notatka
+
+1. Czym jest Adobe XD?
+
+Adobe XD to narzędzie firmy Adobe przeznaczone przede wszystkim do projektowania interfejsów użytkownika oraz tworzenia prototypów aplikacji i stron internetowych.
+
+Nazwa XD pochodzi od określenia Experience Design, czyli projektowania doświadczenia użytkownika.
+
+Program był tworzony z myślą o projektantach UX i UI.
+
+Adobe XD pozwala projektować wygląd aplikacji, stron internetowych oraz innych interfejsów cyfrowych.
+
+Możemy w nim przygotować zarówno pojedynczy ekran, jak i cały zestaw ekranów tworzących kompletną aplikację.
+
+Jedną z najważniejszych funkcji Adobe XD jest możliwość tworzenia interaktywnych prototypów.
+
+Prototyp pozwala zobaczyć, jak użytkownik będzie poruszał się po zaprojektowanej aplikacji lub stronie.
+
+2. UX i UI
+
+Aby dobrze zrozumieć Adobe XD, należy znać pojęcia UX oraz UI.
+
+UX oznacza User Experience, czyli doświadczenie użytkownika podczas korzystania z produktu.
+
+UX dotyczy między innymi sposobu działania aplikacji, łatwości wykonywania zadań oraz ogólnej wygody użytkownika.
+
+UI oznacza User Interface, czyli interfejs użytkownika.
+
+UI dotyczy przede wszystkim wyglądu interfejsu oraz sposobu prezentowania jego elementów.
+
+Można więc uprościć to w następujący sposób.
+
+UX koncentruje się na tym, jak produkt działa i jakie doświadczenie zapewnia użytkownikowi.
+
+UI koncentruje się na tym, jak produkt wygląda i jak użytkownik wchodzi z nim w interakcję.
+
+Adobe XD łączy projektowanie UI z możliwością tworzenia prototypów pokazujących działanie interfejsu.
+
+3. Artboard
+
+Jednym z podstawowych elementów Adobe XD jest Artboard.
+
+Artboard jest obszarem roboczym reprezentującym ekran aplikacji, stronę internetową lub inną część projektu.
+
+Możemy utworzyć wiele Artboardów w jednym dokumencie.
+
+Możemy na przykład utworzyć osobny Artboard dla ekranu logowania, osobny dla strony głównej oraz osobny dla profilu użytkownika.
+
+Artboardy mogą mieć różne rozmiary.
+
+Możemy projektować między innymi interfejsy dla komputerów, tabletów i smartfonów.
+
+4. Elementy interfejsu
+
+Adobe XD pozwala tworzyć różnego rodzaju elementy interfejsu.
+
+Możemy tworzyć prostokąty, koła, linie, tekst, ikony oraz inne elementy graficzne.
+
+Elementy te mogą być następnie łączone w bardziej złożone komponenty interfejsu.
+
+Przykładowym elementem może być przycisk.
+
+Innym przykładem może być pole tekstowe, karta produktu, menu nawigacyjne albo okno dialogowe.
+
+5. Narzędzia do rysowania
+
+Adobe XD posiada podstawowe narzędzia do tworzenia kształtów.
+
+Możemy tworzyć między innymi prostokąty, elipsy, linie oraz wielokąty.
+
+Możemy zmieniać ich rozmiar, kolor, obrys oraz inne właściwości.
+
+Kształty mogą być wykorzystywane do budowania elementów interfejsu.
+
+6. Tekst
+
+Adobe XD pozwala dodawać tekst do projektów.
+
+Możemy kontrolować między innymi krój pisma, rozmiar, kolor, grubość oraz wyrównanie tekstu.
+
+Tekst jest jednym z podstawowych elementów projektowania interfejsów.
+
+Może być wykorzystywany między innymi jako nagłówek, opis, etykieta, przycisk lub element nawigacji.
+
+7. Kolory
+
+Adobe XD pozwala definiować kolory wykorzystywane w projekcie.
+
+Możemy ustawiać kolor tła, tekstu, obramowania oraz innych elementów.
+
+W projektach UI bardzo ważne jest zachowanie spójnej palety kolorów.
+
+Dzięki temu wszystkie ekrany aplikacji mogą wyglądać jak części jednego produktu.
+
+8. Assets
+
+W Adobe XD znajduje się panel Assets.
+
+Assets pozwalają przechowywać i ponownie wykorzystywać elementy projektu.
+
+Możemy między innymi przechowywać kolory, style tekstu oraz komponenty.
+
+Dzięki temu możemy zachować spójność projektu.
+
+Jeżeli zmienimy kolor zapisany jako asset, możemy zastosować tę zmianę w wielu miejscach projektu.
+
+9. Components
+
+Jednym z najważniejszych pojęć Adobe XD są Components, czyli komponenty.
+
+Komponent jest elementem interfejsu, który możemy wielokrotnie wykorzystywać w projekcie.
+
+Przykładem komponentu może być przycisk.
+
+Możemy utworzyć jeden komponent przycisku i wykorzystać go na wielu ekranach.
+
+Dzięki temu nie musimy tworzyć każdego przycisku od początku.
+
+Komponenty pomagają również zachować spójność interfejsu.
+
+10. Component States
+
+Komponenty mogą posiadać różne stany.
+
+Stan określa wygląd lub zachowanie komponentu w określonej sytuacji.
+
+Przycisk może na przykład mieć stan normalny, aktywny, nieaktywny lub po najechaniu kursorem.
+
+Dzięki Component States możemy pokazać różne zachowania tego samego elementu.
+
+11. Repeat Grid
+
+Jedną z charakterystycznych funkcji Adobe XD jest Repeat Grid.
+
+Repeat Grid pozwala szybko powielać elementy w regularnym układzie.
+
+Możemy na przykład utworzyć jedną kartę produktu, a następnie powielić ją kilkanaście razy.
+
+Elementy mogą być automatycznie rozmieszczane w wierszach i kolumnach.
+
+Repeat Grid jest bardzo przydatne podczas tworzenia list produktów, galerii, tabel oraz innych powtarzalnych elementów interfejsu.
+
+12. Prototype
+
+Jedną z najważniejszych funkcji Adobe XD jest Prototype.
+
+Prototype pozwala połączyć ze sobą różne Artboardy i stworzyć interaktywną wersję projektu.
+
+Możemy określić, co ma się wydarzyć po kliknięciu określonego elementu.
+
+Możemy na przykład sprawić, że kliknięcie przycisku Login przeniesie użytkownika do ekranu głównego.
+
+Dzięki temu projekt nie jest tylko statycznym obrazem.
+
+Możemy stworzyć model działania całej aplikacji.
+
+13. Interakcje
+
+W trybie Prototype możemy definiować różnego rodzaju interakcje.
+
+Interakcja określa, co ma się wydarzyć po wykonaniu określonej czynności.
+
+Może to być między innymi kliknięcie, przeciągnięcie lub inna akcja użytkownika.
+
+Możemy również określić sposób przejścia pomiędzy ekranami.
+
+Dzięki temu prototyp może bardziej przypominać rzeczywistą aplikację.
+
+14. Triggers
+
+Trigger określa zdarzenie, które rozpoczyna interakcję.
+
+Przykładem triggera może być kliknięcie przycisku.
+
+Innym przykładem może być przeciągnięcie elementu.
+
+Trigger mówi więc, co użytkownik musi zrobić, aby uruchomić określoną akcję.
+
+15. Actions
+
+Action określa, co ma się wydarzyć po uruchomieniu interakcji.
+
+Przykładem może być przejście do innego Artboardu.
+
+Możemy również wykorzystać różnego rodzaju animacje i przejścia.
+
+Połączenie triggera i action pozwala stworzyć interaktywny prototyp.
+
+16. Transitions
+
+Transitions określają sposób przejścia pomiędzy ekranami.
+
+Możemy na przykład zastosować proste przejście pomiędzy dwoma Artboardami.
+
+Możemy również wykorzystać bardziej rozbudowane animacje.
+
+Dzięki temu możemy zaprezentować sposób, w jaki aplikacja będzie zachowywać się podczas korzystania z niej.
+
+17. Auto-Animate
+
+Auto-Animate jest funkcją pozwalającą tworzyć animowane przejścia pomiędzy stanami lub ekranami.
+
+Adobe XD analizuje elementy znajdujące się na obu ekranach i animuje ich zmiany.
+
+Możemy dzięki temu tworzyć płynne animacje interfejsu.
+
+Auto-Animate może być wykorzystywane między innymi do animowania menu, kart, przycisków oraz elementów nawigacyjnych.
+
+18. Overlay
+
+Overlay pozwala wyświetlić jeden element nad innym ekranem bez konieczności przechodzenia do całkowicie nowego Artboardu.
+
+Możemy na przykład wykorzystać Overlay do stworzenia menu rozwijanego.
+
+Możemy również stworzyć za jego pomocą okno dialogowe, popup lub panel boczny.
+
+19. Scrolling
+
+Adobe XD pozwala również projektować ekrany, które są dłuższe niż widoczny obszar urządzenia.
+
+Możemy określić sposób przewijania zawartości.
+
+Jest to szczególnie przydatne podczas projektowania stron internetowych i aplikacji mobilnych.
+
+20. Fixed Elements
+
+Niektóre elementy interfejsu powinny pozostawać na ekranie podczas przewijania.
+
+Adobe XD pozwala określić elementy, które mają być przypięte do określonej pozycji.
+
+Możemy na przykład sprawić, że górne menu pozostanie widoczne podczas przewijania strony.
+
+21. Responsive Resize
+
+Responsive Resize pozwala dostosowywać elementy projektu do zmieniającego się rozmiaru obszaru roboczego.
+
+Funkcja ta jest przydatna podczas projektowania interfejsów dla różnych rozmiarów ekranów.
+
+Możemy dzięki niej łatwiej tworzyć projekty dostosowane do komputerów, tabletów i telefonów.
+
+22. Repeat Grid i systemy komponentów
+
+Repeat Grid pomaga tworzyć wiele podobnych elementów.
+
+Components pozwalają tworzyć wielokrotnie wykorzystywane elementy interfejsu.
+
+Assets pozwalają przechowywać style i elementy wykorzystywane w całym projekcie.
+
+Razem funkcje te pomagają budować spójny system projektowania.
+
+23. Design System
+
+Design System to zestaw zasad i gotowych elementów wykorzystywanych podczas projektowania produktu.
+
+Może zawierać kolory, typografię, przyciski, formularze, ikony oraz inne komponenty.
+
+Celem Design System jest zachowanie spójności całego produktu.
+
+Dzięki niemu różne ekrany aplikacji mogą wyglądać i działać w podobny sposób.
+
+24. Grid i Layout
+
+Adobe XD pozwala korzystać z siatek projektowych.
+
+Siatki pomagają odpowiednio rozmieszczać elementy interfejsu.
+
+Możemy dzięki nim zachować równe odstępy i odpowiednie proporcje.
+
+Siatka jest szczególnie przydatna podczas projektowania stron internetowych.
+
+25. Pluginy
+
+Adobe XD może być rozszerzany za pomocą pluginów.
+
+Plugin jest dodatkowym rozszerzeniem zwiększającym możliwości programu.
+
+Pluginy mogą pomagać między innymi w generowaniu treści, tworzeniu ikon, pracy z kolorami oraz automatyzacji różnych czynności.
+
+Dzięki pluginom można dostosować program do konkretnego sposobu pracy.
+
+26. Udostępnianie projektu
+
+Adobe XD pozwala udostępniać projekty innym osobom.
+
+Projektant może udostępnić prototyp klientowi, programiście lub innym członkom zespołu.
+
+Osoba oglądająca prototyp może zobaczyć zaprojektowane ekrany i przejścia pomiędzy nimi.
+
+Jest to szczególnie przydatne podczas prezentowania projektu przed rozpoczęciem programowania.
+
+27. Design, Prototype i Share
+
+Praca w Adobe XD opiera się między innymi na trzech głównych obszarach.
+
+Design służy do tworzenia wyglądu interfejsu.
+
+Prototype służy do tworzenia interakcji pomiędzy ekranami.
+
+Share służy do udostępniania projektu i prototypu innym osobom.
+
+Można więc zapamiętać prosty schemat.
+
+Design oznacza projektowanie.
+
+Prototype oznacza interakcję.
+
+Share oznacza udostępnianie.
+
+28. Developer Handoff
+
+Adobe XD może być wykorzystywany podczas przekazywania projektu programistom.
+
+Projektant może udostępnić informacje dotyczące wymiarów, kolorów, odstępów, czcionek oraz innych właściwości elementów.
+
+Programista może na tej podstawie odtworzyć zaprojektowany interfejs w kodzie.
+
+Proces przekazywania projektu od projektanta do programisty nazywa się często Developer Handoff.
+
+29. UX Research i testowanie prototypu
+
+Prototyp może być wykorzystywany do testowania pomysłów jeszcze przed rozpoczęciem programowania.
+
+Możemy pokazać użytkownikom prototyp i obserwować, jak wykonują określone zadania.
+
+Pozwala to znaleźć problemy związane z nawigacją lub sposobem działania interfejsu.
+
+Dzięki temu część problemów można wykryć jeszcze przed rozpoczęciem implementacji.
+
+30. Typowy workflow w Adobe XD
+
+Typowa praca może rozpocząć się od określenia wymagań dotyczących aplikacji lub strony internetowej.
+
+Następnie projektant tworzy Artboardy odpowiadające poszczególnym ekranom.
+
+Kolejnym etapem jest zaprojektowanie podstawowego układu elementów.
+
+Następnie dodawane są kolory, typografia, obrazy, ikony oraz komponenty.
+
+Później projektant tworzy interakcje w trybie Prototype.
+
+Następnie prototyp może zostać przetestowany.
+
+Po zakończeniu projekt może zostać udostępniony klientowi lub programistom.
+
+Programista może wykorzystać przygotowane informacje do implementacji interfejsu.
+
+31. Jak uczyć się Adobe XD?
+
+Podczas nauki Adobe XD najpierw warto nauczyć się tworzenia Artboardów i podstawowych elementów interfejsu.
+
+Następnie warto opanować pracę z tekstem, kolorami, obrazami i kształtami.
+
+Kolejnym krokiem powinny być Components, Assets oraz Repeat Grid.
+
+Następnie warto nauczyć się tworzenia prototypów i interakcji.
+
+Później można przejść do Component States, Auto-Animate, Overlay oraz Responsive Resize.
+
+Na końcu warto nauczyć się udostępniania projektów i przekazywania ich programistom.
+
+32. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to UX, UI, Artboard, Assets, Components, Component States, Repeat Grid, Prototype, Trigger, Action, Transition, Auto-Animate, Overlay, Scrolling, Fixed Elements, Responsive Resize, Design System, Grid, Plugin, Share oraz Developer Handoff.
+
+Najważniejsza zasada dotycząca Adobe XD jest taka, że program służy przede wszystkim do **projektowania interfejsów użytkownika oraz tworzenia interaktywnych prototypów stron internetowych i aplikacji**.
+
+Najważniejszą różnicą pomiędzy Adobe XD a Photoshopem jest to, że Photoshop skupia się przede wszystkim na edycji grafiki rastrowej, natomiast Adobe XD na projektowaniu interfejsów i ich zachowania.
+
+Adobe XD pozwala więc przejść od statycznego projektu wyglądu aplikacji do interaktywnego prototypu pokazującego sposób działania interfejsu.

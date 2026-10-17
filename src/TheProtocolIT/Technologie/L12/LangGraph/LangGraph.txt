@@ -1,0 +1,236 @@
+# LangGraph – kompletna notatka
+
+## 1. Czym jest LangGraph?
+
+LangGraph to otwartoźródłowy framework służący do tworzenia zaawansowanych aplikacji wykorzystujących sztuczną inteligencję, w szczególności agentów AI oraz wieloetapowych przepływów pracy opartych na modelach językowych (LLM – Large Language Models).
+
+LangGraph należy do ekosystemu LangChain, ale może być również wykorzystywany samodzielnie, bez korzystania z pozostałych komponentów LangChain.
+
+Jego głównym zadaniem jest umożliwienie programiście precyzyjnego kontrolowania kolejności wykonywania operacji, przepływu danych, stanu aplikacji oraz sposobu podejmowania kolejnych kroków przez agenta AI.
+
+LangGraph wykorzystuje koncepcję grafu, w którym poszczególne operacje są reprezentowane przez węzły, a połączenia między nimi określają możliwe ścieżki wykonania programu.
+
+[Cognee - Open-Source Agent Memory Platform](https://images.openai.com/static-rsc-4/wL63mMHjP9A4nG7QHBfJUeUo29Z8_5vwHzEJEymfNWI92wcSfSDSK3DN1KAjBF_KzENTQBuV3lOp_Bv2N5i2LyVyNRI9nROlb71BDgT896s6U_MgivtiGv0HgtO85XYEOz2GSWE5NlbnVCiV7-B4wYrSpb_REXAGSUVIU9MrWjU?purpose=inline)
+
+[Lesson 2: Baseline Email Assistant. ## Put it all together Conditional edges - Long-Term Agentic Memory with LangGraph - DeepLearning.AI](https://images.openai.com/static-rsc-4/KuUPIlY1IMX8DItKL2hTSlPru9iQfF_9dvvy4DFi2xZE4TYqUSzaFcZYFRtwJjwbUFYY_2gb26qg-tfV-i4Vcm4XLBv5Q7jCvxj-PL4EYpMkO6irKqP8LjalWzF9nCFEBANc98lSGRPj_8rAdkfC77-OdK3BLjXukEO6fL0xo1c?purpose=inline)
+
+[Multi-Agent Orchestration. Simply Explained w/ Code, LangGraph… | by Accelerated AI | Medium](https://images.openai.com/static-rsc-4/2WEwSmT_Rj8YHEi4m8n-YbiypXYb9dDS_PyN0V4igAGaT1nDXVEJw5OWRfoC2Vop13iCzcCcBdFhjV_41kceWqiCDDBzEty52VA-Bkr0-gj0nP4bDbde3lLEE7vITI8Hest8jpa7MhNXQDocditAzqtw9TvHGjz0zpgOBRbTHW4?purpose=inline)
+
+9
+
+## 2. Do czego służy LangGraph?
+
+LangGraph jest wykorzystywany przede wszystkim do tworzenia aplikacji AI, które muszą wykonywać wiele operacji, podejmować decyzje i zachowywać informacje pomiędzy kolejnymi etapami pracy.
+
+Najważniejsze zastosowania to:
+
+- Budowanie autonomicznych agentów AI.
+- Tworzenie chatbotów prowadzących wieloetapowe rozmowy.
+- Projektowanie systemów RAG, które wyszukują informacje i ponawiają wyszukiwanie, gdy wyniki są niewystarczające.
+- Tworzenie asystentów korzystających z wielu narzędzi i zewnętrznych API.
+- Koordynowanie pracy wielu agentów AI.
+- Zapisywanie i odtwarzanie stanu wykonywania procesu.
+- Wprowadzanie punktów kontrolnych, w których człowiek zatwierdza decyzję agenta.
+- Realizowanie złożonych procesów biznesowych z rozgałęzieniami i pętlami.
+
+Przykładowo LangGraph może sterować asystentem rolniczym, który analizuje pytanie użytkownika, sprawdza dokumentację dotyczącą uprawy ryżu, pobiera dane pogodowe, ocenia dostępne informacje i dopiero wtedy przygotowuje rekomendację.
+
+## 3. Jak działa LangGraph?
+
+Podstawą LangGraph jest graf stanu (State Graph), który opisuje sposób wykonywania procesu.
+
+Graf składa się z kilku podstawowych elementów.
+
+State (stan) przechowuje dane wykorzystywane podczas wykonywania procesu, na przykład pytanie użytkownika, historię rozmowy, wyniki wyszukiwania i aktualną decyzję agenta.
+
+Nodes (węzły) reprezentują poszczególne operacje. Węzeł może wywoływać model AI, wyszukiwać dokumenty, analizować dane lub uruchamiać funkcję aplikacji.
+
+Edges (krawędzie) określają przejścia pomiędzy węzłami i wskazują, który etap powinien zostać wykonany jako następny.
+
+Conditional edges (krawędzie warunkowe) umożliwiają wybór kolejnej ścieżki w zależności od wyniku poprzedniej operacji.
+
+Checkpoints (punkty kontrolne) pozwalają zapisywać stan procesu, dzięki czemu można go później wznowić, przeanalizować lub kontynuować rozmowę.
+
+### Przykładowy przepływ pracy
+
+1\. START
+
+Otrzymanie pytania użytkownika
+
+2\. ANALIZA
+
+Model interpretuje zadanie i wybiera działanie
+
+3\. DECYZJA
+
+Czy potrzebne są dodatkowe informacje?
+
+TAK
+
+Wyszukiwanie
+
+API, baza danych lub dokumenty
+
+Ponowna analiza
+
+NIE
+
+Generowanie odpowiedzi
+
+4\. KONIEC
+
+Przekazanie odpowiedzi użytkownikowi
+
+Najważniejszą cechą LangGraph jest możliwość wielokrotnego przechodzenia pomiędzy węzłami.
+
+W przeciwieństwie do prostego łańcucha operacji aplikacja może wrócić do wcześniejszego etapu, wykonać kolejną próbę lub wybrać inną ścieżkę działania.
+
+## 4. LangGraph a LangChain
+
+LangChain i LangGraph są ze sobą powiązane, ale pełnią różne funkcje.
+
+| Cecha                 | LangChain                                | LangGraph                                         |
+| --------------------- | ---------------------------------------- | ------------------------------------------------- |
+| Główne zadanie        | Integracja modeli i komponentów AI       | Sterowanie przepływem wykonywania procesu         |
+| Prompty i modele      | Tak                                      | Może korzystać z komponentów LangChain            |
+| Narzędzia i API       | Tak                                      | Można je uruchamiać w węzłach                     |
+| Pętle i rozgałęzienia | Dostępne zależnie od użytego rozwiązania | Stanowią podstawowy mechanizm grafu               |
+| Zarządzanie stanem    | Zależne od komponentu                    | Jawnie zdefiniowany stan grafu                    |
+| Wznawianie procesu    | Zależne od rozwiązania                   | Obsługiwane przez mechanizm checkpointów          |
+| Wieloetapowi agenci   | Tak                                      | Szczególnie dobrze nadaje się do ich orkiestracji |
+
+LangChain ułatwia budowanie komponentów aplikacji AI, natomiast LangGraph daje większą kontrolę nad tym, jak te komponenty współpracują w czasie wykonywania procesu.
+
+## 5. Najważniejsze pojęcia w LangGraph
+
+StateGraph to podstawowy mechanizm definiowania grafu, jego stanu, węzłów i połączeń.
+
+State to struktura danych współdzielona pomiędzy etapami grafu.
+
+Node to funkcja lub inna jednostka wykonawcza realizująca określone zadanie.
+
+Edge to połączenie definiujące przejście pomiędzy węzłami.
+
+Conditional routing to wybieranie następnego węzła na podstawie warunku lub wyniku operacji.
+
+START to specjalny punkt rozpoczęcia wykonywania grafu.
+
+END to specjalny punkt oznaczający zakończenie danego przebiegu.
+
+Checkpointer zapisuje stan grafu, umożliwiając między innymi wznawianie wykonania i obsługę długotrwałych interakcji.
+
+Thread identyfikuje konkretny przebieg lub kontekst konwersacji, dzięki czemu stan może być odtwarzany pomiędzy kolejnymi wywołaniami.
+
+Human-in-the-loop oznacza możliwość zatrzymania procesu w celu uzyskania decyzji, zatwierdzenia lub dodatkowych informacji od człowieka.
+
+## 6. Przykład zastosowania LangGraph w Pythonie
+
+Poniższy przykład przedstawia prosty graf z dwoma węzłami. Pierwszy zapisuje powitanie w stanie, a drugi przygotowuje odpowiedź.
+
+Najpierw należy zainstalować bibliotekę:
+
+```
+pip install -U langgraph
+```
+
+Kod przykładowy:
+
+```
+from typing import TypedDictfrom langgraph.graph import StateGraph, START, ENDclass AppState(TypedDict):    name: str    message: strdef greet(state: AppState) -> dict:    return {        "message": f"Cześć, {state['name']}!"    }def respond(state: AppState) -> dict:    return {        "message": state["message"] + " Witaj w LangGraph."    }builder = StateGraph(AppState)builder.add_node("greet", greet)builder.add_node("respond", respond)builder.add_edge(START, "greet")builder.add_edge("greet", "respond")builder.add_edge("respond", END)graph = builder.compile()result = graph.invoke({    "name": "Anna",    "message": ""})print(result["message"])
+```
+
+Wynik:
+
+```
+Cześć, Anna! Witaj w LangGraph.
+```
+
+W tym przykładzie:
+
+- `TypedDict` określa strukturę stanu.
+- `add_node()` dodaje operacje do grafu.
+- `add_edge()` definiuje kolejność wykonywania operacji.
+- `compile()` przygotowuje graf do uruchomienia.
+- `invoke()` wykonuje graf dla przekazanego stanu.
+
+Przykład nie korzysta jeszcze z modelu językowego. Pokazuje sam mechanizm sterowania procesem, na którym można następnie zbudować agenta AI.
+
+## 7. Agenci AI w LangGraph
+
+LangGraph jest szczególnie przydatny do budowania agentów, którzy mogą podejmować decyzje podczas wykonywania zadania.
+
+Przykładowy agent może realizować następujący proces:
+
+1. Otrzymuje pytanie użytkownika.
+2. Analizuje, czy potrafi odpowiedzieć bez dodatkowych danych.
+3. Jeśli potrzebuje informacji, wybiera odpowiednie narzędzie.
+4. Uruchamia wyszukiwanie w dokumentach lub wywołuje API.
+5. Ocenia uzyskany wynik.
+6. W razie potrzeby ponawia wyszukiwanie lub wykonuje kolejne operacje.
+7. Przygotowuje odpowiedź i kończy działanie.
+
+LangGraph pozwala kontrolować ten proces, ustalać warunki przejść, ograniczać liczbę prób oraz zatrzymywać działania wymagające zatwierdzenia przez użytkownika.
+
+Nie oznacza to jednak, że każdy agent jest całkowicie autonomiczny. Jego zakres działania zależy od konfiguracji grafu, modelu, narzędzi oraz przyjętych zabezpieczeń.
+
+## 8. Zarządzanie stanem i pamięć
+
+Jedną z najważniejszych możliwości LangGraph jest zarządzanie stanem pomiędzy kolejnymi krokami.
+
+W prostym wywołaniu aplikacja otrzymuje dane wejściowe, wykonuje graf i zwraca wynik.
+
+W bardziej rozbudowanym rozwiązaniu można skonfigurować checkpointer, który zapisuje stan procesu. W połączeniu z identyfikatorem wątku pozwala to kontynuować rozmowę, wznawiać wykonanie po przerwaniu i przechowywać informacje potrzebne w kolejnych etapach.
+
+Ważne jest rozróżnienie pomiędzy stanem grafu a trwałą pamięcią aplikacji.
+
+Sam stan może zawierać historię wiadomości i inne dane, natomiast mechanizm checkpointów umożliwia ich zapis oraz odtworzenie. Długotrwała pamięć współdzielona między różnymi rozmowami wymaga odpowiedniego zaprojektowania i konfiguracji.
+
+## 9. Zalety LangGraph
+
+- Umożliwia budowanie złożonych agentów AI.
+- Zapewnia precyzyjną kontrolę nad przebiegiem wykonywania operacji.
+- Obsługuje rozgałęzienia, pętle i wieloetapowe procesy.
+- Pozwala zarządzać wspólnym stanem pomiędzy węzłami.
+- Ułatwia wznawianie procesów dzięki checkpointom.
+- Umożliwia wprowadzanie zatwierdzeń przez człowieka.
+- Może współpracować z LangChain i różnymi dostawcami modeli.
+- Nadaje się do aplikacji, w których niezawodność i możliwość kontrolowania działań agenta są istotne.
+
+## 10. Wady i ograniczenia LangGraph
+
+- Wymaga zrozumienia grafów, stanu i przepływu sterowania.
+- Może być nadmiernie rozbudowany dla prostych chatbotów.
+- Projektowanie dużych grafów może zwiększać złożoność kodu.
+- Błędne przejścia lub niekontrolowane pętle mogą powodować problemy z wykonaniem.
+- Checkpointy wymagają odpowiedniej konfiguracji, jeśli stan ma być trwale przechowywany.
+- Sam framework nie gwarantuje prawdziwości odpowiedzi modelu ani bezpieczeństwa wykonywanych operacji.
+- Diagnostyka aplikacji wymaga testowania zarówno poszczególnych węzłów, jak i całego procesu.
+
+## 11. LangGraph a inne technologie
+
+| Technologia     | Główne przeznaczenie                                           |
+| --------------- | -------------------------------------------------------------- |
+| LangChain       | Komponenty do budowania aplikacji wykorzystujących LLM         |
+| LangGraph       | Grafy sterujące agentami i procesami AI                        |
+| LangSmith       | Śledzenie, obserwowalność i ewaluacja aplikacji AI             |
+| LlamaIndex      | Łączenie modeli AI z danymi i budowanie systemów RAG           |
+| Semantic Kernel | Integracja AI z aplikacjami i usługami                         |
+| n8n             | Automatyzacja przepływów pracy za pomocą wizualnych integracji |
+| AutoGen         | Budowanie systemów współpracujących agentów AI                 |
+
+LangGraph jest szczególnie dobrym wyborem, gdy proces wymaga jawnej kontroli nad decyzjami, stanem, pętlami i warunkami zakończenia.
+
+## 12. Gdzie można nauczyć się LangGraph?
+
+- Oficjalna strona: [LangChain i ekosystem LangGraph](https://www.langchain.com/).
+- Dokumentacja: [LangGraph – dokumentacja dla Pythona](https://docs.langchain.com/oss/python/langgraph/overview).
+- Dokumentacja JavaScript/TypeScript: [LangGraph – JavaScript i TypeScript](https://docs.langchain.com/oss/javascript/langgraph/overview).
+- Repozytorium GitHub: [LangGraph na GitHubie](https://github.com/langchain-ai/langgraph).
+
+## 13. Podsumowanie
+
+LangGraph to framework służący do kontrolowania przepływu pracy w aplikacjach wykorzystujących sztuczną inteligencję. Pozwala definiować węzły, połączenia, warunki przejścia i wspólny stan, dzięki czemu można tworzyć agentów wykonujących złożone zadania wieloetapowe.
+
+Jego najważniejsze zastosowania to zaawansowane chatboty, agenci AI, systemy RAG, procesy wymagające zatwierdzania przez człowieka oraz aplikacje, które muszą zachowywać stan i wznawiać działanie.
+
+Najważniejsze pojęcia do zapamiętania to StateGraph, State, Nodes, Edges, Conditional Routing, START, END, Checkpointing oraz Human-in-the-loop.

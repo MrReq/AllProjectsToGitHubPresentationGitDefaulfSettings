@@ -1,0 +1,178 @@
+# Django
+
+## 1. Czym jest Django?
+
+Django to wysokopoziomowy framework internetowy napisany w języku Python, przeznaczony do szybkiego tworzenia bezpiecznych i skalowalnych aplikacji internetowych.
+
+Umożliwia budowanie stron internetowych, systemów zarządzania treścią, aplikacji biznesowych, paneli administracyjnych oraz backendów obsługujących API.
+
+Django wykorzystuje architekturę MTV (Model–Template–View), która pomaga oddzielić dane, prezentację i logikę aplikacji.
+
+Framework został zaprojektowany zgodnie z zasadą batteries included, co oznacza, że zapewnia wiele gotowych mechanizmów, takich jak obsługa użytkowników, uwierzytelnianie, dostęp do baz danych i panel administracyjny.
+
+## 2. Do czego służy Django?
+
+- Tworzenie stron internetowych i portali.
+- Budowanie backendów aplikacji mobilnych i webowych.
+- Tworzenie REST API, najczęściej z wykorzystaniem Django REST Framework.
+- Budowanie paneli administracyjnych.
+- Obsługa kont użytkowników, logowania i uprawnień.
+- Zarządzanie danymi przechowywanymi w bazach danych.
+- Tworzenie sklepów internetowych i systemów rezerwacyjnych.
+- Budowanie aplikacji biznesowych i systemów zarządzania treścią.
+
+## 3. Najważniejsze cechy Django
+
+Python
+
+Django wykorzystuje Pythona, dlatego osoby znające ten język mogą stosunkowo szybko rozpocząć pracę z frameworkiem.
+
+ORM (Object-Relational Mapping)
+
+Django ORM umożliwia obsługę baz danych za pomocą obiektów i klas Pythona, ograniczając konieczność ręcznego pisania SQL.
+
+Wbudowany panel administracyjny
+
+Django Admin pozwala zarządzać rekordami bazy danych z poziomu przeglądarki bez konieczności samodzielnego budowania całego panelu.
+
+Bezpieczeństwo
+
+Framework zawiera mechanizmy ochrony przed wieloma typowymi zagrożeniami, takimi jak SQL injection, CSRF i część ataków XSS, jeśli jest prawidłowo skonfigurowany i używany.
+
+Migracje baz danych
+
+System migracji umożliwia kontrolowane wprowadzanie zmian w strukturze bazy danych wraz z rozwojem aplikacji.
+
+Skalowalność
+
+Django można wykorzystywać zarówno w niewielkich projektach, jak i w dużych aplikacjach, odpowiednio dobierając architekturę i infrastrukturę.
+
+## 4. Jak działa Django?
+
+1\. Użytkownik
+
+Przeglądarka wysyła żądanie HTTP
+
+2\. URL Dispatcher
+
+Django dopasowuje adres do odpowiedniego widoku
+
+3\. View i Model
+
+Logika aplikacji i operacje na danych
+
+4\. Baza danych i odpowiedź
+
+Django pobiera dane i zwraca HTML lub JSON
+
+Django może generować gotowe strony HTML przy użyciu szablonów albo zwracać dane w formacie JSON dla aplikacji frontendowych.
+
+## 5. Przykład tworzenia aplikacji Django
+
+Instalacja frameworka:
+
+```
+python -m pip install django
+```
+
+Utworzenie projektu:
+
+```
+django-admin startproject myproject
+cd myproject
+python manage.py runserver
+```
+
+Po uruchomieniu serwera deweloperskiego aplikacja jest zazwyczaj dostępna pod adresem `http://127.0.0.1:8000/`.
+
+Przykład prostego widoku w pliku `views.py`:
+
+```
+from django.http import HttpResponsedef home(request):    return HttpResponse("Witaj w Django!")
+```
+
+Konfiguracja adresu URL w pliku `urls.py` aplikacji:
+
+```
+from django.urls import pathfrom . import viewsurlpatterns = [    path("", views.home, name="home"),]
+```
+
+Po powiązaniu konfiguracji URL aplikacji z głównym plikiem `urls.py` projektu wejście na stronę główną wyświetli komunikat „Witaj w Django!”.
+
+## 6. Najważniejsze elementy Django
+
+- Models – klasy definiujące strukturę danych przechowywanych w bazie.
+- Views – funkcje lub klasy obsługujące żądania i przygotowujące odpowiedzi.
+- Templates – pliki HTML z możliwością dynamicznego wyświetlania danych.
+- URLconf – konfiguracja mapująca adresy URL na widoki.
+- Django ORM – warstwa komunikacji z bazą danych.
+- Django Admin – gotowy panel administracyjny.
+- Middleware – komponenty przetwarzające żądania i odpowiedzi.
+- Migrations – mechanizm zarządzania zmianami schematu bazy danych.
+- Django REST Framework – popularny dodatkowy framework do budowania API REST.
+
+## 7. Django a inne technologie
+
+| Technologia  | Język      | Główne zastosowanie                                    |
+| ------------ | ---------- | ------------------------------------------------------ |
+| Django       | Python     | Framework webowy z rozbudowanymi funkcjami wbudowanymi |
+| Flask        | Python     | Lekki framework webowy                                 |
+| FastAPI      | Python     | Nowoczesne API i aplikacje asynchroniczne              |
+| Spring Boot  | Java       | Backend i aplikacje biznesowe                          |
+| Express.js   | JavaScript | Backend w ekosystemie Node.js                          |
+| ASP.NET Core | C#         | Aplikacje webowe i API w ekosystemie .NET              |
+
+Django oferuje więcej gotowych elementów niż Flask, natomiast FastAPI jest szczególnie popularne przy tworzeniu API i usług korzystających z typowania Pythona.
+
+## 8. Zalety i wady Django
+
+Zalety:
+
+- Szybkie tworzenie kompletnych aplikacji internetowych.
+- Rozbudowany ORM i system migracji.
+- Wbudowana obsługa użytkowników, uprawnień i sesji.
+- Gotowy panel administracyjny.
+- Dobre mechanizmy bezpieczeństwa.
+- Duża społeczność i bogata dokumentacja.
+- Możliwość współpracy z PostgreSQL, MySQL, SQLite i innymi obsługiwanymi bazami danych.
+
+Wady:
+
+- Rozbudowana struktura może być nadmierna w bardzo małych projektach.
+- Wymaga poznania konwencji i sposobu działania frameworka.
+- Zaawansowane API często wymaga dodatkowych bibliotek.
+- Wydajność dużych aplikacji zależy również od optymalizacji zapytań, cache i architektury wdrożenia.
+
+## 9. Django na rynku pracy
+
+Django jest przydatne w tworzeniu backendów, portali internetowych, aplikacji biznesowych i usług opartych na danych.
+
+Stanowiska związane z tą technologią to:
+
+- Python Developer.
+- Django Developer.
+- Backend Developer.
+- Full-Stack Developer.
+- API Developer.
+- Software Engineer.
+
+Warto łączyć Django z SQL, PostgreSQL, REST API, Git, Dockerem, testami automatycznymi oraz podstawami wdrażania aplikacji na serwerach.
+
+## 10. Jak zacząć naukę Django?
+
+Najpierw warto opanować podstawy Pythona, w tym funkcje, klasy, moduły, wyjątki i programowanie obiektowe.
+
+Następnie należy poznać routing, widoki, szablony, modele, ORM oraz migracje.
+
+Kolejnym krokiem może być stworzenie aplikacji do zarządzania zadaniami z rejestracją użytkowników, bazą PostgreSQL i panelem administracyjnym.
+
+Na dalszym etapie warto nauczyć się Django REST Framework, testowania endpointów i wdrażania aplikacji z wykorzystaniem Dockera.
+
+Materiały do nauki:
+
+- [Oficjalna strona Django](https://www.djangoproject.com/)
+- [Oficjalna dokumentacja Django](https://docs.djangoproject.com/en/stable/)
+- [Dokumentacja Django REST Framework](https://www.django-rest-framework.org/)
+- [Django Girls Tutorial – praktyczny kurs](https://tutorial.djangogirls.org/)
+
+Podsumowanie: Django to rozbudowany framework Pythona do tworzenia aplikacji internetowych i backendów. Jest szczególnie przydatny, gdy chcesz szybko zbudować kompletny system z bazą danych, logowaniem, uprawnieniami i panelem administracyjnym.

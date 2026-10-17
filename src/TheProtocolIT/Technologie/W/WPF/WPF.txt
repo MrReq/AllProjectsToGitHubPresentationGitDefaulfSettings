@@ -1,0 +1,1521 @@
+# WPF
+
+## 1. Czym jest WPF?
+
+**WPF (Windows Presentation Foundation)** to framework firmy Microsoft służący do tworzenia **graficznych aplikacji desktopowych dla systemu Windows**.
+
+WPF jest częścią ekosystemu **.NET** i pozwala tworzyć aplikacje z wykorzystaniem:
+
+- C#,
+- XAML,
+- .NET,
+- kontrolek GUI,
+- zdarzeń,
+- bindingu danych,
+- stylów,
+- szablonów,
+- animacji,
+- grafiki 2D/3D.
+
+Najprościej:
+
+> **WPF pozwala tworzyć nowoczesne aplikacje okienkowe Windows w C# z interfejsem definiowanym głównie za pomocą XAML.**
+
+Przykładowa aplikacja:
+
+```text
+┌──────────────────────────────────────┐
+│  Moja aplikacja                _ □ X │
+├──────────────────────────────────────┤
+│                                      │
+│  Imię:     [________________]        │
+│                                      │
+│  Email:    [________________]        │
+│                                      │
+│             [ ZAPISZ ]               │
+│                                      │
+└──────────────────────────────────────┘
+```
+
+## 2. Do czego służy WPF?
+
+WPF jest wykorzystywany do tworzenia aplikacji desktopowych, takich jak:
+
+- systemy biznesowe,
+- aplikacje administracyjne,
+- programy finansowe,
+- systemy magazynowe,
+- aplikacje laboratoryjne,
+- narzędzia developerskie,
+- aplikacje bazodanowe,
+- systemy przemysłowe,
+- aplikacje wykorzystujące grafikę,
+- wewnętrzne systemy firmowe.
+
+Przykład:
+
+```text
+WPF
+ ↓
+Aplikacja desktopowa
+ ↓
+C#
+ ↓
+.NET
+ ↓
+API / Database
+```
+
+## 3. WPF a Windows
+
+WPF jest przede wszystkim technologią przeznaczoną dla **Windows**.
+
+Jeżeli tworzysz:
+
+```text
+Windows Desktop Application
+```
+
+WPF jest jednym z najważniejszych frameworków Microsoftu, które warto znać.
+
+Współczesne WPF może działać na współczesnych wersjach .NET, ale pozostaje technologią zorientowaną na Windows.
+
+## 4. WPF i C#
+
+Najczęściej WPF wykorzystuje:
+
+```text
+C#
++
+XAML
+```
+
+C# odpowiada przede wszystkim za:
+
+- logikę,
+- obsługę zdarzeń,
+- komunikację z API,
+- pracę z bazą,
+- walidację,
+- przetwarzanie danych.
+
+XAML odpowiada przede wszystkim za:
+
+- wygląd,
+- strukturę interfejsu,
+- kontrolki,
+- layout,
+- style,
+- binding.
+
+Schemat:
+
+```text
+             WPF
+              │
+       ┌──────┴──────┐
+       ↓             ↓
+     XAML           C#
+       │             │
+    UI/Layout      Logic
+       │             │
+       └──────┬──────┘
+              ↓
+        Aplikacja GUI
+```
+
+## 5. Czym jest XAML?
+
+**XAML (Extensible Application Markup Language)** to język oparty na XML używany do definiowania interfejsu użytkownika.
+
+Przykład:
+
+```xml id="5ecv0s"
+<Window
+    x:Class="MyApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    Title="Moja aplikacja"
+    Height="300"
+    Width="500">
+
+    <Button
+        Content="Kliknij"
+        Width="120"
+        Height="40"/>
+
+</Window>
+```
+
+Zamiast tworzyć całe GUI programowo w C#, możesz opisać je deklaratywnie w XAML.
+
+## 6. XAML + C#
+
+Typowa aplikacja WPF zawiera:
+
+```text
+MainWindow.xaml
+MainWindow.xaml.cs
+```
+
+### MainWindow.xaml
+
+```xml id="r3k9sh"
+<Window
+    x:Class="MyApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <Button
+        Content="Kliknij"
+        Click="Button_Click"/>
+
+</Window>
+```
+
+### MainWindow.xaml.cs
+
+```csharp id="7m8j3b"
+using System.Windows;
+
+namespace MyApp;
+
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Hello WPF!");
+    }
+}
+```
+
+XAML definiuje przycisk, a C# reaguje na jego kliknięcie.
+
+## 7. Window
+
+Podstawowym elementem aplikacji WPF jest **Window**.
+
+```xml id="3h7j3s"
+<Window
+    Title="My Application"
+    Width="800"
+    Height="600">
+</Window>
+```
+
+Window reprezentuje okno aplikacji.
+
+Może zawierać:
+
+```text
+Window
+ └── Layout
+      ├── Button
+      ├── TextBox
+      ├── Label
+      └── DataGrid
+```
+
+## 8. Controls
+
+WPF posiada wiele gotowych kontrolek.
+
+Najważniejsze:
+
+```text
+Button
+TextBox
+Label
+CheckBox
+RadioButton
+ComboBox
+ListBox
+ListView
+DataGrid
+Image
+Slider
+ProgressBar
+DatePicker
+TreeView
+TabControl
+Menu
+```
+
+Przykład:
+
+```xml id="qbdk7q"
+<StackPanel>
+
+    <TextBox />
+    <ComboBox />
+    <CheckBox Content="Aktywny" />
+    <Button Content="Zapisz" />
+
+</StackPanel>
+```
+
+## 9. Layout
+
+Jedną z najważniejszych koncepcji WPF jest **Layout**.
+
+Layout określa sposób rozmieszczania elementów.
+
+Najważniejsze kontenery:
+
+```text
+Grid
+StackPanel
+DockPanel
+WrapPanel
+Canvas
+UniformGrid
+```
+
+## 10. Grid
+
+**Grid** jest jednym z najczęściej używanych paneli WPF.
+
+Możesz podzielić okno na wiersze i kolumny.
+
+```xml id="cv8zlo"
+<Grid>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="200"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+</Grid>
+```
+
+Schemat:
+
+```text
+┌──────────────┬──────────────────────┐
+│              │                      │
+│   200 px     │         *            │
+│              │                      │
+├──────────────┼──────────────────────┤
+│              │                      │
+│              │                      │
+└──────────────┴──────────────────────┘
+```
+
+## 11. StackPanel
+
+`StackPanel` układa elementy jeden za drugim.
+
+Pionowo:
+
+```xml id="g87x5w"
+<StackPanel>
+
+    <Button Content="Start"/>
+    <Button Content="Ustawienia"/>
+    <Button Content="Wyjście"/>
+
+</StackPanel>
+```
+
+Rezultat:
+
+```text
+[ Start       ]
+
+[ Ustawienia  ]
+
+[ Wyjście     ]
+```
+
+Poziomo:
+
+```xml id="9f0g3w"
+<StackPanel Orientation="Horizontal">
+
+    <Button Content="Start"/>
+    <Button Content="Stop"/>
+    <Button Content="Reset"/>
+
+</StackPanel>
+```
+
+## 12. DockPanel
+
+`DockPanel` pozwala przyczepiać elementy do krawędzi.
+
+```text
+┌─────────────────────────────┐
+│           Header            │
+├───────┬─────────────────────┤
+│       │                     │
+│ Menu  │      Content        │
+│       │                     │
+├───────┴─────────────────────┤
+│           Footer            │
+└─────────────────────────────┘
+```
+
+Jest bardzo przydatny przy budowaniu klasycznego układu aplikacji.
+
+## 13. Canvas
+
+`Canvas` pozwala ustawiać elementy za pomocą współrzędnych.
+
+```xml id="3r7l10"
+<Canvas>
+
+    <Button
+        Content="OK"
+        Canvas.Left="100"
+        Canvas.Top="50"/>
+
+</Canvas>
+```
+
+Canvas jest przydatny w niektórych przypadkach, ale do typowych interfejsów biznesowych częściej wykorzystuje się `Grid` i `StackPanel`.
+
+## 14. Data Binding
+
+Jedną z **najważniejszych funkcji WPF** jest **Data Binding**.
+
+Binding pozwala połączyć kontrolkę z właściwością obiektu.
+
+Przykład:
+
+```xml id="jygv2j"
+<TextBox Text="{Binding UserName}"/>
+```
+
+Jeżeli obiekt posiada:
+
+```csharp id="2fd0qp"
+public string UserName { get; set; }
+```
+
+WPF może powiązać tę właściwość z `TextBox`.
+
+Schemat:
+
+```text
+C# Object
+   │
+   │ Binding
+   ↓
+TextBox
+```
+
+## 15. INotifyPropertyChanged
+
+Jeżeli chcemy, aby UI automatycznie reagowało na zmianę właściwości, często wykorzystujemy:
+
+```csharp id="jz6l0x"
+INotifyPropertyChanged
+```
+
+Przykład:
+
+```csharp id="d7l7sy"
+public class User : INotifyPropertyChanged
+{
+    private string _name;
+
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            _name = value;
+            PropertyChanged?.Invoke(
+                this,
+                new PropertyChangedEventArgs(nameof(Name)));
+        }
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+}
+```
+
+Wtedy:
+
+```text
+Model
+ ↓
+PropertyChanged
+ ↓
+Binding
+ ↓
+UI
+```
+
+## 16. ObservableCollection
+
+WPF często wykorzystuje:
+
+```csharp id="1g2t0n"
+ObservableCollection<T>
+```
+
+do obsługi kolekcji danych.
+
+Przykład:
+
+```csharp id="4e9y3w"
+public ObservableCollection<User> Users { get; }
+    = new();
+```
+
+Możesz połączyć ją z `ListBox`:
+
+```xml id="2h0yl3"
+<ListBox ItemsSource="{Binding Users}"/>
+```
+
+Jeżeli dodasz element:
+
+```csharp id="kj0j89"
+Users.Add(new User());
+```
+
+UI może automatycznie zauważyć zmianę.
+
+## 17. MVVM
+
+Jednym z najważniejszych wzorców projektowych stosowanych w WPF jest:
+
+**MVVM – Model-View-ViewModel**
+
+Schemat:
+
+```text
+Model
+  │
+  ↓
+ViewModel
+  │
+  ↓
+View
+```
+
+### Model
+
+Reprezentuje dane i domenę.
+
+```csharp id="xqwjw7"
+public class User
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+```
+
+### View
+
+Interfejs użytkownika:
+
+```xml id="y1fp8k"
+<TextBox Text="{Binding Name}"/>
+```
+
+### ViewModel
+
+Łączy View z logiką aplikacji:
+
+```csharp id="w4j5u7"
+public class UserViewModel
+{
+    public User User { get; set; }
+
+    public ICommand SaveCommand { get; }
+}
+```
+
+## 18. Dlaczego MVVM jest ważne?
+
+Bez MVVM łatwo stworzyć:
+
+```text
+Window
+ ├── UI
+ ├── Database
+ ├── Business Logic
+ ├── Validation
+ └── API
+```
+
+i otrzymać bardzo trudny w utrzymaniu kod.
+
+MVVM pozwala rozdzielić odpowiedzialności:
+
+```text
+View
+ ↓
+ViewModel
+ ↓
+Service
+ ↓
+Repository
+ ↓
+Database
+```
+
+Dzięki temu aplikacja jest łatwiejsza do:
+
+- testowania,
+- rozwijania,
+- refaktoryzacji,
+- utrzymywania.
+
+## 19. ICommand
+
+W MVVM często zamiast obsługiwać `Click` bezpośrednio w code-behind wykorzystuje się:
+
+```text
+ICommand
+```
+
+Przykład:
+
+```xml id="n2f7vb"
+<Button
+    Content="Zapisz"
+    Command="{Binding SaveCommand}"/>
+```
+
+ViewModel:
+
+```csharp id="7fr7v0"
+public ICommand SaveCommand { get; }
+```
+
+Schemat:
+
+```text
+Button
+   ↓
+Command
+   ↓
+ViewModel
+   ↓
+Service
+```
+
+## 20. Commands
+
+Command pozwala oddzielić:
+
+```text
+Co użytkownik kliknął?
+```
+
+od:
+
+```text
+Co aplikacja ma zrobić?
+```
+
+Przykład:
+
+```text
+[ Zapisz ]
+    ↓
+SaveCommand
+    ↓
+SaveUser()
+    ↓
+UserService
+```
+
+To bardzo dobrze pasuje do MVVM.
+
+## 21. DependencyProperty
+
+WPF posiada specjalny system właściwości:
+
+**DependencyProperty**.
+
+Jest on wykorzystywany przez framework do obsługi między innymi:
+
+- bindingu,
+- stylów,
+- animacji,
+- wartości domyślnych,
+- dziedziczenia właściwości.
+
+Przykładowo kontrolki WPF posiadają właściwości takie jak:
+
+```text
+Width
+Height
+Margin
+Padding
+Background
+Foreground
+FontSize
+```
+
+które są zintegrowane z systemem Dependency Properties.
+
+## 22. Routed Events
+
+WPF posiada również **Routed Events**.
+
+Zwykłe zdarzenie:
+
+```text
+Button
+ ↓
+Click
+```
+
+W WPF zdarzenia mogą przechodzić przez hierarchię elementów.
+
+Przykład:
+
+```text
+Window
+  ↓
+Grid
+  ↓
+StackPanel
+  ↓
+Button
+```
+
+Zdarzenie może być obsługiwane w odpowiednim miejscu tej hierarchii.
+
+Istnieją między innymi:
+
+```text
+Bubbling
+Tunneling
+```
+
+## 23. Styles
+
+WPF pozwala definiować style.
+
+Przykład:
+
+```xml id="v65wvo"
+<Style TargetType="Button">
+
+    <Setter
+        Property="FontSize"
+        Value="18"/>
+
+    <Setter
+        Property="Margin"
+        Value="10"/>
+
+</Style>
+```
+
+Możesz dzięki temu zastosować jeden styl do wielu kontrolek.
+
+## 24. Resources
+
+WPF posiada system **Resources**.
+
+Możesz przechowywać tam:
+
+- kolory,
+- style,
+- pędzle,
+- szablony,
+- wartości konfiguracyjne.
+
+Przykład:
+
+```xml id="s8z2y6"
+<Window.Resources>
+
+    <SolidColorBrush
+        x:Key="PrimaryBrush"
+        Color="Blue"/>
+
+</Window.Resources>
+```
+
+Następnie:
+
+```xml id="p1b4fv"
+<Button
+    Background="{StaticResource PrimaryBrush}"
+    Content="OK"/>
+```
+
+## 25. StaticResource i DynamicResource
+
+W WPF możesz spotkać:
+
+```text
+StaticResource
+DynamicResource
+```
+
+`StaticResource` jest rozwiązywany podczas ładowania zasobu.
+
+```xml id="42sg1e"
+Background="{StaticResource PrimaryBrush}"
+```
+
+`DynamicResource` pozwala na dynamiczne reagowanie na zmianę zasobu.
+
+```xml id="w4d3rt"
+Background="{DynamicResource PrimaryBrush}"
+```
+
+## 26. ControlTemplate
+
+**ControlTemplate** pozwala zmienić sposób, w jaki kontrolka jest renderowana.
+
+Na przykład możesz stworzyć całkowicie własny wygląd przycisku:
+
+```text
+┌──────────────────────┐
+│      ZAPISZ           │
+└──────────────────────┘
+```
+
+bez konieczności tworzenia własnej kontrolki od zera.
+
+## 27. DataTemplate
+
+`DataTemplate` określa, jak dane mają być wyświetlane.
+
+Przykładowo masz:
+
+```csharp id="qg6y9g"
+public class Product
+{
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+```
+
+Możesz określić:
+
+```xml id="9g0j8h"
+<DataTemplate>
+
+    <StackPanel>
+        <TextBlock Text="{Binding Name}"/>
+        <TextBlock Text="{Binding Price}"/>
+    </StackPanel>
+
+</DataTemplate>
+```
+
+Wtedy każdy produkt może być prezentowany według tego szablonu.
+
+## 28. DataGrid
+
+WPF posiada `DataGrid`, bardzo przydatny w aplikacjach biznesowych.
+
+```xml id="r8m1pp"
+<DataGrid
+    ItemsSource="{Binding Users}"
+    AutoGenerateColumns="True"/>
+```
+
+Można w nim wyświetlać:
+
+```text
+┌────┬───────────┬───────────────────┐
+│ ID │ Name      │ Email             │
+├────┼───────────┼───────────────────┤
+│ 1  │ Jan       │ jan@example.com   │
+│ 2  │ Anna      │ anna@example.com  │
+└────┴───────────┴───────────────────┘
+```
+
+## 29. Validation
+
+WPF pozwala implementować walidację danych.
+
+Możesz sprawdzać na przykład:
+
+```text
+Email
+Hasło
+Wiek
+Cena
+Data
+Numer telefonu
+```
+
+Przykładowa architektura:
+
+```text
+TextBox
+   ↓
+Binding
+   ↓
+Validation
+   ↓
+ViewModel
+   ↓
+Service
+```
+
+W aplikacjach biznesowych jest to bardzo ważne.
+
+## 30. WPF i API REST
+
+WPF może być frontendem dla backendu REST API.
+
+Przykładowa architektura:
+
+```text
+┌─────────────────────────┐
+│       WPF Client        │
+│          C#             │
+└────────────┬────────────┘
+             │
+             │ HTTPS / REST
+             ↓
+┌─────────────────────────┐
+│       ASP.NET Core      │
+│        REST API         │
+└────────────┬────────────┘
+             │
+             ↓
+        SQL Server
+```
+
+Możesz więc stworzyć:
+
+```text
+WPF
++
+ASP.NET Core
++
+SQL Server
+```
+
+## 31. WPF i HttpClient
+
+Przykładowe wywołanie API:
+
+```csharp id="0b6w1f"
+using System.Net.Http.Json;
+
+var client = new HttpClient();
+
+var users =
+    await client.GetFromJsonAsync<List<User>>(
+        "https://localhost:5001/api/users");
+```
+
+W praktycznej aplikacji `HttpClient` powinien być odpowiednio zarządzany, a logika komunikacji z API najlepiej wydzielona do osobnego serwisu.
+
+## 32. WPF i Entity Framework Core
+
+WPF może również komunikować się bezpośrednio z bazą danych poprzez EF Core.
+
+Schemat:
+
+```text
+WPF
+ ↓
+Service
+ ↓
+EF Core
+ ↓
+SQL Server
+```
+
+Jednak przy większych systemach często korzystniejsze jest:
+
+```text
+WPF
+ ↓
+REST API
+ ↓
+EF Core
+ ↓
+Database
+```
+
+Dzięki temu frontend nie musi bezpośrednio łączyć się z bazą.
+
+## 33. WPF i SQL Server
+
+W aplikacji biznesowej można zastosować:
+
+```text
+WPF
+ ↓
+Service
+ ↓
+Repository
+ ↓
+SQL Server
+```
+
+Przykładowo aplikacja może posiadać:
+
+```text
+Users
+Products
+Orders
+Invoices
+Customers
+Employees
+```
+
+i wyświetlać je w `DataGrid`.
+
+## 34. WPF i async/await
+
+W aplikacjach desktopowych bardzo ważne jest unikanie blokowania UI.
+
+Zamiast:
+
+```csharp id="0k7yr7"
+var result = LongOperation();
+```
+
+często należy wykorzystać:
+
+```csharp id="m4h9st"
+var result = await LongOperationAsync();
+```
+
+Schemat:
+
+```text
+UI Thread
+   │
+   ├── rozpoczęcie operacji
+   │
+   ↓
+async operation
+   │
+   ↓
+UI pozostaje responsywne
+   │
+   ↓
+wynik
+   ↓
+UI
+```
+
+## 35. UI Thread
+
+WPF posiada główny wątek interfejsu użytkownika.
+
+Nie powinno się wykonywać bardzo ciężkich operacji bezpośrednio na nim.
+
+Źle:
+
+```text
+UI Thread
+   ↓
+Ciężkie zapytanie
+   ↓
+5 sekund
+   ↓
+Aplikacja „zamrożona”
+```
+
+Lepiej:
+
+```text
+UI Thread
+   ↓
+async
+   ↓
+Background operation
+   ↓
+wynik
+   ↓
+UI
+```
+
+## 36. Dispatcher
+
+Jeżeli wykonujesz operację na innym wątku i musisz zmodyfikować UI, możesz potrzebować `Dispatcher`.
+
+Przykład:
+
+```csharp id="5zkn9p"
+Dispatcher.Invoke(() =>
+{
+    StatusText.Text = "Gotowe";
+});
+```
+
+Pozwala to wykonać kod w kontekście wątku UI.
+
+## 37. Animacje
+
+WPF posiada system animacji.
+
+Możesz animować:
+
+- pozycję,
+- rozmiar,
+- przezroczystość,
+- kolor,
+- transformacje.
+
+Przykład:
+
+```xml id="cz2f2d"
+<DoubleAnimation
+    Storyboard.TargetProperty="Opacity"
+    From="0"
+    To="1"
+    Duration="0:0:1"/>
+```
+
+Element może płynnie pojawić się na ekranie.
+
+## 38. Grafika
+
+WPF wykorzystuje mechanizmy renderowania Windows i oferuje wsparcie dla grafiki 2D oraz innych funkcji wizualnych.
+
+Możesz pracować z:
+
+```text
+Image
+Shapes
+Brushes
+Transforms
+Animations
+Drawing
+```
+
+Przykładowe kształty:
+
+```xml id="d5u0n2"
+<Rectangle
+    Width="100"
+    Height="50"/>
+
+<Ellipse
+    Width="80"
+    Height="80"/>
+```
+
+## 39. WPF i MVVM – pełna architektura
+
+Przykładowa aplikacja:
+
+```text
+                 WPF
+                  │
+                  ↓
+                View
+                  │
+               Binding
+                  │
+                  ↓
+             ViewModel
+                  │
+               Command
+                  │
+                  ↓
+               Service
+                  │
+                  ↓
+             Repository
+                  │
+                  ↓
+              Database
+```
+
+To bardzo popularny sposób organizowania większych aplikacji WPF.
+
+## 40. Przykładowa struktura projektu
+
+```text
+MyWpfApp/
+│
+├── Models/
+│   └── User.cs
+│
+├── Views/
+│   └── MainWindow.xaml
+│
+├── ViewModels/
+│   └── MainViewModel.cs
+│
+├── Services/
+│   └── UserService.cs
+│
+├── Repositories/
+│   └── UserRepository.cs
+│
+├── Resources/
+│   └── Styles.xaml
+│
+└── App.xaml
+```
+
+Taka struktura ułatwia utrzymanie projektu.
+
+## 41. App.xaml
+
+`App.xaml` definiuje zasoby i konfigurację aplikacji.
+
+Przykład:
+
+```xml id="w1a0xu"
+<Application
+    x:Class="MyApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <Application.Resources>
+
+        <SolidColorBrush
+            x:Key="PrimaryColor"
+            Color="#2563EB"/>
+
+    </Application.Resources>
+
+</Application>
+```
+
+## 42. WPF vs Windows Forms
+
+Jedno z najważniejszych porównań to:
+
+**WPF vs Windows Forms.**
+
+| WPF | Windows Forms |
+|---|---|
+| Nowsza architektura | Starsza technologia |
+| XAML | Głównie C# Designer |
+| Data Binding | Data Binding |
+| MVVM | Częściej code-behind |
+| Styles | Mniej rozbudowane |
+| Templates | Ograniczone |
+| Animacje | Lepsze wsparcie |
+| Nowoczesne UI | Bardziej klasyczne UI |
+| .NET | .NET |
+
+Windows Forms jest nadal używany, szczególnie w starszych aplikacjach.
+
+WPF jest zazwyczaj lepszym wyborem, gdy tworzysz nową aplikację wymagającą bardziej rozbudowanego UI.
+
+## 43. WPF vs WinUI
+
+**WinUI** jest nowszym podejściem Microsoftu do tworzenia aplikacji Windows.
+
+W uproszczeniu:
+
+```text
+WPF
+ ↓
+dojrzała technologia desktopowa
+```
+
+```text
+WinUI
+ ↓
+nowszy model aplikacji Windows
+```
+
+WPF ma jednak ogromny ekosystem istniejących aplikacji i nadal jest ważną technologią w świecie .NET.
+
+## 44. WPF vs .NET MAUI
+
+**.NET MAUI** jest nastawione na aplikacje wieloplatformowe.
+
+| WPF | .NET MAUI |
+|---|---|
+| Windows | Windows |
+| Windows | Android |
+| Windows | iOS |
+| Windows | macOS |
+| Bardzo dojrzałe | Wieloplatformowe |
+| XAML | XAML |
+| Desktop Windows | Mobile + Desktop |
+
+Jeżeli potrzebujesz wyłącznie Windows:
+
+```text
+WPF
+```
+
+może być bardzo dobrym wyborem.
+
+Jeżeli potrzebujesz:
+
+```text
+Windows + Android + iOS + macOS
+```
+
+warto rozważyć:
+
+```text
+.NET MAUI
+```
+
+## 45. WPF vs Electron
+
+Electron pozwala tworzyć aplikacje desktopowe przy użyciu technologii webowych.
+
+```text
+Electron
+=
+HTML
++
+CSS
++
+JavaScript
+```
+
+WPF:
+
+```text
+WPF
+=
+C#
++
+XAML
++
+.NET
+```
+
+Electron jest dobry dla zespołów webowych, natomiast WPF jest naturalnym wyborem dla ekosystemu .NET/Windows.
+
+## 46. WPF i Dependency Injection
+
+WPF może korzystać z Dependency Injection.
+
+Przykładowa architektura:
+
+```text
+DI Container
+   │
+   ├── UserService
+   ├── ApiClient
+   ├── Repository
+   └── ViewModel
+```
+
+Dzięki temu zależności mogą być wstrzykiwane zamiast tworzone bezpośrednio w klasach.
+
+Jest to szczególnie przydatne w większych projektach.
+
+## 47. WPF i testowanie
+
+MVVM ułatwia testowanie.
+
+Możesz testować:
+
+```text
+ViewModel
+Service
+Business Logic
+Validation
+```
+
+bez konieczności uruchamiania całego interfejsu.
+
+Przykład:
+
+```text
+Unit Test
+   ↓
+ViewModel
+   ↓
+Command
+   ↓
+Service
+```
+
+Dzięki temu część logiki można testować niezależnie od GUI.
+
+## 48. WPF i aplikacje biznesowe
+
+WPF jest szczególnie dobry do aplikacji typu:
+
+```text
+ERP
+CRM
+POS
+Warehouse
+Accounting
+Administration
+Medical systems
+Industrial systems
+Desktop tools
+```
+
+Przykładowy interfejs:
+
+```text
+┌────────────────────────────────────────────┐
+│ Menu                                       │
+├───────────────┬────────────────────────────┤
+│ Dashboard     │                            │
+│ Users         │       DataGrid             │
+│ Products      │                            │
+│ Orders        │       [ data ]             │
+│ Settings      │                            │
+└───────────────┴────────────────────────────┘
+```
+
+## 49. Zalety WPF
+
+Najważniejsze zalety:
+
+- bardzo dobre wsparcie dla C# i .NET,
+- XAML,
+- Data Binding,
+- MVVM,
+- Styles,
+- Templates,
+- Commands,
+- animacje,
+- rozbudowany system kontrolek,
+- dobre możliwości tworzenia aplikacji biznesowych,
+- świetna integracja z Windows,
+- dojrzała technologia.
+
+## 50. Wady WPF
+
+Do wad można zaliczyć:
+
+- aplikacje są przede wszystkim przeznaczone dla Windows,
+- XAML ma własną składnię i wymaga nauki,
+- MVVM może zwiększyć złożoność małych aplikacji,
+- duże projekty mogą mieć skomplikowane bindingi,
+- technologia jest starsza od części nowszych rozwiązań Microsoftu,
+- wymaga znajomości zarówno C#, jak i XAML.
+
+## 51. Najważniejsze pojęcia
+
+| Pojęcie | Znaczenie |
+|---|---|
+| WPF | Windows Presentation Foundation |
+| XAML | Język deklaratywny do budowania UI |
+| Window | Główne okno aplikacji |
+| Control | Kontrolka GUI |
+| Grid | Kontener układu |
+| StackPanel | Układa elementy w wierszu/kolumnie |
+| Data Binding | Powiązanie danych z UI |
+| MVVM | Model-View-ViewModel |
+| View | Interfejs |
+| ViewModel | Logika prezentacji |
+| Model | Dane/domena |
+| ICommand | Mechanizm komend |
+| DependencyProperty | Specjalny system właściwości WPF |
+| Routed Event | Zdarzenie propagowane w drzewie UI |
+| Style | Definicja wyglądu kontrolek |
+| ControlTemplate | Szablon kontrolki |
+| DataTemplate | Sposób prezentacji danych |
+| Resource | Współdzielony zasób |
+| Dispatcher | Mechanizm komunikacji z UI Thread |
+| ObservableCollection | Kolekcja informująca UI o zmianach |
+
+## 52. Schemat WPF do zapamiętania
+
+```text
+                         WPF
+                          │
+              ┌───────────┴───────────┐
+              ↓                       ↓
+             XAML                     C#
+              │                       │
+              ↓                       ↓
+             View                 ViewModel
+              │                       │
+              └─────── Binding ──────┘
+                          │
+                          ↓
+                       Service
+                          │
+                          ↓
+                      Repository
+                          │
+                          ↓
+                       Database
+```
+
+## 53. WPF w jednym przykładzie
+
+Wyobraź sobie aplikację do zarządzania produktami:
+
+```text
+┌─────────────────────────────────────────────┐
+│              PRODUCT MANAGER                │
+├─────────────────────────────────────────────┤
+│ Name:   [________________________]          │
+│ Price:  [________________________]          │
+│                                             │
+│          [ ADD PRODUCT ]                    │
+├─────────────────────────────────────────────┤
+│ ID │ Product       │ Price                  │
+│ 1  │ Coffee        │ 15.00                  │
+│ 2  │ Tea           │ 10.00                  │
+└─────────────────────────────────────────────┘
+```
+
+Architektura:
+
+```text
+XAML
+ ↓
+View
+ ↓
+ViewModel
+ ↓
+ProductService
+ ↓
+ProductRepository
+ ↓
+SQL Server
+```
+
+W ten sposób WPF może być pełnoprawnym frontendem dla systemu biznesowego.
+
+## 54. WPF – najważniejsza rzecz do zapamiętania
+
+WPF to framework Microsoftu do tworzenia **desktopowych aplikacji Windows w ekosystemie .NET**.
+
+Najważniejszy zestaw technologii:
+
+```text
+C#
++
+XAML
++
+Data Binding
++
+MVVM
++
+Commands
++
+Styles
++
+Templates
+```
+
+Najważniejszy model architektury:
+
+```text
+View
+ ↓
+ViewModel
+ ↓
+Service
+ ↓
+Repository
+ ↓
+Database / API
+```
+
+**Najważniejsze zdanie do zapamiętania: WPF to framework .NET do tworzenia bogatych aplikacji desktopowych dla Windows, w którym interfejs buduje się głównie za pomocą XAML, a logikę aplikacji najczęściej organizuje się przy użyciu C# i wzorca MVVM.**

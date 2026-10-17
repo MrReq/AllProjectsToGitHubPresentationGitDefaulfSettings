@@ -1,0 +1,1162 @@
+# Hugging Face
+
+## 1. Czym jest Hugging Face?
+
+**Hugging Face** to platforma oraz ekosystem narzędzi związanych przede wszystkim ze **sztuczną inteligencją, uczeniem maszynowym i generatywną AI**.
+
+Hugging Face jest szczególnie znane z udostępniania **modeli AI, datasetów oraz bibliotek umożliwiających ich trenowanie, uruchamianie i wdrażanie**.
+
+Platforma jest bardzo popularna w obszarze **NLP, LLM, Computer Vision, Audio oraz Multimodal AI**.
+
+Można ją traktować jako swego rodzaju **GitHub dla modeli AI i datasetów**, chociaż Hugging Face oferuje znacznie więcej funkcji niż samo przechowywanie plików.
+
+Oficjalna strona platformy to **huggingface.co**.
+
+## 2. Do czego służy Hugging Face?
+
+Hugging Face pozwala między innymi:
+
+- wyszukiwać gotowe modele AI,
+- pobierać modele i uruchamiać je lokalnie,
+- trenować własne modele,
+- dostrajać istniejące modele,
+- przechowywać modele,
+- przechowywać datasety,
+- testować modele,
+- tworzyć aplikacje AI,
+- udostępniać modele innym użytkownikom,
+- korzystać z modeli przez API,
+- tworzyć dema AI,
+- wdrażać modele w aplikacjach.
+
+Przykładowo możemy znaleźć gotowy model do:
+
+```text
+tłumaczenia
+analizy sentymentu
+generowania tekstu
+klasyfikacji tekstu
+rozpoznawania obrazów
+generowania obrazów
+rozpoznawania mowy
+syntezy mowy
+odpowiadania na pytania
+streszczania tekstu
+```
+
+## 3. Historia Hugging Face
+
+Hugging Face powstało w 2016 roku.
+
+Początkowo firma koncentrowała się na technologii związanej z chatbotami.
+
+Z czasem projekt przekształcił się w szeroki ekosystem open-source dla machine learningu.
+
+Jednym z najważniejszych momentów w rozwoju Hugging Face było stworzenie biblioteki **Transformers**.
+
+Transformers stała się jednym z najpopularniejszych narzędzi do pracy z nowoczesnymi modelami AI.
+
+Obecnie Hugging Face jest jednym z najważniejszych miejsc w ekosystemie open-source AI.
+
+## 4. Hugging Face jako „GitHub dla AI”
+
+Bardzo łatwo zapamiętać ideę Hugging Face poprzez porównanie:
+
+```text
+GitHub
+   ↓
+kod źródłowy + repozytoria
+
+Hugging Face
+   ↓
+modele AI + datasety + aplikacje AI
+```
+
+Na Hugging Face można tworzyć repozytoria.
+
+Repozytorium może zawierać między innymi:
+
+```text
+model
+tokenizer
+configuration
+dataset
+documentation
+code
+examples
+```
+
+Dzięki temu użytkownik może pobrać gotowy model i wykorzystać go we własnej aplikacji.
+
+## 5. Hugging Face Hub
+
+Centralnym elementem ekosystemu jest **Hugging Face Hub**.
+
+Hub jest platformą, na której znajdują się:
+
+```text
+Models
+Datasets
+Spaces
+```
+
+Modele są przechowywane w repozytoriach.
+
+Datasety również mogą mieć własne repozytoria.
+
+Spaces pozwalają publikować interaktywne aplikacje i demonstracje AI.
+
+## 6. Modele AI
+
+Hugging Face zawiera ogromną liczbę modeli.
+
+Możemy znaleźć modele przygotowane przez:
+
+```text
+Meta
+Google
+Microsoft
+Mistral AI
+Qwen
+OpenAI
+Hugging Face
+społeczność open-source
+uniwersytety
+firmy
+indywidualnych twórców
+```
+
+Modele mogą wykonywać bardzo różne zadania.
+
+Przykładowo:
+
+```text
+Text Generation
+Text Classification
+Translation
+Summarization
+Question Answering
+Image Classification
+Object Detection
+Speech Recognition
+Text-to-Speech
+Image Generation
+```
+
+## 7. Transformers
+
+Jedną z najważniejszych bibliotek Hugging Face jest:
+
+```text
+Transformers
+```
+
+Biblioteka pozwala korzystać z ogromnej liczby gotowych modeli.
+
+Obsługuje między innymi modele oparte na architekturze Transformer.
+
+Przykładowy kod:
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("sentiment-analysis")
+
+result = classifier("I love this technology!")
+
+print(result)
+```
+
+Pipeline automatycznie zajmuje się wieloma szczegółami związanymi z przygotowaniem danych i uruchomieniem modelu.
+
+## 8. Pipeline
+
+`pipeline()` jest jednym z najprostszych sposobów korzystania z modeli Hugging Face.
+
+Przykład analizy sentymentu:
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("sentiment-analysis")
+
+print(classifier("This product is fantastic!"))
+```
+
+Możemy również stworzyć pipeline do innych zadań.
+
+Na przykład:
+
+```python
+pipeline("text-classification")
+```
+
+albo:
+
+```python
+pipeline("summarization")
+```
+
+albo:
+
+```python
+pipeline("translation")
+```
+
+albo:
+
+```python
+pipeline("question-answering")
+```
+
+Pipeline pozwala szybko rozpocząć pracę bez konieczności ręcznego implementowania całego procesu inferencji.
+
+## 9. Tokenizer
+
+Modele językowe nie otrzymują bezpośrednio zwykłego tekstu.
+
+Tekst jest najpierw przekształcany w **tokeny**.
+
+Proces wygląda mniej więcej tak:
+
+```text
+Tekst
+   ↓
+Tokenizer
+   ↓
+Tokeny
+   ↓
+ID tokenów
+   ↓
+Model
+   ↓
+Wynik
+```
+
+Przykładowo zdanie:
+
+```text
+Hello, how are you?
+```
+
+może zostać podzielone na tokeny.
+
+Tokenizer następnie zamienia je na identyfikatory liczbowe.
+
+## 10. Przykład Tokenizera
+
+Możemy użyć:
+
+```python
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained(
+    "bert-base-uncased"
+)
+
+tokens = tokenizer(
+    "Hello world!"
+)
+
+print(tokens)
+```
+
+Tokenizer może zwrócić między innymi:
+
+```text
+input_ids
+attention_mask
+```
+
+## 11. AutoTokenizer
+
+`AutoTokenizer` automatycznie dobiera odpowiedni tokenizer do wybranego modelu.
+
+Przykład:
+
+```python
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained(
+    "bert-base-uncased"
+)
+```
+
+Nie musimy ręcznie określać konkretnej klasy tokenizera.
+
+## 12. AutoModel
+
+Podobną koncepcję stosuje się do modeli.
+
+Możemy użyć:
+
+```python
+from transformers import AutoModel
+```
+
+Przykład:
+
+```python
+from transformers import AutoModel
+
+model = AutoModel.from_pretrained(
+    "bert-base-uncased"
+)
+```
+
+`AutoModel` dobiera odpowiednią klasę modelu na podstawie konfiguracji.
+
+## 13. Modele językowe
+
+Hugging Face jest bardzo mocno związane z rozwojem **Large Language Models**, czyli LLM.
+
+LLM mogą wykonywać zadania takie jak:
+
+```text
+generowanie tekstu
+odpowiadanie na pytania
+streszczanie
+tłumaczenie
+analiza tekstu
+generowanie kodu
+klasyfikacja
+ekstrakcja informacji
+```
+
+Przykład przepływu:
+
+```text
+Prompt
+   ↓
+Tokenizer
+   ↓
+LLM
+   ↓
+Tokeny
+   ↓
+Tokenizer
+   ↓
+Tekst
+```
+
+## 14. Popularne rodziny modeli
+
+Na Hugging Face można znaleźć między innymi modele z rodzin:
+
+```text
+BERT
+RoBERTa
+GPT
+Llama
+Mistral
+Mixtral
+Qwen
+Gemma
+T5
+Whisper
+CLIP
+Stable Diffusion
+```
+
+Poszczególne modele mają różne zastosowania.
+
+BERT jest często wykorzystywany do zadań związanych ze zrozumieniem tekstu.
+
+Llama, Mistral, Qwen czy Gemma są wykorzystywane między innymi jako modele generatywne.
+
+Whisper służy do rozpoznawania mowy.
+
+CLIP łączy reprezentacje tekstu i obrazów.
+
+Stable Diffusion jest związany z generowaniem obrazów.
+
+## 15. Hugging Face i LLM
+
+Przy pracy z LLM możemy używać Hugging Face do:
+
+```text
+pobierania modeli
+uruchamiania modeli
+fine-tuningu
+kwantyzacji
+inferencji
+zarządzania tokenizerami
+publikowania modeli
+```
+
+Przykładowo aplikacja może pobrać model z Hub i używać go lokalnie.
+
+## 16. Datasets
+
+Hugging Face posiada również bibliotekę:
+
+```text
+datasets
+```
+
+Służy ona do pracy z datasetami wykorzystywanymi w machine learningu.
+
+Możemy załadować dataset:
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("imdb")
+```
+
+Następnie możemy wykorzystać go do trenowania lub testowania modelu.
+
+## 17. Dataset
+
+Dataset to zbiór danych wykorzystywany przez model AI.
+
+Przykładowo dataset do analizy sentymentu może wyglądać tak:
+
+```text
+tekst                         etykieta
+
+"I love this product"         positive
+"This is terrible"            negative
+"Very good service"           positive
+```
+
+Model może nauczyć się rozpoznawać zależność pomiędzy tekstem a etykietą.
+
+## 18. Fine-tuning
+
+Jedną z ważnych funkcji ekosystemu Hugging Face jest **fine-tuning**.
+
+Fine-tuning polega na dostosowaniu wcześniej wytrenowanego modelu do konkretnego zadania lub domeny.
+
+Przykładowo możemy mieć ogólny model językowy.
+
+Następnie możemy dostroić go do:
+
+```text
+prawa
+medycyny
+finansów
+rolnictwa
+obsługi klienta
+programowania
+dokumentacji technicznej
+```
+
+Schemat:
+
+```text
+Pretrained Model
+       ↓
+   Fine-tuning
+       ↓
+Model specjalizowany
+```
+
+## 19. Pre-trained model
+
+Model pre-trained został wcześniej wytrenowany na dużej ilości danych.
+
+Nie musimy trenować go od zera.
+
+Możemy pobrać gotowy model i wykorzystać go jako punkt wyjścia.
+
+To ogromna zaleta, ponieważ trening dużego modelu od zera może wymagać ogromnej ilości danych, czasu i mocy obliczeniowej.
+
+## 20. Transfer Learning
+
+Fine-tuning jest związany z koncepcją **Transfer Learning**.
+
+Model najpierw uczy się ogólnych zależności.
+
+Następnie jego wiedza jest wykorzystywana do konkretnego zadania.
+
+Przykład:
+
+```text
+duży model językowy
+        ↓
+ogólna wiedza językowa
+        ↓
+fine-tuning
+        ↓
+model do konkretnej domeny
+```
+
+## 21. Hugging Face Spaces
+
+**Spaces** pozwalają publikować interaktywne aplikacje AI.
+
+Można tworzyć aplikacje wykorzystujące między innymi:
+
+```text
+Gradio
+Streamlit
+Docker
+```
+
+Przykładowo możemy stworzyć aplikację:
+
+```text
+Użytkownik
+    ↓
+formularz
+    ↓
+model AI
+    ↓
+wynik
+```
+
+Dzięki Spaces możemy szybko zaprezentować działający prototyp AI.
+
+## 22. Gradio
+
+Gradio jest często wykorzystywane razem z Hugging Face.
+
+Pozwala szybko stworzyć interfejs dla modelu AI.
+
+Przykład:
+
+```python
+import gradio as gr
+
+def predict(text):
+    return text.upper()
+
+demo = gr.Interface(
+    fn=predict,
+    inputs="text",
+    outputs="text"
+)
+
+demo.launch()
+```
+
+Możemy dzięki temu stworzyć prosty interfejs bez budowania całego frontendu od zera.
+
+## 23. Hugging Face Inference
+
+Modele mogą być uruchamiane nie tylko lokalnie.
+
+Hugging Face oferuje również rozwiązania umożliwiające korzystanie z modeli poprzez infrastrukturę chmurową i API.
+
+Schemat może wyglądać tak:
+
+```text
+Twoja aplikacja
+       ↓
+API
+       ↓
+Hugging Face
+       ↓
+Model AI
+       ↓
+Wynik
+```
+
+Dzięki temu aplikacja nie musi posiadać własnego GPU do uruchamiania dużego modelu.
+
+## 24. Model Card
+
+Modele na Hugging Face często posiadają **Model Card**.
+
+Model Card zawiera informacje dotyczące modelu.
+
+Możemy znaleźć tam między innymi:
+
+```text
+opis modelu
+autor
+licencja
+dane treningowe
+zastosowania
+ograniczenia
+wyniki benchmarków
+przykłady użycia
+```
+
+Model Card jest bardzo ważny przy odpowiedzialnym wykorzystywaniu modeli AI.
+
+## 25. Dataset Card
+
+Podobną funkcję pełni **Dataset Card**.
+
+Opisuje ona dataset.
+
+Może zawierać informacje o:
+
+```text
+źródle danych
+strukturze
+licencji
+przeznaczeniu
+ograniczeniach
+potencjalnych biasach
+```
+
+## 26. Licencje modeli
+
+Nie każdy model znajdujący się na Hugging Face może być wykorzystywany w dowolny sposób.
+
+Model może posiadać określoną licencję.
+
+Przed wykorzystaniem modelu komercyjnie należy sprawdzić jego warunki licencyjne.
+
+To szczególnie ważne przy budowaniu produktów AI.
+
+## 27. Quantization
+
+Duże modele mogą zajmować bardzo dużo pamięci.
+
+Jedną z technik ograniczania wymagań pamięciowych jest **kwantyzacja**.
+
+Przykładowo model może być reprezentowany przy użyciu:
+
+```text
+FP32
+FP16
+INT8
+INT4
+```
+
+Mniejsza precyzja może znacząco zmniejszyć wymagania pamięciowe.
+
+Schemat:
+
+```text
+Duży model
+   ↓
+Quantization
+   ↓
+Mniejszy model
+   ↓
+Mniejsze zużycie RAM/VRAM
+```
+
+## 28. Model lokalny
+
+Jedną z największych zalet Hugging Face jest możliwość uruchamiania wielu modeli lokalnie.
+
+Schemat:
+
+```text
+Twój komputer
+     ↓
+Python
+     ↓
+Transformers
+     ↓
+Model
+     ↓
+GPU / CPU
+```
+
+Dzięki temu dane niekoniecznie muszą być wysyłane do zewnętrznego API.
+
+## 29. GPU i CUDA
+
+Duże modele AI często wymagają GPU.
+
+W ekosystemie Hugging Face często wykorzystuje się:
+
+```text
+NVIDIA GPU
+CUDA
+PyTorch
+```
+
+Przykładowo:
+
+```python
+import torch
+
+print(torch.cuda.is_available())
+```
+
+Jeżeli wynik jest:
+
+```text
+True
+```
+
+oznacza to, że PyTorch może wykorzystywać dostępne środowisko CUDA.
+
+## 30. PyTorch
+
+Hugging Face bardzo mocno współpracuje z ekosystemem **PyTorch**.
+
+Model może być uruchamiany za pomocą:
+
+```text
+PyTorch
+```
+
+lub w niektórych przypadkach:
+
+```text
+TensorFlow
+```
+
+Współczesny ekosystem Transformers jest szczególnie mocno związany z PyTorch.
+
+## 31. Hugging Face i Docker
+
+Modele Hugging Face mogą być również uruchamiane w kontenerach Docker.
+
+Schemat:
+
+```text
+Docker
+   ↓
+Python
+   ↓
+Transformers
+   ↓
+Model
+   ↓
+API
+```
+
+Jest to szczególnie przydatne przy wdrażaniu modeli na serwerach.
+
+## 32. Hugging Face i Kubernetes
+
+W większych projektach model może być wdrażany w Kubernetes.
+
+Przykładowa architektura:
+
+```text
+User
+ ↓
+Frontend
+ ↓
+Backend API
+ ↓
+Kubernetes
+ ↓
+AI Service
+ ↓
+Hugging Face Model
+ ↓
+GPU
+```
+
+Kubernetes może zarządzać skalowaniem i uruchamianiem wielu instancji usługi AI.
+
+## 33. Hugging Face w projekcie AI
+
+Przykładowy projekt może wyglądać następująco:
+
+```text
+Frontend
+   ↓
+Spring Boot API
+   ↓
+AI Service
+   ↓
+Python
+   ↓
+Hugging Face Transformers
+   ↓
+Model
+   ↓
+Prediction
+```
+
+Jest to popularny sposób łączenia klasycznego backendu aplikacyjnego z modelem AI.
+
+## 34. Hugging Face i RAG
+
+Modele z Hugging Face mogą być również wykorzystywane w systemach **RAG**, czyli Retrieval-Augmented Generation.
+
+Schemat:
+
+```text
+Dokumenty
+    ↓
+Embedding Model
+    ↓
+Vector Database
+    ↓
+Relevant Documents
+    ↓
+LLM
+    ↓
+Odpowiedź
+```
+
+Hugging Face udostępnia wiele modeli embeddingowych.
+
+Można je wykorzystać między innymi razem z bazami wektorowymi.
+
+Przykładowe bazy:
+
+```text
+Qdrant
+Pinecone
+Weaviate
+Milvus
+Chroma
+```
+
+## 35. Embeddings
+
+Embedding jest reprezentacją danych w postaci wektora liczb.
+
+Przykładowo:
+
+```text
+"Rice cultivation"
+       ↓
+[0.21, -0.13, 0.87, ...]
+```
+
+Podobne znaczeniowo teksty powinny mieć podobne reprezentacje wektorowe.
+
+Embeddings są wykorzystywane między innymi w:
+
+```text
+RAG
+semantic search
+recommendation systems
+classification
+similarity search
+```
+
+## 36. Hugging Face i Computer Vision
+
+Hugging Face nie ogranicza się do tekstu.
+
+Platforma zawiera również modele Computer Vision.
+
+Możemy wykonywać:
+
+```text
+image classification
+object detection
+image segmentation
+image generation
+image-to-text
+```
+
+Przykładowo model może analizować zdjęcie rośliny i próbować określić jej klasę.
+
+## 37. Hugging Face i audio
+
+Hugging Face zawiera również modele związane z dźwiękiem.
+
+Możliwe zadania to:
+
+```text
+speech recognition
+text-to-speech
+audio classification
+speaker recognition
+```
+
+Przykładem znanego modelu jest **Whisper**.
+
+Whisper może przekształcać mowę na tekst.
+
+## 38. Hugging Face i multimodal AI
+
+Nowoczesne modele mogą pracować z wieloma rodzajami danych jednocześnie.
+
+Przykładowo:
+
+```text
+tekst + obraz
+tekst + audio
+tekst + obraz + audio
+```
+
+Takie modele określamy jako **multimodalne**.
+
+Hugging Face zawiera również modele tego typu.
+
+## 39. Hugging Face CLI
+
+Hugging Face udostępnia narzędzia CLI.
+
+Po zainstalowaniu odpowiednich narzędzi możemy wykonywać operacje związane z Hub.
+
+Przykładowo:
+
+```bash
+hf login
+```
+
+służy do logowania do Hugging Face.
+
+Możemy następnie pracować z repozytoriami modeli i datasetów.
+
+## 40. Pobieranie modelu
+
+Przykładowo:
+
+```python
+from transformers import AutoTokenizer, AutoModel
+
+model_name = "bert-base-uncased"
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+model = AutoModel.from_pretrained(model_name)
+```
+
+`from_pretrained()` pobiera odpowiednie pliki modelu i konfiguracji.
+
+Model może być następnie używany lokalnie.
+
+## 41. Typowy workflow Hugging Face
+
+Typowy proces może wyglądać tak:
+
+```text
+1. Znajdź model
+       ↓
+2. Sprawdź Model Card
+       ↓
+3. Sprawdź licencję
+       ↓
+4. Pobierz model
+       ↓
+5. Przygotuj tokenizer
+       ↓
+6. Przygotuj dane
+       ↓
+7. Uruchom model
+       ↓
+8. Oceń wyniki
+       ↓
+9. Ewentualnie wykonaj fine-tuning
+       ↓
+10. Wdróż model
+```
+
+## 42. Hugging Face vs OpenAI
+
+Hugging Face i OpenAI mają częściowo podobny obszar działania, ale ich model biznesowy i ekosystem są inne.
+
+**OpenAI** oferuje przede wszystkim gotowe modele i API.
+
+**Hugging Face** jest bardzo mocno skoncentrowane na ekosystemie open-source i współdzieleniu modeli.
+
+Można jednak korzystać z obu technologii w jednym projekcie.
+
+## 43. Hugging Face vs TensorFlow
+
+TensorFlow jest przede wszystkim frameworkiem machine learningowym.
+
+Hugging Face jest przede wszystkim platformą i ekosystemem modeli oraz narzędzi AI.
+
+Hugging Face może wykorzystywać TensorFlow.
+
+Może również wykorzystywać PyTorch.
+
+## 44. Hugging Face vs PyTorch
+
+PyTorch jest frameworkiem do budowania i trenowania modeli machine learning.
+
+Hugging Face dostarcza gotowe modele, biblioteki i infrastrukturę wokół AI.
+
+W praktyce bardzo często spotykamy:
+
+```text
+Hugging Face
+      +
+PyTorch
+      +
+CUDA
+```
+
+## 45. Hugging Face vs Kaggle
+
+Kaggle jest platformą mocno skoncentrowaną na:
+
+```text
+datasets
+notebookach
+konkursach ML
+eksperymentach
+```
+
+Hugging Face jest mocno skoncentrowane na:
+
+```text
+modelach
+LLM
+datasetach
+AI applications
+model deployment
+open-source AI
+```
+
+Obie platformy mogą być jednak używane razem.
+
+## 46. Zalety Hugging Face
+
+Największą zaletą jest ogromny ekosystem gotowych modeli.
+
+Kolejną zaletą jest dostęp do wielu datasetów.
+
+Dużą zaletą jest możliwość uruchamiania modeli lokalnie.
+
+Ekosystem jest mocno związany z open-source.
+
+Transformers bardzo upraszcza korzystanie z zaawansowanych modeli.
+
+Spaces ułatwia tworzenie demonstracji AI.
+
+Hub ułatwia współdzielenie modeli.
+
+Platforma posiada ogromną społeczność.
+
+## 47. Wady Hugging Face
+
+Nie wszystkie modele są wysokiej jakości.
+
+Nie każdy model nadaje się do zastosowań produkcyjnych.
+
+Niektóre modele wymagają bardzo dużej ilości RAM lub VRAM.
+
+Konfiguracja środowiska AI może być skomplikowana.
+
+Niektóre modele mają ograniczenia licencyjne.
+
+Jakość modelu zależy od danych treningowych.
+
+Modele mogą generować błędne informacje.
+
+W przypadku LLM należy również uwzględniać problem halucynacji.
+
+## 48. Hugging Face w QA i testowaniu
+
+Hugging Face może być również interesujące dla **QA Automation** i testowania aplikacji AI.
+
+Można wykorzystywać modele AI do:
+
+```text
+generowania danych testowych
+klasyfikowania błędów
+analizy logów
+analizy tekstów
+generowania przypadków testowych
+analizy odpowiedzi chatbotów
+automatyzacji dokumentacji
+```
+
+Można również testować same modele AI.
+
+Przykładowe pytania testowe:
+
+```text
+Czy model zwraca poprawną odpowiedź?
+Czy model jest stabilny?
+Czy model halucynuje?
+Czy model przestrzega określonych zasad?
+Czy model działa odpowiednio dla różnych danych?
+```
+
+To prowadzi do obszaru **AI Testing / LLM Testing**.
+
+## 49. Hugging Face w projekcie rolniczym AI
+
+Hugging Face może być bardzo interesujące przy budowaniu produktu AI dla rolnictwa.
+
+Przykładowa architektura mogłaby wyglądać tak:
+
+```text
+                 Użytkownik
+                     ↓
+                 Frontend
+                     ↓
+              Spring Boot API
+                     ↓
+               AI Service
+                     ↓
+          ┌──────────┴──────────┐
+          ↓                     ↓
+     Hugging Face           Qdrant
+       Model               Vector DB
+          ↓                     ↑
+       analiza              embeddings
+          └──────────┬──────────┘
+                     ↓
+                  Wynik
+```
+
+Model może analizować informacje dotyczące upraw.
+
+Można również stworzyć system RAG oparty na dokumentacji rolniczej.
+
+W takim rozwiązaniu Hugging Face może dostarczać model embeddingowy oraz model językowy.
+
+## 50. Najważniejsze pojęcia do zapamiętania
+
+**Hugging Face** – platforma i ekosystem narzędzi dla AI i machine learningu.
+
+**Hugging Face Hub** – platforma przechowywania i udostępniania modeli, datasetów i aplikacji.
+
+**Transformers** – jedna z najważniejszych bibliotek Hugging Face do pracy z modelami Transformer.
+
+**Pipeline** – prosty interfejs umożliwiający wykorzystanie modeli do określonych zadań.
+
+**Tokenizer** – konwertuje tekst na tokeny i identyfikatory używane przez model.
+
+**Model** – wytrenowany algorytm wykonujący określone zadania AI.
+
+**Dataset** – zbiór danych wykorzystywany do trenowania, dostrajania lub testowania modeli.
+
+**Fine-tuning** – dostosowanie istniejącego modelu do konkretnego zadania.
+
+**Pre-trained model** – model wcześniej wytrenowany na dużej ilości danych.
+
+**Model Card** – dokumentacja modelu.
+
+**Dataset Card** – dokumentacja datasetu.
+
+**Spaces** – środowisko publikowania interaktywnych aplikacji AI.
+
+**Gradio** – biblioteka umożliwiająca szybkie tworzenie interfejsów dla modeli AI.
+
+**Embedding** – reprezentacja danych w postaci wektora liczb.
+
+**Quantization** – zmniejszenie precyzji reprezentacji modelu w celu ograniczenia zużycia pamięci i przyspieszenia działania.
+
+**Inference** – proces wykonywania predykcji przez wytrenowany model.
+
+**LLM** – Large Language Model, czyli duży model językowy.
+
+**RAG** – Retrieval-Augmented Generation, czyli generowanie odpowiedzi z wykorzystaniem dodatkowo wyszukanych informacji.
+
+## 51. Co warto znać z Hugging Face jako początkujący AI Developer?
+
+Na początek warto zrozumieć:
+
+```text
+Hugging Face Hub
+       ↓
+Models
+       ↓
+Transformers
+       ↓
+Tokenizer
+       ↓
+Pipeline
+       ↓
+Inference
+       ↓
+Fine-tuning
+       ↓
+Datasets
+       ↓
+Embeddings
+       ↓
+RAG
+```
+
+Najważniejsze jest zrozumienie, że **Hugging Face nie jest jednym programem**, lecz całym ekosystemem narzędzi, modeli, datasetów i usług związanych ze sztuczną inteligencją.
+
+## 52. Hugging Face w jednym zdaniu
+
+**Hugging Face to jeden z najważniejszych ekosystemów współczesnej AI, który umożliwia wyszukiwanie, pobieranie, trenowanie, dostrajanie, uruchamianie, udostępnianie i wdrażanie modeli oraz datasetów związanych między innymi z LLM, NLP, Computer Vision i multimodalną sztuczną inteligencją.**

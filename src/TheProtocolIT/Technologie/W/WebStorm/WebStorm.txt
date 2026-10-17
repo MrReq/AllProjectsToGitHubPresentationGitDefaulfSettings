@@ -1,0 +1,902 @@
+# WebStorm
+
+## 1. Czym jest WebStorm?
+
+**WebStorm** to profesjonalne **IDE (Integrated Development Environment)** firmy **JetBrains**, przeznaczone przede wszystkim do tworzenia aplikacji webowych.
+
+WebStorm koncentruje się przede wszystkim na:
+
+- JavaScript,
+- TypeScript,
+- HTML,
+- CSS,
+- React,
+- Angular,
+- Vue,
+- Node.js,
+- aplikacjach frontendowych,
+- aplikacjach full-stack.
+
+WebStorm jest częścią ekosystemu IDE firmy JetBrains, podobnie jak **IntelliJ IDEA**, **PyCharm**, **CLion** czy **Rider**.
+
+## 2. Do czego służy WebStorm?
+
+WebStorm pozwala tworzyć kompletne aplikacje internetowe.
+
+Możemy w nim pracować nad:
+
+```text
+Frontend
+   ↓
+JavaScript / TypeScript
+   ↓
+React / Vue / Angular
+```
+
+oraz:
+
+```text
+Backend
+   ↓
+Node.js
+   ↓
+Express / NestJS
+```
+
+Można więc wykorzystywać WebStorm zarówno do frontend developmentu, jak i części projektów full-stack.
+
+## 3. WebStorm a JavaScript
+
+Jednym z głównych zastosowań WebStorma jest programowanie w **JavaScript**.
+
+Przykładowo:
+
+```javascript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet("Marcin"));
+```
+
+WebStorm zapewnia między innymi:
+
+- autouzupełnianie,
+- podpowiedzi metod,
+- analizę kodu,
+- wykrywanie błędów,
+- refaktoryzację,
+- debugging.
+
+## 4. TypeScript
+
+WebStorm posiada bardzo dobre wsparcie dla **TypeScript**.
+
+Przykład:
+
+```typescript
+interface User {
+    id: number;
+    name: string;
+}
+
+const user: User = {
+    id: 1,
+    name: "Marcin"
+};
+```
+
+IDE może analizować typy i informować o błędach jeszcze przed uruchomieniem aplikacji.
+
+## 5. HTML
+
+WebStorm posiada rozbudowane wsparcie dla HTML.
+
+Przykład:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Application</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+</body>
+</html>
+```
+
+IDE zapewnia:
+
+- autouzupełnianie,
+- walidację,
+- nawigację,
+- formatowanie,
+- refaktoryzację,
+- Emmet.
+
+## 6. CSS
+
+WebStorm obsługuje również CSS.
+
+Przykład:
+
+```css
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+```
+
+IDE może podpowiadać:
+
+```text
+display
+flex
+grid
+margin
+padding
+color
+font-size
+```
+
+oraz wykrywać problemy w arkuszach stylów.
+
+## 7. React
+
+WebStorm posiada wsparcie dla **React**.
+
+Przykładowy komponent:
+
+```jsx
+function Welcome({ name }) {
+    return <h1>Hello, {name}!</h1>;
+}
+
+export default Welcome;
+```
+
+WebStorm może rozpoznawać:
+
+- komponenty,
+- props,
+- JSX,
+- hooki,
+- importy,
+- zależności pomiędzy komponentami.
+
+## 8. Vue
+
+WebStorm obsługuje również **Vue**.
+
+Przykład:
+
+```vue
+<template>
+    <h1>Hello World</h1>
+</template>
+
+<script>
+export default {
+    name: "App"
+}
+</script>
+```
+
+IDE może analizować strukturę komponentu Vue i zapewniać autouzupełnianie.
+
+## 9. Angular
+
+WebStorm może być również wykorzystywany do pracy z **Angular**.
+
+Przykładowa architektura:
+
+```text
+Angular
+   |
+   +-- Components
+   +-- Services
+   +-- Modules
+   +-- Templates
+   +-- Routing
+```
+
+WebStorm pomaga w nawigowaniu pomiędzy tymi elementami projektu.
+
+## 10. Node.js
+
+WebStorm wspiera również **Node.js**.
+
+Możemy tworzyć backend:
+
+```javascript
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+    res.end("Hello World");
+});
+
+server.listen(3000);
+```
+
+WebStorm pozwala uruchamiać i debugować aplikacje Node.js bezpośrednio z IDE.
+
+## 11. npm
+
+WebStorm dobrze integruje się z **npm**.
+
+Przykładowo możemy mieć:
+
+```json
+{
+    "scripts": {
+        "start": "node server.js",
+        "build": "webpack",
+        "test": "jest"
+    }
+}
+```
+
+WebStorm może rozpoznawać dostępne skrypty i pozwalać uruchamiać je z poziomu IDE.
+
+## 12. package.json
+
+Jednym z najważniejszych plików projektów JavaScript jest:
+
+```text
+package.json
+```
+
+Przykład:
+
+```json
+{
+    "name": "my-app",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "dependencies": {
+        "react": "^19.0.0"
+    }
+}
+```
+
+WebStorm analizuje `package.json` i pomaga zarządzać zależnościami projektu.
+
+## 13. Node Package Manager
+
+WebStorm współpracuje z menedżerami pakietów, takimi jak:
+
+```text
+npm
+Yarn
+pnpm
+```
+
+Możemy instalować biblioteki bezpośrednio z terminala:
+
+```bash
+npm install axios
+```
+
+lub korzystać z integracji dostępnych w IDE.
+
+## 14. Debugger
+
+Jedną z najważniejszych funkcji WebStorma jest **debugger**.
+
+Możemy ustawić:
+
+```text
+Breakpoint
+```
+
+przy określonej linii kodu.
+
+Przykład:
+
+```javascript
+function calculate(a, b) {
+    const result = a + b; // breakpoint
+    return result;
+}
+```
+
+Podczas debugowania możemy obserwować:
+
+- wartości zmiennych,
+- stos wywołań,
+- wykonanie kodu,
+- warunki,
+- przepływ programu.
+
+## 15. Run Configurations
+
+WebStorm posiada **Run/Debug Configurations**.
+
+Pozwalają one określić, jak uruchomić aplikację.
+
+Przykładowo:
+
+```text
+Node.js
+npm
+JavaScript Debug
+Jest
+```
+
+Możemy stworzyć konfigurację:
+
+```text
+Name: Start Server
+Node interpreter: Node.js
+File: server.js
+```
+
+Następnie uruchamiamy aplikację przyciskiem **Run**.
+
+## 16. Terminal
+
+WebStorm posiada wbudowany terminal.
+
+Możemy wykonywać w nim polecenia:
+
+```bash
+npm install
+npm run dev
+npm run build
+git status
+git commit
+```
+
+Nie trzeba więc przełączać się pomiędzy IDE i osobnym terminalem.
+
+## 17. Git
+
+WebStorm posiada bardzo dobre wsparcie dla **Git**.
+
+Możemy wykonywać między innymi:
+
+```text
+commit
+push
+pull
+fetch
+merge
+rebase
+branch
+checkout
+```
+
+IDE pokazuje również zmiany bezpośrednio w edytorze.
+
+Przykładowo:
+
+```text
+Modified
+Added
+Deleted
+Untracked
+```
+
+## 18. GitHub
+
+WebStorm może współpracować również z **GitHubem**.
+
+Możemy:
+
+```text
+Clone Repository
+      ↓
+Develop
+      ↓
+Commit
+      ↓
+Push
+      ↓
+GitHub
+```
+
+Dzięki integracji z GitHubem wiele operacji można wykonywać bezpośrednio z IDE.
+
+## 19. Code Completion
+
+Jedną z podstawowych funkcji WebStorma jest **autouzupełnianie kodu**.
+
+Przykładowo wpisujemy:
+
+```javascript
+user.
+```
+
+WebStorm może zaproponować:
+
+```text
+name
+email
+id
+getName()
+```
+
+Jest to szczególnie przydatne w dużych projektach.
+
+## 20. Inspections
+
+WebStorm analizuje kod podczas pisania.
+
+Może wykrywać:
+
+- błędy składni,
+- niezdefiniowane zmienne,
+- nieużywane importy,
+- potencjalne problemy,
+- błędne typy TypeScript,
+- problemy z kodem.
+
+Przykładowo:
+
+```javascript
+const name = "John";
+
+console.log(username);
+```
+
+IDE może poinformować, że `username` nie zostało zdefiniowane.
+
+## 21. Refactoring
+
+WebStorm posiada rozbudowane możliwości **refaktoryzacji**.
+
+Możemy między innymi:
+
+- zmienić nazwę zmiennej,
+- zmienić nazwę funkcji,
+- przenieść kod,
+- wydzielić funkcję,
+- zmienić strukturę projektu.
+
+Przykładowo:
+
+```text
+rename:
+getUser()
+    ↓
+findUser()
+```
+
+IDE może automatycznie zmienić wszystkie odpowiednie odwołania.
+
+## 22. Navigation
+
+WebStorm pozwala szybko poruszać się po dużym projekcie.
+
+Możemy przejść:
+
+```text
+Function → Definition
+Component → Component File
+Import → Module
+Variable → Declaration
+```
+
+Dzięki temu praca z dużym projektem jest znacznie wygodniejsza.
+
+## 23. Search Everywhere
+
+Jedną z charakterystycznych funkcji IDE JetBrains jest **Search Everywhere**.
+
+Pozwala szybko wyszukiwać:
+
+- pliki,
+- klasy,
+- funkcje,
+- akcje IDE,
+- ustawienia,
+- symbole.
+
+Dzięki temu nie trzeba ręcznie przeszukiwać całego projektu.
+
+## 24. Code Formatting
+
+WebStorm może automatycznie formatować kod.
+
+Przykładowo nieuporządkowany kod:
+
+```javascript
+function add(a,b){return a+b;}
+```
+
+może zostać sformatowany:
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+```
+
+Można również skonfigurować reguły formatowania projektu.
+
+## 25. ESLint
+
+WebStorm integruje się z **ESLint**.
+
+ESLint służy do analizy kodu JavaScript i wykrywania potencjalnych problemów.
+
+Przykładowy workflow:
+
+```text
+JavaScript
+    ↓
+ESLint
+    ↓
+WebStorm
+    ↓
+Warnings / Errors
+```
+
+Dzięki temu można utrzymywać jednolity standard kodowania.
+
+## 26. Prettier
+
+WebStorm może również współpracować z **Prettierem**.
+
+Prettier automatycznie formatuje kod.
+
+Można więc połączyć:
+
+```text
+ESLint
++
+Prettier
++
+WebStorm
+```
+
+i uzyskać spójny styl kodu.
+
+## 27. Testing
+
+WebStorm posiada integrację z popularnymi frameworkami testowymi.
+
+Można pracować między innymi z:
+
+- Jest,
+- Mocha,
+- Vitest,
+- Jasmine,
+- Karma.
+
+Przykład:
+
+```javascript
+test("adds numbers", () => {
+    expect(2 + 3).toBe(5);
+});
+```
+
+Test można uruchomić bezpośrednio z IDE.
+
+## 28. REST Client
+
+WebStorm posiada narzędzia pozwalające wykonywać żądania HTTP bezpośrednio z IDE.
+
+Możemy przygotować przykładowe żądanie:
+
+```http
+GET http://localhost:8080/api/users
+```
+
+lub:
+
+```http
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "name": "John"
+}
+```
+
+Jest to przydatne podczas tworzenia i testowania API.
+
+## 29. Database Tools
+
+WebStorm może również oferować narzędzia do pracy z bazami danych.
+
+Możemy między innymi:
+
+- połączyć się z bazą,
+- wykonywać zapytania SQL,
+- przeglądać tabele,
+- przeglądać dane,
+- pracować z konsolą SQL.
+
+Jest to szczególnie przydatne w projektach full-stack.
+
+## 30. Frameworki frontendowe
+
+WebStorm jest szczególnie przydatny podczas pracy z:
+
+```text
+React
+Angular
+Vue
+Next.js
+Nuxt
+```
+
+oraz innymi technologiami ekosystemu JavaScript/TypeScript.
+
+## 31. Webpack i WebStorm
+
+WebStorm może współpracować również z Webpackiem.
+
+Schemat:
+
+```text
+WebStorm
+    |
+    ↓
+JavaScript / TypeScript
+    |
+    ↓
+Webpack
+    |
+    ↓
+Bundle
+    |
+    ↓
+Browser
+```
+
+Webpack odpowiada za proces budowania, a WebStorm za środowisko programistyczne.
+
+## 32. WebStorm i Vite
+
+Współczesne projekty często wykorzystują **Vite**.
+
+Przykładowo:
+
+```bash
+npm create vite@latest
+```
+
+Następnie projekt można otworzyć w WebStormie.
+
+Schemat:
+
+```text
+WebStorm
+   ↓
+React / Vue / TypeScript
+   ↓
+Vite
+   ↓
+Browser
+```
+
+## 33. WebStorm a Visual Studio Code
+
+WebStorm jest często porównywany z **Visual Studio Code**.
+
+| WebStorm | VS Code |
+|---|---|
+| pełnoprawne IDE | edytor kodu z rozszerzeniami |
+| JetBrains | Microsoft |
+| bardzo rozbudowana analiza kodu | duża możliwość konfiguracji |
+| rozbudowany debugger | debugger |
+| Git | Git |
+| JavaScript/TypeScript | JavaScript/TypeScript |
+| wiele funkcji dostępnych natywnie | wiele funkcji przez extensions |
+| bardziej zintegrowane środowisko | bardziej modułowe środowisko |
+
+WebStorm jest szczególnie interesujący, jeżeli lubisz sposób pracy znany z innych IDE JetBrains.
+
+## 34. WebStorm a IntelliJ IDEA
+
+Ponieważ IntelliJ IDEA również obsługuje JavaScript i TypeScript, warto znać różnicę.
+
+**WebStorm** jest wyspecjalizowany w:
+
+```text
+JavaScript
+TypeScript
+Frontend
+Node.js
+Web Development
+```
+
+**IntelliJ IDEA** jest bardziej ogólnym IDE, szczególnie mocnym w:
+
+```text
+Java
+Kotlin
+Spring
+Maven
+Gradle
+```
+
+IntelliJ IDEA może również obsługiwać technologie webowe, ale WebStorm jest bardziej skoncentrowany na ekosystemie JavaScript.
+
+## 35. WebStorm i Full Stack
+
+WebStorm może być wykorzystywany do tworzenia aplikacji full-stack.
+
+Przykładowo:
+
+```text
+             FULL STACK
+                 |
+       +---------+---------+
+       |                   |
+    Frontend             Backend
+       |                   |
+     React                Node.js
+       |                   |
+       +---------+---------+
+                 |
+             Database
+```
+
+Całość może być rozwijana w jednym IDE.
+
+## 36. WebStorm – przykładowy projekt
+
+Projekt może wyglądać tak:
+
+```text
+my-app/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── hooks/
+│   ├── utils/
+│   └── main.tsx
+│
+├── public/
+│
+├── tests/
+│
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+WebStorm analizuje strukturę projektu i zapewnia nawigację pomiędzy jego elementami.
+
+## 37. Zalety WebStorm
+
+Najważniejsze zalety WebStorm:
+
+- bardzo dobre wsparcie JavaScript,
+- bardzo dobre wsparcie TypeScript,
+- świetne narzędzia refaktoryzacyjne,
+- debugger,
+- Git,
+- GitHub,
+- npm,
+- Node.js,
+- React,
+- Angular,
+- Vue,
+- testy,
+- ESLint,
+- Prettier,
+- REST Client,
+- integracja z bazami danych,
+- bardzo dobra nawigacja po projekcie,
+- inteligentne autouzupełnianie.
+
+## 38. Wady WebStorm
+
+WebStorm również ma pewne wady.
+
+Jest bardziej rozbudowany niż prosty edytor tekstu.
+
+Może zużywać więcej pamięci RAM niż lekkie edytory.
+
+Dla bardzo prostych projektów może być przesadnie rozbudowany.
+
+Warto również pamiętać, że WebStorm jest produktem komercyjnym, choć JetBrains oferuje różne opcje licencjonowania i dostępności zależnie od sytuacji użytkownika.
+
+## 39. Kiedy warto używać WebStorm?
+
+WebStorm warto wybrać, jeśli tworzysz:
+
+**Aplikacje React**
+
+```text
+React + TypeScript + Vite
+```
+
+**Aplikacje Vue**
+
+```text
+Vue + TypeScript
+```
+
+**Aplikacje Angular**
+
+```text
+Angular + TypeScript
+```
+
+**Backend Node.js**
+
+```text
+Node.js + Express/NestJS
+```
+
+**Aplikacje full-stack**
+
+```text
+React
++
+Node.js
++
+PostgreSQL
+```
+
+## 40. WebStorm – najważniejsze pojęcia
+
+**WebStorm** – IDE firmy JetBrains przeznaczone głównie do tworzenia aplikacji webowych.
+
+**JavaScript** – jeden z głównych języków obsługiwanych przez WebStorm.
+
+**TypeScript** – silnie wspierany język będący nadzbiorem JavaScriptu.
+
+**Node.js** – środowisko uruchomieniowe JavaScript po stronie serwera.
+
+**React** – biblioteka do tworzenia interfejsów użytkownika.
+
+**Angular** – framework frontendowy.
+
+**Vue** – framework JavaScript do tworzenia interfejsów.
+
+**npm** – menedżer pakietów JavaScript.
+
+**Debugger** – narzędzie do analizowania działania programu.
+
+**Refactoring** – zmiana struktury kodu bez zmiany jego zamierzonego działania.
+
+**ESLint** – narzędzie do analizy kodu JavaScript/TypeScript.
+
+**Prettier** – narzędzie do automatycznego formatowania kodu.
+
+**Git** – system kontroli wersji.
+
+## 41. WebStorm – najważniejszy schemat
+
+```text
+                         WEBSTORM
+                            |
+        +-------------------+-------------------+
+        |                   |                   |
+   JavaScript          TypeScript            HTML/CSS
+        |                   |                   |
+        +-------------------+-------------------+
+                            |
+              +-------------+-------------+
+              |             |             |
+            React         Vue         Angular
+              |             |             |
+              +-------------+-------------+
+                            |
+                         Node.js
+                            |
+                            ↓
+                         Backend
+                            |
+                            ↓
+                         Database
+```
+
+Najważniejsze zdanie do zapamiętania:
+
+**WebStorm to profesjonalne IDE firmy JetBrains przeznaczone przede wszystkim do tworzenia aplikacji webowych z wykorzystaniem JavaScript, TypeScript, HTML, CSS, React, Angular, Vue i Node.js, oferujące m.in. inteligentne uzupełnianie kodu, refaktoryzację, debugging, testowanie, Git oraz integrację z narzędziami ekosystemu JavaScript.**

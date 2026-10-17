@@ -1,0 +1,145 @@
+# Google Cloud Platform (GCP)
+
+## 1. Czym jest Google Cloud Platform?
+
+Google Cloud Platform, obecnie najczęściej określana jako Google Cloud, to platforma chmurowa firmy Google, która umożliwia tworzenie, uruchamianie i rozwijanie aplikacji oraz przechowywanie i przetwarzanie danych za pomocą infrastruktury dostępnej przez internet.
+
+Google Cloud udostępnia zasoby obliczeniowe, bazy danych, systemy przechowywania plików, narzędzia analityczne, usługi sieciowe i rozwiązania oparte na sztucznej inteligencji.
+
+Dzięki tej platformie przedsiębiorstwa mogą uruchamiać swoje systemy bez konieczności samodzielnego budowania i utrzymywania całej infrastruktury serwerowej.
+
+## 2. Do czego służy Google Cloud?
+
+Google Cloud służy do hostowania aplikacji internetowych, backendów i interfejsów API.
+
+Umożliwia przechowywanie danych, zarządzanie bazami danych oraz przetwarzanie dużych zbiorów informacji.
+
+Pozwala uruchamiać kontenery, zarządzać mikrousługami i automatycznie skalować zasoby w zależności od obciążenia.
+
+Jest wykorzystywana również do trenowania i uruchamiania modeli sztucznej inteligencji oraz budowania systemów analitycznych.
+
+## 3. Najważniejsze usługi Google Cloud
+
+[Logos Download | Google Compute Engine](https://images.openai.com/static-rsc-4/PlM7dT2AppQqnsJPDcpOWDUsI3z3HLZpvk3zC968wwKyDV5KlAbesHWnwG7Yl5T9sHnjtlIIQRgW4SQ0w1mQAEi0jkPv4-u-8dfIj_rjut878D87e1kGqwgwni7mAON9VHqUU3mOPYzZamb3sxGDR3ujxVqtt3jq2XKLyy8IGN0?purpose=inline)
+
+Compute Engine
+
+Usługa umożliwiająca tworzenie i uruchamianie maszyn wirtualnych w chmurze, na których można instalować systemy operacyjne i uruchamiać własne aplikacje.
+
+[Google Cloud Run Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/4p3Nno3n-dxPhIuvWN9VgdAs5mRpDYjlxMLBUh-jH3VvXQKc44dIVwILwRj6nWXdlgyydfWOsyXknWb_If1NzWmqoCPE21dxIsFelO83eBzuMSXrl3nqWKKyKqTCML-f6uBrAeAOCOnMOx5_CHjSK8L_ZHyHOT8DO8xU7Rq7r8s?purpose=inline)
+
+Cloud Run
+
+Usługa pozwalająca uruchamiać aplikacje kontenerowe bez konieczności samodzielnego zarządzania serwerami, z możliwością automatycznego skalowania.
+
+[Getting Started with Google Kubernetes Engine](https://images.openai.com/static-rsc-4/VKYTJrhVqalLYxd843Gf6nWlqI9cXo9gNPWCFgk-crhXB9IoVkeMh80CXE3NfR90y44A2KyRILl9XyY_W7mXVUd3e7xVAK-mS1oWyEuhRGroPtalOs6tHLeMq6coNm-AVyI0m5fNf2Zh5fMQldFyyGvtvQ53OeP0Cud8mcaTCwQ?purpose=inline)
+
+Google Kubernetes Engine (GKE)
+
+Zarządzana usługa Kubernetes przeznaczona do uruchamiania, skalowania i zarządzania aplikacjami kontenerowymi.
+
+[What is  Google Storage Bucket? Docs, Demo and How to Deploy   | Shakudo](https://images.openai.com/static-rsc-4/ixpt4sQ78F1KBmaVlgN9mHGPJ_STDhY7RqIkKphCgILMOel_1e3W0bi85BotaSayFYYsu7ZG2vmhxC6McAQZ4kiMWOykp4v8Zg9uiREhAyEu9pEM9ipx0QPRlUA_v18-sQA6OdrwNWPHu8yfWLaXSVa1P9COIDgcFi9XtGqte58?purpose=inline)
+
+Cloud Storage
+
+Usługa przechowywania plików i obiektów, takich jak dokumenty, zdjęcia, kopie zapasowe i dane aplikacji.
+
+[Cloud SQL - Database of Databases](https://images.openai.com/static-rsc-4/-6leOO1DDcDUetCh7uQf7zhwDrDSx5mTUXh2OZ33DaqxtWWnh1R365J2iz8m09m8zZ7Uc-XZj_cgSfc9gGOlhdMcIq3tEnc6jr2a0j0oO4FzCNe0RN9_IwHN6pIlRuSyMR3x0UL2JLUy7tAYgO73NAgi_3K7aPYafXTF-aaeOVg?purpose=inline)
+
+Cloud SQL
+
+Zarządzana usługa relacyjnych baz danych obsługująca między innymi PostgreSQL, MySQL i SQL Server.
+
+[Google Cloud Platform: Mastering BigQuery Costs](https://images.openai.com/static-rsc-4/4r6n6Mor_xAmNfI6wgMo19HDA0D-m71T7VYK2pZ_c-rIdiYIL4yPsSCfJfsaywR6yrLSm6wMjgcPzy_BpriWLJ5MrrGF4G2sgiY8_nOdp9zPuvAAH7ZjiANcnl0YiLB4M1Li27XcK3ZISjYjBWIl0d2eULQfhY6pMyY77tXvAgA?purpose=inline)
+
+BigQuery
+
+Platforma analityczna umożliwiająca analizowanie dużych zbiorów danych za pomocą zapytań SQL i innych narzędzi analitycznych.
+
+## 4. Google Cloud a sztuczna inteligencja
+
+Google Cloud oferuje usługi wspierające tworzenie aplikacji wykorzystujących sztuczną inteligencję.
+
+Vertex AI umożliwia pracę z modelami AI, ich ocenianie, wdrażanie oraz budowanie aplikacji opartych na uczeniu maszynowym.
+
+Platforma udostępnia również rozwiązania do przetwarzania języka naturalnego, analizy obrazów i danych oraz integracji modeli generatywnej sztucznej inteligencji.
+
+Dzięki tym usługom programiści mogą budować chatboty, systemy rekomendacyjne i narzędzia analizujące dokumenty.
+
+## 5. Jak działa Google Cloud?
+
+Programista tworzy projekt w konsoli Google Cloud i wybiera potrzebne usługi.
+
+Następnie konfiguruje zasoby, takie jak maszyny wirtualne, bazy danych, kontenery lub przestrzeń do przechowywania plików.
+
+Aplikacja zostaje wdrożona w chmurze i udostępniona użytkownikom przez internet lub sieć prywatną.
+
+Google Cloud zarządza infrastrukturą fizyczną, a zakres obowiązków związanych z konfiguracją, aktualizacjami i bezpieczeństwem zależy od wybranej usługi.
+
+Koszty są uzależnione od wykorzystywanych zasobów, konfiguracji i obowiązującego cennika.
+
+## 6. Przykład zastosowania w projekcie Java i Spring Boot
+
+Załóżmy, że tworzysz aplikację AgriMind AI, której backend został napisany w Spring Boot, a dane przechowywane są w PostgreSQL.
+
+Możesz wykorzystać Google Cloud do wdrożenia backendu na Cloud Run, przechowywania danych w Cloud SQL oraz zapisywania plików użytkowników w Cloud Storage.
+
+Jeśli aplikacja korzysta z modeli sztucznej inteligencji, możesz dodatkowo wykorzystać usługi Vertex AI.
+
+Taka architektura pozwala udostępniać aplikację użytkownikom bez konieczności samodzielnego utrzymywania całego środowiska serwerowego.
+
+## 7. Google Cloud a AWS i Microsoft Azure
+
+Google Cloud konkuruje z dwiema innymi dużymi platformami chmurowymi: Amazon Web Services (AWS) oraz Microsoft Azure.
+
+Wszystkie trzy platformy oferują maszyny wirtualne, bazy danych, usługi kontenerowe, przechowywanie danych, narzędzia analityczne i rozwiązania AI.
+
+Google Cloud udostępnia między innymi BigQuery i Google Kubernetes Engine.
+
+AWS oferuje między innymi Amazon EC2, Amazon S3 i Amazon RDS.
+
+Microsoft Azure udostępnia między innymi Azure Virtual Machines, Azure Blob Storage i Azure SQL Database.
+
+Wybór platformy zależy od architektury aplikacji, istniejących technologii, wymagań bezpieczeństwa, kompetencji zespołu i kosztów.
+
+## 8. Zalety Google Cloud
+
+Google Cloud umożliwia szybkie uruchamianie infrastruktury bez konieczności kupowania własnych serwerów.
+
+Oferuje usługi automatycznego skalowania aplikacji i zarządzania bazami danych.
+
+Zapewnia narzędzia do analizy dużych zbiorów danych oraz rozwijania rozwiązań AI.
+
+Integruje się z technologiami takimi jak Docker, Kubernetes, Java, Python i PostgreSQL.
+
+Pozwala dostosowywać wykorzystywane zasoby do aktualnych potrzeb aplikacji.
+
+## 9. Wady i ograniczenia Google Cloud
+
+Korzystanie z rozbudowanych usług chmurowych wymaga poznania konfiguracji infrastruktury, sieci, uprawnień i zabezpieczeń.
+
+Nieprawidłowe zarządzanie zasobami może powodować nieoczekiwane koszty.
+
+Przenoszenie aplikacji pomiędzy różnymi platformami chmurowymi może wymagać zmian w konfiguracji i kodzie.
+
+Niektóre usługi wymagają zaawansowanej wiedzy technicznej, szczególnie przy wdrażaniu dużych systemów rozproszonych.
+
+## 10. Znaczenie Google Cloud w pracy informatyka
+
+Google Cloud jest przydatny dla programistów backendowych, inżynierów DevOps, administratorów chmury, analityków danych i specjalistów AI.
+
+Programiści wykorzystują go do wdrażania aplikacji i zarządzania bazami danych.
+
+Inżynierowie DevOps automatyzują infrastrukturę i procesy wdrożeniowe.
+
+Analitycy danych korzystają z usług przetwarzania i analizowania informacji.
+
+Specjaliści AI wykorzystują narzędzia chmurowe do tworzenia i uruchamiania modeli uczenia maszynowego.
+
+## 11. Podsumowanie
+
+Google Cloud Platform to rozbudowana platforma chmurowa, która umożliwia uruchamianie aplikacji, przechowywanie danych, zarządzanie bazami danych i korzystanie z usług sztucznej inteligencji.
+
+Do najważniejszych usług należą Compute Engine, Cloud Run, Google Kubernetes Engine, Cloud Storage, Cloud SQL, BigQuery i Vertex AI.
+
+Znajomość Google Cloud jest wartościowa dla osób rozwijających się w kierunku backendu, DevOps, analizy danych oraz tworzenia aplikacji AI.

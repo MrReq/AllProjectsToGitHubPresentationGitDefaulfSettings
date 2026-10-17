@@ -1,0 +1,104 @@
+# IBM Rational Rose – notatka
+
+## 1. Czym jest IBM Rational Rose?
+
+IBM Rational Rose to narzędzie inżynierii oprogramowania wspomagające analizę, projektowanie i modelowanie systemów informatycznych z wykorzystaniem języka UML (Unified Modeling Language).
+
+Program umożliwia tworzenie diagramów przedstawiających strukturę systemu, zachowanie jego elementów oraz relacje między klasami i obiektami.
+
+Rational Rose był szczególnie popularny w czasach intensywnego rozwoju projektowania obiektowego i modelowania systemów przed rozpoczęciem implementacji kodu.
+
+## 2. Do czego służy IBM Rational Rose?
+
+- Modelowanie systemów – przedstawianie architektury i funkcjonalności aplikacji.
+- Projektowanie obiektowe – definiowanie klas, obiektów, atrybutów, metod i relacji.
+- Tworzenie diagramów UML – wizualizacja wymagań, struktury oraz zachowania systemu.
+- Dokumentowanie projektów – przygotowywanie dokumentacji technicznej przed rozpoczęciem programowania.
+- Wspomaganie generowania kodu – w obsługiwanych konfiguracjach generowanie szkieletów kodu na podstawie modeli.
+- Analiza istniejącego kodu – w wybranych wersjach i konfiguracjach możliwość odtwarzania modeli na podstawie kodu źródłowego.
+
+## 3. Najważniejsze diagramy UML
+
+Rational Rose obsługuje modelowanie z wykorzystaniem różnych rodzajów diagramów UML.
+
+[Class Diagrams vs ERDs: A Comprehensive Guide for Beginners](https://images.openai.com/static-rsc-4/ScwWsxgIzuS7G-jZcH5flVYR1CASddzqTUtrUQmCPATNRB0LUpwzxnu0lf4v43zPmNpvfHKb0EVjZSQEecYngGrV-xXbGDk3JFjToLZig-pHe19FCmWnSB8_4W2v9nrbFd7JPGFOMhICpReLTbEVoHYIVPkMX73h_WAUpVD9Umc?purpose=inline)
+
+Diagram klas (Class Diagram)
+
+Przedstawia klasy, ich atrybuty, metody oraz relacje, takie jak dziedziczenie, asocjacja, agregacja i kompozycja.
+
+[Uml 3](https://images.openai.com/static-rsc-4/GRez18I4UzoxO0Sz0uz9RJMx3NXnbf_B_WjdNzGX6OVNUxy-uCEw4tSWSWbus9PqD81aNnoyrZOTkbOQS-huI1asbR2wn9iojl3tcJRcArGRysDYpiC5lNTDgPH-KOV5dBUjiqQBLY1SKxXBeDmuphsu6nLVc1BH3AQSiXuc2eY?purpose=inline)
+
+Diagram przypadków użycia (Use Case Diagram)
+
+Pokazuje aktorów systemu oraz funkcje, z których mogą korzystać użytkownicy.
+
+[Sequence Diagram Tutorial - Complete Guide with Examples | Creately](https://images.openai.com/static-rsc-4/C2lhdmHw8jpkBn5BOdcys6WC2qZkgFRDmgWYvji9NpoREF3qvhGJRpMrE0_Uzu_TGZAQ93so79lRrZuFfl8vPwl9ZYuId0n3lIWqJfr-Qtusvjd-iPLNunZoYXB9o_Slb8Ic2f-FNhN9W0Gj3latJ8SYSLtyN0HJ4nTe6RWb1Gk?purpose=inline)
+
+Diagram sekwencji (Sequence Diagram)
+
+Przedstawia kolejność komunikatów wysyłanych między obiektami podczas realizacji określonego scenariusza.
+
+[Diagram SDK UML Diagrams | Syncfusion](https://images.openai.com/static-rsc-4/2ebPeTkUM1uBfNuYzoadtWZ_hzfNliutYENS7yQ3o0KPhzT-bwXWvSTqhK627CjK9ELyLUeKfLzRPcEOyV7bneQUitk-nWBVBnvkYQtv2sQyTy75f9rRewgvTpQUt4l7q2UTTMucQoMNmSIIaqiXZAAzyKsfmBlddYl0k0gQYt8?purpose=inline)
+
+Diagram aktywności (Activity Diagram)
+
+Opisuje przepływ działań, decyzji i procesów zachodzących w systemie.
+
+## 4. Najważniejsze funkcje
+
+Modelowanie wizualne pozwala projektować system za pomocą graficznych reprezentacji jego elementów.
+
+Modelowanie obiektowe umożliwia definiowanie klas, ich właściwości, operacji oraz zależności.
+
+Zarządzanie modelem pozwala organizować elementy projektu w pakiety i utrzymywać powiązania między diagramami.
+
+Generowanie kodu wspierało przejście od projektu UML do implementacji w wybranych językach i konfiguracjach.
+
+Inżynieria odwrotna (Reverse Engineering) umożliwiała analizowanie istniejącego kodu i budowanie na jego podstawie modelu w obsługiwanych środowiskach.
+
+## 5. Przykład zastosowania
+
+Załóżmy, że projektujemy system Coffee House do obsługi kawiarni.
+
+W IBM Rational Rose można przygotować diagram klas zawierający klasy `Order`, `Coffee`, `Waiter` oraz `Barista`.
+
+Następnie można zdefiniować relacje między nimi, na przykład powiązanie zamówienia z zamawianymi produktami oraz pracowników z wykonywanymi zadaniami.
+
+Diagram przypadków użycia może przedstawiać czynności takie jak złożenie zamówienia, przygotowanie kawy i odebranie zamówienia.
+
+Na podstawie takiego projektu programista może zaimplementować system w języku Java.
+
+## 6. Zalety i wady
+
+Zalety:
+
+- Ułatwia wizualne projektowanie systemów obiektowych.
+- Pomaga uporządkować strukturę aplikacji przed napisaniem kodu.
+- Wspiera dokumentowanie architektury i wymagań.
+- Umożliwia tworzenie różnych diagramów UML w jednym środowisku.
+
+Wady:
+
+- Jest narzędziem starszej generacji, a jego rozwój i dostępność są ograniczone w porównaniu ze współczesnymi rozwiązaniami.
+- Interfejs i sposób pracy mogą być mniej wygodne niż w nowszych narzędziach.
+- Obsługa niektórych języków i funkcji zależy od wersji produktu.
+- Współczesne projekty często wykorzystują inne narzędzia do modelowania i dokumentowania architektury.
+
+## 7. IBM Rational Rose a inne narzędzia
+
+| Narzędzie            | Główne zastosowanie                                            |
+| -------------------- | -------------------------------------------------------------- |
+| IBM Rational Rose    | Tradycyjne modelowanie UML i projektowanie obiektowe           |
+| Enterprise Architect | Modelowanie UML, BPMN i architektury systemów                  |
+| Visual Paradigm      | Modelowanie UML, procesów biznesowych i projektowanie systemów |
+| PlantUML             | Tworzenie diagramów na podstawie tekstowego opisu              |
+| diagrams.net         | Tworzenie diagramów i schematów za pomocą edytora graficznego  |
+
+## 8. Co warto zapamiętać?
+
+IBM Rational Rose to narzędzie CASE (Computer-Aided Software Engineering), które wspierało projektowanie i dokumentowanie systemów informatycznych przy użyciu UML.
+
+Jego głównym zadaniem było umożliwienie analizy i zaprojektowania systemu przed implementacją, a także wspomaganie procesu tworzenia kodu.
+
+Jest szczególnie istotny przy nauce klasycznego podejścia obiektowego, modelowania UML oraz historii narzędzi inżynierii oprogramowania.

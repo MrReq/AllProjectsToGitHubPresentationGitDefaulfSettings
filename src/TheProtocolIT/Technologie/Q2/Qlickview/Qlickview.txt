@@ -1,0 +1,372 @@
+# QlikView
+
+## Czym jest QlikView?
+
+QlikView to platforma **Business Intelligence (BI)** służąca do analizowania, przetwarzania i wizualizowania danych.
+
+QlikView pozwala tworzyć interaktywne aplikacje analityczne, dashboardy, raporty oraz wykresy.
+
+Technologia została stworzona przez firmę **Qlik**.
+
+QlikView jest przeznaczony przede wszystkim dla organizacji, które chcą analizować duże ilości danych i szybko wyciągać z nich informacje potrzebne do podejmowania decyzji biznesowych.
+
+## Do czego służy QlikView?
+
+QlikView pozwala łączyć dane pochodzące z wielu różnych źródeł.
+
+Może pobierać dane między innymi z:
+
+```text
+SQL Server
+Oracle
+MySQL
+Excel
+CSV
+plików tekstowych
+baz danych
+hurtowni danych
+```
+
+Po załadowaniu danych QlikView tworzy model danych, który użytkownik może następnie analizować za pomocą interaktywnych wizualizacji.
+
+Przykładowo firma może połączyć dane dotyczące:
+
+```text
+sprzedaży
+klientów
+produktów
+pracowników
+magazynu
+zamówień
+```
+
+i stworzyć jeden dashboard pokazujący sytuację przedsiębiorstwa.
+
+## Business Intelligence
+
+QlikView należy do kategorii **Business Intelligence**.
+
+Business Intelligence oznacza wykorzystanie technologii do zbierania, przetwarzania i analizowania danych biznesowych.
+
+Celem jest przekształcenie dużej ilości surowych danych w informacje, które można wykorzystać przy podejmowaniu decyzji.
+
+Przykładowo zamiast analizować miliony rekordów sprzedaży, menedżer może zobaczyć:
+
+```text
+Przychód: 12 500 000 zł
+Liczba zamówień: 84 320
+Najlepszy produkt: Laptop X
+Najlepszy region: Mazowieckie
+Wzrost sprzedaży: +14%
+```
+
+## Dashboard
+
+Jednym z najważniejszych elementów QlikView są **dashboardy**.
+
+Dashboard przedstawia najważniejsze informacje w formie wizualnej.
+
+Może zawierać:
+
+```text
+wykresy
+tabele
+diagramy
+wskaźniki KPI
+mapy
+filtry
+```
+
+Użytkownik może interaktywnie zmieniać sposób prezentacji danych.
+
+## Asocjacyjny model danych
+
+Jedną z najważniejszych cech QlikView jest **asocjacyjny model danych**.
+
+QlikView pozwala użytkownikowi analizować zależności pomiędzy danymi znajdującymi się w różnych tabelach.
+
+System automatycznie tworzy powiązania pomiędzy polami posiadającymi takie same nazwy.
+
+Przykładowo:
+
+```text
+Customers
+---------
+CustomerID
+Name
+
+Orders
+---------
+OrderID
+CustomerID
+ProductID
+```
+
+Pole `CustomerID` pozwala powiązać klientów z ich zamówieniami.
+
+Dzięki temu użytkownik może rozpocząć analizę od klienta, a następnie przejść do jego zamówień, produktów i wartości sprzedaży.
+
+## Associative Engine
+
+Sercem QlikView jest **Associative Engine**.
+
+Silnik asocjacyjny odpowiada za analizowanie zależności pomiędzy danymi.
+
+Pozwala użytkownikowi wykonywać analizy bez konieczności budowania osobnego zapytania SQL dla każdej możliwej kombinacji danych.
+
+QlikView pokazuje również zależności pomiędzy wybranymi i niewybranymi wartościami.
+
+## Selekcje
+
+Charakterystycznym elementem QlikView są **selekcje**, czyli wybieranie wartości, które mają zostać uwzględnione w analizie.
+
+Przykładowo użytkownik może wybrać:
+
+```text
+Rok: 2026
+Region: Mazowieckie
+Produkt: Laptop
+```
+
+QlikView automatycznie aktualizuje pozostałe wizualizacje.
+
+Dzięki temu użytkownik może szybko przechodzić od ogólnego obrazu danych do szczegółowej analizy.
+
+## Associative Search
+
+QlikView umożliwia wyszukiwanie informacji bez konieczności znajomości struktury bazy danych.
+
+Użytkownik może wyszukiwać wartości i analizować powiązane z nimi informacje.
+
+Mechanizm asocjacyjny pozwala zobaczyć, które dane są powiązane z aktualnie wybranymi wartościami.
+
+## In-Memory
+
+QlikView wykorzystuje podejście **in-memory**, czyli przechowuje dane wykorzystywane podczas analizy w pamięci RAM.
+
+Dzięki temu wiele operacji analitycznych może być wykonywanych bardzo szybko.
+
+Zamiast za każdym razem pobierać dane bezpośrednio z bazy danych, QlikView może analizować wcześniej załadowane dane znajdujące się w pamięci.
+
+Ma to szczególne znaczenie podczas interaktywnego korzystania z dashboardów.
+
+## QlikView Script
+
+QlikView posiada własny język skryptowy służący do ładowania i przekształcania danych.
+
+Za pomocą skryptu można między innymi:
+
+```text
+ładować dane
+łączyć dane
+filtrować dane
+transformować dane
+tworzyć pola obliczeniowe
+łączyć tabele
+```
+
+Przykładowe polecenie może wyglądać następująco:
+
+```text
+LOAD
+    CustomerID,
+    Name,
+    Country
+FROM Customers.csv;
+```
+
+Skrypt określa, skąd dane mają zostać pobrane oraz które informacje mają zostać załadowane.
+
+## ETL
+
+QlikView może być wykorzystywany do procesów przypominających **ETL**.
+
+ETL oznacza:
+
+**Extract** – pobranie danych.
+
+**Transform** – przekształcenie danych.
+
+**Load** – załadowanie danych do środowiska analitycznego.
+
+Przykładowo:
+
+```text
+SQL Server
+     ↓
+Extract
+     ↓
+Transform
+     ↓
+QlikView
+     ↓
+Dashboard
+```
+
+## Wizualizacja danych
+
+QlikView umożliwia tworzenie wielu rodzajów wizualizacji.
+
+Można wykorzystywać między innymi:
+
+```text
+wykresy słupkowe
+wykresy liniowe
+wykresy kołowe
+tabele
+tabele przestawne
+KPI
+mapy
+wskaźniki
+```
+
+Wizualizacje mogą być ze sobą połączone.
+
+Zmiana jednej selekcji może więc automatycznie zmienić wszystkie powiązane elementy dashboardu.
+
+## KPI
+
+QlikView może służyć do prezentowania **KPI – Key Performance Indicators**.
+
+KPI to kluczowe wskaźniki efektywności.
+
+Przykładowe KPI:
+
+```text
+Przychód
+Marża
+Liczba klientów
+Liczba zamówień
+Średnia wartość zamówienia
+Wzrost sprzedaży
+Koszt pozyskania klienta
+```
+
+Dzięki temu kierownictwo może szybko sprawdzić najważniejsze parametry działalności firmy.
+
+## QlikView i SQL
+
+QlikView może pobierać dane z relacyjnych baz danych.
+
+Może więc współpracować między innymi z:
+
+```text
+SQL Server
+Oracle
+MySQL
+PostgreSQL
+```
+
+SQL może służyć do pobierania danych, natomiast QlikView może następnie wykorzystać je do analizy i wizualizacji.
+
+QlikView nie jest więc klasycznym zamiennikiem SQL Servera czy Oracle.
+
+Jest przede wszystkim narzędziem analitycznym działającym ponad źródłami danych.
+
+## QlikView a Qlik Sense
+
+QlikView i **Qlik Sense** należą do ekosystemu Qlik, ale są przeznaczone do nieco innych sposobów pracy.
+
+QlikView jest starszą platformą skoncentrowaną przede wszystkim na tworzeniu wcześniej zaprojektowanych aplikacji analitycznych i dashboardów.
+
+Qlik Sense jest nowszą platformą, która mocno koncentruje się na samoobsługowej analizie danych, nowoczesnej wizualizacji oraz pracy użytkowników biznesowych.
+
+Obie technologie wykorzystują koncepcję asocjacyjnej analizy danych.
+
+## QlikView i Excel
+
+QlikView może importować dane z Excela i wykorzystywać je jako źródło danych.
+
+Jest jednak przeznaczony do znacznie bardziej rozbudowanej analizy dużych zbiorów danych.
+
+Excel jest przede wszystkim arkuszem kalkulacyjnym.
+
+QlikView jest natomiast platformą BI przeznaczoną do budowania aplikacji analitycznych.
+
+## Zastosowania QlikView
+
+QlikView może być wykorzystywany w:
+
+**Sprzedaży**
+
+Do analizowania przychodów, produktów, klientów i wyników sprzedaży.
+
+**Finansach**
+
+Do analizowania kosztów, przychodów, marży i budżetów.
+
+**Marketingu**
+
+Do analizowania kampanii, klientów oraz skuteczności działań marketingowych.
+
+**Logistyce**
+
+Do analizowania dostaw, magazynów i transportu.
+
+**Produkcji**
+
+Do monitorowania produkcji, wydajności oraz jakości.
+
+**Zarządzaniu**
+
+Do tworzenia dashboardów dla kadry kierowniczej.
+
+## Zalety QlikView
+
+QlikView umożliwia szybkie analizowanie dużych zbiorów danych.
+
+Jego dużą zaletą jest asocjacyjny model danych.
+
+Pozwala łączyć dane pochodzące z wielu źródeł.
+
+Umożliwia tworzenie interaktywnych dashboardów.
+
+Wykorzystuje przetwarzanie in-memory.
+
+Pozwala użytkownikom biznesowym samodzielnie analizować dane.
+
+Może integrować dane z baz danych, plików i innych systemów.
+
+## Ograniczenia QlikView
+
+QlikView wymaga odpowiedniego przygotowania modelu danych.
+
+Duże ilości danych mogą wymagać znacznej ilości pamięci RAM.
+
+Budowanie bardziej zaawansowanych aplikacji wymaga znajomości QlikView Script oraz modelowania danych.
+
+QlikView jest starszą technologią niż Qlik Sense, dlatego w nowych projektach organizacje mogą rozważać wykorzystanie właśnie Qlik Sense.
+
+## Najważniejsze pojęcia
+
+**QlikView** – platforma Business Intelligence do analizy i wizualizacji danych.
+
+**BI** – Business Intelligence, czyli analiza danych biznesowych wspierająca podejmowanie decyzji.
+
+**Dashboard** – interaktywny panel prezentujący najważniejsze informacje.
+
+**Associative Model** – model danych umożliwiający analizowanie zależności pomiędzy informacjami.
+
+**Associative Engine** – silnik odpowiedzialny za analizowanie powiązań pomiędzy danymi.
+
+**In-Memory** – przetwarzanie danych znajdujących się w pamięci RAM.
+
+**QlikView Script** – język skryptowy wykorzystywany do ładowania i transformowania danych.
+
+**KPI** – Key Performance Indicator, czyli kluczowy wskaźnik efektywności.
+
+**ETL** – Extract, Transform, Load, czyli proces pobierania, przekształcania i ładowania danych.
+
+**Selection** – wybór wartości, według których użytkownik filtruje analizowane dane.
+
+## Podsumowanie
+
+QlikView to platforma **Business Intelligence** służąca do integracji, analizy i wizualizacji danych.
+
+Jej charakterystyczną cechą jest **asocjacyjny model danych**, który pozwala użytkownikowi analizować zależności pomiędzy różnymi informacjami.
+
+QlikView wykorzystuje również **in-memory processing**, dzięki czemu interaktywna analiza danych może być bardzo szybka.
+
+Najważniejsze elementy, które warto zapamiętać, to:
+
+**QlikView → BI → Associative Engine → In-Memory → Dashboard → KPI → QlikView Script → analiza danych.**

@@ -1,0 +1,166 @@
+# Cloudflare
+
+## 1. Czym jest Cloudflare?
+
+[Thanksgiving 2023 security incident | Cloudflare Blog](https://images.openai.com/static-rsc-4/fdG3XRa418kcP8sRVCfrlL2vdq5o1DiU3p2N1riemfXlKLAa7RwMUgEs_3WpX4P14OVDlX8mquS5i4t3DWkR1WCbuXb3LiMVIjvh7T4tMW1TxvkyhLJKebjFNH8UH9cuLtqfPuHA0_5x_Gh696KlWUudkPxH6STInhJIV1BjXxY?purpose=inline)
+
+[blog.cloudflare.com](https://blog.cloudflare.com/thanksgiving-2023-security-incident/)
+
+Cloudflare to firma technologiczna i platforma usług internetowych, która pomaga przyspieszać działanie stron WWW, chronić aplikacje przed atakami oraz zarządzać ruchem sieciowym.
+
+Cloudflare działa w globalnej sieci serwerów rozmieszczonych w wielu lokalizacjach na świecie. Dzięki temu może pośredniczyć w komunikacji pomiędzy użytkownikiem a serwerem aplikacji, dostarczać treści z pamięci podręcznej i filtrować niebezpieczny ruch.
+
+Platforma jest wykorzystywana przez właścicieli stron internetowych, programistów, administratorów systemów, zespoły DevOps oraz przedsiębiorstwa rozwijające aplikacje internetowe.
+
+## 2. Najważniejsze funkcje Cloudflare
+
+- CDN (Content Delivery Network) – dostarczanie treści z serwerów znajdujących się blisko użytkownika, co może skrócić czas ładowania strony.
+- DNS – obsługa systemu nazw domenowych, który tłumaczy nazwy domen na adresy IP.
+- DDoS Protection – ochrona przed atakami polegającymi na przeciążaniu serwerów dużą liczbą żądań.
+- WAF (Web Application Firewall) – filtrowanie podejrzanych żądań HTTP i ochrona aplikacji internetowych.
+- SSL/TLS – obsługa szyfrowanych połączeń HTTPS.
+- Reverse Proxy – pośredniczenie w komunikacji pomiędzy użytkownikami a serwerem źródłowym.
+- Cloudflare Workers – uruchamianie kodu JavaScript, TypeScript i innych obsługiwanych środowisk na infrastrukturze Cloudflare.
+- Zero Trust – rozwiązania do kontrolowania dostępu do aplikacji i zasobów firmowych.
+- Rate Limiting – ograniczanie liczby żądań, aby zmniejszać ryzyko nadużyć i przeciążeń.
+
+## 3. Jak działa Cloudflare?
+
+Cloudflare najczęściej działa jako pośrednik pomiędzy użytkownikiem a serwerem aplikacji, czyli jako reverse proxy.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://github.com\&sz=32)
+
+GitHub
+
++1
+
+
+
+Użytkownik
+
+Przeglądarka lub aplikacja mobilna
+
+Cloudflare
+
+DNS, CDN, filtrowanie ruchu, TLS i cache
+
+Serwer źródłowy
+
+Np. aplikacja Spring Boot i PostgreSQL
+
+Przykładowy przebieg żądania:
+
+1. Użytkownik otwiera stronę internetową.
+2. Żądanie trafia do infrastruktury Cloudflare.
+3. Cloudflare może sprawdzić ruch pod kątem zagrożeń i zwrócić treść z pamięci podręcznej.
+4. Jeśli potrzebuje danych z serwera źródłowego, przekazuje mu żądanie.
+5. Odpowiedź wraca do użytkownika przez Cloudflare.
+
+Nie wszystkie żądania muszą docierać do serwera źródłowego — zależy to między innymi od konfiguracji cache i rodzaju zasobu.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://developers.cloudflare.com\&sz=32)
+
+Cloudflare Workers docs
+
++1
+
+
+
+## 4. Cloudflare Workers
+
+[Re-introducing the Cloudflare Workers Playground | Cloudflare Blog](https://images.openai.com/static-rsc-4/vszy2GWGHVJHNsSdxvVLx3sb_zMQPZmxsEQk6vG9Zn0M0rAz1YGRK9ACZV6vRJG6Ztn2gBGnSqYIgZn8-GMkPQh1A14PqugSTMd4LZG5NTn8g5cFoG-Ev9jQphGc_omoQ9E4IjcPL6P_LVV70hm2mxfPbqzIa-Ydr1wjqOPhYXk?purpose=inline)
+
+[blog.cloudflare.com](https://blog.cloudflare.com/workers-playground/)
+
+Cloudflare Workers to platforma umożliwiająca uruchamianie kodu na infrastrukturze Cloudflare bez konieczności samodzielnego zarządzania tradycyjnym serwerem.
+
+Można dzięki niej tworzyć funkcje backendowe, endpointy API, przekierowania, warstwy pośredniczące oraz aplikacje serverless.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cloudflare.com\&sz=32)
+
+Cloudflare
+
++1
+
+
+
+Przykład prostego endpointu w JavaScript:
+
+```
+export default {
+  async fetch(request) {
+    return new Response(
+      "Witaj w aplikacji!",
+      {
+        headers: {
+          "content-type": "text/plain; charset=utf-8"
+        }
+      }
+    );
+  }
+};
+```
+
+Po wdrożeniu taki kod może obsługiwać żądania HTTP bez uruchamiania własnego serwera aplikacyjnego.
+
+## 5. Do czego wykorzystuje się Cloudflare?
+
+- Strony internetowe – przyspieszanie ładowania plików CSS, JavaScript, obrazów i innych zasobów.
+- REST API – ochrona endpointów przed częścią niepożądanego ruchu.
+- Cyberbezpieczeństwo – filtrowanie żądań i ograniczanie skutków niektórych ataków.
+- DNS i domeny – zarządzanie rekordami DNS i kierowaniem ruchu.
+- Aplikacje serverless – uruchamianie kodu za pomocą Workers.
+- Dostęp do systemów firmowych – kontrolowanie dostępu do zasobów z wykorzystaniem rozwiązań Zero Trust.
+- Wdrożenia frontendowe – publikowanie stron i aplikacji internetowych, między innymi za pomocą Cloudflare Pages.
+
+## 6. Cloudflare w projekcie Java i Spring Boot
+
+Jeśli budujesz aplikację z wykorzystaniem Spring Boot i PostgreSQL, Cloudflare może pełnić funkcję zewnętrznej warstwy ochrony i dostarczania ruchu.
+
+Przykładowa architektura:
+
+- Frontend: aplikacja internetowa.
+- Cloudflare: DNS, HTTPS, ochrona i opcjonalne cache.
+- Backend: Spring Boot udostępniający REST API.
+- Baza danych: PostgreSQL, niedostępny bezpośrednio z publicznego internetu.
+
+W takim układzie należy pamiętać, że Cloudflare nie zastępuje zabezpieczeń backendu. Aplikacja nadal potrzebuje prawidłowego uwierzytelniania, autoryzacji, walidacji danych i bezpiecznej konfiguracji bazy danych.
+
+Jeżeli korzystasz z proxy Cloudflare, warto również ograniczyć bezpośredni dostęp do serwera źródłowego, aby atakujący nie mogli ominąć warstwy ochronnej.
+
+## 7. Cloudflare a inne technologie
+
+| Technologia     | Główne zastosowanie                                                    |
+| --------------- | ---------------------------------------------------------------------- |
+| Cloudflare      | CDN, DNS, ochrona aplikacji i platforma dla programistów.              |
+| AWS CloudFront  | CDN zintegrowany z ekosystemem AWS.                                    |
+| Amazon Route 53 | Usługi DNS i zarządzanie routingiem domen.                             |
+| Akamai          | Dostarczanie treści i ochrona aplikacji internetowych.                 |
+| Fastly          | CDN, cache i programowalna infrastruktura brzegowa.                    |
+| Nginx           | Serwer WWW i reverse proxy uruchamiany na zarządzanej infrastrukturze. |
+
+## 8. Zalety i wady Cloudflare
+
+Zalety:
+
+- Może przyspieszać dostarczanie treści.
+- Oferuje narzędzia do ochrony stron i API.
+- Upraszcza zarządzanie DNS i certyfikatami TLS.
+- Udostępnia platformę Workers do uruchamiania kodu.
+- Integruje wiele funkcji sieciowych i bezpieczeństwa.
+
+Wady:
+
+- Nieprawidłowa konfiguracja DNS lub proxy może spowodować problemy z dostępnością usług.
+- Nie wszystkie treści można bezpiecznie cache'ować.
+- Nie zastępuje zabezpieczeń aplikacji i serwera źródłowego.
+- Zaawansowane funkcje mogą wymagać płatnego planu.
+- Korzystanie z dodatkowej warstwy pośredniczącej oznacza zależność od jej dostępności i konfiguracji.
+
+## 9. Dlaczego warto znać Cloudflare?
+
+Cloudflare jest przydatny dla frontend developerów, backend developerów, administratorów systemów i specjalistów DevOps.
+
+Warto poznać podstawy DNS, CDN, HTTPS, reverse proxy, WAF i cache, ponieważ zagadnienia te pojawiają się przy wdrażaniu niemal każdego większego serwisu internetowego.
+
+Oficjalne materiały: [Strona Cloudflare](https://www.cloudflare.com/) oraz [Dokumentacja dla programistów](https://developers.cloudflare.com/).

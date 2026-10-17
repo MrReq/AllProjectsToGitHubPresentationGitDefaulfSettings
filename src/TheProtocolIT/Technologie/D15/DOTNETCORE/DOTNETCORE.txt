@@ -1,0 +1,175 @@
+# .NET Core
+
+## 1. Czym jest .NET Core?
+
+.NET Core to wieloplatformowa, otwartoźródłowa platforma programistyczna opracowana przez firmę Microsoft, służąca do tworzenia aplikacji internetowych, backendów, usług sieciowych i programów konsolowych.
+
+.NET Core był następcą starszego, silnie związanego z systemem Windows .NET Framework i umożliwił rozwijanie aplikacji również na Linuxie i macOS.
+
+Ważne: od wersji .NET 5 Microsoft zrezygnował z nazwy „.NET Core” na rzecz nazwy „.NET”. Oznacza to, że .NET Core 3.1 i wcześniejsze wydania należą do starszej linii platformy, natomiast współczesnym następcą jest .NET.
+
+## 2. Do czego służy .NET Core?
+
+- Tworzenie backendów aplikacji internetowych.
+- Budowanie REST API.
+- Tworzenie aplikacji konsolowych.
+- Rozwijanie mikroserwisów.
+- Budowanie usług działających w chmurze.
+- Tworzenie aplikacji korzystających z baz danych.
+- Uruchamianie aplikacji na Windows, Linux i macOS.
+- Budowanie aplikacji konteneryzowanych przy użyciu Dockera.
+
+## 3. Najważniejsze cechy .NET Core
+
+Wieloplatformowość
+
+Aplikacje mogą działać na różnych systemach operacyjnych, o ile wybrane funkcje i zależności obsługują daną platformę.
+
+Wysoka wydajność
+
+Platforma została zaprojektowana z myślą o wydajnym wykonywaniu kodu i obsłudze wielu żądań jednocześnie.
+
+Język C#
+
+.NET Core wykorzystuje przede wszystkim C#, który obsługuje programowanie obiektowe, typowanie statyczne, wyjątki i programowanie asynchroniczne.
+
+ASP.NET Core
+
+Framework umożliwiający budowanie aplikacji internetowych, serwerów i REST API.
+
+Dependency Injection
+
+Wbudowany mechanizm wstrzykiwania zależności ułatwia organizowanie kodu oraz testowanie aplikacji.
+
+Integracja z Dockerem
+
+Aplikacje można pakować w kontenery, co ułatwia ich uruchamianie w środowiskach programistycznych i produkcyjnych.
+
+## 4. Jak działa .NET Core?
+
+Kod źródłowy C#
+
+Klasy, metody i logika aplikacji
+
+Kompilator .NET
+
+Kompilacja do pośredniego kodu IL
+
+CLR i środowisko uruchomieniowe
+
+Wykonywanie kodu, zarządzanie pamięcią i JIT
+
+Windows
+
+Linux
+
+macOS
+
+Kod C# jest zwykle kompilowany do języka pośredniego IL, a następnie wykonywany przez środowisko .NET.
+
+CLR zarządza między innymi pamięcią, wyjątkami i wykonywaniem kodu.
+
+## 5. Przykład programu w .NET Core
+
+Przykładowa aplikacja konsolowa napisana w C#:
+
+```
+Console.WriteLine("Hello, .NET Core!");
+
+int a = 10;
+int b = 20;
+
+int sum = a + b;
+
+Console.WriteLine($"Suma: {sum}");
+```
+
+Wynik działania programu:
+
+```
+Hello, .NET Core!
+Suma: 30
+```
+
+Aby utworzyć i uruchomić projekt za pomocą zainstalowanego współczesnego SDK .NET, można użyć poleceń:
+
+```
+dotnet new console -n MyApp
+cd MyApp
+dotnet run
+```
+
+Polecenia korzystają z obecnego SDK .NET, a nie wymagają instalowania historycznej wersji .NET Core.
+
+## 6. Najważniejsze technologie związane z .NET Core
+
+- C# – podstawowy język programowania w ekosystemie .NET.
+- ASP.NET Core – tworzenie aplikacji webowych i REST API.
+- Entity Framework Core – ORM do obsługi baz danych.
+- NuGet – menedżer pakietów i bibliotek.
+- Kestrel – serwer HTTP wykorzystywany przez ASP.NET Core.
+- Dependency Injection – mechanizm wstrzykiwania zależności.
+- Docker – uruchamianie aplikacji w kontenerach.
+- xUnit, NUnit i MSTest – frameworki do testowania oprogramowania.
+
+## 7. .NET Core a .NET Framework i nowoczesny .NET
+
+| Cecha              | .NET Framework            | .NET Core                               | Nowoczesny .NET             |
+| ------------------ | ------------------------- | --------------------------------------- | --------------------------- |
+| Status             | Starsza platforma         | Historyczna linia rozwojowa             | Główna, rozwijana platforma |
+| Wieloplatformowość | Głównie Windows           | Windows, Linux, macOS                   | Windows, Linux, macOS       |
+| ASP.NET Core       | Nie jako platforma bazowa | Tak                                     | Tak                         |
+| Nowe funkcje       | Ograniczone               | Linia zakończona                        | Aktywnie rozwijane          |
+| Zastosowanie       | Starsze aplikacje Windows | Starsze aplikacje wymagające tej wersji | Nowe aplikacje i usługi     |
+
+## 8. Zalety i wady .NET Core
+
+Zalety:
+
+- Możliwość uruchamiania aplikacji na wielu systemach operacyjnych.
+- Wysoka wydajność w wielu zastosowaniach.
+- Dobre wsparcie dla tworzenia backendów i mikroserwisów.
+- Rozbudowane narzędzia do testowania i debugowania.
+- Integracja z Dockerem i usługami chmurowymi.
+- Otwartoźródłowy charakter platformy.
+
+Wady:
+
+- Starsze wersje .NET Core nie otrzymują już standardowego wsparcia.
+- Migracja ze starszego .NET Framework może wymagać zmian w kodzie.
+- Nie wszystkie biblioteki i funkcje Windows są dostępne na innych platformach.
+- Rozbudowany ekosystem wymaga czasu na opanowanie.
+
+## 9. .NET Core na rynku pracy
+
+Znajomość .NET Core jest przydatna w firmach rozwijających backendy, aplikacje biznesowe i usługi chmurowe.
+
+Przydatne stanowiska to:
+
+- .NET Developer.
+- C# Developer.
+- Backend Developer.
+- Software Engineer.
+- Cloud Developer.
+- QA Automation Engineer.
+
+W ofertach pracy częściej spotkasz obecnie określenia .NET Developer oraz ASP.NET Core Developer niż stanowiska skoncentrowane wyłącznie na historycznym .NET Core.
+
+## 10. Jak zacząć naukę .NET Core?
+
+Najlepiej rozpocząć od języka C#, klas, interfejsów, kolekcji, wyjątków i programowania asynchronicznego.
+
+Następnie warto poznać ASP.NET Core, routing, kontrolery, REST API, Dependency Injection oraz Entity Framework Core.
+
+Kolejnym krokiem jest zbudowanie aplikacji CRUD z bazą PostgreSQL lub SQL Server, dodanie testów automatycznych i uruchomienie projektu w Dockerze.
+
+Do nowych projektów warto wybierać aktualnie wspieraną wersję .NET, zamiast rozpoczynać naukę od niewspieranej już linii .NET Core 3.1.
+
+Materiały do nauki:
+
+- [Oficjalna strona .NET](https://dotnet.microsoft.com/)
+- [Dokumentacja .NET](https://learn.microsoft.com/dotnet/)
+- [Dokumentacja ASP.NET Core](https://learn.microsoft.com/aspnet/core/)
+- [Dokumentacja Entity Framework Core](https://learn.microsoft.com/ef/core/)
+
+Podsumowanie: .NET Core był ważnym krokiem w rozwoju wieloplatformowego ekosystemu Microsoftu. Dziś jego następcą jest nowoczesny .NET, który warto poznawać razem z C#, ASP.NET Core, SQL i Dockerem.

@@ -1,0 +1,329 @@
+# Komodo
+
+## 1. Czym jest Komodo?
+
+**Komodo** to środowisko programistyczne typu **IDE (Integrated Development Environment)**, historycznie rozwijane przez firmę **ActiveState**.
+
+Komodo było projektowane przede wszystkim z myślą o programowaniu w **językach dynamicznych**, takich jak Python, Perl, Ruby czy Tcl. Obsługiwało również technologie webowe, między innymi HTML, CSS i JavaScript. :chatgpt-content-reference{index="0"}
+
+Warto wiedzieć, że **Komodo jest obecnie projektem open source** — ActiveState podaje, że zostało udostępnione jako open source w 2022 roku. :chatgpt-content-reference{index="1"}
+
+## 2. Do czego służy Komodo?
+
+Komodo służy przede wszystkim do tworzenia i rozwijania aplikacji.
+
+Można w nim między innymi:
+
+- pisać kod,
+- edytować wiele języków programowania,
+- korzystać z podpowiedzi kodu,
+- debugować programy,
+- wyszukiwać i zastępować tekst,
+- zarządzać projektami,
+- pracować z plikami,
+- korzystać z terminala,
+- uruchamiać skrypty,
+- pracować z systemami kontroli wersji.
+
+## 3. Jakie języki obsługuje?
+
+Komodo było szczególnie nastawione na języki dynamiczne.
+
+Do najważniejszych należą:
+
+**Python**
+
+**Perl**
+
+**Ruby**
+
+**Tcl**
+
+**PHP**
+
+Obsługiwane były również technologie webowe:
+
+**HTML**
+
+**CSS**
+
+**JavaScript**
+
+**XML**
+
+Historyczna dokumentacja ActiveState wymienia między innymi Python, Perl, Ruby, Tcl, PHP, JavaScript, CSS, HTML i XML. :chatgpt-content-reference{index="2"}
+
+## 4. Komodo IDE
+
+**Komodo IDE** było pełnym środowiskiem programistycznym.
+
+W porównaniu z prostym edytorem kodu oferowało bardziej rozbudowane funkcje, takie jak:
+
+- debugging,
+- inteligentne podpowiedzi,
+- zarządzanie projektami,
+- narzędzia do pracy zespołowej,
+- integrację z różnymi technologiami,
+- rozszerzenia,
+- narzędzia do pracy z kodem.
+
+ActiveState opisywało Komodo IDE jako wieloplatformowe, wielojęzyczne środowisko przeznaczone między innymi do tworzenia aplikacji webowych. :chatgpt-content-reference{index="3"}
+
+## 5. Komodo Edit
+
+Istniała również uproszczona wersja o nazwie **Komodo Edit**.
+
+Był to bardziej rozbudowany edytor kodu niż klasyczny Notepad, ale prostszy od pełnego Komodo IDE.
+
+Komodo Edit był udostępniony jako **darmowy i open source**. :chatgpt-content-reference{index="4"}
+
+Można to zapamiętać:
+
+```text
+Komodo Edit
+     ↓
+edytor kodu
+
+Komodo IDE
+     ↓
+pełne środowisko programistyczne
+```
+
+## 6. Edytor kodu
+
+Podstawowym elementem Komodo jest edytor kodu.
+
+Oferował między innymi:
+
+- kolorowanie składni,
+- automatyczne uzupełnianie kodu,
+- wyszukiwanie,
+- nawigację po kodzie,
+- sprawdzanie składni,
+- makra,
+- snippets,
+- pracę z wieloma plikami.
+
+Przykładowo kod Pythona może wyglądać tak:
+
+```python
+def calculate_sum(a, b):
+    return a + b
+```
+
+IDE może pomagać programiście poprzez podpowiadanie składni i wykrywanie części błędów.
+
+## 7. Debugger
+
+Jedną z ważniejszych różnic między zwykłym edytorem a IDE jest możliwość **debugowania programu**.
+
+Debugger pozwala między innymi:
+
+- ustawiać breakpointy,
+- wykonywać kod krok po kroku,
+- obserwować zmienne,
+- sprawdzać stos wywołań,
+- zatrzymywać program w określonym miejscu.
+
+Przykład:
+
+```text
+Program
+   ↓
+Breakpoint
+   ↓
+Zatrzymanie
+   ↓
+Analiza zmiennych
+   ↓
+Step Over / Step Into
+```
+
+Komodo IDE posiadało rozbudowane możliwości debugowania. :chatgpt-content-reference{index="5"}
+
+## 8. Code Completion
+
+Komodo oferuje mechanizmy automatycznego uzupełniania kodu.
+
+Przykładowo po wpisaniu:
+
+```python
+my_object.
+```
+
+IDE może wyświetlić dostępne właściwości i metody.
+
+Jest to szczególnie przydatne podczas pracy z dużymi bibliotekami.
+
+## 9. Syntax Checking
+
+Komodo może analizować składnię podczas pisania.
+
+Przykładowo:
+
+```python
+if x > 10
+    print(x)
+```
+
+może zostać oznaczone jako problem, ponieważ brakuje dwukropka.
+
+Dzięki temu programista może szybciej znaleźć błędy.
+
+## 10. Projekty
+
+Komodo posiadało mechanizmy organizowania plików w ramach projektów.
+
+Przykładowa aplikacja:
+
+```text
+MyProject
+│
+├── src
+│   ├── main.py
+│   ├── users.py
+│   └── database.py
+│
+├── tests
+│   └── test_users.py
+│
+└── README.md
+```
+
+Dzięki temu można zarządzać większymi aplikacjami z poziomu jednego środowiska.
+
+## 11. Rozszerzenia
+
+Komodo posiadało system rozszerzeń pozwalający rozszerzać funkcjonalność IDE.
+
+Można było dodawać między innymi:
+
+- nowe funkcje,
+- narzędzia,
+- makra,
+- integracje,
+- dodatkowe możliwości edytora.
+
+Komodo było projektowane jako środowisko o dużych możliwościach rozszerzania. :chatgpt-content-reference{index="6"}
+
+## 12. Praca z web developmentem
+
+Komodo było szczególnie interesujące dla programistów tworzących aplikacje internetowe.
+
+Można było pracować jednocześnie z:
+
+```text
+HTML
+CSS
+JavaScript
+PHP
+Python
+Ruby
+```
+
+Przykładowa aplikacja:
+
+```text
+Frontend
+│
+├── HTML
+├── CSS
+└── JavaScript
+       │
+       ▼
+Backend
+│
+├── Python
+├── PHP
+└── Ruby
+```
+
+## 13. Wieloplatformowość
+
+Komodo było dostępne na głównych systemach operacyjnych:
+
+```text
+Windows
+macOS
+Linux
+```
+
+Historyczne wydania Komodo IDE były publikowane dla wszystkich tych platform. :chatgpt-content-reference{index="7"}
+
+## 14. Komodo a VS Code
+
+Komodo można porównać do innych edytorów i IDE.
+
+| Cecha | Komodo | VS Code |
+|---|---|---|
+| Edycja kodu | ✅ | ✅ |
+| Wiele języków | ✅ | ✅ |
+| Debugowanie | ✅ | ✅ |
+| Rozszerzenia | ✅ | ✅ |
+| Python | ✅ | ✅ |
+| JavaScript | ✅ | ✅ |
+| HTML/CSS | ✅ | ✅ |
+| Popularność obecnie | mniejsza | bardzo duża |
+| Aktywny ekosystem | ograniczony | bardzo duży |
+
+Komodo ma więc znaczenie historyczne i edukacyjne, ale w praktyce współczesny programista znacznie częściej spotka się z VS Code, IntelliJ IDEA, PyCharm czy innymi współczesnymi IDE.
+
+## 15. Komodo a IntelliJ IDEA
+
+**Komodo** było nastawione przede wszystkim na języki dynamiczne i web development.
+
+**IntelliJ IDEA** jest szczególnie mocno związane z ekosystemem Java/JVM.
+
+Można zapamiętać:
+
+```text
+Komodo
+→ Python / Perl / Ruby / Tcl / Web
+
+IntelliJ IDEA
+→ Java / Kotlin / JVM
+```
+
+## 16. OpenKomodoIDE
+
+Po udostępnieniu kodu źródłowego Komodo rozwój został związany z projektem **OpenKomodoIDE**.
+
+Oznacza to, że Komodo należy obecnie postrzegać nie tylko jako dawny komercyjny produkt ActiveState, ale również jako **open-source'owy projekt IDE**. :chatgpt-content-reference{index="8"}
+
+## 17. Ważna informacja o aktualności
+
+To ważne w kontekście nauki współczesnych technologii.
+
+ActiveState wskazuje obecnie, że **nie tworzy już nowych Community Edition builds**, a starsze wydania Komodo znajdujące się w archiwach są przede wszystkim starszym oprogramowaniem. :chatgpt-content-reference{index="9"}
+
+Dlatego Komodo warto znać jako:
+
+**technologię, IDE i element historii narzędzi programistycznych**, ale nie należy traktować go jako jednego z głównych współczesnych IDE do nauki programowania.
+
+## 18. Komodo — najważniejsze pojęcia
+
+**Komodo** → IDE/edytor kodu rozwijany pierwotnie przez ActiveState.
+
+**Komodo IDE** → pełne środowisko programistyczne.
+
+**Komodo Edit** → lżejszy edytor kodu.
+
+**Open source** → obecny model udostępniania kodu Komodo.
+
+**Debugger** → narzędzie do analizowania działania programu.
+
+**Breakpoint** → miejsce, w którym debugger zatrzymuje program.
+
+**Code Completion** → automatyczne podpowiadanie kodu.
+
+**Syntax Highlighting** → kolorowanie składni.
+
+**Syntax Checking** → sprawdzanie poprawności składni.
+
+**Project** → organizacja plików aplikacji.
+
+**Extension** → rozszerzenie funkcjonalności IDE.
+
+## 19. Komodo w jednym zdaniu
+
+**Komodo to wieloplatformowe środowisko programistyczne i edytor kodu, historycznie rozwijany przez ActiveState, szczególnie ukierunkowany na Python, Perl, Ruby, Tcl i technologie webowe, którego kod został później udostępniony jako open source.** :chatgpt-content-reference{index="10"}

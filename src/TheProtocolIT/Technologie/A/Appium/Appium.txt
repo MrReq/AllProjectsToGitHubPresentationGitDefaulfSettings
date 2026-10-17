@@ -1,0 +1,341 @@
+Appium — notatka
+
+1. Czym jest Appium?
+
+Appium to narzędzie open source służące do automatyzacji testów aplikacji mobilnych.
+
+Umożliwia automatyczne testowanie aplikacji działających na systemach Android i iOS.
+
+Appium pozwala symulować działania użytkownika, takie jak klikanie przycisków, wpisywanie tekstu, przewijanie ekranu i przechodzenie pomiędzy widokami.
+
+Jest wykorzystywane przede wszystkim przez testerów QA, inżynierów automatyzacji testów i programistów aplikacji mobilnych.
+
+2. Do czego służy Appium?
+
+Appium służy do sprawdzania, czy aplikacja mobilna działa prawidłowo w różnych scenariuszach.
+
+Można go wykorzystać do testowania logowania, rejestracji, formularzy, nawigacji, zakupów i innych funkcjonalności aplikacji.
+
+Pozwala automatycznie wykonywać powtarzalne testy bez konieczności ręcznego klikania każdego elementu.
+
+Może również wspierać testowanie aplikacji na wielu urządzeniach i wersjach systemów operacyjnych.
+
+Przykładowo tester może przygotować scenariusz, który uruchamia aplikację, wpisuje dane logowania, naciska przycisk i sprawdza, czy pojawił się ekran główny.
+
+3. Jak działa Appium?
+
+Appium wykorzystuje architekturę klient–serwer.
+
+Test jest napisany w wybranym języku programowania, a biblioteka kliencka wysyła polecenia do serwera Appium.
+
+Serwer przetwarza polecenia i przekazuje je do odpowiedniego sterownika urządzenia.
+
+Sterownik wykonuje operacje na urządzeniu, emulatorze lub symulatorze.
+
+Następnie Appium zwraca wynik operacji do skryptu testowego.
+
+Przykładowy przepływ wygląda następująco:
+
+Skrypt testowy → biblioteka kliencka → serwer Appium → sterownik → aplikacja mobilna.
+
+4. Jakie aplikacje można testować?
+
+Appium obsługuje różne rodzaje aplikacji mobilnych.
+
+Aplikacje natywne są tworzone specjalnie dla danego systemu operacyjnego, na przykład Androida lub iOS.
+
+Aplikacje hybrydowe łączą elementy natywne z treścią wyświetlaną w komponentach internetowych.
+
+Aplikacje mobilne oparte na przeglądarce mogą być testowane przez automatyzację przeglądarki na urządzeniu.
+
+Appium może również automatyzować wybrane interakcje z elementami systemowymi, jeśli dany sterownik i środowisko to obsługują.
+
+5. Najważniejsze komponenty Appium
+
+Appium Server odbiera polecenia testowe i zarządza komunikacją ze sterownikami.
+
+Appium Client to biblioteka wykorzystywana w kodzie testowym do wysyłania poleceń.
+
+Driver odpowiada za komunikację z konkretną platformą lub rodzajem aplikacji.
+
+UiAutomator2 Driver jest popularnym sterownikiem do automatyzacji aplikacji Android.
+
+XCUITest Driver służy do automatyzacji aplikacji na iOS.
+
+WebDriver Protocol umożliwia przesyłanie poleceń automatyzacji zgodnie z protokołem WebDriver.
+
+W Appium 2 sterowniki i dodatkowe rozszerzenia są instalowane oddzielnie od podstawowego serwera.
+
+6. Appium a Android
+
+Appium pozwala automatyzować testy aplikacji na urządzeniach z Androidem.
+
+Do testowania można wykorzystać fizyczny telefon albo emulator uruchomiony w Android Studio.
+
+Popularnym sterownikiem jest UiAutomator2.
+
+Do przygotowania środowiska przydają się Android SDK, Android SDK Platform-Tools i narzędzie ADB.
+
+ADB umożliwia między innymi sprawdzanie podłączonych urządzeń, instalowanie aplikacji i wykonywanie poleceń diagnostycznych.
+
+Przed rozpoczęciem testów należy upewnić się, że urządzenie jest widoczne w środowisku oraz że sterownik i wersja systemu są zgodne.
+
+7. Appium a iOS
+
+Appium umożliwia automatyzację aplikacji na iPhone'ach i iPadach.
+
+W przypadku iOS wykorzystywany jest sterownik XCUITest.
+
+Do konfiguracji środowiska potrzebny jest komputer z macOS oraz odpowiednie narzędzia Apple, w tym Xcode.
+
+Testy można wykonywać na symulatorach lub obsługiwanych urządzeniach fizycznych.
+
+Uruchamianie testów na rzeczywistych urządzeniach może wymagać dodatkowej konfiguracji podpisywania aplikacji i uprawnień.
+
+W porównaniu z Androidem przygotowanie środowiska iOS jest silniej związane z ekosystemem Apple.
+
+8. Języki programowania
+
+Appium obsługuje wiele języków za pośrednictwem bibliotek klienckich.
+
+Do popularnych wyborów należą Java, Python, JavaScript i C#.
+
+Java jest dobrym wyborem dla osób, które korzystają z Selenium, JUnit, TestNG lub innych narzędzi automatyzacji testów.
+
+Python może być wygodny do szybkiego tworzenia skryptów testowych.
+
+JavaScript pozwala integrować Appium z ekosystemem narzędzi opartych na Node.js.
+
+Wybór języka powinien zależeć od technologii używanych w projekcie i doświadczenia zespołu.
+
+9. Instalacja Appium
+
+Do uruchomienia Appium 2 potrzebne jest odpowiednio skonfigurowane środowisko Node.js.
+
+Serwer można zainstalować za pomocą npm:
+
+```
+npm install -g appium
+```
+
+Po instalacji można sprawdzić wersję:
+
+```
+appium --version
+```
+
+Sterownik Androida można zainstalować poleceniem:
+
+```
+appium driver install uiautomator2
+```
+
+Następnie serwer można uruchomić:
+
+```
+appium
+```
+
+Powyższe polecenia dotyczą typowej instalacji Appium 2.
+
+Do wykonywania testów potrzebna jest jeszcze odpowiednia biblioteka kliencka oraz konfiguracja urządzenia lub emulatora.
+
+10. Przykład testu Appium w Javie
+
+Załóżmy, że chcesz uruchomić aplikację Android i sprawdzić, czy wyświetla się przycisk logowania.
+
+Test może zostać napisany z wykorzystaniem biblioteki Appium Java Client i JUnit.
+
+Przykładowy kod:
+
+```
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.net.URI;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class LoginTest {
+
+    @Test
+    void shouldDisplayLoginButton() throws Exception {
+        DesiredCapabilities capabilities =
+                new DesiredCapabilities();
+
+        capabilities.setCapability(
+                "platformName", "Android"
+        );
+
+        capabilities.setCapability(
+                "appium:automationName", "UiAutomator2"
+        );
+
+        capabilities.setCapability(
+                "appium:deviceName", "Android Emulator"
+        );
+
+        capabilities.setCapability(
+                "appium:app",
+                "/path/to/application.apk"
+        );
+
+        AndroidDriver driver = new AndroidDriver(
+                URI.create("http://127.0.0.1:4723")
+                        .toURL(),
+                capabilities
+        );
+
+        try {
+            WebElement loginButton = driver.findElement(
+                    AppiumBy.accessibilityId("login_button")
+            );
+
+            assertTrue(loginButton.isDisplayed());
+        } finally {
+            driver.quit();
+        }
+    }
+}
+```
+
+Ścieżkę `/path/to/application.apk` należy zastąpić rzeczywistą ścieżką do aplikacji.
+
+Identyfikator `login_button` musi odpowiadać identyfikatorowi dostępności skonfigurowanemu w testowanej aplikacji.
+
+W projekcie trzeba również dodać zgodne zależności Appium Java Client, Selenium i JUnit.
+
+11. Lokalizowanie elementów interfejsu
+
+Aby automatyzować aplikację, Appium musi odnajdywać elementy interfejsu.
+
+Accessibility ID pozwala lokalizować elementy na podstawie identyfikatorów dostępności.
+
+ID lub resource-id umożliwia wskazywanie elementów na podstawie ich identyfikatorów.
+
+XPath pozwala wyszukiwać elementy na podstawie struktury widoku, ale złożone wyrażenia XPath mogą być wolniejsze i bardziej podatne na zmiany interfejsu.
+
+Wybór selektora zależy od aplikacji i sterownika.
+
+W praktyce warto preferować stabilne identyfikatory dostępności zamiast lokalizatorów opartych wyłącznie na położeniu elementu na ekranie.
+
+12. Appium Inspector
+
+Appium Inspector to narzędzie umożliwiające analizowanie struktury interfejsu aplikacji.
+
+Pozwala zobaczyć elementy dostępne dla sterownika, ich właściwości i możliwe selektory.
+
+Ułatwia przygotowanie skryptów testowych, ponieważ pomaga ustalić, jak odnaleźć przyciski, pola tekstowe i inne elementy.
+
+Może być również używany do sprawdzania, czy wybrany element ma stabilny identyfikator.
+
+Inspector jest szczególnie przydatny podczas tworzenia pierwszych testów automatycznych.
+
+13. Appium a Selenium
+
+Selenium służy przede wszystkim do automatyzacji przeglądarek internetowych.
+
+Appium wykorzystuje model klient–serwer i protokół WebDriver, ale rozszerza automatyzację na aplikacje mobilne.
+
+Selenium jest często używane do testowania stron internetowych na komputerach.
+
+Appium jest wykorzystywane do testowania aplikacji mobilnych na Androidzie i iOS, a także wybranych scenariuszy w przeglądarkach mobilnych.
+
+Znajomość Selenium ułatwia naukę Appium, ponieważ wiele koncepcji, takich jak sterownik, selektory i interakcje z elementami, jest podobnych.
+
+14. Appium a Espresso i XCUITest
+
+Espresso jest natywnym frameworkiem do testowania interfejsów aplikacji Android.
+
+XCUITest jest frameworkiem Apple wykorzystywanym do testowania aplikacji na iOS.
+
+Appium udostępnia wspólny model automatyzacji dla różnych platform i pozwala pisać testy w językach takich jak Java czy Python.
+
+Espresso i XCUITest mogą zapewniać bardziej bezpośredni dostęp do natywnych mechanizmów testowych danej platformy.
+
+Appium jest szczególnie przydatne, gdy zespół chce utrzymywać wspólną strategię testowania dla Androida i iOS.
+
+15. Integracja z CI/CD
+
+Appium można zintegrować z narzędziami automatyzującymi proces budowania i testowania oprogramowania.
+
+Testy mogą być uruchamiane w ramach pipeline'u Jenkins, GitHub Actions lub GitLab CI.
+
+W środowisku CI trzeba przygotować odpowiednie urządzenia, emulatory lub infrastrukturę do testów mobilnych.
+
+Wyniki testów można zapisywać w raportach i wykorzystywać do oceny jakości kolejnych wersji aplikacji.
+
+Automatyczne testy mobilne pomagają wykrywać regresje przed udostępnieniem aplikacji użytkownikom.
+
+16. Zalety Appium
+
+Appium obsługuje automatyzację aplikacji Android i iOS.
+
+Umożliwia pisanie testów w kilku popularnych językach programowania.
+
+Pozwala automatyzować powtarzalne scenariusze i ograniczać liczbę testów wykonywanych ręcznie.
+
+Wykorzystuje model WebDriver, dzięki czemu wiele koncepcji jest podobnych do automatyzacji przeglądarek.
+
+Może współpracować z frameworkami testowymi, systemami CI/CD oraz narzędziami do raportowania.
+
+17. Wady Appium
+
+Konfiguracja środowiska może być czasochłonna, szczególnie podczas przygotowywania testów dla iOS.
+
+Testy interfejsu mogą być wrażliwe na zmiany układu aplikacji i identyfikatorów elementów.
+
+Automatyzacja na emulatorach nie zawsze odzwierciedla zachowanie aplikacji na rzeczywistych urządzeniach.
+
+Testy mogą działać wolniej niż niektóre testy jednostkowe i testy wykonywane bezpośrednio w natywnym frameworku.
+
+Utrzymanie stabilnej infrastruktury testowej wymaga odpowiedniego zarządzania wersjami, urządzeniami i zależnościami.
+
+18. Plan nauki Appium
+
+Na początku warto poznać podstawy testowania oprogramowania oraz automatyzacji testów.
+
+Następnie należy opanować podstawy Selenium WebDriver i zrozumieć architekturę klient–serwer.
+
+Kolejnym krokiem powinno być skonfigurowanie Appium 2, Android SDK i emulatora Androida.
+
+Później warto napisać test uruchamiający aplikację, odnajdujący elementy i wykonujący podstawowe interakcje.
+
+Na koniec dobrze jest nauczyć się korzystać z Appium Inspector, uruchamiać testy z JUnit lub TestNG i integrować je z CI/CD.
+
+Dobrym projektem praktycznym jest automatyzacja procesu logowania, sprawdzania komunikatów błędów i wylogowania z przykładowej aplikacji mobilnej.
+
+19. Najważniejsze pojęcia
+
+Appium — narzędzie do automatyzacji testów aplikacji mobilnych.
+
+Appium Server — serwer odbierający polecenia testowe i przekazujący je do sterowników.
+
+Appium Client — biblioteka wykorzystywana do tworzenia testów automatycznych.
+
+UiAutomator2 — popularny sterownik do automatyzacji aplikacji Android.
+
+XCUITest — framework Apple wykorzystywany do testowania aplikacji iOS.
+
+WebDriver — protokół i model automatyzacji interakcji z aplikacjami.
+
+Appium Inspector — narzędzie do analizowania elementów interfejsu aplikacji.
+
+Accessibility ID — identyfikator dostępności używany do odnajdywania elementów.
+
+Android SDK — zestaw narzędzi do tworzenia i testowania aplikacji Android.
+
+ADB — narzędzie do komunikacji z urządzeniami i emulatorami Androida.
+
+CI/CD — automatyzacja budowania, testowania i dostarczania oprogramowania.
+
+20. W skrócie
+
+Appium to narzędzie do automatyzacji testów aplikacji mobilnych na Androidzie i iOS.
+
+Pozwala symulować działania użytkownika, sprawdzać poprawność interfejsu i automatycznie wykonywać scenariusze testowe.
+
+Jeżeli chcesz rozwijać się w kierunku QA Automation, warto poznać Appium po opanowaniu podstaw testowania, Javy lub Pythona oraz Selenium WebDriver.

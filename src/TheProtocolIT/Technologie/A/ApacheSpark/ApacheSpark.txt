@@ -1,0 +1,269 @@
+Apache Spark — notatka
+
+1. Czym jest Apache Spark?
+
+Apache Spark to otwarty silnik do rozproszonego przetwarzania dużych zbiorów danych.
+
+Jest rozwijany jako projekt Apache i umożliwia wykonywanie obliczeń na wielu komputerach jednocześnie.
+
+Spark został zaprojektowany tak, aby wydajnie przetwarzać dane, wykorzystując między innymi pamięć operacyjną, zamiast za każdym razem odczytywać i zapisywać wszystkie dane na dysku.
+
+Obsługuje języki Python, Scala, Java i R oraz udostępnia interfejs SQL do analizowania danych.
+
+Jest wykorzystywany w Big Data, analityce, procesach ETL, uczeniu maszynowym i przetwarzaniu strumieni danych.
+
+2. Do czego służy Apache Spark?
+
+Apache Spark służy do przetwarzania i analizowania dużych ilości danych, które mogą przekraczać możliwości pojedynczego komputera.
+
+Może służyć do czyszczenia danych, filtrowania rekordów, wykonywania agregacji, łączenia zbiorów oraz przygotowywania danych do raportowania.
+
+Jest wykorzystywany w systemach rekomendacyjnych, analizie zachowań klientów, przetwarzaniu logów, analizie finansowej i rozwiązaniach opartych na sztucznej inteligencji.
+
+Spark może również przetwarzać dane napływające z systemów komunikatów, takich jak Apache Kafka.
+
+3. Jak działa Apache Spark?
+
+Spark dzieli zadania na mniejsze części i rozdziela ich wykonanie pomiędzy dostępne zasoby obliczeniowe.
+
+Program definiuje operacje na danych, a Spark tworzy plan ich wykonania.
+
+Następnie koordynuje pracę poszczególnych zadań na komputerach klastra.
+
+W typowym środowisku Spark składa się z aplikacji sterującej, nazywanej Driver, oraz procesów wykonawczych, nazywanych Executors.
+
+Driver koordynuje wykonanie aplikacji, natomiast Executors realizują zadania i przetwarzają dane.
+
+Spark może przechowywać wybrane dane pośrednie w pamięci, co przyspiesza wielokrotne wykorzystywanie tych samych wyników.
+
+4. Najważniejsze komponenty Apache Spark
+
+Spark Core jest podstawową warstwą silnika odpowiedzialną za wykonywanie zadań, planowanie pracy i obsługę przetwarzania rozproszonego.
+
+Spark SQL umożliwia analizowanie danych za pomocą SQL oraz pracy ze strukturami tabelarycznymi.
+
+Structured Streaming służy do przetwarzania strumieni danych w oparciu o model DataFrame i Dataset.
+
+MLlib udostępnia algorytmy i narzędzia do rozproszonego uczenia maszynowego.
+
+GraphX zapewnia funkcje przetwarzania grafów w Scali, choć jest to komponent o ograniczonym znaczeniu w nowszych rozwiązaniach.
+
+Wybór komponentów zależy od tego, czy projekt koncentruje się na analizie tabelarycznej, przetwarzaniu strumieniowym, czy uczeniu maszynowym.
+
+5. DataFrame i Dataset
+
+DataFrame to jedna z najważniejszych struktur danych wykorzystywanych w Apache Spark.
+
+Można go traktować jako rozproszoną tabelę składającą się z wierszy i kolumn.
+
+DataFrame umożliwia filtrowanie, grupowanie, sortowanie i łączenie danych.
+
+Spark optymalizuje operacje wykonywane na DataFrame, dzięki czemu często można uzyskać wysoką wydajność bez ręcznego zarządzania zadaniami rozproszonymi.
+
+Dataset zapewnia dodatkowo typowane API w językach, które je obsługują, szczególnie w Scali i Javie.
+
+W Pythonie standardowym rozwiązaniem do pracy z tabelarycznymi danymi Spark jest DataFrame.
+
+6. Przykład Apache Spark w Pythonie
+
+Załóżmy, że firma posiada plik CSV z informacjami o sprzedaży.
+
+Chce obliczyć łączną wartość sprzedaży dla każdego produktu.
+
+Przykładowy program w PySpark, czyli API Sparka dla Pythona, może wyglądać następująco:
+
+```
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import sum
+
+spark = (
+    SparkSession.builder
+    .appName("SalesAnalysis")
+    .getOrCreate()
+)
+
+sales = (
+    spark.read
+    .option("header", True)
+    .option("inferSchema", True)
+    .csv("sales.csv")
+)
+
+result = (
+    sales.groupBy("product")
+    .agg(sum("amount").alias("total_sales"))
+)
+
+result.show()
+
+spark.stop()
+```
+
+`SparkSession` tworzy punkt wejścia do pracy ze Sparkiem.
+
+`read.csv()` wczytuje dane z pliku CSV.
+
+`groupBy()` grupuje rekordy według produktu.
+
+`sum()` oblicza łączną wartość sprzedaży w każdej grupie.
+
+`show()` wyświetla wyniki.
+
+W rzeczywistych projektach warto jawnie definiować schemat danych, zamiast zawsze polegać na automatycznym rozpoznawaniu typów.
+
+7. Apache Spark SQL
+
+Spark SQL pozwala wykonywać zapytania SQL na danych przetwarzanych przez Spark.
+
+Można korzystać z tabel, widoków i zapytań przypominających te znane z relacyjnych baz danych.
+
+Przykładowe zapytanie:
+
+```
+SELECT product, SUM(amount) AS total_sales
+FROM sales
+GROUP BY product
+ORDER BY total_sales DESC;
+```
+
+Zapytanie grupuje dane według produktu i sortuje wyniki od największej wartości sprzedaży.
+
+Spark SQL jest przydatny dla analityków i programistów znających SQL, którzy chcą pracować z dużymi zbiorami danych.
+
+8. Przetwarzanie wsadowe i strumieniowe
+
+Przetwarzanie wsadowe (Batch Processing) polega na analizowaniu zgromadzonej wcześniej partii danych.
+
+Przykładem jest codzienne przetwarzanie plików zawierających zamówienia z całego dnia.
+
+Przetwarzanie strumieniowe (Stream Processing) umożliwia analizowanie danych napływających w sposób ciągły.
+
+Przykładem jest monitorowanie zdarzeń aplikacji, transakcji lub danych z urządzeń IoT.
+
+Structured Streaming pozwala budować aplikacje strumieniowe przy użyciu interfejsów podobnych do tych używanych w Spark SQL.
+
+W praktyce sposób przetwarzania, opóźnienia i gwarancje dostarczania danych zależą od źródła, konfiguracji oraz operacji wykonywanych w aplikacji.
+
+9. Integracja z Hadoop i Apache Kafka
+
+Apache Spark może odczytywać dane z różnych źródeł, w tym z systemów plików, magazynów obiektowych, baz danych i platform komunikatów.
+
+Może współpracować z Hadoop Distributed File System (HDFS) oraz odczytywać dane z kompatybilnych magazynów.
+
+Integracja z Apache Kafka umożliwia przetwarzanie strumieni zdarzeń pochodzących z aplikacji i innych systemów.
+
+Spark może również odczytywać pliki Parquet, ORC, JSON i CSV.
+
+Dzięki temu można budować potoki danych, które pobierają informacje, przekształcają je i przekazują do hurtowni danych lub innych systemów analitycznych.
+
+10. Apache Spark a uczenie maszynowe
+
+Spark może być wykorzystywany do przygotowywania dużych zbiorów danych dla modeli uczenia maszynowego.
+
+Biblioteka MLlib udostępnia między innymi algorytmy klasyfikacji, regresji, grupowania i przetwarzania cech.
+
+Spark pozwala również wykonywać transformacje danych przed przekazaniem ich do zewnętrznych bibliotek uczenia maszynowego.
+
+Jest przydatny wtedy, gdy przygotowanie danych wymaga dużej mocy obliczeniowej.
+
+Nie oznacza to jednak, że Spark zawsze jest najlepszym narzędziem do trenowania modeli AI.
+
+W mniejszych projektach biblioteki takie jak scikit-learn mogą być prostsze w użyciu.
+
+11. Apache Spark a Apache Hadoop MapReduce
+
+Hadoop MapReduce jest klasycznym modelem rozproszonego przetwarzania danych.
+
+Spark udostępnia bardziej rozbudowane API i często wykorzystuje pamięć do przechowywania danych pośrednich.
+
+Dzięki temu może być wydajniejszy w zadaniach obejmujących wiele kolejnych operacji na tych samych danych.
+
+Spark nie wymaga używania MapReduce do wykonywania obliczeń.
+
+Może działać z różnymi mechanizmami zarządzania zasobami oraz korzystać z wielu źródeł danych.
+
+Hadoop i Spark nie wykluczają się, ponieważ Spark może współpracować z elementami ekosystemu Hadoop, takimi jak HDFS.
+
+12. Apache Spark a Apache Flink
+
+Apache Spark i Apache Flink są silnikami rozproszonego przetwarzania danych.
+
+Spark jest często wykorzystywany do przetwarzania wsadowego, analityki SQL oraz przetwarzania strumieniowego za pomocą Structured Streaming.
+
+Flink jest szczególnie znany z przetwarzania strumieniowego i obsługi zdarzeń z uwzględnieniem czasu ich wystąpienia.
+
+Wybór pomiędzy nimi zależy od wymagań dotyczących opóźnień, zarządzania stanem, złożoności przetwarzania oraz infrastruktury.
+
+Oba rozwiązania są wykorzystywane w systemach Big Data.
+
+13. Zalety Apache Spark
+
+Spark umożliwia przetwarzanie bardzo dużych zbiorów danych w sposób rozproszony.
+
+Udostępnia API w kilku językach programowania i obsługuje SQL.
+
+Pozwala realizować zarówno zadania wsadowe, jak i strumieniowe.
+
+Może optymalizować operacje na danych tabelarycznych dzięki mechanizmom Spark SQL.
+
+Współpracuje z wieloma formatami danych, systemami plików i narzędziami ekosystemu Big Data.
+
+14. Wady Apache Spark
+
+Uruchomienie klastra Spark może wymagać znacznych zasobów obliczeniowych i pamięci.
+
+Konfiguracja środowiska rozproszonego może być skomplikowana dla początkujących.
+
+Niewłaściwie zaprojektowane operacje, na przykład kosztowne łączenia danych lub nadmierne przetasowania danych między węzłami, mogą obniżyć wydajność.
+
+Spark nie zawsze jest uzasadniony przy małych zbiorach danych, które można szybko przetworzyć na jednym komputerze.
+
+Wydajność zależy od rozmiaru danych, konfiguracji klastra, sposobu zapisu danych i planu wykonania.
+
+15. Plan nauki Apache Spark
+
+Na początku warto poznać podstawy Pythona lub Javy oraz ideę przetwarzania rozproszonego.
+
+Następnie należy zainstalować środowisko PySpark i nauczyć się tworzyć SparkSession.
+
+Kolejnym krokiem powinno być wczytywanie plików CSV i Parquet oraz wykonywanie operacji na DataFrame.
+
+Później warto opanować Spark SQL, łączenie tabel, agregacje i optymalizację zapytań.
+
+Na koniec dobrze jest zbudować projekt ETL, który pobiera dane, przekształca je i zapisuje wyniki w wybranym magazynie danych.
+
+Dodatkowo warto poznać Structured Streaming i integrację z Apache Kafka.
+
+16. Najważniejsze pojęcia
+
+Apache Spark — silnik do rozproszonego przetwarzania dużych zbiorów danych.
+
+PySpark — API umożliwiające korzystanie ze Sparka w Pythonie.
+
+Spark Core — podstawowa warstwa silnika przetwarzania.
+
+Spark SQL — komponent do analizy danych tabelarycznych i zapytań SQL.
+
+Structured Streaming — API do przetwarzania strumieni danych.
+
+MLlib — biblioteka uczenia maszynowego dla Sparka.
+
+Driver — proces koordynujący wykonanie aplikacji Spark.
+
+Executor — proces wykonujący zadania i przetwarzający dane.
+
+DataFrame — rozproszona struktura danych przypominająca tabelę.
+
+SparkSession — główny punkt wejścia do funkcjonalności Sparka.
+
+HDFS — rozproszony system plików Hadoop.
+
+Apache Kafka — platforma do przesyłania i przechowywania strumieni zdarzeń.
+
+17. W skrócie
+
+Apache Spark to silnik Big Data umożliwiający szybkie i rozproszone przetwarzanie dużych zbiorów danych.
+
+Najważniejsze obszary jego zastosowania to analityka SQL, procesy ETL, przetwarzanie strumieniowe i przygotowywanie danych do uczenia maszynowego.
+
+Warto rozpocząć naukę od PySpark, DataFrame i Spark SQL, a następnie przejść do optymalizacji oraz integracji z innymi narzędziami Big Data.

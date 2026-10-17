@@ -1,0 +1,1024 @@
+# Fortinet
+
+## Czym jest Fortinet?
+
+Fortinet to firma technologiczna specjalizująca się w **cyberbezpieczeństwie oraz bezpieczeństwie sieci**.
+
+Firma tworzy rozwiązania chroniące:
+
+sieci komputerowe.
+
+serwery.
+
+urządzenia użytkowników.
+
+aplikacje.
+
+chmurę.
+
+dane.
+
+infrastrukturę przedsiębiorstw.
+
+Najbardziej znanym produktem Fortinet jest **FortiGate**, czyli rodzina urządzeń i rozwiązań typu **firewall / Next-Generation Firewall (NGFW)**.
+
+Fortinet posiada bardzo szeroki ekosystem produktów bezpieczeństwa.
+
+## Do czego służy Fortinet?
+
+Rozwiązania Fortinet mogą być wykorzystywane do:
+
+ochrony sieci.
+
+filtrowania ruchu.
+
+blokowania ataków.
+
+ochrony przed malware.
+
+ochrony przed ransomware.
+
+VPN.
+
+segmentacji sieci.
+
+bezpiecznego dostępu zdalnego.
+
+ochrony aplikacji.
+
+ochrony endpointów.
+
+monitorowania infrastruktury.
+
+ochrony środowisk chmurowych.
+
+zarządzania bezpieczeństwem całej organizacji.
+
+## FortiGate
+
+**FortiGate** to jeden z najważniejszych produktów Fortinet.
+
+Jest to rozwiązanie klasy **Next-Generation Firewall (NGFW)**.
+
+Może pełnić funkcję:
+
+firewalla.
+
+routera.
+
+VPN Gateway.
+
+IPS.
+
+systemu filtrowania ruchu.
+
+kontrolera dostępu.
+
+elementu architektury SD-WAN.
+
+Schemat:
+
+```text
+Internet
+   ↓
+FortiGate
+   ↓
+LAN
+├── PC
+├── Server
+├── Printer
+└── Wi-Fi
+```
+
+FortiGate analizuje ruch przechodzący pomiędzy siecią wewnętrzną a Internetem.
+
+## Firewall
+
+Firewall kontroluje ruch sieciowy zgodnie z określonymi regułami.
+
+Przykładowo:
+
+```text
+Source: LAN
+Destination: Internet
+Service: HTTPS
+Action: ALLOW
+```
+
+Możemy również zablokować określony ruch:
+
+```text
+Source: Unknown
+Destination: Internal Server
+Service: SSH
+Action: DENY
+```
+
+Firewall działa więc jako kontrolowany punkt przejścia pomiędzy sieciami.
+
+## Next-Generation Firewall
+
+NGFW jest bardziej zaawansowany niż klasyczny firewall.
+
+Może analizować nie tylko:
+
+adres IP.
+
+port.
+
+protokół.
+
+ale również:
+
+aplikacje.
+
+użytkowników.
+
+treść ruchu.
+
+zagrożenia.
+
+Przykładowo firewall może rozpoznać określoną aplikację i stworzyć regułę na podstawie jej charakterystyki.
+
+## FortiOS
+
+**FortiOS** jest systemem operacyjnym wykorzystywanym w urządzeniach Fortinet, w szczególności FortiGate.
+
+Zapewnia funkcje związane z:
+
+routingiem.
+
+firewallem.
+
+VPN.
+
+bezpieczeństwem.
+
+SD-WAN.
+
+politykami bezpieczeństwa.
+
+monitorowaniem.
+
+administracją.
+
+Konfiguracja może być wykonywana przez:
+
+GUI.
+
+CLI.
+
+API.
+
+## FortiGate GUI
+
+FortiGate posiada graficzny interfejs administracyjny.
+
+Administrator może w nim konfigurować między innymi:
+
+interfejsy.
+
+routing.
+
+firewall policies.
+
+NAT.
+
+VPN.
+
+DHCP.
+
+DNS.
+
+SD-WAN.
+
+IPS.
+
+Web Filter.
+
+Application Control.
+
+Logowanie.
+
+## FortiGate CLI
+
+FortiGate można również konfigurować za pomocą CLI.
+
+Przykładowa składnia może wyglądać tak:
+
+```text
+config system interface
+    edit "port1"
+        set ip 192.168.1.1/24
+    next
+end
+```
+
+CLI jest szczególnie przydatne dla administratorów sieci oraz podczas automatyzacji.
+
+## Firewall Policies
+
+Firewall policies określają, jaki ruch jest dozwolony lub blokowany.
+
+Przykładowa polityka:
+
+```text
+LAN
+ ↓
+Internet
+ ↓
+HTTPS
+ ↓
+ALLOW
+```
+
+Inna:
+
+```text
+Internet
+ ↓
+LAN Server
+ ↓
+RDP
+ ↓
+DENY
+```
+
+Polityki mogą uwzględniać między innymi:
+
+source.
+
+destination.
+
+service.
+
+application.
+
+user.
+
+schedule.
+
+action.
+
+## NAT
+
+FortiGate obsługuje **NAT – Network Address Translation**.
+
+NAT pozwala między innymi wielu urządzeniom w sieci prywatnej korzystać z jednego publicznego adresu IP.
+
+Przykład:
+
+```text
+PC 192.168.1.10
+      ↓
+PC 192.168.1.11
+      ↓
+PC 192.168.1.12
+      ↓
+   FortiGate
+      ↓
+Public IP
+      ↓
+  Internet
+```
+
+## VPN
+
+Fortinet zapewnia szerokie możliwości tworzenia VPN.
+
+VPN pozwala tworzyć bezpieczne połączenie poprzez niezaufaną sieć.
+
+Możemy mieć:
+
+Site-to-Site VPN.
+
+Remote Access VPN.
+
+IPsec VPN.
+
+SSL VPN / rozwiązania zdalnego dostępu zależne od wersji i produktu.
+
+## Site-to-Site VPN
+
+Site-to-Site VPN łączy ze sobą dwie sieci.
+
+Przykład:
+
+```text
+Office A
+192.168.1.0/24
+      ↓
+   FortiGate
+      ║
+    VPN
+      ║
+   FortiGate
+      ↓
+Office B
+192.168.2.0/24
+```
+
+Użytkownicy obu lokalizacji mogą komunikować się ze sobą przez zabezpieczony tunel.
+
+## IPsec
+
+**IPsec** jest zestawem protokołów zapewniających bezpieczeństwo komunikacji IP.
+
+Może zapewniać:
+
+poufność.
+
+integralność.
+
+uwierzytelnianie.
+
+ochronę transmisji.
+
+FortiGate może wykorzystywać IPsec do tworzenia tuneli VPN.
+
+## IPS
+
+**IPS – Intrusion Prevention System** służy do wykrywania i blokowania podejrzanego lub złośliwego ruchu.
+
+Schemat:
+
+```text
+Network Traffic
+      ↓
+     IPS
+      ↓
+ ┌────┴────┐
+ ↓         ↓
+Safe     Attack
+ ↓         ↓
+Allow     Block
+```
+
+IPS może wykrywać charakterystyczne wzorce ataków.
+
+## IDS vs IPS
+
+**IDS – Intrusion Detection System** wykrywa zagrożenia i informuje administratora.
+
+**IPS – Intrusion Prevention System** może dodatkowo blokować wykryte zagrożenia.
+
+Można zapamiętać:
+
+```text
+IDS
+→ Detect
+
+IPS
+→ Detect + Prevent
+```
+
+## Antivirus
+
+Fortinet posiada również mechanizmy ochrony antywirusowej.
+
+Mogą one analizować pliki i ruch sieciowy pod kątem złośliwego oprogramowania.
+
+Chronione mogą być między innymi:
+
+komputery.
+
+serwery.
+
+poczta.
+
+ruch internetowy.
+
+pliki przesyłane przez użytkowników.
+
+## Web Filtering
+
+**Web Filter** pozwala kontrolować dostęp użytkowników do stron internetowych.
+
+Możemy blokować między innymi określone kategorie stron.
+
+Przykładowo:
+
+```text
+Social Media
+Gaming
+Malware
+Adult
+Gambling
+Phishing
+```
+
+Możemy również zezwolić tylko na określone kategorie.
+
+## Application Control
+
+**Application Control** pozwala rozpoznawać aplikacje generujące ruch sieciowy.
+
+Przykładowo administrator może określić zasady dotyczące:
+
+YouTube.
+
+Facebook.
+
+Telegram.
+
+BitTorrent.
+
+gier.
+
+aplikacji chmurowych.
+
+Dzięki temu można kontrolować wykorzystanie określonych aplikacji w sieci.
+
+## DNS Filtering
+
+Fortinet może również wykorzystywać filtrowanie DNS.
+
+Schemat:
+
+```text
+User
+ ↓
+DNS Request
+ ↓
+FortiGate
+ ↓
+Security Check
+ ↓
+Allow / Block
+```
+
+Jeżeli domena znajduje się na liście niebezpiecznych lub niedozwolonych adresów, żądanie może zostać zablokowane.
+
+## SSL/TLS Inspection
+
+FortiGate może analizować zaszyfrowany ruch SSL/TLS w określonych konfiguracjach.
+
+Jest to znane jako **SSL Inspection**.
+
+Pozwala to systemom bezpieczeństwa analizować również ruch, który normalnie byłby zaszyfrowany.
+
+Wymaga to odpowiedniej konfiguracji certyfikatów i polityk oraz uwzględnienia prywatności i wymagań prawnych.
+
+## FortiAnalyzer
+
+**FortiAnalyzer** służy między innymi do centralnego zbierania i analizowania logów oraz zdarzeń bezpieczeństwa.
+
+Przykładowa architektura:
+
+```text
+FortiGate 1 ─┐
+FortiGate 2 ─┼──→ FortiAnalyzer
+FortiGate 3 ─┘
+```
+
+Administrator może dzięki temu analizować informacje z wielu urządzeń.
+
+## FortiManager
+
+**FortiManager** służy do centralnego zarządzania urządzeniami Fortinet.
+
+Możemy dzięki niemu zarządzać większą liczbą urządzeń.
+
+Przykład:
+
+```text
+              FortiManager
+                   │
+        ┌──────────┼──────────┐
+        ↓          ↓          ↓
+    FortiGate   FortiGate   FortiGate
+       HQ          Branch      Branch
+```
+
+Jest szczególnie przydatny w dużych organizacjach.
+
+## FortiAnalyzer vs FortiManager
+
+Można zapamiętać:
+
+```text
+FortiManager
+→ zarządzanie urządzeniami
+
+FortiAnalyzer
+→ logi i analiza
+```
+
+## FortiClient
+
+**FortiClient** jest rozwiązaniem instalowanym na urządzeniach końcowych.
+
+Może zapewniać między innymi:
+
+ochronę endpointów.
+
+VPN.
+
+kontrolę bezpieczeństwa urządzenia.
+
+integrację z infrastrukturą Fortinet.
+
+Przykładowo:
+
+```text
+Laptop
+  ↓
+FortiClient
+  ↓
+VPN
+  ↓
+FortiGate
+  ↓
+Company Network
+```
+
+## FortiEDR
+
+**FortiEDR** jest rozwiązaniem typu **Endpoint Detection and Response**.
+
+Jego zadaniem jest wykrywanie podejrzanych zachowań na urządzeniach końcowych i reagowanie na zagrożenia.
+
+Może analizować między innymi:
+
+procesy.
+
+zachowania aplikacji.
+
+zdarzenia systemowe.
+
+podejrzane działania.
+
+## FortiWeb
+
+**FortiWeb** jest rozwiązaniem typu **Web Application Firewall (WAF)**.
+
+Chroni aplikacje webowe przed określonymi atakami aplikacyjnymi.
+
+Przykładowa architektura:
+
+```text
+Internet
+   ↓
+FortiWeb
+   ↓
+Web Application
+   ↓
+Database
+```
+
+Może chronić aplikacje przed zagrożeniami takimi jak:
+
+SQL Injection.
+
+Cross-Site Scripting.
+
+inne ataki charakterystyczne dla aplikacji webowych.
+
+## WAF
+
+**WAF – Web Application Firewall** koncentruje się na ochronie aplikacji webowych.
+
+Klasyczny firewall:
+
+```text
+IP / Port / Network
+```
+
+WAF:
+
+```text
+HTTP / HTTPS
+Application Layer
+```
+
+Dlatego WAF i firewall sieciowy rozwiązują różne problemy.
+
+## FortiSandbox
+
+**FortiSandbox** służy do analizowania podejrzanych plików i zachowania potencjalnie złośliwego oprogramowania w izolowanym środowisku.
+
+Schemat:
+
+```text
+Suspicious File
+      ↓
+FortiSandbox
+      ↓
+Analysis
+      ↓
+Malicious?
+ ┌────┴────┐
+ ↓         ↓
+ YES       NO
+ ↓         ↓
+Block     Allow
+```
+
+## FortiMail
+
+**FortiMail** jest rozwiązaniem służącym do ochrony poczty elektronicznej.
+
+Może pomagać w ochronie przed:
+
+spamem.
+
+phishingiem.
+
+malware.
+
+złośliwymi załącznikami.
+
+zagrożeniami związanymi z pocztą elektroniczną.
+
+## FortiNAC
+
+**FortiNAC** służy do kontroli dostępu urządzeń do sieci.
+
+NAC oznacza **Network Access Control**.
+
+Możemy kontrolować:
+
+kto łączy się z siecią.
+
+jakie urządzenie się łączy.
+
+czy urządzenie spełnia wymagania bezpieczeństwa.
+
+do jakiej części sieci urządzenie może uzyskać dostęp.
+
+## Segmentacja sieci
+
+Fortinet może być wykorzystywany do segmentowania infrastruktury.
+
+Przykładowo:
+
+```text
+                 FortiGate
+                    │
+       ┌────────────┼────────────┐
+       ↓            ↓            ↓
+     Users        Servers       IoT
+      VLAN 10      VLAN 20      VLAN 30
+```
+
+Dzięki temu użytkownik z jednej części sieci nie musi mieć automatycznie dostępu do wszystkich pozostałych zasobów.
+
+## VLAN
+
+FortiGate może współpracować z VLAN-ami.
+
+VLAN pozwala logicznie podzielić jedną infrastrukturę fizyczną na wiele sieci.
+
+Przykładowo:
+
+```text
+VLAN 10 → Users
+VLAN 20 → Servers
+VLAN 30 → Guests
+VLAN 40 → IoT
+```
+
+FortiGate może kontrolować komunikację pomiędzy tymi segmentami.
+
+## SD-WAN
+
+Fortinet oferuje również rozwiązania **SD-WAN**.
+
+SD-WAN pozwala inteligentnie zarządzać połączeniami pomiędzy lokalizacjami.
+
+Przykładowo firma może posiadać:
+
+Internet.
+
+MPLS.
+
+łącze zapasowe.
+
+FortiGate może wybierać odpowiednią ścieżkę w zależności od parametrów połączenia.
+
+```text
+             FortiGate
+            /         \
+       Internet       MPLS
+            \         /
+             Branch
+```
+
+## Zero Trust
+
+Rozwiązania Fortinet mogą być wykorzystywane w architekturach **Zero Trust**.
+
+Podstawowa idea Zero Trust:
+
+**Nie ufaj automatycznie żadnemu użytkownikowi ani urządzeniu.**
+
+Dostęp powinien być kontrolowany na podstawie między innymi:
+
+tożsamości.
+
+urządzenia.
+
+lokalizacji.
+
+kontekstu.
+
+uprawnień.
+
+stanu bezpieczeństwa urządzenia.
+
+## Security Fabric
+
+Jednym z ważnych pojęć związanych z Fortinet jest **Fortinet Security Fabric**.
+
+Jest to koncepcja integracji różnych elementów bezpieczeństwa.
+
+Przykładowo:
+
+```text
+             Security Fabric
+                    │
+      ┌─────────────┼─────────────┐
+      ↓             ↓             ↓
+   FortiGate     FortiClient   FortiAnalyzer
+      ↓             ↓             ↓
+   Network        Endpoint       Logs
+```
+
+Celem jest współpraca różnych komponentów bezpieczeństwa.
+
+## FortiGuard
+
+**FortiGuard Labs** dostarcza między innymi informacje i usługi związane z zagrożeniami cyberbezpieczeństwa.
+
+Może dostarczać dane wykorzystywane przez rozwiązania Fortinet do:
+
+wykrywania zagrożeń.
+
+filtrowania stron.
+
+rozpoznawania malware.
+
+identyfikowania złośliwych adresów.
+
+aktualizacji zabezpieczeń.
+
+## Fortinet w przedsiębiorstwie
+
+Przykładowa infrastruktura firmy może wyglądać tak:
+
+```text
+                         Internet
+                            │
+                            ▼
+                        FortiGate
+                            │
+             ┌──────────────┼──────────────┐
+             ↓              ↓              ↓
+           Users         Servers          Wi-Fi
+             │              │              │
+        FortiClient       VLAN 20        VLAN 30
+             │
+             └──────────────┬──────────────┘
+                            ↓
+                      FortiAnalyzer
+                            ↓
+                    Security Monitoring
+```
+
+## Fortinet w oddziałach firmy
+
+Firma posiadająca wiele oddziałów może zastosować:
+
+```text
+                    Headquarters
+                         │
+                    FortiGate
+                         │
+              ───────────┼───────────
+              │          │          │
+              ↓          ↓          ↓
+           Branch 1   Branch 2   Branch 3
+          FortiGate   FortiGate   FortiGate
+```
+
+FortiManager może służyć do centralnego zarządzania urządzeniami.
+
+## Fortinet i chmura
+
+Fortinet posiada również rozwiązania przeznaczone do zabezpieczania środowisk chmurowych.
+
+Może współpracować między innymi z infrastrukturą:
+
+AWS.
+
+Microsoft Azure.
+
+Google Cloud.
+
+Środowiskami hybrydowymi.
+
+Schemat:
+
+```text
+On-Premises
+    ↓
+Fortinet
+    ↓
+Cloud
+    ↓
+Applications
+```
+
+## Fortinet i DevOps
+
+W środowiskach DevOps i automatyzacji można wykorzystywać API oraz narzędzia automatyzujące konfigurację infrastruktury.
+
+Możliwe jest integrowanie rozwiązań bezpieczeństwa z:
+
+Terraform.
+
+Ansible.
+
+REST API.
+
+CI/CD.
+
+systemami monitoringu.
+
+Dzięki temu bezpieczeństwo może być częścią procesu automatycznego wdrażania infrastruktury.
+
+## Fortinet a Cisco
+
+Fortinet i Cisco oferują rozwiązania z zakresu sieci i cyberbezpieczeństwa.
+
+Fortinet jest szczególnie kojarzony z:
+
+FortiGate.
+
+NGFW.
+
+Security Fabric.
+
+SD-WAN.
+
+Cisco posiada bardzo szeroki ekosystem obejmujący między innymi:
+
+routery.
+
+switche.
+
+firewalle.
+
+systemy bezpieczeństwa.
+
+rozwiązania bezprzewodowe.
+
+Można uprościć:
+
+```text
+Fortinet
+→ bardzo mocny nacisk na cybersecurity + network security
+
+Cisco
+→ bardzo szeroki ekosystem networkingu + security
+```
+
+## Fortinet – zalety
+
+Rozbudowane rozwiązania bezpieczeństwa.
+
+Bardzo popularne firewalle FortiGate.
+
+Obsługa NGFW.
+
+VPN.
+
+IPS.
+
+Web Filtering.
+
+Application Control.
+
+SD-WAN.
+
+Centralne zarządzanie.
+
+Duży ekosystem produktów.
+
+Integracja wielu elementów bezpieczeństwa.
+
+Rozwiązania dla małych i dużych organizacji.
+
+Możliwość automatyzacji.
+
+## Fortinet – wady
+
+Konfiguracja zaawansowanych funkcji wymaga wiedzy sieciowej i bezpieczeństwa.
+
+Duża liczba produktów może być trudna do poznania na początku.
+
+Zaawansowane funkcje i usługi mogą wymagać odpowiednich licencji.
+
+Niektóre konfiguracje bezpieczeństwa wymagają bardzo dobrej znajomości sieci.
+
+Błędna konfiguracja firewalla może spowodować zarówno problemy z dostępnością, jak i bezpieczeństwem.
+
+## Fortinet – najważniejsze pojęcia
+
+**Fortinet** – firma specjalizująca się w cyberbezpieczeństwie.
+
+**FortiGate** – firewall / NGFW.
+
+**FortiOS** – system operacyjny FortiGate.
+
+**FortiClient** – ochrona i bezpieczeństwo endpointów oraz funkcje dostępu.
+
+**FortiManager** – centralne zarządzanie urządzeniami.
+
+**FortiAnalyzer** – zbieranie i analiza logów.
+
+**FortiWeb** – Web Application Firewall.
+
+**FortiMail** – ochrona poczty.
+
+**FortiSandbox** – analiza podejrzanych plików w izolowanym środowisku.
+
+**FortiNAC** – Network Access Control.
+
+**FortiEDR** – Endpoint Detection and Response.
+
+**FortiGuard** – usługi i informacje dotyczące cyberzagrożeń.
+
+**Security Fabric** – integracja różnych elementów bezpieczeństwa.
+
+**NGFW** – Next-Generation Firewall.
+
+**IPS** – Intrusion Prevention System.
+
+**IDS** – Intrusion Detection System.
+
+**VPN** – bezpieczny tunel pomiędzy sieciami lub użytkownikiem a siecią.
+
+**SD-WAN** – programowo zarządzana optymalizacja połączeń WAN.
+
+**WAF** – Web Application Firewall.
+
+**NAC** – Network Access Control.
+
+## Fortinet – najważniejsze do zapamiętania
+
+Fortinet jest firmą zajmującą się **cyberbezpieczeństwem i bezpieczeństwem sieci**.
+
+Najbardziej znanym rozwiązaniem jest **FortiGate**.
+
+FortiGate jest rozwiązaniem klasy **Next-Generation Firewall**.
+
+FortiOS jest systemem operacyjnym FortiGate.
+
+FortiGate może realizować między innymi funkcje firewalla, VPN, IPS, filtrowania ruchu i SD-WAN.
+
+**FortiManager** służy do centralnego zarządzania urządzeniami.
+
+**FortiAnalyzer** służy do zbierania i analizowania logów.
+
+**FortiClient** zabezpiecza urządzenia końcowe i może zapewniać dostęp VPN.
+
+**FortiWeb** chroni aplikacje webowe jako WAF.
+
+**FortiMail** chroni pocztę elektroniczną.
+
+**FortiSandbox** analizuje podejrzane pliki.
+
+**FortiNAC** kontroluje dostęp urządzeń do sieci.
+
+**FortiEDR** wykrywa i reaguje na zagrożenia na endpointach.
+
+**FortiGuard** dostarcza usługi i informacje dotyczące zagrożeń.
+
+Najprościej zapamiętać:
+
+```text
+                         FORTINET
+                            ↓
+                    CYBERSECURITY
+                            ↓
+                     Security Fabric
+                            ↓
+        ┌───────────────────┼───────────────────┐
+        ↓                   ↓                   ↓
+    FortiGate           FortiClient        FortiWeb
+     Network              Endpoint          Web Apps
+        ↓                   ↓                   ↓
+       VPN                 EDR                 WAF
+       IPS
+       NGFW
+       SD-WAN
+        │
+        └───────────────┬───────────────────────
+                        ↓
+                 FortiManager
+                        +
+                 FortiAnalyzer
+```
+
+**Fortinet = bezpieczeństwo sieci + endpointów + aplikacji + chmury, a FortiGate jest centralnym i najbardziej rozpoznawalnym elementem tego ekosystemu.**

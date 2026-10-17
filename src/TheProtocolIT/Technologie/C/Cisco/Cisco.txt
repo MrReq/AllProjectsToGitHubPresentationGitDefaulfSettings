@@ -1,0 +1,133 @@
+# Cisco
+
+## 1. Czym jest Cisco?
+
+Cisco to amerykańska firma technologiczna specjalizująca się w rozwiązaniach sieciowych, cyberbezpieczeństwie, infrastrukturze IT, komunikacji oraz przetwarzaniu danych.
+
+Firma dostarcza urządzenia i oprogramowanie wykorzystywane do budowania, zabezpieczania i zarządzania sieciami komputerowymi w przedsiębiorstwach, centrach danych i środowiskach chmurowych.
+
+Cisco jest również znane z certyfikacji zawodowych, takich jak CCNA i CCNP, które potwierdzają wiedzę z zakresu sieci komputerowych.
+
+## 2. Najważniejsze produkty i technologie Cisco
+
+- Routery – przekazują pakiety między różnymi sieciami komputerowymi.
+- Switche – łączą urządzenia w sieciach lokalnych (LAN) i przekazują ruch między nimi.
+- Zapory sieciowe – kontrolują ruch sieciowy i pomagają chronić infrastrukturę przed zagrożeniami.
+- Cisco IOS i IOS XE – systemy operacyjne stosowane w wielu urządzeniach sieciowych Cisco.
+- Cisco Meraki – platforma do centralnego zarządzania urządzeniami sieciowymi, takimi jak punkty dostępowe Wi-Fi, switche i zapory.
+- Cisco Catalyst – rodzina rozwiązań sieciowych wykorzystywanych w sieciach przedsiębiorstw.
+- Cisco Nexus – rodzina przełączników przeznaczonych głównie do centrów danych.
+- Cisco Webex – platforma do wideokonferencji, komunikacji i współpracy zespołowej.
+- Cisco Secure – portfolio rozwiązań z zakresu cyberbezpieczeństwa.
+- Cisco Packet Tracer – narzędzie edukacyjne do symulowania sieci komputerowych i ćwiczenia konfiguracji urządzeń.
+
+## 3. Jak działa infrastruktura Cisco?
+
+Typowa infrastruktura sieciowa wykorzystująca urządzenia Cisco może obejmować następujące elementy:
+
+1. Urządzenia końcowe – komputery, drukarki, telefony i serwery.
+2. Switche – łączą urządzenia w sieci lokalnej.
+3. Routery – umożliwiają komunikację między różnymi sieciami.
+4. Zapory sieciowe – kontrolują połączenia zgodnie z regułami bezpieczeństwa.
+5. Punkty dostępowe – zapewniają bezprzewodowy dostęp do sieci.
+6. Systemy zarządzania – umożliwiają monitorowanie infrastruktury i konfigurację urządzeń.
+
+Administrator może konfigurować urządzenia przez interfejs wiersza poleceń (CLI), interfejs graficzny lub dedykowane platformy zarządzania.
+
+## 4. Przykładowe polecenia Cisco IOS
+
+Poniższe polecenia pokazują podstawową konfigurację urządzenia sieciowego Cisco w środowisku laboratoryjnym.
+
+```
+enable
+configure terminal
+
+hostname Router1
+
+interface gigabitEthernet 0/0
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+exit
+
+end
+show ip interface brief
+```
+
+Wyjaśnienie:
+
+- `enable` – przechodzi do trybu uprzywilejowanego.
+- `configure terminal` – otwiera tryb konfiguracji globalnej.
+- `hostname Router1` – ustawia nazwę urządzenia.
+- `interface gigabitEthernet 0/0` – wybiera interfejs sieciowy.
+- `ip address` – przypisuje adres IPv4 i maskę podsieci.
+- `no shutdown` – administracyjnie włącza interfejs.
+- `show ip interface brief` – wyświetla skrócone informacje o interfejsach.
+
+Nazwy interfejsów i dostępność poleceń zależą od modelu urządzenia oraz wersji systemu operacyjnego.
+
+## 5. Cisco Packet Tracer
+
+[Example of cisco packet tracer - retlibrary](https://images.openai.com/static-rsc-4/PtdAVDfM01WVk2LNR15dGIaDuFPkTODd_vW5yFI3_wc3svBvHBC3Fl_J4NwdFiyfrR9KnJDHF51Tgg2s2IpciPr7rMMLSGaOpFXpJk4ye2u05gPGHVshql76ErYa1dxH7669PdeHgqG3uvn8xwHqur9T7VKwMemcgXhh33uSlic?purpose=inline)
+
+[\[IT 통합 기초\] 라우팅 테이블 확인, static(정적) 라우팅 설정 및 관련 명령어](https://images.openai.com/static-rsc-4/rHJdg23MGmUnAff5VuLIf5zbKM-IfvCPETl0XNVCIB1acXpW9BlshRrT5bFbkXr5vc1RHsH7CO-RMXqfp19N8oecMjDgHp44SFcQmA72tLvOZv8t6uk5Kf4_MyU7xvU13Vl3xlVyvAAYxauI5XfmNVWxZKh5uB024JrtMmSxxoU?purpose=inline)
+
+[Cisco Packet Tracer - Problem with first pdu send - Cisco Community](https://images.openai.com/static-rsc-4/19Ge5Irqvx7Ob-j5kCGkLkBnEKS-k6lYKrkTXYBwEXWsCW77_w6onEXTMUR4PsC5COY8xha1sUQpLhIsEk9FwAh3oQqSqhPnCHrBaC4Fg_mfqGpycKHFMYLdcfPh-tUWb4H6oFYSg0xdlnStS8n1ZTjN_dqtWA38YBRgFodeht4?purpose=inline)
+
+9
+
+Cisco Packet Tracer to symulator sieci komputerowych, który pozwala budować wirtualne topologie, konfigurować routery i switche oraz testować komunikację między urządzeniami.
+
+Można w nim ćwiczyć adresację IP, podsieci, VLAN-y, routing, DHCP, DNS i podstawowe mechanizmy bezpieczeństwa.
+
+Jest szczególnie przydatny dla osób przygotowujących się do certyfikacji CCNA, ponieważ umożliwia naukę bez konieczności kupowania fizycznych urządzeń sieciowych.
+
+## 6. Certyfikaty Cisco
+
+- CCNA (Cisco Certified Network Associate) – certyfikacja obejmująca podstawy sieci, adresację IP, routing, switching, bezpieczeństwo i automatyzację sieci.
+- CCNP – poziom zaawansowany, obejmujący bardziej złożone zagadnienia sieciowe.
+- CCIE – ekspercki poziom certyfikacji dla specjalistów od zaawansowanej infrastruktury sieciowej.
+- CyberOps Associate – certyfikacja związana z operacjami bezpieczeństwa i monitorowaniem zagrożeń.
+
+Certyfikaty Cisco są przydatne osobom, które chcą pracować jako Network Engineer, Network Administrator, Network Security Engineer lub specjalista infrastruktury IT.
+
+## 7. Zastosowania Cisco
+
+- Sieci firmowe – budowanie i utrzymywanie sieci LAN i WAN.
+- Centra danych – łączenie serwerów, systemów pamięci masowej i infrastruktury wirtualizacyjnej.
+- Cyberbezpieczeństwo – ochrona sieci, monitorowanie ruchu i ograniczanie nieautoryzowanego dostępu.
+- Infrastruktura chmurowa – łączenie środowisk lokalnych z usługami chmurowymi.
+- Automatyzacja sieci – konfigurowanie urządzeń za pomocą skryptów, interfejsów API i narzędzi automatyzacyjnych.
+- Komunikacja biznesowa – organizowanie spotkań online i współpracy zespołów za pomocą Webex.
+
+## 8. Cisco a inne technologie sieciowe
+
+- Juniper Networks – dostawca routerów, switchy i rozwiązań sieciowych dla przedsiębiorstw oraz operatorów.
+- Fortinet – firma znana przede wszystkim z zapór sieciowych i rozwiązań cyberbezpieczeństwa.
+- Ubiquiti – dostawca urządzeń sieciowych, w tym punktów dostępowych Wi-Fi i switchy.
+- Huawei – dostawca infrastruktury telekomunikacyjnej i sieciowej.
+- MikroTik – producent routerów i urządzeń sieciowych, często wykorzystywanych w mniejszych sieciach i przez administratorów.
+
+## 9. Zalety i wady Cisco
+
+Zalety:
+
+- Szeroka oferta urządzeń i oprogramowania sieciowego.
+- Rozbudowane możliwości konfiguracji i zarządzania siecią.
+- Duża liczba materiałów edukacyjnych i laboratoriów.
+- Rozpoznawalne certyfikaty zawodowe.
+- Zastosowanie w środowiskach korporacyjnych i centrach danych.
+
+Wady:
+
+- Niektóre urządzenia i licencje mogą być kosztowne.
+- Zaawansowana konfiguracja wymaga specjalistycznej wiedzy.
+- Różne rodziny urządzeń mogą wykorzystywać odmienne systemy operacyjne i sposoby zarządzania.
+- Utrzymanie dużej infrastruktury wymaga monitorowania, aktualizacji i planowania bezpieczeństwa.
+
+## 10. Dlaczego warto znać Cisco?
+
+Znajomość Cisco jest szczególnie wartościowa dla osób zainteresowanych sieciami komputerowymi, cyberbezpieczeństwem, administracją systemami i infrastrukturą chmurową.
+
+Nawet jeśli nie planujesz zostać administratorem sieci, podstawowa wiedza o routerach, switchach, adresacji IP, VLAN-ach i routingu pomoże Ci lepiej rozumieć działanie aplikacji internetowych.
+
+W pracy programisty Java i Spring Boot wiedza sieciowa przydaje się podczas diagnozowania problemów z połączeniami HTTP, portami, DNS, zaporami sieciowymi oraz komunikacją między usługami.

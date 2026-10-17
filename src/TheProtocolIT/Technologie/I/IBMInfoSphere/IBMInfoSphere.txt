@@ -1,0 +1,92 @@
+# IBM InfoSphere – notatka
+
+## 1. Czym jest IBM InfoSphere?
+
+IBM InfoSphere to rodzina narzędzi i rozwiązań informatycznych firmy IBM przeznaczonych do zarządzania danymi, ich integracji, przetwarzania oraz poprawy jakości informacji w przedsiębiorstwach.
+
+Technologie InfoSphere pomagają organizacjom łączyć dane pochodzące z różnych systemów, przekształcać je do odpowiedniego formatu oraz przygotowywać do analizy i raportowania.
+
+Rozwiązania te są szczególnie przydatne w dużych przedsiębiorstwach, które przechowują dane w wielu bazach danych, aplikacjach i hurtowniach danych.
+
+## 2. Do czego służy IBM InfoSphere?
+
+IBM InfoSphere wspiera zarządzanie danymi na różnych etapach ich przetwarzania.
+
+- Integracja danych – łączenie informacji pochodzących z wielu źródeł.
+- Transformacja danych – przekształcanie danych do formatu wymaganego przez system docelowy.
+- Poprawa jakości danych – wykrywanie błędów, duplikatów i niespójności.
+- Zarządzanie danymi podstawowymi – ujednolicanie informacji o klientach, produktach i dostawcach.
+- Przygotowanie danych do analizy – dostarczanie uporządkowanych danych do hurtowni danych i systemów analitycznych.
+- Zarządzanie metadanymi – gromadzenie informacji o pochodzeniu, strukturze i znaczeniu danych.
+
+## 3. Najważniejsze komponenty IBM InfoSphere
+
+IBM InfoSphere DataStage to narzędzie do integracji danych, umożliwiające budowanie procesów ETL, czyli pobierania danych, ich przekształcania i ładowania do systemów docelowych.
+
+IBM InfoSphere Information Server to platforma integracyjna, która obejmowała narzędzia do integracji danych, profilowania, poprawy ich jakości oraz zarządzania metadanymi.
+
+IBM InfoSphere QualityStage służy do poprawy jakości danych, między innymi przez standaryzację, dopasowywanie rekordów i identyfikowanie duplikatów.
+
+IBM InfoSphere Master Data Management (MDM) wspiera zarządzanie najważniejszymi danymi przedsiębiorstwa, takimi jak informacje o klientach, produktach czy partnerach biznesowych. Jest to odrębna linia produktów IBM, powiązana z obszarem zarządzania danymi podstawowymi.
+
+IBM InfoSphere Information Governance Catalog wspiera katalogowanie danych oraz dokumentowanie ich znaczenia i pochodzenia w organizacji.
+
+Nazwy produktów i ich dostępność mogą się różnić w zależności od wersji, ponieważ portfolio IBM w obszarze zarządzania danymi ewoluowało.
+
+## 4. Jak działa proces ETL?
+
+ETL to jeden z najważniejszych mechanizmów wykorzystywanych przy integracji danych.
+
+1\. Extract – pobieranie
+
+Pobieranie danych z baz SQL, plików i aplikacji.
+
+2\. Transform – przekształcanie
+
+Czyszczenie, walidacja i ujednolicanie danych.
+
+3\. Load – ładowanie
+
+Zapisywanie przygotowanych danych w hurtowni danych.
+
+Przykładowo bank może pobierać informacje o klientach z kilku systemów, ujednolicać ich format, usuwać duplikaty i zapisywać wyniki w jednej hurtowni danych.
+
+## 5. Zalety IBM InfoSphere
+
+- Ułatwia integrację danych z wielu źródeł.
+- Pozwala automatyzować procesy ETL.
+- Pomaga wykrywać błędy i poprawiać jakość informacji.
+- Wspiera zarządzanie dużymi zbiorami danych.
+- Ułatwia analizę pochodzenia danych i kontrolę ich przepływu.
+- Może współpracować z różnymi bazami danych i systemami przedsiębiorstwa, zależnie od używanego komponentu i wersji.
+
+## 6. Wady i ograniczenia
+
+- Konfiguracja rozbudowanych procesów integracyjnych może być skomplikowana.
+- Wdrożenie w dużej organizacji może wymagać znacznych nakładów finansowych i pracy specjalistów.
+- Utrzymanie starszych instalacji może wymagać znajomości konkretnych wersji produktów.
+- Integracja różnych systemów wymaga odpowiedniego zaprojektowania mapowania danych i obsługi błędów.
+
+## 7. Zastosowania w praktyce
+
+IBM InfoSphere może być wykorzystywany w bankowości do łączenia danych o klientach i transakcjach, w handlu do synchronizacji informacji o produktach i sprzedaży, a w ochronie zdrowia do porządkowania danych pochodzących z różnych systemów informacyjnych.
+
+W analityce biznesowej może przygotowywać dane do raportów, dashboardów i modeli uczenia maszynowego.
+
+## 8. IBM InfoSphere a inne technologie
+
+| Technologia                                      | Główne zastosowanie                                 |
+| ------------------------------------------------ | --------------------------------------------------- |
+| IBM InfoSphere DataStage                         | Integracja i przetwarzanie danych                   |
+| Apache Kafka                                     | Przesyłanie strumieni zdarzeń w czasie rzeczywistym |
+| Apache Spark                                     | Rozproszone przetwarzanie dużych zbiorów danych     |
+| PostgreSQL                                       | Relacyjna baza danych                               |
+| Microsoft SQL Server Integration Services (SSIS) | Integracja danych i procesy ETL                     |
+
+## 9. Co warto zapamiętać?
+
+IBM InfoSphere to rodzina technologii IBM wspierających integrację, jakość i zarządzanie danymi w przedsiębiorstwach.
+
+Najważniejszym przykładem jest DataStage, który umożliwia budowanie procesów ETL i przygotowywanie danych do analizy.
+
+InfoSphere jest szczególnie istotny w obszarach takich jak hurtownie danych, Business Intelligence (BI), integracja systemów oraz zarządzanie jakością informacji.

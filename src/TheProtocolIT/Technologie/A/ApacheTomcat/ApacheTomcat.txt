@@ -1,0 +1,247 @@
+Apache Tomcat — notatka
+
+1. Czym jest Apache Tomcat?
+
+Apache Tomcat to serwer aplikacji internetowych typu open source, wykorzystywany przede wszystkim do uruchamiania aplikacji napisanych w języku Java.
+
+Jest rozwijany przez Apache Software Foundation i obsługuje technologie takie jak Java Servlets oraz Jakarta Server Pages (JSP).
+
+Tomcat działa jako kontener serwletów, który przyjmuje żądania HTTP, przekazuje je do odpowiednich komponentów aplikacji i zwraca wygenerowane odpowiedzi.
+
+Jest często wykorzystywany w aplikacjach Java EE/Jakarta EE o odpowiednio dobranym zakresie funkcji oraz w aplikacjach Spring Boot.
+
+2. Do czego służy Apache Tomcat?
+
+Apache Tomcat służy do uruchamiania aplikacji internetowych napisanych w Javie.
+
+Może obsługiwać aplikacje udostępniające strony internetowe, interfejsy REST API oraz dynamicznie generowane treści.
+
+Pozwala aplikacjom odbierać żądania HTTP i HTTPS oraz przetwarzać je za pomocą serwletów i innych komponentów webowych.
+
+Przykładowo aplikacja napisana w Javie może udostępniać endpoint `/api/users`, a Tomcat odbiera żądanie użytkownika i przekazuje je do odpowiedniego komponentu aplikacji.
+
+3. Jak działa Apache Tomcat?
+
+Tomcat uruchamia proces serwera, który nasłuchuje na skonfigurowanym porcie sieciowym.
+
+Gdy przeglądarka lub inna aplikacja wysyła żądanie HTTP, Tomcat odbiera je i przekazuje do odpowiedniego kontekstu aplikacji.
+
+Następnie kontener wywołuje właściwy serwlet lub komponent obsługujący żądanie.
+
+Aplikacja przetwarza dane i przygotowuje odpowiedź.
+
+Tomcat wysyła odpowiedź do klienta, na przykład w postaci HTML, JSON lub innej zawartości.
+
+Przykładowy przepływ:
+
+Przeglądarka → HTTP Request → Apache Tomcat → aplikacja Java → HTTP Response → przeglądarka.
+
+4. Czym jest kontener serwletów?
+
+Kontener serwletów to środowisko, które zarządza cyklem życia serwletów i umożliwia im obsługę żądań internetowych.
+
+Tomcat tworzy odpowiednie obiekty żądań i odpowiedzi, udostępnia mechanizmy sesji oraz obsługuje konfigurację aplikacji webowych.
+
+Kontener zarządza również cyklem życia serwletów, ich inicjalizacją i wywoływaniem metod obsługujących żądania.
+
+Dzięki temu programista nie musi samodzielnie implementować podstawowej obsługi protokołu HTTP.
+
+5. Czym są Java Servlets?
+
+Servlet to komponent Java, który może obsługiwać żądania i generować odpowiedzi w aplikacji internetowej.
+
+Serwlety mogą przetwarzać dane przesłane przez formularze, parametry zapytań i informacje z nagłówków HTTP.
+
+Są często wykorzystywane jako elementy backendu aplikacji webowych.
+
+Przykładowy serwlet może odbierać żądanie GET i zwracać prostą odpowiedź tekstową.
+
+W nowoczesnych aplikacjach Spring Boot programista zazwyczaj korzysta z kontrolerów Spring MVC, które działają na infrastrukturze serwletowej, zamiast pisać serwlety bezpośrednio.
+
+6. Apache Tomcat a Java i Spring Boot
+
+Apache Tomcat jest ściśle związany z ekosystemem Javy i często występuje w aplikacjach Spring Boot.
+
+Spring Boot może automatycznie konfigurować wbudowany serwer Tomcat podczas uruchamiania aplikacji webowej.
+
+Dzięki temu programista nie musi osobno instalować i konfigurować serwera, aby uruchomić typową aplikację Spring Boot.
+
+Przykładowo aplikacja może działać na porcie 8080 albo na innym porcie określonym w konfiguracji.
+
+W pliku `application.properties` można ustawić:
+
+```
+server.port=9999
+```
+
+Po uruchomieniu aplikacja będzie domyślnie nasłuchiwać na porcie 9999, o ile konfiguracja środowiska nie wprowadza dodatkowych zmian.
+
+7. Wbudowany Tomcat i zewnętrzny Tomcat
+
+Wbudowany Tomcat jest uruchamiany razem z aplikacją, na przykład przez Spring Boot.
+
+Aplikację można wtedy często uruchomić jako plik JAR za pomocą polecenia `java -jar`.
+
+Zewnętrzny Tomcat jest instalowany i uruchamiany niezależnie od aplikacji.
+
+W takim przypadku aplikację webową można wdrożyć jako plik WAR do katalogu `webapps` lub wdrożyć za pomocą odpowiedniego mechanizmu administracyjnego.
+
+Wybór rozwiązania zależy od wymagań wdrożeniowych i sposobu zarządzania infrastrukturą.
+
+8. Pliki JAR i WAR
+
+JAR to format archiwum Java, który może zawierać klasy, zasoby i metadane aplikacji.
+
+Spring Boot często tworzy wykonywalne pliki JAR zawierające aplikację oraz wbudowany serwer Tomcat.
+
+WAR to format przeznaczony do wdrażania aplikacji webowych w kontenerach obsługujących taki sposób wdrożenia.
+
+Tradycyjnie aplikacje WAR wdraża się na zewnętrznym serwerze Tomcat.
+
+Nie każda aplikacja Java wymaga Tomcata, ponieważ zależy to od jej rodzaju oraz wykorzystywanego środowiska uruchomieniowego.
+
+9. Konfiguracja Apache Tomcat
+
+Tomcat udostępnia pliki konfiguracyjne, które pozwalają dostosować działanie serwera.
+
+`server.xml` zawiera między innymi konfigurację portów, konektorów i usług serwera.
+
+`web.xml` może określać konfigurację aplikacji webowej, choć wiele współczesnych aplikacji wykorzystuje konfigurację programową i nie potrzebuje własnego pliku `web.xml`.
+
+`context.xml` służy do konfiguracji kontekstu aplikacji i wybranych zasobów.
+
+W Spring Boot część ustawień, takich jak port serwera, można zmieniać przez `application.properties` lub `application.yml`.
+
+Zmiany konfiguracji należy dopasować do wersji Tomcata oraz sposobu wdrożenia aplikacji.
+
+10. Porty i protokół HTTP
+
+Tomcat najczęściej udostępnia aplikację przez HTTP na porcie 8080.
+
+Port można zmienić w konfiguracji serwera lub aplikacji.
+
+HTTPS wymaga odpowiedniej konfiguracji TLS i certyfikatu.
+
+W środowisku produkcyjnym Tomcat może działać za odwrotnym proxy, takim jak Nginx lub Apache HTTP Server.
+
+Proxy może odpowiadać za terminację TLS, przekazywanie żądań i dodatkowe mechanizmy ochrony.
+
+11. Apache Tomcat a Apache HTTP Server
+
+Apache Tomcat i Apache HTTP Server to dwa różne projekty.
+
+Apache HTTP Server jest serwerem WWW, który może serwować pliki statyczne i przekazywać żądania do innych aplikacji.
+
+Apache Tomcat jest kontenerem serwletów, przeznaczonym przede wszystkim do uruchamiania aplikacji Java web.
+
+W niektórych architekturach oba rozwiązania współpracują ze sobą.
+
+Apache HTTP Server może obsługiwać ruch zewnętrzny, a Tomcat wykonywać aplikację Java.
+
+Nie jest jednak konieczne używanie obu serwerów jednocześnie.
+
+12. Apache Tomcat a pełne serwery aplikacyjne
+
+Tomcat obsługuje przede wszystkim technologie związane z serwletami i JSP.
+
+Nie zapewnia wszystkich usług oferowanych przez pełne serwery aplikacyjne Jakarta EE.
+
+Przykładowo pełny serwer aplikacyjny może udostępniać dodatkowe funkcje związane z rozproszonymi transakcjami, komunikacją i innymi standardami platformy.
+
+Jeśli aplikacja wymaga wyłącznie kontenera serwletów, Tomcat często jest wystarczający.
+
+Jeżeli wymaga szerszego zestawu standardów Jakarta EE, należy sprawdzić zgodność z innym serwerem aplikacyjnym.
+
+13. Diagnostyka i logi
+
+Apache Tomcat zapisuje informacje o uruchamianiu serwera, błędach i działaniu aplikacji.
+
+Logi są przydatne podczas diagnozowania problemów z konfiguracją, wdrożeniem i obsługą żądań.
+
+W przypadku błędu HTTP 404 należy sprawdzić, czy adres URL i ścieżka aplikacji są poprawne.
+
+Błąd HTTP 500 zwykle wskazuje na problem po stronie serwera lub aplikacji.
+
+Błąd uruchomienia może wynikać między innymi z zajętego portu, niezgodnej wersji Javy lub nieprawidłowej konfiguracji.
+
+W aplikacjach Spring Boot warto również analizować logi aplikacji, ponieważ zawierają informacje o kontrolerach, bazie danych i innych komponentach backendu.
+
+14. Bezpieczeństwo Apache Tomcat
+
+W środowisku produkcyjnym należy korzystać z wersji Tomcata, która jest wspierana i otrzymuje aktualizacje bezpieczeństwa.
+
+Nie należy publicznie udostępniać paneli administracyjnych bez odpowiedniego zabezpieczenia.
+
+Konta administracyjne powinny mieć silne hasła i ograniczone uprawnienia.
+
+Niepotrzebne aplikacje przykładowe oraz nieużywane funkcje należy usuwać lub wyłączać.
+
+Należy również odpowiednio skonfigurować TLS, kontrolę dostępu, sekrety i uprawnienia systemowe.
+
+15. Zalety Apache Tomcat
+
+Apache Tomcat jest bezpłatny i dostępny jako oprogramowanie open source.
+
+Jest szeroko wykorzystywany w ekosystemie Javy i dobrze współpracuje ze Spring Boot.
+
+Jego konfiguracja może być stosunkowo prosta w typowych aplikacjach webowych.
+
+Obsługuje serwlety, JSP i inne technologie webowe zgodne z daną wersją serwera.
+
+Może działać zarówno jako samodzielny serwer, jak i jako wbudowany komponent aplikacji.
+
+16. Wady Apache Tomcat
+
+Tomcat nie udostępnia wszystkich funkcji pełnego serwera aplikacyjnego Jakarta EE.
+
+Niektóre starsze aplikacje mogą wymagać konkretnej wersji Javy lub starszego interfejsu serwletów.
+
+Błędna konfiguracja serwera i uprawnień może prowadzić do problemów z bezpieczeństwem.
+
+W środowiskach o dużym obciążeniu konieczne może być dodatkowe skalowanie, monitorowanie i zastosowanie odwrotnego proxy.
+
+Wybór wersji Tomcata musi uwzględniać zgodność z używanymi bibliotekami i aplikacją.
+
+17. Plan nauki Apache Tomcat
+
+Na początku warto zainstalować JDK oraz Tomcat i uruchomić prostą aplikację webową.
+
+Następnie należy poznać porty, strukturę katalogów i podstawowe pliki konfiguracyjne.
+
+Kolejnym krokiem powinno być wdrożenie aplikacji WAR oraz przeanalizowanie logów serwera.
+
+Później warto uruchomić aplikację Spring Boot z wbudowanym Tomcatem i zmienić jej port.
+
+Na koniec dobrze jest przećwiczyć konfigurację HTTPS, podstawowe zabezpieczenia oraz diagnostykę typowych błędów HTTP.
+
+18. Najważniejsze pojęcia
+
+Apache Tomcat — kontener serwletów wykorzystywany do uruchamiania aplikacji webowych w Javie.
+
+Java Servlet — komponent obsługujący żądania i odpowiedzi aplikacji internetowej.
+
+JSP — technologia generowania dynamicznych stron internetowych po stronie serwera.
+
+Spring Boot — framework Java, który może uruchamiać aplikacje z wbudowanym Tomcatem.
+
+JAR — archiwum Java, często wykorzystywane do uruchamiania aplikacji Spring Boot.
+
+WAR — archiwum aplikacji webowej przeznaczone do wdrożenia w kompatybilnym kontenerze.
+
+HTTP — protokół komunikacji wykorzystywany przez aplikacje internetowe.
+
+HTTPS — HTTP zabezpieczony za pomocą TLS.
+
+`server.xml` — plik konfiguracyjny serwera Tomcat.
+
+Reverse Proxy — serwer pośredniczący, który przekazuje żądania do aplikacji.
+
+19. W skrócie
+
+Apache Tomcat to serwer wykorzystywany do uruchamiania aplikacji internetowych napisanych w Javie.
+
+Jest szczególnie ważny w projektach wykorzystujących Java Servlets, JSP i Spring Boot.
+
+Warto znać jego konfigurację, sposób wdrażania aplikacji JAR i WAR, obsługę portów oraz analizowanie logów, ponieważ umiejętności te przydają się podczas tworzenia i wdrażania backendów Java.
+
+Dodaj praktyczny projekt z TomcatemSkróć powtarzające się sekcje

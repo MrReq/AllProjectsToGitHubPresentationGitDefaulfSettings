@@ -1,0 +1,925 @@
+# Kotlin
+
+## 1. Czym jest Kotlin?
+
+**Kotlin** to nowoczesny, statycznie typowany język programowania rozwijany przez firmę .
+
+Kotlin jest szczególnie mocno związany z platformą **JVM**, ale może być również używany w innych środowiskach.
+
+Język został zaprojektowany tak, aby łączyć **bezpieczeństwo, zwięzłość kodu i pełną interoperacyjność z Javą**.
+
+Najprościej można zapamiętać:
+
+**Kotlin = nowoczesny język JVM, bardzo mocno zintegrowany z Javą i popularny w Androidzie.**
+
+## 2. Do czego wykorzystuje się Kotlin?
+
+Kotlin może być wykorzystywany do tworzenia:
+
+- aplikacji Android,
+- aplikacji backendowych,
+- aplikacji webowych,
+- mikroserwisów,
+- aplikacji desktopowych,
+- narzędzi programistycznych,
+- aplikacji wieloplatformowych,
+- bibliotek,
+- systemów działających na JVM.
+
+Przykładowa architektura:
+
+```text
+Kotlin
+  │
+  ├── Android
+  ├── Backend
+  ├── Web
+  ├── Desktop
+  └── Kotlin Multiplatform
+```
+
+## 3. Kotlin i Java
+
+Jedną z najważniejszych cech Kotlina jest jego **interoperacyjność z Javą**.
+
+Kod Kotlin może korzystać z bibliotek Java.
+
+Kod Java może również korzystać z kodu Kotlin.
+
+Można więc mieć projekt:
+
+```text
+Projekt
+│
+├── User.java
+├── Database.java
+├── UserService.kt
+└── Main.kt
+```
+
+i oba języki mogą współpracować.
+
+Jest to bardzo ważne, ponieważ ogromna liczba bibliotek i frameworków dostępnych dla Javy może być wykorzystywana również w Kotlinie.
+
+## 4. Kotlin na JVM
+
+Kotlin może być kompilowany do **bytecode'u JVM**.
+
+Schemat:
+
+```text
+Kotlin
+   │
+   ▼
+Kotlin Compiler
+   │
+   ▼
+JVM Bytecode
+   │
+   ▼
+JVM
+```
+
+Dzięki temu Kotlin może korzystać z infrastruktury stworzonej dla Javy.
+
+## 5. Podstawowy program
+
+Najprostszy program Kotlin może wyglądać tak:
+
+```kotlin
+fun main() {
+    println("Hello, World!")
+}
+```
+
+W porównaniu z Javą kod jest bardzo krótki.
+
+Java:
+
+```java
+public static void main(String[] args) {
+    System.out.println("Hello, World!");
+}
+```
+
+Kotlin:
+
+```kotlin
+fun main() {
+    println("Hello, World!")
+}
+```
+
+## 6. Zmienne
+
+Kotlin rozróżnia zmienne, których wartość można zmieniać, oraz takie, których wartości nie powinno się zmieniać.
+
+### val
+
+`val` oznacza wartość niemutowalną po przypisaniu.
+
+```kotlin
+val name = "Marcin"
+```
+
+Nie możemy później zrobić:
+
+```kotlin
+name = "Adam"
+```
+
+### var
+
+`var` oznacza zmienną, której wartość można zmienić.
+
+```kotlin
+var age = 25
+age = 26
+```
+
+Najprościej:
+
+```text
+val → nie można ponownie przypisać
+var → można ponownie przypisać
+```
+
+## 7. Typy danych
+
+Kotlin posiada między innymi:
+
+```text
+Int
+Long
+Short
+Byte
+Float
+Double
+Boolean
+Char
+String
+```
+
+Przykład:
+
+```kotlin
+val age: Int = 25
+val price: Double = 19.99
+val active: Boolean = true
+val letter: Char = 'A'
+val name: String = "Kotlin"
+```
+
+Kotlin często potrafi sam wywnioskować typ.
+
+```kotlin
+val age = 25
+```
+
+Kompilator wie, że `age` jest typu `Int`.
+
+## 8. String
+
+Tekst reprezentowany jest przez `String`.
+
+```kotlin
+val name = "Marcin"
+```
+
+Kotlin obsługuje również **string templates**.
+
+```kotlin
+val age = 25
+
+println("Mam $age lat")
+```
+
+Można również wykonywać wyrażenia:
+
+```kotlin
+println("Za rok będę ${age + 1}")
+```
+
+## 9. Funkcje
+
+Funkcje definiuje się za pomocą słowa kluczowego:
+
+```kotlin
+fun
+```
+
+Przykład:
+
+```kotlin
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+Można też użyć krótszej składni:
+
+```kotlin
+fun add(a: Int, b: Int) = a + b
+```
+
+## 10. Null Safety
+
+Jedną z najważniejszych cech Kotlina jest **null safety**.
+
+Kotlin rozróżnia typy, które mogą przechowywać `null`, od tych, które nie mogą.
+
+```kotlin
+var name: String = "Marcin"
+```
+
+Tutaj:
+
+```kotlin
+name = null
+```
+
+jest niedozwolone.
+
+Jeżeli chcemy dopuścić `null`, używamy `?`.
+
+```kotlin
+var name: String? = null
+```
+
+To jedna z najważniejszych różnic względem tradycyjnej Javy.
+
+## 11. Safe Call
+
+Operator:
+
+```kotlin
+?.
+```
+
+pozwala bezpiecznie wykonać operację na wartości, która może być `null`.
+
+```kotlin
+println(name?.length)
+```
+
+Jeżeli `name` jest `null`, Kotlin nie rzuci automatycznie `NullPointerException` w tym miejscu.
+
+## 12. Elvis Operator
+
+Kotlin posiada operator:
+
+```kotlin
+?:
+```
+
+nazywany **Elvis operator**.
+
+Przykład:
+
+```kotlin
+val length = name?.length ?: 0
+```
+
+Oznacza:
+
+```text
+jeżeli name != null
+    → użyj length
+
+jeżeli name == null
+    → użyj 0
+```
+
+## 13. Klasy
+
+Klasa w Kotlinie:
+
+```kotlin
+class Person(
+    val name: String,
+    var age: Int
+)
+```
+
+Tworzenie obiektu:
+
+```kotlin
+val person = Person("Marcin", 25)
+```
+
+Nie trzeba pisać tak dużo kodu jak w tradycyjnej Javie.
+
+## 14. Konstruktor
+
+Kotlin pozwala definiować konstruktor bezpośrednio w nagłówku klasy.
+
+```kotlin
+class Person(
+    val name: String,
+    val age: Int
+)
+```
+
+To jednocześnie definiuje parametry konstruktora i właściwości obiektu.
+
+## 15. Data Class
+
+**Data class** służy przede wszystkim do reprezentowania danych.
+
+```kotlin
+data class User(
+    val id: Int,
+    val name: String
+)
+```
+
+Kompilator automatycznie generuje między innymi odpowiednie mechanizmy związane z:
+
+- `toString()`,
+- `equals()`,
+- `hashCode()`,
+- `copy()`.
+
+Przykład:
+
+```kotlin
+val user2 = user1.copy(name = "Adam")
+```
+
+## 16. Dziedziczenie
+
+Klasy w Kotlinie są domyślnie **final**.
+
+Jeżeli chcemy pozwolić na dziedziczenie, używamy:
+
+```kotlin
+open class Animal
+```
+
+Następnie:
+
+```kotlin
+class Dog : Animal()
+```
+
+Czyli:
+
+```text
+Animal
+   ▲
+   │
+  Dog
+```
+
+## 17. Interfejsy
+
+Kotlin obsługuje interfejsy.
+
+```kotlin
+interface Flyable {
+    fun fly()
+}
+```
+
+Klasa może implementować interfejs:
+
+```kotlin
+class Bird : Flyable {
+    override fun fly() {
+        println("Flying")
+    }
+}
+```
+
+## 18. Abstract Class
+
+Możemy również tworzyć klasy abstrakcyjne.
+
+```kotlin
+abstract class Animal {
+    abstract fun makeSound()
+}
+```
+
+Klasa potomna implementuje metodę:
+
+```kotlin
+class Dog : Animal() {
+    override fun makeSound() {
+        println("Woof")
+    }
+}
+```
+
+## 19. Kolekcje
+
+Kotlin posiada wygodną obsługę kolekcji.
+
+Najczęściej spotkasz:
+
+```text
+List
+Set
+Map
+```
+
+Przykład:
+
+```kotlin
+val names = listOf(
+    "Adam",
+    "Marcin",
+    "Anna"
+)
+```
+
+Mutable list:
+
+```kotlin
+val names = mutableListOf(
+    "Adam",
+    "Marcin"
+)
+
+names.add("Anna")
+```
+
+## 20. map()
+
+Jedną z najważniejszych funkcji kolekcji jest:
+
+```kotlin
+map()
+```
+
+Przykład:
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4)
+
+val doubled = numbers.map { it * 2 }
+```
+
+Wynik:
+
+```text
+[2, 4, 6, 8]
+```
+
+## 21. filter()
+
+`filter()` pozwala wybrać elementy spełniające określony warunek.
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4, 5)
+
+val even = numbers.filter { it % 2 == 0 }
+```
+
+Wynik:
+
+```text
+[2, 4]
+```
+
+## 22. Lambda
+
+Kotlin mocno wykorzystuje **funkcje lambda**.
+
+Przykład:
+
+```kotlin
+val sum = { a: Int, b: Int -> a + b }
+```
+
+Lambda może być przekazywana do funkcji:
+
+```kotlin
+numbers.filter { it > 10 }
+```
+
+Jest to jedna z cech, dzięki którym Kotlin pozwala pisać bardzo zwięzły kod.
+
+## 23. Extension Functions
+
+Kotlin pozwala tworzyć **extension functions**.
+
+Możemy rozszerzyć istniejący typ bez modyfikowania jego klasy.
+
+Przykład:
+
+```kotlin
+fun String.greet() {
+    println("Hello $this")
+}
+```
+
+Następnie:
+
+```kotlin
+"Marcin".greet()
+```
+
+Extension functions są bardzo często wykorzystywane w projektach Kotlin.
+
+## 24. Smart Cast
+
+Kotlin posiada mechanizm **smart cast**.
+
+Przykład:
+
+```kotlin
+fun printLength(value: Any) {
+    if (value is String) {
+        println(value.length)
+    }
+}
+```
+
+Po sprawdzeniu:
+
+```kotlin
+value is String
+```
+
+Kotlin wie, że w tym miejscu `value` jest `String`.
+
+## 25. When
+
+Kotlin posiada bardzo wygodną konstrukcję:
+
+```kotlin
+when
+```
+
+Można ją traktować jako bardziej rozbudowaną alternatywę dla `switch`.
+
+```kotlin
+when (day) {
+    1 -> println("Monday")
+    2 -> println("Tuesday")
+    3 -> println("Wednesday")
+    else -> println("Unknown")
+}
+```
+
+`when` może również zwracać wartość.
+
+```kotlin
+val result = when (number) {
+    1 -> "One"
+    2 -> "Two"
+    else -> "Other"
+}
+```
+
+## 26. Ranges
+
+Kotlin posiada wygodną składnię zakresów.
+
+```kotlin
+for (i in 1..10) {
+    println(i)
+}
+```
+
+Można również używać:
+
+```kotlin
+1 until 10
+```
+
+oraz:
+
+```kotlin
+10 downTo 1
+```
+
+## 27. For loop
+
+Przykład:
+
+```kotlin
+for (name in names) {
+    println(name)
+}
+```
+
+Można również:
+
+```kotlin
+for (i in 1..5) {
+    println(i)
+}
+```
+
+## 28. Enum
+
+Kotlin posiada enumeracje.
+
+```kotlin
+enum class Direction {
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST
+}
+```
+
+Możemy następnie:
+
+```kotlin
+val direction = Direction.NORTH
+```
+
+## 29. Sealed Classes
+
+**Sealed classes** pozwalają reprezentować zamknięty zestaw możliwych typów.
+
+Przykładowo:
+
+```kotlin
+sealed class Result
+
+class Success(val data: String) : Result()
+
+class Error(val message: String) : Result()
+```
+
+Są szczególnie przydatne podczas modelowania stanów aplikacji.
+
+## 30. Coroutines
+
+Jednym z najważniejszych elementów ekosystemu Kotlin są **coroutines**.
+
+Coroutines służą do wygodnego programowania asynchronicznego i współbieżnego.
+
+Przykład:
+
+```kotlin
+suspend fun loadData() {
+    // ...
+}
+```
+
+Można uruchamiać coroutine między innymi za pomocą:
+
+```kotlin
+launch
+```
+
+oraz:
+
+```kotlin
+async
+```
+
+Coroutines są szczególnie popularne w aplikacjach Android i backendach Kotlin.
+
+## 31. Suspend
+
+Funkcja oznaczona:
+
+```kotlin
+suspend
+```
+
+może zostać zawieszona i wznowiona bez blokowania typowego wątku wykonującego pracę.
+
+Przykład:
+
+```kotlin
+suspend fun getUser(): User {
+    // pobieranie danych
+}
+```
+
+Jest to jeden z kluczowych elementów programowania asynchronicznego w Kotlinie.
+
+## 32. Kotlin i Android
+
+Kotlin jest jednym z najważniejszych języków używanych do tworzenia aplikacji Android.
+
+Przykładowy stos:
+
+```text
+Android
+│
+├── Kotlin
+├── Android SDK
+├── Jetpack
+└── Jetpack Compose
+```
+
+Kotlin pozwala pisać kod Androida bardziej zwięźle niż tradycyjny Java.
+
+## 33. Jetpack Compose
+
+**Jetpack Compose** to nowoczesny deklaratywny framework UI dla Androida.
+
+Kotlin jest jego podstawowym językiem.
+
+Przykładowo interfejs można opisać:
+
+```kotlin
+@Composable
+fun Greeting(name: String) {
+    Text("Hello $name")
+}
+```
+
+Zamiast ręcznie tworzyć wiele obiektów UI, opisujemy **jak interfejs ma wyglądać**.
+
+## 34. Kotlin Multiplatform
+
+**Kotlin Multiplatform (KMP)** pozwala współdzielić kod Kotlin pomiędzy różnymi platformami.
+
+Przykładowo:
+
+```text
+              Shared Kotlin Code
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+     Android        iOS         Desktop
+```
+
+Można współdzielić między innymi:
+
+- logikę biznesową,
+- modele,
+- komunikację z API,
+- część logiki aplikacji.
+
+## 35. Kotlin/Native
+
+Kotlin może być również kompilowany do kodu natywnego za pomocą **Kotlin/Native**.
+
+Pozwala to uruchamiać kod Kotlin bez wymagania JVM w określonych środowiskach.
+
+Jest to istotny element Kotlin Multiplatform.
+
+## 36. Kotlin i Spring
+
+Kotlin bardzo dobrze współpracuje ze **Spring Framework** i **Spring Boot**.
+
+Można tworzyć:
+
+- REST API,
+- mikroserwisy,
+- aplikacje webowe,
+- aplikacje bazodanowe.
+
+Przykładowy endpoint:
+
+```kotlin
+@RestController
+class UserController {
+
+    @GetMapping("/users")
+    fun getUsers(): List<User> {
+        return listOf()
+    }
+}
+```
+
+## 37. Kotlin i Gradle
+
+Kotlin jest często używany razem z **Gradle**.
+
+Można tworzyć skrypty Gradle wykorzystujące Kotlin DSL:
+
+```text
+build.gradle.kts
+```
+
+Zamiast:
+
+```text
+build.gradle
+```
+
+`.kts` oznacza, że konfiguracja wykorzystuje **Kotlin Script**.
+
+## 38. Kotlin i IntelliJ IDEA
+
+Kotlin został stworzony przez JetBrains, dlatego **IntelliJ IDEA** oferuje bardzo dobrą obsługę tego języka.
+
+Typowy projekt może wyglądać:
+
+```text
+Kotlin Project
+│
+├── src
+│   ├── main
+│   │   └── kotlin
+│   └── test
+│       └── kotlin
+│
+├── build.gradle.kts
+└── settings.gradle.kts
+```
+
+## 39. Zalety Kotlina
+
+Najważniejsze zalety:
+
+- zwięzła składnia,
+- statyczne typowanie,
+- null safety,
+- interoperacyjność z Javą,
+- coroutines,
+- funkcjonalne możliwości języka,
+- extension functions,
+- smart casts,
+- data classes,
+- dobra integracja z JVM,
+- bardzo dobre wsparcie w IntelliJ IDEA,
+- szerokie zastosowanie w Androidzie,
+- możliwość tworzenia aplikacji multiplatformowych.
+
+## 40. Kotlin vs Java
+
+| Cecha | Kotlin | Java |
+|---|---|---|
+| JVM | ✅ | ✅ |
+| Statyczne typowanie | ✅ | ✅ |
+| Null Safety | wbudowane | brak pełnego mechanizmu |
+| Data classes | ✅ | rekordy / klasy |
+| Extension functions | ✅ | ❌ |
+| Coroutines | ✅ | inne mechanizmy |
+| Interoperacyjność | Java ↔ Kotlin | Java ↔ Kotlin |
+| Android | ✅ | ✅ |
+| Składnia | bardziej zwięzła | bardziej rozbudowana |
+
+Najważniejsza rzecz:
+
+**Kotlin nie zastąpił Javy — oba języki mogą współistnieć w jednym projekcie JVM.**
+
+## 41. Kotlin — najważniejsze słowa kluczowe
+
+Warto znać:
+
+```text
+fun
+val
+var
+class
+object
+interface
+abstract
+open
+override
+data
+sealed
+enum
+when
+if
+else
+for
+while
+in
+is
+as
+null
+return
+suspend
+```
+
+## 42. Kotlin — najważniejsze pojęcia
+
+**Kotlin** → nowoczesny język programowania firmy JetBrains.
+
+**JVM** → środowisko, na którym Kotlin może działać.
+
+**Null Safety** → mechanizm ograniczający problemy z `null`.
+
+**val** → niemutowalne przypisanie.
+
+**var** → zmienne przypisanie.
+
+**Data Class** → klasa przeznaczona do reprezentowania danych.
+
+**Lambda** → funkcja anonimowa.
+
+**Extension Function** → funkcja rozszerzająca istniejący typ.
+
+**Smart Cast** → automatyczne rzutowanie po sprawdzeniu typu.
+
+**When** → konstrukcja podobna do `switch`.
+
+**Sealed Class** → zamknięta hierarchia typów.
+
+**Coroutine** → mechanizm asynchronicznego i współbieżnego wykonywania kodu.
+
+**Suspend** → funkcja mogąca zostać zawieszona i wznowiona.
+
+**Kotlin Multiplatform** → współdzielenie kodu Kotlin pomiędzy platformami.
+
+**Kotlin/Native** → kompilacja Kotlin do kodu natywnego.
+
+**Jetpack Compose** → deklaratywny framework UI dla Androida.
+
+## 43. Kotlin w jednym zdaniu
+
+**Kotlin to nowoczesny, statycznie typowany język programowania firmy JetBrains, działający między innymi na JVM, interoperacyjny z Javą i szeroko wykorzystywany w Androidzie, backendzie, aplikacjach wieloplatformowych oraz nowoczesnych systemach opartych na JVM.**

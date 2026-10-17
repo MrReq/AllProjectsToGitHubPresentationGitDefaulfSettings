@@ -1,0 +1,704 @@
+# Elasticsearch
+
+## 1. Czym jest Elasticsearch?
+
+Elasticsearch to rozproszony silnik wyszukiwania i analizy danych oparty na Apache Lucene.
+
+Elasticsearch jest wykorzystywany przede wszystkim do bardzo szybkiego wyszukiwania informacji w dużych zbiorach danych.
+
+W przeciwieństwie do klasycznych relacyjnych baz danych Elasticsearch został zaprojektowany przede wszystkim z myślą o wyszukiwaniu, analizowaniu i indeksowaniu danych.
+
+Elasticsearch jest często wykorzystywany w aplikacjach internetowych, systemach monitoringu, analizie logów, wyszukiwarkach oraz systemach analitycznych.
+
+## 2. Elasticsearch a baza danych
+
+Elasticsearch może być używany podobnie do bazy danych, ale technicznie jest przede wszystkim **rozproszonym silnikiem wyszukiwania i analizy**.
+
+Dane w Elasticsearch są przechowywane w dokumentach.
+
+Dokumenty mają strukturę JSON.
+
+Dokumenty są organizowane w indeksach.
+
+Elasticsearch nie zastępuje automatycznie relacyjnych baz danych takich jak PostgreSQL, MySQL czy SQL Server.
+
+Często Elasticsearch działa obok klasycznej bazy danych i służy jako dodatkowa warstwa przeznaczona do szybkiego wyszukiwania.
+
+## 3. Apache Lucene
+
+Elasticsearch jest zbudowany na bazie biblioteki **Apache Lucene**.
+
+Lucene odpowiada za podstawowe mechanizmy indeksowania i wyszukiwania tekstu.
+
+Elasticsearch dodaje do Lucene między innymi rozproszoną architekturę, REST API, zarządzanie klastrami oraz mechanizmy skalowania.
+
+## 4. Dokument
+
+Podstawową jednostką danych w Elasticsearch jest dokument.
+
+Dokument jest zapisany w formacie JSON.
+
+Przykładowy dokument może wyglądać tak:
+
+```json
+{
+  "id": 101,
+  "name": "Laptop",
+  "category": "electronics",
+  "price": 4500
+}
+```
+
+Dokument może zawierać pola tekstowe, liczbowe, daty, wartości logiczne, tablice oraz zagnieżdżone obiekty.
+
+## 5. Index
+
+**Index** to logiczny zbiór dokumentów o podobnym przeznaczeniu.
+
+Można go porównać do tabeli w relacyjnej bazie danych, chociaż nie jest to dokładnie ten sam mechanizm.
+
+Przykładowo można utworzyć indeks:
+
+```text
+products
+```
+
+i przechowywać w nim dokumenty reprezentujące produkty.
+
+```text
+products
+ ├── document 1
+ ├── document 2
+ ├── document 3
+ └── document 4
+```
+
+## 6. Mapping
+
+Mapping określa strukturę danych przechowywanych w indeksie.
+
+Można za jego pomocą określić typy pól.
+
+Przykładowo:
+
+```json
+{
+  "properties": {
+    "name": {
+      "type": "text"
+    },
+    "price": {
+      "type": "double"
+    },
+    "createdAt": {
+      "type": "date"
+    }
+  }
+}
+```
+
+Mapping jest odpowiednikiem pewnego rodzaju schematu opisującego dane.
+
+## 7. Typy danych
+
+Elasticsearch obsługuje wiele typów danych.
+
+Najważniejsze z nich to:
+
+`text` – tekst przeznaczony do wyszukiwania pełnotekstowego.
+
+`keyword` – dokładna wartość tekstowa.
+
+`integer` – liczba całkowita.
+
+`long` – większa liczba całkowita.
+
+`float` – liczba zmiennoprzecinkowa.
+
+`double` – liczba zmiennoprzecinkowa o większej precyzji.
+
+`boolean` – wartość `true` lub `false`.
+
+`date` – data i czas.
+
+`object` – obiekt JSON.
+
+`nested` – specjalny typ umożliwiający niezależne indeksowanie obiektów znajdujących się w tablicy.
+
+## 8. Text vs Keyword
+
+Jednym z najważniejszych rozróżnień w Elasticsearch jest `text` oraz `keyword`.
+
+Pole typu `text` jest analizowane i przeznaczone przede wszystkim do wyszukiwania pełnotekstowego.
+
+Pole typu `keyword` jest przechowywane jako dokładna wartość.
+
+Przykładowo:
+
+```json
+{
+  "name": "Gaming Laptop"
+}
+```
+
+Pole `name` jako `text` może być wyszukiwane między innymi po słowie `Gaming`.
+
+Pole `keyword` jest bardziej odpowiednie do dokładnych dopasowań, sortowania oraz agregacji.
+
+## 9. Inverted Index
+
+Elasticsearch wykorzystuje strukturę danych nazywaną **inverted index**.
+
+Inverted index przechowuje informacje pozwalające szybko odnaleźć dokumenty zawierające określone słowa.
+
+Przykładowo:
+
+```text
+"laptop" → dokument 1, dokument 5, dokument 8
+"phone"  → dokument 2, dokument 7
+"tablet" → dokument 3, dokument 9
+```
+
+Dzięki temu wyszukiwanie tekstu może być bardzo szybkie nawet przy dużej liczbie dokumentów.
+
+## 10. Full-text search
+
+Jedną z najważniejszych funkcji Elasticsearch jest wyszukiwanie pełnotekstowe.
+
+Można wyszukiwać dokumenty na podstawie znaczenia lub występowania określonych słów.
+
+Przykładowe zapytanie:
+
+```json
+{
+  "query": {
+    "match": {
+      "name": "gaming laptop"
+    }
+  }
+}
+```
+
+Elasticsearch analizuje tekst i wyszukuje dokumenty odpowiadające zapytaniu.
+
+## 11. Query DSL
+
+Elasticsearch posiada własny system zapytań nazywany **Query DSL**.
+
+Zapytania są zazwyczaj przekazywane w formacie JSON.
+
+Przykład:
+
+```json
+{
+  "query": {
+    "match": {
+      "category": "electronics"
+    }
+  }
+}
+```
+
+Query DSL pozwala tworzyć bardzo zaawansowane zapytania.
+
+## 12. Term query
+
+`term` służy do wyszukiwania dokładnej wartości.
+
+Przykład:
+
+```json
+{
+  "query": {
+    "term": {
+      "category": "electronics"
+    }
+  }
+}
+```
+
+`term` jest szczególnie często używany z polami typu `keyword`.
+
+## 13. Match query
+
+`match` służy przede wszystkim do wyszukiwania pełnotekstowego.
+
+Przykład:
+
+```json
+{
+  "query": {
+    "match": {
+      "description": "fast gaming laptop"
+    }
+  }
+}
+```
+
+Tekst zapytania jest analizowany przed wykonaniem wyszukiwania.
+
+## 14. Bool query
+
+`bool` pozwala łączyć wiele warunków.
+
+Można wykorzystywać między innymi:
+
+`must` – warunek musi zostać spełniony.
+
+`filter` – dokument musi spełnić warunek, ale warunek nie wpływa na scoring.
+
+`should` – warunek jest preferowany.
+
+`must_not` – dokument nie może spełniać warunku.
+
+Przykład:
+
+```json
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "name": "laptop"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "price": {
+              "lte": 5000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+## 15. Filter
+
+Filter pozwala ograniczać wyniki bez konieczności obliczania ich trafności.
+
+Przykładowo można znaleźć wszystkie produkty kosztujące mniej niż 5000:
+
+```json
+{
+  "query": {
+    "range": {
+      "price": {
+        "lt": 5000
+      }
+    }
+  }
+}
+```
+
+Filtrowanie jest szczególnie przydatne w aplikacjach wykorzystujących wiele kryteriów wyszukiwania.
+
+## 16. Scoring
+
+Elasticsearch może obliczać **score**, czyli stopień dopasowania dokumentu do zapytania.
+
+Dokumenty lepiej odpowiadające zapytaniu mogą znaleźć się wyżej w wynikach.
+
+Mechanizmy scoringu są szczególnie istotne przy wyszukiwaniu pełnotekstowym.
+
+## 17. Aggregations
+
+Agregacje pozwalają analizować dane znajdujące się w Elasticsearch.
+
+Można na przykład obliczyć:
+
+liczbę produktów,
+
+średnią cenę,
+
+maksymalną cenę,
+
+minimalną cenę,
+
+sumę wartości,
+
+liczbę dokumentów w poszczególnych kategoriach.
+
+Przykładowo można policzyć liczbę produktów w każdej kategorii.
+
+```json
+{
+  "size": 0,
+  "aggs": {
+    "categories": {
+      "terms": {
+        "field": "category.keyword"
+      }
+    }
+  }
+}
+```
+
+## 18. Shards
+
+Indeks Elasticsearch może być podzielony na **shards**.
+
+Shard jest fragmentem indeksu przechowującym część jego danych.
+
+Przykładowo:
+
+```text
+Index
+ ├── Shard 0
+ ├── Shard 1
+ ├── Shard 2
+ └── Shard 3
+```
+
+Podział na shards umożliwia rozłożenie danych i operacji na wiele maszyn.
+
+## 19. Replicas
+
+Elasticsearch może tworzyć repliki shardów.
+
+Replica jest kopią shardu przeznaczoną między innymi do zwiększenia odporności na awarie oraz obsługi odczytów.
+
+Przykład:
+
+```text
+Primary Shard
+      ↓
+Replica Shard
+```
+
+Jeżeli jeden węzeł ulegnie awarii, replika może zostać wykorzystana do zachowania dostępności danych.
+
+## 20. Cluster
+
+**Cluster** to grupa współpracujących ze sobą węzłów Elasticsearch.
+
+Przykładowa architektura:
+
+```text
+             Elasticsearch Cluster
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+      Node 1       Node 2       Node 3
+        │            │            │
+      Shards       Shards       Shards
+```
+
+Klaster pozwala skalować system oraz zwiększać jego odporność.
+
+## 21. Node
+
+Node to pojedyncza instancja Elasticsearch działająca w klastrze.
+
+Node może pełnić różne role zależnie od konfiguracji.
+
+W większych środowiskach można rozdzielać zadania związane z przechowywaniem danych, zarządzaniem klastrem oraz wyszukiwaniem.
+
+## 22. REST API
+
+Elasticsearch udostępnia REST API.
+
+Operacje mogą być wykonywane za pomocą HTTP.
+
+Przykładowo:
+
+```http
+GET /products/_search
+```
+
+lub:
+
+```http
+POST /products/_doc
+```
+
+Dane i zapytania są zazwyczaj przekazywane jako JSON.
+
+## 23. CRUD
+
+Elasticsearch umożliwia wykonywanie operacji CRUD.
+
+**Create** – utworzenie dokumentu.
+
+**Read** – odczyt dokumentu.
+
+**Update** – aktualizacja dokumentu.
+
+**Delete** – usunięcie dokumentu.
+
+Przykładowo:
+
+```http
+GET /products/_doc/1
+```
+
+pobiera dokument o identyfikatorze `1`.
+
+## 24. Kibana
+
+Kibana to narzędzie służące między innymi do wizualizacji i analizy danych znajdujących się w Elasticsearch.
+
+Kibana umożliwia tworzenie dashboardów, wykresów, tabel i innych wizualizacji.
+
+Elasticsearch i Kibana są często wykorzystywane razem.
+
+```text
+Dane
+  ↓
+Elasticsearch
+  ↓
+Kibana
+  ↓
+Dashboard / Wizualizacja
+```
+
+## 25. Elastic Stack
+
+Elasticsearch jest częścią ekosystemu Elastic.
+
+Popularny zestaw narzędzi obejmuje między innymi:
+
+**Elasticsearch** – przechowywanie, wyszukiwanie i analiza danych.
+
+**Kibana** – wizualizacja i analiza danych.
+
+**Logstash** – przetwarzanie i przesyłanie danych.
+
+**Beats** – lekkie agenty zbierające dane z systemów.
+
+Schemat może wyglądać następująco:
+
+```text
+Źródła danych
+     ↓
+   Beats
+     ↓
+ Logstash
+     ↓
+Elasticsearch
+     ↓
+   Kibana
+```
+
+## 26. Logi
+
+Jednym z najpopularniejszych zastosowań Elasticsearch jest analiza logów.
+
+Aplikacje mogą wysyłać logi do Elasticsearch, gdzie są indeksowane i mogą być szybko wyszukiwane.
+
+Przykładowo można wyszukać:
+
+```text
+ERROR
+```
+
+aby znaleźć wszystkie błędy aplikacji.
+
+Można również filtrować logi według daty, serwera, użytkownika, poziomu błędu czy aplikacji.
+
+## 27. Monitoring
+
+Elasticsearch może być wykorzystywany do przechowywania i analizowania danych monitoringowych.
+
+Można analizować między innymi:
+
+zużycie CPU,
+
+pamięć RAM,
+
+ruch sieciowy,
+
+wydajność aplikacji,
+
+błędy,
+
+czasy odpowiedzi.
+
+Dane mogą następnie zostać przedstawione na dashboardach w Kibanie.
+
+## 28. Wyszukiwarki w aplikacjach
+
+Elasticsearch jest często wykorzystywany jako silnik wyszukiwania w aplikacjach.
+
+Przykładowo sklep internetowy może pozwalać użytkownikowi wyszukiwać produkty:
+
+```text
+"laptop gamingowy 32 GB"
+```
+
+Elasticsearch może zwrócić produkty pasujące do zapytania i posortować je według stopnia dopasowania.
+
+## 29. Autocomplete
+
+Elasticsearch może być wykorzystywany do implementowania automatycznego uzupełniania wyszukiwanych fraz.
+
+Przykładowo użytkownik wpisuje:
+
+```text
+lap
+```
+
+a system proponuje:
+
+```text
+laptop
+laptop gamingowy
+laptop Dell
+laptop Lenovo
+```
+
+## 30. Skalowanie
+
+Elasticsearch został zaprojektowany jako system rozproszony.
+
+Dane mogą być rozłożone pomiędzy wiele maszyn.
+
+Pozwala to obsługiwać bardzo duże ilości danych i duży ruch związany z wyszukiwaniem.
+
+Skalowanie może odbywać się poprzez dodawanie kolejnych node'ów do klastra.
+
+## 31. Elasticsearch a SQL
+
+W Elasticsearch można wykonywać zapytania wykorzystujące Query DSL.
+
+Istnieje również możliwość korzystania z Elasticsearch SQL, które pozwala wykonywać zapytania przypominające klasyczny SQL.
+
+Przykładowo koncepcyjnie:
+
+```sql
+SELECT category, COUNT(*)
+FROM products
+GROUP BY category;
+```
+
+może zostać wykorzystane do analizy danych.
+
+## 32. Elasticsearch a relacyjne bazy danych
+
+Relacyjne bazy danych takie jak PostgreSQL, MySQL czy SQL Server są przeznaczone między innymi do przechowywania danych wymagających relacji, transakcji i integralności.
+
+Elasticsearch jest zoptymalizowany przede wszystkim pod kątem wyszukiwania i analizy.
+
+Dlatego w wielu systemach wykorzystuje się oba rozwiązania jednocześnie.
+
+Przykładowo:
+
+```text
+           Aplikacja
+          /         \
+         ↓           ↓
+  PostgreSQL    Elasticsearch
+      │               │
+ dane główne      wyszukiwanie
+```
+
+Relacyjna baza może być źródłem prawdy, natomiast Elasticsearch może przechowywać indeks danych przeznaczony do szybkiego wyszukiwania.
+
+## 33. Zastosowania Elasticsearch
+
+Elasticsearch jest wykorzystywany między innymi w:
+
+wyszukiwarkach internetowych,
+
+sklepach internetowych,
+
+systemach analizy logów,
+
+monitoringu aplikacji,
+
+cybersecurity,
+
+systemach obserwowalności,
+
+analizie danych,
+
+systemach rekomendacji,
+
+aplikacjach wykorzystujących wyszukiwanie pełnotekstowe.
+
+## 34. Zalety Elasticsearch
+
+Elasticsearch zapewnia bardzo szybkie wyszukiwanie danych.
+
+Obsługuje wyszukiwanie pełnotekstowe.
+
+Może pracować na bardzo dużych zbiorach danych.
+
+Posiada architekturę rozproszoną.
+
+Obsługuje shards i replicas.
+
+Udostępnia REST API.
+
+Posiada rozbudowany Query DSL.
+
+Umożliwia wykonywanie agregacji i analiz.
+
+Może być łatwo połączony z Kibaną.
+
+## 35. Wady Elasticsearch
+
+Elasticsearch jest bardziej złożony w administracji niż zwykła lokalna baza danych.
+
+Wymaga odpowiedniego zaprojektowania indeksów, shardów i replik.
+
+Nie powinien być traktowany jako automatyczny zamiennik relacyjnej bazy danych.
+
+Przechowywanie bardzo dużych ilości danych może wymagać znacznych zasobów sprzętowych.
+
+Niektóre operacje typowe dla relacyjnych baz danych nie są głównym zastosowaniem Elasticsearch.
+
+## 36. Najważniejsze pojęcia
+
+**Elasticsearch** – rozproszony silnik wyszukiwania i analizy danych.
+
+**Apache Lucene** – biblioteka stanowiąca podstawę Elasticsearch.
+
+**Document** – dokument JSON przechowywany w Elasticsearch.
+
+**Index** – logiczny zbiór dokumentów.
+
+**Mapping** – definicja typów i struktury pól.
+
+**Query DSL** – system zapytań Elasticsearch.
+
+**Full-text search** – wyszukiwanie pełnotekstowe.
+
+**Inverted Index** – struktura umożliwiająca szybkie wyszukiwanie tekstu.
+
+**Aggregation** – mechanizm analizy i agregowania danych.
+
+**Shard** – fragment indeksu.
+
+**Replica** – kopia shardu.
+
+**Node** – pojedyncza instancja Elasticsearch.
+
+**Cluster** – grupa współpracujących node'ów.
+
+**Kibana** – narzędzie do wizualizacji i analizy danych.
+
+**Logstash** – narzędzie do pobierania i przetwarzania danych.
+
+**Beats** – lekkie agenty zbierające dane.
+
+**Elastic Stack** – ekosystem obejmujący między innymi Elasticsearch, Kibana i Logstash.
+
+## 37. Podsumowanie
+
+Elasticsearch to rozproszony silnik przeznaczony przede wszystkim do **szybkiego wyszukiwania, indeksowania i analizy dużych ilości danych**.
+
+Dane są przechowywane w dokumentach JSON, które znajdują się w indeksach.
+
+Elasticsearch wykorzystuje Apache Lucene i mechanizm inverted index do szybkiego wyszukiwania.
+
+Najważniejsze elementy architektury to **index, document, mapping, shard, replica, node i cluster**.
+
+Elasticsearch bardzo często współpracuje z **Kibana, Logstash i Beats** w ramach Elastic Stack.
+
+**W skrócie: Elasticsearch = szybkie wyszukiwanie + JSON + indeksy + Lucene + Query DSL + agregacje + architektura rozproszona.**

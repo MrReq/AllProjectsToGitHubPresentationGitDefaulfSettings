@@ -1,0 +1,573 @@
+# Blender — notatka
+
+## 1. Czym jest Blender?
+
+Blender to bezpłatne i otwarte oprogramowanie służące przede wszystkim do tworzenia grafiki 3D.
+
+Blender pozwala tworzyć modele trójwymiarowe, animacje, materiały, sceny oraz wizualizacje.
+
+Program może być wykorzystywany również do tworzenia grafiki 2D.
+
+Blender jest dostępny na systemy Windows, macOS oraz Linux.
+
+Blender jest wykorzystywany między innymi w grafice komputerowej, animacji, tworzeniu gier, wizualizacjach produktów oraz efektach specjalnych.
+
+## 2. Grafika 3D
+
+Grafika 3D polega na tworzeniu obiektów posiadających trzy wymiary.
+
+Są to szerokość, wysokość oraz głębokość.
+
+W Blenderze możemy tworzyć obiekty znajdujące się w trójwymiarowej przestrzeni.
+
+Możemy następnie określać ich położenie, obrót oraz rozmiar.
+
+## 3. Interfejs Blendera
+
+Interfejs Blendera składa się z wielu obszarów roboczych.
+
+Każdy obszar może służyć do wykonywania określonych operacji.
+
+Najważniejszym obszarem jest 3D Viewport.
+
+Możemy w nim oglądać i edytować obiekty znajdujące się w scenie.
+
+Blender posiada również między innymi Outliner, Properties oraz Timeline.
+
+## 4. 3D Viewport
+
+3D Viewport jest głównym obszarem pracy z obiektami 3D.
+
+Możemy w nim oglądać scenę z różnych perspektyw.
+
+Możemy również zaznaczać, przesuwać, obracać oraz skalować obiekty.
+
+W 3D Viewport możemy pracować zarówno w trybie Object Mode, jak i Edit Mode.
+
+## 5. Scene
+
+Scene oznacza scenę w Blenderze.
+
+Scena może zawierać obiekty, światła, kamerę oraz inne elementy potrzebne do stworzenia określonej kompozycji.
+
+Możemy tworzyć różne sceny w jednym pliku Blendera.
+
+Scena stanowi więc przestrzeń, w której przygotowujemy określony projekt 3D.
+
+## 6. Object
+
+Object jest podstawowym elementem znajdującym się w scenie.
+
+Obiektem może być między innymi model 3D, kamera albo światło.
+
+Każdy obiekt może posiadać własne właściwości.
+
+Możemy zmieniać jego położenie, obrót oraz skalę.
+
+## 7. Transform
+
+Transform określa podstawowe właściwości przestrzenne obiektu.
+
+Najważniejsze wartości to Location, Rotation oraz Scale.
+
+Location określa położenie obiektu.
+
+Rotation określa jego obrót.
+
+Scale określa jego rozmiar.
+
+Możemy więc kontrolować obiekt za pomocą trzech podstawowych operacji.
+
+Przesunięcie, obrót oraz skalowanie.
+
+## 8. Mesh
+
+Mesh jest jednym z najważniejszych elementów modelowania 3D.
+
+Mesh jest siatką geometryczną składającą się z wierzchołków, krawędzi oraz ścian.
+
+Mesh może reprezentować między innymi człowieka, samochód, budynek albo przedmiot.
+
+Modelowanie obiektu polega między innymi na modyfikowaniu jego geometrii.
+
+## 9. Vertex
+
+Vertex oznacza wierzchołek.
+
+Jest to pojedynczy punkt należący do geometrii obiektu.
+
+Wierzchołki mogą być przesuwane w przestrzeni.
+
+Zmiana położenia wierzchołków pozwala zmieniać kształt modelu.
+
+## 10. Edge
+
+Edge oznacza krawędź.
+
+Krawędź łączy dwa wierzchołki.
+
+Krawędzie są częścią struktury geometrycznej modelu.
+
+Możemy zaznaczać i modyfikować krawędzie podczas modelowania.
+
+## 11. Face
+
+Face oznacza ścianę.
+
+Ściana jest powierzchnią ograniczoną przez krawędzie.
+
+W typowych modelach 3D ściany mogą być między innymi trójkątami lub czworokątami.
+
+Połączenie wierzchołków, krawędzi i ścian tworzy Mesh.
+
+## 12. Object Mode
+
+Object Mode jest trybem służącym przede wszystkim do pracy z całymi obiektami.
+
+Możemy w nim zaznaczać obiekty.
+
+Możemy również zmieniać ich położenie, obrót oraz skalę.
+
+Object Mode jest wykorzystywany między innymi podczas organizowania całej sceny.
+
+## 13. Edit Mode
+
+Edit Mode służy do bezpośredniej edycji geometrii obiektu.
+
+Możemy w nim edytować wierzchołki, krawędzie oraz ściany.
+
+Edit Mode jest jednym z najważniejszych trybów podczas modelowania 3D.
+
+Pozwala zmieniać rzeczywisty kształt Mesh.
+
+## 14. Modelowanie 3D
+
+Modelowanie 3D polega na tworzeniu i modyfikowaniu obiektów znajdujących się w przestrzeni trójwymiarowej.
+
+Możemy rozpocząć od prostych obiektów.
+
+Następnie możemy modyfikować ich geometrię.
+
+W ten sposób można tworzyć coraz bardziej złożone modele.
+
+## 15. Primitive
+
+Blender posiada podstawowe obiekty geometryczne nazywane primitive.
+
+Przykładami są Cube, Sphere, Cylinder, Cone oraz Torus.
+
+Primitive mogą stanowić punkt wyjścia do tworzenia bardziej złożonych modeli.
+
+Możemy na przykład rozpocząć modelowanie samochodu od kilku prostych brył.
+
+## 16. Cube
+
+Cube jest podstawowym sześcianem dostępnym w Blenderze.
+
+Jest jednym z najczęściej wykorzystywanych obiektów podczas nauki modelowania.
+
+Możemy zmieniać jego rozmiar i kształt.
+
+Możemy również edytować jego wierzchołki, krawędzie oraz ściany.
+
+## 17. Extrude
+
+Extrude jest jedną z podstawowych operacji modelowania.
+
+Pozwala wyciągnąć zaznaczoną geometrię i utworzyć nowy fragment modelu.
+
+Możemy na przykład wyciągnąć ścianę sześcianu.
+
+W ten sposób możemy tworzyć nowe elementy modelu bez konieczności dodawania ich jako osobnych obiektów.
+
+## 18. Inset
+
+Inset pozwala utworzyć mniejszą lub większą powierzchnię wewnątrz zaznaczonej ściany.
+
+Może być wykorzystywany do tworzenia dodatkowej geometrii.
+
+Jest szczególnie przydatny podczas modelowania elementów znajdujących się na powierzchni obiektu.
+
+## 19. Loop Cut
+
+Loop Cut pozwala dodać dodatkowe krawędzie do modelu.
+
+Dzięki temu możemy zwiększyć kontrolę nad jego geometrią.
+
+Loop Cut jest często wykorzystywany podczas modelowania szczegółowych kształtów.
+
+Dodanie odpowiedniej liczby krawędzi pozwala dokładniej kontrolować powierzchnię modelu.
+
+## 20. Bevel
+
+Bevel pozwala zaokrąglać lub fazować krawędzie obiektu.
+
+Idealnie ostre krawędzie często wyglądają nienaturalnie podczas renderowania.
+
+Bevel pozwala nadać im bardziej realistyczny wygląd.
+
+Jest często stosowany podczas modelowania przedmiotów takich jak meble, urządzenia oraz elementy architektoniczne.
+
+## 21. Modifiers
+
+Modifiers są narzędziami pozwalającymi modyfikować obiekty bez konieczności bezpośredniej zmiany ich podstawowej geometrii.
+
+Modyfikatory mogą automatycznie wykonywać określone operacje.
+
+Dzięki nim możemy szybciej tworzyć bardziej złożone modele.
+
+Możemy również zmieniać ustawienia modyfikatora bez konieczności ręcznego wykonywania wszystkich operacji.
+
+## 22. Subdivision Surface
+
+Subdivision Surface jest modyfikatorem służącym do zwiększania szczegółowości i wygładzania powierzchni modelu.
+
+Model z niewielką liczbą polygonów może dzięki niemu wyglądać znacznie bardziej gładko.
+
+Subdivision Surface jest często wykorzystywany podczas modelowania organicznego.
+
+Może być stosowany między innymi przy tworzeniu postaci, zwierząt oraz innych zaokrąglonych obiektów.
+
+## 23. Mirror Modifier
+
+Mirror Modifier pozwala tworzyć symetryczne modele.
+
+Modyfikator odbija geometrię względem określonej osi.
+
+Możemy dzięki temu modelować tylko połowę obiektu.
+
+Druga połowa zostanie automatycznie wygenerowana jako odbicie lustrzane.
+
+Jest to szczególnie przydatne podczas modelowania postaci oraz symetrycznych przedmiotów.
+
+## 24. Materials
+
+Material określa sposób, w jaki powierzchnia obiektu reaguje na światło.
+
+Materiał może określać między innymi kolor, połysk oraz sposób odbijania światła.
+
+Możemy dzięki temu sprawić, że obiekt będzie wyglądał jak metal, plastik, szkło, drewno albo inny materiał.
+
+## 25. Shaders
+
+Shader określa sposób obliczania wyglądu powierzchni.
+
+Blender wykorzystuje system shaderów do tworzenia materiałów.
+
+Shadery mogą określać między innymi kolor powierzchni, odbicia światła oraz przezroczystość.
+
+Dzięki nim można tworzyć realistyczne i stylizowane materiały.
+
+## 26. Principled BSDF
+
+Principled BSDF jest jednym z najważniejszych shaderów wykorzystywanych w Blenderze.
+
+Pozwala kontrolować wiele właściwości materiału.
+
+Możemy między innymi określić Base Color, Metallic, Roughness oraz inne parametry.
+
+Jest często wykorzystywany jako podstawowy shader podczas tworzenia materiałów.
+
+## 27. Texture
+
+Texture jest obrazem lub innymi danymi wykorzystywanymi do nadawania powierzchni szczegółów.
+
+Tekstura może określać kolor powierzchni.
+
+Może również wpływać na jej właściwości.
+
+Tekstury są często wykorzystywane podczas tworzenia realistycznych materiałów.
+
+## 28. UV Mapping
+
+UV Mapping pozwala określić, w jaki sposób tekstura zostanie rozmieszczona na powierzchni modelu 3D.
+
+Model 3D jest odwzorowywany na dwuwymiarową przestrzeń UV.
+
+Dzięki temu możemy prawidłowo nałożyć obraz na powierzchnię modelu.
+
+UV Mapping jest szczególnie ważny podczas tworzenia szczegółowych tekstur.
+
+## 29. Lighting
+
+Lighting oznacza oświetlenie sceny.
+
+Światło wpływa na sposób, w jaki widzimy obiekty.
+
+Możemy ustawiać położenie, kierunek oraz właściwości źródeł światła.
+
+Odpowiednie oświetlenie jest bardzo ważne podczas tworzenia realistycznych renderów.
+
+## 30. Light
+
+Blender posiada różne rodzaje źródeł światła.
+
+Możemy korzystać między innymi z Point, Sun, Spot oraz Area.
+
+Każdy typ światła ma inne zastosowanie.
+
+Możemy dzięki nim tworzyć różne efekty oświetleniowe.
+
+## 31. Camera
+
+Camera określa punkt widzenia, z którego renderowana jest scena.
+
+Możemy ustawić jej położenie oraz kierunek.
+
+Możemy również określić parametry wpływające na sposób przedstawienia sceny.
+
+Kamera jest niezbędna do przygotowania końcowego renderu z określonej perspektywy.
+
+## 32. Rendering
+
+Rendering jest procesem generowania końcowego obrazu na podstawie sceny 3D.
+
+Podczas renderowania Blender uwzględnia między innymi geometrię, materiały, światła oraz kamerę.
+
+Wynikiem może być pojedynczy obraz lub seria obrazów tworzących animację.
+
+## 33. Render Engine
+
+Blender posiada różne silniki renderowania.
+
+Jednym z nich jest Cycles.
+
+Innym jest Eevee.
+
+Silnik renderowania określa sposób obliczania końcowego obrazu.
+
+Różne silniki mogą oferować inne możliwości oraz charakterystykę wydajnościową.
+
+## 34. Cycles
+
+Cycles jest fizycznie opartym silnikiem renderowania.
+
+Pozwala tworzyć realistyczne obrazy z wykorzystaniem między innymi śledzenia promieni.
+
+Może generować bardzo realistyczne efekty oświetlenia.
+
+Renderowanie w Cycles może jednak wymagać większej ilości czasu i zasobów obliczeniowych.
+
+## 35. Eevee
+
+Eevee jest silnikiem renderowania zaprojektowanym z naciskiem na szybkość.
+
+Pozwala szybko uzyskiwać podgląd i renderować sceny.
+
+Jest przydatny między innymi podczas pracy wymagającej szybkiej informacji zwrotnej.
+
+Może być również wykorzystywany do tworzenia końcowych renderów.
+
+## 36. Animation
+
+Blender pozwala tworzyć animacje.
+
+Możemy animować między innymi położenie, obrót oraz skalę obiektów.
+
+Możemy również animować właściwości materiałów oraz inne parametry.
+
+Animacja jest tworzona poprzez określanie zmian właściwości obiektu w czasie.
+
+## 37. Keyframe
+
+Keyframe określa wartość właściwości obiektu w określonym momencie czasu.
+
+Możemy na przykład ustawić położenie obiektu w pierwszej klatce.
+
+Następnie możemy ustawić inne położenie w kolejnej klatce.
+
+Blender obliczy ruch pomiędzy tymi punktami.
+
+Keyframe jest podstawowym elementem animacji.
+
+## 38. Timeline
+
+Timeline pozwala kontrolować czas trwania animacji.
+
+Pokazuje kolejne klatki animacji.
+
+Możemy na nim dodawać i edytować keyframes.
+
+Timeline pozwala również odtwarzać animację.
+
+## 39. Rigging
+
+Rigging jest procesem przygotowania modelu do animacji.
+
+Polega między innymi na utworzeniu szkieletu dla modelu.
+
+Szkielet pozwala kontrolować poszczególne części obiektu.
+
+Rigging jest szczególnie ważny podczas animowania postaci.
+
+## 40. Armature
+
+Armature jest strukturą kości wykorzystywaną do animowania modeli.
+
+Kości mogą być ze sobą połączone w hierarchię.
+
+Poruszanie kośćmi może wpływać na geometrię modelu.
+
+Armature jest podstawą wielu systemów animacji postaci.
+
+## 41. Weight Painting
+
+Weight Painting pozwala określić, w jakim stopniu poszczególne kości wpływają na części modelu.
+
+Jest to ważne podczas animowania postaci.
+
+Odpowiednie wagi pozwalają uzyskać naturalne deformacje modelu.
+
+Dzięki Weight Painting możemy kontrolować sposób, w jaki model reaguje na ruch kości.
+
+## 42. Physics
+
+Blender posiada również systemy symulacji fizycznych.
+
+Możemy symulować między innymi grawitację, tkaniny, ciecze oraz inne zjawiska.
+
+Symulacje pozwalają automatycznie obliczać zachowanie obiektów.
+
+Dzięki temu możemy tworzyć bardziej realistyczne animacje.
+
+## 43. Particles
+
+System cząsteczek pozwala tworzyć dużą liczbę podobnych elementów.
+
+Cząsteczki mogą reprezentować między innymi pył, trawę, iskry lub inne efekty.
+
+System może automatycznie generować oraz animować dużą liczbę elementów.
+
+## 44. Geometry Nodes
+
+Geometry Nodes pozwalają proceduralnie tworzyć i modyfikować geometrię.
+
+Zamiast ręcznie wykonywać każdą operację, możemy zbudować system oparty na węzłach.
+
+System może następnie automatycznie generować określoną geometrię.
+
+Geometry Nodes są przydatne między innymi podczas tworzenia powtarzalnych lub proceduralnych struktur.
+
+## 45. Compositing
+
+Compositing polega na łączeniu i przetwarzaniu elementów obrazu po renderowaniu.
+
+Możemy między innymi zmieniać kolory, kontrast oraz inne właściwości obrazu.
+
+Możemy również łączyć różne warstwy obrazu.
+
+Blender posiada system Compositor oparty na węzłach.
+
+## 46. Video Editing
+
+Blender posiada również Video Sequence Editor.
+
+Pozwala on wykonywać podstawowe operacje związane z montażem materiałów wideo.
+
+Możemy między innymi przycinać materiały, łączyć klipy oraz dodawać dźwięk.
+
+Dzięki temu Blender może być wykorzystywany nie tylko do grafiki 3D.
+
+## 47. Sculpting
+
+Sculpting jest techniką modelowania przypominającą cyfrowe rzeźbienie.
+
+Pozwala manipulować powierzchnią modelu za pomocą specjalnych pędzli.
+
+Możemy dodawać szczegóły, wygładzać powierzchnię oraz zmieniać kształt modelu.
+
+Sculpting jest szczególnie popularny podczas tworzenia postaci i modeli organicznych.
+
+## 48. Add-ons
+
+Blender może być rozszerzany za pomocą dodatków.
+
+Dodatki nazywane są Add-ons.
+
+Mogą dodawać nowe funkcje lub automatyzować określone zadania.
+
+Dzięki nim można dostosować Blendera do konkretnego rodzaju pracy.
+
+## 49. Blender i tworzenie gier
+
+Blender może być wykorzystywany podczas tworzenia gier.
+
+Możemy w nim przygotowywać modele 3D, tekstury, animacje oraz inne elementy.
+
+Gotowe zasoby mogą następnie zostać wykorzystane w silnikach takich jak Unity lub Unreal Engine.
+
+Blender jest więc często wykorzystywany jako narzędzie do tworzenia assetów dla gier.
+
+## 50. Blender i grafika komputerowa
+
+Blender znajduje zastosowanie w wielu dziedzinach grafiki komputerowej.
+
+Może być wykorzystywany do tworzenia animacji, wizualizacji architektonicznych, modeli produktów oraz efektów specjalnych.
+
+Może być również wykorzystywany do tworzenia ilustracji i materiałów marketingowych.
+
+## 51. Blender i animacja
+
+Blender pozwala tworzyć zarówno proste, jak i bardzo rozbudowane animacje.
+
+Możemy animować pojedyncze obiekty.
+
+Możemy również tworzyć animowane postacie.
+
+Do tego celu można wykorzystywać między innymi keyframes, armatures oraz systemy fizyczne.
+
+## 52. Blender i Python
+
+Blender posiada możliwość programowania za pomocą języka Python.
+
+Python może być wykorzystywany do automatyzowania wielu operacji.
+
+Możemy tworzyć skrypty wykonujące powtarzalne zadania.
+
+Możemy również wykorzystywać Python do tworzenia własnych narzędzi i rozszerzeń.
+
+Dzięki temu Blender może być wykorzystywany nie tylko jako program graficzny, ale również jako środowisko programistyczne.
+
+## 53. Typowy workflow w Blenderze
+
+Typowa praca może rozpocząć się od utworzenia sceny.
+
+Następnie dodawane są podstawowe obiekty.
+
+Kolejnym etapem jest modelowanie geometrii.
+
+Następnie możemy przygotować materiały i tekstury.
+
+Później ustawiamy oświetlenie oraz kamerę.
+
+Jeżeli projekt jest animowany, dodajemy keyframes oraz przygotowujemy animację.
+
+Na końcu wykonujemy rendering.
+
+W przypadku bardziej zaawansowanych projektów możemy następnie wykorzystać compositing lub montaż wideo.
+
+## 54. Jak uczyć się Blendera?
+
+Podczas nauki Blendera najpierw warto poznać interfejs oraz podstawową nawigację w 3D Viewport.
+
+Następnie warto nauczyć się podstawowych operacji na obiektach.
+
+Kolejnym krokiem powinno być modelowanie w Object Mode i Edit Mode.
+
+Następnie warto poznać materiały, tekstury oraz UV Mapping.
+
+Później można przejść do oświetlenia, kamer i renderowania.
+
+Kolejnym etapem może być animacja oraz praca z keyframes.
+
+Na końcu warto poznać rigging, physics, Geometry Nodes, compositing oraz skrypty Python.
+
+## 55. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to Blender, Scene, Object, 3D Viewport, Mesh, Vertex, Edge, Face, Object Mode, Edit Mode, Primitive, Extrude, Inset, Loop Cut, Bevel, Modifier, Subdivision Surface, Mirror Modifier, Material, Shader, Texture, UV Mapping, Lighting, Camera, Rendering, Cycles, Eevee, Animation, Keyframe, Timeline, Rigging, Armature, Weight Painting, Physics, Particles, Geometry Nodes, Compositing, Sculpting oraz Python.
+
+Najważniejsza zasada dotycząca Blendera jest taka, że **Blender jest rozbudowanym narzędziem do tworzenia grafiki 3D, modelowania, animacji, materiałów, renderowania oraz innych elementów grafiki komputerowej**.
+
+Blender pozwala przejść od prostego modelu 3D do kompletnej sceny zawierającej geometrię, materiały, oświetlenie, kamerę i animację.
+
+Dzięki temu może być wykorzystywany zarówno do pojedynczych modeli i wizualizacji, jak i do tworzenia rozbudowanych projektów 3D.

@@ -1,0 +1,401 @@
+# Adobe Lightroom — notatka
+
+## 1. Czym jest Adobe Lightroom?
+
+Adobe Lightroom to program firmy Adobe przeznaczony przede wszystkim do organizowania, przeglądania, edycji i eksportowania zdjęć.
+
+Lightroom jest szczególnie popularny wśród fotografów, ponieważ pozwala pracować z dużą liczbą zdjęć w uporządkowany sposób.
+
+Program umożliwia między innymi importowanie zdjęć, katalogowanie ich, ocenianie, oznaczanie oraz wykonywanie korekcji kolorystycznych i tonalnych.
+
+Najważniejszą rzeczą do zapamiętania jest to, że Lightroom jest przede wszystkim narzędziem do **zarządzania i edycji fotografii**.
+
+---
+
+## 2. Lightroom a Photoshop
+
+Lightroom różni się od Photoshopa sposobem pracy ze zdjęciami.
+
+Photoshop jest przeznaczony między innymi do bardzo szczegółowej obróbki pojedynczych obrazów i pracy na warstwach.
+
+Lightroom jest natomiast zoptymalizowany pod kątem pracy z dużymi zbiorami fotografii.
+
+Możemy w nim na przykład zaimportować kilkaset zdjęć z jednej sesji fotograficznej i szybko je uporządkować oraz edytować.
+
+Najprościej można zapamiętać, że Photoshop służy przede wszystkim do szczegółowej edycji obrazu, a Lightroom do zarządzania dużą biblioteką zdjęć i ich szybkiej obróbki.
+
+---
+
+## 3. Edycja niedestrukcyjna
+
+Lightroom wykorzystuje przede wszystkim **edycję niedestrukcyjną**.
+
+Edycja niedestrukcyjna oznacza, że oryginalne zdjęcie nie jest bezpośrednio zmieniane podczas wykonywania większości operacji edycyjnych.
+
+Program przechowuje informacje o wykonanych zmianach i na ich podstawie wyświetla zmodyfikowaną wersję zdjęcia.
+
+Dzięki temu możemy w dowolnym momencie wrócić do oryginalnego wyglądu fotografii.
+
+Możemy również wielokrotnie zmieniać ustawienia bez konieczności tworzenia kolejnej kopii oryginalnego zdjęcia.
+
+---
+
+## 4. Importowanie zdjęć
+
+Jednym z podstawowych etapów pracy w Lightroomie jest **import zdjęć**.
+
+Podczas importowania zdjęć możemy zdecydować, gdzie mają być przechowywane oraz jak mają zostać dodane do biblioteki programu.
+
+Lightroom może również dodawać informacje takie jak słowa kluczowe, metadane czy ustawienia początkowe.
+
+Po zaimportowaniu zdjęć możemy je przeglądać i organizować.
+
+---
+
+## 5. Library i organizacja zdjęć
+
+W Lightroomie bardzo ważnym pojęciem jest **Library**, czyli biblioteka zdjęć.
+
+Biblioteka pozwala przeglądać, sortować, filtrować i organizować fotografie.
+
+Możemy tworzyć między innymi foldery, kolekcje oraz albumy.
+
+Możemy również przypisywać zdjęciom słowa kluczowe.
+
+Słowa kluczowe pozwalają później łatwiej odnajdywać konkretne fotografie.
+
+Jeżeli mamy na przykład tysiące zdjęć, możemy oznaczyć je słowami takimi jak „Warszawa”, „samochód”, „wakacje” albo „portret”.
+
+Następnie możemy wyszukać zdjęcia na podstawie tych informacji.
+
+---
+
+## 6. Oceny, flagi i selekcja zdjęć
+
+Lightroom pozwala oceniać zdjęcia za pomocą **gwiazdek**.
+
+Możemy na przykład nadać fotografii ocenę od jednej do pięciu gwiazdek.
+
+Oceny pomagają wybrać najlepsze zdjęcia z dużej sesji fotograficznej.
+
+Możemy również oznaczać zdjęcia za pomocą flag.
+
+Flaga może oznaczać między innymi zdjęcie wybrane do dalszej obróbki.
+
+Możemy także oznaczać zdjęcia jako odrzucone.
+
+Dzięki temu proces selekcji dużej liczby fotografii jest znacznie szybszy.
+
+---
+
+## 7. Collections
+
+Kolejną ważną funkcją Lightrooma są **Collections**, czyli kolekcje.
+
+Kolekcje pozwalają grupować zdjęcia według określonego celu lub projektu.
+
+Jedno zdjęcie może znajdować się w wielu kolekcjach bez konieczności tworzenia wielu kopii pliku.
+
+---
+
+## 8. Develop — edycja zdjęć
+
+Bardzo ważną częścią Lightrooma jest moduł lub obszar związany z **Develop**, czyli edycją zdjęć.
+
+W tym miejscu możemy zmieniać wygląd fotografii.
+
+Lightroom pozwala kontrolować między innymi jasność, kontrast, kolory, ostrość, szum i wiele innych parametrów.
+
+---
+
+## 9. Exposure i podstawowa korekcja tonalna
+
+Jednym z podstawowych parametrów jest **Exposure**, czyli ekspozycja.
+
+Ekspozycja określa ogólną jasność zdjęcia.
+
+Zwiększenie ekspozycji powoduje rozjaśnienie zdjęcia.
+
+Zmniejszenie ekspozycji powoduje jego przyciemnienie.
+
+Kolejnym parametrem jest **Contrast**, czyli kontrast.
+
+Kontrast określa różnicę pomiędzy jasnymi i ciemnymi obszarami obrazu.
+
+Lightroom pozwala również niezależnie kontrolować **Highlights** oraz **Shadows**.
+
+Highlights odpowiadają za jasne partie zdjęcia.
+
+Shadows odpowiadają za ciemne partie zdjęcia.
+
+Dzięki temu możemy na przykład odzyskać szczegóły w jasnym niebie albo rozjaśnić szczegóły znajdujące się w cieniu.
+
+Kolejnymi ustawieniami są **Whites** oraz **Blacks**.
+
+Whites kontroluje najjaśniejsze punkty obrazu.
+
+Blacks kontroluje najciemniejsze punkty obrazu.
+
+Odpowiednie ustawienie tych parametrów pozwala kontrolować zakres tonalny zdjęcia.
+
+---
+
+## 10. White Balance — balans bieli
+
+Bardzo ważnym parametrem jest **Temperature**, czyli temperatura barwowa.
+
+Temperatura pozwala kontrolować, czy zdjęcie ma wyglądać bardziej ciepło, czy bardziej chłodno.
+
+Ciepłe zdjęcie może mieć więcej żółtych i pomarańczowych tonów.
+
+Chłodne zdjęcie może mieć więcej niebieskich tonów.
+
+Drugim ważnym parametrem związanym z balansem bieli jest **Tint**.
+
+Tint pozwala kontrolować przesunięcie kolorów w kierunku zieleni lub magenty.
+
+Temperature i Tint są częścią korekcji **White Balance**, czyli balansu bieli.
+
+Balans bieli pozwala dopasować kolory zdjęcia do rodzaju oświetlenia, w którym fotografia została wykonana.
+
+---
+
+## 11. Praca z kolorami
+
+Lightroom pozwala również kontrolować **Saturation**.
+
+Saturation określa intensywność kolorów.
+
+Zwiększenie saturacji powoduje mocniejsze nasycenie kolorów.
+
+Zmniejszenie saturacji powoduje ich osłabienie.
+
+Istnieje również parametr **Vibrance**.
+
+Vibrance zwiększa intensywność kolorów w sposób bardziej selektywny niż zwykła Saturation.
+
+Jest często wykorzystywany do delikatnego zwiększenia intensywności kolorów bez nadmiernego przesycania całego obrazu.
+
+---
+
+## 12. Color Mixer
+
+Lightroom posiada również narzędzia do szczegółowej pracy z kolorami.
+
+Panel **Color Mixer** pozwala kontrolować poszczególne zakresy kolorów.
+
+Możemy między innymi zmieniać odcień, nasycenie i jasność konkretnych kolorów.
+
+Dzięki temu możemy na przykład zmienić wygląd zieleni roślin albo kolor nieba.
+
+---
+
+## 13. Tone Curve
+
+Bardzo ważnym narzędziem jest **Tone Curve**, czyli krzywa tonalna.
+
+Krzywa tonalna pozwala precyzyjniej kontrolować jasność poszczególnych zakresów tonalnych zdjęcia.
+
+Możemy za jej pomocą rozjaśniać lub przyciemniać określone partie obrazu.
+
+Tone Curve pozwala uzyskać bardziej precyzyjną kontrolę nad kontrastem i charakterem fotografii.
+
+---
+
+## 14. Crop — kadrowanie
+
+Lightroom pozwala również wykonywać **Crop**, czyli kadrowanie zdjęcia.
+
+Kadrowanie pozwala zmienić kompozycję fotografii poprzez usunięcie niepotrzebnych fragmentów obrazu.
+
+Możemy również zmieniać proporcje kadru.
+
+Przykładowymi proporcjami są 1:1, 4:3, 3:2 oraz 16:9.
+
+Lightroom posiada również narzędzia do prostowania zdjęć.
+
+Możemy na przykład wyprostować zdjęcie budynku, jeśli jego linie są przekrzywione.
+
+---
+
+## 15. Lens Corrections
+
+Bardzo ważną funkcją jest **Lens Corrections**.
+
+Korekcja obiektywu pozwala usuwać niektóre charakterystyczne zniekształcenia powstające podczas fotografowania.
+
+Możemy między innymi korygować dystorsję oraz winietowanie.
+
+Lightroom może wykorzystywać profile konkretnych obiektywów do automatycznego wykonywania części takich korekcji.
+
+---
+
+## 16. Detail — ostrość i szum
+
+Kolejną ważną funkcją jest **Detail**.
+
+W tej części możemy pracować między innymi z wyostrzaniem oraz redukcją szumu.
+
+**Sharpening** służy do zwiększania wizualnej ostrości zdjęcia.
+
+**Noise Reduction** służy do ograniczania szumu cyfrowego.
+
+Szum jest szczególnie widoczny na zdjęciach wykonanych przy wysokiej wartości ISO.
+
+---
+
+## 17. Masking — lokalna edycja
+
+Lightroom posiada również funkcje związane z maskowaniem.
+
+**Masking** pozwala zastosować określone korekty tylko do wybranych fragmentów zdjęcia.
+
+Możemy na przykład rozjaśnić twarz osoby bez zmieniania jasności całego zdjęcia.
+
+Możemy również zmienić kolor nieba bez zmieniania pozostałych elementów fotografii.
+
+Maskowanie pozwala więc wykonywać bardziej precyzyjne lokalne korekty.
+
+---
+
+## 18. Presets
+
+Lightroom umożliwia także stosowanie **Presets**, czyli presetów.
+
+Preset jest zestawem zapisanych ustawień edycyjnych.
+
+Dzięki presetowi możemy szybko zastosować określony styl lub zestaw korekt do zdjęcia.
+
+Presety są szczególnie przydatne wtedy, gdy chcemy zachować podobny wygląd dużej liczby fotografii.
+
+Możemy również tworzyć własne presety.
+
+---
+
+## 19. Synchronizacja ustawień
+
+Jedną z największych zalet Lightrooma jest możliwość synchronizowania ustawień pomiędzy wieloma zdjęciami.
+
+Możemy na przykład wykonać korekcję jednego zdjęcia, a następnie zastosować podobne ustawienia do całej serii fotografii.
+
+Jest to bardzo przydatne podczas obróbki zdjęć z jednej sesji.
+
+Lightroom pozwala również wykonywać **Copy Settings** i **Paste Settings**.
+
+Możemy skopiować ustawienia edycyjne z jednego zdjęcia i zastosować je do innego.
+
+---
+
+## 20. Metadane
+
+W Lightroomie bardzo ważne są również **Metadata**, czyli metadane.
+
+Metadane mogą zawierać informacje dotyczące zdjęcia, takie jak data wykonania fotografii, aparat, obiektyw czy ustawienia ekspozycji.
+
+Niektóre informacje mogą być również dodawane ręcznie.
+
+Metadane mogą być pomocne podczas organizowania dużych bibliotek zdjęć.
+
+---
+
+## 21. Virtual Copies
+
+Lightroom pozwala również na wykonywanie **Virtual Copies**, czyli wirtualnych kopii zdjęć.
+
+Wirtualna kopia pozwala stworzyć alternatywną wersję edycji tego samego zdjęcia bez tworzenia kolejnego fizycznego pliku.
+
+Możemy więc mieć jedno zdjęcie w kilku różnych wersjach kolorystycznych.
+
+---
+
+## 22. Export — eksport zdjęć
+
+Kolejnym ważnym etapem pracy jest **Export**.
+
+Eksport oznacza utworzenie gotowego pliku na podstawie zdjęcia i zastosowanych ustawień.
+
+Podczas eksportu możemy wybrać między innymi format pliku, rozmiar obrazu, jakość oraz miejsce zapisania.
+
+Jednym z najpopularniejszych formatów eksportu jest JPEG.
+
+JPEG jest często wykorzystywany do publikowania zdjęć w internecie i przesyłania ich innym osobom.
+
+Lightroom może również eksportować zdjęcia w innych formatach, zależnie od potrzeb.
+
+Podczas eksportu możemy zmienić rozdzielczość oraz rozmiar zdjęcia.
+
+Możemy również określić przestrzeń kolorów.
+
+Do publikacji internetowych często stosuje się przestrzeń sRGB.
+
+Do profesjonalnych zastosowań związanych z drukiem mogą być potrzebne inne ustawienia zależne od procesu drukowania.
+
+---
+
+## 23. Lightroom i praca w chmurze
+
+Warto pamiętać, że istnieją różne wersje i sposoby korzystania z Lightrooma, między innymi Lightroom oraz Lightroom Classic.
+
+Lightroom Classic jest szczególnie kojarzony z klasycznym workflow opartym na lokalnym katalogu zdjęć i rozbudowanych możliwościach zarządzania biblioteką.
+
+Nowszy Lightroom jest bardziej nastawiony na synchronizację zdjęć i edycji za pomocą chmury Adobe.
+
+Oba rozwiązania służą do organizowania i edycji zdjęć, ale różnią się sposobem zarządzania plikami i biblioteką.
+
+---
+
+## 24. Typowy workflow fotografa
+
+Typowy workflow fotografa może wyglądać następująco.
+
+Najpierw zdjęcia są importowane do Lightrooma.
+
+Następnie fotograf przegląda zdjęcia i wybiera najlepsze ujęcia.
+
+Kolejnym krokiem może być dodanie ocen, flag oraz słów kluczowych.
+
+Następnie wykonywana jest korekcja ekspozycji, balansu bieli, kontrastu i kolorów.
+
+Później można wykonać bardziej szczegółowe korekty za pomocą masek.
+
+Następnie zdjęcia można zsynchronizować lub zastosować do nich odpowiedni preset.
+
+Na końcu gotowe fotografie są eksportowane do odpowiedniego formatu.
+
+Lightroom może być więc traktowany jako cały proces pracy ze zdjęciami, a nie tylko jako program do zmiany kolorów.
+
+---
+
+## 25. Jak uczyć się Lightrooma?
+
+Podczas nauki Lightrooma najpierw warto nauczyć się importowania i organizowania zdjęć.
+
+Następnie warto opanować podstawowe parametry edycji, takie jak Exposure, Contrast, Highlights, Shadows, Whites i Blacks.
+
+Kolejnym krokiem powinien być White Balance, czyli Temperature i Tint.
+
+Następnie warto nauczyć się pracy z kolorami za pomocą Saturation, Vibrance i Color Mixer.
+
+Później można przejść do Tone Curve, Crop, Lens Corrections, Detail oraz Masking.
+
+Na końcu warto dobrze opanować Presets, synchronizację ustawień, metadane oraz eksport.
+
+---
+
+## 26. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to Library, Develop, Import, Export, Catalog, Collections, Keywords, Ratings, Flags, Exposure, Contrast, Highlights, Shadows, Whites, Blacks, White Balance, Temperature, Tint, Saturation, Vibrance, Tone Curve, Crop, Lens Corrections, Sharpening, Noise Reduction, Masking oraz Presets.
+
+Najważniejsza zasada dotycząca Lightrooma jest taka, że program służy przede wszystkim do **organizowania, selekcjonowania, niedestrukcyjnej edycji i eksportowania dużej liczby zdjęć**.
+
+---
+
+## 27. Lightroom vs inne programy Adobe
+
+Najprościej można zapamiętać różnicę między trzema programami Adobe w następujący sposób.
+
+Photoshop służy przede wszystkim do szczegółowej edycji grafiki rastrowej i pracy na poziomie pojedynczego obrazu.
+
+Lightroom służy przede wszystkim do zarządzania dużą biblioteką zdjęć oraz ich szybkiej i niedestrukcyjnej obróbki.
+
+Illustrator służy przede wszystkim do tworzenia i edycji grafiki wektorowej.

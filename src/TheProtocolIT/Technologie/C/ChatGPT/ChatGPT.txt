@@ -1,0 +1,97 @@
+# ChatGPT
+
+## 1. Czym jest ChatGPT?
+
+ChatGPT to konwersacyjny asystent sztucznej inteligencji opracowany przez firmę OpenAI, który wykorzystuje duże modele językowe (LLM – Large Language Models) do rozumienia poleceń użytkownika i generowania odpowiedzi w języku naturalnym.
+
+ChatGPT potrafi odpowiadać na pytania, wyjaśniać trudne zagadnienia, pisać teksty, analizować dane, pomagać w programowaniu i wspierać naukę.
+
+Narzędzie może również obsługiwać obrazy, pliki oraz inne rodzaje danych, a w zależności od dostępnych funkcji umożliwia korzystanie z wyszukiwania internetowego i narzędzi zewnętrznych.
+
+## 2. Najważniejsze funkcje ChatGPT
+
+- Generowanie tekstu – tworzenie artykułów, notatek, opisów, raportów i wiadomości.
+- Programowanie – pisanie, analizowanie, debugowanie i refaktoryzowanie kodu w językach takich jak Java, Python, C++, JavaScript i SQL.
+- Nauka i edukacja – tłumaczenie zagadnień, przygotowywanie ćwiczeń, quizów i planów nauki.
+- Analiza plików – praca z dokumentami, arkuszami kalkulacyjnymi, prezentacjami i innymi obsługiwanymi formatami.
+- Analiza danych – interpretowanie tabel, wykonywanie obliczeń i tworzenie wykresów przy użyciu dostępnych narzędzi.
+- Generowanie obrazów – tworzenie grafik na podstawie opisów tekstowych.
+- Wyszukiwanie informacji – odnajdywanie aktualnych informacji w internecie, jeśli wyszukiwanie jest dostępne.
+- Tłumaczenie językowe – tłumaczenie i poprawianie tekstów w wielu językach.
+- Burza mózgów – proponowanie pomysłów na projekty, produkty, aplikacje i rozwiązania biznesowe.
+- Automatyzacja pracy – wspieranie powtarzalnych zadań oraz planowania pracy.
+
+## 3. Jak działa ChatGPT?
+
+ChatGPT wykorzystuje modele sztucznej inteligencji trenowane na dużych zbiorach danych tekstowych i innych materiałów.
+
+Podczas generowania odpowiedzi model analizuje kontekst rozmowy i przewiduje kolejne elementy odpowiedzi, tworząc spójny tekst lub inne obsługiwane treści.
+
+W zależności od modelu i dostępnych narzędzi ChatGPT może również analizować obrazy, przetwarzać pliki, wykonywać kod obliczeniowy lub korzystać z informacji znalezionych w internecie.
+
+ChatGPT nie jest zwykłą wyszukiwarką internetową, ponieważ potrafi tworzyć nowe odpowiedzi na podstawie kontekstu i wiedzy modelu.
+
+Nie jest jednak nieomylny, dlatego ważne informacje, szczególnie techniczne, prawne i finansowe, należy weryfikować.
+
+## 4. Zastosowanie ChatGPT w programowaniu
+
+ChatGPT może wspierać programistów na wielu etapach tworzenia oprogramowania.
+
+- Java – wyjaśnianie programowania obiektowego, kolekcji, wyjątków, wielowątkowości i wzorców projektowych.
+- Spring Boot – projektowanie REST API, tworzenie kontrolerów, serwisów, repozytoriów i konfiguracji bezpieczeństwa.
+- SQL – pisanie zapytań, projektowanie baz danych, tworzenie tabel, procedur i wyzwalaczy.
+- Git i GitHub – wyjaśnianie poleceń, rozwiązywanie konfliktów i diagnozowanie błędów podczas wysyłania zmian.
+- Testowanie oprogramowania – przygotowywanie przypadków testowych, testów jednostkowych i integracyjnych oraz scenariuszy automatyzacji.
+- DevOps – pomoc w przygotowywaniu plików Docker, konfiguracji CI/CD i skryptów administracyjnych.
+- Debugowanie – analiza komunikatów błędów i proponowanie sposobów ich rozwiązania.
+
+## 5. ChatGPT w biznesie i produktywności
+
+ChatGPT może pomagać w przygotowywaniu dokumentacji, analizowaniu opinii klientów, tworzeniu materiałów marketingowych i organizowaniu pracy.
+
+Może również wspierać budowę chatbotów, asystentów firmowych i aplikacji wykorzystujących modele językowe.
+
+Przykładowo, w produkcie AgriMind AI można wykorzystać modele OpenAI do stworzenia asystenta, który odpowiada na pytania rolników, analizuje dostarczone dokumenty i pomaga wyszukiwać informacje dotyczące upraw.
+
+W takich rozwiązaniach można korzystać z API modeli OpenAI, integrując je z backendem napisanym w Javie i Spring Boot.
+
+## 6. ChatGPT a API OpenAI
+
+Warto rozróżniać aplikację ChatGPT od API OpenAI.
+
+- ChatGPT – gotowa aplikacja do prowadzenia rozmów i korzystania z funkcji asystenta.
+- OpenAI API – interfejs programistyczny pozwalający integrować modele AI z własnymi aplikacjami.
+- Modele językowe (LLM) – modele odpowiadające za rozumienie i generowanie treści.
+- Prompt engineering – projektowanie instrukcji, które pomagają uzyskać odpowiedzi dopasowane do zadania.
+- RAG (Retrieval-Augmented Generation) – technika łącząca model językowy z wyszukiwaniem informacji w zewnętrznych dokumentach lub bazach wiedzy.
+- Agenci AI – systemy wykorzystujące modele językowe do realizowania zadań z użyciem narzędzi i określonych procesów.
+
+Przykładowo aplikacja Spring Boot może wysyłać zapytania do API OpenAI, otrzymywać wygenerowane odpowiedzi i prezentować je użytkownikowi w interfejsie internetowym.
+
+## 7. Zalety i ograniczenia ChatGPT
+
+Zalety:
+
+- Szybkie uzyskiwanie wyjaśnień i pomoc w rozwiązywaniu problemów.
+- Możliwość dostosowania odpowiedzi do poziomu wiedzy użytkownika.
+- Wsparcie wielu języków programowania i języków naturalnych.
+- Pomoc w analizie dokumentów, danych i kodu.
+- Przyspieszenie nauki, pracy koncepcyjnej i tworzenia prototypów.
+
+Ograniczenia:
+
+- Może generować nieprawdziwe informacje lub błędny kod.
+- Nie zawsze dysponuje aktualnymi danymi bez użycia wyszukiwania lub innych źródeł.
+- Jakość odpowiedzi zależy od kontekstu, instrukcji i dostępnych narzędzi.
+- Wygenerowany kod wymaga testowania i weryfikacji.
+- Przetwarzanie poufnych danych wymaga odpowiedniej oceny zasad bezpieczeństwa i prywatności.
+
+## 8. Dlaczego warto znać ChatGPT?
+
+Umiejętność efektywnego korzystania z ChatGPT staje się przydatna w programowaniu, analizie danych, testowaniu oprogramowania, edukacji i zarządzaniu projektami.
+
+Dla początkującego programisty szczególnie wartościowe jest traktowanie ChatGPT jako nauczyciela i partnera do rozwiązywania problemów, a nie wyłącznie generatora gotowego kodu.
+
+Najlepsze rezultaty można osiągnąć, prosząc o wyjaśnienie krok po kroku, analizując proponowane rozwiązania, samodzielnie wykonując ćwiczenia i sprawdzając działanie kodu.
+
+Warto również nauczyć się tworzenia promptów, pracy z API modeli AI oraz podstaw integracji sztucznej inteligencji z aplikacjami.

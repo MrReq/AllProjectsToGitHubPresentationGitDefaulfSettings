@@ -1,0 +1,244 @@
+# NetBeans – kompleksowa notatka
+
+## 1. Czym jest NetBeans?
+
+[Java Quick Start Tutorial](https://images.openai.com/static-rsc-4/PuQ8keP7ELaLi1dyPqVvvRt4CvZfl-FIHfq6GX63rBVB2c4277GT9msn3SR_T0Dd90aMuo-0_tEPCP18CCVqg2hDO90e59IsIVOfpPt4Ty-mOFUDGYy1_8cpBpVk7DE93vTSy4OWypvtipqM2wx1_RPL4R2YqywR4bNYFSQazTc?purpose=inline)
+
+[How to use NetBeans in Dark Mode with the Darcula Theme  | Our Code World](https://images.openai.com/static-rsc-4/oSaE1RE0N_JmbWDiWZBQ-AWMx0Y9MlnJ6BUGV7COLBiwDvTzOpZWfMUGXWyP9VwpZtUKsM4DiHG5vGMk5KARjlto2Z5EURreT37ErsetAoBJMM8xrHvraUdJQqADTaye_zWgVCJ_bQw7MF2nNU0yIGMAwAgVmIqS8lBGHJpCNtw?purpose=inline)
+
+[How to Use NetBeans IDE from the Basics](https://images.openai.com/static-rsc-4/fzyvMTVV6BVa0Kq1tGyzmWx2hUyz3_sntgVkij9DVkmbimMltcUQCyyi8qAXqxZsbZqNDECM2x3DnGtkdRj6l98yrBjHIeTyZNH2jluSmMFBRdTnI_GkWSms1UxTJPkseK9F8FjmGK3JOV7_NLc3zzCkGHmfcNt8KoI-UDNUvSM?purpose=inline)
+
+9
+
+NetBeans, a dokładniej Apache NetBeans, to zintegrowane środowisko programistyczne (IDE – Integrated Development Environment), które służy do tworzenia, edytowania, uruchamiania i debugowania aplikacji.
+
+Jest szczególnie popularne w programowaniu w języku Java, ale obsługuje również inne technologie, między innymi PHP, HTML, CSS, JavaScript oraz wybrane rozwiązania C i C++, zależnie od wersji i dostępnych rozszerzeń.
+
+NetBeans jest rozwijany w ramach projektu Apache Software Foundation i jest dostępny jako oprogramowanie open source.
+
+Środowisko integruje w jednym miejscu edytor kodu, narzędzia do budowania projektów, debugger, zarządzanie bibliotekami oraz integrację z systemami kontroli wersji.
+
+## 2. Do czego służy NetBeans?
+
+NetBeans pozwala programistom tworzyć aplikacje bez konieczności samodzielnego konfigurowania wszystkich narzędzi osobno.
+
+Najważniejsze zastosowania NetBeans to:
+
+- Tworzenie aplikacji w języku Java.
+- Programowanie obiektowe i tworzenie klas oraz interfejsów.
+- Budowanie aplikacji desktopowych z interfejsem graficznym.
+- Tworzenie aplikacji internetowych.
+- Praca z projektami Maven i Gradle.
+- Uruchamianie i debugowanie programów.
+- Zarządzanie zależnościami i bibliotekami.
+- Pisanie testów jednostkowych.
+- Integracja z systemami kontroli wersji, takimi jak Git.
+- Praca z bazami danych i narzędziami SQL.
+
+Przykładowo można wykorzystać NetBeans do stworzenia aplikacji Java Swing, systemu zarządzania produktami, programu do obsługi klientów lub aplikacji internetowej opartej na Javie.
+
+## 3. Najważniejsze elementy interfejsu NetBeans
+
+[NetBeans 基礎 - Kano Lab Docs](https://images.openai.com/static-rsc-4/-nKJTbLXzRVAnQp_y65ngIQrL54Xg5VMIG398XpDRn05ksKyckrffkCjOOhaydVcz2kwICM2ik1YVMtCcuUPxwJTGZOXaEKLcF2POGHilEE_TG-tSpV4iRXTyyRJ3Wdxy7b4PrZ66t0hk-4nCzO0bn-idrDFOqtI7SLtfISdyO0?purpose=inline)
+
+[docs.kano-lab.com](https://docs.kano-lab.com/java/gui/netbeans/)
+
+Interfejs NetBeans składa się z kilku podstawowych obszarów.
+
+Projects to panel prezentujący projekty oraz ich strukturę, w tym pakiety, klasy, biblioteki i pliki konfiguracyjne.
+
+Source Editor to edytor kodu, który oferuje kolorowanie składni, autouzupełnianie, podpowiedzi oraz nawigację po kodzie.
+
+Navigator umożliwia szybkie przechodzenie do metod, pól i innych elementów aktualnie otwartego pliku.
+
+Output wyświetla komunikaty kompilatora, wyniki działania programu i informacje o wykonywanych zadaniach.
+
+Debugger pozwala analizować wykonywanie programu krok po kroku, sprawdzać wartości zmiennych oraz lokalizować błędy.
+
+Services udostępnia widoki i narzędzia związane między innymi z serwerami, bazami danych oraz innymi zasobami obsługiwanymi przez IDE.
+
+## 4. Programowanie w Javie w NetBeans
+
+Java jest jednym z głównych języków obsługiwanych przez NetBeans.
+
+Środowisko umożliwia tworzenie klas, interfejsów, enumów, wyjątków, kolekcji oraz aplikacji wykorzystujących programowanie obiektowe.
+
+NetBeans współpracuje z JDK, czyli Java Development Kit, który zawiera kompilator Javy oraz narzędzia niezbędne do budowania i uruchamiania aplikacji.
+
+Przykładowy program Java:
+
+```
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("Hello, NetBeans!");
+    }
+}
+```
+
+Po utworzeniu projektu można uruchomić program bezpośrednio w IDE.
+
+NetBeans kompiluje kod, a następnie uruchamia aplikację na odpowiedniej wersji środowiska Java.
+
+## 5. Tworzenie projektu w NetBeans
+
+Proces tworzenia projektu rozpoczyna się od wybrania odpowiedniego typu aplikacji.
+
+W przypadku klasycznej aplikacji Java można wykonać następujące kroki:
+
+1. Uruchomić NetBeans.
+2. Wybrać `File → New Project`.
+3. Wybrać kategorię Java i odpowiedni typ projektu.
+4. Podać nazwę projektu.
+5. Wybrać odpowiednie JDK.
+6. Utworzyć klasę główną, jeśli nie została wygenerowana automatycznie.
+7. Napisać kod programu.
+8. Uruchomić projekt za pomocą polecenia `Run Project`.
+
+W zależności od wybranego szablonu projekt może korzystać z Maven, Gradle lub innego mechanizmu budowania.
+
+## 6. Maven i Gradle w NetBeans
+
+NetBeans obsługuje narzędzia automatyzujące budowanie aplikacji Java.
+
+Maven wykorzystuje plik `pom.xml` do definiowania zależności, konfiguracji projektu, wtyczek oraz procesu budowania.
+
+Gradle wykorzystuje pliki takie jak `build.gradle` lub `build.gradle.kts` do konfiguracji projektu i zarządzania jego zależnościami.
+
+Dzięki integracji z tymi narzędziami można dodawać biblioteki, kompilować kod, uruchamiać testy i tworzyć pliki JAR bez ręcznego wykonywania wszystkich poleceń.
+
+Przykładowy fragment pliku Maven:
+
+```
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+</project>
+```
+
+W rzeczywistym projekcie plik `pom.xml` zawiera również konfigurację wymaganą do kompilacji, zależności i ewentualne wtyczki.
+
+## 7. Tworzenie interfejsów graficznych
+
+NetBeans może być wykorzystywany do tworzenia aplikacji desktopowych w Javie.
+
+Jednym z dostępnych rozwiązań jest Java Swing, czyli biblioteka umożliwiająca budowanie interfejsów graficznych.
+
+NetBeans udostępnia edytor GUI Builder, który pozwala projektować okna aplikacji metodą przeciągnij i upuść.
+
+Za pomocą tego narzędzia można tworzyć formularze, przyciski, tabele, pola tekstowe i inne komponenty interfejsu.
+
+Przykładowe zastosowania to:
+
+- System zarządzania kawiarnią.
+- Program do obsługi zamówień.
+- Aplikacja do zarządzania pracownikami.
+- System ewidencji produktów.
+- Panel administracyjny aplikacji desktopowej.
+
+GUI Builder generuje kod interfejsu, który można następnie połączyć z własną logiką biznesową.
+
+## 8. Debugowanie i testowanie
+
+NetBeans oferuje narzędzia ułatwiające wykrywanie błędów i sprawdzanie poprawności działania programu.
+
+Breakpoint pozwala zatrzymać program w wybranym miejscu kodu.
+
+Step Into umożliwia wejście do wywoływanej metody.
+
+Step Over wykonuje bieżącą linię bez wchodzenia do wnętrza wywoływanej metody.
+
+Step Out pozwala dokończyć wykonywanie bieżącej metody i wrócić do miejsca wywołania.
+
+Variables prezentuje aktualne wartości zmiennych podczas debugowania.
+
+JUnit może być wykorzystywany do tworzenia i uruchamiania testów jednostkowych aplikacji Java.
+
+Dzięki tym funkcjom można sprawdzać przepływ sterowania, analizować wyjątki i lokalizować błędy logiczne.
+
+## 9. Obsługa baz danych
+
+NetBeans udostępnia narzędzia do pracy z bazami danych, w zależności od konfiguracji i dostępnych sterowników.
+
+Można wykorzystywać go do łączenia się z bazami danych, wykonywania zapytań SQL oraz tworzenia aplikacji korzystających z danych.
+
+W projektach Java połączenie z bazą może być realizowane między innymi za pomocą JDBC.
+
+Przykładowe systemy bazodanowe wykorzystywane w projektach to:
+
+- PostgreSQL.
+- MySQL.
+- Oracle Database.
+- Microsoft SQL Server.
+
+Dostępność konkretnych funkcji w panelach NetBeans zależy od wersji IDE, sterowników i konfiguracji środowiska.
+
+## 10. NetBeans a inne środowiska programistyczne
+
+[Apache NetBeans - Download - CHIP](https://images.openai.com/static-rsc-4/m4BmRYNQnlpZsjkjo90XFWDZo-jpTXDf5D3jeGt0N9pLzPHsALOGkz8huxY7lFiXtRy-64aH759Lj24tVkgzCaFOul900XDGgFU0yY4up9BoXuesY90hNEqYz8MfeqXIcl2679PZ4ngLXN89jbEuZuX2bdF9RGgalXKxWnflqso?purpose=inline)
+
+NetBeans
+
+Bezpłatne IDE, szczególnie przydatne w nauce Javy, programowaniu obiektowym i tworzeniu aplikacji z GUI Builderem.
+
+[File:JetBrains IntelliJ IDEA Product Icon.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/t2DvC0ny4AzDF9uFjW6vOHsIx9g7x-MhgMttEVKQeeHGv_tBHLXiubEETaP0tv-wwstEuZj5Q0vP_ehyZhS4lOEmTHYoZCYIu2GyjkXN4_izkKbAwa9tqGxfvDsIsgfgbvROQr7_ka5zteGW4ccPqO7umme-LsgzSu7nvVbDcUw?purpose=inline)
+
+IntelliJ IDEA
+
+Środowisko JetBrains oferujące rozbudowane narzędzia do Javy, Springa, refaktoryzacji i analizy kodu.
+
+[Eclipse Logo Vector Png | Eclipse IDE Logo  - freepng](https://images.openai.com/static-rsc-4/WudxkNA4jcYEn3xslPzvfNM-hHY5uNj9ckXHWmNdMCkHlW82dXZrOq01JKRe9aMQMvfwiF5eM_7H8niiVH3xz0XPC2XTsKgVxDRk0bh8INC8bBI7yltVY7r2zdJAfXZAurE28JGdKW-UYH466szJ55Mz-Ps60gMULQhebgmP8fA?purpose=inline)
+
+Eclipse
+
+Rozbudowane środowisko programistyczne z szerokim ekosystemem wtyczek, wykorzystywane między innymi w projektach Java.
+
+[File:Visual Studio Code 1.35 icon.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/bwltRsn8xFpdSRcYQ3DdHauINNG_Ll8uEuWak3gU_Cd8IQKU8JMwJXvDy7WOSMXzw_LreGtysSFaVMfFopIshhFxhhA7optqpzdDNA41Fr3DZ8RT6oELKwe8M8zFoIi4_H68G4UOg124XH5x4eObz-mHD-E9xY_6m_hLlZ275hc?purpose=inline)
+
+Visual Studio Code
+
+Lekki edytor kodu, który dzięki rozszerzeniom obsługuje wiele języków i technologii.
+
+NetBeans dobrze sprawdza się w nauce programowania oraz tworzeniu klasycznych aplikacji Java.
+
+IntelliJ IDEA jest często wybierane do większych projektów Java i Spring Boot, natomiast Visual Studio Code sprawdza się w pracy z wieloma różnymi technologiami.
+
+Wybór środowiska powinien zależeć od wymagań projektu, preferencji programisty oraz narzędzi wymaganych na zajęciach lub w pracy.
+
+## 11. Zalety NetBeans
+
+- Jest dostępny jako oprogramowanie open source.
+- Zapewnia zintegrowane narzędzia do edycji, kompilacji i debugowania.
+- Oferuje wsparcie dla języka Java i projektów Maven.
+- Ułatwia naukę programowania obiektowego.
+- Posiada GUI Builder do projektowania interfejsów graficznych.
+- Integruje się z systemami kontroli wersji.
+- Umożliwia pracę z bazami danych.
+- Ogranicza potrzebę ręcznego konfigurowania podstawowych narzędzi programistycznych.
+
+## 12. Wady NetBeans
+
+- Niektóre funkcje mogą być mniej rozbudowane niż w konkurencyjnych środowiskach.
+- Zużycie pamięci może być zauważalne przy większych projektach.
+- Dostępność funkcji zależy od wersji IDE i zainstalowanych rozszerzeń.
+- W przypadku niektórych nowoczesnych technologii ekosystem wtyczek może być mniej rozbudowany niż w innych IDE.
+- Praca z nowymi wersjami JDK i frameworków może wymagać aktualizacji środowiska.
+
+## 13. Najważniejsze pojęcia do zapamiętania
+
+- IDE – zintegrowane środowisko programistyczne.
+- Apache NetBeans – środowisko do tworzenia aplikacji.
+- JDK – zestaw narzędzi do tworzenia i uruchamiania programów Java.
+- Maven – narzędzie do budowania projektów i zarządzania zależnościami.
+- Gradle – alternatywne narzędzie automatyzujące budowanie aplikacji.
+- Debugger – narzędzie do analizowania działania programu.
+- Breakpoint – punkt zatrzymania programu podczas debugowania.
+- JDBC – interfejs umożliwiający komunikację aplikacji Java z bazą danych.
+- Swing – biblioteka do tworzenia graficznych interfejsów aplikacji Java.
+- GUI Builder – narzędzie do wizualnego projektowania interfejsów.
+- Git – system kontroli wersji umożliwiający śledzenie zmian w kodzie.
+
+Podsumowanie: NetBeans to środowisko programistyczne, które integruje edytor kodu, kompilator, debugger i narzędzia do budowania projektów. Jest szczególnie przydatne do nauki Javy, tworzenia aplikacji desktopowych oraz rozwijania projektów wykorzystujących Maven, bazy danych i biblioteki Java.

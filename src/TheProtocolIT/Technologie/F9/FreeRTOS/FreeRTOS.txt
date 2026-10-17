@@ -1,0 +1,1281 @@
+# FreeRTOS
+
+## Czym jest FreeRTOS?
+
+**FreeRTOS** to lekki system operacyjny czasu rzeczywistego typu **RTOS (Real-Time Operating System)** przeznaczony głównie dla mikrokontrolerów i systemów embedded.
+
+Pozwala uruchamiać na jednym mikrokontrolerze wiele niezależnych zadań, które mogą działać pozornie równocześnie.
+
+FreeRTOS jest szczególnie popularny w systemach wykorzystujących mikrokontrolery takie jak:
+
+- ESP32
+- STM32
+- ARM Cortex-M
+- Raspberry Pi Pico
+- NXP
+- Texas Instruments
+- Microchip
+- Renesas
+
+FreeRTOS nie jest odpowiednikiem Windowsa czy typowej dystrybucji Linuxa.
+
+Jest znacznie mniejszy i został zaprojektowany przede wszystkim do sterowania urządzeniami, czujnikami, silnikami, komunikacją i innymi elementami systemów embedded.
+
+## Co oznacza RTOS?
+
+RTOS oznacza:
+
+**Real-Time Operating System**
+
+czyli system operacyjny czasu rzeczywistego.
+
+Najważniejsza różnica między zwykłym systemem operacyjnym a RTOS polega na tym, że RTOS został zaprojektowany tak, aby system mógł przewidywalnie reagować na zdarzenia.
+
+Przykładowo mikrokontroler może mieć jednocześnie:
+
+```text
+        Mikrokontroler
+             │
+     ┌───────┼────────┐
+     │       │        │
+     ▼       ▼        ▼
+  Czujnik   Silnik   Wi-Fi
+  10 ms     5 ms     100 ms
+```
+
+FreeRTOS pozwala potraktować te działania jako osobne zadania.
+
+## Do czego służy FreeRTOS?
+
+FreeRTOS wykorzystuje się przede wszystkim do tworzenia systemów embedded, w których wiele operacji musi działać jednocześnie.
+
+Przykładowe zastosowania:
+
+- urządzenia IoT
+- inteligentne domy
+- roboty
+- samochody
+- urządzenia przemysłowe
+- systemy automatyki
+- drony
+- urządzenia medyczne
+- elektronika użytkowa
+- sterowniki silników
+- systemy komunikacyjne
+- urządzenia wykorzystujące Wi-Fi i Bluetooth
+- systemy monitorowania czujników
+
+Przykładowo urządzenie może jednocześnie:
+
+```text
+Task 1 → odczytuje temperaturę
+Task 2 → obsługuje Wi-Fi
+Task 3 → steruje wyświetlaczem
+Task 4 → zapisuje dane
+Task 5 → steruje silnikiem
+```
+
+## FreeRTOS a mikrokontroler
+
+Typowy program bez RTOS może wyglądać tak:
+
+```c
+while (1) {
+    readTemperature();
+    readPressure();
+    handleButton();
+    updateDisplay();
+    sendData();
+}
+```
+
+Programista sam musi pilnować kolejności wykonywania operacji.
+
+W FreeRTOS można rozdzielić te operacje na zadania:
+
+```text
+                FreeRTOS
+                   │
+        ┌──────────┼──────────┐
+        │          │          │
+        ▼          ▼          ▼
+    Temperature  Display    Network
+       Task       Task       Task
+```
+
+Scheduler FreeRTOS decyduje, które zadanie powinno aktualnie otrzymać czas procesora.
+
+# Scheduler
+
+Jednym z najważniejszych elementów FreeRTOS jest **scheduler**.
+
+Scheduler, czyli planista, decyduje, które zadanie ma aktualnie wykonywać kod.
+
+Przykładowo:
+
+```text
+Czas →
+
+Task A: ███       ███
+Task B:    ███
+Task C:       ███
+```
+
+Jeżeli jedno zadanie zostanie zablokowane, procesor może wykonywać inne zadanie.
+
+Przykładowo:
+
+```c
+vTaskDelay(pdMS_TO_TICKS(1000));
+```
+
+oznacza:
+
+> wstrzymaj bieżące zadanie na około 1 sekundę.
+
+W tym czasie inne zadania mogą działać.
+
+# Task
+
+Podstawową jednostką pracy w FreeRTOS jest **Task**.
+
+Task można traktować jako niezależne zadanie wykonywane przez system.
+
+Przykład:
+
+```c
+void temperatureTask(void *parameter)
+{
+    while (1)
+    {
+        readTemperature();
+
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
+```
+
+Tworzenie zadania:
+
+```c
+xTaskCreate(
+    temperatureTask,
+    "Temperature",
+    2048,
+    NULL,
+    1,
+    NULL
+);
+```
+
+Parametry określają między innymi:
+
+- funkcję zadania
+- nazwę zadania
+- rozmiar stosu
+- parametr przekazywany do zadania
+- priorytet
+- uchwyt zadania
+
+## Task musi mieć pętlę
+
+Typowy task FreeRTOS wygląda tak:
+
+```c
+void myTask(void *parameter)
+{
+    while (1)
+    {
+        // wykonaj pracę
+
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
+```
+
+Dzięki temu zadanie może wykonywać swoją pracę cyklicznie.
+
+# Priorytety zadań
+
+Każde zadanie może mieć określony **priorytet**.
+
+Przykładowo:
+
+```text
+Priority 3 → obsługa awaryjna
+Priority 2 → komunikacja
+Priority 1 → odczyt czujników
+Priority 0 → zadanie pomocnicze
+```
+
+Jeżeli kilka zadań jest gotowych do wykonania, scheduler może uruchomić zadanie o wyższym priorytecie.
+
+Przykład:
+
+```text
+Task A → priority 1
+Task B → priority 3
+Task C → priority 2
+
+Najwyższy priorytet:
+Task B
+```
+
+Nie oznacza to jednak, że każde zadanie powinno mieć wysoki priorytet.
+
+Nieprawidłowe zarządzanie priorytetami może prowadzić do problemów takich jak **starvation**.
+
+# Preemptive scheduling
+
+FreeRTOS może korzystać z mechanizmu **preempcji**.
+
+Oznacza to, że scheduler może przerwać wykonywanie jednego zadania i przekazać procesor innemu zadaniu o wyższym priorytecie.
+
+Przykład:
+
+```text
+Task A
+████████████████
+
+Task B
+        ████
+        ↑
+   przejęcie CPU
+```
+
+Jeżeli Task A wykonuje się, a pojawi się gotowy Task B o wyższym priorytecie, scheduler może przełączyć procesor na Task B.
+
+# Time slicing
+
+FreeRTOS może również dzielić czas procesora pomiędzy zadania o tym samym priorytecie.
+
+Przykład:
+
+```text
+Task A → ███
+Task B →    ███
+Task A →       ███
+Task B →          ███
+```
+
+Dzięki temu zadania mogą otrzymywać swoje fragmenty czasu procesora.
+
+# Context Switch
+
+**Context switch** oznacza przełączenie procesora z jednego zadania na inne.
+
+Procesor musi zapamiętać między innymi:
+
+- rejestry
+- stos
+- licznik programu
+- stan wykonywania zadania
+
+Schemat:
+
+```text
+Task A
+  │
+  │ context switch
+  ▼
+Task B
+  │
+  │ context switch
+  ▼
+Task A
+```
+
+Context switching pozwala FreeRTOS obsługiwać wiele zadań.
+
+# Queue
+
+**Queue** to kolejka umożliwiająca przekazywanie danych pomiędzy zadaniami.
+
+Przykładowo jeden task odczytuje temperaturę:
+
+```text
+Sensor Task
+     │
+     │ 25.4°C
+     ▼
+  [ QUEUE ]
+     │
+     ▼
+Network Task
+```
+
+Przykład:
+
+```c
+QueueHandle_t temperatureQueue;
+```
+
+Utworzenie kolejki:
+
+```c
+temperatureQueue = xQueueCreate(10, sizeof(float));
+```
+
+Wysłanie danych:
+
+```c
+float temperature = 25.4;
+
+xQueueSend(
+    temperatureQueue,
+    &temperature,
+    portMAX_DELAY
+);
+```
+
+Odebranie:
+
+```c
+float temperature;
+
+xQueueReceive(
+    temperatureQueue,
+    &temperature,
+    portMAX_DELAY
+);
+```
+
+Queue jest bardzo ważnym mechanizmem komunikacji między taskami.
+
+# Semaphore
+
+**Semaphore** służy przede wszystkim do synchronizacji zadań.
+
+Można ją traktować jako mechanizm pozwalający powiedzieć:
+
+> „Zasób jest dostępny.”
+
+Przykładowo:
+
+```text
+Task A ──┐
+         │
+         ▼
+     Semaphore
+         │
+         ▼
+      UART
+         ▲
+         │
+Task B ──┘
+```
+
+Semaphore może być używana między innymi do synchronizacji zadań z przerwaniami.
+
+# Mutex
+
+**Mutex (Mutual Exclusion)** służy do ochrony współdzielonego zasobu.
+
+Przykładowo dwa taski chcą zapisać coś do tego samego UART:
+
+```text
+Task A ─────┐
+            │
+            ▼
+          Mutex
+            │
+            ▼
+           UART
+            ▲
+            │
+Task B ─────┘
+```
+
+Task A zdobywa mutex:
+
+```c
+xSemaphoreTake(uartMutex, portMAX_DELAY);
+```
+
+Korzysta z UART:
+
+```c
+printf("Hello");
+```
+
+Następnie zwalnia mutex:
+
+```c
+xSemaphoreGive(uartMutex);
+```
+
+Dzięki temu dwa zadania nie próbują jednocześnie korzystać z tego samego zasobu.
+
+# Mutex vs Semaphore
+
+To bardzo ważne rozróżnienie.
+
+**Semaphore** służy przede wszystkim do synchronizacji lub sygnalizacji.
+
+**Mutex** służy przede wszystkim do ochrony współdzielonego zasobu.
+
+Można zapamiętać:
+
+```text
+Semaphore → "czy wydarzyło się coś?"
+
+Mutex     → "kto może korzystać z zasobu?"
+```
+
+# Binary Semaphore
+
+Binary Semaphore może mieć dwa stany:
+
+```text
+0 → niedostępna
+1 → dostępna
+```
+
+Może być wykorzystana np. do poinformowania taska, że wystąpiło przerwanie.
+
+```text
+Interrupt
+    │
+    ▼
+Semaphore
+    │
+    ▼
+Task
+```
+
+# Event Groups
+
+**Event Groups** pozwalają przechowywać wiele zdarzeń w postaci bitów.
+
+Przykład:
+
+```text
+Bit 0 → Wi-Fi connected
+Bit 1 → Sensor ready
+Bit 2 → Server connected
+Bit 3 → Configuration loaded
+```
+
+Task może czekać na określony zestaw zdarzeń.
+
+Przykładowo:
+
+```text
+Wi-Fi connected
+        +
+Sensor ready
+        ↓
+Start application
+```
+
+# Software Timer
+
+FreeRTOS posiada również **software timers**.
+
+Timer może wykonywać określoną funkcję po upływie określonego czasu.
+
+Przykład:
+
+```text
+Timer
+  │
+  ├── 1000 ms
+  │
+  ▼
+Callback
+```
+
+Można wykorzystać to np. do:
+
+- okresowego wykonywania operacji
+- timeoutów
+- kontroli stanu urządzenia
+- okresowego wysyłania danych
+
+# Interrupts
+
+FreeRTOS współpracuje również z **interruptami**, czyli przerwaniami.
+
+Przerwanie może pojawić się np. gdy:
+
+- przycisk zostanie naciśnięty
+- UART otrzyma dane
+- timer zakończy odliczanie
+- czujnik wygeneruje sygnał
+- wystąpi zdarzenie sprzętowe
+
+Schemat:
+
+```text
+Hardware
+   │
+   ▼
+Interrupt
+   │
+   ▼
+ISR
+   │
+   ▼
+FreeRTOS
+   │
+   ▼
+Task
+```
+
+W ISR nie powinno się wykonywać długich operacji.
+
+Zwykle ISR sygnalizuje zdarzenie taskowi, a task wykonuje właściwą pracę.
+
+# ISR
+
+**ISR — Interrupt Service Routine** to funkcja obsługująca przerwanie.
+
+Przykład:
+
+```c
+void ISR_Handler(void)
+{
+    // szybka obsługa przerwania
+}
+```
+
+FreeRTOS posiada specjalne funkcje przeznaczone do używania z ISR.
+
+Przykładowo:
+
+```c
+xQueueSendFromISR(...)
+```
+
+zamiast:
+
+```c
+xQueueSend(...)
+```
+
+# Memory Management
+
+FreeRTOS musi również zarządzać pamięcią.
+
+Może korzystać z różnych mechanizmów alokacji pamięci, między innymi:
+
+```text
+heap_1
+heap_2
+heap_3
+heap_4
+heap_5
+```
+
+Różnią się sposobem zarządzania pamięcią.
+
+W systemach embedded pamięć jest szczególnie ważna, ponieważ mikrokontroler może mieć bardzo ograniczoną ilość RAM.
+
+# Stack
+
+Każdy task posiada własny **stack**.
+
+Przykładowo:
+
+```text
+RAM
+│
+├── Task A Stack
+│
+├── Task B Stack
+│
+├── Task C Stack
+│
+├── Heap
+│
+└── Global variables
+```
+
+Zbyt mały stack może powodować problemy takie jak **stack overflow**.
+
+FreeRTOS posiada mechanizmy wykrywania przepełnienia stosu.
+
+# Heap vs Stack
+
+Warto znać różnicę:
+
+**Stack** jest związany między innymi z wykonywaniem funkcji i lokalnymi zmiennymi.
+
+**Heap** jest obszarem pamięci wykorzystywanym do dynamicznej alokacji.
+
+W FreeRTOS każdy task ma własny stack.
+
+# Idle Task
+
+FreeRTOS posiada specjalne zadanie zwane **Idle Task**.
+
+Wykonuje się ono wtedy, gdy nie ma innych gotowych zadań do wykonania.
+
+```text
+Task A → brak pracy
+Task B → brak pracy
+Task C → brak pracy
+             │
+             ▼
+         Idle Task
+```
+
+# Tick
+
+FreeRTOS wykorzystuje mechanizm **tick**, czyli okresowe przerwania zegarowe.
+
+Przykładowo:
+
+```text
+Tick 1
+Tick 2
+Tick 3
+Tick 4
+Tick 5
+```
+
+Tick pozwala systemowi śledzić czas i wykonywać między innymi operacje związane z:
+
+- opóźnieniami
+- timeoutami
+- schedulerem
+- timerami
+
+# vTaskDelay()
+
+Jedną z najczęściej używanych funkcji jest:
+
+```c
+vTaskDelay(pdMS_TO_TICKS(1000));
+```
+
+Oznacza ona:
+
+> uśpij bieżący task na około 1000 ms.
+
+To jest lepsze niż bezmyślne:
+
+```c
+delay(1000);
+```
+
+w systemie, gdzie chcemy pozwolić innym taskom wykonywać pracę.
+
+# vTaskDelayUntil()
+
+Jeżeli chcemy wykonywać zadanie okresowo, przydatne jest:
+
+```c
+vTaskDelayUntil();
+```
+
+Przykład:
+
+```text
+Task
+ │
+ ▼
+Praca
+ │
+ ▼
+100 ms
+ │
+ ▼
+Praca
+ │
+ ▼
+100 ms
+ │
+ ▼
+Praca
+```
+
+Pozwala to uzyskać bardziej regularny okres wykonywania zadania.
+
+# Task Notifications
+
+**Task Notifications** to bardzo szybki mechanizm komunikacji zadań.
+
+Można ich używać między innymi do:
+
+- sygnalizacji
+- przekazywania prostych wartości
+- synchronizacji
+- komunikacji z ISR
+
+Są często szybsze i lżejsze niż klasyczne kolejki.
+
+# Stream Buffer
+
+**Stream Buffer** służy do przesyłania strumienia danych pomiędzy kontekstami wykonania.
+
+Przykładowo:
+
+```text
+UART
+ │
+ ▼
+Stream Buffer
+ │
+ ▼
+Network Task
+```
+
+Jest szczególnie przydatny przy strumieniach danych.
+
+# Message Buffer
+
+**Message Buffer** pozwala przesyłać komunikaty o zmiennej długości.
+
+Przykład:
+
+```text
+"HELLO"
+"Temperature = 24.5"
+"START"
+"STOP"
+```
+
+Każdy komunikat może mieć inną długość.
+
+# FreeRTOS na ESP32
+
+FreeRTOS jest szczególnie popularny w świecie ESP32.
+
+ESP32 posiada dwa rdzenie w wielu wariantach układu, dlatego system może wykorzystywać FreeRTOS do zarządzania wykonywaniem zadań.
+
+Przykładowo:
+
+```text
+ESP32
+│
+├── Core 0
+│   ├── Wi-Fi
+│   └── Network Task
+│
+└── Core 1
+    ├── Sensor Task
+    └── Display Task
+```
+
+W środowisku ESP-IDF FreeRTOS jest integralną częścią platformy.
+
+# FreeRTOS i ESP-IDF
+
+**ESP-IDF** to oficjalny framework firmy Espressif dla ESP32.
+
+FreeRTOS stanowi jeden z jego fundamentów.
+
+Można więc spotkać kod:
+
+```c
+xTaskCreate(...)
+vTaskDelay(...)
+xQueueCreate(...)
+```
+
+podczas programowania ESP32 w ESP-IDF.
+
+# FreeRTOS i Arduino
+
+FreeRTOS może być również wykorzystywany w projektach Arduino dla niektórych mikrokontrolerów.
+
+Przykładowo na ESP32 można tworzyć taski:
+
+```cpp
+void task1(void *parameter)
+{
+    while (true)
+    {
+        Serial.println("Task 1");
+
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
+```
+
+Następnie:
+
+```cpp
+xTaskCreate(
+    task1,
+    "Task1",
+    2048,
+    NULL,
+    1,
+    NULL
+);
+```
+
+# FreeRTOS i STM32
+
+FreeRTOS jest bardzo popularny również w projektach **STM32**.
+
+Można używać go razem z:
+
+- STM32CubeIDE
+- STM32CubeMX
+- HAL
+- CMSIS
+- ARM Cortex-M
+
+Typowa architektura:
+
+```text
+STM32
+ │
+ ├── FreeRTOS
+ │    │
+ │    ├── Sensor Task
+ │    ├── UART Task
+ │    ├── Display Task
+ │    └── Control Task
+ │
+ └── HAL
+      │
+      ├── GPIO
+      ├── UART
+      ├── SPI
+      ├── I2C
+      └── ADC
+```
+
+# FreeRTOS i IoT
+
+FreeRTOS świetnie nadaje się do urządzeń IoT.
+
+Przykładowe urządzenie:
+
+```text
+          Temperature Sensor
+                  │
+                  ▼
+            Sensor Task
+                  │
+                  ▼
+              Queue
+                  │
+                  ▼
+             Network Task
+                  │
+                  ▼
+               Wi-Fi
+                  │
+                  ▼
+                Cloud
+```
+
+Urządzenie może więc jednocześnie zbierać dane, przetwarzać je i komunikować się z serwerem.
+
+# FreeRTOS i MQTT
+
+FreeRTOS może być wykorzystywany w urządzeniach korzystających z **MQTT**.
+
+Przykład:
+
+```text
+Temperature Task
+       │
+       ▼
+    Reading
+       │
+       ▼
+      Queue
+       │
+       ▼
+   MQTT Task
+       │
+       ▼
+    MQTT Broker
+       │
+       ▼
+    Cloud/App
+```
+
+Jest to bardzo typowy model dla urządzeń IoT.
+
+# FreeRTOS i TCP/IP
+
+FreeRTOS może współpracować ze stosami sieciowymi.
+
+Jednym z przykładów jest **FreeRTOS+TCP**.
+
+Można wtedy tworzyć urządzenia komunikujące się przez:
+
+- TCP
+- UDP
+- IPv4
+- Ethernet
+
+# FreeRTOS+TCP
+
+**FreeRTOS+TCP** to stos TCP/IP przeznaczony dla systemów wykorzystujących FreeRTOS.
+
+Pozwala urządzeniom embedded komunikować się poprzez sieć.
+
+```text
+Application
+     │
+     ▼
+FreeRTOS
+     │
+     ▼
+FreeRTOS+TCP
+     │
+     ▼
+Ethernet / Wi-Fi
+     │
+     ▼
+Network
+```
+
+# FreeRTOS+FAT
+
+**FreeRTOS+FAT** jest systemem plików przeznaczonym dla systemów embedded.
+
+Może być wykorzystywany np. do pracy z:
+
+- kartami SD
+- pamięcią flash
+- innymi nośnikami
+
+# FreeRTOS Kernel
+
+Najważniejszą częścią FreeRTOS jest **kernel**, czyli jądro systemu.
+
+Kernel odpowiada między innymi za:
+
+```text
+FreeRTOS Kernel
+│
+├── Scheduler
+├── Tasks
+├── Queues
+├── Semaphores
+├── Mutexes
+├── Timers
+├── Notifications
+└── Memory management
+```
+
+# Architektura FreeRTOS
+
+Można ją uprościć do:
+
+```text
+                 APPLICATION
+                      │
+        ┌─────────────┼─────────────┐
+        │             │             │
+        ▼             ▼             ▼
+     Task A         Task B        Task C
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
+                FreeRTOS Kernel
+                      │
+        ┌─────────────┼─────────────┐
+        │             │             │
+        ▼             ▼             ▼
+    Scheduler       Queue         Mutex
+        │
+        ▼
+       CPU
+        │
+        ▼
+   Microcontroller
+```
+
+# FreeRTOS a Linux
+
+FreeRTOS i Linux mogą działać w systemach embedded, ale mają zupełnie inne przeznaczenie.
+
+| FreeRTOS | Linux |
+|---|---|
+| bardzo lekki | znacznie większy |
+| mikrokontrolery | komputery i mocniejsze SoC |
+| małe zużycie RAM | większe wymagania |
+| system czasu rzeczywistego | system ogólnego przeznaczenia |
+| szybki start | bardziej rozbudowany start |
+| brak typowego desktopowego środowiska | pełny system operacyjny |
+| popularny w embedded | popularny w serwerach, PC i embedded |
+
+Można zapamiętać:
+
+```text
+Mikrokontroler → FreeRTOS
+
+Raspberry Pi / komputer → Linux
+```
+
+Oczywiście istnieją wyjątki.
+
+# FreeRTOS vs bare metal
+
+**Bare metal** oznacza programowanie mikrokontrolera bez systemu operacyjnego.
+
+Przykład:
+
+```c
+while (1)
+{
+    readSensor();
+    updateDisplay();
+    sendData();
+}
+```
+
+FreeRTOS:
+
+```text
+FreeRTOS
+│
+├── Sensor Task
+├── Display Task
+└── Network Task
+```
+
+Bare metal daje pełną kontrolę i minimalny narzut.
+
+FreeRTOS ułatwia jednak zarządzanie bardziej złożonym systemem.
+
+# FreeRTOS vs Zephyr
+
+**Zephyr** to również RTOS przeznaczony dla systemów embedded.
+
+FreeRTOS jest często postrzegany jako:
+
+- prostszy
+- bardzo lekki
+- łatwy do rozpoczęcia
+- szeroko stosowany w mikrokontrolerach
+
+Zephyr jest bardziej rozbudowaną platformą embedded z większym ekosystemem systemowym.
+
+```text
+FreeRTOS → prostota + lekkość
+
+Zephyr → bardziej rozbudowany ekosystem
+```
+
+# FreeRTOS vs ThreadX
+
+**ThreadX** to inny popularny RTOS.
+
+Oba systemy oferują mechanizmy takie jak:
+
+- taski
+- scheduler
+- mutexy
+- semafory
+- kolejki
+- timery
+
+FreeRTOS jest jednak bardzo szeroko wykorzystywany w projektach mikrokontrolerowych i IoT.
+
+# Zalety FreeRTOS
+
+Najważniejsze zalety:
+
+- bardzo mały rozmiar
+- niewielkie wymagania sprzętowe
+- obsługa wielu zadań
+- scheduler
+- priorytety
+- kolejki
+- mutexy
+- semafory
+- timery
+- obsługa przerwań
+- dobra skalowalność
+- bardzo duża popularność
+- wiele obsługiwanych architektur
+- świetny do IoT
+- świetny do systemów embedded
+
+# Wady FreeRTOS
+
+FreeRTOS również ma pewne ograniczenia.
+
+Najważniejsze:
+
+- wymaga zrozumienia współbieżności
+- łatwo popełnić błędy synchronizacji
+- możliwość deadlocków
+- możliwość race conditions
+- możliwość starvation
+- ograniczona pamięć mikrokontrolera
+- niewłaściwe priorytety mogą powodować problemy
+- błędy związane ze stackiem mogą być trudne do znalezienia
+
+# Race Condition
+
+**Race condition** występuje wtedy, gdy wynik działania programu zależy od kolejności wykonywania współbieżnych operacji.
+
+Przykład:
+
+```text
+Task A ──┐
+         ├──> shared variable
+Task B ──┘
+```
+
+Jeżeli oba taski jednocześnie modyfikują tę samą zmienną, mogą powstać nieprzewidywalne wyniki.
+
+Do ochrony współdzielonych zasobów można wykorzystać między innymi mutex.
+
+# Deadlock
+
+**Deadlock** oznacza sytuację, w której zadania wzajemnie czekają na zasoby.
+
+Przykład:
+
+```text
+Task A → czeka na Mutex B
+Task B → czeka na Mutex A
+
+        ↓
+
+      DEADLOCK
+```
+
+Żaden task nie może kontynuować pracy.
+
+# Priority Inversion
+
+**Priority inversion** występuje, gdy zadanie o wysokim priorytecie musi czekać na zasób zajęty przez zadanie o niskim priorytecie.
+
+Przykład:
+
+```text
+High Priority Task
+       │
+       ▼
+     Mutex
+       ▲
+       │
+Low Priority Task
+```
+
+FreeRTOS posiada mechanizmy pomagające ograniczyć ten problem, między innymi **priority inheritance** dla mutexów.
+
+# Przykładowa aplikacja FreeRTOS
+
+Załóżmy inteligentny system monitorowania upraw.
+
+```text
+              AGRIMIND DEVICE
+                     │
+       ┌─────────────┼─────────────┐
+       │             │             │
+       ▼             ▼             ▼
+ Soil Task       Weather Task   Network Task
+       │             │             │
+       └─────────────┼─────────────┘
+                     ▼
+                   Queue
+                     │
+                     ▼
+                MQTT / HTTP
+                     │
+                     ▼
+                 Backend
+```
+
+Na przykład:
+
+**Soil Task**
+
+odczytuje wilgotność gleby.
+
+**Weather Task**
+
+odczytuje temperaturę i wilgotność powietrza.
+
+**Network Task**
+
+wysyła dane do backendu.
+
+FreeRTOS pozwala tym zadaniom działać niezależnie.
+
+# Typowy przepływ programu
+
+```text
+START
+  │
+  ▼
+Hardware initialization
+  │
+  ▼
+FreeRTOS initialization
+  │
+  ▼
+Create Tasks
+  │
+  ├──── Sensor Task
+  ├──── Network Task
+  ├──── Display Task
+  └──── Control Task
+  │
+  ▼
+Start Scheduler
+  │
+  ▼
+FreeRTOS manages execution
+  │
+  ▼
+System works continuously
+```
+
+# Najważniejsze pojęcia
+
+Warto znać przede wszystkim:
+
+| Pojęcie | Znaczenie |
+|---|---|
+| RTOS | Real-Time Operating System |
+| Kernel | jądro FreeRTOS |
+| Task | zadanie |
+| Scheduler | planista |
+| Priority | priorytet zadania |
+| Context Switch | przełączenie zadań |
+| Queue | kolejka danych |
+| Semaphore | synchronizacja |
+| Mutex | ochrona zasobu |
+| Event Group | grupa zdarzeń |
+| Timer | timer programowy |
+| ISR | obsługa przerwania |
+| Tick | okresowy takt systemu |
+| Stack | stos zadania |
+| Heap | pamięć dynamiczna |
+| Task Notification | szybka komunikacja z taskiem |
+| Stream Buffer | strumień danych |
+| Message Buffer | komunikaty o zmiennej długości |
+| Deadlock | wzajemne blokowanie |
+| Race Condition | konflikt współbieżnych operacji |
+| Priority Inversion | odwrócenie priorytetów |
+
+# Najważniejsze do zapamiętania
+
+```text
+                    FreeRTOS
+                       │
+                       ▼
+               SYSTEM EMBEDDED
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+        TASKS        SCHEDULER     ISR
+          │
+          ├── Queue
+          ├── Semaphore
+          ├── Mutex
+          ├── Timer
+          └── Notification
+```
+
+Najważniejsze jest zrozumienie, że **FreeRTOS pozwala podzielić program mikrokontrolera na wiele niezależnych zadań i kontrolować ich wykonywanie za pomocą schedulera**.
+
+### Najprościej zapamiętać
+
+**FreeRTOS = lekki system operacyjny czasu rzeczywistego dla mikrokontrolerów, który zarządza taskami, ich priorytetami, synchronizacją i komunikacją.**

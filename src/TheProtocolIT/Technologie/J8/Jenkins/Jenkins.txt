@@ -1,0 +1,485 @@
+# Jenkins
+
+## 1. Czym jest Jenkins?
+
+Jenkins to otwartoźródłowe narzędzie automatyzacji, wykorzystywane przede wszystkim w procesach CI/CD (Continuous Integration / Continuous Delivery / Continuous Deployment).
+
+Jenkins umożliwia automatyczne budowanie aplikacji, uruchamianie testów, analizowanie kodu oraz wdrażanie oprogramowania na serwery i do środowisk produkcyjnych.
+
+Jest szeroko stosowany w projektach wykorzystujących Javę, Spring Boot, JavaScript, .NET, Pythona, Dockera oraz Kubernetes.
+
+Jenkins jest napisany głównie w Javie i działa jako aplikacja serwerowa.
+
+## 2. Do czego służy Jenkins?
+
+Jenkins automatyzuje powtarzalne czynności wykonywane podczas tworzenia oprogramowania.
+
+Najważniejsze zastosowania:
+
+- automatyczne budowanie aplikacji,
+- uruchamianie testów jednostkowych i integracyjnych,
+- analizowanie jakości kodu,
+- pobieranie zmian z GitHub lub GitLab,
+- tworzenie plików JAR, WAR i innych artefaktów,
+- budowanie obrazów Docker,
+- publikowanie aplikacji,
+- wdrażanie aplikacji na serwery,
+- powiadamianie o błędach procesu budowania,
+- wykonywanie zadań według harmonogramu.
+
+Przykładowo po wypchnięciu kodu na GitHub Jenkins może automatycznie pobrać zmiany, skompilować projekt Java, uruchomić testy i przygotować aplikację do wdrożenia.
+
+## 3. Czym jest CI/CD?
+
+CI/CD to zbiór praktyk automatyzujących proces dostarczania oprogramowania.
+
+CI – Continuous Integration
+
+Ciągła integracja polega na częstym łączeniu zmian programistów we wspólnym repozytorium i automatycznym sprawdzaniu ich poprawności.
+
+CD – Continuous Delivery
+
+Ciągłe dostarczanie polega na automatycznym przygotowywaniu aplikacji do wydania, tak aby można ją było wdrożyć po odpowiedniej akceptacji.
+
+CD – Continuous Deployment
+
+Ciągłe wdrażanie oznacza automatyczne publikowanie zmian na środowisku docelowym po przejściu wymaganych etapów procesu.
+
+Przykładowy proces:
+
+1\. Git
+
+Programista wysyła zmiany
+
+2\. Jenkins
+
+Uruchamia pipeline
+
+3\. Build
+
+Kompilacja i budowanie aplikacji
+
+4\. Testy
+
+Weryfikacja poprawności kodu
+
+5\. Deployment
+
+Wdrożenie aplikacji, jeśli proces na to pozwala
+
+## 4. Jak działa Jenkins?
+
+Jenkins działa jako serwer automatyzacji, który wykonuje zadania zdefiniowane przez programistę lub administratora.
+
+Podstawowe elementy to:
+
+- Controller – zarządza zadaniami, konfiguracją, harmonogramami i koordynuje wykonywanie pipeline'ów.
+- Agent – wykonuje zadania na wskazanej maszynie lub środowisku.
+- Job – skonfigurowane zadanie automatyzacji.
+- Pipeline – opis całego procesu, na przykład budowania, testowania i wdrażania.
+- Plugin – rozszerzenie dodające obsługę innych narzędzi i usług.
+- Workspace – katalog roboczy, w którym agent wykonuje operacje związane z zadaniem.
+- Build – konkretne wykonanie zadania lub pipeline'u.
+
+W małym projekcie Jenkins może działać na jednej maszynie. W większych środowiskach wykorzystuje się oddzielnych agentów, aby rozdzielić obciążenie i uruchamiać zadania w różnych środowiskach.
+
+## 5. Jenkins Pipeline
+
+Pipeline to zdefiniowany proces automatyzacji.
+
+Może zawierać następujące etapy:
+
+```
+Checkout
+   ↓
+Build
+   ↓
+Unit Tests
+   ↓
+Integration Tests
+   ↓
+Package
+   ↓
+Deploy
+```
+
+Pipeline można opisać w pliku `Jenkinsfile`, który przechowuje się w repozytorium razem z kodem aplikacji.
+
+Dzięki temu konfiguracja procesu jest wersjonowana razem z projektem.
+
+## 6. Jenkinsfile – przykład
+
+Poniższy przykład przedstawia prosty pipeline dla projektu Java wykorzystującego Maven.
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+
+        stage('Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build completed successfully!'
+        }
+
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
+```
+
+W tym przykładzie:
+
+- `pipeline` definiuje cały proces.
+- `agent any` pozwala Jenkinsowi wybrać dostępnego agenta.
+- `stages` zawiera kolejne etapy.
+- `stage` definiuje pojedynczy etap.
+- `steps` określa wykonywane czynności.
+- `post` definiuje działania wykonywane po zakończeniu pipeline'u.
+- `sh` wykonuje polecenie powłoki na systemach obsługujących taki krok.
+
+Na agencie Windows zwykle stosuje się `bat` zamiast `sh`.
+
+## 7. Declarative Pipeline i Scripted Pipeline
+
+Jenkins obsługuje dwa główne style definiowania pipeline'ów.
+
+Declarative Pipeline
+
+Wykorzystuje uporządkowaną, deklaratywną składnię.
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello Jenkins'
+            }
+        }
+    }
+}
+```
+
+Jest dobrym punktem wyjścia do nauki Jenkins.
+
+Scripted Pipeline
+
+Wykorzystuje bardziej elastyczną składnię opartą na Groovy.
+
+```
+node {
+    stage('Example') {
+        echo 'Hello Jenkins'
+    }
+}
+```
+
+Scripted Pipeline pozwala na bardziej rozbudowaną logikę programistyczną, ale wymaga znajomości Groovy i modelu wykonywania Jenkins.
+
+## 8. Jenkins i Git
+
+Jenkins może integrować się z systemami kontroli wersji, takimi jak:
+
+- Git,
+- GitHub,
+- GitLab,
+- Bitbucket.
+
+Przykładowy scenariusz:
+
+1. Programista modyfikuje kod.
+2. Wysyła zmiany do repozytorium Git.
+3. GitHub wysyła webhook do Jenkins.
+4. Jenkins pobiera kod.
+5. Uruchamia pipeline.
+6. Wyniki testów i budowania są zapisywane w historii wykonania.
+
+Webhook umożliwia uruchamianie procesu po określonym zdarzeniu w repozytorium, zamiast polegać wyłącznie na okresowym sprawdzaniu zmian.
+
+## 9. Jenkins i Maven
+
+Maven jest narzędziem do budowania projektów Java, natomiast Jenkins automatyzuje wykonywanie poleceń i całych procesów.
+
+Maven odpowiada między innymi za:
+
+- kompilację kodu,
+- zarządzanie zależnościami,
+- uruchamianie testów,
+- pakowanie aplikacji.
+
+Jenkins może automatycznie uruchamiać polecenia Maven:
+
+```
+mvn clean
+mvn compile
+mvn test
+mvn package
+```
+
+Przykładowa współpraca:
+
+```
+GitHub
+   ↓
+Jenkins
+   ↓
+Maven
+   ↓
+JUnit
+   ↓
+Plik JAR
+```
+
+## 10. Jenkins i Docker
+
+Jenkins może budować obrazy Docker, uruchamiać kontenery testowe i publikować obrazy do rejestrów.
+
+Przykładowe polecenia:
+
+```
+docker build -t myapp:latest .
+docker run --rm myapp:latest
+```
+
+Przykładowy pipeline może wykonywać następujące czynności:
+
+1. Pobiera kod z Git.
+2. Buduje aplikację.
+3. Uruchamia testy.
+4. Buduje obraz Docker.
+5. Publikuje obraz do rejestru.
+6. Wdraża aplikację na wybranym środowisku.
+
+Do takich operacji agent Jenkins musi mieć odpowiednio skonfigurowane narzędzia i uprawnienia.
+
+## 11. Jenkins i Kubernetes
+
+Jenkins może współpracować z Kubernetes przy wdrażaniu aplikacji konteneryzowanych.
+
+Może między innymi:
+
+- uruchamiać zadania budowania na agentach działających w Kubernetes,
+- tworzyć obrazy kontenerów,
+- wywoływać `kubectl`,
+- wdrażać manifesty Kubernetes,
+- aktualizować aplikacje działające w klastrze.
+
+Przykładowy proces:
+
+```
+Kod źródłowy
+    ↓
+Jenkins
+    ↓
+Testy
+    ↓
+Obraz Docker
+    ↓
+Registry
+    ↓
+Kubernetes
+    ↓
+Aplikacja
+```
+
+Jenkins nie zastępuje Kubernetes. Jenkins automatyzuje proces dostarczania, natomiast Kubernetes zarządza uruchamianiem i stanem aplikacji w klastrze.
+
+## 12. Pluginy Jenkins
+
+Jedną z najważniejszych cech Jenkins jest możliwość rozszerzania jego funkcjonalności za pomocą pluginów.
+
+Popularne przykłady:
+
+| Plugin              | Zastosowanie                                    |
+| ------------------- | ----------------------------------------------- |
+| Git                 | Integracja z Git                                |
+| Pipeline            | Definiowanie pipeline'ów                        |
+| GitHub              | Integracja z GitHub                             |
+| Credentials Binding | Udostępnianie poświadczeń zadaniom              |
+| JUnit               | Publikowanie wyników testów                     |
+| Docker Pipeline     | Współpraca z Docker                             |
+| Blue Ocean          | Alternatywny interfejs wizualizacji pipeline'ów |
+| SSH Build Agents    | Łączenie z agentami przez SSH                   |
+
+Dostępność i kompatybilność pluginów zależy od wersji Jenkins oraz innych zainstalowanych rozszerzeń.
+
+## 13. Jenkins i testowanie oprogramowania
+
+Jenkins może automatycznie uruchamiać testy na każdym etapie tworzenia aplikacji.
+
+Przykładowe rodzaje testów:
+
+- testy jednostkowe,
+- testy integracyjne,
+- testy API,
+- testy end-to-end,
+- testy regresyjne,
+- testy bezpieczeństwa.
+
+Może współpracować między innymi z:
+
+```
+JUnit
+TestNG
+Selenium
+Cypress
+Playwright
+REST Assured
+```
+
+Wyniki testów mogą być prezentowane w interfejsie Jenkins, a błędy mogą powodować niepowodzenie pipeline'u.
+
+Jenkins sam w sobie nie jest frameworkiem testowym. Koordynuje uruchamianie testów i prezentuje ich wyniki.
+
+## 14. Jenkins a GitHub Actions i GitLab CI/CD
+
+Są to narzędzia wykorzystywane do automatyzacji procesów CI/CD.
+
+| Cecha                     | Jenkins                                  | GitHub Actions                 | GitLab CI/CD                     |
+| ------------------------- | ---------------------------------------- | ------------------------------ | -------------------------------- |
+| Główna konfiguracja       | `Jenkinsfile`                            | Pliki YAML                     | `.gitlab-ci.yml`                 |
+| Model działania           | Serwer i agenci                          | Workflow i runnerzy            | Pipeline i runnerzy              |
+| Rozszerzanie              | Rozbudowany system pluginów              | Actions                        | Integracje i komponenty          |
+| Utrzymanie infrastruktury | Wymaga zarządzania instalacją lub usługą | Zależnie od runnerów           | Zależnie od runnerów i platformy |
+| Typowe zastosowanie       | Elastyczna automatyzacja wielu systemów  | Automatyzacja projektów GitHub | Automatyzacja projektów GitLab   |
+
+Jenkins zapewnia dużą elastyczność, ale wymaga również zarządzania serwerem, aktualizacjami, pluginami i bezpieczeństwem.
+
+## 15. Bezpieczeństwo Jenkins
+
+Ponieważ Jenkins może wykonywać polecenia i wdrażać aplikacje, jego zabezpieczenie jest bardzo ważne.
+
+Najważniejsze praktyki:
+
+- stosowanie uwierzytelniania i odpowiedniej kontroli dostępu,
+- regularne aktualizowanie Jenkins oraz pluginów,
+- przechowywanie haseł i tokenów w Credentials Store,
+- nieumieszczanie sekretów bezpośrednio w `Jenkinsfile`,
+- ograniczanie uprawnień agentów,
+- oddzielanie środowisk testowych od produkcyjnych,
+- kontrolowanie dostępu do skryptów wykonywanych przez pipeline,
+- ograniczanie dostępu do interfejsu administracyjnego.
+
+Nie należy uruchamiać Jenkins z nieograniczonymi uprawnieniami bez uzasadnionej potrzeby.
+
+## 16. Zalety Jenkins
+
+- Automatyzuje powtarzalne zadania programistyczne.
+- Obsługuje wiele języków i narzędzi.
+- Integruje się z systemami Git.
+- Umożliwia definiowanie pipeline'ów jako kodu.
+- Wspiera automatyczne testowanie.
+- Może budować obrazy Docker i wdrażać aplikacje.
+- Posiada rozbudowany ekosystem pluginów.
+- Może działać na własnej infrastrukturze.
+- Pozwala dostosować procesy do wymagań konkretnego projektu.
+
+## 17. Wady Jenkins
+
+- Wymaga utrzymywania i aktualizowania infrastruktury.
+- Konfiguracja bardziej zaawansowanych pipeline'ów może być złożona.
+- Duża liczba pluginów może zwiększać problemy z kompatybilnością.
+- Niewłaściwa konfiguracja uprawnień stwarza ryzyko bezpieczeństwa.
+- W większych środowiskach trzeba zadbać o wydajność, skalowanie i dostępność.
+- Diagnozowanie błędów może wymagać znajomości systemu operacyjnego, sieci, narzędzi budowania i samej aplikacji.
+
+## 18. Najważniejsze pojęcia do zapamiętania
+
+```
+Jenkins
+CI/CD
+Continuous Integration
+Continuous Delivery
+Continuous Deployment
+Jenkinsfile
+Pipeline
+Declarative Pipeline
+Scripted Pipeline
+Controller
+Agent
+Job
+Build
+Stage
+Step
+Workspace
+Plugin
+Webhook
+Git
+Maven
+Gradle
+JUnit
+Docker
+Kubernetes
+Credentials
+Artifact
+Deployment
+```
+
+## 19. Jenkins – schemat ekosystemu
+
+```
+JENKINS
+│
+├── Pipeline
+│   ├── Jenkinsfile
+│   ├── Stages
+│   └── Steps
+│
+├── Infrastructure
+│   ├── Controller
+│   ├── Agents
+│   └── Workspace
+│
+├── Source Control
+│   ├── Git
+│   ├── GitHub
+│   └── GitLab
+│
+├── Build Tools
+│   ├── Maven
+│   ├── Gradle
+│   └── npm
+│
+├── Testing
+│   ├── JUnit
+│   ├── Selenium
+│   └── Playwright
+│
+├── Containers
+│   ├── Docker
+│   └── Kubernetes
+│
+└── Delivery
+    ├── Artifacts
+    ├── Registry
+    └── Deployment
+```
+
+Podsumowanie: Jenkins jest narzędziem automatyzacji procesów CI/CD, które łączy repozytorium kodu, narzędzia budowania, testy oraz wdrażanie aplikacji w jeden powtarzalny proces. Jeśli uczysz się Javy i Spring Boot, warto w praktyce opanować integrację Git + Maven + JUnit + Jenkins + Docker, ponieważ pozwala ona zbudować kompletny proces automatycznego testowania i dostarczania aplikacji.

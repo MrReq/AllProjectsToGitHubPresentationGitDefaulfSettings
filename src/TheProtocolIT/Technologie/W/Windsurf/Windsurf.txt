@@ -1,0 +1,1131 @@
+# Windsurf
+
+## 1. Czym jest Windsurf?
+
+**Windsurf** to nowoczesne **IDE dla programistów z wbudowaną sztuczną inteligencją**, stworzone przez firmę Codeium, obecnie rozwijane jako samodzielne środowisko programistyczne AI.
+
+Windsurf jest przeznaczony przede wszystkim do tworzenia aplikacji, w których AI może nie tylko odpowiadać na pytania dotyczące kodu, ale również **analizować cały projekt, modyfikować wiele plików, tworzyć nowe fragmenty aplikacji i pomagać w realizacji złożonych zadań programistycznych**.
+
+Można go traktować jako połączenie:
+
+**IDE + edytor kodu + AI Assistant + Agent programistyczny**
+
+Windsurf bazuje na doświadczeniach związanych z VS Code i jest szczególnie nastawiony na **AI-native development**, czyli tworzenie oprogramowania z AI jako integralną częścią środowiska programistycznego.
+
+## 2. Do czego służy Windsurf?
+
+Windsurf może być wykorzystywany między innymi do:
+
+- pisania kodu,
+- generowania klas i metod,
+- refaktoryzacji,
+- debugowania,
+- wyjaśniania kodu,
+- tworzenia testów,
+- analizowania błędów,
+- pracy z dużymi projektami,
+- tworzenia dokumentacji,
+- pracy z Git,
+- generowania SQL,
+- tworzenia API,
+- pracy z frameworkami,
+- automatyzacji zadań programistycznych,
+- tworzenia całych funkcjonalności na podstawie opisu.
+
+Przykładowo możesz powiedzieć:
+
+> „Dodaj do mojego Spring Boot API rejestrację użytkownika z JWT, BCrypt i walidacją danych.”
+
+AI może przeanalizować istniejący projekt i zaproponować lub wprowadzić zmiany w wielu plikach.
+
+## 3. Windsurf jako IDE
+
+Windsurf zapewnia klasyczne funkcje środowiska programistycznego:
+
+- edytor kodu,
+- terminal,
+- debugger,
+- Git,
+- wyszukiwanie plików,
+- wyszukiwanie tekstu,
+- autouzupełnianie,
+- zarządzanie projektami,
+- integrację z narzędziami developerskimi.
+
+Dlatego nie jest to tylko chatbot do programowania.
+
+Możesz normalnie otworzyć projekt:
+
+```text
+my-project/
+├── src/
+│   ├── main/
+│   └── test/
+├── pom.xml
+├── README.md
+└── application.properties
+```
+
+i pracować nad nim podobnie jak w innych IDE.
+
+## 4. Najważniejszy element – AI
+
+Największą różnicą pomiędzy Windsurf a tradycyjnym IDE jest **AI działające wewnątrz projektu**.
+
+Zamiast kopiować kod do ChatGPT, możesz pracować bezpośrednio na plikach projektu.
+
+Przykładowo:
+
+```text
+Ty:
+„Dlaczego endpoint /api/users zwraca 401?”
+
+AI:
+analizuje Controller
+↓
+analizuje SecurityConfig
+↓
+analizuje JWT Filter
+↓
+analizuje JwtService
+↓
+znajduje problem
+↓
+proponuje poprawkę
+```
+
+Dzięki temu AI może mieć znacznie większy kontekst niż zwykły fragment kodu wklejony do chatbota.
+
+## 5. Cascade
+
+Jedną z najbardziej charakterystycznych funkcji Windsurf jest **Cascade**.
+
+Cascade to agent AI przeznaczony do pracy nad kodem i projektem.
+
+Możesz potraktować go jako:
+
+**AI programistę pracującego razem z Tobą w IDE.**
+
+Cascade może między innymi:
+
+- analizować kod,
+- rozumieć strukturę projektu,
+- tworzyć pliki,
+- edytować pliki,
+- wykonywać polecenia,
+- analizować błędy,
+- proponować rozwiązania,
+- wykonywać wieloetapowe zadania.
+
+Przykład:
+
+```text
+„Dodaj system logowania użytkownika.”
+
+Cascade:
+1. Analizuje projekt
+2. Znajduje User
+3. Sprawdza konfigurację Spring Security
+4. Tworzy DTO
+5. Tworzy AuthController
+6. Dodaje AuthService
+7. Konfiguruje JWT
+8. Dodaje endpoint /login
+9. Dodaje testy
+```
+
+Oczywiście dokładny zakres automatycznych zmian zależy od projektu, konfiguracji i uprawnień.
+
+## 6. AI Code Generation
+
+Windsurf może generować kod na podstawie naturalnego języka.
+
+Na przykład:
+
+```text
+Create a Spring Boot REST controller
+for managing agricultural fields.
+```
+
+AI może wygenerować strukturę podobną do:
+
+```java
+@RestController
+@RequestMapping("/api/fields")
+public class FieldController {
+
+    @GetMapping
+    public List<FieldDto> getFields() {
+        return fieldService.getAll();
+    }
+
+    @PostMapping
+    public FieldDto createField(@RequestBody CreateFieldRequest request) {
+        return fieldService.create(request);
+    }
+}
+```
+
+## 7. Code Completion
+
+Windsurf posiada również inteligentne autouzupełnianie kodu.
+
+Przykładowo zaczynasz:
+
+```java
+public User createUser(
+```
+
+a AI może przewidzieć dalszą część implementacji.
+
+To różni się od zwykłego:
+
+```text
+Ctrl + Space
+```
+
+ponieważ AI może próbować zrozumieć **intencję programisty**, a nie tylko nazwę klasy lub metody.
+
+## 8. Context – kontekst projektu
+
+Jedną z najważniejszych rzeczy w narzędziach AI dla programistów jest **kontekst**.
+
+Wyobraź sobie projekt:
+
+```text
+backend/
+├── controller/
+├── service/
+├── repository/
+├── entity/
+├── dto/
+├── mapper/
+└── security/
+```
+
+Jeżeli zapytasz:
+
+> „Dlaczego tworzenie użytkownika nie działa?”
+
+AI może analizować zależności pomiędzy:
+
+```text
+Controller
+    ↓
+Service
+    ↓
+Repository
+    ↓
+Database
+```
+
+oraz:
+
+```text
+Security
+    ↓
+JWT
+    ↓
+Authentication
+```
+
+Dzięki temu może znaleźć problem, który znajduje się w innym pliku niż ten, który aktualnie edytujesz.
+
+## 9. Praca na wielu plikach
+
+Jedną z dużych zalet agentów AI jest możliwość pracy na wielu plikach.
+
+Przykładowo prosisz:
+
+> „Dodaj możliwość usuwania produktu.”
+
+Może być konieczna zmiana:
+
+```text
+ProductController
+ProductService
+ProductRepository
+ProductDto
+ProductMapper
+```
+
+Zamiast ręcznie edytować każdy plik, AI może pomóc wykonać cały zestaw zmian.
+
+## 10. Refaktoryzacja
+
+Windsurf może również pomagać w refaktoryzacji.
+
+Na przykład masz:
+
+```java
+public void process(User user) {
+    // 100 linii kodu
+}
+```
+
+Możesz poprosić:
+
+> „Refactor this method and separate responsibilities into appropriate services.”
+
+AI może zaproponować:
+
+```text
+UserService
+ValidationService
+NotificationService
+```
+
+i przenieść odpowiedzialności do odpowiednich klas.
+
+## 11. Debugowanie
+
+Windsurf może pomagać w analizowaniu błędów.
+
+Przykładowy wyjątek:
+
+```text
+NullPointerException
+at UserService.createUser(UserService.java:42)
+```
+
+Możesz zapytać:
+
+> „Find the cause of this error and fix it.”
+
+AI może przeanalizować:
+
+```text
+Stack Trace
+    ↓
+UserService
+    ↓
+Repository
+    ↓
+Entity
+```
+
+i wskazać potencjalną przyczynę.
+
+## 12. Terminal
+
+Windsurf posiada terminal, dzięki któremu możesz wykonywać polecenia bez opuszczania IDE.
+
+Przykładowo:
+
+```powershell
+mvn spring-boot:run
+```
+
+albo:
+
+```powershell
+npm install
+```
+
+albo:
+
+```powershell
+docker compose up -d
+```
+
+AI może również pomagać interpretować wynik tych poleceń.
+
+Przykład:
+
+```text
+docker compose up -d
+
+ERROR:
+port is already allocated
+```
+
+Możesz poprosić:
+
+> „Find out why Docker cannot start.”
+
+## 13. Git
+
+Windsurf może być używany razem z Git.
+
+Przykładowy workflow:
+
+```text
+Code
+ ↓
+Git diff
+ ↓
+Review changes
+ ↓
+Commit
+ ↓
+Push
+```
+
+AI może pomóc zrozumieć zmiany:
+
+```bash
+git diff
+```
+
+albo przygotować propozycję komunikatu:
+
+```text
+feat: add JWT authentication
+```
+
+## 14. Testy
+
+Windsurf może generować testy jednostkowe i integracyjne.
+
+Przykład dla JUnit:
+
+```java
+@Test
+void shouldCreateUser() {
+
+    User user = service.createUser(request);
+
+    assertNotNull(user);
+    assertEquals("test@example.com", user.getEmail());
+}
+```
+
+Możesz powiedzieć:
+
+> „Create unit tests for UserService including validation and duplicate email.”
+
+AI może przygotować kilka przypadków testowych.
+
+## 15. Praca z Java
+
+Windsurf może być wykorzystywany do projektów Java.
+
+Przykładowy stos:
+
+```text
+Java
+ ↓
+Spring Boot
+ ↓
+Maven
+ ↓
+PostgreSQL
+ ↓
+Docker
+```
+
+Możesz pracować z:
+
+- Spring Boot,
+- Spring Security,
+- JPA,
+- Hibernate,
+- Maven,
+- Gradle,
+- JDBC,
+- PostgreSQL,
+- MySQL,
+- REST API,
+- JUnit.
+
+## 16. Praca z JavaScript i TypeScript
+
+Windsurf jest również bardzo przydatny przy projektach webowych.
+
+Możesz pracować z:
+
+```text
+JavaScript
+TypeScript
+React
+Angular
+Vue
+Node.js
+Next.js
+Vite
+Webpack
+```
+
+Przykład:
+
+```text
+React
+  ↓
+TypeScript
+  ↓
+Vite
+  ↓
+REST API
+  ↓
+Spring Boot
+  ↓
+PostgreSQL
+```
+
+AI może pomagać zarówno przy frontendzie, jak i backendzie.
+
+## 17. Python
+
+Windsurf może być również używany w projektach Python.
+
+Przykładowo:
+
+```python
+def calculate_average(values):
+    return sum(values) / len(values)
+```
+
+Możesz poprosić:
+
+> „Add validation for empty lists and write unit tests.”
+
+AI może zmodyfikować funkcję i przygotować testy.
+
+Może być używany między innymi z:
+
+- FastAPI,
+- Flask,
+- Django,
+- NumPy,
+- Pandas,
+- PyTorch,
+- TensorFlow,
+- scikit-learn.
+
+## 18. AI i Machine Learning
+
+Windsurf jest szczególnie interesujący w projektach związanych z AI.
+
+Przykładowy projekt:
+
+```text
+Python
+ ↓
+FastAPI
+ ↓
+AI Model
+ ↓
+PostgreSQL
+ ↓
+Vector Database
+ ↓
+Frontend
+```
+
+AI może pomagać przy:
+
+- przygotowaniu pipeline'u,
+- preprocessingu danych,
+- implementacji modeli,
+- API,
+- testach,
+- integracji z bazą danych,
+- Dockerze.
+
+## 19. Windsurf a ChatGPT
+
+Windsurf i ChatGPT mogą się wzajemnie uzupełniać.
+
+| Windsurf | ChatGPT |
+|---|---|
+| IDE | Asystent AI |
+| Praca bezpośrednio w projekcie | Rozmowa |
+| Edycja plików | Analiza kodu |
+| Terminal | Wyjaśnienia |
+| Debugowanie w projekcie | Nauka |
+| Agent programistyczny | Rozwiązywanie problemów |
+| Git | Projektowanie architektury |
+
+Można więc wykorzystać:
+
+```text
+ChatGPT
+   ↓
+architektura / nauka / wyjaśnienie
+   ↓
+Windsurf
+   ↓
+implementacja w projekcie
+```
+
+## 20. Windsurf vs VS Code
+
+Windsurf jest bardzo blisko związany z doświadczeniem znanym z VS Code.
+
+| Cecha | Windsurf | VS Code |
+|---|---|---|
+| Edytor kodu | Tak | Tak |
+| Terminal | Tak | Tak |
+| Git | Tak | Tak |
+| Extensions | Tak | Tak |
+| AI | Bardzo mocno zintegrowane | Przez rozszerzenia |
+| Agent AI | Tak | Zależnie od narzędzia |
+| Praca z kontekstem projektu | Bardzo mocna | Zależna od rozszerzeń |
+| Ekosystem | Duży | Ogromny |
+
+Największa różnica polega na tym, że **AI jest jednym z centralnych elementów Windsurf**, a w VS Code może być dodatkiem.
+
+## 21. Windsurf vs Cursor
+
+To jedno z najważniejszych porównań.
+
+| Windsurf | Cursor |
+|---|---|
+| AI-native IDE | AI-native IDE |
+| Mocny agent | Mocny agent |
+| Context-aware coding | Context-aware coding |
+| Praca na wielu plikach | Praca na wielu plikach |
+| Code generation | Code generation |
+| Debugging | Debugging |
+| Git | Git |
+
+Oba narzędzia należą do tej samej kategorii:
+
+**AI IDE dla programistów.**
+
+Różnice dotyczą przede wszystkim interfejsu, modeli, sposobu działania agentów, funkcji AI i polityki cenowej, które mogą się zmieniać.
+
+## 22. Windsurf vs IntelliJ IDEA
+
+Dla programisty Java różnica jest szczególnie istotna.
+
+**IntelliJ IDEA:**
+
+```text
+IDE
++
+Java
++
+Spring
++
+Maven
++
+Debugger
++
+Refactoring
++
+Git
+```
+
+**Windsurf:**
+
+```text
+IDE
++
+AI
++
+Agent
++
+Code generation
++
+Project context
+```
+
+Jeżeli tworzysz bardzo duży projekt Java/Spring, IntelliJ IDEA nadal oferuje bardzo głęboką integrację z ekosystemem Java.
+
+Windsurf natomiast może być świetnym narzędziem do **AI-assisted development**.
+
+## 23. Windsurf w projekcie Spring Boot
+
+Przykładowy projekt:
+
+```text
+AgriMind
+│
+├── controller
+├── service
+├── repository
+├── entity
+├── dto
+├── mapper
+├── security
+└── config
+```
+
+Możesz powiedzieć:
+
+> „Create an endpoint that returns the weather risk for a field based on its coordinates.”
+
+AI może pomóc stworzyć:
+
+```text
+Controller
+    ↓
+Service
+    ↓
+Weather API
+    ↓
+AI analysis
+    ↓
+Response DTO
+```
+
+To jest szczególnie interesujące przy projektach takich jak **AgriMind AI**, gdzie trzeba połączyć backend, bazę danych, AI i zewnętrzne API.
+
+## 24. Windsurf + Docker
+
+Windsurf może pomagać również w konfiguracji Dockera.
+
+Na przykład:
+
+```text
+Spring Boot
+PostgreSQL
+Redis
+```
+
+Możesz poprosić:
+
+> „Create docker-compose.yml for Spring Boot, PostgreSQL and Redis.”
+
+Wynikiem może być konfiguracja:
+
+```yaml
+services:
+
+  postgres:
+    image: postgres:17
+
+  redis:
+    image: redis:latest
+
+  backend:
+    build: .
+```
+
+AI może następnie pomóc analizować błędy uruchomieniowe.
+
+## 25. Windsurf + Kubernetes
+
+Windsurf może być również używany przy Kubernetes.
+
+Przykładowo:
+
+```text
+Docker
+   ↓
+Image
+   ↓
+Kubernetes
+   ↓
+Deployment
+   ↓
+Service
+   ↓
+Pod
+```
+
+Możesz poprosić:
+
+> „Create Kubernetes deployment and service for this Spring Boot application.”
+
+AI może wygenerować pliki:
+
+```text
+deployment.yaml
+service.yaml
+configmap.yaml
+secret.yaml
+```
+
+## 26. Natural Language Programming
+
+Jedną z najważniejszych zmian w programowaniu związanych z narzędziami takimi jak Windsurf jest możliwość opisywania funkcjonalności **językiem naturalnym**.
+
+Tradycyjnie:
+
+```text
+Problem
+ ↓
+Algorytm
+ ↓
+Kod
+ ↓
+Test
+```
+
+Z AI:
+
+```text
+Problem
+ ↓
+Opis naturalnym językiem
+ ↓
+AI
+ ↓
+Kod
+ ↓
+Test
+ ↓
+Review
+```
+
+Programista nadal musi rozumieć kod.
+
+AI nie zastępuje wiedzy dotyczącej:
+
+- architektury,
+- bezpieczeństwa,
+- baz danych,
+- algorytmów,
+- testowania,
+- DevOps,
+- programowania.
+
+## 27. Promptowanie w Windsurf
+
+Jakość rezultatów zależy od jakości polecenia.
+
+Słabe polecenie:
+
+```text
+Make login.
+```
+
+Lepsze:
+
+```text
+Implement JWT authentication in this Spring Boot project.
+
+Requirements:
+- Spring Security
+- BCrypt password hashing
+- JWT access token
+- POST /api/auth/register
+- POST /api/auth/login
+- validation
+- return 409 when email already exists
+- add unit tests
+```
+
+Im dokładniej określisz wymagania, tym łatwiej AI przygotuje właściwą implementację.
+
+## 28. Windsurf i bezpieczeństwo
+
+Podczas korzystania z AI należy uważać na:
+
+- hasła,
+- tokeny,
+- klucze API,
+- dane klientów,
+- dane produkcyjne,
+- sekrety,
+- prywatny kod.
+
+Nigdy nie należy bezmyślnie udostępniać:
+
+```text
+API_KEY=...
+JWT_SECRET=...
+DB_PASSWORD=...
+```
+
+W projekcie powinno się korzystać między innymi z:
+
+```text
+.env
+Environment Variables
+Secrets
+Secret Managers
+```
+
+## 29. Windsurf w pracy zespołowej
+
+Windsurf może przyspieszyć pracę zespołu.
+
+Przykładowy workflow:
+
+```text
+JIRA / Issue
+      ↓
+Opis wymagania
+      ↓
+Windsurf
+      ↓
+Implementacja
+      ↓
+Testy
+      ↓
+Git
+      ↓
+Pull Request
+      ↓
+Code Review
+      ↓
+CI/CD
+```
+
+AI może przyspieszyć implementację, ale **code review nadal powinien wykonywać człowiek**.
+
+## 30. Windsurf a programista
+
+Windsurf najlepiej traktować jako:
+
+**narzędzie zwiększające produktywność programisty**, a nie jako całkowity zamiennik programisty.
+
+Programista powinien nadal rozumieć:
+
+```text
+Co robi kod?
+↓
+Dlaczego działa?
+↓
+Czy jest bezpieczny?
+↓
+Czy jest wydajny?
+↓
+Czy jest testowalny?
+↓
+Czy pasuje do architektury?
+```
+
+Nie powinno się stosować zasady:
+
+> „AI wygenerowało, więc na pewno jest dobrze.”
+
+## 31. Najważniejsze pojęcia
+
+| Pojęcie | Znaczenie |
+|---|---|
+| AI IDE | Środowisko programistyczne z AI |
+| Cascade | Agent AI Windsurf |
+| Agent | AI wykonujące wieloetapowe zadania |
+| Context | Kontekst projektu przekazywany AI |
+| Code Generation | Generowanie kodu |
+| Code Completion | Inteligentne uzupełnianie |
+| Refactoring | Przebudowa istniejącego kodu |
+| Debugging | Szukanie i naprawianie błędów |
+| Prompt | Polecenie dla AI |
+| Repository | Repozytorium projektu |
+| Git | System kontroli wersji |
+| Terminal | Konsola systemowa |
+| AI-native | Projektowanie narzędzia wokół AI |
+
+## 32. Zalety Windsurf
+
+Najważniejsze zalety to:
+
+- bardzo mocna integracja AI z IDE,
+- praca bezpośrednio z kodem projektu,
+- możliwość pracy na wielu plikach,
+- generowanie kodu,
+- refaktoryzacja,
+- pomoc w debugowaniu,
+- generowanie testów,
+- pomoc z terminalem,
+- integracja z Git,
+- szybkie prototypowanie,
+- wsparcie wielu języków programowania.
+
+## 33. Wady Windsurf
+
+Możliwe problemy:
+
+- AI może wygenerować błędny kod,
+- AI może niepoprawnie zrozumieć wymagania,
+- duże projekty mogą być trudne do pełnego zrozumienia,
+- użytkownik może nadmiernie polegać na AI,
+- niektóre funkcje zależą od dostępnych modeli i planu,
+- trzeba uważać na prywatność kodu i danych,
+- wygenerowany kod nadal wymaga review i testów.
+
+## 34. Kiedy warto używać Windsurf?
+
+Windsurf szczególnie dobrze sprawdza się przy:
+
+```text
+Frontend
+Backend
+Full Stack
+Python
+JavaScript
+TypeScript
+Java
+C#
+Python AI
+REST API
+Docker
+Git
+Prototypowanie
+```
+
+Jest szczególnie przydatny, gdy często wykonujesz zadania typu:
+
+> „Zmień tę funkcjonalność w całym projekcie.”
+
+zamiast:
+
+> „Napisz mi tę jedną funkcję.”
+
+## 35. Windsurf w Twoim środowisku
+
+W przypadku projektu podobnego do:
+
+```text
+AgriMind AI
+```
+
+możesz wykorzystać Windsurf jako warstwę AI wspierającą programowanie:
+
+```text
+                    Windsurf
+                       │
+              AI coding agent
+                       │
+        ┌──────────────┼──────────────┐
+        ↓              ↓              ↓
+   Spring Boot      PostgreSQL      Docker
+        │              │              │
+        └──────────────┼──────────────┘
+                       ↓
+                    AI API
+                       ↓
+                 AgriMind AI
+```
+
+Możesz więc wykorzystać go do tworzenia:
+
+```text
+Spring Boot
+REST API
+JWT
+PostgreSQL
+Flyway
+Docker
+Kubernetes
+AI integration
+Tests
+```
+
+## 36. Windsurf w całym cyklu tworzenia aplikacji
+
+Można go wykorzystać na wielu etapach:
+
+```text
+1. Pomysł
+   ↓
+2. Architektura
+   ↓
+3. Projektowanie
+   ↓
+4. Implementacja
+   ↓
+5. Testy
+   ↓
+6. Debugowanie
+   ↓
+7. Refaktoryzacja
+   ↓
+8. Git
+   ↓
+9. Docker
+   ↓
+10. Deployment
+```
+
+AI może pomagać na każdym z tych etapów.
+
+## 37. Windsurf vs klasyczne programowanie
+
+Klasyczne podejście:
+
+```text
+Programista
+     ↓
+Pisze kod
+     ↓
+Uruchamia
+     ↓
+Znajduje błąd
+     ↓
+Naprawia
+```
+
+Podejście AI-assisted:
+
+```text
+Programista
+     ↓
+Opisuje problem
+     ↓
+AI analizuje
+     ↓
+AI proponuje kod
+     ↓
+Programista sprawdza
+     ↓
+Testy
+     ↓
+Review
+```
+
+Najlepszym rozwiązaniem jest więc:
+
+**Programista + AI**, a nie **AI zamiast programisty**.
+
+## 38. Schemat działania Windsurf
+
+```text
+                PROGRAMISTA
+                     │
+                     ↓
+                  PROMPT
+                     │
+                     ↓
+              ┌──────────────┐
+              │   WINDSURF   │
+              │     IDE      │
+              └──────┬───────┘
+                     │
+          ┌──────────┼──────────┐
+          ↓          ↓          ↓
+       PROJECT      GIT      TERMINAL
+          │
+          ↓
+       AI AGENT
+          │
+          ↓
+     ANALIZA KODU
+          │
+          ↓
+      GENEROWANIE
+          │
+          ↓
+       EDYCJA
+          │
+          ↓
+        TESTY
+          │
+          ↓
+       PROGRAMISTA
+          │
+          ↓
+        REVIEW
+```
+
+## 39. Najważniejsze rzeczy do zapamiętania
+
+**Windsurf** = **AI-native IDE do programowania**.
+
+Najważniejszym elementem Windsurf jest **Cascade**, czyli agent AI pomagający wykonywać złożone zadania programistyczne.
+
+Windsurf może analizować kontekst projektu, generować kod, modyfikować wiele plików, pomagać w debugowaniu, tworzyć testy i współpracować z terminalem oraz Git.
+
+Jest szczególnie przydatny w projektach:
+
+```text
+Java
+Spring Boot
+Python
+JavaScript
+TypeScript
+React
+Node.js
+Docker
+Kubernetes
+AI/ML
+```
+
+Najważniejsza zasada pracy z Windsurfem brzmi:
+
+> **AI może napisać kod, ale programista musi rozumieć, sprawdzać i testować ten kod.**

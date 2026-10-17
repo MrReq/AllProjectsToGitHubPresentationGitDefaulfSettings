@@ -1,0 +1,198 @@
+# Claude Code
+
+## 1. Czym jest Claude Code?
+
+Claude Code to agent programistyczny AI opracowany przez firmę Anthropic, który pomaga tworzyć, analizować, testować i rozwijać oprogramowanie bezpośrednio w środowisku programistycznym.
+
+W przeciwieństwie do zwykłego chatbota, który przede wszystkim odpowiada na pytania i generuje fragmenty kodu, Claude Code może pracować z plikami projektu, analizować zależności, proponować zmiany w wielu plikach, uruchamiać polecenia terminala i wykonywać testy — w zakresie dozwolonym przez konfigurację i uprawnienia.
+
+Narzędzie jest szczególnie przydatne w programowaniu, refaktoryzacji, debugowaniu oraz automatyzacji codziennych zadań programistycznych.
+
+## 2. Najważniejsze funkcje Claude Code
+
+- Analiza projektu – odczytywanie struktury katalogów, plików źródłowych i konfiguracji.
+- Generowanie kodu – tworzenie klas, metod, modułów i nowych funkcjonalności.
+- Refaktoryzacja – poprawianie struktury kodu bez zmiany jego zamierzonego działania.
+- Debugowanie – analizowanie komunikatów błędów i wyszukiwanie potencjalnych przyczyn problemów.
+- Testowanie – uruchamianie testów i pomaganie w naprawianiu wykrytych błędów.
+- Praca z terminalem – wykonywanie poleceń związanych z budowaniem, testowaniem i uruchamianiem aplikacji.
+- Integracja z Git – analizowanie zmian, przygotowywanie commitów i wspomaganie pracy z repozytorium.
+- Praca wieloplikowa – koordynowanie zmian obejmujących wiele części projektu.
+- Obsługa instrukcji projektowych – uwzględnianie reguł zapisanych w plikach takich jak `CLAUDE.md`.
+
+## 3. Jak działa Claude Code?
+
+Typowy sposób pracy wygląda następująco:
+
+1\. Polecenie programisty
+
+Np. „Dodaj walidację rejestracji użytkownika”.
+
+2\. Analiza projektu
+
+Odczyt plików, zależności i istniejącej architektury.
+
+3\. Plan i zmiany w kodzie
+
+Modyfikowanie odpowiednich klas, konfiguracji i testów.
+
+4\. Weryfikacja
+
+Uruchomienie testów, analiza wyników i poprawki.
+
+Claude Code nie gwarantuje poprawności każdej zmiany. Programista powinien sprawdzać różnice w kodzie, wyniki testów i bezpieczeństwo wykonywanych poleceń.
+
+## 4. Instalacja Claude Code w Windows
+
+Ponieważ korzystasz z Windows, możesz rozpocząć od instalacji w PowerShell. Oficjalna dokumentacja opisuje instalator dla Windows oraz możliwość pracy przez WSL.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://docs.anthropic.com\&sz=32)
+
+Anthropic
+
++1
+
+
+
+Krok 1. Zainstaluj Claude Code
+
+Otwórz PowerShell i wykonaj polecenie:
+
+```
+irm https://claude.ai/install.ps1 | iex
+```
+
+Oficjalny instalator dla Windows.
+
+Krok 2. Sprawdź instalację
+
+```
+claude --version
+```
+
+Jeśli wyświetli się numer wersji, instalacja jest dostępna w terminalu.
+
+Krok 3. Uruchom narzędzie w projekcie
+
+Przejdź do katalogu projektu i uruchom Claude Code:
+
+```
+cd C:\sciezka\do\projektu
+claude
+```
+
+Przy pierwszym uruchomieniu postępuj zgodnie z instrukcjami logowania.
+
+Dokumentacja: [Instalacja i konfiguracja Claude Code](https://code.claude.com/docs/en/setup).
+
+Korzystanie z Claude Code wymaga odpowiedniej metody uwierzytelnienia i dostępu do usługi, np. przez kwalifikujący się plan Claude albo konto Anthropic Console.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://docs.anthropic.com\&sz=32)
+
+Anthropic
+
++1
+
+
+
+## 5. Najważniejsze polecenia Claude Code
+
+| Polecenie          | Zastosowanie                                                     |
+| ------------------ | ---------------------------------------------------------------- |
+| `claude`           | Uruchamia interaktywną sesję.                                    |
+| `/help`            | Wyświetla pomoc.                                                 |
+| `/init`            | Analizuje projekt i pomaga utworzyć plik `CLAUDE.md`.            |
+| `/clear`           | Czyści bieżącą historię konwersacji w sesji.                     |
+| `/compact`         | Podsumowuje kontekst, aby ograniczyć jego zużycie.               |
+| `/login`           | Uruchamia proces logowania, jeśli jest potrzebny.                |
+| `claude --version` | Wyświetla wersję narzędzia.                                      |
+| `claude update`    | Aktualizuje instalację, jeśli obsługuje ten sposób aktualizacji. |
+
+Dostępność niektórych poleceń może zależeć od wersji.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://docs.anthropic.com\&sz=32)
+
+Anthropic
+
++1
+
+
+
+## 6. Przykładowe zadania dla Claude Code
+
+Poniższe instrukcje możesz wpisywać bezpośrednio w sesji Claude Code.
+
+Analiza projektu Java
+
+Poznanie struktury przed wprowadzeniem zmian.
+
+Przeanalizuj ten projekt Java. Wyjaśnij strukturę pakietów, rolę najważniejszych klas, zależności oraz sposób uruchamiania aplikacji. Nie zmieniaj żadnych plików.
+
+&#x20;Kopiuj
+
+Naprawa błędu w Spring Boot
+
+Znajdź przyczynę błędu w projekcie Spring Boot. Najpierw przeanalizuj kod i logi, następnie zaproponuj rozwiązanie. Wprowadź minimalne zmiany i uruchom odpowiednie testy. Nie usuwaj istniejącej funkcjonalności.
+
+&#x20;Kopiuj
+
+Testy jednostkowe
+
+Przeanalizuj istniejące testy JUnit. Wskaż najważniejsze brakujące przypadki testowe, a następnie utwórz testy dla przypadków poprawnych, błędnych danych wejściowych i sytuacji brzegowych. Uruchom testy i przedstaw wyniki.
+
+&#x20;Kopiuj
+
+## 7. Czym jest plik CLAUDE.md?
+
+`CLAUDE.md` to plik Markdown zawierający instrukcje dotyczące konkretnego projektu. Claude Code może automatycznie odczytywać go podczas pracy w danym katalogu.
+
+Możesz umieścić w nim informacje o architekturze aplikacji, konwencjach nazewnictwa, poleceniach Maven, zasadach pisania testów i regułach bezpieczeństwa.
+
+Przykład:
+
+```
+# Zasady projektu
+
+- Język: Java.
+- Framework backendowy: Spring Boot.
+- Zarządzanie zależnościami: Maven.
+- Testy: JUnit 5.
+- Zachowuj istniejącą architekturę warstwową.
+- Nie zapisuj haseł ani kluczy API w kodzie.
+- Przed zakończeniem zmian uruchamiaj odpowiednie testy.
+- Nie wykonuj commitów bez mojej zgody.
+```
+
+Polecenie `/init` może pomóc przygotować początkową wersję tego pliku na podstawie struktury projektu.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://support.claude.com\&sz=32)
+
+Claude Help Center
+
+
+
+## 8. Zalety i ograniczenia Claude Code
+
+Zalety:
+
+- Może pracować na istniejącym repozytorium zamiast ograniczać się do wklejonych fragmentów kodu.
+- Pomaga realizować zadania obejmujące wiele plików.
+- Ułatwia debugowanie, testowanie i refaktoryzację.
+- Integruje się z terminalem i narzędziami programistycznymi.
+
+Ograniczenia:
+
+- Może błędnie interpretować wymagania lub wprowadzać regresje.
+- Nie zastępuje code review i samodzielnego rozumienia kodu.
+- Zakres działania zależy od przyznanych uprawnień i dostępnych narzędzi.
+- Przed zatwierdzeniem zmian należy sprawdzić różnice w Git i wyniki testów.
+
+Ważna zasada: przed rozpoczęciem większej pracy wykonaj commit albo upewnij się, że masz kopię zmian. Nie zezwalaj bezrefleksyjnie na wykonywanie nieznanych poleceń, usuwanie plików czy modyfikowanie środowiska produkcyjnego.
+
+## 9. Dlaczego warto znać Claude Code?
+
+Claude Code jest przydatny dla programistów Java, backend developerów, testerów i osób rozwijających aplikacje AI. Pozwala delegować część rutynowej pracy, a jednocześnie zachować kontrolę nad projektem.
+
+W Twoim przypadku szczególnie wartościowe może być wykorzystanie go do analizy aplikacji Spring Boot, pracy z PostgreSQL i Flyway, tworzenia testów JUnit oraz stopniowego rozwijania AgriMind AI.
+
+Więcej informacji znajdziesz w oficjalnej dokumentacji: [Claude Code Docs](https://code.claude.com/docs).

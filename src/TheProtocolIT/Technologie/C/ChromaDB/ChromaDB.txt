@@ -1,0 +1,126 @@
+# ChromaDB
+
+## 1. Czym jest ChromaDB?
+
+ChromaDB (Chroma) to otwartoźródłowa baza danych wektorowych, zaprojektowana z myślą o aplikacjach wykorzystujących sztuczną inteligencję, duże modele językowe (LLM) oraz wyszukiwanie semantyczne.
+
+ChromaDB umożliwia przechowywanie wektorów reprezentujących znaczenie tekstów, dokumentów i innych danych, a następnie wyszukiwanie elementów najbardziej podobnych do zapytania użytkownika.
+
+Technologia jest często wykorzystywana w systemach RAG (Retrieval-Augmented Generation), chatbotach AI, asystentach dokumentacyjnych i aplikacjach korzystających z modeli embeddingowych.
+
+## 2. Najważniejsze funkcje ChromaDB
+
+- Przechowywanie wektorów – zapisuje numeryczne reprezentacje danych wygenerowane przez modele embeddingowe.
+- Wyszukiwanie semantyczne – odnajduje dokumenty podobne znaczeniowo do zapytania, nawet jeśli nie zawierają dokładnie tych samych słów.
+- Przechowywanie dokumentów – pozwala przechowywać teksty powiązane z wektorami.
+- Metadane – umożliwia opisywanie dokumentów dodatkowymi informacjami, takimi jak kategoria, źródło czy data.
+- Filtrowanie wyników – pozwala ograniczać wyszukiwanie do dokumentów spełniających określone warunki.
+- Integracja z AI – współpracuje z modelami embeddingowymi, frameworkami LLM oraz narzędziami do budowy aplikacji AI.
+- Obsługa różnych trybów pracy – może działać lokalnie w aplikacji lub jako samodzielna usługa, zależnie od konfiguracji i sposobu wdrożenia.
+
+## 3. Jak działa ChromaDB?
+
+Typowy proces wykorzystania ChromaDB przebiega następująco:
+
+1. Pozyskanie danych – aplikacja wczytuje dokumenty, pliki PDF, artykuły lub inne źródła informacji.
+2. Podział na fragmenty – większe dokumenty są dzielone na mniejsze części, czyli chunki.
+3. Generowanie embeddingów – model AI zamienia każdy fragment tekstu na wektor liczb opisujący jego znaczenie.
+4. Zapis w bazie – ChromaDB przechowuje wektory, dokumenty i ich metadane.
+5. Wyszukiwanie – zapytanie użytkownika zostaje przekształcone w wektor, który służy do znalezienia podobnych fragmentów.
+6. Generowanie odpowiedzi – znalezione fragmenty mogą zostać przekazane do modelu językowego jako kontekst odpowiedzi.
+
+Dokumenty i pliki
+
+PDF, TXT, strony internetowe
+
+Chunking i embeddingi
+
+Podział tekstu i zamiana na wektory
+
+ChromaDB
+
+Przechowywanie i wyszukiwanie podobnych fragmentów
+
+Model LLM
+
+Odpowiedź na podstawie znalezionych informacji
+
+## 4. Przykład użycia ChromaDB w Pythonie
+
+Poniższy przykład pokazuje, jak utworzyć kolekcję, zapisać dokumenty i wyszukać teksty podobne do zapytania.
+
+Najpierw zainstaluj bibliotekę:
+
+```
+pip install chromadb
+```
+
+Przykładowy kod:
+
+```
+import chromadbclient = chromadb.PersistentClient(path="./chroma_data")collection = client.get_or_create_collection(    name="dokumenty")collection.upsert(    ids=["1", "2", "3"],    documents=[        "Java jest językiem programowania.",        "Spring Boot ułatwia tworzenie aplikacji backendowych.",        "ChromaDB przechowuje wektory wykorzystywane w aplikacjach AI."    ])results = collection.query(    query_texts=["Jak tworzyć aplikacje backendowe w Javie?"],    n_results=2)print(results["documents"])
+```
+
+W tym przykładzie ChromaDB zapisuje dokumenty lokalnie i wyszukuje te, które są semantycznie zbliżone do zapytania.
+
+Przy standardowej konfiguracji ChromaDB może automatycznie generować embeddingi za pomocą domyślnej funkcji embeddingowej, dlatego nie trzeba ręcznie przekazywać wektorów.
+
+## 5. Do czego wykorzystuje się ChromaDB?
+
+- Chatboty AI – wyszukiwanie informacji potrzebnych do udzielenia odpowiedzi.
+- RAG – dostarczanie modelom językowym kontekstu z własnych dokumentów.
+- Wyszukiwarki semantyczne – wyszukiwanie według znaczenia, a nie wyłącznie słów kluczowych.
+- Analiza dokumentów – przeszukiwanie instrukcji, raportów, umów i plików PDF.
+- Asystenci firmowi – budowanie systemów odpowiadających na pytania na podstawie wewnętrznej dokumentacji.
+- Prototypy AI – szybkie tworzenie aplikacji wykorzystujących embeddingi i modele językowe.
+
+## 6. ChromaDB w projekcie AgriMind AI
+
+ChromaDB można wykorzystać w aplikacji AI dla branży rolniczej, na przykład do stworzenia asystenta odpowiadającego na pytania dotyczące upraw, nawożenia, chorób roślin i dokumentacji rolniczej.
+
+Przykładowy scenariusz:
+
+- Użytkownik pyta: „Jakie warunki sprzyjają rozwojowi zarazy ziemniaka?”.
+- Aplikacja wyszukuje odpowiednie fragmenty w bazie dokumentacji rolniczej.
+- ChromaDB zwraca fragmenty dotyczące choroby i warunków jej rozwoju.
+- Model językowy przygotowuje odpowiedź na podstawie odnalezionych materiałów.
+
+W architekturze opartej na Javie i Spring Boot backend może komunikować się z osobną usługą Python wykorzystującą ChromaDB albo bezpośrednio z usługą Chroma przez dostępny interfejs API.
+
+Ważne jest, aby korzystać z wiarygodnych źródeł agronomicznych oraz sprawdzać aktualność informacji, szczególnie gdy odpowiedzi dotyczą stosowania środków ochrony roślin.
+
+## 7. ChromaDB a inne bazy wektorowe
+
+| Technologia           | Charakterystyka                                                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| ChromaDB              | Prosta baza wektorowa, wygodna do prototypowania i aplikacji RAG.                                                         |
+| Pinecone              | Zarządzana usługa wektorowa w chmurze.                                                                                    |
+| Qdrant                | Baza wektorowa oferująca wyszukiwanie podobieństwa i filtrowanie metadanych.                                              |
+| Weaviate              | Baza wektorowa z rozbudowanymi możliwościami wyszukiwania i integracji AI.                                                |
+| FAISS                 | Biblioteka do wydajnego wyszukiwania podobieństwa wektorów, a nie pełnoprawna baza danych z takim samym zakresem funkcji. |
+| PostgreSQL z pgvector | Rozszerzenie umożliwiające przechowywanie i wyszukiwanie wektorów w PostgreSQL.                                           |
+
+## 8. Zalety i wady ChromaDB
+
+Zalety:
+
+- Prosta konfiguracja i łatwy start.
+- Możliwość lokalnego przechowywania danych.
+- Integracja z popularnymi bibliotekami AI.
+- Obsługa metadanych i wyszukiwania semantycznego.
+- Przydatność w prototypach, chatbotach i systemach RAG.
+
+Wady:
+
+- Wybór konfiguracji i architektury produkcyjnej wymaga uwzględnienia skali oraz wymagań dotyczących dostępności.
+- Jakość wyszukiwania zależy od modelu embeddingowego, podziału dokumentów i parametrów wyszukiwania.
+- Nie zastępuje automatycznie relacyjnej bazy danych, takiej jak PostgreSQL.
+- W większych systemach należy odpowiednio zaplanować bezpieczeństwo, kopie zapasowe, skalowanie i monitoring.
+
+## 9. Dlaczego warto znać ChromaDB?
+
+ChromaDB jest przydatną technologią dla osób uczących się sztucznej inteligencji, tworzących aplikacje oparte na dużych modelach językowych oraz rozwijających systemy RAG.
+
+Warto poznać ją razem z embeddingami, wyszukiwaniem semantycznym, dzieleniem dokumentów na fragmenty i integracją modeli językowych.
+
+Znajomość tych zagadnień pozwala budować aplikacje, które nie tylko generują tekst, ale także wyszukują i wykorzystują informacje z własnych źródeł danych.

@@ -1,0 +1,1370 @@
+# Wireshark
+
+## 1. Czym jest Wireshark?
+
+**Wireshark** to darmowy i otwartoźródłowy **analizator ruchu sieciowego**.
+
+Pozwala przechwytywać oraz analizować pakiety przesyłane przez sieć.
+
+Możesz dzięki niemu zobaczyć między innymi:
+
+- jakie urządzenia komunikują się ze sobą,
+- jakie protokoły są używane,
+- jakie adresy IP biorą udział w komunikacji,
+- jakie porty są wykorzystywane,
+- jak wygląda komunikacja TCP,
+- jakie zapytania DNS są wykonywane,
+- jakie pakiety HTTP są przesyłane,
+- dlaczego połączenie nie działa,
+- gdzie występują opóźnienia,
+- czy występują retransmisje lub błędy.
+
+Najprościej:
+
+> **Wireshark pozwala zajrzeć do ruchu sieciowego i analizować, co naprawdę dzieje się pomiędzy urządzeniami.**
+
+## 2. Do czego służy Wireshark?
+
+Wireshark jest wykorzystywany przede wszystkim do:
+
+- diagnostyki sieci,
+- debugowania aplikacji sieciowych,
+- analizy protokołów,
+- nauki sieci komputerowych,
+- wykrywania problemów z TCP/IP,
+- analizy DNS,
+- analizy HTTP/HTTPS,
+- analizy połączeń między serwerami,
+- monitorowania ruchu,
+- analizy problemów z wydajnością,
+- bezpieczeństwa sieciowego,
+- analizy incydentów.
+
+Przykładowo aplikacja nie może połączyć się z serwerem:
+
+```text
+Aplikacja
+   ↓
+Internet
+   ↓
+Serwer
+```
+
+Wireshark może pomóc ustalić:
+
+```text
+Czy DNS działa?
+      ↓
+Czy klient wysyła pakiety?
+      ↓
+Czy serwer odpowiada?
+      ↓
+Czy TCP zostało zestawione?
+      ↓
+Czy występują retransmisje?
+      ↓
+Czy połączenie jest zamykane?
+```
+
+## 3. Czym jest pakiet sieciowy?
+
+Podczas komunikacji dane są dzielone na mniejsze fragmenty.
+
+Przykładowo:
+
+```text
+Aplikacja
+    ↓
+Dane
+    ↓
+TCP
+    ↓
+IP
+    ↓
+Ethernet / Wi-Fi
+    ↓
+Sieć
+```
+
+Wireshark pozwala analizować poszczególne elementy tej komunikacji.
+
+Przykładowy pakiet może zawierać:
+
+```text
+Ethernet
+   ↓
+IP
+   ↓
+TCP
+   ↓
+HTTP
+   ↓
+Application Data
+```
+
+## 4. Jak działa Wireshark?
+
+Wireshark przechwytuje pakiety z interfejsu sieciowego.
+
+Schemat:
+
+```text
+Internet / LAN
+      ↓
+Karta sieciowa
+      ↓
+Wireshark
+      ↓
+Przechwytywanie pakietów
+      ↓
+Analiza
+```
+
+Możesz wybrać konkretny interfejs:
+
+```text
+Wi-Fi
+Ethernet
+Loopback
+VPN
+Virtual Adapter
+```
+
+Następnie Wireshark zaczyna obserwować ruch przechodzący przez wybrany interfejs.
+
+## 5. Interfejs sieciowy
+
+Komputer może mieć wiele interfejsów:
+
+```text
+Wi-Fi
+Ethernet
+VPN
+VirtualBox
+VMware
+Docker
+WSL
+Loopback
+```
+
+Wireshark może przechwytywać ruch z wybranego interfejsu.
+
+Na przykład jeśli korzystasz z Wi-Fi:
+
+```text
+Wi-Fi
+192.168.1.25
+      ↓
+Wireshark
+      ↓
+pakiety
+```
+
+Jeśli wybierzesz niewłaściwy interfejs, możesz nie zobaczyć interesującego Cię ruchu.
+
+## 6. Packet Capture
+
+Przechwytywanie ruchu nazywa się **packet capture**.
+
+Wireshark może zapisać przechwycony ruch do pliku:
+
+```text
+.pcap
+```
+
+lub:
+
+```text
+.pcapng
+```
+
+Przykład:
+
+```text
+network-analysis.pcapng
+```
+
+Taki plik można później otworzyć i przeanalizować.
+
+## 7. Główne okno Wiresharka
+
+Po rozpoczęciu przechwytywania zobaczysz listę pakietów.
+
+Typowo znajdują się tam kolumny:
+
+| Kolumna | Znaczenie |
+|---|---|
+| No. | Numer pakietu |
+| Time | Czas |
+| Source | Źródło |
+| Destination | Cel |
+| Protocol | Protokół |
+| Length | Długość |
+| Info | Informacje o pakiecie |
+
+Przykład:
+
+```text
+No.   Source          Destination      Protocol   Length   Info
+1     192.168.1.10    8.8.8.8          DNS        74       Standard query
+2     8.8.8.8         192.168.1.10     DNS        90       Standard query response
+3     192.168.1.10    142.250.x.x      TCP        66       SYN
+```
+
+## 8. Warstwy sieciowe
+
+Wireshark bardzo dobrze nadaje się do nauki modelu TCP/IP oraz OSI.
+
+Przykładowo:
+
+```text
+Application
+    ↓
+Transport
+    ↓
+Internet
+    ↓
+Network Access
+```
+
+Dla komunikacji HTTP możesz zobaczyć:
+
+```text
+HTTP
+ ↓
+TCP
+ ↓
+IP
+ ↓
+Ethernet
+```
+
+Dzięki temu możesz zobaczyć, jak poszczególne warstwy współpracują ze sobą.
+
+## 9. Ethernet
+
+Ethernet odpowiada za komunikację na poziomie sieci lokalnej.
+
+Wireshark może pokazywać między innymi:
+
+```text
+Source MAC
+Destination MAC
+EtherType
+Frame information
+```
+
+Przykład:
+
+```text
+Source MAC:
+AA:BB:CC:11:22:33
+
+Destination MAC:
+FF:EE:DD:44:55:66
+```
+
+MAC Address identyfikuje interfejs sieciowy w warstwie łącza danych.
+
+## 10. IP
+
+Wireshark umożliwia analizę pakietów IPv4 i IPv6.
+
+Możesz zobaczyć:
+
+```text
+Source IP
+Destination IP
+TTL
+Protocol
+Packet Length
+```
+
+Przykład:
+
+```text
+Source:
+192.168.1.20
+
+Destination:
+142.250.185.14
+```
+
+Możesz dzięki temu sprawdzić, z jakim adresem komunikuje się komputer.
+
+## 11. TCP
+
+**TCP** jest jednym z najważniejszych protokołów, które analizuje się w Wiresharku.
+
+Możesz zobaczyć między innymi:
+
+- SYN,
+- SYN/ACK,
+- ACK,
+- FIN,
+- RST,
+- Sequence Number,
+- Acknowledgment Number,
+- Window Size,
+- retransmisje.
+
+## 12. Three-Way Handshake
+
+Jednym z najważniejszych przykładów jest zestawianie połączenia TCP.
+
+Wygląda ono tak:
+
+```text
+Klient                         Serwer
+   │                              │
+   │ -------- SYN --------------> │
+   │                              │
+   │ <------ SYN + ACK ---------- │
+   │                              │
+   │ -------- ACK --------------> │
+   │                              │
+   │       Połączenie TCP         │
+```
+
+Wireshark pozwala zobaczyć wszystkie trzy pakiety.
+
+To świetny sposób na zrozumienie TCP.
+
+## 13. SYN
+
+Pierwszy etap:
+
+```text
+Client → Server
+
+SYN
+```
+
+Klient mówi:
+
+> Chcę rozpocząć połączenie TCP.
+
+Następnie:
+
+```text
+Server → Client
+
+SYN + ACK
+```
+
+Serwer odpowiada.
+
+Na końcu:
+
+```text
+Client → Server
+
+ACK
+```
+
+Połączenie zostaje zestawione.
+
+## 14. TCP Retransmission
+
+Jednym z bardzo przydatnych zastosowań Wiresharka jest wykrywanie **retransmisji TCP**.
+
+Jeżeli pakiet nie dotrze do odbiorcy, TCP może wysłać go ponownie.
+
+Wireshark może oznaczyć taki pakiet jako:
+
+```text
+[TCP Retransmission]
+```
+
+Może to wskazywać na:
+
+- utratę pakietów,
+- problemy z siecią,
+- przeciążenie,
+- problemy z Wi-Fi,
+- problemy z serwerem lub infrastrukturą.
+
+## 15. UDP
+
+Wireshark pozwala również analizować UDP.
+
+UDP jest prostszy od TCP.
+
+```text
+TCP
+Connection-oriented
+Reliable
+Ordering
+Retransmission
+```
+
+Natomiast:
+
+```text
+UDP
+Connectionless
+No built-in reliability
+Low overhead
+```
+
+UDP jest często wykorzystywany między innymi przez:
+
+- DNS,
+- DHCP,
+- streaming,
+- VoIP,
+- gry sieciowe.
+
+## 16. DNS
+
+Wireshark świetnie nadaje się do analizy DNS.
+
+Przykład:
+
+```text
+Komputer
+   ↓
+DNS Query
+   ↓
+8.8.8.8
+   ↓
+DNS Response
+```
+
+Możesz zobaczyć:
+
+```text
+Query:
+example.com
+
+Response:
+93.184.216.34
+```
+
+Dzięki temu można sprawdzić, czy problem z aplikacją wynika z DNS.
+
+## 17. DHCP
+
+Wireshark może również pokazywać proces uzyskiwania adresu IP przez DHCP.
+
+Klasyczny proces:
+
+```text
+Discover
+   ↓
+Offer
+   ↓
+Request
+   ↓
+ACK
+```
+
+Czyli:
+
+```text
+DORA
+```
+
+Jest to bardzo dobry przykład do nauki sieci komputerowych.
+
+## 18. HTTP
+
+Wireshark może analizować ruch HTTP.
+
+Przykładowo:
+
+```text
+GET /api/users
+Host: example.com
+```
+
+Możesz zobaczyć:
+
+```text
+GET
+POST
+PUT
+DELETE
+HTTP Response
+Status Code
+Headers
+```
+
+Przy nieszyfrowanym HTTP możliwe jest analizowanie treści komunikacji.
+
+## 19. HTTPS
+
+HTTPS wykorzystuje szyfrowanie TLS.
+
+Schemat:
+
+```text
+HTTP
+ ↓
+TLS
+ ↓
+TCP
+ ↓
+IP
+```
+
+W typowej sytuacji Wireshark może zobaczyć informacje dotyczące połączenia TLS, ale **nie zobaczy po prostu jawnej treści HTTP**, ponieważ jest ona szyfrowana.
+
+Możesz jednak analizować między innymi:
+
+- handshake TLS,
+- certyfikat,
+- wersję TLS,
+- parametry połączenia,
+- adresy IP,
+- porty,
+- czas komunikacji,
+- rozmiary pakietów.
+
+## 20. TLS Handshake
+
+Przykładowo:
+
+```text
+Client
+   │
+   │ ClientHello
+   ↓
+Server
+   │
+   │ ServerHello
+   │ Certificate
+   ↓
+Client
+   │
+   │ Key Exchange
+   ↓
+Encrypted Communication
+```
+
+Wireshark pozwala dokładnie obserwować ten proces.
+
+## 21. Porty
+
+Wireshark pozwala analizować porty TCP i UDP.
+
+Przykłady:
+
+| Port | Typowa usługa |
+|---:|---|
+| 22 | SSH |
+| 25 | SMTP |
+| 53 | DNS |
+| 80 | HTTP |
+| 110 | POP3 |
+| 143 | IMAP |
+| 443 | HTTPS |
+| 3306 | MySQL |
+| 5432 | PostgreSQL |
+| 8080 | często HTTP/aplikacje webowe |
+
+Jeżeli aplikacja nie może połączyć się z PostgreSQL:
+
+```text
+Application
+     ↓
+192.168.1.20:5432
+```
+
+Wireshark może pomóc sprawdzić, czy próba połączenia rzeczywiście wychodzi z komputera.
+
+## 22. Capture Filter
+
+**Capture Filter** określa, jaki ruch ma być przechwytywany.
+
+Przykład:
+
+```text
+port 443
+```
+
+Oznacza:
+
+> przechwytuj ruch związany z portem 443.
+
+Inne przykłady:
+
+```text
+host 192.168.1.10
+```
+
+```text
+tcp
+```
+
+```text
+udp
+```
+
+```text
+port 53
+```
+
+## 23. Display Filter
+
+Bardzo ważną funkcją Wiresharka jest **Display Filter**.
+
+Pozwala filtrować już przechwycone pakiety.
+
+Przykłady:
+
+```text
+http
+```
+
+```text
+dns
+```
+
+```text
+tcp
+```
+
+```text
+udp
+```
+
+```text
+icmp
+```
+
+```text
+ip.addr == 192.168.1.10
+```
+
+```text
+tcp.port == 443
+```
+
+```text
+dns.qry.name == "example.com"
+```
+
+## 24. Capture Filter vs Display Filter
+
+To bardzo ważne rozróżnienie.
+
+| Capture Filter | Display Filter |
+|---|---|
+| Filtruje podczas przechwytywania | Filtruje po przechwyceniu |
+| Ogranicza ilość zbieranych danych | Ogranicza to, co oglądasz |
+| Może zmniejszyć rozmiar capture | Nie usuwa pakietów |
+| Składnia BPF | Składnia Wiresharka |
+
+Przykład:
+
+```text
+Capture Filter:
+port 443
+```
+
+a później:
+
+```text
+Display Filter:
+ip.addr == 10.0.0.5
+```
+
+## 25. Follow TCP Stream
+
+Jedna z bardzo przydatnych funkcji to:
+
+**Follow → TCP Stream**
+
+Pozwala zobaczyć komunikację należącą do konkretnego połączenia TCP w bardziej uporządkowanej formie.
+
+Schemat:
+
+```text
+Packet 1
+Packet 2
+Packet 3
+Packet 4
+Packet 5
+      ↓
+TCP Stream
+      ↓
+cała rozmowa klient ↔ serwer
+```
+
+Jest to szczególnie przydatne przy analizie protokołów tekstowych.
+
+## 26. Statistics
+
+Wireshark posiada również rozbudowane statystyki.
+
+Możesz analizować między innymi:
+
+- rozmowy,
+- endpointy,
+- protokoły,
+- hierarchię protokołów,
+- przepływ ruchu,
+- IO Graphs.
+
+Przykładowo:
+
+```text
+Statistics
+    ↓
+Protocol Hierarchy
+    ↓
+TCP
+UDP
+DNS
+HTTP
+TLS
+```
+
+## 27. IO Graphs
+
+**IO Graphs** pozwalają wizualizować ruch sieciowy w czasie.
+
+Możesz zobaczyć:
+
+```text
+Traffic
+  │
+  │       /\       /\
+  │      /  \     /  \
+  │_____/    \___/    \____
+  └──────────────────────────→ time
+```
+
+Pomaga to wykrywać:
+
+- nagłe skoki ruchu,
+- przeciążenia,
+- nietypową aktywność,
+- okresowe problemy.
+
+## 28. Expert Information
+
+Wireshark posiada również funkcję **Expert Information**.
+
+Może wskazywać potencjalne problemy związane z analizowanym ruchem.
+
+Przykładowo:
+
+```text
+TCP Retransmission
+TCP Out-of-Order
+TCP Duplicate ACK
+Connection Reset
+Malformed Packet
+```
+
+Nie oznacza to automatycznie, że sieć jest uszkodzona.
+
+Jest to wskazówka, którą trzeba odpowiednio zinterpretować.
+
+## 29. PCAP
+
+Jednym z najważniejszych formatów używanych przez Wiresharka jest:
+
+```text
+PCAP
+```
+
+oraz:
+
+```text
+PCAPNG
+```
+
+Możesz:
+
+```text
+przechwycić ruch
+      ↓
+zapisać PCAPNG
+      ↓
+przesłać plik
+      ↓
+otworzyć na innym komputerze
+      ↓
+przeanalizować
+```
+
+Jest to bardzo przydatne podczas pracy zespołowej.
+
+## 30. Wireshark a cyberbezpieczeństwo
+
+Wireshark jest również wykorzystywany w bezpieczeństwie.
+
+Można analizować:
+
+- podejrzane połączenia,
+- nietypowe DNS,
+- skany sieci,
+- komunikację malware,
+- anomalie TCP,
+- nieoczekiwane adresy IP,
+- nietypowe protokoły.
+
+Przykład:
+
+```text
+Normalny ruch:
+
+PC → DNS → znany serwer
+
+Podejrzany ruch:
+
+PC → DNS → nieznana domena
+PC → IP → nietypowy serwer
+PC → wiele portów
+```
+
+Wireshark może pomóc zauważyć takie zachowanie.
+
+## 31. Wireshark a Nmap
+
+Wireshark i Nmap mają zupełnie inne zastosowania.
+
+| Wireshark | Nmap |
+|---|---|
+| Analizuje ruch | Skanuje sieci |
+| Packet capture | Network discovery |
+| Analiza protokołów | Port scanning |
+| Debugowanie | Rozpoznawanie hostów |
+| Analiza komunikacji | Identyfikacja usług |
+
+Można używać ich razem:
+
+```text
+Nmap
+ ↓
+sprawdzenie portów
+ ↓
+Wireshark
+ ↓
+analiza komunikacji
+```
+
+## 32. Wireshark a tcpdump
+
+**tcpdump** to narzędzie wiersza poleceń do przechwytywania i analizy ruchu.
+
+Wireshark:
+
+```text
+GUI
++
+rozbudowana analiza
++
+wizualizacja
+```
+
+tcpdump:
+
+```text
+CLI
++
+lekkość
++
+automatyzacja
++
+serwery Linux
+```
+
+Często spotyka się workflow:
+
+```text
+tcpdump
+   ↓
+capture.pcap
+   ↓
+Wireshark
+   ↓
+szczegółowa analiza
+```
+
+## 33. Wireshark a mitmproxy
+
+To również różne narzędzia.
+
+**Wireshark**:
+
+```text
+Analiza pakietów
+```
+
+**mitmproxy**:
+
+```text
+Proxy HTTP/HTTPS
+```
+
+Wireshark jest przede wszystkim narzędziem do obserwowania i analizowania ruchu.
+
+## 34. Wireshark a Postman
+
+Postman służy głównie do testowania API.
+
+Przykładowo:
+
+```text
+Postman
+ ↓
+POST /api/users
+ ↓
+REST API
+```
+
+Wireshark może natomiast pomóc zobaczyć, co dzieje się na poziomie sieci:
+
+```text
+Postman
+ ↓
+TCP
+ ↓
+TLS
+ ↓
+HTTP
+ ↓
+Server
+```
+
+Dlatego narzędzia mogą się uzupełniać.
+
+## 35. Wireshark + Docker
+
+Wireshark może być bardzo przydatny podczas pracy z Dockerem.
+
+Przykładowo:
+
+```text
+Application Container
+        ↓
+Docker Network
+        ↓
+PostgreSQL Container
+```
+
+Jeżeli aplikacja nie może połączyć się z bazą, możesz analizować ruch i sprawdzać, czy występuje komunikacja między kontenerami.
+
+## 36. Wireshark + Kubernetes
+
+W środowisku Kubernetes analiza sieci jest bardziej złożona.
+
+Przykładowa komunikacja:
+
+```text
+Client
+  ↓
+Ingress
+  ↓
+Service
+  ↓
+Pod
+  ↓
+Database
+```
+
+Wireshark może pomóc analizować problemy z komunikacją, ale w Kubernetes często wykorzystuje się również:
+
+```text
+kubectl
+tcpdump
+CNI tools
+eBPF
+```
+
+Wireshark może następnie służyć do szczegółowej analizy przechwyconego ruchu.
+
+## 37. Przykład: dlaczego aplikacja nie łączy się z PostgreSQL?
+
+Załóżmy:
+
+```text
+Spring Boot
+    ↓
+PostgreSQL
+    ↓
+Port 5432
+```
+
+A aplikacja zwraca:
+
+```text
+Connection refused
+```
+
+Możesz sprawdzić:
+
+```text
+1. Czy DNS działa?
+2. Czy klient wysyła SYN?
+3. Czy serwer odpowiada SYN/ACK?
+4. Czy połączenie zostaje odrzucone?
+5. Czy występuje RST?
+6. Czy serwer jest dostępny?
+```
+
+Przykładowo:
+
+```text
+Client
+   │
+   │ SYN
+   ↓
+PostgreSQL
+   │
+   │ RST
+   ↓
+Client
+```
+
+To może wskazywać, że połączenie jest odrzucane.
+
+## 38. Przykład: analiza DNS
+
+Aplikacja nie może znaleźć serwera:
+
+```text
+UnknownHostException
+```
+
+Możesz sprawdzić:
+
+```text
+DNS Query
+     ↓
+example.com
+     ↓
+DNS Server
+     ↓
+Response
+```
+
+Jeżeli odpowiedzi nie ma:
+
+```text
+DNS Query
+     ↓
+      X
+   timeout
+```
+
+może to wskazywać na problem z DNS lub komunikacją z serwerem DNS.
+
+## 39. Przykład: analiza HTTP API
+
+Masz:
+
+```text
+GET /api/users
+```
+
+Możesz przeanalizować:
+
+```text
+Client
+ ↓
+TCP handshake
+ ↓
+HTTP request
+ ↓
+Server
+ ↓
+HTTP response
+```
+
+i sprawdzić między innymi:
+
+```text
+Status Code
+Headers
+Response Time
+TCP packets
+Retransmissions
+```
+
+## 40. Wireshark w nauce sieci
+
+Wireshark jest jednym z najlepszych narzędzi do praktycznej nauki:
+
+```text
+TCP/IP
+OSI
+Ethernet
+IP
+TCP
+UDP
+DNS
+DHCP
+HTTP
+TLS
+ARP
+ICMP
+```
+
+Zamiast tylko czytać:
+
+> TCP wykonuje three-way handshake.
+
+możesz rzeczywiście zobaczyć:
+
+```text
+SYN
+SYN/ACK
+ACK
+```
+
+w prawdziwej komunikacji.
+
+## 41. Zalety Wiresharka
+
+Najważniejsze zalety:
+
+- darmowy,
+- open source,
+- bardzo szczegółowa analiza pakietów,
+- ogromna liczba obsługiwanych protokołów,
+- świetne narzędzie edukacyjne,
+- rozbudowane filtry,
+- analiza TCP/IP,
+- statystyki,
+- wykresy,
+- możliwość zapisywania PCAP,
+- przydatny w administracji i cyberbezpieczeństwie.
+
+## 42. Wady Wiresharka
+
+Należy pamiętać, że:
+
+- ogromna liczba pakietów może być trudna do analizy,
+- wymaga znajomości sieci,
+- początkujący może poczuć się przytłoczony,
+- HTTPS ogranicza widoczność treści,
+- przechwytywanie ruchu może mieć konsekwencje związane z prywatnością,
+- nie każdy problem aplikacji jest problemem sieciowym.
+
+## 43. Wireshark i prywatność
+
+Przechwycony ruch może zawierać bardzo wrażliwe informacje.
+
+Może obejmować:
+
+```text
+IP addresses
+DNS queries
+HTTP data
+cookies
+credentials
+metadata
+```
+
+Dlatego należy przechwytywać i udostępniać ruch tylko wtedy, gdy masz do tego odpowiednie uprawnienia.
+
+Szczególnie nie należy bezmyślnie publikować plików:
+
+```text
+.pcap
+.pcapng
+```
+
+z rzeczywistą komunikacją użytkowników.
+
+## 44. Najważniejsze filtry Wiresharka
+
+Warto zapamiętać kilka podstawowych filtrów:
+
+```text
+tcp
+```
+
+```text
+udp
+```
+
+```text
+dns
+```
+
+```text
+http
+```
+
+```text
+tls
+```
+
+```text
+icmp
+```
+
+```text
+ip.addr == 192.168.1.10
+```
+
+```text
+tcp.port == 443
+```
+
+```text
+udp.port == 53
+```
+
+```text
+dns.qry.name == "example.com"
+```
+
+```text
+tcp.flags.syn == 1
+```
+
+## 45. Najważniejsze pojęcia
+
+| Pojęcie | Znaczenie |
+|---|---|
+| Packet | Pakiet sieciowy |
+| Frame | Ramka |
+| Capture | Przechwytywanie ruchu |
+| PCAP | Format zapisu przechwyconego ruchu |
+| PCAPNG | Rozszerzony format capture |
+| Interface | Interfejs sieciowy |
+| MAC | Adres warstwy łącza danych |
+| IP | Adres urządzenia w sieci IP |
+| Port | Numer usługi sieciowej |
+| TCP | Protokół transportowy |
+| UDP | Bezpołączeniowy protokół transportowy |
+| DNS | Tłumaczenie nazw na adresy |
+| DHCP | Automatyczna konfiguracja sieci |
+| HTTP | Protokół aplikacji webowych |
+| HTTPS | HTTP zabezpieczony TLS |
+| TLS | Szyfrowanie komunikacji |
+| Capture Filter | Filtr podczas przechwytywania |
+| Display Filter | Filtr podczas analizy |
+| TCP Stream | Strumień konkretnego połączenia TCP |
+| Retransmission | Ponowne wysłanie pakietu |
+| Three-Way Handshake | Zestawianie połączenia TCP |
+
+## 46. Schemat działania Wiresharka
+
+```text
+              URZĄDZENIE
+                   │
+                   ↓
+            KARTA SIECIOWA
+                   │
+                   ↓
+              WIRESHARK
+                   │
+          ┌────────┴────────┐
+          ↓                 ↓
+     Capture Filter     Packet Capture
+                              │
+                              ↓
+                       Display Filter
+                              │
+                              ↓
+                       ANALIZA PAKIETÓW
+                              │
+            ┌─────────────────┼─────────────────┐
+            ↓                 ↓                 ↓
+           TCP               DNS               HTTP
+            ↓                 ↓                 ↓
+       Handshake          Queries            Requests
+       Retransmission     Responses          Responses
+            │                 │                 │
+            └─────────────────┼─────────────────┘
+                              ↓
+                       DIAGNOZA PROBLEMU
+```
+
+## 47. Wireshark w jednym przykładzie
+
+Załóżmy, że aplikacja:
+
+```text
+Spring Boot
+    ↓
+http://api.example.com
+```
+
+nie działa.
+
+Możesz przeanalizować:
+
+```text
+1. DNS
+   ↓
+   Czy api.example.com jest rozwiązywane?
+
+2. TCP
+   ↓
+   Czy powstaje połączenie?
+
+3. TLS
+   ↓
+   Czy handshake się udaje?
+
+4. HTTP
+   ↓
+   Czy request jest wysyłany?
+
+5. Response
+   ↓
+   Czy serwer odpowiada?
+
+6. TCP
+   ↓
+   Czy występują retransmisje?
+```
+
+W ten sposób Wireshark pozwala przejść od:
+
+**„Aplikacja nie działa”**
+
+do bardziej konkretnego:
+
+**„DNS działa, TCP działa, ale połączenie TLS jest zrywane.”**
+
+To właśnie jest jedna z największych wartości Wiresharka.
+
+## 48. Wireshark w IT
+
+Wireshark jest szczególnie ważny dla:
+
+- Network Administratora,
+- System Administratora,
+- DevOps Engineera,
+- Cybersecurity Engineera,
+- Security Analyst,
+- Backend Developera,
+- Network Engineera,
+- SRE,
+- osoby uczącej się sieci komputerowych.
+
+Dla programisty również jest bardzo przydatny, ponieważ pozwala zrozumieć, co dzieje się **poniżej poziomu aplikacji**.
+
+## 49. Wireshark – najważniejsza rzecz do zapamiętania
+
+**Wireshark to narzędzie do przechwytywania i szczegółowej analizy ruchu sieciowego na poziomie pakietów.**
+
+Najważniejszy schemat:
+
+```text
+Aplikacja
+   ↓
+HTTP / DNS / TLS
+   ↓
+TCP / UDP
+   ↓
+IP
+   ↓
+Ethernet / Wi-Fi
+   ↓
+Sieć
+```
+
+Wireshark pozwala obserwować tę komunikację i dzięki temu diagnozować problemy z **siecią, serwerami, API, Dockerem, Kubernetesem, aplikacjami oraz bezpieczeństwem**.
+
+**Najważniejsze zdanie do zapamiętania: Wireshark pozwala zobaczyć i przeanalizować, co naprawdę dzieje się z pakietami podczas komunikacji sieciowej.**

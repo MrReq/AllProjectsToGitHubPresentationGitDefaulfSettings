@@ -1,0 +1,195 @@
+Apache Ambari — notatka
+
+1. Czym jest Apache Ambari?
+
+Apache Ambari to narzędzie open source służące do instalowania, konfigurowania, zarządzania i monitorowania klastrów Apache Hadoop.
+
+Zostało stworzone z myślą o uproszczeniu administracji rozproszonymi środowiskami przetwarzania dużych zbiorów danych (Big Data).
+
+Ambari udostępnia interfejs graficzny oraz API, dzięki którym administratorzy mogą zarządzać usługami klastra bez konieczności ręcznego konfigurowania każdego serwera.
+
+Projekt był rozwijany w ramach Apache Software Foundation, ale obecnie jest technologią starszą, dlatego przed wykorzystaniem go w nowym środowisku należy sprawdzić aktualny stan utrzymania projektu i zgodność z używaną dystrybucją Hadoop.
+
+2. Do czego służy Apache Ambari?
+
+Apache Ambari pomaga zarządzać infrastrukturą Big Data, która składa się z wielu współpracujących serwerów.
+
+Najważniejsze zastosowania to:
+
+- Instalowanie komponentów klastra Hadoop.
+- Konfigurowanie usług rozproszonych.
+- Monitorowanie stanu klastra.
+- Kontrolowanie działania usług i serwerów.
+- Zarządzanie konfiguracją komponentów Hadoop.
+- Uruchamianie i zatrzymywanie usług.
+- Zbieranie metryk i informacji diagnostycznych.
+- Wykrywanie problemów z działaniem klastra.
+- Zarządzanie konfiguracją wielu węzłów z jednego miejsca.
+- Ułatwianie pracy administratorom środowisk Big Data.
+
+Przykładowo Ambari może pomóc w instalacji i monitorowaniu klastra, w którym Hadoop przechowuje dane, a YARN zarządza zasobami obliczeniowymi.
+
+3. Czym jest Apache Hadoop?
+
+Apache Hadoop to platforma umożliwiająca rozproszone przechowywanie i przetwarzanie dużych zbiorów danych.
+
+Klaster Hadoop składa się z wielu komputerów, które współpracują przy przechowywaniu danych i wykonywaniu obliczeń.
+
+Najważniejsze komponenty ekosystemu Hadoop to:
+
+- **HDFS** — rozproszony system plików.
+- **YARN** — system zarządzania zasobami i planowania aplikacji.
+- **MapReduce** — model przetwarzania danych równolegle.
+- **Hive** — narzędzie umożliwiające analizowanie danych za pomocą języka zbliżonego do SQL.
+- **HBase** — rozproszona baza danych typu NoSQL.
+
+Ambari nie zastępuje tych komponentów, lecz ułatwia ich instalowanie, konfigurowanie i monitorowanie.
+
+4. Jak działa Apache Ambari?
+
+Ambari wykorzystuje architekturę klient-serwer oraz agentów instalowanych na zarządzanych węzłach.
+
+Typowy proces działania wygląda następująco:
+
+1. Administrator uruchamia serwer Ambari.
+2. Dodaje węzły, które mają należeć do klastra.
+3. Ambari instaluje lub konfiguruje odpowiednich agentów.
+4. Administrator wybiera komponenty Hadoop do wdrożenia.
+5. System rozprowadza konfigurację i uruchamia usługi.
+6. Agenci przekazują informacje o stanie usług i metrykach.
+7. Administrator obserwuje działanie klastra w interfejsie [WWW](http://WWW).
+
+Dzięki temu wiele operacji administracyjnych można wykonywać centralnie, zamiast logować się osobno na każdym serwerze.
+
+5. Najważniejsze elementy Apache Ambari
+
+- **Ambari Server** — centralny komponent zarządzający konfiguracją klastra i komunikacją z agentami.
+- **Ambari Agent** — program działający na zarządzanym węźle, odpowiedzialny za wykonywanie operacji i raportowanie stanu.
+- **Web UI** — interfejs graficzny do zarządzania i monitorowania klastra.
+- **REST API** — interfejs umożliwiający automatyzację operacji administracyjnych.
+- **Metrics System** — mechanizmy zbierania i prezentowania metryk, zależnie od konfiguracji i wersji.
+- **Alerting** — mechanizmy wykrywania problemów i informowania o nieprawidłowościach.
+- **Blueprints** — mechanizm umożliwiający opisywanie konfiguracji klastra i automatyzowanie jego wdrażania w obsługiwanych wersjach.
+
+6. Interfejs graficzny
+
+Apache Ambari udostępnia interfejs WWW, który pozwala administratorom obserwować stan klastra i zarządzać jego usługami.
+
+Za pomocą interfejsu można między innymi:
+
+- Sprawdzać stan usług Hadoop.
+- Przeglądać metryki wykorzystania zasobów.
+- Zmieniać konfigurację komponentów.
+- Uruchamiać i zatrzymywać usługi.
+- Sprawdzać alerty i komunikaty o błędach.
+- Analizować informacje o poszczególnych węzłach.
+
+Interfejs ułatwia pracę z rozbudowaną infrastrukturą, szczególnie gdy klaster składa się z wielu serwerów i usług.
+
+7. Monitorowanie klastra
+
+Monitorowanie jest jednym z najważniejszych zadań Apache Ambari.
+
+Platforma może prezentować informacje o dostępności usług, stanie węzłów, wykorzystaniu zasobów oraz innych metrykach związanych z działaniem klastra.
+
+Administrator może dzięki temu szybciej zauważyć problemy, takie jak niedostępna usługa, przeciążony serwer lub nieprawidłowa konfiguracja.
+
+Zakres dostępnych metryk i alertów zależy od wersji Ambari, zarządzanych komponentów i konfiguracji monitorowania.
+
+Ambari pomaga diagnozować problemy, ale nie zastępuje pełnego procesu analizy logów ani specjalistycznych narzędzi do monitorowania infrastruktury.
+
+8. Zarządzanie konfiguracją
+
+Apache Ambari pozwala centralnie zarządzać konfiguracją komponentów klastra.
+
+Administrator może zmieniać ustawienia usług i rozprowadzać je do odpowiednich węzłów.
+
+Przykładowo można zarządzać parametrami usług Hadoop, ustawieniami pamięci, konfiguracją systemu plików lub parametrami działania YARN.
+
+Centralne zarządzanie ogranicza ryzyko sytuacji, w której poszczególne serwery mają różne, niezgodne konfiguracje.
+
+Przed wprowadzeniem zmian w środowisku produkcyjnym należy jednak ocenić ich wpływ na działające zadania i dostępność usług.
+
+9. Apache Ambari a instalacja Hadoop
+
+Jednym z historycznych zastosowań Ambari było uproszczenie instalacji i konfiguracji klastrów Hadoop.
+
+Zamiast konfigurować każdą usługę ręcznie, administrator mógł wybrać komponenty, przypisać je do węzłów i przeprowadzić wdrożenie z poziomu interfejsu.
+
+Ambari pomagało również zarządzać cyklem życia usług, w tym ich uruchamianiem i zatrzymywaniem.
+
+Nie oznacza to jednak, że każda wersja Ambari obsługuje wszystkie współczesne dystrybucje i wersje Hadoop.
+
+Przy planowaniu wdrożenia należy zweryfikować zgodność wersji, wymagania systemowe i dostępność utrzymywanych pakietów.
+
+10. Apache Ambari a inne narzędzia
+
+- **Apache Ambari** — narzędzie do zarządzania i monitorowania klastrów Hadoop.
+- **Apache Hadoop** — platforma rozproszonego przechowywania i przetwarzania danych.
+- **Apache ZooKeeper** — usługa koordynacji rozproszonych systemów.
+- **Apache Airflow** — platforma do planowania i orkiestracji przepływów pracy.
+- **Apache Spark** — silnik do rozproszonego przetwarzania danych.
+- **Prometheus** — system monitorowania i zbierania metryk.
+- **Grafana** — narzędzie do wizualizacji metryk i tworzenia dashboardów.
+- **Ansible** — narzędzie do automatyzacji konfiguracji serwerów i infrastruktury.
+
+Ambari koncentruje się na zarządzaniu określonym ekosystemem Big Data, podczas gdy Ansible jest bardziej ogólnym narzędziem automatyzacji infrastruktury.
+
+Prometheus i Grafana mogą natomiast pełnić szerszą rolę w monitorowaniu środowisk, zależnie od konfiguracji.
+
+11. Zalety Apache Ambari
+
+- Ułatwia centralne zarządzanie klastrami Hadoop.
+- Oferuje graficzny interfejs administracyjny.
+- Automatyzuje część zadań instalacyjnych i konfiguracyjnych.
+- Umożliwia monitorowanie stanu usług i węzłów.
+- Udostępnia API do automatyzacji operacji.
+- Ogranicza konieczność ręcznego zarządzania każdym serwerem.
+- Pomaga diagnozować problemy w rozproszonym środowisku.
+
+12. Wady i ograniczenia Apache Ambari
+
+- Jest silnie związane z ekosystemem Hadoop.
+- Współczesne zastosowanie może być ograniczone przez stan utrzymania projektu i dostępność kompatybilnych dystrybucji.
+- Instalacja i konfiguracja całego klastra Big Data mogą być skomplikowane.
+- Samo Ambari wymaga dodatkowej infrastruktury i utrzymania.
+- Dostępność funkcji zależy od wersji platformy i zarządzanych komponentów.
+- Nie zastępuje wszystkich narzędzi monitorujących ani diagnostycznych.
+- W nowych projektach należy rozważyć, czy lepszym wyborem nie będzie nowsza platforma zarządzania danymi lub automatyzacji infrastruktury.
+
+13. Plan nauki Apache Ambari
+
+Na początku warto poznać podstawy systemu Linux, sieci komputerowych oraz architektury rozproszonej.
+
+Następnie należy zrozumieć podstawowe komponenty Hadoop, szczególnie HDFS i YARN.
+
+Kolejnym krokiem jest poznanie architektury Ambari, roli serwera, agentów i interfejsu administracyjnego.
+
+Później warto przećwiczyć wdrażanie klastra w środowisku testowym, zarządzanie konfiguracją i monitorowanie usług.
+
+Na końcu należy nauczyć się diagnozować błędy oraz oceniać zgodność wersji Ambari z wykorzystywanymi komponentami Hadoop.
+
+Ze względu na starszy charakter tej technologii naukę najlepiej traktować jako przygotowanie do utrzymywania istniejących środowisk Big Data, chyba że konkretny projekt wymaga właśnie Ambari.
+
+14. Najważniejsze pojęcia
+
+- **Apache Ambari** — platforma do zarządzania i monitorowania klastrów Hadoop.
+- **Apache Hadoop** — ekosystem do rozproszonego przetwarzania i przechowywania danych.
+- **Ambari Server** — centralny komponent zarządzający.
+- **Ambari Agent** — agent działający na zarządzanym serwerze.
+- **Cluster** — grupa współpracujących komputerów.
+- **HDFS** — rozproszony system plików Hadoop.
+- **YARN** — system zarządzania zasobami klastra.
+- **Web UI** — graficzny interfejs administracyjny.
+- **REST API** — interfejs umożliwiający komunikację i automatyzację.
+- **Monitoring** — obserwowanie stanu i wydajności systemu.
+- **Alerting** — wykrywanie problemów i generowanie powiadomień.
+- **Blueprints** — opis konfiguracji klastra wykorzystywany w automatyzacji wdrożeń.
+
+15. W skrócie
+
+Apache Ambari to narzędzie służące do centralnego zarządzania, konfigurowania i monitorowania klastrów Apache Hadoop.
+
+Ułatwia administratorom instalowanie usług, kontrolowanie ich stanu i zarządzanie konfiguracją wielu węzłów.
+
+Jest przede wszystkim istotne w kontekście istniejących środowisk Big Data, dlatego przed wyborem do nowego projektu należy sprawdzić aktualny stan utrzymania i kompatybilność z planowaną infrastrukturą.

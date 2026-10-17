@@ -1,0 +1,138 @@
+# IntelliJ IDEA – notatka
+
+## 1. Czym jest IntelliJ IDEA?
+
+IntelliJ IDEA to zintegrowane środowisko programistyczne (IDE – Integrated Development Environment) stworzone przez firmę JetBrains.
+
+Program jest wykorzystywany przede wszystkim do tworzenia aplikacji w języku Java, ale obsługuje również inne technologie i języki, między innymi Kotlin, SQL, JavaScript oraz HTML i CSS w zależności od edycji i zainstalowanych wtyczek.
+
+IntelliJ IDEA zapewnia narzędzia do pisania kodu, jego analizowania, kompilowania, uruchamiania, testowania i debugowania.
+
+## 2. Do czego służy IntelliJ IDEA?
+
+- Programowanie w Javie – tworzenie aplikacji konsolowych, desktopowych i serwerowych.
+- Tworzenie aplikacji Spring Boot – budowanie backendów i usług REST API.
+- Zarządzanie projektami – obsługa projektów Maven i Gradle.
+- Debugowanie kodu – śledzenie wykonywania programu i analizowanie błędów.
+- Testowanie oprogramowania – uruchamianie testów jednostkowych, na przykład JUnit.
+- Obsługa baz danych – w odpowiednich edycjach korzystanie z narzędzi SQL i połączeń z bazami danych.
+- Integracja z Git – zarządzanie zmianami w kodzie i współpraca z repozytoriami GitHub.
+- Refaktoryzacja – bezpieczne zmienianie struktury kodu bez zamierzonej zmiany jego działania.
+
+## 3. Najważniejsze funkcje IntelliJ IDEA
+
+Inteligentne uzupełnianie kodu podpowiada nazwy klas, metod, zmiennych i dostępnych operacji.
+
+Analiza kodu wykrywa potencjalne błędy, ostrzeżenia oraz problemy ze stylem programowania.
+
+Refaktoryzacja umożliwia między innymi zmianę nazw klas i metod, przenoszenie elementów oraz wydzielanie metod.
+
+Debugger pozwala ustawiać punkty przerwania (breakpoints), sprawdzać wartości zmiennych i analizować stos wywołań.
+
+Integracja z Maven i Gradle ułatwia zarządzanie zależnościami oraz budowanie projektów.
+
+Integracja z systemami kontroli wersji umożliwia wykonywanie operacji Git bezpośrednio w IDE.
+
+Obsługa frameworków ułatwia pracę z technologiami takimi jak Spring Boot, zależnie od edycji, licencji i dostępnych wtyczek.
+
+## 4. Najważniejsze elementy interfejsu
+
+[Projects | IntelliJ IDEA Documentation](https://images.openai.com/static-rsc-4/ZAYQ0sbFj-xAhOhIpLDM4YMxRLP7uj-hNeSexxN4RmY9pJ_rzkRDgKScUQ84HedA03sd7qfwWUGchNd8tmut0dVwKnjLQghEWfB4AYmniwr5wT4lW4W8JSwDDDLYBgSJRubY3XWyxdDOJr5Z7VgklqQBR1nO5y2TIDjSKpYwp5o?purpose=inline)
+
+[jetbrains.com](https://www.jetbrains.com/help/idea/creating-and-managing-projects.html)
+
+- Project – wyświetla strukturę projektu i jego pliki.
+- Editor – główny obszar pisania i edycji kodu.
+- Run – prezentuje wyniki uruchomienia programu.
+- Debug – udostępnia narzędzia debugowania.
+- Terminal – umożliwia wykonywanie poleceń systemowych, Maven, Git i innych narzędzi.
+- Problems – pomaga przeglądać błędy i ostrzeżenia wykryte w kodzie.
+
+## 5. IntelliJ IDEA Community i Ultimate
+
+IntelliJ IDEA oferuje podstawowe funkcje programistyczne bezpłatnie, a także rozszerzone możliwości w płatnej ofercie Ultimate.
+
+| Obszar                                    | Bezpłatna edycja                        | Ultimate    |
+| ----------------------------------------- | --------------------------------------- | ----------- |
+| Podstawowe programowanie w Javie          | Tak                                     | Tak         |
+| Debugowanie i refaktoryzacja              | Tak                                     | Tak         |
+| Maven i Gradle                            | Tak                                     | Tak         |
+| Zaawansowana obsługa Spring i Spring Boot | Ograniczona                             | Rozszerzona |
+| Zaawansowane narzędzia bazodanowe         | Ograniczone                             | Rozszerzone |
+| Narzędzia webowe                          | Zależne od dostępnych funkcji i wtyczek | Rozszerzone |
+
+Nazwy i zakres bezpłatnych oraz płatnych funkcji mogą zmieniać się wraz z kolejnymi wersjami produktu.
+
+## 6. IntelliJ IDEA w praktyce – przykład Java
+
+Załóżmy, że chcesz stworzyć prosty program wyświetlający komunikat w konsoli.
+
+```
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, IntelliJ IDEA!");
+    }
+}
+```
+
+W IntelliJ IDEA możesz utworzyć klasę `Main`, wpisać kod, a następnie uruchomić metodę `main()` za pomocą przycisku uruchamiania.
+
+W konsoli pojawi się wynik:
+
+```
+Hello, IntelliJ IDEA!
+```
+
+To samo środowisko pozwala później rozwijać projekt o kolejne klasy, testy jednostkowe, bazę danych i framework Spring Boot.
+
+## 7. Najważniejsze skróty klawiszowe
+
+| Skrót              | Działanie                                           |
+| ------------------ | --------------------------------------------------- |
+| `Shift` dwa razy   | Wyszukiwanie plików, klas, akcji i ustawień         |
+| `Ctrl + Space`     | Podstawowe uzupełnianie kodu                        |
+| `Alt + Enter`      | Szybkie poprawki i podpowiedzi                      |
+| `Shift + F10`      | Uruchomienie ostatniej konfiguracji                 |
+| `Shift + F9`       | Uruchomienie debugowania                            |
+| `Ctrl + Alt + L`   | Formatowanie kodu                                   |
+| `Ctrl + /`         | Komentowanie lub odkomentowanie linii               |
+| `Ctrl + Shift + F` | Wyszukiwanie tekstu w projekcie                     |
+| `Alt + Insert`     | Generowanie kodu, na przykład konstruktorów i metod |
+
+Skróty mogą się różnić w zależności od systemu operacyjnego i konfiguracji mapowania klawiszy.
+
+## 8. Zalety i wady IntelliJ IDEA
+
+Zalety:
+
+- Rozbudowane wsparcie dla języka Java.
+- Inteligentne podpowiedzi i analiza kodu.
+- Wygodne debugowanie i refaktoryzacja.
+- Integracja z Maven, Gradle, Git i JUnit.
+- Dobre wsparcie dla aplikacji Spring Boot w edycji Ultimate.
+- Możliwość rozszerzania funkcjonalności za pomocą wtyczek.
+
+Wady:
+
+- Może zużywać dużo pamięci RAM przy dużych projektach.
+- Niektóre zaawansowane funkcje wymagają płatnej edycji.
+- Duża liczba funkcji może być początkowo przytłaczająca dla początkujących.
+- Indeksowanie dużych projektów może zajmować czas.
+
+## 9. IntelliJ IDEA a inne IDE
+
+| Narzędzie          | Główne zastosowanie                                     |
+| ------------------ | ------------------------------------------------------- |
+| IntelliJ IDEA      | Java, Kotlin, Spring Boot i rozwój aplikacji            |
+| Eclipse            | Programowanie w Javie i rozwój aplikacji korporacyjnych |
+| NetBeans           | Java oraz aplikacje desktopowe i serwerowe              |
+| Visual Studio Code | Lekki edytor z rozszerzeniami do wielu języków          |
+| Visual Studio      | Głównie C#, .NET i rozwój aplikacji Microsoft           |
+
+## 10. Co warto zapamiętać?
+
+IntelliJ IDEA to jedno z najważniejszych środowisk programistycznych wykorzystywanych w ekosystemie Javy.
+
+Umożliwia pisanie, uruchamianie, testowanie, debugowanie i refaktoryzację kodu w jednym miejscu.
+
+Jest szczególnie przydatne podczas nauki Javy, pracy z Mavenem, tworzenia testów JUnit oraz budowania aplikacji backendowych w Spring Boot.

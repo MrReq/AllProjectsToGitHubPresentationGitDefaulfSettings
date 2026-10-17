@@ -1,0 +1,682 @@
+# HAProxy
+
+## 1. Czym jest HAProxy
+
+HAProxy to otwartoźródowy proxy i load balancer używany do rozdzielania ruchu sieciowego pomiędzy wiele serwerów.
+
+HAProxy jest szczególnie popularny w architekturach wysokiej dostępności.
+
+Może działać jako reverse proxy.
+
+Może działać jako load balancer dla aplikacji HTTP i HTTPS.
+
+Może również obsługiwać protokoły TCP.
+
+HAProxy jest znany z wysokiej wydajności, niewielkiego zużycia zasobów oraz dużych możliwości konfiguracji.
+
+## 2. Co oznacza nazwa HAProxy
+
+Nazwa HAProxy pochodzi od High Availability Proxy.
+
+High Availability oznacza wysoką dostępność.
+
+Proxy oznacza pośrednika pomiędzy klientem a serwerem.
+
+HAProxy został zaprojektowany między innymi po to, aby zwiększać dostępność i skalowalność usług.
+
+## 3. Reverse Proxy
+
+HAProxy może działać jako reverse proxy.
+
+W przypadku reverse proxy klient nie komunikuje się bezpośrednio z serwerem aplikacji.
+
+Schemat wygląda następująco:
+
+```text
+Klient
+   │
+   ▼
+HAProxy
+   │
+   ├──► Serwer 1
+   ├──► Serwer 2
+   └──► Serwer 3
+```
+
+Klient wysyła żądanie do HAProxy.
+
+HAProxy decyduje, do którego serwera przekazać żądanie.
+
+Odpowiedź wraca przez HAProxy do klienta.
+
+Dzięki temu klient może nie wiedzieć, który konkretny serwer obsłużył jego żądanie.
+
+## 4. Load Balancing
+
+Jednym z najważniejszych zastosowań HAProxy jest load balancing.
+
+Load balancing oznacza rozdzielanie ruchu pomiędzy wiele serwerów.
+
+Przykładowo zamiast kierować wszystkie żądania do jednego serwera:
+
+```text
+1000 żądań
+     │
+     ▼
+  Serwer 1
+```
+
+możemy rozdzielić je pomiędzy kilka serwerów:
+
+```text
+              HAProxy
+                 │
+       ┌─────────┼─────────┐
+       ▼         ▼         ▼
+   Serwer 1   Serwer 2   Serwer 3
+```
+
+Pozwala to zwiększyć wydajność systemu.
+
+## 5. Dlaczego używa się Load Balancera
+
+Load balancer pozwala rozłożyć obciążenie pomiędzy wiele serwerów.
+
+Może zwiększyć wydajność aplikacji.
+
+Może zwiększyć dostępność aplikacji.
+
+Może umożliwić skalowanie poziome.
+
+Może wykrywać niedostępne serwery.
+
+Może przestać kierować ruch do uszkodzonego serwera.
+
+## 6. Skalowanie poziome
+
+HAProxy dobrze współpracuje ze skalowaniem poziomym.
+
+Skalowanie poziome polega na dodawaniu kolejnych instancji aplikacji.
+
+Przykładowo możemy mieć:
+
+```text
+             HAProxy
+                │
+       ┌────────┼────────┐
+       ▼        ▼        ▼
+    App #1    App #2    App #3
+```
+
+Jeżeli aplikacja zaczyna obsługiwać większy ruch, można uruchomić kolejną instancję.
+
+Następnie można dodać ją do konfiguracji HAProxy.
+
+## 7. Algorytmy Load Balancing
+
+HAProxy posiada różne algorytmy rozdzielania ruchu.
+
+Jednym z najpopularniejszych jest `roundrobin`.
+
+Round robin przekazuje kolejne żądania do kolejnych serwerów.
+
+Przykładowo:
+
+```text
+Żądanie 1 → Serwer 1
+Żądanie 2 → Serwer 2
+Żądanie 3 → Serwer 3
+Żądanie 4 → Serwer 1
+Żądanie 5 → Serwer 2
+```
+
+## 8. Least Connections
+
+Algorytm `leastconn` kieruje ruch do serwera posiadającego najmniejszą liczbę aktywnych połączeń.
+
+Przykładowo:
+
+```text
+Serwer 1 → 20 połączeń
+Serwer 2 → 8 połączeń
+Serwer 3 → 14 połączeń
+```
+
+Nowe połączenie może zostać skierowane do Serwera 2.
+
+Jest to szczególnie przydatne w przypadku połączeń, które mogą trwać różną ilość czasu.
+
+## 9. Static Round Robin
+
+W przypadku `static-rr` serwery są wybierane według algorytmu round robin.
+
+W przeciwieństwie do dynamicznego `roundrobin` zmiany wag serwerów podczas działania mają ograniczenia.
+
+Algorytm jest przydatny w określonych, bardziej statycznych konfiguracjach.
+
+## 10. Wagi serwerów
+
+Serwerom można przypisywać różne wagi.
+
+Waga określa względny udział serwera w obsłudze ruchu.
+
+Przykładowo:
+
+```text
+Serwer 1 → weight 3
+Serwer 2 → weight 1
+```
+
+Serwer 1 może otrzymywać większą część ruchu niż Serwer 2.
+
+Jest to przydatne, gdy serwery posiadają różną wydajność.
+
+## 11. Health Checks
+
+HAProxy może sprawdzać dostępność serwerów backendowych.
+
+Mechanizm ten nazywa się health checking.
+
+HAProxy może regularnie wysyłać żądania kontrolne do serwera.
+
+Jeżeli serwer przestanie odpowiadać, HAProxy może oznaczyć go jako niedostępny.
+
+Ruch nie powinien być wtedy kierowany do niedziałającego serwera.
+
+Po powrocie serwera do działania HAProxy może ponownie włączyć go do obsługi ruchu.
+
+## 12. High Availability
+
+High Availability oznacza wysoką dostępność.
+
+HAProxy może zwiększać dostępność aplikacji poprzez wykorzystanie wielu serwerów backendowych.
+
+Jeżeli jeden serwer przestanie działać, pozostałe serwery mogą nadal obsługiwać klientów.
+
+Sam HAProxy również może być uruchomiony w konfiguracji zapewniającej wysoką dostępność.
+
+Przykładowo:
+
+```text
+              Klienci
+                 │
+          ┌──────┴──────┐
+          ▼             ▼
+      HAProxy 1      HAProxy 2
+          │             │
+          └──────┬──────┘
+                 │
+        ┌────────┼────────┐
+        ▼        ▼        ▼
+      App 1    App 2    App 3
+```
+
+## 13. HAProxy Active/Standby
+
+HAProxy może być uruchomiony w konfiguracji Active/Standby.
+
+Jeden serwer HAProxy obsługuje ruch.
+
+Drugi pozostaje gotowy do przejęcia działania.
+
+W przypadku awarii aktywnego HAProxy drugi może przejąć jego funkcję.
+
+Do realizacji takiej architektury można wykorzystać między innymi VRRP i Keepalived.
+
+## 14. Frontend
+
+W konfiguracji HAProxy występuje sekcja `frontend`.
+
+Frontend określa punkt, na którym HAProxy przyjmuje połączenia od klientów.
+
+Można w nim określić między innymi adres IP i port nasłuchiwania.
+
+Przykład:
+
+```text id="y6qvnp"
+frontend http_front
+    bind *:80
+    default_backend web_servers
+```
+
+HAProxy będzie nasłuchiwać na porcie 80.
+
+Żądania zostaną przekazane do backendu `web_servers`.
+
+## 15. Backend
+
+Sekcja `backend` definiuje serwery, do których HAProxy przekazuje ruch.
+
+Przykład:
+
+```text id="gk7g7h"
+backend web_servers
+    balance roundrobin
+    server web1 192.168.1.10:8080 check
+    server web2 192.168.1.11:8080 check
+```
+
+W tym przypadku mamy dwóch backendowych serwerów aplikacji.
+
+HAProxy będzie używać algorytmu round robin.
+
+Opcja `check` włącza sprawdzanie dostępności serwera.
+
+## 16. Server
+
+Dyrektywa `server` definiuje pojedynczy serwer backendowy.
+
+Przykład:
+
+```text id="4j9wz4"
+server app1 10.0.0.10:8080 check
+```
+
+`app1` jest nazwą serwera.
+
+`10.0.0.10` jest adresem IP.
+
+`8080` jest portem.
+
+`check` oznacza wykonywanie health checków.
+
+## 17. Pełny prosty przykład
+
+Przykładowa konfiguracja może wyglądać następująco:
+
+```text id="8e4e9v"
+global
+    log stdout format raw local0
+
+defaults
+    mode http
+    timeout connect 5s
+    timeout client 30s
+    timeout server 30s
+
+frontend http_front
+    bind *:80
+    default_backend web_servers
+
+backend web_servers
+    balance roundrobin
+    server web1 192.168.1.10:8080 check
+    server web2 192.168.1.11:8080 check
+    server web3 192.168.1.12:8080 check
+```
+
+Klient łączy się z HAProxy na porcie 80.
+
+HAProxy przekazuje ruch do jednego z trzech serwerów.
+
+HAProxy wykorzystuje round robin.
+
+HAProxy sprawdza dostępność każdego serwera.
+
+## 18. Global
+
+Sekcja `global` zawiera ustawienia dotyczące całego procesu HAProxy.
+
+Można w niej definiować między innymi ustawienia logowania.
+
+Można również definiować ustawienia związane z procesami i bezpieczeństwem.
+
+## 19. Defaults
+
+Sekcja `defaults` zawiera ustawienia domyślne dla kolejnych sekcji.
+
+Można tutaj określić między innymi tryb pracy.
+
+Można również określić timeouty.
+
+Przykładowo:
+
+```text id="b1cr5u"
+defaults
+    mode http
+    timeout connect 5s
+    timeout client 30s
+    timeout server 30s
+```
+
+## 20. HTTP Mode
+
+HAProxy może pracować w trybie HTTP.
+
+W tym trybie HAProxy rozumie strukturę protokołu HTTP.
+
+Może analizować między innymi metodę HTTP, ścieżkę URL oraz nagłówki.
+
+Dzięki temu można tworzyć bardziej zaawansowane reguły routingu.
+
+## 21. TCP Mode
+
+HAProxy może również działać na poziomie TCP.
+
+W trybie TCP HAProxy nie musi rozumieć protokołu aplikacyjnego.
+
+Przekazuje połączenie TCP pomiędzy klientem a serwerem.
+
+Jest to przydatne między innymi dla usług wykorzystujących inne protokoły niż HTTP.
+
+## 22. HTTPS
+
+HAProxy może obsługiwać ruch HTTPS.
+
+Może wykonywać TLS termination.
+
+Oznacza to, że klient ustanawia szyfrowane połączenie z HAProxy.
+
+HAProxy odszyfrowuje ruch.
+
+Następnie może przekazać go do backendu jako zwykły HTTP lub ponownie wykorzystać TLS.
+
+Schemat:
+
+```text
+Klient
+  │
+ HTTPS
+  │
+  ▼
+HAProxy
+  │
+ HTTP
+  ▼
+Backend
+```
+
+Dzięki temu backendy nie muszą koniecznie samodzielnie obsługiwać certyfikatów TLS.
+
+## 23. Routing na podstawie domeny
+
+HAProxy może kierować ruch na podstawie domeny.
+
+Przykładowo:
+
+```text
+api.example.com
+       │
+       ▼
+    HAProxy
+       │
+       ▼
+  API Backend
+```
+
+oraz:
+
+```text
+www.example.com
+       │
+       ▼
+    HAProxy
+       │
+       ▼
+ Web Backend
+```
+
+Pozwala to obsługiwać wiele usług za pomocą jednego punktu wejścia.
+
+## 24. Routing na podstawie URL
+
+HAProxy może również analizować ścieżkę URL.
+
+Przykładowo:
+
+```text
+/example/api
+       │
+       ▼
+   API Backend
+```
+
+natomiast:
+
+```text
+/example/images
+       │
+       ▼
+ Image Backend
+```
+
+Jest to przykład path-based routing.
+
+## 25. ACL
+
+ACL oznacza Access Control List.
+
+W HAProxy ACL umożliwiają definiowanie warunków wykorzystywanych podczas podejmowania decyzji dotyczących ruchu.
+
+ACL mogą analizować między innymi adres IP, domenę, ścieżkę URL czy nagłówki HTTP.
+
+Przykład:
+
+```text id="5ymqv3"
+acl is_api path_beg /api
+use_backend api_servers if is_api
+```
+
+Jeżeli ścieżka rozpoczyna się od `/api`, HAProxy może skierować żądanie do backendu API.
+
+## 26. Sticky Sessions
+
+Sticky sessions oznaczają utrzymywanie klienta przy określonym serwerze.
+
+Może to być potrzebne, gdy aplikacja przechowuje stan sesji lokalnie.
+
+Przykładowo:
+
+```text
+Klient A → Serwer 1
+Klient A → Serwer 1
+Klient A → Serwer 1
+```
+
+HAProxy może wykorzystać cookies lub inne mechanizmy do utrzymania takiego powiązania.
+
+W nowoczesnych systemach często preferuje się jednak aplikacje bezstanowe.
+
+## 27. Stats
+
+HAProxy posiada możliwość monitorowania swojej pracy.
+
+Można skonfigurować statystyki HAProxy.
+
+Statystyki mogą pokazywać między innymi liczbę połączeń, stan backendów oraz wykorzystanie serwerów.
+
+Przykładowa konfiguracja może udostępniać panel statystyk przez HTTP.
+
+## 28. HAProxy i Docker
+
+HAProxy może działać jako kontener Docker.
+
+Przykładowa architektura może wyglądać następująco:
+
+```text
+Internet
+   │
+   ▼
+HAProxy Container
+   │
+   ├──► App Container 1
+   ├──► App Container 2
+   └──► App Container 3
+```
+
+Jest to popularne rozwiązanie w środowiskach kontenerowych.
+
+## 29. HAProxy i Kubernetes
+
+HAProxy może również współpracować z Kubernetes.
+
+Może pełnić funkcję load balancera przed usługami uruchomionymi w klastrze.
+
+HAProxy może być wykorzystywany między innymi jako ingress controller.
+
+Może wtedy kierować ruch HTTP i HTTPS do odpowiednich usług Kubernetes.
+
+## 30. HAProxy i mikroserwisy
+
+HAProxy może być wykorzystywany w architekturach mikroserwisowych.
+
+Może pełnić funkcję punktu wejściowego dla wielu usług.
+
+Przykładowo:
+
+```text
+                    HAProxy
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+       User API     Order API    Payment API
+```
+
+Może również rozdzielać ruch pomiędzy wiele instancji każdego mikroserwisu.
+
+## 31. HAProxy a Nginx
+
+HAProxy i Nginx mogą pełnić podobne funkcje.
+
+Oba mogą działać jako reverse proxy.
+
+Oba mogą wykonywać load balancing.
+
+HAProxy jest szczególnie mocno skoncentrowany na proxy i load balancingu.
+
+Nginx posiada dodatkowo bardzo rozbudowane możliwości serwowania statycznych treści i obsługi serwera WWW.
+
+Wybór zależy od konkretnej architektury i wymagań.
+
+## 32. HAProxy a Apache
+
+HAProxy i Apache HTTP Server pełnią inne podstawowe role.
+
+Apache jest przede wszystkim serwerem HTTP.
+
+HAProxy jest przede wszystkim proxy i load balancerem.
+
+Apache może jednak również pełnić funkcje reverse proxy.
+
+W większych architekturach oba rozwiązania mogą współpracować.
+
+## 33. HAProxy a Traefik
+
+Traefik jest nowoczesnym reverse proxy i load balancerem często wykorzystywanym w środowiskach kontenerowych.
+
+HAProxy oferuje bardzo szczegółową i wydajną konfigurację.
+
+Traefik jest szczególnie wygodny w środowiskach takich jak Docker i Kubernetes, gdzie konfiguracja może być automatycznie wykrywana.
+
+Oba rozwiązania mogą być stosowane jako element infrastruktury mikroserwisowej.
+
+## 34. Zastosowania HAProxy
+
+HAProxy może być wykorzystywany jako load balancer.
+
+Może być wykorzystywany jako reverse proxy.
+
+Może obsługiwać HTTPS i TLS termination.
+
+Może zwiększać dostępność aplikacji.
+
+Może wykonywać health checks.
+
+Może rozdzielać ruch pomiędzy wiele instancji aplikacji.
+
+Może być używany w środowiskach Docker.
+
+Może być używany w środowiskach Kubernetes.
+
+Może być wykorzystywany w architekturach mikroserwisowych.
+
+## 35. Zalety HAProxy
+
+HAProxy jest bardzo wydajny.
+
+Zużywa stosunkowo niewiele zasobów.
+
+Posiada wiele algorytmów load balancingu.
+
+Posiada zaawansowany system ACL.
+
+Obsługuje HTTP i TCP.
+
+Obsługuje TLS.
+
+Posiada mechanizmy health check.
+
+Może być wykorzystywany w konfiguracjach High Availability.
+
+Jest open source.
+
+## 36. Wady HAProxy
+
+Konfiguracja HAProxy może być trudniejsza dla początkującego użytkownika.
+
+Duża liczba możliwości konfiguracyjnych zwiększa złożoność systemu.
+
+HAProxy nie jest pełnym serwerem aplikacyjnym.
+
+Nie zastępuje frameworka backendowego.
+
+Nie zastępuje bazy danych.
+
+Jego głównym zadaniem jest zarządzanie ruchem sieciowym pomiędzy klientami i usługami.
+
+## 37. HAProxy w architekturze aplikacji
+
+Typowa architektura może wyglądać tak:
+
+```text
+                 INTERNET
+                     │
+                     ▼
+                  HAProxy
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+       Backend 1  Backend 2  Backend 3
+          │          │          │
+          └──────────┼──────────┘
+                     ▼
+                  Database
+```
+
+HAProxy znajduje się pomiędzy użytkownikami a aplikacją.
+
+Jego zadaniem jest przyjmowanie ruchu i przekazywanie go do odpowiednich backendów.
+
+## 38. Najważniejsze pojęcia do zapamiętania
+
+**HAProxy** — wysokowydajny reverse proxy i load balancer.
+
+**Proxy** — pośrednik pomiędzy klientem a innym systemem.
+
+**Reverse Proxy** — serwer pośredniczący pomiędzy klientami a backendami.
+
+**Load Balancer** — system rozdzielający ruch pomiędzy wiele serwerów.
+
+**Frontend** — część konfiguracji przyjmująca ruch od klientów.
+
+**Backend** — grupa serwerów obsługujących ruch przekazywany przez HAProxy.
+
+**Health Check** — mechanizm sprawdzania dostępności serwera.
+
+**Round Robin** — algorytm równomiernego rozdzielania ruchu pomiędzy serwery.
+
+**Least Connections** — kierowanie ruchu do serwera z najmniejszą liczbą aktywnych połączeń.
+
+**ACL** — reguły pozwalające podejmować decyzje na podstawie parametrów żądania.
+
+**Sticky Session** — utrzymywanie klienta przy określonym backendzie.
+
+**TLS Termination** — zakończenie szyfrowanego połączenia TLS na HAProxy.
+
+**High Availability** — zapewnienie wysokiej dostępności usługi.
+
+**Scaling** — zwiększanie możliwości systemu poprzez dodawanie zasobów lub instancji.
+
+## 39. HAProxy w jednym zdaniu
+
+HAProxy to **wydajny, otwartoźródłowy reverse proxy i load balancer, który przyjmuje ruch od klientów, rozdziela go pomiędzy backendy, monitoruje ich dostępność i pomaga budować skalowalne oraz wysoko dostępne systemy**.

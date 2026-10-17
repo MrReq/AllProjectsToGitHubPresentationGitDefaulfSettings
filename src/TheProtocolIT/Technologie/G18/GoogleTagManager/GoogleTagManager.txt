@@ -1,0 +1,115 @@
+# Google Tag Manager (GTM)
+
+## 1. Czym jest Google Tag Manager?
+
+Google Tag Manager to bezpłatne narzędzie firmy Google, które umożliwia zarządzanie tagami i skryptami pomiarowymi na stronach internetowych oraz w obsługiwanych aplikacjach.
+
+Pozwala dodawać i konfigurować narzędzia analityczne oraz marketingowe bez konieczności każdorazowego modyfikowania kodu strony przez programistę.
+
+Google Tag Manager jest często wykorzystywany do integracji z Google Analytics 4, Google Ads oraz innymi systemami analitycznymi.
+
+## 2. Do czego służy Google Tag Manager?
+
+Google Tag Manager służy do wdrażania i zarządzania kodami śledzącymi oraz pomiarowymi.
+
+Umożliwia mierzenie kliknięć przycisków, przesyłania formularzy, pobierania plików i innych interakcji użytkowników.
+
+Pozwala konfigurować zdarzenia wysyłane do Google Analytics bez konieczności ręcznego dodawania osobnego skryptu dla każdego zdarzenia.
+
+Ułatwia również kontrolowanie, kiedy określone tagi powinny być uruchamiane, na przykład po wyświetleniu strony lub kliknięciu wybranego elementu.
+
+## 3. Najważniejsze elementy Google Tag Manager
+
+Tag to fragment kodu lub konfiguracja integracji, która wykonuje określone działanie, na przykład wysyła zdarzenie do Google Analytics.
+
+Trigger (reguła uruchamiania) określa, kiedy tag ma zostać uruchomiony, na przykład po kliknięciu przycisku lub załadowaniu strony.
+
+Variable (zmienna) przechowuje albo odczytuje wartość wykorzystywaną przez tagi i reguły, na przykład adres strony lub tekst klikniętego elementu.
+
+Data Layer (warstwa danych) to mechanizm przekazywania informacji ze strony internetowej do Google Tag Managera za pomocą JavaScript.
+
+Container (kontener) to zbiór konfiguracji tagów, reguł i zmiennych przypisany do strony lub aplikacji.
+
+Preview Mode pozwala sprawdzić, które tagi uruchamiają się podczas testowania konfiguracji.
+
+## 4. Jak działa Google Tag Manager?
+
+Właściciel strony tworzy kontener w Google Tag Managerze i umieszcza wymagany kod kontenera na swojej stronie.
+
+Następnie konfiguruje tagi, reguły uruchamiania oraz zmienne w interfejsie narzędzia.
+
+Gdy użytkownik wykonuje określoną czynność, Google Tag Manager sprawdza, czy spełnione zostały warunki uruchomienia danego tagu.
+
+Jeżeli warunki są spełnione i pozwalają na to ustawienia zgód oraz konfiguracja, tag wykonuje przypisane działanie, na przykład wysyła zdarzenie do Google Analytics.
+
+Po przetestowaniu zmian można opublikować nową wersję kontenera.
+
+## 5. Przykład zastosowania
+
+Załóżmy, że prowadzisz sklep internetowy i chcesz mierzyć kliknięcia przycisku „Dodaj do koszyka”.
+
+Za pomocą Google Tag Managera możesz skonfigurować regułę reagującą na kliknięcie tego przycisku i tag wysyłający zdarzenie do Google Analytics 4.
+
+Dzięki temu możesz analizować, jak często użytkownicy dodają produkty do koszyka i jak zachowują się podczas zakupów.
+
+W bardziej rozbudowanych sklepach warto przekazywać dane o produkcie, jego identyfikatorze i cenie za pomocą warstwy danych, zamiast opierać pomiar wyłącznie na tekście przycisku.
+
+## 6. Google Tag Manager a Google Analytics
+
+Google Tag Manager i Google Analytics pełnią różne funkcje.
+
+Google Tag Manager służy do zarządzania wdrożeniem tagów i określania warunków ich uruchamiania.
+
+Google Analytics służy do zbierania, analizowania i prezentowania danych o użytkownikach oraz ich zachowaniach.
+
+GTM może wysyłać zdarzenia do GA4, a Google Analytics wykorzystuje je do tworzenia raportów.
+
+Oba narzędzia często współpracują ze sobą, ale Google Analytics można również wdrożyć bez Google Tag Managera.
+
+## 7. Google Tag Manager a Google Ads
+
+Google Tag Manager umożliwia wdrażanie tagów Google Ads i konfigurację pomiaru konwersji.
+
+Dzięki temu można mierzyć określone działania użytkowników, takie jak dokonanie zakupu lub wysłanie formularza kontaktowego.
+
+Zebrane dane pomagają oceniać skuteczność kampanii reklamowych, pod warunkiem prawidłowego skonfigurowania pomiarów i wymaganych zgód.
+
+## 8. Zalety Google Tag Manager
+
+Google Tag Manager upraszcza zarządzanie skryptami analitycznymi i marketingowymi.
+
+Pozwala szybciej wdrażać zmiany pomiarowe bez każdorazowej ingerencji w kod strony.
+
+Umożliwia testowanie konfiguracji przed jej opublikowaniem.
+
+Zapewnia historię wersji kontenera, co ułatwia kontrolowanie zmian i przywracanie wcześniejszych konfiguracji.
+
+Integruje się z wieloma popularnymi narzędziami analitycznymi i reklamowymi.
+
+## 9. Wady i ograniczenia Google Tag Manager
+
+Błędna konfiguracja tagów może powodować nieprawidłowe pomiary lub wielokrotne rejestrowanie tych samych zdarzeń.
+
+Bardziej zaawansowane wdrożenia mogą wymagać znajomości JavaScript, HTML, CSS i warstwy danych.
+
+Google Tag Manager nie zastępuje systemu analitycznego i sam w sobie nie zapewnia pełnych raportów dotyczących zachowań użytkowników.
+
+Wdrożenie musi uwzględniać wymagania dotyczące prywatności, zarządzania zgodami i ochrony danych osobowych, w tym odpowiednie zasady uruchamiania tagów przed uzyskaniem wymaganej zgody.
+
+## 10. Znaczenie Google Tag Manager w pracy informatyka
+
+Google Tag Manager jest przydatny dla specjalistów marketingu internetowego, analityków danych, administratorów stron i programistów frontendowych.
+
+Analitycy wykorzystują go do wdrażania pomiarów zdarzeń i konwersji.
+
+Specjaliści marketingu korzystają z niego do zarządzania tagami reklamowymi.
+
+Programiści mogą integrować stronę z warstwą danych, aby przekazywać do narzędzi analitycznych informacje o działaniach użytkowników.
+
+## 11. Podsumowanie
+
+Google Tag Manager to narzędzie do zarządzania tagami pomiarowymi i marketingowymi na stronach internetowych oraz w obsługiwanych aplikacjach.
+
+Jego najważniejsze elementy to tagi, reguły uruchamiania, zmienne, warstwa danych i kontenery.
+
+Warto poznać Google Tag Manager, jeśli interesujesz się analityką internetową, marketingiem cyfrowym, tworzeniem stron internetowych lub mierzeniem konwersji.

@@ -1,0 +1,445 @@
+# BentoML — notatka
+
+## 1. Czym jest BentoML?
+
+BentoML to framework służący do wdrażania i uruchamiania modeli uczenia maszynowego.
+
+BentoML pozwala przygotować model ML do działania jako usługa.
+
+Możemy dzięki niemu udostępnić model za pomocą API.
+
+BentoML jest wykorzystywany przede wszystkim w procesie wdrażania modeli do środowiska produkcyjnego.
+
+Pozwala połączyć model uczenia maszynowego z aplikacją lub innymi usługami.
+
+## 2. Machine Learning
+
+Machine Learning oznacza uczenie maszynowe.
+
+Model Machine Learning jest tworzony na podstawie danych.
+
+Po wytrenowaniu model może wykonywać predykcje na nowych danych.
+
+Samo wytrenowanie modelu nie oznacza jednak jeszcze, że model jest gotowy do wykorzystania przez użytkowników.
+
+Model należy również odpowiednio wdrożyć.
+
+BentoML pomaga właśnie w tym etapie.
+
+## 3. Model ML
+
+Model ML jest algorytmem lub strukturą wytrenowaną na podstawie danych.
+
+Model może na przykład rozpoznawać obrazy, przewidywać wartości lub klasyfikować dane.
+
+Po wytrenowaniu model można zapisać i następnie wykorzystać do wykonywania predykcji.
+
+BentoML pozwala przygotować taki model do uruchomienia jako usługi.
+
+## 4. Inference
+
+Inference oznacza wykonywanie predykcji przez wytrenowany model.
+
+Podczas inference aplikacja przekazuje dane wejściowe do modelu.
+
+Model analizuje dane.
+
+Następnie zwraca wynik predykcji.
+
+Można więc przedstawić podstawowy schemat.
+
+Dane wejściowe → model ML → predykcja → odpowiedź.
+
+## 5. Model Serving
+
+Model Serving oznacza udostępnianie wytrenowanego modelu innym aplikacjom.
+
+Aplikacja może wysłać dane do serwera.
+
+Serwer przekazuje dane do modelu.
+
+Model wykonuje predykcję.
+
+Wynik zostaje zwrócony do aplikacji.
+
+BentoML służy między innymi właśnie do realizacji takiego model serving.
+
+## 6. API
+
+API oznacza Application Programming Interface.
+
+BentoML pozwala udostępniać modele za pomocą API.
+
+Inna aplikacja może wysłać żądanie do odpowiedniego endpointu.
+
+Endpoint przyjmuje dane wejściowe.
+
+Następnie model wykonuje predykcję.
+
+Wynik może zostać zwrócony na przykład w formacie JSON.
+
+## 7. Service
+
+Jednym z podstawowych pojęć BentoML jest Service.
+
+Service definiuje sposób udostępniania modelu jako usługi.
+
+W serwisie określamy między innymi funkcje, które mogą być wywoływane przez API.
+
+Service może korzystać z jednego lub kilku modeli.
+
+Możemy dzięki temu zbudować usługę wykonującą określone operacje związane z Machine Learning.
+
+## 8. Endpoint
+
+Endpoint jest punktem dostępu do określonej funkcjonalności usługi.
+
+Endpoint może przyjmować dane od klienta.
+
+Następnie może przekazać je do modelu.
+
+Model wykonuje predykcję.
+
+Wynik jest zwracany do klienta.
+
+Możemy więc traktować endpoint jako miejsce, przez które aplikacja komunikuje się z modelem.
+
+## 9. Decoratory
+
+BentoML wykorzystuje dekoratory do określania zachowania elementów usługi.
+
+Dekorator pozwala poinformować BentoML, że dana funkcja powinna być wykorzystywana jako część usługi.
+
+Dzięki temu framework może odpowiednio obsłużyć wywołanie funkcji.
+
+Dekoratory pomagają również określić sposób udostępniania funkcjonalności modelu.
+
+## 10. Modele
+
+BentoML może współpracować z różnymi frameworkami Machine Learning.
+
+Może być wykorzystywany między innymi z modelami tworzonymi przy użyciu PyTorch, TensorFlow, scikit-learn oraz innych technologii.
+
+Dzięki temu BentoML nie jest ograniczone do jednego rodzaju modeli.
+
+Model może zostać zapisany i następnie wykorzystany podczas budowania usługi.
+
+## 11. Model Store
+
+BentoML posiada mechanizmy służące do przechowywania modeli.
+
+Modele mogą być rejestrowane i zarządzane w środowisku BentoML.
+
+Pozwala to oddzielić model od kodu usługi.
+
+Możemy dzięki temu określić, którego modelu powinna używać dana usługa.
+
+## 12. Model Import
+
+Model wytrenowany za pomocą innego frameworka może zostać zaimportowany do środowiska BentoML.
+
+Przykładowo możemy posiadać wcześniej wytrenowany model scikit-learn.
+
+Następnie możemy zarejestrować go w BentoML.
+
+Usługa może później korzystać z tego modelu podczas wykonywania predykcji.
+
+## 13. Bento
+
+Jednym z najważniejszych pojęć BentoML jest Bento.
+
+Bento jest pakietem zawierającym elementy potrzebne do uruchomienia usługi Machine Learning.
+
+Można w nim zawrzeć między innymi kod usługi, modele oraz wymagane zależności.
+
+Bento pozwala przygotować aplikację ML w sposób umożliwiający jej wdrożenie.
+
+## 14. Packaging
+
+Packaging oznacza przygotowanie aplikacji i jej zależności w formie możliwej do wdrożenia.
+
+W przypadku BentoML pakiet zawiera elementy potrzebne do uruchomienia usługi.
+
+Może to obejmować kod, modele, zależności oraz konfigurację.
+
+Dzięki temu środowisko produkcyjne może uruchomić przygotowaną usługę bez ręcznego konfigurowania wszystkich elementów.
+
+## 15. Dependencies
+
+Aplikacja Machine Learning może wymagać wielu bibliotek.
+
+Przykładami mogą być biblioteki związane z Pythonem, Machine Learningiem lub przetwarzaniem danych.
+
+BentoML pozwala określić zależności wymagane przez usługę.
+
+Dzięki temu podczas wdrażania można przygotować odpowiednie środowisko.
+
+## 16. Python
+
+BentoML jest mocno związane z ekosystemem Python.
+
+Kod usługi BentoML może być napisany w Pythonie.
+
+Python jest bardzo popularnym językiem w dziedzinie Machine Learning.
+
+Dzięki temu BentoML może być wykorzystywane razem z wieloma popularnymi bibliotekami ML.
+
+## 17. Prediction Service
+
+Prediction Service jest usługą odpowiedzialną za wykonywanie predykcji.
+
+Klient przekazuje dane wejściowe do usługi.
+
+Usługa przekazuje dane do modelu.
+
+Model wykonuje predykcję.
+
+Wynik zostaje zwrócony klientowi.
+
+BentoML pozwala przygotować taki proces jako działającą usługę.
+
+## 18. REST API
+
+BentoML może udostępniać funkcjonalność modeli poprzez API dostępne przez HTTP.
+
+Dzięki temu klient może komunikować się z modelem za pomocą standardowych żądań HTTP.
+
+Aplikacja może wysłać dane do odpowiedniego endpointu.
+
+Usługa wykonuje predykcję.
+
+Następnie zwraca wynik.
+
+## 19. JSON
+
+Dane przesyłane pomiędzy klientem a usługą mogą być reprezentowane w formacie JSON.
+
+JSON jest popularnym formatem wymiany danych pomiędzy aplikacjami.
+
+Może zawierać dane wejściowe potrzebne do wykonania predykcji.
+
+Może również reprezentować wynik zwrócony przez usługę.
+
+## 20. Local Development
+
+BentoML pozwala uruchamiać usługę lokalnie.
+
+Jest to przydatne podczas tworzenia i testowania aplikacji.
+
+Programista może najpierw uruchomić usługę na swoim komputerze.
+
+Następnie może wysyłać do niej żądania i sprawdzać wyniki predykcji.
+
+Dopiero później usługa może zostać przygotowana do wdrożenia produkcyjnego.
+
+## 21. BentoML CLI
+
+BentoML posiada interfejs wiersza poleceń.
+
+CLI pozwala wykonywać różne operacje związane z projektami BentoML.
+
+Możemy za jego pomocą między innymi uruchamiać usługi oraz przygotowywać pakiety do wdrożenia.
+
+CLI ułatwia automatyzację pracy z BentoML.
+
+## 22. Deployment
+
+Deployment oznacza wdrożenie aplikacji lub usługi do środowiska, w którym będzie dostępna dla użytkowników lub innych systemów.
+
+BentoML pozwala przygotować usługę ML do wdrożenia.
+
+Możemy dzięki temu przenieść model z lokalnego środowiska do środowiska produkcyjnego.
+
+Proces wdrożenia może obejmować przygotowanie obrazu kontenera oraz uruchomienie usługi.
+
+## 23. Docker
+
+BentoML może współpracować z Dockerem.
+
+Docker pozwala uruchamiać aplikacje w kontenerach.
+
+Usługa BentoML może zostać spakowana w sposób umożliwiający uruchomienie jej jako kontenera.
+
+Dzięki temu środowisko uruchomieniowe może być bardziej przewidywalne.
+
+Kontener może zawierać kod aplikacji, model oraz wymagane zależności.
+
+## 24. Kubernetes
+
+BentoML może być wykorzystywane w środowiskach wykorzystujących Kubernetes.
+
+Kubernetes służy do zarządzania kontenerami i usługami.
+
+Usługi Machine Learning mogą być uruchamiane w klastrze Kubernetes.
+
+Pozwala to między innymi na zarządzanie wieloma instancjami usługi.
+
+BentoML może więc być elementem większej infrastruktury produkcyjnej.
+
+## 25. Skalowanie
+
+Aplikacja Machine Learning może otrzymywać dużą liczbę żądań.
+
+W takiej sytuacji jedna instancja usługi może nie być wystarczająca.
+
+Można wtedy uruchomić wiele instancji usługi.
+
+Proces zwiększania liczby instancji nazywamy skalowaniem poziomym.
+
+BentoML może być wykorzystywane w środowiskach, w których takie skalowanie jest potrzebne.
+
+## 26. Batch Inference
+
+Batch Inference oznacza wykonywanie predykcji dla większej liczby danych jednocześnie.
+
+Zamiast wysyłać każde dane osobno, możemy przetworzyć większą partię danych.
+
+Jest to przydatne w przypadku dużych zbiorów danych.
+
+Batch processing może również zwiększyć wydajność przetwarzania.
+
+## 27. Monitoring
+
+Usługi Machine Learning powinny być monitorowane.
+
+Monitoring pozwala obserwować działanie aplikacji.
+
+Możemy monitorować między innymi liczbę żądań, czas odpowiedzi oraz występujące błędy.
+
+Monitoring jest szczególnie ważny w środowisku produkcyjnym.
+
+Pozwala szybciej wykrywać problemy z działaniem usługi.
+
+## 28. Logging
+
+Logging oznacza zapisywanie informacji dotyczących działania aplikacji.
+
+Logi mogą zawierać informacje o wykonywanych operacjach oraz błędach.
+
+Mogą być wykorzystywane podczas diagnozowania problemów.
+
+BentoML może współpracować z mechanizmami logowania wykorzystywanymi przez aplikacje Python.
+
+## 29. Model Versioning
+
+Modele Machine Learning mogą mieć różne wersje.
+
+Możemy posiadać starszą wersję modelu oraz jego nowszą wersję.
+
+Wersjonowanie pozwala określić, która wersja modelu jest wykorzystywana przez usługę.
+
+Jest to ważne podczas aktualizowania modeli w środowisku produkcyjnym.
+
+## 30. Model Lifecycle
+
+Model Machine Learning przechodzi przez kilka etapów.
+
+Najpierw model jest tworzony i trenowany.
+
+Następnie jest testowany.
+
+Później może zostać zapisany i przygotowany do wdrożenia.
+
+BentoML może być wykorzystywane na etapie przygotowania modelu do udostępnienia.
+
+Po wdrożeniu model może być monitorowany i aktualizowany.
+
+## 31. BentoML a MLOps
+
+MLOps oznacza praktyki związane z tworzeniem, wdrażaniem i utrzymywaniem systemów Machine Learning.
+
+Obejmuje między innymi trenowanie modeli, wersjonowanie, wdrażanie oraz monitorowanie.
+
+BentoML może być jednym z narzędzi wykorzystywanych w procesie MLOps.
+
+Pozwala połączyć model Machine Learning z aplikacją działającą jako usługa.
+
+## 32. BentoML a FastAPI
+
+BentoML i FastAPI mogą być wykorzystywane do tworzenia usług dostępnych przez HTTP.
+
+FastAPI jest frameworkiem służącym do tworzenia API w Pythonie.
+
+BentoML koncentruje się natomiast na wdrażaniu i obsłudze modeli Machine Learning.
+
+BentoML zapewnia więc funkcjonalności szczególnie przydatne w przypadku aplikacji wykorzystujących modele ML.
+
+## 33. BentoML a frameworki Machine Learning
+
+BentoML nie jest frameworkiem służącym do trenowania wszystkich modeli Machine Learning.
+
+Jego głównym zadaniem jest przygotowanie modeli do użycia jako usług.
+
+Model może zostać wytrenowany wcześniej przy użyciu odpowiedniego frameworka.
+
+Następnie BentoML może zostać wykorzystane do jego udostępnienia.
+
+Można więc rozdzielić proces trenowania modelu od procesu jego wdrażania.
+
+## 34. BentoML a produkcja
+
+W środowisku produkcyjnym model musi być dostępny w sposób stabilny i przewidywalny.
+
+Usługa powinna posiadać odpowiednie zależności.
+
+Powinna również prawidłowo obsługiwać żądania.
+
+Powinna być możliwa do monitorowania i aktualizowania.
+
+BentoML pomaga przygotować model do takiego sposobu działania.
+
+## 35. Bezpieczeństwo
+
+Usługi Machine Learning powinny być odpowiednio zabezpieczone.
+
+Nie każdy użytkownik powinien mieć możliwość wysyłania dowolnych żądań do modelu.
+
+W zależności od zastosowania może być potrzebne uwierzytelnianie oraz autoryzacja.
+
+Należy również kontrolować dane przekazywane do modelu.
+
+Bezpieczeństwo jest szczególnie ważne podczas udostępniania modeli przez Internet.
+
+## 36. Typowy workflow w BentoML
+
+Typowa praca może rozpocząć się od wytrenowania modelu Machine Learning.
+
+Następnie model zostaje zapisany.
+
+Model jest rejestrowany lub przygotowywany do wykorzystania przez BentoML.
+
+Następnie tworzona jest usługa definiująca sposób wykonywania predykcji.
+
+Usługa może zostać uruchomiona lokalnie w celu przeprowadzenia testów.
+
+Po zakończeniu testów aplikacja może zostać spakowana.
+
+Następnie może zostać wdrożona do środowiska produkcyjnego.
+
+## 37. Jak uczyć się BentoML?
+
+Podczas nauki BentoML najpierw warto zrozumieć pojęcia Machine Learning, inference oraz model serving.
+
+Następnie warto poznać pojęcia Service, endpoint oraz model.
+
+Kolejnym krokiem powinno być nauczenie się tworzenia prostej usługi.
+
+Następnie warto nauczyć się udostępniania modelu przez API.
+
+Później można przejść do packagingu oraz tworzenia Bento.
+
+Kolejnym etapem powinno być uruchamianie aplikacji w Dockerze.
+
+Na końcu warto poznać wdrażanie usług w środowiskach takich jak Kubernetes oraz podstawy monitorowania aplikacji.
+
+## 38. Najważniejsze pojęcia
+
+Najważniejsze pojęcia, które warto zapamiętać, to BentoML, Machine Learning, model, inference, model serving, Service, endpoint, API, REST API, model store, Bento, packaging, dependencies, deployment, Docker, Kubernetes, scaling, monitoring, logging, model versioning oraz MLOps.
+
+Najważniejsza zasada dotycząca BentoML jest taka, że **BentoML służy przede wszystkim do przygotowywania, pakowania, uruchamiania i wdrażania modeli Machine Learning jako usług**.
+
+BentoML pozwala połączyć wytrenowany model z API.
+
+Dzięki temu inne aplikacje mogą komunikować się z modelem i otrzymywać wyniki jego predykcji.
+
+BentoML jest więc przede wszystkim narzędziem związanym z etapem **wdrażania i udostępniania modeli Machine Learning**, a nie z samym procesem trenowania modelu.

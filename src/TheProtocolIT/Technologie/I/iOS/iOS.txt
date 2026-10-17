@@ -1,0 +1,142 @@
+# iOS – notatka
+
+## 1. Czym jest iOS?
+
+iOS to mobilny system operacyjny opracowany przez firmę Apple, przeznaczony przede wszystkim dla smartfonów iPhone.
+
+System odpowiada za zarządzanie sprzętem urządzenia, uruchamianie aplikacji, obsługę interfejsu użytkownika, komunikację sieciową oraz ochronę danych.
+
+iOS stanowi podstawę ekosystemu aplikacji mobilnych Apple i umożliwia korzystanie z takich funkcji jak App Store, Face ID, Siri, Apple Pay czy iCloud.
+
+System jest rozwijany przez Apple i działa na urządzeniach zgodnych z daną wersją oprogramowania.
+
+## 2. Do czego służy iOS?
+
+- Obsługa smartfona – zarządzanie ekranem, aparatem, dźwiękiem i innymi podzespołami.
+- Uruchamianie aplikacji – obsługa programów instalowanych z App Store.
+- Komunikacja – korzystanie z Internetu, Wi-Fi, Bluetooth i sieci komórkowych.
+- Bezpieczeństwo – kontrola uprawnień aplikacji, szyfrowanie danych i mechanizmy ochrony urządzenia.
+- Multimedia – odtwarzanie muzyki, nagrywanie filmów i wykonywanie zdjęć.
+- Synchronizacja danych – współpraca z iCloud oraz innymi usługami Apple.
+- Integracja z ekosystemem Apple – współpraca z urządzeniami takimi jak Mac, Apple Watch i iPad, choć iPad korzysta obecnie z odrębnego systemu iPadOS.
+
+## 3. Najważniejsze technologie związane z iOS
+
+Swift to nowoczesny język programowania rozwijany przez Apple, wykorzystywany do tworzenia aplikacji na platformy Apple.
+
+SwiftUI to framework umożliwiający budowanie interfejsów użytkownika za pomocą deklaratywnego kodu.
+
+UIKit to framework służący do tworzenia i zarządzania interfejsami aplikacji na iOS.
+
+Xcode to oficjalne środowisko programistyczne Apple, wykorzystywane do tworzenia, testowania i debugowania aplikacji na iOS.
+
+Core Data to framework umożliwiający zarządzanie modelem danych i ich przechowywaniem w aplikacjach.
+
+ARKit to framework wspierający tworzenie aplikacji wykorzystujących rozszerzoną rzeczywistość (AR).
+
+Core Location umożliwia korzystanie z usług lokalizacyjnych, na przykład określanie położenia urządzenia za zgodą użytkownika.
+
+## 4. Architektura iOS
+
+iOS wykorzystuje warstwową architekturę, w której poszczególne poziomy odpowiadają za różne funkcje systemu.
+
+Cocoa Touch
+
+Interfejsy użytkownika, obsługa dotyku i cykl życia aplikacji
+
+Media
+
+Grafika, animacje, dźwięk i wideo
+
+Core Services
+
+Dane, sieć, lokalizacja i podstawowe usługi systemowe
+
+Core OS
+
+Jądro systemu, sterowniki, pamięć i bezpieczeństwo
+
+Warstwy współpracują ze sobą, aby aplikacje mogły korzystać ze sprzętu oraz usług systemowych bez konieczności bezpośredniego zarządzania wszystkimi szczegółami sprzętowymi.
+
+Nazwy warstw przedstawiają tradycyjny model architektury iOS; współczesne frameworki Apple nie zawsze odpowiadają mu w sposób ścisły.
+
+## 5. Tworzenie aplikacji na iOS
+
+Programowanie aplikacji na iOS najczęściej odbywa się w języku Swift z wykorzystaniem Xcode.
+
+Typowy proces tworzenia aplikacji wygląda następująco:
+
+1. Przygotowanie projektu w Xcode.
+2. Zaprojektowanie interfejsu za pomocą SwiftUI lub UIKit.
+3. Implementacja logiki biznesowej.
+4. Integracja z API, bazą danych lub usługami systemowymi.
+5. Testowanie aplikacji w symulatorze lub na fizycznym urządzeniu.
+6. Przygotowanie aplikacji do dystrybucji, na przykład przez App Store.
+
+Przykładowy kod aplikacji wykorzystującej SwiftUI:
+
+```
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("Witaj w iOS!")
+                .font(.title)
+
+            Button("Kliknij mnie") {
+                print("Przycisk został kliknięty")
+            }
+        }
+        .padding()
+    }
+}
+```
+
+Kod tworzy prosty interfejs z tekstem oraz przyciskiem, który po naciśnięciu zapisuje komunikat w konsoli.
+
+## 6. Bezpieczeństwo iOS
+
+iOS wykorzystuje wiele mechanizmów ochrony urządzenia i danych użytkownika.
+
+- Sandboxing – ogranicza dostęp aplikacji do zasobów innych aplikacji i systemu.
+- Code Signing – umożliwia weryfikację podpisu kodu i jego pochodzenia.
+- Face ID i Touch ID – wspierają biometryczne uwierzytelnianie użytkownika na zgodnych urządzeniach.
+- App Store Review – obejmuje proces weryfikacji aplikacji przeznaczonych do dystrybucji w App Store.
+- Kontrola uprawnień – pozwala użytkownikowi decydować o dostępie aplikacji między innymi do aparatu, mikrofonu i lokalizacji.
+- Szyfrowanie danych – chroni dane urządzenia i komunikację w odpowiednio skonfigurowanych rozwiązaniach.
+
+## 7. Zalety i wady iOS
+
+Zalety:
+
+- Ścisła integracja systemu ze sprzętem Apple.
+- Długoterminowe wsparcie aktualizacjami dla wielu urządzeń.
+- Rozbudowane mechanizmy bezpieczeństwa i prywatności.
+- Dobre narzędzia programistyczne w ekosystemie Apple.
+- Spójne środowisko dla aplikacji mobilnych.
+
+Wady:
+
+- Ograniczona możliwość instalowania oprogramowania spoza standardowych kanałów dystrybucji.
+- Mniejsza swoboda personalizacji systemu niż w wielu konfiguracjach Androida.
+- Tworzenie i testowanie aplikacji natywnych wymaga zazwyczaj dostępu do środowiska macOS i Xcode.
+- Publikowanie aplikacji i korzystanie z niektórych usług deweloperskich może wiązać się z dodatkowymi wymaganiami i opłatami.
+
+## 8. iOS a inne systemy operacyjne
+
+| System  | Producent / organizacja        | Główne zastosowanie                                  |
+| ------- | ------------------------------ | ---------------------------------------------------- |
+| iOS     | Apple                          | Smartfony iPhone                                     |
+| Android | Google i ekosystem producentów | Smartfony i tablety                                  |
+| iPadOS  | Apple                          | Tablety iPad                                         |
+| Windows | Microsoft                      | Komputery osobiste i urządzenia zgodne z daną wersją |
+| macOS   | Apple                          | Komputery Mac                                        |
+
+## 9. Co warto zapamiętać?
+
+iOS to mobilny system operacyjny Apple przeznaczony przede wszystkim dla iPhone'ów.
+
+Najważniejsze technologie związane z tworzeniem aplikacji na tę platformę to Swift, SwiftUI, UIKit i Xcode.
+
+iOS odpowiada za obsługę sprzętu, uruchamianie aplikacji, bezpieczeństwo oraz integrację z usługami Apple, a programiści wykorzystują udostępniane frameworki do budowania aplikacji mobilnych.

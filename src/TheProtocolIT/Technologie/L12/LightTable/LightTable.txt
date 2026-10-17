@@ -1,0 +1,142 @@
+# Light Table – kompletna notatka
+
+## 1. Czym jest Light Table?
+
+Light Table to otwartoźródłowe środowisko programistyczne (IDE – Integrated Development Environment), które zostało zaprojektowane z myślą o interaktywnym programowaniu, szybkim eksperymentowaniu z kodem i natychmiastowym obserwowaniu wyników jego działania.
+
+Projekt zyskał popularność dzięki podejściu, w którym programista może sprawdzać rezultaty działania kodu bez konieczności ciągłego uruchamiania całej aplikacji.
+
+Light Table udostępnia edytor kodu, możliwość pracy z różnymi językami programowania oraz interaktywne funkcje prezentowania wyników bezpośrednio w środowisku programistycznym.
+
+Narzędzie było szczególnie kojarzone z językami Clojure, JavaScript i Python oraz z ideą programowania interaktywnego.
+
+[Chris Granger - Light Table 0.4](https://images.openai.com/static-rsc-4/QTnycgKIgoAvxvi-5asMdRDrAOoS4BC3TCsXbXFOB7QTeLi-M97J9gTrqOrCKSof04C8RLwHtpM7vqFreGKCKY_C-l2QHiMb-_QQ2U2U1XxNnBAfgquuc2t9AAE4EV7DUGyE1Eaxrrf3a2Ef9br00KxMSLJm8dDAW8d1DHZ4w_4?purpose=inline)
+
+[Chris Granger - Light Table 0.4](https://images.openai.com/static-rsc-4/61gBAP4xnSx4ReSxUsDeiGBHq_7QkqhbczgdKtTgAXQAcivWL5IKjkfbwh-dI1gtPqVfjz5DqJArdvoEnSw0hJHdQp9cVGYVDRvuFuLn_qZ7hRHibTTiAPY4aS8wq2CoRK0Quyt_iwo5ZFEQJCv86MYELRDa5-UJySJnW2MvG3c?purpose=inline)
+
+[Light Table Part 1: An Introduction |        Matt Machuga: Engineering Leader / Educator](https://images.openai.com/static-rsc-4/X2CvtcKtKRn2IwA_grdp1phzgkOpzFXyUcPB76oumx4TS3cY8VkjcPVg_DiPeNFWx108wl7N5yt5z5Oxon5xxqRy2_gb5UArpMYPUyAIpn1kyT3XLhuxZTxY8kpWu3-mMPdoy1JlrV6GTFGJ2WKjtyYwEgkAfJqHO_mbeMX3woY?purpose=inline)
+
+9
+
+## 2. Do czego służy Light Table?
+
+Light Table służy do pisania, uruchamiania i eksperymentowania z kodem źródłowym w środowisku, które ułatwia obserwowanie wyników pracy.
+
+Najważniejsze zastosowania to:
+
+- Pisanie i edytowanie kodu źródłowego.
+- Interaktywne testowanie fragmentów kodu.
+- Szybkie sprawdzanie wartości zmiennych i wyrażeń.
+- Nauka programowania.
+- Eksperymentowanie z językiem Clojure i jego ekosystemem.
+- Praca z kodem JavaScript.
+- Prototypowanie rozwiązań i testowanie pomysłów.
+- Obserwowanie wyników obliczeń bezpośrednio w edytorze.
+
+Przykładowo podczas nauki programowania można wpisać wyrażenie, sprawdzić jego wynik, zmienić kod i natychmiast zobaczyć rezultat bez przechodzenia do osobnego okna konsoli.
+
+## 3. Jak działa Light Table?
+
+Jedną z najważniejszych cech Light Table jest interaktywna ewaluacja kodu, czyli możliwość wykonywania fragmentów programu i prezentowania wyników w trakcie pracy.
+
+W tradycyjnym edytorze programista często musi uruchomić program, przejść do konsoli i odszukać wynik.
+
+Light Table stara się skrócić ten proces, prezentując informacje bezpośrednio w środowisku edycji.
+
+Przykładowy przebieg pracy wygląda następująco:
+
+1\. Pisanie kodu
+
+Programista tworzy wyrażenie lub funkcję
+
+2\. Wykonanie fragmentu kodu
+
+Środowisko przekazuje kod do odpowiedniego procesu wykonawczego
+
+3\. Podgląd wyniku
+
+Wynik jest prezentowany bezpośrednio w edytorze
+
+4\. Poprawianie i eksperymentowanie
+
+Programista zmienia kod i ponownie sprawdza wynik
+
+Takie podejście pomaga szybciej zrozumieć zachowanie programu i ogranicza konieczność wielokrotnego przełączania się pomiędzy edytorem a konsolą.
+
+## 4. Najważniejsze funkcje Light Table
+
+Inline Evaluation umożliwia prezentowanie wyników wykonywania wyrażeń bezpośrednio w edytorze.
+
+Watchers pozwalają obserwować wartości i wyniki powiązane z kodem podczas pracy.
+
+Interaktywny edytor zapewnia środowisko do pisania kodu i szybkiego eksperymentowania z jego fragmentami.
+
+Integracja z językami programowania umożliwia pracę z odpowiednio skonfigurowanymi środowiskami wykonawczymi.
+
+Rozszerzenia i wtyczki pozwalają rozbudowywać funkcjonalność środowiska.
+
+Podgląd wyników ułatwia analizowanie rezultatów działania wyrażeń, funkcji i obliczeń.
+
+Dostępność poszczególnych funkcji zależy od języka, konfiguracji i używanych rozszerzeń.
+
+## 5. Light Table a tradycyjne IDE
+
+Light Table różni się od klasycznych środowisk programistycznych przede wszystkim naciskiem na interaktywność.
+
+| Cecha               | Light Table                                    | IntelliJ IDEA                                       |
+| ------------------- | ---------------------------------------------- | --------------------------------------------------- |
+| Główna idea         | Interaktywna praca z kodem                     | Rozbudowane środowisko programistyczne              |
+| Podgląd wyników     | Bezpośrednio w edytorze, gdy obsługiwany       | Debugger, konsola i narzędzia IDE                   |
+| Języki              | Między innymi Clojure i JavaScript             | Szczególnie Java i Kotlin, zależnie od konfiguracji |
+| Debugowanie         | Zależne od integracji                          | Rozbudowane narzędzia debugowania                   |
+| Ekosystem           | Mniejszy i historycznie ograniczony            | Rozbudowany ekosystem wtyczek i narzędzi            |
+| Typowe zastosowanie | Eksperymentowanie i programowanie interaktywne | Rozwój pełnych aplikacji i dużych projektów         |
+
+Light Table nie jest bezpośrednim zamiennikiem wszystkich współczesnych IDE. Jego największą zaletą jest specyficzne podejście do interaktywnego programowania.
+
+## 6. Zalety Light Table
+
+- Ułatwia szybkie eksperymentowanie z kodem.
+- Pozwala obserwować wyniki bezpośrednio w edytorze.
+- Pomaga zrozumieć działanie wyrażeń i funkcji.
+- Może być przydatny podczas nauki programowania.
+- Wspiera interaktywny sposób pracy z językami takimi jak Clojure.
+- Jest projektem open source.
+
+## 7. Wady i ograniczenia Light Table
+
+- Jest znacznie mniej rozpowszechniony niż współczesne środowiska, takie jak Visual Studio Code czy IntelliJ IDEA.
+- Rozwój i dostępność integracji są ograniczone w porównaniu z popularnymi IDE.
+- Konfiguracja środowiska wykonawczego może wymagać dodatkowej pracy.
+- Nie należy zakładać, że wszystkie współczesne wersje języków i narzędzi będą obsługiwane.
+- Do dużych, nowoczesnych projektów komercyjnych może być mniej praktyczny niż aktywnie rozwijane środowiska.
+
+Ważne: Light Table jest przede wszystkim projektem historycznie istotnym dla idei interaktywnego programowania. Przed wykorzystaniem go w nowym projekcie warto sprawdzić aktualną kompatybilność z systemem operacyjnym i narzędziami programistycznymi.
+
+## 8. Light Table a inne edytory i narzędzia
+
+| Narzędzie          | Główne przeznaczenie                                         |
+| ------------------ | ------------------------------------------------------------ |
+| Light Table        | Interaktywne programowanie i podgląd wyników                 |
+| Visual Studio Code | Uniwersalny edytor kodu z rozszerzeniami                     |
+| IntelliJ IDEA      | Rozbudowane IDE dla Javy i innych języków                    |
+| Eclipse            | Rozszerzalne środowisko programistyczne                      |
+| Jupyter Notebook   | Interaktywne wykonywanie kodu i dokumentowanie eksperymentów |
+| Emacs              | Rozszerzalny edytor tekstu i środowisko programistyczne      |
+
+Jupyter Notebook również umożliwia interaktywne wykonywanie kodu, szczególnie w analizie danych i Pythonie. Light Table realizował podobną ideę w formie środowiska skoncentrowanego na edycji kodu.
+
+## 9. Gdzie można znaleźć informacje o Light Table?
+
+- Repozytorium projektu: [Light Table na GitHubie](https://github.com/LightTable/LightTable).
+- Dokumentacja i materiały projektu mogą być dostępne w repozytorium oraz powiązanych zasobach społeczności.
+
+## 10. Podsumowanie
+
+Light Table to otwartoźródłowe środowisko programistyczne zaprojektowane z myślą o interaktywnym programowaniu i szybkim sprawdzaniu wyników kodu.
+
+Jego charakterystyczne funkcje to ewaluacja wyrażeń bezpośrednio w edytorze, obserwowanie wartości i eksperymentowanie z kodem bez ciągłego uruchamiania całego programu.
+
+Narzędzie ma znaczenie przede wszystkim jako przykład rozwoju interaktywnych środowisk programistycznych, choć obecnie jego zastosowanie może być ograniczone przez mniejszą aktywność ekosystemu.
+
+Najważniejsze pojęcia do zapamiętania to IDE, inline evaluation, watchers, programowanie interaktywne, Clojure, JavaScript oraz rozszerzenia.

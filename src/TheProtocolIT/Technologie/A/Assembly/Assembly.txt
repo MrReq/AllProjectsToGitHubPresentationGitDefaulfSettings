@@ -1,0 +1,274 @@
+Assembly — notatka
+
+1. Czym jest Assembly?
+
+Assembly to jednostka wdrożeniowa i organizacyjna w ekosystemie .NET, która zawiera skompilowany kod oraz metadane opisujące ten kod.
+
+W .NET assembly najczęściej występuje jako plik z rozszerzeniem `.dll` lub `.exe`.
+
+Zawiera kod pośredni CIL (Common Intermediate Language), metadane, a opcjonalnie także zasoby, takie jak teksty, obrazy lub inne pliki.
+
+Assembly jest wykorzystywane przez środowisko uruchomieniowe .NET do ładowania kodu, sprawdzania jego typów i wykonywania programu.
+
+Termin Assembly może również oznaczać język asemblera w kontekście programowania niskopoziomowego, dlatego jego znaczenie zależy od omawianej technologii.
+
+2. Do czego służy Assembly w .NET?
+
+Assembly pozwala grupować skompilowane klasy, interfejsy, struktury, metody i inne elementy programu w logiczną całość.
+
+Umożliwia dzielenie aplikacji na biblioteki, które mogą być wykorzystywane przez wiele projektów.
+
+Pozwala również określać informacje o wersji, nazwie i pochodzeniu komponentu.
+
+Przykładowo aplikacja napisana w C# może korzystać z biblioteki `ProductService.dll`, która zawiera logikę zarządzania produktami.
+
+Dzięki temu kod aplikacji można organizować w osobne moduły, łatwiej rozwijać i ponownie wykorzystywać.
+
+3. Jak powstaje Assembly?
+
+Programista pisze kod źródłowy, na przykład w języku C#.
+
+Kompilator C# przekształca kod źródłowy do kodu pośredniego CIL oraz zapisuje metadane w pliku wynikowym.
+
+Plik ten staje się assembly, najczęściej w postaci biblioteki DLL lub pliku EXE.
+
+Podczas uruchamiania środowisko .NET ładuje potrzebny kod i wykonuje go, wykorzystując między innymi kompilację JIT, która przekształca kod pośredni do kodu maszynowego.
+
+Przykładowy proces wygląda następująco:
+
+Kod C# → Kompilator → CIL i metadane → Assembly DLL lub EXE → Środowisko .NET → Wykonywanie programu.
+
+4. DLL i EXE
+
+DLL oznacza Dynamic-Link Library i jest typowym formatem biblioteki zawierającej kod możliwy do wykorzystania przez inne komponenty.
+
+EXE jest formatem pliku wykonywalnego, który w odpowiednim środowisku może służyć jako punkt wejścia aplikacji.
+
+W ekosystemie .NET zarówno pliki DLL, jak i EXE mogą zawierać assembly.
+
+Biblioteka DLL zazwyczaj udostępnia klasy i metody innym projektom, natomiast aplikacja może być uruchamiana za pomocą pliku wykonywalnego lub polecenia `dotnet`.
+
+W nowoczesnym .NET aplikacja często posiada plik DLL oraz plik wykonywalny lub inne pliki wymagane do uruchomienia.
+
+5. Metadane Assembly
+
+Metadane opisują strukturę kodu znajdującego się w assembly.
+
+Zawierają informacje o typach, metodach, właściwościach, referencjach i innych elementach programu.
+
+Dzięki metadanym środowisko .NET może rozpoznawać klasy, sprawdzać zgodność typów i udostępniać informacje wykorzystywane przez mechanizmy refleksji.
+
+Metadane są również używane przez narzędzia programistyczne do analizowania bibliotek.
+
+Pozwalają zrozumieć strukturę komponentu bez konieczności analizowania jego oryginalnego kodu źródłowego.
+
+6. Manifest Assembly
+
+Manifest to część assembly zawierająca informacje identyfikujące komponent i opisujące jego zależności.
+
+Może określać nazwę assembly, wersję, kulturę oraz informacje o powiązanych plikach i referencjach.
+
+Manifest pomaga środowisku .NET rozpoznać komponent i ustalić, jakie zależności są potrzebne.
+
+Ważne jest rozróżnienie manifestu assembly od pliku `AssemblyManifest` lub podobnie nazwanego pliku konfiguracyjnego, ponieważ nie są to uniwersalne, osobne pliki wymagane w każdym projekcie.
+
+7. Nazwa i wersja Assembly
+
+Assembly posiada nazwę, która pozwala odróżnić je od innych komponentów.
+
+Wersja assembly umożliwia identyfikowanie konkretnego wydania biblioteki.
+
+W klasycznym .NET Framework ważną rolę odgrywa nazwa silna, czyli Strong Name, która obejmuje między innymi nazwę, wersję, kulturę i informacje związane z kluczem publicznym.
+
+Współczesny .NET wykorzystuje również inne mechanizmy zarządzania zależnościami, a sama wersja assembly nie zawsze odpowiada wersji pakietu NuGet lub całej aplikacji.
+
+Dobrze zaplanowane wersjonowanie ułatwia aktualizowanie bibliotek i kontrolowanie zgodności pomiędzy komponentami.
+
+8. Strong Name
+
+Strong Name to mechanizm identyfikowania assembly za pomocą informacji obejmujących między innymi nazwę, wersję i klucz publiczny.
+
+W klasycznym .NET Framework był wykorzystywany między innymi do jednoznacznej identyfikacji bibliotek i obsługi współistnienia różnych wersji komponentów.
+
+Strong Name nie jest jednak tym samym co pełne zabezpieczenie aplikacji ani gwarancja, że kod biblioteki jest bezpieczny.
+
+Współczesne systemy .NET wykorzystują dodatkowe mechanizmy bezpieczeństwa i zarządzania pakietami.
+
+9. GAC — Global Assembly Cache
+
+GAC, czyli Global Assembly Cache, to centralny magazyn bibliotek współdzielonych przez aplikacje działające na klasycznym .NET Framework.
+
+Pozwala przechowywać i udostępniać określone wersje assembly na poziomie systemu.
+
+W klasycznym .NET Framework instalowanie bibliotek w GAC było wykorzystywane między innymi w aplikacjach korporacyjnych.
+
+Nowoczesny .NET nie korzysta z GAC w taki sam sposób, dlatego nie należy traktować go jako standardowego mechanizmu instalowania bibliotek w nowych projektach.
+
+10. Referencje Assembly
+
+Referencja assembly oznacza zależność jednego komponentu od innego komponentu.
+
+Jeżeli projekt korzysta z klasy znajdującej się w zewnętrznej bibliotece, musi mieć dostęp do odpowiedniego assembly lub pakietu dostarczającego tę bibliotekę.
+
+W projektach .NET zależności mogą być dodawane jako referencje do innych projektów, bibliotek DLL lub pakietów NuGet.
+
+Podczas budowania aplikacji system kompilacji ustala, które komponenty są potrzebne do utworzenia programu.
+
+Prawidłowe zarządzanie referencjami pomaga unikać błędów związanych z brakującymi bibliotekami i niezgodnymi wersjami.
+
+11. Assembly i NuGet
+
+NuGet to menedżer pakietów dla platformy .NET.
+
+Pakiet NuGet może zawierać jedno lub więcej assembly oraz inne pliki potrzebne do wykorzystania biblioteki.
+
+Assembly jest skompilowanym komponentem, natomiast pakiet NuGet jest sposobem dystrybucji i zarządzania zależnościami.
+
+Przykładowo pakiet NuGet może udostępniać bibliotekę DLL, która zawiera klasy wykorzystywane w projekcie C#.
+
+Dodanie pakietu NuGet pozwala łatwiej pobierać biblioteki, aktualizować je i kontrolować ich wersje.
+
+12. Assembly w Visual Studio i .NET CLI
+
+Visual Studio umożliwia tworzenie projektów, kompilowanie kodu i zarządzanie zależnościami.
+
+Wynik kompilacji projektu .NET jest zazwyczaj zapisywany w katalogu `bin`, w podkatalogu odpowiadającym konfiguracji i docelowemu frameworkowi.
+
+Przykładowo wynik kompilacji może znajdować się w lokalizacji `bin/Debug/net8.0/`.
+
+Projekt można zbudować z poziomu terminala za pomocą polecenia:
+
+```
+dotnet build
+```
+
+Aby opublikować aplikację i przygotować pliki do wdrożenia, można użyć polecenia:
+
+```
+dotnet publish
+```
+
+Dokładna zawartość katalogu wynikowego zależy od rodzaju projektu, wersji .NET i konfiguracji publikowania.
+
+13. Assembly.Load i refleksja
+
+.NET umożliwia dynamiczne ładowanie assembly podczas działania programu.
+
+Można do tego wykorzystywać mechanizmy takie jak `Assembly.Load` oraz typy z przestrzeni nazw `System.Reflection`.
+
+Refleksja pozwala analizować typy, metody, właściwości i atrybuty zawarte w załadowanym assembly.
+
+Jest wykorzystywana między innymi przez frameworki, systemy wtyczek, narzędzia testowe i mechanizmy serializacji.
+
+Przykładowy kod:
+
+```
+using System.Reflection;
+
+Assembly assembly =
+    typeof(string).Assembly;
+
+Console.WriteLine(assembly.FullName);
+```
+
+Przykład pobiera informacje o assembly, w którym znajduje się typ `string`.
+
+Dynamiczne ładowanie nieznanych bibliotek wymaga ostrożności, ponieważ wykonywanie niezaufanego kodu może stanowić zagrożenie bezpieczeństwa.
+
+14. Assembly w architekturze aplikacji
+
+Assembly pomaga dzielić aplikację na osobne komponenty.
+
+Przykładowo system może zawierać bibliotekę `Domain.dll` z modelami domenowymi, `Infrastructure.dll` z implementacją dostępu do danych oraz osobny projekt aplikacji webowej.
+
+Taki podział może ułatwiać utrzymanie kodu i oddzielanie odpowiedzialności.
+
+Nie oznacza to jednak, że każda klasa musi znajdować się w osobnym assembly.
+
+Granice bibliotek warto dopasowywać do rzeczywistych modułów aplikacji i sposobu zarządzania zależnościami.
+
+15. Assembly a język asemblera
+
+Słowo „assembly” ma również drugie znaczenie w informatyce.
+
+Assembly language, czyli język asemblera, to niskopoziomowy język programowania wykorzystujący instrukcje odpowiadające operacjom procesora.
+
+Kod asemblerowy jest silnie związany z architekturą procesora, na przykład x86-64 lub ARM64.
+
+Program napisany w asemblerze jest przekształcany przez assembler do kodu maszynowego.
+
+Nie należy mylić języka asemblera z assembly w .NET, które jest skompilowanym komponentem zawierającym kod pośredni i metadane.
+
+16. Zalety Assembly w .NET
+
+Assembly umożliwia organizowanie kodu w biblioteki i moduły.
+
+Pozwala ponownie wykorzystywać skompilowane komponenty w wielu projektach.
+
+Zawiera metadane ułatwiające analizowanie struktury kodu.
+
+Ułatwia dystrybucję bibliotek i zarządzanie zależnościami.
+
+Wspiera mechanizmy refleksji, dynamicznego ładowania oraz wersjonowania komponentów.
+
+17. Wady i ograniczenia Assembly
+
+Niezgodne wersje zależności mogą powodować problemy z uruchamianiem aplikacji.
+
+Brak wymaganego assembly może prowadzić do błędów ładowania bibliotek.
+
+Samo posiadanie pliku DLL nie gwarantuje zgodności z każdą wersją .NET ani z każdą platformą.
+
+Skompilowane assembly nie zawsze zawiera wszystkie informacje potrzebne do odtworzenia oryginalnego kodu źródłowego.
+
+Dynamiczne ładowanie bibliotek wymaga starannego zarządzania zależnościami i zaufaniem do uruchamianego kodu.
+
+18. Plan nauki Assembly
+
+Na początku warto poznać podstawy C# oraz sposób budowania projektów .NET.
+
+Następnie należy utworzyć bibliotekę klas i sprawdzić, jaki plik DLL powstaje po kompilacji.
+
+Kolejnym krokiem jest dodanie tej biblioteki jako referencji do innego projektu i wykorzystanie jej klas.
+
+Później warto poznać metadane, wersjonowanie, pakiety NuGet i mechanizmy refleksji.
+
+Na koniec można przećwiczyć dynamiczne ładowanie bibliotek i stworzyć prosty system wtyczek.
+
+Jeżeli interesuje Cię język asemblera, należy osobno poznać instrukcje procesora, rejestry, pamięć i narzędzia assemblera.
+
+19. Najważniejsze pojęcia
+
+Assembly — skompilowany komponent .NET zawierający kod, metadane i opcjonalne zasoby.
+
+DLL — plik biblioteki, który może zawierać assembly.
+
+EXE — plik wykonywalny, który w .NET może również zawierać assembly.
+
+CIL — kod pośredni generowany przez kompilatory języków .NET.
+
+CLR — środowisko uruchomieniowe klasycznego .NET Framework.
+
+.NET Runtime — środowisko potrzebne do uruchamiania aplikacji na współczesnej platformie .NET.
+
+Manifest — część assembly opisująca jego tożsamość i informacje o komponentach.
+
+Strong Name — mechanizm identyfikowania assembly za pomocą nazwy i informacji związanych z kluczem publicznym.
+
+GAC — centralny magazyn współdzielonych bibliotek klasycznego .NET Framework.
+
+NuGet — menedżer pakietów dla platformy .NET.
+
+Reflection — mechanizm analizowania typów i metadanych podczas działania programu.
+
+JIT — kompilacja kodu pośredniego do kodu maszynowego podczas działania aplikacji.
+
+Assembly language — język niskopoziomowy wykorzystujący instrukcje procesora.
+
+20. W skrócie
+
+Assembly w .NET to skompilowana jednostka zawierająca kod, metadane i opcjonalne zasoby aplikacji.
+
+Najczęściej występuje w postaci pliku DLL lub EXE i umożliwia organizowanie kodu w biblioteki, które mogą być wykorzystywane przez inne projekty.
+
+Warto zrozumieć assembly, jeśli uczysz się C#, .NET, zarządzania zależnościami i budowania aplikacji.

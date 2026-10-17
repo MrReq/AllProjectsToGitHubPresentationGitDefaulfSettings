@@ -1,0 +1,349 @@
+ASP.NET Web API — notatka
+
+1. Czym jest ASP.NET Web API?
+
+ASP.NET Web API to framework Microsoftu służący do tworzenia interfejsów API, które umożliwiają komunikację pomiędzy aplikacjami przez protokół HTTP.
+
+Pozwala budować usługi backendowe udostępniające dane i funkcjonalności innym systemom.
+
+Może obsługiwać żądania z aplikacji internetowych, mobilnych, desktopowych oraz innych serwerów.
+
+Współcześnie funkcje Web API są dostępne w ASP.NET Core, który umożliwia tworzenie nowoczesnych interfejsów API w języku C#.
+
+Klasyczny ASP.NET Web API jest związany z .NET Framework, natomiast nowe projekty najczęściej tworzy się przy użyciu ASP.NET Core Web API.
+
+2. Do czego służy ASP.NET Web API?
+
+ASP.NET Web API służy do udostępniania funkcji aplikacji za pośrednictwem endpointów HTTP.
+
+Można go wykorzystywać do tworzenia backendów dla aplikacji frontendowych, aplikacji mobilnych i systemów biznesowych.
+
+Pozwala udostępniać dane w formacie JSON, obsługiwać operacje na bazie danych oraz integrować różne usługi.
+
+Przykładowo aplikacja internetowa może wysłać żądanie do API, aby pobrać listę produktów, utworzyć zamówienie lub sprawdzić dane użytkownika.
+
+3. Czym jest API?
+
+API, czyli Application Programming Interface, to interfejs umożliwiający komunikację pomiędzy programami.
+
+Określa, jakie operacje można wykonać, jakie dane należy przesłać i jakie odpowiedzi można otrzymać.
+
+Web API udostępnia takie operacje za pośrednictwem protokołu HTTP.
+
+Przykładowo sklep internetowy może udostępniać endpoint `GET /api/products`, który zwraca listę produktów.
+
+Frontend nie musi znać wewnętrznej implementacji backendu, ponieważ komunikuje się z nim przez ustalony interfejs.
+
+4. Jak działa ASP.NET Web API?
+
+Klient wysyła żądanie HTTP do określonego endpointu.
+
+Żądanie może zawierać metodę HTTP, nagłówki, parametry i dane w treści.
+
+API odbiera żądanie i kieruje je do odpowiedniego kontrolera lub endpointu.
+
+Kod aplikacji wykonuje logikę biznesową i w razie potrzeby komunikuje się z bazą danych.
+
+Następnie serwer zwraca odpowiedź HTTP, często zawierającą dane w formacie JSON.
+
+Przykładowy przepływ wygląda następująco:
+
+Frontend → Żądanie HTTP → Web API → Serwis → Baza danych → Odpowiedź JSON.
+
+5. Metody HTTP
+
+Interfejsy API wykorzystują metody HTTP do określania rodzaju operacji wykonywanej na zasobie.
+
+GET służy zazwyczaj do pobierania danych.
+
+POST służy zazwyczaj do tworzenia nowych zasobów lub uruchamiania operacji.
+
+PUT służy zazwyczaj do zastępowania całego zasobu.
+
+PATCH służy do częściowej aktualizacji zasobu.
+
+DELETE służy do usuwania zasobu.
+
+Przykładowo `GET /api/products/5` pobiera produkt o identyfikatorze `5`, natomiast `DELETE /api/products/5` żąda jego usunięcia.
+
+6. Endpointy i routing
+
+Endpoint to konkretny adres i sposób obsługi żądania przez API.
+
+Routing określa, który kontroler lub handler powinien obsłużyć dane żądanie.
+
+W ASP.NET Core Web API można korzystać z kontrolerów oraz Minimal APIs.
+
+Przykładowe endpointy sklepu internetowego mogą wyglądać następująco:
+
+`GET /api/products` — pobranie listy produktów.
+
+`GET /api/products/5` — pobranie produktu o identyfikatorze `5`.
+
+`POST /api/products` — utworzenie nowego produktu.
+
+`PUT /api/products/5` — zastąpienie danych produktu o identyfikatorze `5`.
+
+`DELETE /api/products/5` — usunięcie produktu o identyfikatorze `5`.
+
+Czytelny routing pomaga utrzymywać spójny i łatwy do zrozumienia interfejs API.
+
+7. Kontrolery API
+
+Kontroler API odbiera żądania HTTP i zwraca odpowiedzi klientowi.
+
+W ASP.NET Core kontrolery API zazwyczaj dziedziczą po `ControllerBase`.
+
+Atrybut `[ApiController]` udostępnia funkcje przydatne przy tworzeniu API, między innymi automatyczną obsługę typowych błędów walidacji modeli.
+
+Przykładowy kontroler:
+
+```
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    [HttpGet]
+    public IActionResult GetProducts()
+    {
+        var products = new[]
+        {
+            new { Id = 1, Name = "Laptop", Price = 3500 },
+            new { Id = 2, Name = "Monitor", Price = 900 }
+        };
+
+        return Ok(products);
+    }
+}
+```
+
+Kontroler udostępnia endpoint `GET /api/products`, który zwraca przykładową listę produktów.
+
+Metoda `Ok()` zwraca odpowiedź HTTP 200 wraz z danymi.
+
+8. Format JSON
+
+JSON to popularny format wymiany danych pomiędzy aplikacjami.
+
+Jest czytelny dla człowieka i może reprezentować obiekty, tablice, tekst, liczby, wartości logiczne oraz wartości null.
+
+Przykładowa odpowiedź API:
+
+```
+{
+  "id": 1,
+  "name": "Laptop",
+  "price": 3500
+}
+```
+
+ASP.NET Core potrafi automatycznie serializować obiekty C# do JSON i deserializować otrzymane dane JSON do obiektów.
+
+Dzięki temu frontend może łatwo przetwarzać dane zwracane przez backend.
+
+9. Kody statusu HTTP
+
+API wykorzystuje kody statusu HTTP do informowania klienta o wyniku żądania.
+
+`200 OK` oznacza, że żądanie zostało obsłużone poprawnie.
+
+`201 Created` oznacza, że utworzono nowy zasób.
+
+`204 No Content` oznacza, że żądanie zakończyło się powodzeniem i nie wymaga zwracania treści odpowiedzi.
+
+`400 Bad Request` oznacza, że żądanie jest nieprawidłowe.
+
+`401 Unauthorized` oznacza, że brakuje poprawnego uwierzytelnienia lub nie zostało ono zaakceptowane.
+
+`403 Forbidden` oznacza, że użytkownik nie ma wymaganych uprawnień.
+
+`404 Not Found` oznacza, że żądany zasób nie został znaleziony.
+
+`409 Conflict` oznacza konflikt z aktualnym stanem zasobu.
+
+`500 Internal Server Error` oznacza nieoczekiwany błąd po stronie serwera.
+
+Prawidłowe stosowanie kodów statusu ułatwia klientom API rozpoznawanie wyników operacji i obsługę błędów.
+
+10. Modele DTO i walidacja
+
+DTO, czyli Data Transfer Object, to obiekt przeznaczony do przekazywania danych pomiędzy aplikacjami lub warstwami systemu.
+
+DTO pozwala określić, jakie dane klient może wysłać i jakie informacje serwer powinien zwrócić.
+
+Przykładowy model wejściowy:
+
+```
+using System.ComponentModel.DataAnnotations;
+
+public class CreateProductDto
+{
+    [Required]
+    public string Name { get; set; } = "";
+
+    [Range(0.01, 100000)]
+    public decimal Price { get; set; }
+}
+```
+
+Atrybuty walidacyjne określają podstawowe wymagania dotyczące danych.
+
+W aplikacji należy sprawdzać poprawność danych po stronie serwera, nawet jeśli frontend wykonuje własną walidację.
+
+DTO pomaga również uniknąć bezpośredniego udostępniania wszystkich właściwości obiektów używanych wewnętrznie przez aplikację.
+
+11. Bazy danych i Entity Framework Core
+
+ASP.NET Core Web API może współpracować z bazami danych za pomocą Entity Framework Core lub innych bibliotek.
+
+Entity Framework Core pozwala mapować obiekty C# na tabele bazy danych i wykonywać operacje CRUD.
+
+API może pobierać dane, tworzyć nowe rekordy, aktualizować informacje i usuwać zasoby.
+
+W większych projektach warto oddzielić kontrolery od logiki biznesowej oraz operacji dostępu do danych.
+
+Przykładowo kontroler produktów może wywoływać `ProductService`, a ten może korzystać z `DbContext` do komunikacji z bazą danych.
+
+12. Dependency Injection i architektura
+
+Dependency Injection umożliwia przekazywanie klasom potrzebnych zależności, takich jak serwisy i repozytoria.
+
+ASP.NET Core posiada wbudowany kontener Dependency Injection.
+
+Logikę biznesową warto umieszczać w serwisach zamiast realizować wszystkie operacje bezpośrednio w kontrolerach.
+
+W większych aplikacjach można stosować warstwy odpowiedzialne za API, logikę biznesową i dostęp do danych.
+
+Taki podział ułatwia testowanie, ponowne wykorzystywanie kodu i utrzymywanie aplikacji.
+
+13. Uwierzytelnianie i autoryzacja
+
+Uwierzytelnianie polega na ustaleniu tożsamości użytkownika lub klienta API.
+
+Autoryzacja określa, jakie operacje może wykonywać uwierzytelniony użytkownik.
+
+ASP.NET Core obsługuje różne mechanizmy uwierzytelniania, w tym tokeny JWT i integrację z zewnętrznymi dostawcami tożsamości.
+
+Dostęp do endpointów można ograniczać za pomocą atrybutu `[Authorize]`.
+
+Endpointy przeznaczone dla wszystkich użytkowników można odpowiednio skonfigurować jako publiczne.
+
+W produkcyjnym API należy stosować HTTPS, odpowiednie uprawnienia, bezpieczne zarządzanie sekretami i walidację danych wejściowych.
+
+14. Dokumentacja API i Swagger
+
+Dokumentacja API opisuje dostępne endpointy, parametry, modele danych i możliwe odpowiedzi.
+
+ASP.NET Core może współpracować z narzędziami generującymi dokumentację na podstawie specyfikacji OpenAPI.
+
+Swagger UI to interfejs przeglądarkowy, który może prezentować dokumentację i umożliwiać wykonywanie testowych żądań.
+
+Dokumentacja ułatwia pracę programistom frontendowym, testerom i innym zespołom korzystającym z API.
+
+W nowych projektach konfiguracja OpenAPI zależy od wersji ASP.NET Core i używanych pakietów.
+
+15. Testowanie API
+
+API można testować ręcznie lub automatycznie.
+
+Do ręcznego wysyłania żądań HTTP można wykorzystać Postman, Insomnia lub `curl`.
+
+Testy jednostkowe sprawdzają logikę serwisów i wybrane zachowania kontrolerów.
+
+Testy integracyjne pozwalają sprawdzać routing, obsługę żądań HTTP i współpracę komponentów aplikacji.
+
+W ekosystemie .NET można korzystać z xUnit, NUnit, MSTest i `WebApplicationFactory`.
+
+Testy powinny obejmować zarówno poprawne żądania, jak i sytuacje błędne, na przykład nieprawidłowe dane, brak zasobu lub brak uprawnień.
+
+16. ASP.NET Web API a ASP.NET Core Web API
+
+Klasyczny ASP.NET Web API jest frameworkiem przeznaczonym dla aplikacji opartych na .NET Framework.
+
+ASP.NET Core Web API umożliwia tworzenie nowoczesnych interfejsów API na współczesnej platformie .NET.
+
+ASP.NET Core działa na systemach Windows, Linux i macOS oraz wspiera nowoczesne modele wdrażania.
+
+W obu rozwiązaniach można tworzyć kontrolery API, ale różnią się one konfiguracją, przestrzeniami nazw i architekturą.
+
+Przy tworzeniu nowych aplikacji najczęściej wybiera się ASP.NET Core Web API.
+
+17. Zalety ASP.NET Web API
+
+Technologia umożliwia tworzenie backendów dla aplikacji internetowych, mobilnych i desktopowych.
+
+Wspiera standard HTTP i popularny format JSON.
+
+Integruje się z C#, .NET, bazami danych oraz narzędziami do testowania i dokumentowania API.
+
+ASP.NET Core zapewnia mechanizmy routingu, walidacji, Dependency Injection i kontroli dostępu.
+
+Umożliwia budowanie wydajnych usług, które można rozwijać niezależnie od frontendowej części aplikacji.
+
+18. Wady ASP.NET Web API
+
+Nauka technologii wymaga znajomości C#, .NET, HTTP i podstaw architektury backendu.
+
+W większych projektach trzeba świadomie zaprojektować walidację, obsługę błędów, bezpieczeństwo i wersjonowanie API.
+
+Błędna konfiguracja uwierzytelniania lub autoryzacji może prowadzić do nieuprawnionego dostępu do danych.
+
+Samo utworzenie endpointów nie zapewnia jeszcze poprawnej architektury, jakości ani bezpieczeństwa aplikacji.
+
+19. Plan nauki ASP.NET Web API
+
+Na początku warto poznać podstawy C#, platformy .NET i protokołu HTTP.
+
+Następnie należy utworzyć projekt ASP.NET Core Web API i poznać kontrolery, routing oraz metody HTTP.
+
+Kolejnym krokiem jest stworzenie CRUD API z wykorzystaniem DTO i walidacji danych.
+
+Później warto podłączyć bazę danych za pomocą Entity Framework Core.
+
+Następnie należy dodać uwierzytelnianie, autoryzację, dokumentację OpenAPI i testy automatyczne.
+
+Na koniec warto nauczyć się wdrażać API oraz monitorować jego działanie.
+
+Dobrym projektem praktycznym jest REST API do zarządzania zadaniami z użytkownikami, bazą danych, walidacją, uwierzytelnianiem i testami.
+
+20. Najważniejsze pojęcia
+
+ASP.NET Web API — klasyczny framework do tworzenia interfejsów API na platformie .NET Framework.
+
+ASP.NET Core Web API — nowoczesne rozwiązanie do budowania API w ekosystemie .NET.
+
+API — interfejs umożliwiający komunikację pomiędzy aplikacjami.
+
+REST — styl projektowania interfejsów opartych na zasobach i standardowych metodach HTTP.
+
+Endpoint — adres i sposób obsługi określonego żądania.
+
+Controller — komponent obsługujący żądania HTTP.
+
+DTO — obiekt służący do przekazywania danych pomiędzy systemami lub warstwami aplikacji.
+
+JSON — format wymiany danych używany w wielu interfejsach API.
+
+HTTP Status Code — kod informujący o wyniku obsługi żądania HTTP.
+
+Entity Framework Core — biblioteka ORM do pracy z bazami danych.
+
+Dependency Injection — mechanizm przekazywania zależności klasom.
+
+JWT — format tokenów często stosowany przy uwierzytelnianiu API.
+
+OpenAPI — specyfikacja służąca do opisywania interfejsów API.
+
+Swagger UI — interfejs umożliwiający przeglądanie dokumentacji API i wykonywanie żądań testowych.
+
+CRUD — podstawowe operacje tworzenia, odczytywania, aktualizowania i usuwania danych.
+
+21. W skrócie
+
+ASP.NET Web API służy do tworzenia backendów i interfejsów komunikacyjnych, z których korzystają inne aplikacje.
+
+Umożliwia udostępnianie danych przez HTTP, tworzenie operacji CRUD, integrację z bazami danych i zabezpieczanie dostępu do zasobów.
+
+Jeśli rozpoczynasz naukę tworzenia nowych aplikacji w .NET, skoncentruj się przede wszystkim na ASP.NET Core Web API.

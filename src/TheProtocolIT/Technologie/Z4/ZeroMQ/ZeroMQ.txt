@@ -1,0 +1,355 @@
+# ZeroMQ
+
+## Czym jest ZeroMQ?
+
+ZeroMQ (Zero Message Queue), często zapisywany jako **ØMQ** lub **ZMQ**, to lekka biblioteka do komunikacji między procesami i aplikacjami.
+
+ZeroMQ jest wykorzystywany przede wszystkim do budowania **systemów rozproszonych**, aplikacji sieciowych, mikroserwisów oraz systemów opartych na komunikatach.
+
+ZeroMQ nie jest klasycznym serwerem komunikatów takim jak RabbitMQ czy ActiveMQ.
+
+Jest to **biblioteka komunikacyjna**, która dostarcza mechanizmy przesyłania wiadomości bez konieczności uruchamiania centralnego brokera.
+
+ZeroMQ może działać lokalnie między procesami albo przez sieć.
+
+## Do czego służy ZeroMQ?
+
+ZeroMQ służy do wymiany komunikatów pomiędzy różnymi częściami systemu.
+
+Może umożliwiać komunikację pomiędzy dwoma procesami działającymi na jednym komputerze.
+
+Może również umożliwiać komunikację pomiędzy aplikacjami działającymi na różnych komputerach.
+
+Jest często stosowany w systemach rozproszonych, mikroserwisach, aplikacjach czasu rzeczywistego oraz systemach wymagających szybkiej komunikacji.
+
+## Jak działa ZeroMQ?
+
+Podstawową jednostką komunikacji w ZeroMQ jest **wiadomość (message)**.
+
+Aplikacja wysyła wiadomość przez odpowiednie gniazdo ZeroMQ.
+
+Druga aplikacja odbiera wiadomość przez swoje gniazdo.
+
+ZeroMQ zajmuje się między innymi obsługą połączeń, kolejkowaniem wiadomości oraz przesyłaniem danych.
+
+W przeciwieństwie do klasycznych systemów message brokerów ZeroMQ nie wymaga centralnego serwera pośredniczącego.
+
+## Socket w ZeroMQ
+
+Najważniejszym elementem ZeroMQ jest **socket**.
+
+Socket reprezentuje punkt komunikacji pomiędzy aplikacją a inną aplikacją lub procesem.
+
+Program może utworzyć socket, określić jego typ, a następnie połączyć go z innym socketem.
+
+ZeroMQ wykorzystuje różne typy socketów odpowiadające różnym modelom komunikacji.
+
+## Bind i Connect
+
+W ZeroMQ występują dwie podstawowe operacje związane z ustanawianiem komunikacji.
+
+**bind()** powoduje, że socket nasłuchuje pod określonym adresem.
+
+**connect()** powoduje, że socket próbuje połączyć się z określonym adresem.
+
+Przykładowo serwer może wykonać:
+
+```text
+bind("tcp://*:5555")
+```
+
+A klient może wykonać:
+
+```text
+connect("tcp://localhost:5555")
+```
+
+ZeroMQ może automatycznie zarządzać połączeniem pomiędzy socketami.
+
+## Najważniejsze wzorce komunikacji
+
+ZeroMQ posiada kilka podstawowych **patternów komunikacyjnych**.
+
+Najważniejsze z nich to **REQ/REP**, **PUB/SUB**, **PUSH/PULL** oraz **DEALER/ROUTER**.
+
+## REQ/REP
+
+REQ/REP oznacza **Request/Reply**.
+
+Jeden program wysyła żądanie, a drugi odpowiada.
+
+Schemat wygląda następująco:
+
+```text
+Klient
+  |
+  | Request
+  v
+Serwer
+  |
+  | Reply
+  v
+Klient
+```
+
+Jest to podobne do klasycznego modelu klient-serwer.
+
+Przykładowo klient może wysłać:
+
+```text
+GET_USER 15
+```
+
+A serwer może odpowiedzieć:
+
+```text
+USER: Marcin
+```
+
+REQ/REP jest odpowiedni wtedy, gdy komunikacja ma charakter pytanie → odpowiedź.
+
+## PUB/SUB
+
+PUB/SUB oznacza **Publish/Subscribe**.
+
+Jeden komponent publikuje wiadomości, a wielu odbiorców może je subskrybować.
+
+Schemat:
+
+```text
+             +--> Subscriber 1
+             |
+Publisher ---+--> Subscriber 2
+             |
+             +--> Subscriber 3
+```
+
+Publisher wysyła komunikaty.
+
+Subscriber otrzymuje komunikaty dotyczące interesujących go tematów.
+
+PUB/SUB jest często stosowany do przesyłania wydarzeń, powiadomień, danych telemetrycznych oraz informacji czasu rzeczywistego.
+
+## PUSH/PULL
+
+PUSH/PULL służy przede wszystkim do rozdzielania pracy pomiędzy pracowników.
+
+Schemat może wyglądać następująco:
+
+```text
+              +--> Worker 1
+              |
+Producer --> PUSH
+              |
+              +--> Worker 2
+              |
+              +--> Worker 3
+```
+
+Producer wysyła zadania.
+
+Pracownicy odbierają zadania i je wykonują.
+
+Ten model jest przydatny do implementowania **pipeline'ów** oraz rozproszonego przetwarzania zadań.
+
+## DEALER/ROUTER
+
+DEALER/ROUTER to bardziej zaawansowany model komunikacji.
+
+Pozwala na tworzenie bardziej elastycznych systemów komunikacyjnych.
+
+Może być wykorzystywany między innymi do komunikacji z wieloma klientami, routingu wiadomości oraz tworzenia bardziej zaawansowanych systemów rozproszonych.
+
+ROUTER może identyfikować poszczególne połączenia i kierować wiadomości do odpowiednich klientów.
+
+DEALER zapewnia bardziej asynchroniczną komunikację niż REQ.
+
+## Asynchroniczna komunikacja
+
+Jedną z ważnych cech ZeroMQ jest możliwość tworzenia **asynchronicznej komunikacji**.
+
+Aplikacja nie musi czekać na natychmiastową odpowiedź drugiej strony.
+
+Pozwala to budować systemy, w których poszczególne komponenty mogą działać niezależnie.
+
+Jest to szczególnie przydatne w systemach rozproszonych i mikroserwisach.
+
+## Transporty ZeroMQ
+
+ZeroMQ może wykorzystywać różne mechanizmy transportowe.
+
+Najpopularniejszym jest **TCP**.
+
+Przykład:
+
+```text
+tcp://localhost:5555
+```
+
+ZeroMQ może również komunikować się lokalnie za pomocą **IPC**.
+
+Przykład:
+
+```text
+ipc:///tmp/my_socket
+```
+
+Istnieje również transport **inproc**, który umożliwia bardzo szybką komunikację pomiędzy wątkami w ramach jednego procesu.
+
+Przykład:
+
+```text
+inproc://worker
+```
+
+## ZeroMQ a broker wiadomości
+
+Jedną z najważniejszych cech ZeroMQ jest brak konieczności korzystania z centralnego brokera.
+
+W przypadku klasycznego systemu:
+
+```text
+Producer
+    |
+    v
+Message Broker
+    |
+    v
+Consumer
+```
+
+Broker znajduje się pomiędzy producentem i konsumentem.
+
+W ZeroMQ komunikacja może wyglądać bezpośrednio:
+
+```text
+Producer <--------> Consumer
+```
+
+Dzięki temu ZeroMQ jest lekkie i może zapewniać bardzo małe opóźnienia.
+
+## ZeroMQ a ActiveMQ i RabbitMQ
+
+**ZeroMQ**, **ActiveMQ** i **RabbitMQ** służą do komunikacji opartej na wiadomościach, ale działają w nieco inny sposób.
+
+ZeroMQ jest przede wszystkim **biblioteką komunikacyjną**.
+
+ActiveMQ i RabbitMQ są przede wszystkim **brokerami wiadomości**.
+
+W ZeroMQ aplikacje mogą komunikować się bezpośrednio bez centralnego brokera.
+
+W RabbitMQ lub ActiveMQ broker może przechowywać i przekazywać wiadomości pomiędzy producentami i konsumentami.
+
+## Zalety ZeroMQ
+
+ZeroMQ jest lekkie i szybkie.
+
+Nie wymaga uruchamiania osobnego brokera.
+
+Obsługuje komunikację lokalną i sieciową.
+
+Udostępnia wiele modeli komunikacji.
+
+Może obsługiwać komunikację synchroniczną i asynchroniczną.
+
+Jest dostępne dla wielu języków programowania.
+
+Może być stosowane w systemach rozproszonych i mikroserwisach.
+
+## Wady ZeroMQ
+
+ZeroMQ nie zapewnia tak wielu funkcji typowego brokera wiadomości jak RabbitMQ czy ActiveMQ.
+
+Wiele mechanizmów, takich jak trwałe przechowywanie wiadomości czy bardziej zaawansowane zarządzanie kolejkami, musi zostać zaprojektowanych przez programistę lub zapewnionych przez dodatkowe komponenty.
+
+Wymaga również dobrego zrozumienia modeli komunikacyjnych.
+
+## ZeroMQ i mikroserwisy
+
+ZeroMQ może być wykorzystywane do komunikacji pomiędzy mikroserwisami.
+
+Przykładowo system może wyglądać następująco:
+
+```text
+Order Service
+     |
+     | ZeroMQ
+     v
+Payment Service
+     |
+     | ZeroMQ
+     v
+Notification Service
+```
+
+Poszczególne usługi mogą wymieniać pomiędzy sobą komunikaty bez konieczności bezpośredniego wywoływania metod jednej usługi przez drugą.
+
+## ZeroMQ w językach programowania
+
+ZeroMQ posiada implementacje i biblioteki dla wielu języków.
+
+Można go używać między innymi z **C/C++**, **Java**, **Python**, **C#**, **JavaScript/Node.js** oraz innymi językami.
+
+W Javie popularną biblioteką jest **JeroMQ**, która jest implementacją ZeroMQ napisaną w Javie.
+
+## Przykład koncepcyjny
+
+Załóżmy, że aplikacja produkuje zadania do wykonania.
+
+Producer wysyła:
+
+```text
+TASK 1
+TASK 2
+TASK 3
+TASK 4
+```
+
+Workerzy odbierają zadania:
+
+```text
+Worker 1 -> TASK 1
+Worker 2 -> TASK 2
+Worker 3 -> TASK 3
+Worker 1 -> TASK 4
+```
+
+ZeroMQ może automatycznie rozdzielać komunikaty zgodnie z wybranym wzorcem komunikacji.
+
+## Najważniejsze pojęcia
+
+**ZeroMQ / ØMQ / ZMQ** – biblioteka do komunikacji między procesami i aplikacjami.
+
+**Socket** – punkt komunikacji w ZeroMQ.
+
+**Message** – wiadomość przesyłana pomiędzy aplikacjami.
+
+**bind()** – udostępnienie socketu pod określonym adresem.
+
+**connect()** – połączenie socketu z innym socketem.
+
+**REQ/REP** – model request/response.
+
+**PUB/SUB** – model publikowania i subskrybowania wiadomości.
+
+**PUSH/PULL** – model rozdzielania zadań pomiędzy workerów.
+
+**DEALER/ROUTER** – zaawansowany model asynchronicznej komunikacji i routingu.
+
+**TCP** – transport sieciowy.
+
+**IPC** – komunikacja międzyprocesowa.
+
+**inproc** – komunikacja pomiędzy wątkami w jednym procesie.
+
+**JeroMQ** – implementacja ZeroMQ napisana w Javie.
+
+## W skrócie
+
+**ZeroMQ to lekka biblioteka do szybkiej komunikacji między procesami, aplikacjami i usługami.**
+
+**Nie jest klasycznym brokerem wiadomości, ponieważ komunikacja może odbywać się bezpośrednio pomiędzy aplikacjami.**
+
+**Najważniejsze modele ZeroMQ to REQ/REP, PUB/SUB, PUSH/PULL oraz DEALER/ROUTER.**
+
+**ZeroMQ jest szczególnie przydatne w systemach rozproszonych, mikroserwisach, aplikacjach czasu rzeczywistego oraz systemach wymagających szybkiej wymiany komunikatów.**

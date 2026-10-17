@@ -1,0 +1,132 @@
+# Confluence
+
+## 1. Czym jest Confluence?
+
+[Create and Edit Pages | Confluence Data Center 10.2 | Atlassian Documentation](https://images.openai.com/static-rsc-4/LtxSATSrY3TynpFNMjmW1frws6G4KsoJPv6MQ60hqC_T6Dz_XYOqIRHHWZqRa_YtP7wh4XfqL9pqrsfo_UB0YFF0OamOqnve2gVBFRvlyF2XDkDm8pez_aKDH6WEWPVceQQ1ozfdKOVHbdhDQ50ganTNpJYQD6TIdlhkaQtOOnE?purpose=inline)
+
+[confluence.atlassian.com](https://confluence.atlassian.com/doc/create-and-edit-pages-139476.html)
+
+Confluence to platforma do tworzenia, przechowywania i udostępniania dokumentacji oraz zarządzania wiedzą w zespołach, opracowana przez firmę Atlassian.
+
+Narzędzie pozwala tworzyć strony dokumentacji, instrukcje, notatki ze spotkań, specyfikacje techniczne i opisy projektów w jednym wspólnym środowisku.
+
+Confluence jest często wykorzystywany w zespołach IT, które potrzebują centralnego miejsca do przechowywania informacji o architekturze systemów, wymaganiach biznesowych, procesach testowania i wdrożeniach.
+
+## 2. Najważniejsze funkcje Confluence
+
+- Spaces – przestrzenie służące do organizowania dokumentacji według projektów, zespołów lub działów.
+- Pages – strony zawierające tekst, tabele, obrazy, diagramy, listy i inne elementy.
+- Templates – gotowe szablony dokumentacji, raportów, planów i notatek.
+- Współpraca zespołowa – wspólna edycja stron, komentarze i informacje o zmianach.
+- Historia wersji – przeglądanie wcześniejszych wersji dokumentów i przywracanie zmian.
+- Uprawnienia – kontrolowanie dostępu do przestrzeni i stron.
+- Makra – dodawanie dynamicznych elementów, takich jak spisy treści, raporty i listy zadań.
+- Integracja z Jira – łączenie dokumentacji z zadaniami, błędami i zgłoszeniami projektowymi.
+- Wyszukiwanie – odnajdywanie informacji w dokumentacji organizacji.
+- Funkcje AI – wspomaganie tworzenia i opracowywania treści, zależnie od dostępnego planu i konfiguracji.
+
+## 3. Jak działa Confluence?
+
+Confluence organizuje wiedzę za pomocą przestrzeni i stron.
+
+Workspace
+
+Środowisko pracy organizacji
+
+Space
+
+Np. projekt AgriMind AI
+
+Pages
+
+Dokumentacja, wymagania, architektura i instrukcje
+
+Współpraca i aktualizacja wiedzy
+
+Komentarze, historia zmian i powiązania z Jira
+
+Każdy projekt może mieć własną przestrzeń, w której dokumenty są uporządkowane w hierarchię stron i podstron.
+
+Dzięki temu członkowie zespołu mogą korzystać ze wspólnej dokumentacji bez konieczności przechowywania wielu rozproszonych plików.
+
+## 4. Przykład wykorzystania Confluence w projekcie IT
+
+Załóżmy, że tworzysz aplikację internetową w Javie i Spring Boot.
+
+W Confluence możesz przygotować następującą strukturę dokumentacji:
+
+AgriMind AI
+
+Vision Document
+
+Cel produktu, użytkownicy i rozwiązywany problem.
+
+Architektura systemu
+
+Spring Boot, PostgreSQL, API i integracje AI.
+
+Dokumentacja API
+
+Endpointy REST, formaty danych i kody odpowiedzi.
+
+Plan testów
+
+Testy jednostkowe, integracyjne i scenariusze QA.
+
+Wdrożenie
+
+Konfiguracja środowiska, Docker i procedura publikacji.
+
+Taka struktura ułatwia utrzymywanie wiedzy o projekcie i pozwala nowym osobom szybciej zrozumieć jego działanie.
+
+## 5. Confluence a Jira
+
+Confluence i Jira są często wykorzystywane razem, ale pełnią różne funkcje.
+
+| Cecha                   | Confluence                            | Jira                                     |
+| ----------------------- | ------------------------------------- | ---------------------------------------- |
+| Główne zastosowanie     | Dokumentacja i zarządzanie wiedzą     | Zarządzanie zadaniami i zgłoszeniami     |
+| Podstawowe elementy     | Strony i przestrzenie                 | Zadania, błędy i zgłoszenia              |
+| Praca zespołowa         | Tworzenie i aktualizowanie dokumentów | Planowanie i śledzenie pracy             |
+| Dokumentacja techniczna | Główne zastosowanie                   | Możliwa przez powiązane zasoby           |
+| Backlog i sprinty       | Ograniczona rola                      | Jedna z głównych funkcji w Jira Software |
+| Powiązania              | Może zawierać odnośniki do zgłoszeń   | Może łączyć zadania z dokumentacją       |
+
+Przykładowo w Jira możesz utworzyć zadanie „Dodanie logowania użytkownika”, a w Confluence opisać wymagania, architekturę uwierzytelniania, zasady bezpieczeństwa i sposób testowania.
+
+## 6. Do czego wykorzystuje się Confluence?
+
+- Dokumentacja techniczna – opisywanie architektury, API i konfiguracji aplikacji.
+- Zarządzanie wymaganiami – przechowywanie wymagań funkcjonalnych i niefunkcjonalnych.
+- Dokumentacja QA – tworzenie planów testów i procedur testowania.
+- Zarządzanie projektami – publikowanie harmonogramów, decyzji i raportów.
+- Baza wiedzy – tworzenie instrukcji dla pracowników i użytkowników.
+- Notatki ze spotkań – rejestrowanie ustaleń i kolejnych działań.
+- Onboarding – przygotowywanie materiałów dla nowych członków zespołu.
+
+## 7. Zalety i wady Confluence
+
+Zalety:
+
+- Centralne miejsce przechowywania dokumentacji.
+- Współpraca wielu osób nad wspólną wiedzą.
+- Historia zmian i możliwość odtworzenia wcześniejszych wersji.
+- Integracja z Jira i innymi narzędziami Atlassian.
+- Szablony ułatwiające zachowanie spójnej struktury dokumentów.
+
+Wady:
+
+- Przy dużej liczbie stron dokumentacja może stać się trudna do uporządkowania.
+- Wymaga regularnego aktualizowania treści, aby dokumenty nie stały się nieaktualne.
+- Zaawansowane funkcje i możliwości administracyjne zależą od planu.
+- Osoby przyzwyczajone do prostych edytorów mogą potrzebować czasu na poznanie makr i organizacji przestrzeni.
+
+## 8. Dlaczego warto znać Confluence?
+
+Confluence jest przydatny programistom, testerom QA, analitykom biznesowym, kierownikom projektów i administratorom systemów.
+
+Umiejętność tworzenia czytelnej dokumentacji technicznej jest ważna w pracy zespołowej, ponieważ ułatwia przekazywanie wiedzy, analizowanie wymagań i utrzymywanie oprogramowania.
+
+Jeśli uczysz się Javy, Spring Boot i testowania oprogramowania, warto ćwiczyć dokumentowanie architektury aplikacji, endpointów REST, scenariuszy testowych i decyzji projektowych właśnie w tego typu narzędziu.
+
+Oficjalna strona: [Atlassian Confluence](https://www.atlassian.com/software/confluence).

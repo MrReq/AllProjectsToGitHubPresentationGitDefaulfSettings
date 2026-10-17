@@ -1,0 +1,175 @@
+# Gulp
+
+## 1. Czym jest Gulp?
+
+Gulp to narzędzie do automatyzacji zadań w projektach programistycznych, szczególnie w projektach frontendowych wykorzystujących HTML, CSS i JavaScript.
+
+Jest oparte na środowisku Node.js i pozwala definiować zadania, które automatycznie wykonują powtarzalne operacje na plikach.
+
+Gulp wykorzystuje kod JavaScript do opisywania procesów, takich jak kompresowanie plików, przetwarzanie arkuszy CSS czy kopiowanie zasobów do katalogu produkcyjnego.
+
+Jego głównym celem jest ograniczenie ręcznej pracy programisty i usprawnienie procesu przygotowywania aplikacji do wdrożenia.
+
+## 2. Do czego służy Gulp?
+
+Gulp jest wykorzystywany przede wszystkim do automatyzacji pracy nad stronami internetowymi i aplikacjami frontendowymi.
+
+Może automatycznie kompresować pliki CSS i JavaScript, aby zmniejszyć ich rozmiar i przyspieszyć ładowanie strony.
+
+Pozwala przetwarzać pliki Sass lub SCSS do standardowego CSS przy użyciu odpowiednich wtyczek.
+
+Może kopiować obrazy, czcionki i inne zasoby do katalogu wynikowego.
+
+Umożliwia obserwowanie zmian w plikach i automatyczne uruchamianie zadań po ich zapisaniu.
+
+Może również uczestniczyć w procesie budowania aplikacji i przygotowywania jej plików do publikacji.
+
+## 3. Jak działa Gulp?
+
+Gulp wykorzystuje zadania (tasks), które opisują konkretne operacje wykonywane przez narzędzie.
+
+Programista definiuje zadania w pliku `gulpfile.js`, używając JavaScriptu.
+
+Gulp może odczytywać pliki źródłowe, przekazywać je przez kolejne etapy przetwarzania, a następnie zapisywać wyniki w wybranym katalogu.
+
+Wiele operacji odbywa się za pomocą strumieni danych (streams), dzięki czemu pliki mogą być przetwarzane bez konieczności ręcznego zapisywania każdego etapu pośredniego.
+
+Typowy proces może wyglądać następująco:
+
+1. Programista modyfikuje pliki CSS.
+2. Gulp odczytuje pliki źródłowe.
+3. Odpowiednia wtyczka przetwarza lub optymalizuje ich zawartość.
+4. Gulp zapisuje wynikowe pliki w katalogu `dist`.
+5. Gotowe pliki mogą zostać wykorzystane podczas wdrażania strony internetowej.
+
+## 4. Przykład zastosowania Gulp
+
+Załóżmy, że projekt frontendowy zawiera pliki CSS w katalogu `src/css`, a gotowe pliki mają trafiać do katalogu `dist/css`.
+
+Najpierw należy zainstalować Node.js, a następnie w katalogu projektu zainicjalizować projekt npm i zainstalować Gulp.
+
+```
+npm init -y
+npm install --save-dev gulp
+```
+
+Następnie tworzymy plik `gulpfile.js`:
+
+```
+const { src, dest, watch } = require('gulp');
+
+function copyCss() {
+    return src('src/css/**/*.css')
+        .pipe(dest('dist/css'));
+}
+
+function watchCss() {
+    watch('src/css/**/*.css', copyCss);
+}
+
+exports.copyCss = copyCss;
+exports.watchCss = watchCss;
+exports.default = copyCss;
+```
+
+W tym przykładzie:
+
+- `src()` wskazuje pliki wejściowe.
+- `pipe()` przekazuje pliki do kolejnego etapu przetwarzania.
+- `dest()` określa katalog docelowy.
+- `watch()` obserwuje zmiany w plikach i uruchamia zadanie ponownie.
+- `exports.default` definiuje domyślne zadanie.
+
+Aby skopiować pliki CSS, uruchamiamy:
+
+```
+npx gulp
+```
+
+Aby automatycznie kopiować pliki po wykryciu zmian, uruchamiamy:
+
+```
+npx gulp watchCss
+```
+
+To prosty przykład pokazujący mechanizm automatyzacji. Wtyczki można później wykorzystać do kompresowania plików, przetwarzania SCSS i wykonywania bardziej zaawansowanych operacji.
+
+## 5. Najważniejsze elementy ekosystemu Gulp
+
+Node.js
+
+Środowisko uruchomieniowe JavaScript, na którym działa Gulp.
+
+npm
+
+Menedżer pakietów umożliwiający instalowanie Gulpa i dodatkowych wtyczek.
+
+gulpfile.js
+
+Plik konfiguracyjny, w którym definiuje się zadania automatyzujące pracę nad projektem.
+
+Gulp Plugins
+
+Wtyczki rozszerzające możliwości Gulpa o dodatkowe operacje, takie jak optymalizacja obrazów czy przetwarzanie arkuszy stylów.
+
+Streams
+
+Mechanizm przepływu danych pomiędzy kolejnymi etapami zadania.
+
+## 6. Gulp a Grunt
+
+Gulp i Grunt to narzędzia automatyzujące powtarzalne zadania w projektach frontendowych.
+
+| Cecha         | Gulp                               | Grunt                                          |
+| ------------- | ---------------------------------- | ---------------------------------------------- |
+| Konfiguracja  | Zadania definiowane w JavaScript   | Zadania definiowane głównie przez konfigurację |
+| Przetwarzanie | Wykorzystuje strumienie            | Często operuje na plikach pośrednich           |
+| Rozszerzanie  | Wtyczki i własne funkcje           | Wtyczki i własne zadania                       |
+| Zastosowanie  | Automatyzacja przetwarzania plików | Automatyzacja przetwarzania plików             |
+
+Oba narzędzia mogą wykonywać podobne zadania, jednak różnią się sposobem definiowania i realizowania procesów.
+
+## 7. Gulp a Webpack i Vite
+
+Gulp, Webpack i Vite mogą uczestniczyć w procesie przygotowywania aplikacji frontendowej, ale ich główne zastosowania są różne.
+
+Gulp koncentruje się na automatyzacji zadań, takich jak kopiowanie, przetwarzanie i optymalizacja plików.
+
+Webpack jest przede wszystkim narzędziem do budowania aplikacji poprzez łączenie i przetwarzanie modułów oraz ich zależności.
+
+Vite zapewnia nowoczesne środowisko programistyczne z szybkim serwerem deweloperskim i procesem budowania aplikacji produkcyjnej.
+
+W wielu nowych projektach frontendowych Vite lub inne zintegrowane narzędzia budowania mogą wystarczyć bez dodatkowego Gulpa.
+
+## 8. Zalety Gulp
+
+- Automatyzuje powtarzalne zadania programistyczne.
+- Pozwala definiować własne procesy w JavaScript.
+- Współpracuje z Node.js i npm.
+- Obsługuje strumieniowe przetwarzanie plików.
+- Można go rozszerzać za pomocą wtyczek.
+- Jest przydatny w starszych projektach frontendowych i niestandardowych procesach przetwarzania zasobów.
+
+## 9. Wady i ograniczenia Gulp
+
+- Wymaga znajomości podstaw JavaScriptu i środowiska Node.js.
+- Konfiguracja większych procesów może stać się skomplikowana.
+- Niektóre wtyczki mogą być przestarzałe lub niekompatybilne z aktualnymi wersjami bibliotek.
+- Nie zapewnia samodzielnie wszystkich funkcji nowoczesnych narzędzi do budowania aplikacji.
+- W prostych projektach dodatkowa konfiguracja może być niepotrzebna.
+
+## 10. Kiedy warto nauczyć się Gulp?
+
+Warto poznać Gulp, jeśli pracujesz ze starszymi projektami frontendowymi, automatyzujesz przetwarzanie plików albo potrzebujesz zbudować własny proces wykonywania zadań.
+
+Jeśli dopiero zaczynasz tworzyć nowoczesne aplikacje frontendowe, warto również poznać npm, Vite oraz podstawy procesu budowania aplikacji.
+
+Znajomość Gulpa pomaga zrozumieć, jak automatyzować operacje na plikach i jak działają narzędzia wykorzystywane w procesie przygotowywania oprogramowania do wdrożenia.
+
+## 11. Podsumowanie
+
+Gulp to narzędzie oparte na Node.js, które automatyzuje powtarzalne zadania w projektach programistycznych.
+
+Jest szczególnie przydatny do przetwarzania plików HTML, CSS, JavaScript i innych zasobów frontendowych.
+
+Jego najważniejszą zaletą jest możliwość definiowania elastycznych procesów automatyzacji za pomocą JavaScriptu.

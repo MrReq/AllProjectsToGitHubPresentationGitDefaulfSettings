@@ -1,0 +1,929 @@
+# Webpack
+
+## 1. Czym jest Webpack?
+
+**Webpack** to narzędzie typu **module bundler** przeznaczone przede wszystkim do tworzenia aplikacji JavaScript.
+
+Jego zadaniem jest zebranie wielu plików i modułów projektu, przeanalizowanie ich zależności, a następnie przygotowanie zoptymalizowanych plików wynikowych, które mogą zostać wykorzystane w przeglądarce.
+
+Najprościej:
+
+**Webpack bierze wiele plików projektu i buduje z nich gotowe paczki przeznaczone do uruchomienia aplikacji.**
+
+Przykładowo projekt może wyglądać tak:
+
+```text
+src/
+├── index.js
+├── app.js
+├── api.js
+├── utils.js
+├── styles.css
+└── logo.png
+```
+
+Webpack może przetworzyć te zasoby i wygenerować:
+
+```text
+dist/
+├── main.js
+├── styles.css
+└── assets/
+```
+
+## 2. Dlaczego powstał Webpack?
+
+Współczesna aplikacja frontendowa może składać się z setek lub tysięcy plików.
+
+Możemy mieć:
+
+```text
+JavaScript
+TypeScript
+CSS
+SCSS
+HTML
+Images
+Fonts
+JSON
+```
+
+Dodatkowo moduły mogą zależeć od siebie:
+
+```text
+index.js
+   ↓
+app.js
+   ↓
+api.js
+   ↓
+utils.js
+```
+
+Webpack analizuje te zależności i tworzy **dependency graph**, czyli graf zależności.
+
+## 3. Module Bundler
+
+Webpack jest przede wszystkim **module bundlerem**.
+
+Module bundler analizuje moduły aplikacji:
+
+```text
+Module A
+   ↓
+Module B
+   ↓
+Module C
+```
+
+i tworzy z nich odpowiedni bundle:
+
+```text
+Modules
+   ↓
+Webpack
+   ↓
+Bundle
+   ↓
+Browser
+```
+
+Dzięki temu przeglądarka może otrzymać przygotowane pliki aplikacji.
+
+## 4. Entry
+
+**Entry** określa punkt startowy aplikacji.
+
+Przykładowo:
+
+```text
+src/index.js
+```
+
+Webpack zaczyna analizowanie projektu właśnie od tego pliku.
+
+Przykład konfiguracji:
+
+```javascript
+module.exports = {
+    entry: './src/index.js'
+};
+```
+
+Webpack rozpoczyna od `index.js`, a następnie analizuje importowane przez niego moduły.
+
+## 5. Dependency Graph
+
+Webpack tworzy **graf zależności**.
+
+Załóżmy, że mamy:
+
+```javascript
+// index.js
+import { calculate } from './math.js';
+```
+
+oraz:
+
+```javascript
+// math.js
+import { add } from './utils.js';
+```
+
+Webpack analizuje:
+
+```text
+index.js
+   |
+   ↓
+math.js
+   |
+   ↓
+utils.js
+```
+
+Na podstawie tego grafu określa, jakie pliki muszą zostać uwzględnione w wynikowym bundle.
+
+## 6. Output
+
+**Output** określa, gdzie Webpack ma zapisać wynik budowania.
+
+Przykład:
+
+```javascript
+module.exports = {
+    entry: './src/index.js',
+
+    output: {
+        filename: 'bundle.js',
+        path: __dirname + '/dist'
+    }
+};
+```
+
+Wynikiem może być:
+
+```text
+dist/
+└── bundle.js
+```
+
+## 7. Bundle
+
+**Bundle** to plik lub zestaw plików wynikowych wygenerowanych przez Webpack.
+
+Przykładowo:
+
+```text
+src/
+├── index.js
+├── app.js
+├── api.js
+└── utils.js
+
+        ↓
+      Webpack
+
+        ↓
+
+dist/
+└── main.js
+```
+
+Bundle może zawierać kod pochodzący z wielu modułów.
+
+## 8. Loaders
+
+Jedną z najważniejszych funkcji Webpacka są **loadery**.
+
+Loader pozwala Webpackowi przetwarzać określone typy plików.
+
+Webpack nie ogranicza się wyłącznie do JavaScriptu.
+
+Może dzięki loaderom obsługiwać między innymi:
+
+```text
+JavaScript
+TypeScript
+CSS
+SCSS
+Images
+Fonts
+```
+
+## 9. Babel Loader
+
+Popularnym przykładem jest **Babel Loader**.
+
+Możemy mieć nowoczesny JavaScript:
+
+```javascript
+const greet = (name) => {
+    return `Hello ${name}`;
+};
+```
+
+Babel może przekształcić kod do starszej składni JavaScript, jeśli wymagają tego starsze przeglądarki.
+
+Schemat:
+
+```text
+Modern JavaScript
+       ↓
+     Babel
+       ↓
+Older JavaScript
+       ↓
+    Webpack
+```
+
+## 10. CSS Loader
+
+Webpack może również przetwarzać CSS.
+
+Przykładowo:
+
+```javascript
+import './style.css';
+```
+
+Webpack może wykorzystać:
+
+```text
+css-loader
+style-loader
+```
+
+`css-loader` pozwala Webpackowi analizować CSS.
+
+`style-loader` może następnie wstrzyknąć style do strony.
+
+Schemat:
+
+```text
+style.css
+   ↓
+css-loader
+   ↓
+style-loader
+   ↓
+Browser
+```
+
+## 11. Plugins
+
+**Plugins** rozszerzają możliwości Webpacka.
+
+Loader zazwyczaj przetwarza określony typ pliku.
+
+Plugin może wykonywać bardziej ogólne zadania podczas procesu budowania.
+
+Przykłady:
+
+```text
+HtmlWebpackPlugin
+MiniCssExtractPlugin
+DefinePlugin
+CopyWebpackPlugin
+```
+
+## 12. HtmlWebpackPlugin
+
+**HtmlWebpackPlugin** może automatycznie wygenerować plik HTML i dołączyć do niego odpowiednie bundle.
+
+Przykładowo:
+
+```text
+Webpack
+   ↓
+main.js
+   ↓
+HtmlWebpackPlugin
+   ↓
+index.html
+```
+
+Nie trzeba ręcznie wpisywać wszystkich wygenerowanych plików JavaScript.
+
+## 13. MiniCssExtractPlugin
+
+Plugin ten pozwala wyodrębnić CSS do osobnych plików.
+
+Zamiast:
+
+```text
+main.js
+  └── CSS
+```
+
+możemy otrzymać:
+
+```text
+main.js
+styles.css
+```
+
+Jest to często przydatne w produkcyjnych buildach.
+
+## 14. Mode
+
+Webpack posiada między innymi tryby:
+
+```text
+development
+production
+none
+```
+
+### Development
+
+Służy do pracy programistycznej.
+
+```javascript
+mode: 'development'
+```
+
+Webpack może wtedy skupiać się na wygodzie programisty i szybkości budowania.
+
+### Production
+
+Służy do przygotowania aplikacji do wdrożenia.
+
+```javascript
+mode: 'production'
+```
+
+Webpack wykonuje wtedy między innymi optymalizacje kodu.
+
+## 15. Development vs Production
+
+Możemy przedstawić to:
+
+```text
+Development
+     ↓
+ szybki build
+ łatwiejszy debugging
+     ↓
+     DEV
+
+Production
+     ↓
+ optymalizacja
+ minifikacja
+ mniejsze pliki
+     ↓
+     PROD
+```
+
+## 16. Minification
+
+Webpack może zmniejszać rozmiar kodu.
+
+Na przykład:
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+```
+
+może zostać przekształcone do bardziej zwartej postaci:
+
+```javascript
+function add(a,b){return a+b}
+```
+
+Proces ten nazywa się **minifikacją**.
+
+Celem jest zmniejszenie ilości danych przesyłanych do przeglądarki.
+
+## 17. Tree Shaking
+
+Jedną z bardzo ważnych funkcji Webpacka jest **tree shaking**.
+
+Polega na usuwaniu kodu, który nie jest używany.
+
+Załóżmy:
+
+```javascript
+export function add() {}
+export function subtract() {}
+export function multiply() {}
+```
+
+Jeżeli aplikacja wykorzystuje tylko:
+
+```javascript
+import { add } from './math.js';
+```
+
+Webpack może usunąć nieużywane funkcje z finalnego bundle, jeżeli kod i konfiguracja pozwalają na takie zoptymalizowanie.
+
+Schemat:
+
+```text
+Source Code
+     ↓
+Used Code + Unused Code
+     ↓
+Tree Shaking
+     ↓
+Used Code
+     ↓
+Bundle
+```
+
+## 18. Code Splitting
+
+Nie zawsze chcemy stworzyć jeden ogromny plik JavaScript.
+
+Webpack umożliwia **code splitting**.
+
+Możemy podzielić aplikację:
+
+```text
+main.js
+dashboard.js
+admin.js
+settings.js
+```
+
+Dzięki temu użytkownik może pobrać tylko potrzebny kod.
+
+## 19. Lazy Loading
+
+Code splitting często współpracuje z **lazy loading**.
+
+Przykładowo panel administratora może zostać załadowany dopiero wtedy, gdy użytkownik go otworzy.
+
+```text
+User
+ ↓
+Main Application
+ ↓
+Kliknięcie "Admin"
+ ↓
+Pobranie admin.js
+ ↓
+Admin Panel
+```
+
+Dzięki temu początkowe ładowanie aplikacji może być szybsze.
+
+## 20. Source Maps
+
+Podczas developmentu minifikowany bundle może być trudny do debugowania.
+
+Webpack może generować **source maps**.
+
+Przykładowo:
+
+```text
+Source Code
+     ↓
+Webpack
+     ↓
+bundle.js
+bundle.js.map
+```
+
+Source map pozwala narzędziom developerskim wskazać oryginalny kod źródłowy.
+
+## 21. Webpack Dev Server
+
+Webpack może być używany razem z **webpack-dev-server**.
+
+Pozwala to uruchomić lokalny serwer developerski.
+
+Przykładowo:
+
+```text
+Developer
+    ↓
+webpack-dev-server
+    ↓
+localhost
+    ↓
+Browser
+```
+
+Zmiany w kodzie mogą powodować automatyczne przebudowanie aplikacji.
+
+## 22. Hot Module Replacement
+
+**HMR (Hot Module Replacement)** pozwala aktualizować fragmenty aplikacji podczas developmentu bez pełnego przeładowania strony.
+
+Przykładowo:
+
+```text
+Developer changes CSS
+        ↓
+Webpack
+        ↓
+HMR
+        ↓
+Browser updates
+```
+
+Jest to bardzo wygodne podczas tworzenia aplikacji frontendowych.
+
+## 23. Asset Management
+
+Webpack może również zarządzać zasobami aplikacji.
+
+Przykładowo:
+
+```text
+src/
+├── images/
+├── fonts/
+├── styles/
+└── scripts/
+```
+
+Webpack może przetworzyć te zasoby i przygotować je do umieszczenia w katalogu produkcyjnym.
+
+## 24. Import obrazów
+
+Możemy na przykład mieć:
+
+```javascript
+import logo from './logo.png';
+```
+
+Webpack może potraktować obraz jako część grafu zależności.
+
+Następnie może skopiować lub przetworzyć go w ramach procesu budowania.
+
+## 25. Configuration
+
+Webpack jest konfigurowany najczęściej za pomocą:
+
+```text
+webpack.config.js
+```
+
+Przykładowa prosta konfiguracja:
+
+```javascript
+const path = require('path');
+
+module.exports = {
+    mode: 'development',
+
+    entry: './src/index.js',
+
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+```
+
+Podstawowe elementy:
+
+```text
+entry
+output
+module
+plugins
+mode
+devServer
+optimization
+```
+
+## 26. Module
+
+Sekcja `module` pozwala definiować między innymi reguły dla loaderów.
+
+Przykład:
+
+```javascript
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    }
+};
+```
+
+Webpack może dzięki temu wiedzieć:
+
+```text
+.css
+ ↓
+css-loader
+ ↓
+style-loader
+```
+
+## 27. NPM
+
+Webpack jest najczęściej instalowany i zarządzany poprzez **npm**.
+
+Przykładowo:
+
+```bash
+npm install webpack webpack-cli --save-dev
+```
+
+Webpack jest wtedy dodawany do projektu jako zależność developerska.
+
+## 28. Webpack CLI
+
+**webpack-cli** umożliwia uruchamianie Webpacka z poziomu terminala.
+
+Przykładowo:
+
+```bash
+npx webpack
+```
+
+Webpack odczyta konfigurację i rozpocznie proces budowania.
+
+## 29. package.json
+
+W projekcie można zdefiniować skrypt:
+
+```json
+{
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --mode development"
+  }
+}
+```
+
+Następnie:
+
+```bash
+npm run build
+```
+
+uruchamia proces budowania.
+
+## 30. Webpack w aplikacji React
+
+Webpack może być używany w aplikacjach React.
+
+Schemat:
+
+```text
+React
+  |
+  ↓
+JSX
+  |
+  ↓
+Babel
+  |
+  ↓
+Webpack
+  |
+  ↓
+Bundle
+  |
+  ↓
+Browser
+```
+
+W praktyce wiele współczesnych projektów React korzysta jednak z narzędzi takich jak **Vite**, zamiast samodzielnej konfiguracji Webpacka.
+
+## 31. Webpack a TypeScript
+
+Webpack może również przetwarzać TypeScript.
+
+Przykładowy przepływ:
+
+```text
+TypeScript
+    ↓
+ts-loader
+    ↓
+Webpack
+    ↓
+JavaScript Bundle
+```
+
+Można wykorzystać między innymi:
+
+```text
+ts-loader
+```
+
+albo połączyć Webpack z innymi narzędziami.
+
+## 32. Webpack a Vite
+
+Webpack jest często porównywany z **Vite**.
+
+| Webpack | Vite |
+|---|---|
+| dojrzały bundler | nowoczesne narzędzie frontendowe |
+| bardzo konfigurowalny | prostsza konfiguracja |
+| duży ekosystem | nowoczesny workflow |
+| rozbudowana konfiguracja | szybki development |
+| popularny w starszych projektach | bardzo popularny w nowych projektach |
+
+Vite wykorzystuje nowoczesne mechanizmy przeglądarki podczas developmentu i używa **Rollup** do części procesu produkcyjnego.
+
+## 33. Webpack a Rollup
+
+**Rollup** również jest module bundlerem.
+
+Rollup jest szczególnie popularny przy budowaniu bibliotek JavaScript.
+
+Webpack jest natomiast bardzo rozbudowanym rozwiązaniem do budowania całych aplikacji webowych.
+
+## 34. Webpack a Parcel
+
+**Parcel** jest kolejnym bundlerem.
+
+W porównaniu z Webpackiem często stawia na prostszą konfigurację.
+
+Można więc spotkać:
+
+```text
+Webpack
+Vite
+Rollup
+Parcel
+esbuild
+```
+
+jako narzędzia związane z budowaniem aplikacji JavaScript.
+
+## 35. Typowy workflow
+
+Praca z Webpackiem może wyglądać tak:
+
+```text
+Developer
+    ↓
+Writes Code
+    ↓
+npm install
+    ↓
+Webpack
+    ↓
+Dependency Graph
+    ↓
+Loaders
+    ↓
+Plugins
+    ↓
+Optimization
+    ↓
+Bundle
+    ↓
+dist/
+    ↓
+Deployment
+```
+
+## 36. Webpack w dużym projekcie
+
+Przykładowy projekt może wyglądać tak:
+
+```text
+project/
+├── src/
+│   ├── index.js
+│   ├── components/
+│   ├── services/
+│   ├── utils/
+│   ├── styles/
+│   └── assets/
+│
+├── dist/
+│   ├── main.js
+│   ├── styles.css
+│   └── assets/
+│
+├── package.json
+├── webpack.config.js
+└── node_modules/
+```
+
+## 37. Zalety Webpacka
+
+Najważniejsze zalety Webpacka:
+
+- bardzo dojrzałe narzędzie,
+- ogromny ekosystem,
+- obsługa wielu typów plików,
+- loadery,
+- plugins,
+- code splitting,
+- tree shaking,
+- minifikacja,
+- source maps,
+- HMR,
+- bardzo duże możliwości konfiguracji,
+- dobre wsparcie dla dużych aplikacji.
+
+## 38. Wady Webpacka
+
+Webpack ma również wady.
+
+Jego konfiguracja może być skomplikowana.
+
+Dla prostego projektu może być zbyt rozbudowany.
+
+Konfiguracja loaderów i pluginów wymaga wiedzy.
+
+Build może być wolniejszy niż w przypadku niektórych nowoczesnych narzędzi.
+
+Dlatego w nowych projektach często wybiera się prostsze rozwiązania, takie jak Vite.
+
+## 39. Kiedy używać Webpacka?
+
+Webpack jest szczególnie przydatny, gdy:
+
+- pracujesz nad dużym projektem frontendowym,
+- potrzebujesz dużej kontroli nad buildem,
+- masz skomplikowany proces budowania,
+- korzystasz ze starszego projektu,
+- potrzebujesz niestandardowych loaderów,
+- potrzebujesz rozbudowanej konfiguracji,
+- utrzymujesz istniejącą aplikację wykorzystującą Webpack.
+
+## 40. Webpack – najważniejsze pojęcia
+
+**Webpack** – module bundler dla aplikacji JavaScript.
+
+**Entry** – punkt wejścia do aplikacji.
+
+**Output** – miejsce i nazwa plików wynikowych.
+
+**Bundle** – wygenerowany plik zawierający kod aplikacji lub jego część.
+
+**Dependency Graph** – graf zależności pomiędzy modułami.
+
+**Loader** – przetwarza określony typ pliku.
+
+**Plugin** – rozszerza możliwości procesu budowania.
+
+**Tree Shaking** – usuwanie nieużywanego kodu.
+
+**Code Splitting** – dzielenie aplikacji na wiele bundle.
+
+**Lazy Loading** – ładowanie kodu dopiero wtedy, gdy jest potrzebny.
+
+**Minification** – zmniejszanie rozmiaru kodu.
+
+**Source Map** – mapowanie kodu wynikowego na kod źródłowy.
+
+**HMR** – aktualizacja modułów podczas developmentu bez pełnego przeładowania strony.
+
+**webpack.config.js** – plik konfiguracji Webpacka.
+
+## 41. Webpack – najważniejszy schemat
+
+```text
+                 SOURCE CODE
+                      |
+       +--------------+--------------+
+       |              |              |
+    JavaScript      CSS           Images
+       |              |              |
+       +--------------+--------------+
+                      |
+                      ↓
+                   WEBPACK
+                      |
+          +-----------+-----------+
+          |                       |
+       LOADERS                 PLUGINS
+          |                       |
+          +-----------+-----------+
+                      |
+                      ↓
+              OPTIMIZATION
+                      |
+        +-------------+-------------+
+        |             |             |
+   Tree Shaking  Minification  Code Splitting
+        |             |             |
+        +-------------+-------------+
+                      |
+                      ↓
+                    DIST
+              +-------+-------+
+              |       |       |
+            JS      CSS    Assets
+              |       |       |
+              +-------+-------+
+                      |
+                      ↓
+                   BROWSER
+```
+
+### Najważniejsze zdanie do zapamiętania
+
+**Webpack to module bundler, który analizuje zależności pomiędzy modułami aplikacji, przetwarza różne zasoby za pomocą loaderów i pluginów oraz tworzy zoptymalizowane bundle gotowe do uruchomienia w przeglądarce.**

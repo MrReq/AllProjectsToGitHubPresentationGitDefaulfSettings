@@ -1,0 +1,259 @@
+# npm – kompleksowa notatka
+
+## 1. Czym jest npm?
+
+[npm logo png 10 free Cliparts | Download images on Clipground 2026](https://images.openai.com/static-rsc-4/I-5XZdCzxRgqM_5b66AtgQsz01PlnmflI1UQIIOk2ZsUGZRA98Mvr7AzG1nYuKp4cPYhv1CcfmCIlM4V2dpPy1xjhxE2ZtOuZ316mwDhhoJ-OdZIuvcshMycHzxYB8_mb6GdOFwdY2D3iKvYR0sJa7fPKoScW6NBGAPYGUt_hn4?purpose=inline)
+
+[Create your own website uptime monitor with NodeJS and Bugsnag, the ultimate step-by-step | by Medteck Thiam | Medium](https://images.openai.com/static-rsc-4/o5jG9E7V1Tmn5XLJNHddof2rcthxHSFpQ-hmNiJXh_2yAebipx6aI_GweDHwvDqbON0InKLW0MEjaBsl-nAwccXO1o9EcLq608dfCsy9cN5IaItoc6cHM6a5wnlDlGuGDCDi5BgOyks79Mx-uVcQJ1gdPeZQGZdPwlBn2K5ek64?purpose=inline)
+
+[\[Node.JS\] VSCode 개발환경 구성하기](https://images.openai.com/static-rsc-4/GeG7F-5BrfokftXxkmx0Bg9gLes2lLi_pIL41zoEjRjo5_7GUAi-BvJXB-8YpSPxIhTJgJY-l2Yc7HgFmJ1opH0UyZk0jYur-5acvGg7d7mdlsD6qyjm_e6Vh6U_z2CvdgE27yuFL1r3FN0ls9BryxA2iebRGzUtfHtaTVS7DGU?purpose=inline)
+
+7
+
+npm (Node Package Manager) to menedżer pakietów wykorzystywany przede wszystkim w ekosystemie Node.js.
+
+Służy do instalowania bibliotek, zarządzania zależnościami, uruchamiania skryptów projektowych oraz publikowania własnych pakietów programistycznych.
+
+npm składa się z narzędzia wiersza poleceń, publicznego rejestru pakietów oraz mechanizmów pozwalających zarządzać zależnościami projektów.
+
+Dzięki npm programista nie musi samodzielnie pobierać i konfigurować każdej biblioteki, ponieważ może instalować potrzebne pakiety za pomocą prostych poleceń.
+
+Przykładowo, podczas tworzenia aplikacji w Node.js można użyć npm do zainstalowania Express.js, Reacta, TypeScriptu lub narzędzi testowych.
+
+## 2. Do czego służy npm?
+
+npm jest jednym z podstawowych narzędzi wykorzystywanych podczas tworzenia aplikacji JavaScript i TypeScript.
+
+Najważniejsze zastosowania npm to:
+
+- Instalowanie bibliotek i frameworków.
+- Zarządzanie zależnościami projektu.
+- Aktualizowanie pakietów.
+- Uruchamianie skryptów, np. testów i kompilacji.
+- Tworzenie nowych konfiguracji projektów.
+- Publikowanie własnych pakietów.
+- Zarządzanie wersjami bibliotek.
+- Instalowanie narzędzi programistycznych.
+- Współpraca z projektami Node.js, React, Next.js i NestJS.
+
+Przykładowo, aby dodać Express.js do projektu Node.js, wystarczy wykonać polecenie `npm install express`.
+
+## 3. Jak działa npm?
+
+npm pobiera pakiety z rejestru, rozwiązuje ich zależności i instaluje je w projekcie lub globalnie, zależnie od użytego polecenia.
+
+W typowym projekcie npm wykorzystuje plik `package.json`, który zawiera informacje o projekcie, skryptach i wymaganych pakietach.
+
+Programista
+
+Wykonuje polecenie npm
+
+npm CLI
+
+Analizuje konfigurację i zależności
+
+npm Registry
+
+Źródło pakietów i metadanych
+
+node_modules
+
+Zainstalowane pakiety i ich zależności
+
+Po zainstalowaniu pakietu npm zapisuje jego informacje w pliku `package.json`, jeśli operacja dotyczy zależności projektu.
+
+Szczegółowe informacje o konkretnych wersjach rozwiązywanych zależności przechowuje zwykle plik `package-lock.json`.
+
+Katalog `node_modules` zawiera pobrane pakiety, z których korzysta aplikacja.
+
+## 4. Instalacja npm
+
+npm jest standardowo rozpowszechniany razem z Node.js, dlatego zwykle nie trzeba instalować go osobno.
+
+Oficjalna strona: [nodejs.org](https://nodejs.org/).
+
+Po instalacji Node.js można sprawdzić wersje obu narzędzi.
+
+```
+node --version
+npm --version
+```
+
+Pierwsze polecenie wyświetla wersję Node.js, a drugie wersję npm.
+
+Aby utworzyć nowy katalog projektu i zainicjalizować konfigurację npm, można wykonać następujące polecenia:
+
+```
+mkdir my-project
+cd my-project
+npm init -y
+```
+
+Polecenie `npm init -y` tworzy plik `package.json` z domyślnymi wartościami.
+
+## 5. Najważniejsze polecenia npm
+
+| Polecenie                   | Zastosowanie                                                     |
+| --------------------------- | ---------------------------------------------------------------- |
+| `npm init`                  | Inicjalizuje nowy projekt                                        |
+| `npm init -y`               | Tworzy `package.json` bez pytań interaktywnych                   |
+| `npm install`               | Instaluje zależności projektu                                    |
+| `npm install express`       | Instaluje pakiet Express                                         |
+| `npm install -D typescript` | Instaluje pakiet jako zależność deweloperską                     |
+| `npm uninstall express`     | Usuwa pakiet z projektu                                          |
+| `npm update`                | Aktualizuje zależności zgodnie z ograniczeniami wersji           |
+| `npm run`                   | Wyświetla dostępne skrypty projektu                              |
+| `npm run dev`               | Uruchamia skrypt `dev`, jeśli został zdefiniowany                |
+| `npm test`                  | Uruchamia skrypt testowy, jeśli jest skonfigurowany              |
+| `npm audit`                 | Sprawdza zależności pod kątem znanych podatności                 |
+| `npm ci`                    | Instaluje zależności zgodnie z lockfile, bez jego aktualizowania |
+
+Polecenie `npm ci` jest szczególnie przydatne w środowiskach CI/CD, ponieważ wymaga zgodnego pliku blokady zależności i odtwarza instalację na jego podstawie.
+
+## 6. Plik package.json
+
+`package.json` to jeden z najważniejszych plików w projekcie korzystającym z npm.
+
+Zawiera informacje o aplikacji, zależnościach, skryptach i metadanych projektu.
+
+Przykładowa zawartość:
+
+```
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.0.0"
+  }
+}
+```
+
+W tym przykładzie:
+
+- `name` określa nazwę projektu.
+- `version` określa jego wersję.
+- `scripts` definiuje polecenia, które można uruchamiać przez npm.
+- `dependencies` zawiera pakiety potrzebne aplikacji w czasie działania.
+
+Przykładowo `npm start` uruchomi polecenie zdefiniowane w skrypcie `start`.
+
+Wersje podane w przykładzie mają charakter ilustracyjny i nie muszą odpowiadać najnowszym wydaniom pakietów.
+
+## 7. Dependencies i devDependencies
+
+npm rozróżnia zależności potrzebne aplikacji w czasie działania od pakietów używanych podczas tworzenia, testowania lub budowania projektu.
+
+dependencies zawiera biblioteki wymagane do działania aplikacji.
+
+devDependencies zawiera narzędzia wykorzystywane głównie podczas developmentu, np. TypeScript, ESLint czy wybrane narzędzia testowe.
+
+Przykładowe instalowanie pakietów:
+
+```
+npm install express
+npm install -D typescript
+```
+
+Pierwsze polecenie dodaje Express do `dependencies`, a drugie TypeScript do `devDependencies`.
+
+Podział zależy od roli konkretnego pakietu w projekcie. Niektóre narzędzia budowania są konieczne podczas wdrożenia, nawet jeśli nie są potrzebne do samego uruchamiania aplikacji.
+
+## 8. package-lock.json i node_modules
+
+package-lock.json zapisuje dokładne wersje pakietów i ich zależności rozwiązane podczas instalacji.
+
+Pomaga to odtworzyć podobne środowisko na różnych komputerach i w systemach automatycznego budowania.
+
+node_modules to katalog zawierający zainstalowane pakiety.
+
+Zwykle nie umieszcza się katalogu `node_modules` w repozytorium Git, ponieważ można go odtworzyć na podstawie plików `package.json` i `package-lock.json`.
+
+W projektach korzystających z npm warto przechowywać plik `package-lock.json` w repozytorium.
+
+## 9. npm a inne menedżery pakietów
+
+[Npm original wordmark logo - free Icon PNG, SVG](https://images.openai.com/static-rsc-4/B0T4_N-Gx1vl0H6G03yU8v3GAkvITPF46O70TfykxugF6aq6jZOwVItxdPxff5LQptOtMhh0PefJwl5ttmyS2peiskXUqWKNoWs9Pic62eb985RMqAMF1QoNIMCYcGBNdszpiGVxkJR-kG8btOfdoPH8uT41M1abjJqb3qkMUgA?purpose=inline)
+
+npm
+
+Domyślny menedżer pakietów rozpowszechniany z Node.js, z dużym ekosystemem bibliotek i własnym rejestrem.
+
+[Yarn Logo Vector Download | Logowik](https://images.openai.com/static-rsc-4/GCvpbWsml5mDEo3mFyz7LdMOzqgsMbCi6wP_Pi05fgI3gFqI_K3w8ZoSh6wPLr1T5n84bVkCAKAf6RmR4nw6a-0Z-SIJ_93bMhjtlPS78AV_nDeFr8ldwKnG1iV4t0SMrr0hvpSbVzhiphwga-KkGbXVrQB4IDxRbQV4hEPuBj4?purpose=inline)
+
+Yarn
+
+Alternatywny menedżer pakietów oferujący własne mechanizmy instalowania, blokowania i zarządzania zależnościami.
+
+[Pnpm Logo PNG Vectors Free Download](https://images.openai.com/static-rsc-4/VSJpwuuPEvSYzx-L3RzrZ1-wC5ClEuXxBvR6pfCKCdt0RGNT371dvGWvje6mGdWXHesc_gGgGTOVd4SNkmkmUBK-X_EtEf0REMFhry369rJOOOztYFMwD6SOdRAEPYJfEAL5W2f4s3K14uSe4L9ewM0N81e-n30y6zxPO6CDK8U?purpose=inline)
+
+pnpm
+
+Menedżer pakietów wykorzystujący współdzielenie plików pakietów, co może ograniczać zużycie miejsca na dysku.
+
+Wszystkie trzy narzędzia służą do zarządzania zależnościami w projektach JavaScript i TypeScript.
+
+Wybór zależy od preferencji zespołu, wymagań projektu oraz sposobu organizacji repozytorium.
+
+W obrębie jednego projektu warto konsekwentnie używać jednego menedżera pakietów i odpowiadającego mu pliku blokady zależności.
+
+## 10. Zalety npm
+
+- Jest łatwo dostępny razem z Node.js.
+- Umożliwia szybkie instalowanie bibliotek.
+- Oferuje ogromny ekosystem pakietów.
+- Ułatwia zarządzanie wersjami i zależnościami.
+- Pozwala automatyzować zadania przez skrypty.
+- Wspiera publikowanie własnych bibliotek.
+- Integruje się z popularnymi frameworkami, takimi jak React, Next.js i NestJS.
+- Nadaje się do pracy lokalnej oraz w systemach CI/CD.
+
+## 11. Wady npm
+
+- Duża liczba zależności może zwiększać złożoność projektu.
+- Niektóre pakiety mogą zawierać podatności bezpieczeństwa.
+- Konflikty wersji zależności mogą utrudniać instalację.
+- Nieprawidłowo dobrane aktualizacje mogą powodować błędy w aplikacji.
+- Duże drzewo zależności może wydłużać instalację i zwiększać rozmiar projektu.
+- Wybór pakietów wymaga oceny ich jakości, utrzymania i wiarygodności.
+
+## 12. Bezpieczeństwo w npm
+
+Podczas korzystania z npm należy zwracać uwagę na bezpieczeństwo zależności.
+
+Warto regularnie analizować podatności, sprawdzać pochodzenie pakietów i aktualizować biblioteki w kontrolowany sposób.
+
+Przydatne polecenia to:
+
+```
+npm audit
+npm audit fix
+```
+
+Pierwsze polecenie sprawdza znane podatności w zależnościach.
+
+Drugie próbuje zastosować dostępne poprawki zgodne z ograniczeniami wersji, ale przed użyciem należy sprawdzić proponowane zmiany, ponieważ aktualizacje mogą wpływać na działanie aplikacji.
+
+Nie należy instalować nieznanych pakietów bez sprawdzenia ich wiarygodności ani bezrefleksyjnie uruchamiać skryptów pochodzących z niezaufanych źródeł.
+
+## 13. Najważniejsze pojęcia do zapamiętania
+
+- npm – menedżer pakietów dla ekosystemu Node.js.
+- Package – pakiet zawierający kod i metadane.
+- Registry – rejestr, z którego można pobierać pakiety.
+- package.json – plik konfiguracji projektu i zależności.
+- package-lock.json – plik blokady dokładnych wersji zależności.
+- node_modules – katalog z zainstalowanymi pakietami.
+- dependencies – zależności wymagane przez aplikację.
+- devDependencies – zależności wykorzystywane głównie podczas developmentu.
+- npm install – instalowanie pakietów.
+- npm ci – odtwarzanie instalacji na podstawie pliku blokady.
+- npm run – uruchamianie skryptów zdefiniowanych w projekcie.
+- npm audit – analiza znanych podatności zależności.
+- Semantic Versioning – system numerowania wersji oprogramowania, zwykle w formacie `MAJOR.MINOR.PATCH`.
+
+Podsumowanie: npm to podstawowe narzędzie ekosystemu Node.js służące do instalowania bibliotek, zarządzania zależnościami i automatyzowania pracy nad projektami JavaScript oraz TypeScript. Jego najważniejsze elementy to `package.json`, `package-lock.json`, katalog `node_modules` i polecenia do instalowania, aktualizowania oraz testowania pakietów.

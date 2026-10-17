@@ -1,0 +1,158 @@
+# Gradle
+
+## 1. Czym jest Gradle?
+
+Gradle to narzędzie do automatyzacji budowania oprogramowania (build automation tool), które umożliwia kompilowanie kodu, zarządzanie zależnościami, uruchamianie testów oraz przygotowywanie aplikacji do wdrożenia.
+
+Jest szczególnie popularny w projektach Java, Kotlin i Android.
+
+Gradle wykorzystuje konfigurację zapisaną w plikach `build.gradle` lub `build.gradle.kts`, w których określa się sposób budowania projektu i wykorzystywane biblioteki.
+
+## 2. Do czego służy Gradle?
+
+Gradle służy do automatyzowania procesu tworzenia oprogramowania.
+
+Umożliwia kompilowanie kodu źródłowego, uruchamianie testów jednostkowych i generowanie plików JAR lub innych artefaktów.
+
+Pozwala pobierać biblioteki z repozytoriów, takich jak Maven Central, i zarządzać ich wersjami.
+
+Ułatwia również tworzenie wielomodułowych projektów, w których poszczególne części aplikacji są budowane niezależnie.
+
+## 3. Najważniejsze funkcje Gradle
+
+Build Automation umożliwia automatyczne wykonywanie zadań związanych z budowaniem aplikacji.
+
+Dependency Management pozwala deklarować biblioteki zewnętrzne oraz zarządzać ich zależnościami i wersjami.
+
+Plugins rozszerzają możliwości Gradle, na przykład o kompilowanie Javy, uruchamianie testów czy tworzenie aplikacji Android.
+
+Incremental Builds pozwalają pomijać niektóre zadania, jeśli ich dane wejściowe i wyniki nie uległy zmianie.
+
+Build Cache umożliwia ponowne wykorzystanie wyników wcześniejszych zadań, gdy konfiguracja i dane na to pozwalają.
+
+Gradle Wrapper pozwala uruchamiać projekt z określoną wersją Gradle bez konieczności ręcznego instalowania tej wersji na każdym komputerze.
+
+## 4. Jak działa Gradle?
+
+Programista konfiguruje projekt w pliku `build.gradle` lub `build.gradle.kts`.
+
+Następnie uruchamia Gradle z terminala albo za pomocą Gradle Wrappera.
+
+Narzędzie analizuje konfigurację i wykonuje odpowiednie zadania w wymaganej kolejności.
+
+W zależności od projektu Gradle może pobrać zależności, skompilować kod, uruchomić testy i wygenerować plik wynikowy.
+
+## 5. Przykładowy plik Gradle dla Javy
+
+Poniższy przykład przedstawia podstawową konfigurację projektu Java wykorzystującego Gradle w wersji Groovy DSL.
+
+Plik należy zapisać jako `build.gradle`.
+
+```
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+```
+
+W tym przykładzie plugin `java` dodaje zadania związane z kompilowaniem kodu Java.
+
+Sekcja `repositories` wskazuje repozytorium, z którego Gradle może pobierać biblioteki.
+
+Sekcja `dependencies` deklaruje bibliotekę JUnit wykorzystywaną do testów.
+
+Konfiguracja `test` umożliwia uruchamianie testów za pomocą platformy JUnit.
+
+## 6. Najważniejsze komendy Gradle
+
+`gradle build` wykonuje zadania potrzebne do zbudowania projektu.
+
+`gradle clean` usuwa pliki wygenerowane podczas budowania.
+
+`gradle test` uruchamia testy skonfigurowane w projekcie.
+
+`gradle run` uruchamia aplikację, jeśli skonfigurowano odpowiednie zadanie, na przykład za pomocą pluginu `application`.
+
+`gradle tasks` wyświetla dostępne zadania.
+
+`gradle dependencies` prezentuje zależności projektu.
+
+`./gradlew build` uruchamia budowanie za pomocą Gradle Wrappera w systemach Linux i macOS.
+
+`gradlew.bat build` uruchamia budowanie za pomocą Wrappera w systemie Windows.
+
+W praktyce warto korzystać z Gradle Wrappera, aby zapewnić spójną wersję narzędzia w całym zespole.
+
+## 7. Gradle a Maven
+
+Gradle i Maven to narzędzia automatyzujące budowanie projektów, szczególnie w ekosystemie Javy.
+
+Maven wykorzystuje przede wszystkim deklaratywną konfigurację w pliku `pom.xml` i standardowy cykl życia projektu.
+
+Gradle oferuje konfigurację opartą na Groovy DSL lub Kotlin DSL, a także rozbudowane możliwości definiowania i dostosowywania zadań.
+
+Gradle może być wygodny w projektach wymagających bardziej elastycznych procesów budowania, natomiast Maven jest często wybierany ze względu na ustandaryzowaną strukturę i prosty model konfiguracji.
+
+Oba narzędzia obsługują zarządzanie zależnościami, testowanie i tworzenie artefaktów.
+
+## 8. Gradle w projektach Android
+
+Gradle jest podstawowym narzędziem budowania wykorzystywanym w nowoczesnym środowisku Android.
+
+Umożliwia kompilowanie kodu Kotlin i Java, zarządzanie bibliotekami oraz tworzenie pakietów aplikacji Android.
+
+Pozwala definiować różne warianty aplikacji, na przykład wersję testową i produkcyjną.
+
+Współpracuje z Android Gradle Plugin, który dodaje zadania i konfiguracje specyficzne dla platformy Android.
+
+## 9. Zalety Gradle
+
+Gradle umożliwia automatyzację kompilacji, testów i pakowania aplikacji.
+
+Obsługuje wiele języków programowania i rodzajów projektów.
+
+Oferuje mechanizmy przyspieszające budowanie, takie jak wykonywanie przyrostowe i cache.
+
+Pozwala tworzyć projekty wielomodułowe oraz dostosowywać proces budowania do wymagań aplikacji.
+
+Dzięki Gradle Wrapperowi ułatwia utrzymywanie spójnego środowiska w zespołach programistycznych.
+
+## 10. Wady i ograniczenia Gradle
+
+Bardziej rozbudowane konfiguracje mogą być trudne do zrozumienia dla początkujących.
+
+Problemy z zależnościami, pluginami lub konfiguracją zadań mogą wymagać dokładnej analizy logów.
+
+Niestandardowe skrypty budowania mogą zwiększać złożoność projektu, jeśli nie są odpowiednio uporządkowane.
+
+## 11. Znaczenie Gradle w pracy informatyka
+
+Gradle jest przydatny dla programistów Java i Kotlin, twórców aplikacji Android oraz inżynierów DevOps.
+
+Programiści wykorzystują go do kompilowania aplikacji i zarządzania bibliotekami.
+
+Testerzy mogą używać Gradle do uruchamiania testów automatycznych.
+
+Inżynierowie DevOps mogą integrować Gradle z procesami CI/CD w GitHub Actions, GitLab CI lub innych systemach automatyzacji.
+
+## 12. Podsumowanie
+
+Gradle to narzędzie do automatyzacji budowania oprogramowania, zarządzania zależnościami, uruchamiania testów i przygotowywania aplikacji do wdrożenia.
+
+Jest szczególnie popularny w projektach Java, Kotlin i Android.
+
+Warto poznać Gradle, jeśli rozwijasz aplikacje JVM, pracujesz z Androidem lub chcesz automatyzować budowanie i testowanie oprogramowania.

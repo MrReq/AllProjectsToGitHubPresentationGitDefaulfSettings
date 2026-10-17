@@ -1,0 +1,592 @@
+# Xray
+
+## 1. Czym jest Xray?
+
+**Xray** to narzędzie firmy Atlassian służące do zarządzania testami oprogramowania.
+
+Xray jest dodatkiem do **Jira**, który rozszerza ją o funkcje związane z test managementem.
+
+Dzięki Xray zespoły QA mogą tworzyć testy, organizować przypadki testowe, wykonywać testy oraz analizować ich wyniki bezpośrednio w środowisku Jira.
+
+Najprościej można zapamiętać:
+
+**Jira = zarządzanie zadaniami i pracą**
+
+**Xray = zarządzanie testami w Jira**
+
+## 2. Do czego służy Xray?
+
+Xray służy do zarządzania całym procesem testowania oprogramowania.
+
+Można w nim tworzyć przypadki testowe.
+
+Można definiować kroki testowe.
+
+Można określać oczekiwane rezultaty.
+
+Można wykonywać testy.
+
+Można rejestrować wyniki testów.
+
+Można tworzyć test executions.
+
+Można powiązać testy z wymaganiami.
+
+Można powiązać testy z błędami.
+
+Można generować raporty dotyczące jakości.
+
+## 3. Xray i Jira
+
+Xray działa wewnątrz ekosystemu Jira.
+
+Oznacza to, że testy mogą być powiązane z elementami, które już znajdują się w Jira.
+
+Przykładowo możemy mieć:
+
+**Requirement → Test → Test Execution → Bug**
+
+Czyli:
+
+wymaganie ma określone testy.
+
+Testy są wykonywane.
+
+Jeżeli test zakończy się niepowodzeniem, można utworzyć zgłoszenie błędu.
+
+Dzięki temu cały proces jest możliwy do śledzenia w jednym systemie.
+
+## 4. Test Case
+
+Jednym z podstawowych elementów Xray jest **Test Case**.
+
+Test Case opisuje konkretny przypadek testowy.
+
+Przykładowo:
+
+**Test Case: Logowanie poprawnymi danymi**
+
+Warunki początkowe:
+
+Użytkownik posiada konto.
+
+Użytkownik znajduje się na stronie logowania.
+
+Krok 1:
+
+Wprowadź poprawny login.
+
+Krok 2:
+
+Wprowadź poprawne hasło.
+
+Krok 3:
+
+Kliknij przycisk „Zaloguj”.
+
+Oczekiwany rezultat:
+
+Użytkownik zostaje zalogowany i zostaje przekierowany do panelu użytkownika.
+
+## 5. Test Steps
+
+Test Case może składać się z wielu **Test Steps**.
+
+Każdy krok określa konkretną czynność wykonywaną podczas testu.
+
+Przykład:
+
+| Krok | Akcja | Oczekiwany rezultat |
+|---|---|---|
+| 1 | Otwórz stronę logowania | Strona zostaje wyświetlona |
+| 2 | Wpisz login | Login zostaje zaakceptowany |
+| 3 | Wpisz hasło | Hasło zostaje zaakceptowane |
+| 4 | Kliknij Login | Użytkownik zostaje zalogowany |
+
+Dzięki temu test jest jednoznaczny i może być wykonany przez różnych testerów.
+
+## 6. Expected Result
+
+**Expected Result** oznacza oczekiwany rezultat wykonania określonego kroku.
+
+Tester porównuje rzeczywiste zachowanie aplikacji z oczekiwanym rezultatem.
+
+Jeżeli rezultat rzeczywisty jest zgodny z oczekiwanym, krok może zostać oznaczony jako zaliczony.
+
+Jeżeli rezultat jest inny, krok może zostać oznaczony jako niezaliczony.
+
+## 7. Test Execution
+
+**Test Execution** reprezentuje wykonanie określonego testu lub zestawu testów.
+
+To ważne rozróżnienie.
+
+**Test Case** opisuje, **co należy przetestować**.
+
+**Test Execution** opisuje, **kiedy i z jakim wynikiem test został wykonany**.
+
+Ten sam Test Case może być wykonywany wielokrotnie.
+
+Przykładowo:
+
+Test Case:
+
+**Logowanie poprawnymi danymi**
+
+Może zostać wykonany:
+
+na środowisku testowym,
+
+na środowisku staging,
+
+na wersji 1.0,
+
+na wersji 1.1.
+
+## 8. Test Set
+
+**Test Set** służy do grupowania testów.
+
+Możemy utworzyć zestaw:
+
+**Login Tests**
+
+i umieścić w nim:
+
+Test poprawnego logowania.
+
+Test błędnego hasła.
+
+Test pustego loginu.
+
+Test pustego hasła.
+
+Test blokady konta.
+
+Test Set pozwala uporządkować większą liczbę testów.
+
+## 9. Test Plan
+
+**Test Plan** służy do organizowania większego procesu testowania.
+
+Może obejmować wiele Test Executions.
+
+Przykładowo projekt może mieć:
+
+**Test Plan: Release 2.0**
+
+W ramach tego planu można przeprowadzić:
+
+Regression Testing.
+
+Smoke Testing.
+
+API Testing.
+
+UI Testing.
+
+Security Testing.
+
+## 10. Test Repository
+
+Xray pozwala organizować testy w strukturze przypominającej repozytorium.
+
+Można tworzyć foldery i grupować testy według funkcjonalności.
+
+Przykładowo:
+
+```text
+Tests
+│
+├── Authentication
+│   ├── Login
+│   ├── Logout
+│   └── Password Reset
+│
+├── Payments
+│   ├── Credit Card
+│   ├── PayPal
+│   └── Refund
+│
+└── Orders
+    ├── Create Order
+    ├── Edit Order
+    └── Cancel Order
+```
+
+Dzięki temu duża liczba przypadków testowych pozostaje uporządkowana.
+
+## 11. Traceability
+
+Jedną z najważniejszych funkcji Xray jest **traceability**, czyli możliwość śledzenia powiązań pomiędzy wymaganiami, testami i błędami.
+
+Przykładowo:
+
+**Requirement**
+
+↓
+
+**Test Case**
+
+↓
+
+**Test Execution**
+
+↓
+
+**Bug**
+
+Dzięki temu można sprawdzić, które wymaganie zostało przetestowane.
+
+Można również sprawdzić, które testy zakończyły się niepowodzeniem.
+
+Można sprawdzić, które wymagania są związane z konkretnymi błędami.
+
+## 12. Requirements Traceability Matrix
+
+Xray może być wykorzystywany do tworzenia podejścia znanego jako **Requirements Traceability Matrix**, czyli RTM.
+
+RTM pozwala sprawdzić, czy wymagania posiadają odpowiednie testy.
+
+Przykładowo:
+
+| Requirement | Test | Wynik |
+|---|---|---|
+| REQ-001 Logowanie | TEST-001 | PASS |
+| REQ-002 Reset hasła | TEST-002 | PASS |
+| REQ-003 Blokada konta | TEST-003 | FAIL |
+
+Dzięki temu zespół może łatwiej kontrolować pokrycie wymagań testami.
+
+## 13. Test Status
+
+Testy mogą posiadać różne statusy.
+
+Typowe wyniki obejmują:
+
+**PASS** – test zakończył się powodzeniem.
+
+**FAIL** – test zakończył się niepowodzeniem.
+
+**TODO** – test nie został jeszcze wykonany.
+
+**BLOCKED** – test nie może zostać wykonany z powodu przeszkody.
+
+W praktyce dostępne statusy mogą zależeć od konfiguracji Xray i projektu.
+
+## 14. Defects
+
+Jeżeli test zakończy się niepowodzeniem, tester może utworzyć zgłoszenie błędu.
+
+W Jira może ono mieć typ:
+
+**Bug**
+
+Bug można następnie powiązać z konkretnym testem.
+
+Przykładowo:
+
+**TEST-123 → BUG-456**
+
+Dzięki temu wiadomo, który test wykrył dany problem.
+
+## 15. Preconditions
+
+Test może posiadać również **Preconditions**.
+
+Precondition określa warunki, które muszą zostać spełnione przed rozpoczęciem testu.
+
+Przykład:
+
+**Precondition:**
+
+Użytkownik musi posiadać aktywne konto.
+
+Użytkownik musi być wylogowany.
+
+Baza danych musi zawierać przykładowego użytkownika.
+
+Dopiero po spełnieniu tych warunków można wykonać test.
+
+## 16. Manual Testing
+
+Xray bardzo dobrze nadaje się do zarządzania testami manualnymi.
+
+Tester może otworzyć Test Execution.
+
+Może wykonywać poszczególne kroki.
+
+Może oznaczać je jako zaliczone lub niezaliczone.
+
+Może dodawać komentarze.
+
+Może dołączać dowody wykonania testu.
+
+Może zgłaszać znalezione błędy.
+
+## 17. Automated Testing
+
+Xray może również współpracować z testami automatycznymi.
+
+Testy automatyczne mogą być wykonywane przez narzędzia takie jak:
+
+**JUnit**
+
+**Cypress**
+
+**Selenium**
+
+**Playwright**
+
+**Cucumber**
+
+Wyniki testów mogą następnie zostać przekazane do Xray.
+
+Dzięki temu Xray może służyć jako centralne miejsce przechowywania informacji o wynikach testów manualnych i automatycznych.
+
+## 18. Xray i CI/CD
+
+Xray może być częścią procesu CI/CD.
+
+Przykładowy proces może wyglądać tak:
+
+**Developer**
+
+↓
+
+**Git**
+
+↓
+
+**CI/CD Pipeline**
+
+↓
+
+**Automated Tests**
+
+↓
+
+**Xray**
+
+↓
+
+**Test Results**
+
+Przykładowo po wykonaniu testów automatycznych pipeline może przekazać wyniki do Xray.
+
+Dzięki temu zespół może obserwować wyniki testów w kontekście konkretnego wydania aplikacji.
+
+## 19. Cucumber i Xray
+
+Xray może współpracować również z **Cucumberem**.
+
+Cucumber wykorzystuje podejście **BDD – Behavior Driven Development**.
+
+Testy mogą być opisywane za pomocą składni Gherkin.
+
+Przykład:
+
+```gherkin
+Feature: Logowanie
+
+Scenario: Logowanie poprawnymi danymi
+    Given użytkownik znajduje się na stronie logowania
+    When wprowadzi poprawny login i hasło
+    And kliknie przycisk Zaloguj
+    Then powinien zostać zalogowany
+```
+
+Takie scenariusze mogą być powiązane z elementami zarządzanymi w Xray.
+
+## 20. Raportowanie
+
+Xray posiada funkcje raportowania dotyczące testów.
+
+Raporty mogą przedstawiać między innymi:
+
+liczbę wykonanych testów,
+
+liczbę testów zakończonych sukcesem,
+
+liczbę testów zakończonych niepowodzeniem,
+
+pokrycie wymagań,
+
+wyniki Test Executions,
+
+status regresji.
+
+Raporty pomagają zespołowi analizować stan testowania.
+
+## 21. Test Coverage
+
+**Test Coverage** określa, jaka część wymagań lub funkcjonalności została objęta testami.
+
+Przykładowo:
+
+Projekt posiada 100 wymagań.
+
+80 wymagań posiada przynajmniej jeden powiązany test.
+
+Można wtedy mówić o 80% pokrycia wymagań w tym konkretnym ujęciu.
+
+Trzeba jednak pamiętać, że samo pokrycie testami nie oznacza automatycznie wysokiej jakości testów.
+
+## 22. Xray a Jira
+
+Najważniejsze różnice można zapamiętać następująco:
+
+| Jira | Xray |
+|---|---|
+| Zarządzanie zadaniami | Zarządzanie testami |
+| Stories | Test Cases |
+| Bugs | Defects |
+| Epics | Test Plans |
+| Workflow | Test Execution |
+| Sprinty | Cykl wykonywania testów |
+
+Xray wykorzystuje infrastrukturę Jira i dodaje do niej funkcjonalności związane z test managementem.
+
+## 23. Xray a QA
+
+Dla testera Xray może być miejscem, w którym przechowuje się:
+
+wymagania,
+
+przypadki testowe,
+
+scenariusze,
+
+preconditions,
+
+wyniki testów,
+
+defekty,
+
+dowody wykonania,
+
+informacje o regresji,
+
+informacje o pokryciu testami.
+
+Dzięki temu proces testowania jest udokumentowany.
+
+## 24. Zalety Xray
+
+Xray integruje się bezpośrednio z Jira.
+
+Pozwala centralizować informacje dotyczące testowania.
+
+Ułatwia śledzenie powiązań między wymaganiami i testami.
+
+Obsługuje testy manualne.
+
+Może współpracować z testami automatycznymi.
+
+Umożliwia raportowanie wyników testów.
+
+Może być wykorzystywany w procesach CI/CD.
+
+## 25. Wady Xray
+
+Xray może być skomplikowany dla początkującego użytkownika.
+
+Przy dużych projektach konieczne jest odpowiednie zaprojektowanie struktury testów.
+
+Rozbudowana konfiguracja może wymagać czasu.
+
+Korzystanie z Xray wiąże się również z ekosystemem Jira i jego konfiguracją.
+
+## 26. Przykładowy workflow testera
+
+Tester otrzymuje wymaganie:
+
+**„Użytkownik powinien móc zalogować się za pomocą poprawnego loginu i hasła.”**
+
+Tworzy Test Case:
+
+**Login with valid credentials**
+
+Następnie definiuje kroki.
+
+Wykonuje test.
+
+Rezultat:
+
+**PASS**
+
+Następnie wykonuje test błędnego hasła.
+
+Rezultat:
+
+**FAIL**
+
+Tester tworzy Bug.
+
+Bug zostaje powiązany z testem.
+
+Developer naprawia problem.
+
+Tester wykonuje test ponownie.
+
+Rezultat:
+
+**PASS**
+
+Cały proces jest widoczny w Jira i Xray.
+
+## 27. Najważniejsze pojęcia
+
+**Xray** – narzędzie do zarządzania testami zintegrowane z Jira.
+
+**Test Case** – opis konkretnego przypadku testowego.
+
+**Test Step** – pojedynczy krok testu.
+
+**Expected Result** – oczekiwany rezultat.
+
+**Precondition** – warunek wymagany przed rozpoczęciem testu.
+
+**Test Execution** – wykonanie testów.
+
+**Test Set** – grupa testów.
+
+**Test Plan** – plan organizujący większy zakres testowania.
+
+**Test Repository** – uporządkowana struktura przechowywania testów.
+
+**Traceability** – śledzenie powiązań pomiędzy wymaganiami, testami i błędami.
+
+**Test Coverage** – zakres wymagań lub funkcjonalności objętych testami.
+
+**Bug/Defect** – zgłoszony problem w aplikacji.
+
+**CI/CD** – automatyzacja budowania, testowania i dostarczania oprogramowania.
+
+**BDD** – podejście do tworzenia oprogramowania oparte na zachowaniu systemu.
+
+**Gherkin** – składnia używana między innymi przez Cucumber do opisywania scenariuszy.
+
+## 28. Najważniejsze do zapamiętania
+
+**Xray to narzędzie do zarządzania testami zintegrowane z Jira.**
+
+**Test Case mówi, co należy przetestować.**
+
+**Test Execution mówi, kiedy i z jakim wynikiem test został wykonany.**
+
+**Test Set służy do grupowania testów.**
+
+**Test Plan organizuje większy proces testowania.**
+
+**Precondition określa warunki wymagane przed testem.**
+
+**Test Steps opisują kolejne czynności testera.**
+
+**Expected Result określa oczekiwane zachowanie systemu.**
+
+**Xray umożliwia powiązanie wymagań → testów → wyników → błędów.**
+
+**Xray może obsługiwać zarówno testy manualne, jak i wyniki testów automatycznych.**
+
+**Xray jest szczególnie istotnym narzędziem dla QA/Testera pracującego w ekosystemie Jira.**

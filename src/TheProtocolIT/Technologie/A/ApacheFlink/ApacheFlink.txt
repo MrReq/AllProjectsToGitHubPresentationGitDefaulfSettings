@@ -1,0 +1,270 @@
+Apache Flink — notatka
+
+1. Czym jest Apache Flink?
+
+Apache Flink to platforma open source służąca do rozproszonego przetwarzania strumieni danych oraz wykonywania obliczeń na dużą skalę.
+
+Jest rozwijana w ramach Apache Software Foundation i została zaprojektowana z myślą o przetwarzaniu danych zarówno w czasie rzeczywistym, jak i w trybie wsadowym.
+
+Flink umożliwia analizowanie napływających zdarzeń, wykrywanie wzorców, agregowanie danych oraz wykonywanie obliczeń na strumieniach informacji.
+
+Technologia jest szczególnie popularna w systemach Big Data, analityce czasu rzeczywistego i architekturach opartych na zdarzeniach.
+
+2. Do czego służy Apache Flink?
+
+Apache Flink jest wykorzystywany do przetwarzania dużych ilości danych, które napływają nieustannie lub muszą zostać przeanalizowane w ramach określonego procesu.
+
+Najważniejsze zastosowania to:
+
+- Przetwarzanie strumieni danych w czasie rzeczywistym.
+- Analizowanie zdarzeń przesyłanych przez Apache Kafka.
+- Wykrywanie oszustw finansowych.
+- Monitorowanie aktywności użytkowników.
+- Analiza logów i metryk systemowych.
+- Przetwarzanie danych z urządzeń IoT.
+- Obliczanie statystyk na podstawie napływających zdarzeń.
+- Budowanie systemów rekomendacyjnych reagujących na aktywność użytkownika.
+- Przetwarzanie danych w architekturze mikroserwisowej.
+- Przygotowywanie danych dla systemów analitycznych i machine learning.
+
+Przykładowo platforma zakupowa może wykorzystywać Flink do analizowania zamówień w czasie rzeczywistym i wykrywania nietypowych transakcji.
+
+3. Jak działa Apache Flink?
+
+Apache Flink przetwarza dane za pomocą zadań rozproszonych pomiędzy wieloma procesami lub maszynami.
+
+Dane mogą napływać ze źródeł takich jak Kafka, pliki, bazy danych lub systemy komunikacyjne.
+
+Flink wykonuje na nich określone operacje, na przykład filtrowanie, mapowanie, łączenie i agregowanie.
+
+Wyniki mogą być przekazywane do baz danych, systemów analitycznych, innych tematów Kafka lub kolejnych etapów przetwarzania.
+
+Typowy przepływ wygląda następująco:
+
+1. System źródłowy generuje zdarzenia.
+2. Zdarzenia trafiają do Apache Flink.
+3. Flink przetwarza je zgodnie z zaprogramowaną logiką.
+4. Wyniki są agregowane lub wzbogacane o dodatkowe informacje.
+5. Gotowe dane trafiają do systemu docelowego.
+
+Przetwarzanie może odbywać się ciągle, bez konieczności oczekiwania na zakończenie całego zbioru danych.
+
+4. Najważniejsze elementy Apache Flink
+
+- **DataStream API** — API do definiowania operacji na strumieniach danych.
+- **Table API** — interfejs do przetwarzania danych w sposób zbliżony do operacji na tabelach.
+- **Flink SQL** — język SQL umożliwiający wykonywanie zapytań na danych strumieniowych i tabelarycznych.
+- **JobManager** — komponent koordynujący wykonywanie zadań.
+- **TaskManager** — proces wykonujący zadania przetwarzania danych.
+- **Operator** — element realizujący operację na danych, na przykład filtrację lub agregację.
+- **Source** — źródło danych wejściowych.
+- **Sink** — miejsce docelowe, do którego zapisywane są wyniki.
+- **Checkpoint** — zapis stanu przetwarzania umożliwiający odzyskiwanie po awarii.
+- **State** — stan przechowywany przez zadanie, potrzebny na przykład do agregacji i analizy zdarzeń w czasie.
+- **Watermark** — mechanizm pomagający określić postęp czasu zdarzeń i obsługiwać dane przychodzące z opóźnieniem.
+
+5. Przetwarzanie strumieniowe
+
+Przetwarzanie strumieniowe polega na analizowaniu danych w miarę ich napływania.
+
+W przeciwieństwie do tradycyjnego przetwarzania wsadowego nie trzeba czekać, aż wszystkie dane zostaną zgromadzone.
+
+Przykładowo system bankowy może analizować każdą transakcję natychmiast po jej otrzymaniu.
+
+Flink może obliczać sumę transakcji w ostatnich minutach, wykrywać nietypową aktywność i przekazywać wyniki do systemu alarmowego.
+
+Dzięki temu systemy mogą reagować na zdarzenia z niewielkim opóźnieniem, zależnym od konfiguracji i obciążenia.
+
+6. DataStream API
+
+DataStream API pozwala definiować operacje wykonywane na strumieniach danych.
+
+Programista może określić źródło danych, kolejne transformacje oraz miejsce zapisu wyników.
+
+Przykładowe operacje obejmują:
+
+- `map` — przekształcanie pojedynczych elementów.
+- `filter` — wybieranie elementów spełniających warunek.
+- `keyBy` — grupowanie danych według klucza.
+- `window` — grupowanie zdarzeń w oknach czasowych.
+- `reduce` — stopniowe łączenie wartości w wynik.
+- `process` — implementowanie bardziej zaawansowanej logiki przetwarzania.
+
+API pozwala budować zarówno proste potoki danych, jak i rozbudowane aplikacje analityczne.
+
+7. Przykład w Javie
+
+Apache Flink obsługuje Javę, dzięki czemu można wykorzystać go w projektach opartych na ekosystemie JVM.
+
+Poniższy przykład przedstawia uproszczoną aplikację przetwarzającą kolekcję liczb i wybierającą wartości większe od 10.
+
+```
+import org.apache.flink.api.common.RuntimeExecutionMode;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+
+public class FlinkExample {
+
+    public static void main(String[] args) throws Exception {
+        var env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        env.setRuntimeMode(RuntimeExecutionMode.BATCH);
+
+        env.fromData(5, 12, 20, 7, 15)
+            .filter(number -> number > 10)
+            .print();
+
+        env.execute("Filter Numbers");
+    }
+}
+```
+
+W tym przykładzie Flink otrzymuje kolekcję liczb, filtruje ją i wypisuje wartości większe od 10.
+
+Ustawienie trybu `BATCH` pokazuje przetwarzanie skończonego zbioru danych.
+
+W rzeczywistym systemie źródłem może być strumień zdarzeń z Kafki, a wyniki mogą być zapisywane w bazie danych.
+
+Do uruchomienia przykładu potrzebna jest odpowiednia zależność Apache Flink dopasowana do używanej wersji API.
+
+8. Flink SQL i Table API
+
+Apache Flink oferuje również interfejsy umożliwiające analizowanie danych przy użyciu operacji tabelarycznych i SQL.
+
+Flink SQL pozwala definiować zapytania na danych strumieniowych, na przykład filtrować zdarzenia i agregować je w przedziałach czasu.
+
+Jest to przydatne dla osób, które znają SQL i chcą budować potoki przetwarzania danych bez pisania całej logiki w Javie.
+
+Przykładowym zastosowaniem może być obliczanie liczby zamówień w określonym przedziale czasu albo analiza aktywności użytkowników.
+
+Szczegóły składni i możliwości zależą od wersji Flink oraz konfiguracji źródeł i tabel.
+
+9. Okna czasowe (Windows)
+
+Okna czasowe umożliwiają grupowanie zdarzeń według określonych przedziałów czasu lub liczby elementów.
+
+Są szczególnie przydatne, gdy trzeba obliczać statystyki dla ostatniej minuty, pięciu minut lub godziny.
+
+Przykładowo Flink może obliczać liczbę zamówień w każdej minucie i przekazywać wynik do dashboardu.
+
+Ważne jest rozróżnienie czasu przetwarzania (processing time) i czasu zdarzenia (event time).
+
+Czas zdarzenia pozwala analizować dane zgodnie z momentem, w którym rzeczywiście wystąpiły, nawet jeśli dotarły do systemu z opóźnieniem.
+
+10. State i Checkpointing
+
+Niektóre operacje wymagają przechowywania informacji o wcześniej przetworzonych danych.
+
+Przykładowo system obliczający łączną wartość zamówień dla każdego użytkownika musi pamiętać dotychczasowe sumy.
+
+Flink udostępnia mechanizmy zarządzania stanem, które pozwalają przechowywać takie informacje podczas działania aplikacji.
+
+Checkpointing zapisuje spójny punkt stanu przetwarzania, dzięki czemu system może odzyskać działanie po określonych awariach.
+
+W połączeniu z odpowiednimi źródłami i miejscami docelowymi mechanizmy te pomagają budować niezawodne potoki danych.
+
+Nie oznacza to jednak automatycznej gwarancji braku duplikatów w każdym systemie — dokładna semantyka zależy od konfiguracji i możliwości używanych konektorów.
+
+11. Apache Flink i Apache Kafka
+
+Apache Flink i Apache Kafka często współpracują w systemach przetwarzania danych.
+
+Kafka służy do przechowywania i udostępniania strumieni zdarzeń, natomiast Flink wykorzystuje te zdarzenia do wykonywania obliczeń.
+
+Przykładowa architektura może wyglądać następująco:
+
+1. Aplikacja publikuje zdarzenia zamówień w Kafce.
+2. Flink odczytuje zdarzenia z odpowiedniego tematu.
+3. Flink filtruje i agreguje zamówienia.
+4. Wyniki trafiają do bazy danych lub kolejnego tematu Kafka.
+5. Dashboard prezentuje aktualne statystyki.
+
+Takie rozwiązanie pozwala oddzielić transport zdarzeń od logiki ich przetwarzania.
+
+12. Apache Flink a Apache Spark
+
+Apache Flink i Apache Spark to platformy przetwarzania danych, ale mają różne mocne strony.
+
+- **Apache Flink** — szczególnie znany z natywnego przetwarzania strumieniowego, zarządzania stanem i obsługi czasu zdarzeń.
+- **Apache Spark** — szeroko wykorzystywany do przetwarzania wsadowego, analityki i rozproszonego przetwarzania danych, a także obsługuje przetwarzanie strumieniowe za pomocą Structured Streaming.
+
+Flink jest często wybierany w systemach wymagających ciągłej analizy zdarzeń i niskich opóźnień.
+
+Spark może być dobrym wyborem w środowiskach, w których przetwarzanie strumieniowe łączy się z istniejącymi zadaniami analitycznymi i wsadowymi.
+
+Wybór zależy od wymagań dotyczących opóźnień, zarządzania stanem, źródeł danych, infrastruktury i kompetencji zespołu.
+
+13. Apache Flink a inne technologie Big Data
+
+- **Apache Kafka** — przechowuje i udostępnia strumienie zdarzeń.
+- **Apache Hadoop** — zapewnia ekosystem rozproszonego przechowywania i przetwarzania danych.
+- **Apache Spark** — platforma do rozproszonej analityki danych.
+- **Apache Airflow** — koordynuje i planuje przepływy pracy.
+- **Apache Beam** — model programowania potoków danych, które mogą być uruchamiane na obsługiwanych silnikach wykonawczych.
+- **Apache Pulsar** — platforma komunikacji i przesyłania strumieni wiadomości.
+
+Airflow może planować zadania, natomiast Flink wykonuje ciągłe przetwarzanie strumieni danych.
+
+Kafka może dostarczać dane do Flink, a Hadoop lub inne magazyny mogą przechowywać wyniki.
+
+14. Zalety Apache Flink
+
+- Obsługuje ciągłe przetwarzanie strumieni danych.
+- Umożliwia wykonywanie obliczeń rozproszonych.
+- Oferuje mechanizmy zarządzania stanem i odzyskiwania po awarii.
+- Obsługuje czas zdarzeń i dane przychodzące z opóźnieniem.
+- Udostępnia API dla Javy i innych języków oraz interfejsy SQL.
+- Integruje się z Kafką i innymi systemami danych.
+- Pozwala budować zaawansowane potoki analityczne.
+- Może obsługiwać duże wolumeny danych przy odpowiednio zaprojektowanej infrastrukturze.
+
+15. Wady i ograniczenia Apache Flink
+
+- Wymaga wiedzy o systemach rozproszonych i architekturze przetwarzania danych.
+- Konfiguracja klastra i zarządzanie stanem mogą być skomplikowane.
+- Debugowanie rozproszonych zadań bywa trudniejsze niż w prostych aplikacjach.
+- Wymaga odpowiedniego zaprojektowania checkpointingu i odzyskiwania po awarii.
+- Dostępne konektory i funkcje zależą od wersji Flink.
+- Wydajność zależy od konfiguracji, źródeł danych i obciążenia.
+- Dla prostych, niewielkich zadań może być niepotrzebnie rozbudowany.
+
+16. Plan nauki Apache Flink
+
+Na początku warto poznać podstawy Javy, SQL i przetwarzania danych.
+
+Następnie należy zrozumieć różnicę między przetwarzaniem wsadowym a strumieniowym.
+
+Kolejnym krokiem jest uruchomienie prostego programu Flink i poznanie DataStream API.
+
+Później warto nauczyć się filtrowania, mapowania, grupowania danych oraz pracy z oknami czasowymi.
+
+Następnie dobrze jest poznać Flink SQL, checkpointing i zarządzanie stanem.
+
+Na końcu warto stworzyć projekt integrujący Kafkę, Flink i PostgreSQL, który analizuje zdarzenia w czasie rzeczywistym.
+
+17. Najważniejsze pojęcia
+
+- **Apache Flink** — platforma do rozproszonego przetwarzania danych.
+- **Stream Processing** — przetwarzanie danych w miarę ich napływania.
+- **Batch Processing** — przetwarzanie skończonych zbiorów danych.
+- **DataStream API** — API do przetwarzania strumieni danych.
+- **Flink SQL** — wykonywanie zapytań SQL na danych strumieniowych i tabelarycznych.
+- **JobManager** — komponent koordynujący zadania.
+- **TaskManager** — komponent wykonujący zadania.
+- **Source** — źródło danych.
+- **Sink** — miejsce docelowe wyników.
+- **Window** — mechanizm grupowania danych w określonych przedziałach.
+- **Event Time** — czas wystąpienia zdarzenia.
+- **Watermark** — mechanizm określający postęp przetwarzania czasu zdarzeń.
+- **State** — stan wykorzystywany podczas obliczeń.
+- **Checkpointing** — zapisywanie stanu potrzebnego do odzyskiwania po awarii.
+- **Apache Kafka** — platforma dostarczająca strumienie zdarzeń do systemów takich jak Flink.
+
+18. W skrócie
+
+Apache Flink to platforma do rozproszonego przetwarzania danych, szczególnie przydatna w analizie strumieniowej i systemach czasu rzeczywistego.
+
+Pozwala analizować zdarzenia w miarę ich napływania, wykonywać agregacje, zarządzać stanem i budować niezawodne potoki danych.
+
+Najważniejsze zagadnienia do poznania to DataStream API, Flink SQL, okna czasowe, event time, checkpointing i integracja z Apache Kafka.
+
+Dodaj praktyczny projekt z KafkąSkróć powtarzające się sekcje

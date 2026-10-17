@@ -1,0 +1,756 @@
+# WCF
+
+## 1. Czym jest WCF?
+
+**WCF (Windows Communication Foundation)** to framework firmy Microsoft przeznaczony do tworzenia aplikacji komunikujących się ze sobą za pośrednictwem sieci.
+
+WCF jest częścią platformy **.NET Framework** i służy przede wszystkim do budowania **usług (services)** oraz aplikacji rozproszonych.
+
+Najważniejszym założeniem WCF jest umożliwienie komunikacji pomiędzy różnymi aplikacjami niezależnie od tego, gdzie się znajdują i w jaki sposób komunikują się przez sieć.
+
+Przykładowo aplikacja kliencka może wywołać metodę znajdującą się na innym komputerze, tak jakby była ona zwykłą metodą lokalnego obiektu.
+
+WCF może być wykorzystywany między innymi do tworzenia:
+
+- usług sieciowych,
+- aplikacji rozproszonych,
+- systemów klient–serwer,
+- mikroserwisów,
+- usług SOAP,
+- komunikacji pomiędzy aplikacjami .NET,
+- systemów wykorzystujących różne protokoły komunikacyjne.
+
+WCF był szczególnie popularny w starszych aplikacjach tworzonych przy użyciu **.NET Framework**.
+
+W nowych projektach jego zastosowanie jest znacznie mniejsze, ponieważ Microsoft rozwija przede wszystkim **ASP.NET Core, REST API, gRPC** oraz inne nowocześniejsze technologie komunikacyjne.
+
+## 2. Po co powstał WCF?
+
+Przed WCF Microsoft posiadał wiele różnych technologii służących do komunikacji pomiędzy aplikacjami.
+
+Były to między innymi:
+
+- ASMX Web Services,
+- .NET Remoting,
+- Enterprise Services,
+- MSMQ,
+- COM+.
+
+Każda z tych technologii miała inne zastosowanie i sposób konfiguracji.
+
+WCF miał ujednolicić sposób tworzenia usług.
+
+Zamiast tworzyć osobne rozwiązanie dla każdego rodzaju komunikacji, programista mógł wykorzystać jeden framework i odpowiednio skonfigurować sposób komunikacji.
+
+## 3. Architektura WCF
+
+Podstawowa architektura WCF opiera się na trzech najważniejszych elementach:
+
+**Address – Binding – Contract**
+
+Można zapamiętać to jako:
+
+**ABC = Address + Binding + Contract**
+
+Są to trzy podstawowe informacje opisujące usługę WCF.
+
+## 4. Address
+
+**Address** określa, gdzie znajduje się usługa.
+
+Adres może wskazywać na przykład:
+
+```text
+http://localhost:8080/MyService
+```
+
+Adres określa więc miejsce, pod którym klient może znaleźć usługę.
+
+Przykładowe protokoły:
+
+```text
+http://
+https://
+net.tcp://
+net.pipe://
+net.msmq://
+```
+
+Przykład:
+
+```text
+http://localhost:8080/Calculator
+```
+
+oznacza, że usługa Calculator znajduje się pod wskazanym adresem HTTP.
+
+## 5. Binding
+
+**Binding** określa sposób komunikacji pomiędzy klientem i usługą.
+
+Binding definiuje między innymi:
+
+- protokół transportowy,
+- sposób kodowania danych,
+- zabezpieczenia,
+- sposób przesyłania wiadomości,
+- niezawodność komunikacji.
+
+Przykładowe bindingi WCF:
+
+```text
+BasicHttpBinding
+WSHttpBinding
+NetTcpBinding
+NetNamedPipeBinding
+NetMsmqBinding
+```
+
+## 6. BasicHttpBinding
+
+**BasicHttpBinding** służy do komunikacji wykorzystującej HTTP oraz SOAP.
+
+Jest często używany wtedy, gdy usługa ma współpracować z różnymi systemami.
+
+Przykładowo:
+
+```text
+Client
+   |
+   | HTTP + SOAP
+   ↓
+WCF Service
+```
+
+BasicHttpBinding zapewnia dużą kompatybilność z innymi technologiami obsługującymi SOAP.
+
+## 7. WSHttpBinding
+
+**WSHttpBinding** również wykorzystuje SOAP, ale zapewnia bardziej zaawansowane możliwości niż BasicHttpBinding.
+
+Może obsługiwać między innymi:
+
+- bezpieczeństwo,
+- niezawodność,
+- transakcje,
+- standardy WS-*.
+
+Jest przeznaczony przede wszystkim do bardziej zaawansowanych systemów usługowych.
+
+## 8. NetTcpBinding
+
+**NetTcpBinding** służy do komunikacji pomiędzy aplikacjami wykorzystującymi protokół TCP.
+
+Jest szczególnie przydatny w środowisku .NET.
+
+Przykładowo:
+
+```text
+Client
+   |
+   | TCP
+   ↓
+WCF Service
+```
+
+Zwykle zapewnia lepszą wydajność niż komunikacja HTTP/SOAP, ale jest mniej interoperacyjny.
+
+## 9. Contract
+
+**Contract** określa, jakie operacje udostępnia usługa.
+
+Kontrakt jest definiowany najczęściej za pomocą interfejsu.
+
+Przykład:
+
+```csharp
+[ServiceContract]
+public interface ICalculator
+{
+    [OperationContract]
+    int Add(int a, int b);
+}
+```
+
+`[ServiceContract]` oznacza, że interfejs jest kontraktem usługi.
+
+`[OperationContract]` oznacza, że dana metoda jest dostępna dla klientów usługi.
+
+## 10. Implementacja usługi
+
+Następnie tworzymy klasę implementującą kontrakt.
+
+```csharp
+public class Calculator : ICalculator
+{
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+}
+```
+
+Klasa `Calculator` implementuje interfejs `ICalculator`.
+
+Klient może więc wywołać:
+
+```csharp
+Add(5, 3)
+```
+
+i otrzymać:
+
+```text
+8
+```
+
+Chociaż metoda może być fizycznie wykonywana na innym komputerze.
+
+## 11. ServiceContract
+
+Atrybut:
+
+```csharp
+[ServiceContract]
+```
+
+oznacza kontrakt całej usługi.
+
+Przykład:
+
+```csharp
+[ServiceContract]
+public interface IUserService
+{
+}
+```
+
+Interfejs określa publiczny kontrakt, który musi zostać spełniony przez usługę.
+
+## 12. OperationContract
+
+Atrybut:
+
+```csharp
+[OperationContract]
+```
+
+oznacza metodę udostępnioną klientom.
+
+Przykład:
+
+```csharp
+[ServiceContract]
+public interface IUserService
+{
+    [OperationContract]
+    User GetUser(int id);
+}
+```
+
+Tylko metody oznaczone `OperationContract` są dostępne jako operacje WCF.
+
+## 13. DataContract
+
+WCF może również definiować sposób przesyłania własnych obiektów.
+
+Do tego służy:
+
+```csharp
+[DataContract]
+```
+
+Przykład:
+
+```csharp
+[DataContract]
+public class User
+{
+    [DataMember]
+    public int Id { get; set; }
+
+    [DataMember]
+    public string Name { get; set; }
+}
+```
+
+`DataContract` określa strukturę danych przesyłanych pomiędzy klientem i serwerem.
+
+`DataMember` określa właściwości, które mają być przesyłane.
+
+## 14. SOAP
+
+WCF bardzo często wykorzystuje **SOAP (Simple Object Access Protocol)**.
+
+SOAP jest protokołem opartym na komunikatach XML.
+
+Przykładowa komunikacja może wyglądać w uproszczeniu tak:
+
+```text
+Client
+   |
+   | SOAP XML
+   ↓
+WCF Service
+   |
+   | SOAP XML
+   ↓
+Client
+```
+
+Przykładowa wiadomość SOAP może zawierać:
+
+```xml
+<Add>
+    <a>5</a>
+    <b>3</b>
+</Add>
+```
+
+Usługa przetwarza żądanie i zwraca odpowiedź.
+
+## 15. Endpoint
+
+Jednym z najważniejszych pojęć WCF jest **Endpoint**.
+
+Endpoint określa punkt, przez który klient komunikuje się z usługą.
+
+Endpoint składa się z:
+
+```text
+Address
+Binding
+Contract
+```
+
+czyli:
+
+```text
+Endpoint = Address + Binding + Contract
+```
+
+Przykład:
+
+```text
+Address:
+http://localhost:8080/Calculator
+
+Binding:
+BasicHttpBinding
+
+Contract:
+ICalculator
+```
+
+Można więc powiedzieć, że endpoint mówi:
+
+**gdzie znajduje się usługa, jak się z nią komunikować oraz jakie operacje udostępnia.**
+
+## 16. Host
+
+Usługa WCF musi być uruchomiona w określonym środowisku.
+
+To środowisko nazywane jest **hostem**.
+
+Usługa może być hostowana między innymi w:
+
+- aplikacji konsolowej,
+- Windows Service,
+- IIS,
+- aplikacji wykorzystującej `ServiceHost`.
+
+Przykładowo:
+
+```text
+Client
+   ↓
+Internet / LAN
+   ↓
+IIS
+   ↓
+WCF Service
+```
+
+## 17. ServiceHost
+
+`ServiceHost` jest klasą wykorzystywaną do uruchamiania usług WCF.
+
+Przykład:
+
+```csharp
+using (ServiceHost host =
+       new ServiceHost(typeof(Calculator)))
+{
+    host.Open();
+
+    Console.WriteLine("Service started.");
+
+    Console.ReadLine();
+
+    host.Close();
+}
+```
+
+W tym przypadku aplikacja konsolowa uruchamia usługę WCF.
+
+## 18. Klient WCF
+
+Klient musi znać kontrakt usługi oraz sposób komunikacji z usługą.
+
+Może otrzymać odpowiedni proxy class, który pozwala wywoływać zdalne metody podobnie jak zwykłe metody.
+
+Przykładowo:
+
+```csharp
+CalculatorClient client = new CalculatorClient();
+
+int result = client.Add(5, 3);
+
+Console.WriteLine(result);
+```
+
+Dla programisty wygląda to prawie jak zwykłe wywołanie metody.
+
+W rzeczywistości następuje komunikacja sieciowa:
+
+```text
+client.Add(5, 3)
+       ↓
+SOAP/XML
+       ↓
+WCF Service
+       ↓
+Calculator.Add()
+       ↓
+SOAP/XML
+       ↓
+8
+```
+
+## 19. Konfiguracja WCF
+
+WCF może być konfigurowany w kodzie lub za pomocą plików konfiguracyjnych.
+
+W klasycznym .NET Framework często wykorzystywano:
+
+```text
+App.config
+Web.config
+```
+
+Przykładowa konfiguracja może definiować:
+
+```xml
+<services>
+    <service name="Calculator">
+        <endpoint
+            address=""
+            binding="basicHttpBinding"
+            contract="ICalculator" />
+    </service>
+</services>
+```
+
+Dzięki temu można zmieniać sposób komunikacji bez zmieniania kodu aplikacji.
+
+## 20. Bezpieczeństwo WCF
+
+WCF posiada rozbudowane mechanizmy bezpieczeństwa.
+
+Możliwe jest wykorzystanie między innymi:
+
+- HTTPS,
+- certyfikatów,
+- uwierzytelniania Windows,
+- username/password,
+- szyfrowania,
+- podpisywania wiadomości.
+
+Przykładowo usługa może wykorzystywać:
+
+```text
+HTTPS
++
+certyfikat
++
+uwierzytelnianie
+```
+
+Dzięki temu komunikacja pomiędzy klientem i serwerem może być zabezpieczona.
+
+## 21. Reliable Messaging
+
+WCF posiada również mechanizmy związane z **niezawodnością komunikacji**.
+
+Mogą one pomagać w sytuacjach, gdy wiadomości mogą zostać utracone lub dostarczone w niewłaściwej kolejności.
+
+Jest to szczególnie istotne w systemach rozproszonych.
+
+## 22. Transakcje
+
+WCF może współpracować z mechanizmami transakcyjnymi.
+
+Pozwala to tworzyć usługi, w których kilka operacji musi zostać wykonanych jako jedna logiczna całość.
+
+Przykładowo:
+
+```text
+Rezerwacja produktu
+       +
+Zmniejszenie stanu magazynowego
+       +
+Utworzenie płatności
+```
+
+Jeżeli jedna z operacji się nie powiedzie, transakcja może zostać wycofana.
+
+## 23. Duplex Communication
+
+W standardowym modelu:
+
+```text
+Client → Server
+Server → Client
+```
+
+klient wysyła żądanie i otrzymuje odpowiedź.
+
+WCF obsługuje również **duplex communication**.
+
+Wtedy komunikacja może wyglądać:
+
+```text
+Client ←→ Server
+```
+
+Serwer może samodzielnie wysłać wiadomość do klienta.
+
+Może być to przydatne na przykład w:
+
+- czatach,
+- systemach powiadomień,
+- monitoringu,
+- aplikacjach czasu rzeczywistego.
+
+## 24. WCF a REST
+
+WCF może być wykorzystywany również do tworzenia usług przypominających REST API.
+
+Możliwe jest wykorzystanie:
+
+```text
+WebHttpBinding
+```
+
+oraz odpowiednich atrybutów.
+
+Jednak współcześnie do tworzenia REST API zdecydowanie częściej wykorzystuje się:
+
+**ASP.NET Core Web API.**
+
+Przykładowo:
+
+```text
+GET /api/users
+POST /api/users
+PUT /api/users/5
+DELETE /api/users/5
+```
+
+jest obecnie typowym zastosowaniem ASP.NET Core Web API.
+
+## 25. WCF a gRPC
+
+Współcześnie WCF często porównuje się z **gRPC**.
+
+WCF:
+
+```text
+SOAP
+XML
+wszystkie możliwości konfiguracji
+.NET Framework
+```
+
+gRPC:
+
+```text
+HTTP/2
+Protocol Buffers
+wysoka wydajność
+nowoczesny .NET
+mikroserwisy
+```
+
+W nowych aplikacjach .NET zazwyczaj warto rozważyć **ASP.NET Core Web API** albo **gRPC**, zamiast WCF.
+
+## 26. WCF a Web API
+
+Najważniejsza różnica wygląda następująco:
+
+| WCF | ASP.NET Core Web API |
+|---|---|
+| SOAP | REST/HTTP |
+| XML | JSON/XML |
+| rozbudowane bindingi | prostszy model HTTP |
+| często .NET Framework | nowoczesny .NET |
+| starsze systemy enterprise | współczesne aplikacje |
+| kontrakty WCF | kontrolery i endpointy HTTP |
+| `ServiceContract` | `Controller` |
+| `OperationContract` | akcje HTTP |
+
+## 27. Zalety WCF
+
+Najważniejsze zalety WCF to:
+
+- bardzo rozbudowana komunikacja sieciowa,
+- obsługa SOAP,
+- wiele rodzajów bindingów,
+- możliwość wykorzystania różnych protokołów transportowych,
+- bezpieczeństwo,
+- transakcje,
+- reliable messaging,
+- duplex communication,
+- dobra integracja z ekosystemem .NET,
+- możliwość tworzenia złożonych systemów enterprise.
+
+## 28. Wady WCF
+
+WCF ma również istotne wady.
+
+Jest stosunkowo skomplikowany.
+
+Konfiguracja może być rozbudowana.
+
+SOAP i XML powodują większy narzut komunikacyjny niż rozwiązania takie jak REST/JSON czy gRPC.
+
+WCF jest silnie związany z klasycznym ekosystemem .NET Framework.
+
+Współczesny **.NET** nie rozwija WCF w taki sam sposób jak klasyczny .NET Framework.
+
+Dlatego w nowych projektach zwykle nie jest pierwszym wyborem.
+
+## 29. Gdzie można spotkać WCF?
+
+WCF nadal można spotkać przede wszystkim w starszych systemach enterprise.
+
+Przykłady:
+
+```text
+Bankowość
+Ubezpieczenia
+Administracja
+Systemy ERP
+Systemy CRM
+Duże systemy korporacyjne
+Starsze aplikacje .NET
+Integracje pomiędzy systemami
+```
+
+Dlatego znajomość WCF może być bardzo przydatna podczas utrzymywania i rozwijania istniejących systemów.
+
+## 30. WCF w praktyce
+
+Typowa architektura może wyglądać tak:
+
+```text
+        CLIENT
+           |
+           | SOAP
+           ↓
+      WCF ENDPOINT
+           |
+           ↓
+    SERVICE CONTRACT
+           |
+           ↓
+   SERVICE IMPLEMENTATION
+           |
+           ↓
+       DATABASE
+```
+
+Przykładowo:
+
+```text
+Client
+   |
+   | GetCustomer(10)
+   ↓
+WCF Service
+   |
+   ↓
+CustomerService
+   |
+   ↓
+SQL Server
+   |
+   ↓
+Customer
+   |
+   ↓
+Response
+```
+
+## 31. Najważniejsze elementy WCF do zapamiętania
+
+Jeżeli uczysz się WCF do egzaminu lub pracy, przede wszystkim zapamiętaj:
+
+**WCF** – framework Microsoftu do tworzenia usług i komunikacji pomiędzy aplikacjami.
+
+**ServiceContract** – definiuje kontrakt usługi.
+
+**OperationContract** – definiuje operację dostępną dla klienta.
+
+**DataContract** – definiuje strukturę przesyłanych danych.
+
+**DataMember** – wskazuje dane przesyłane w ramach DataContract.
+
+**Endpoint** – punkt komunikacji z usługą.
+
+**Address** – gdzie znajduje się usługa.
+
+**Binding** – jak odbywa się komunikacja.
+
+**Contract** – jakie operacje udostępnia usługa.
+
+**ServiceHost** – środowisko uruchamiające usługę.
+
+**SOAP** – protokół komunikacji często wykorzystywany przez WCF.
+
+**BasicHttpBinding** – prosty binding HTTP/SOAP.
+
+**WSHttpBinding** – bardziej zaawansowany binding SOAP.
+
+**NetTcpBinding** – komunikacja TCP pomiędzy aplikacjami .NET.
+
+## 32. WCF – najważniejszy schemat
+
+Najważniejszy schemat do zapamiętania:
+
+```text
+                 WCF
+                  |
+        +---------+---------+
+        |         |         |
+     Address   Binding   Contract
+        |         |         |
+      GDZIE?     JAK?      CO?
+        |         |         |
+        +---------+---------+
+                  |
+               Endpoint
+                  |
+                  ↓
+               Service
+```
+
+Czyli:
+
+**Address mówi GDZIE jest usługa.**
+
+**Binding mówi JAK się z nią komunikować.**
+
+**Contract mówi CO usługa udostępnia.**
+
+To jest jedna z najważniejszych rzeczy, które należy zapamiętać z WCF.

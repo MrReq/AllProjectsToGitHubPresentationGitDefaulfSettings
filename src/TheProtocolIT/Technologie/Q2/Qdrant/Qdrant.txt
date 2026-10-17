@@ -1,0 +1,388 @@
+# Qdrant
+
+## Czym jest Qdrant?
+
+Qdrant to open-source’owa baza danych przeznaczona do przechowywania, indeksowania i wyszukiwania wektorów.
+
+Qdrant jest przede wszystkim wykorzystywany w aplikacjach opartych na sztucznej inteligencji, uczeniu maszynowym oraz wyszukiwaniu semantycznym.
+
+Jest to **vector database**, czyli baza danych zoptymalizowana pod kątem przechowywania reprezentacji danych w postaci wektorów.
+
+Qdrant został napisany głównie w języku **Rust**, dzięki czemu charakteryzuje się wysoką wydajnością i dobrym zarządzaniem zasobami.
+
+## Do czego służy Qdrant?
+
+Qdrant służy przede wszystkim do wyszukiwania danych na podstawie podobieństwa między wektorami.
+
+Przykładowo tekst „Jak zresetować hasło?” może zostać zamieniony przez model AI na wektor liczb.
+
+Tekst „Nie pamiętam mojego hasła” również może zostać zamieniony na wektor.
+
+Qdrant może następnie określić, że oba wektory są do siebie podobne, mimo że używają zupełnie innych słów.
+
+Dzięki temu można budować **wyszukiwanie semantyczne**, w którym system szuka znaczenia zapytania, a nie tylko identycznych słów.
+
+## Czym jest wektor?
+
+W kontekście Qdrant wektor jest tablicą liczb reprezentującą określony obiekt lub informację.
+
+Przykładowy wektor może wyglądać następująco:
+
+```text
+[0.12, -0.45, 0.78, 0.31, ...]
+```
+
+Wektor może reprezentować tekst, obraz, produkt, dokument, dźwięk lub inne dane.
+
+Wektory są zazwyczaj generowane przez modele **embeddingowe**.
+
+Model embeddingowy przekształca dane wejściowe na reprezentację liczbową, która zachowuje informacje o ich znaczeniu lub właściwościach.
+
+## Embedding
+
+Embedding to numeryczna reprezentacja danych w przestrzeni wektorowej.
+
+Przykładowo trzy zdania:
+
+```text
+„Lubię programować w Javie.”
+„Java jest moim ulubionym językiem.”
+„Dzisiaj pada deszcz.”
+```
+
+Pierwsze dwa zdania powinny otrzymać podobne embeddingi, ponieważ dotyczą podobnego tematu.
+
+Embedding zdania dotyczącego deszczu powinien znajdować się znacznie dalej w przestrzeni wektorowej.
+
+Qdrant przechowuje takie embeddingi i umożliwia szybkie wyszukiwanie najbardziej podobnych elementów.
+
+## Collection
+
+Podstawową strukturą organizacyjną w Qdrant jest **collection**.
+
+Collection można porównać do tabeli w klasycznej relacyjnej bazie danych.
+
+W collection przechowywane są punkty zawierające między innymi wektory oraz dodatkowe dane.
+
+Przykładowa collection może nazywać się:
+
+```text
+documents
+```
+
+i przechowywać embeddingi dokumentów.
+
+## Point
+
+Podstawową jednostką danych w Qdrant jest **point**.
+
+Point posiada unikalny identyfikator oraz może zawierać jeden lub więcej wektorów i dodatkowe dane.
+
+Przykładowo:
+
+```json
+{
+  "id": 1,
+  "vector": [0.12, -0.45, 0.78],
+  "payload": {
+    "title": "Java Basics",
+    "category": "programming"
+  }
+}
+```
+
+Można więc powiedzieć, że point jest odpowiednikiem rekordu przechowywanego w klasycznej bazie danych.
+
+## Payload
+
+**Payload** to dodatkowe informacje związane z punktem.
+
+Payload pozwala przechowywać informacje takie jak:
+
+```text
+title
+category
+author
+date
+language
+product_id
+```
+
+Przykładowy payload:
+
+```json
+{
+  "title": "Introduction to Java",
+  "category": "programming",
+  "language": "en"
+}
+```
+
+Payload jest bardzo ważny, ponieważ można wykorzystywać go do filtrowania wyników wyszukiwania.
+
+## Vector Search
+
+Najważniejszą funkcją Qdrant jest **vector search**, czyli wyszukiwanie wektorowe.
+
+Podczas wyszukiwania użytkownik przekazuje wektor zapytania.
+
+Qdrant porównuje go z wektorami znajdującymi się w collection.
+
+Następnie zwracane są najbardziej podobne punkty.
+
+Przykładowo użytkownik wpisuje:
+
+```text
+„Jak stworzyć klasę w Javie?”
+```
+
+Model embeddingowy tworzy wektor tego pytania.
+
+Qdrant wyszukuje dokumenty, których embeddingi są najbardziej podobne do embeddingu pytania.
+
+## Miary podobieństwa
+
+Qdrant może wykorzystywać różne metody określania podobieństwa między wektorami.
+
+Jedną z najczęściej stosowanych jest **Cosine Similarity**.
+
+Cosine Similarity mierzy kąt pomiędzy dwoma wektorami.
+
+Im bardziej podobny kierunek mają wektory, tym większe jest ich podobieństwo.
+
+Qdrant obsługuje również między innymi **Dot Product** oraz **Euclidean Distance**.
+
+Wybór odpowiedniej metryki zależy od sposobu generowania embeddingów.
+
+## Indeks HNSW
+
+Qdrant wykorzystuje między innymi strukturę indeksowania **HNSW – Hierarchical Navigable Small World**.
+
+HNSW pozwala bardzo szybko wyszukiwać podobne wektory nawet wtedy, gdy baza zawiera bardzo dużą liczbę punktów.
+
+Bez odpowiedniego indeksu porównanie zapytania z każdym wektorem mogłoby być bardzo kosztowne obliczeniowo.
+
+HNSW ogranicza liczbę porównań potrzebnych do znalezienia najbardziej podobnych elementów.
+
+## Filtrowanie
+
+Qdrant pozwala łączyć wyszukiwanie wektorowe z klasycznym filtrowaniem danych.
+
+Przykładowo można wyszukać dokumenty podobne do zapytania, ale tylko takie, które należą do kategorii:
+
+```text
+Java
+```
+
+Można również filtrować po dacie, autorze, języku lub innych właściwościach payloadu.
+
+Dzięki temu można tworzyć bardzo precyzyjne systemy wyszukiwania.
+
+## Qdrant i sztuczna inteligencja
+
+Qdrant jest często wykorzystywany jako element systemów AI.
+
+Szczególnie często pojawia się w architekturach wykorzystujących **LLM – Large Language Models**.
+
+Typowy system może działać następująco:
+
+```text
+Dokument
+   ↓
+Embedding Model
+   ↓
+Wektor
+   ↓
+Qdrant
+```
+
+Podczas zadawania pytania:
+
+```text
+Pytanie użytkownika
+   ↓
+Embedding Model
+   ↓
+Wektor zapytania
+   ↓
+Qdrant
+   ↓
+Najbardziej podobne dokumenty
+   ↓
+LLM
+   ↓
+Odpowiedź
+```
+
+Taki sposób działania jest często wykorzystywany w systemach **RAG – Retrieval-Augmented Generation**.
+
+## Qdrant w RAG
+
+RAG pozwala modelowi językowemu korzystać z dodatkowej wiedzy znajdującej się poza jego podstawowym modelem.
+
+Przykładowo firma może posiadać tysiące dokumentów.
+
+Dokumenty są dzielone na fragmenty.
+
+Każdy fragment jest zamieniany na embedding.
+
+Embeddingi są przechowywane w Qdrant.
+
+Kiedy użytkownik zadaje pytanie, system wyszukuje w Qdrant najbardziej odpowiednie fragmenty dokumentów.
+
+Następnie znalezione fragmenty są przekazywane do modelu językowego jako kontekst.
+
+Model może na ich podstawie wygenerować odpowiedź.
+
+## Qdrant Client
+
+Z Qdrant można komunikować się za pomocą API oraz oficjalnych bibliotek klienckich.
+
+Dostępne są między innymi biblioteki dla:
+
+```text
+Python
+JavaScript / TypeScript
+Rust
+Go
+Java
+C#
+```
+
+Dzięki temu Qdrant można integrować z aplikacjami tworzonymi w różnych językach programowania.
+
+## Qdrant jako REST API
+
+Qdrant udostępnia API umożliwiające wykonywanie operacji na bazie danych.
+
+Można za jego pomocą między innymi:
+
+```text
+tworzyć collections
+dodawać punkty
+aktualizować punkty
+usuwać punkty
+wyszukiwać podobne wektory
+filtrować wyniki
+pobierać informacje o bazie
+```
+
+Qdrant może być również uruchamiany lokalnie, na przykład za pomocą Dockera.
+
+## Qdrant Cloud
+
+Qdrant dostępny jest również jako usługa chmurowa.
+
+**Qdrant Cloud** pozwala korzystać z Qdrant bez konieczności samodzielnego utrzymywania infrastruktury.
+
+Jest to przydatne w aplikacjach produkcyjnych, w których baza wektorowa musi być dostępna przez Internet i skalowana wraz ze wzrostem liczby danych.
+
+## Qdrant i klasyczne bazy danych
+
+Qdrant nie jest bezpośrednim zamiennikiem takich baz jak PostgreSQL, MySQL czy SQL Server.
+
+Klasyczne relacyjne bazy danych są zoptymalizowane przede wszystkim pod kątem danych strukturalnych, relacji i zapytań SQL.
+
+Qdrant jest natomiast zoptymalizowany pod kątem wyszukiwania podobieństwa pomiędzy wektorami.
+
+W praktycznej aplikacji można więc wykorzystywać oba rodzaje baz jednocześnie.
+
+Przykładowo PostgreSQL może przechowywać dane użytkowników i zamówień, a Qdrant może przechowywać embeddingi dokumentów wykorzystywane przez system AI.
+
+## Przykładowe zastosowania
+
+Qdrant może być wykorzystywany do budowania **wyszukiwarek semantycznych**.
+
+Może być wykorzystywany w **chatbotach opartych na RAG**.
+
+Może służyć do wyszukiwania podobnych dokumentów.
+
+Może być wykorzystywany do rekomendowania podobnych produktów.
+
+Może być wykorzystywany do wyszukiwania podobnych obrazów lub innych danych multimedialnych.
+
+Może być wykorzystywany w systemach klasyfikacji i analizy dokumentów.
+
+Może być również elementem systemów wykorzystujących agentów AI.
+
+## Qdrant a inne vector databases
+
+Qdrant należy do grupy baz danych specjalizujących się w przechowywaniu i wyszukiwaniu wektorów.
+
+Do podobnych technologii należą między innymi:
+
+```text
+Pinecone
+Weaviate
+Milvus
+Chroma
+pgvector
+Elasticsearch
+OpenSearch
+```
+
+Różnią się one między innymi architekturą, sposobem wdrażania, możliwościami filtrowania, skalowaniem, integracjami oraz modelem zarządzania.
+
+## Zalety Qdrant
+
+Qdrant jest **open source**, dzięki czemu można uruchamiać go samodzielnie.
+
+Jest napisany w **Rust**, co pozwala uzyskać wysoką wydajność.
+
+Jest zoptymalizowany pod kątem wyszukiwania wektorowego.
+
+Obsługuje filtrowanie po payloadach.
+
+Posiada mechanizmy indeksowania umożliwiające szybkie wyszukiwanie podobnych wektorów.
+
+Może być uruchamiany lokalnie oraz w chmurze.
+
+Dobrze integruje się z ekosystemem sztucznej inteligencji i aplikacjami wykorzystującymi LLM.
+
+## Wady i ograniczenia
+
+Qdrant nie zastępuje klasycznej relacyjnej bazy danych we wszystkich zastosowaniach.
+
+Do korzystania z wyszukiwania semantycznego potrzebne są odpowiednie embeddingi.
+
+Jakość wyników wyszukiwania zależy między innymi od zastosowanego modelu embeddingowego.
+
+W przypadku bardzo dużych systemów trzeba odpowiednio zaprojektować indeksy, pamięć oraz architekturę infrastruktury.
+
+## Najważniejsze pojęcia
+
+**Qdrant** – baza danych przeznaczona głównie do przechowywania i wyszukiwania wektorów.
+
+**Vector Database** – baza danych zoptymalizowana pod kątem danych reprezentowanych jako wektory.
+
+**Embedding** – numeryczna reprezentacja danych, np. tekstu.
+
+**Collection** – zbiór punktów w Qdrant, podobny koncepcyjnie do tabeli.
+
+**Point** – pojedynczy element przechowywany w collection.
+
+**Payload** – dodatkowe dane opisujące point.
+
+**Vector Search** – wyszukiwanie elementów na podstawie podobieństwa wektorów.
+
+**Cosine Similarity** – miara podobieństwa wykorzystująca kąt pomiędzy wektorami.
+
+**HNSW** – struktura indeksowania umożliwiająca szybkie wyszukiwanie podobnych wektorów.
+
+**RAG** – architektura łącząca wyszukiwanie informacji z generowaniem odpowiedzi przez model językowy.
+
+**Qdrant Cloud** – chmurowa wersja Qdrant.
+
+## Podsumowanie
+
+Qdrant to nowoczesna **wektorowa baza danych** przeznaczona przede wszystkim do aplikacji wykorzystujących sztuczną inteligencję.
+
+Jej głównym zadaniem jest przechowywanie embeddingów i szybkie wyszukiwanie elementów podobnych do określonego zapytania.
+
+Najważniejsze elementy Qdrant to **collections, points, vectors, payloads, vector search oraz indeks HNSW**.
+
+Qdrant jest szczególnie przydatny przy tworzeniu **wyszukiwarek semantycznych, systemów RAG, chatbotów AI, systemów rekomendacyjnych oraz aplikacji wykorzystujących LLM**.
+
+Warto zapamiętać prosty schemat:
+
+**Dane → embedding → wektor → Qdrant → wyszukiwanie podobnych danych → kontekst → LLM → odpowiedź.**

@@ -1,0 +1,933 @@
+# Windows Server
+
+## 1. Czym jest Windows Server?
+
+**Windows Server** to rodzina systemów operacyjnych firmy **Microsoft** przeznaczona przede wszystkim do obsługi **serwerów, infrastruktury IT, sieci oraz usług przedsiębiorstwa**.
+
+W przeciwieństwie do systemu Windows przeznaczonego na komputery osobiste, Windows Server jest zaprojektowany do pracy jako serwer świadczący usługi dla innych komputerów i użytkowników.
+
+Może obsługiwać między innymi:
+
+- użytkowników,
+- komputery w sieci,
+- domeny,
+- pliki,
+- drukarki,
+- strony internetowe,
+- aplikacje,
+- bazy danych,
+- usługi sieciowe,
+- maszyny wirtualne,
+- kontenery.
+
+Przykładowa infrastruktura:
+
+```text
+                 WINDOWS SERVER
+                       |
+       +---------------+---------------+
+       |               |               |
+ Active Directory    DNS             DHCP
+       |               |               |
+       +---------------+---------------+
+                       |
+                 Network / LAN
+                       |
+          +------------+------------+
+          |            |            |
+          ↓            ↓            ↓
+        PC 1          PC 2        Laptop
+```
+
+## 2. Do czego służy Windows Server?
+
+Windows Server może pełnić wiele różnych funkcji.
+
+Może być między innymi:
+
+```text
+Domain Controller
+File Server
+Web Server
+DNS Server
+DHCP Server
+Print Server
+Database Server
+Virtualization Server
+Application Server
+```
+
+Jedna maszyna może pełnić kilka funkcji jednocześnie, chociaż w dużych środowiskach często rozdziela się je na różne serwery.
+
+## 3. Windows Server a Windows Desktop
+
+Windows 11 jest przeznaczony przede wszystkim dla użytkownika końcowego.
+
+Windows Server jest przeznaczony do obsługi infrastruktury.
+
+| Windows Desktop | Windows Server |
+|---|---|
+| Windows 11 | Windows Server |
+| komputer użytkownika | serwer |
+| aplikacje desktopowe | usługi sieciowe |
+| gry | infrastruktura IT |
+| praca biurowa | Active Directory |
+| multimedia | DNS/DHCP |
+| użytkownik końcowy | administrator |
+
+## 4. Server Roles
+
+Windows Server posiada mechanizm **Server Roles**, czyli ról serwera.
+
+Rola określa, jaką funkcję ma pełnić serwer.
+
+Przykładowe role:
+
+```text
+Active Directory Domain Services
+DNS Server
+DHCP Server
+File and Storage Services
+Web Server (IIS)
+Hyper-V
+Print and Document Services
+```
+
+Administrator może zainstalować odpowiednią rolę w zależności od potrzeb.
+
+## 5. Active Directory
+
+Jedną z najważniejszych technologii Windows Server jest **Active Directory Domain Services (AD DS)**.
+
+Active Directory pozwala centralnie zarządzać:
+
+- użytkownikami,
+- komputerami,
+- grupami,
+- uprawnieniami,
+- zasadami bezpieczeństwa.
+
+Schemat:
+
+```text
+              DOMAIN
+                 |
+        +--------+--------+
+        |        |        |
+      Users   Computers  Groups
+        |        |        |
+        +--------+--------+
+                 |
+        Active Directory
+```
+
+## 6. Domain
+
+**Domena** jest logicznym środowiskiem, w którym administrator może centralnie zarządzać komputerami i użytkownikami.
+
+Przykładowo:
+
+```text
+firma.local
+```
+
+Komputery mogą być członkami tej domeny:
+
+```text
+PC-01
+PC-02
+PC-03
+LAPTOP-01
+```
+
+Użytkownik może zalogować się do domeny za pomocą jednego konta.
+
+## 7. Domain Controller
+
+**Domain Controller (DC)** to serwer odpowiedzialny za obsługę domeny Active Directory.
+
+Przykładowo:
+
+```text
+                Domain Controller
+                       |
+              Active Directory
+                       |
+        +--------------+--------------+
+        |              |              |
+      User           User           Computer
+```
+
+Domain Controller może odpowiadać między innymi za:
+
+- uwierzytelnianie,
+- autoryzację,
+- przechowywanie informacji o użytkownikach,
+- obsługę polityk domenowych.
+
+## 8. LDAP
+
+Active Directory wykorzystuje między innymi protokół **LDAP (Lightweight Directory Access Protocol)** do pracy z katalogiem.
+
+LDAP umożliwia wykonywanie operacji na danych katalogowych.
+
+Przykładowo:
+
+```text
+User
+ ├── Name
+ ├── Email
+ ├── Group
+ └── Permissions
+```
+
+## 9. Kerberos
+
+Windows Server wykorzystuje również **Kerberos** jako jeden z podstawowych mechanizmów uwierzytelniania w środowisku domenowym.
+
+Uproszczony schemat:
+
+```text
+User
+ ↓
+Kerberos
+ ↓
+Domain Controller
+ ↓
+Authentication
+ ↓
+Access to Resources
+```
+
+Kerberos wykorzystuje bilety do uwierzytelniania użytkowników i usług.
+
+## 10. DNS
+
+**DNS (Domain Name System)** jest bardzo ważnym elementem środowiska Windows Server.
+
+DNS tłumaczy nazwy na adresy IP.
+
+Przykładowo:
+
+```text
+server.firma.local
+        ↓
+   192.168.1.10
+```
+
+W środowisku Active Directory poprawnie działający DNS jest szczególnie ważny.
+
+## 11. DHCP
+
+**DHCP (Dynamic Host Configuration Protocol)** automatycznie przydziela urządzeniom konfigurację sieciową.
+
+Może przekazywać:
+
+```text
+IP address
+Subnet mask
+Default gateway
+DNS server
+```
+
+Przykładowo:
+
+```text
+PC
+ ↓
+DHCP Server
+ ↓
+192.168.1.50
+```
+
+## 12. File Server
+
+Windows Server może pełnić funkcję **File Server**.
+
+Użytkownicy mogą korzystać ze współdzielonych katalogów:
+
+```text
+\\server\documents
+```
+
+Przykładowo:
+
+```text
+File Server
+     |
+     +-- Finance
+     +-- HR
+     +-- Management
+     +-- Projects
+```
+
+Administrator może określać, kto ma dostęp do poszczególnych folderów.
+
+## 13. NTFS Permissions
+
+Windows Server wykorzystuje uprawnienia systemu plików **NTFS**.
+
+Przykładowe uprawnienia:
+
+```text
+Read
+Write
+Modify
+Full Control
+```
+
+Możemy ustawić:
+
+```text
+Finance Group
+   ↓
+Read + Modify
+```
+
+oraz:
+
+```text
+Guests
+   ↓
+No Access
+```
+
+## 14. Share Permissions
+
+Oprócz uprawnień NTFS istnieją również **Share Permissions**, czyli uprawnienia udziału sieciowego.
+
+W praktyce należy uwzględnić oba mechanizmy.
+
+Przykładowo:
+
+```text
+NTFS Permissions
+       +
+Share Permissions
+       ↓
+Effective Access
+```
+
+## 15. Group Policy
+
+Jedną z bardzo ważnych funkcji Active Directory jest **Group Policy**.
+
+Group Policy pozwala centralnie konfigurować komputery i użytkowników.
+
+Przykładowo administrator może ustawić:
+
+```text
+Password Policy
+Screen Lock
+Firewall Settings
+Software Restrictions
+Windows Update
+Desktop Configuration
+Security Policies
+```
+
+Schemat:
+
+```text
+Administrator
+      |
+      ↓
+Group Policy
+      |
+      +---- PC 1
+      +---- PC 2
+      +---- PC 3
+      +---- PC 4
+```
+
+Dzięki temu nie trzeba konfigurować każdego komputera ręcznie.
+
+## 16. Organizational Units
+
+W Active Directory można tworzyć **Organizational Units (OU)**.
+
+OU służą między innymi do organizowania obiektów.
+
+Przykład:
+
+```text
+firma.local
+│
+├── Employees
+│   ├── IT
+│   ├── HR
+│   └── Sales
+│
+├── Computers
+│
+└── Servers
+```
+
+Do OU można przypisywać odpowiednie Group Policies.
+
+## 17. IIS
+
+Windows Server może pełnić funkcję serwera WWW dzięki **IIS (Internet Information Services)**.
+
+IIS umożliwia hostowanie:
+
+- stron internetowych,
+- aplikacji ASP.NET,
+- API,
+- usług HTTP/HTTPS.
+
+Schemat:
+
+```text
+Client
+   |
+   | HTTP/HTTPS
+   ↓
+ IIS
+   |
+   ↓
+Web Application
+```
+
+Jest to szczególnie ważne w środowisku **ASP.NET / .NET**.
+
+## 18. HTTPS
+
+IIS może obsługiwać komunikację HTTPS.
+
+Schemat:
+
+```text
+Browser
+   |
+   | HTTPS
+   ↓
+IIS
+   |
+   ↓
+ASP.NET Application
+```
+
+Certyfikat TLS pozwala szyfrować komunikację pomiędzy klientem a serwerem.
+
+## 19. Hyper-V
+
+**Hyper-V** to technologia wirtualizacji firmy Microsoft dostępna w Windows Server.
+
+Pozwala uruchamiać wiele maszyn wirtualnych na jednym fizycznym serwerze.
+
+Przykład:
+
+```text
+        Physical Server
+              |
+           Hyper-V
+      +-------+-------+
+      |       |       |
+      ↓       ↓       ↓
+    VM 1    VM 2    VM 3
+ Windows   Linux   Windows
+ Server
+```
+
+## 20. Virtual Machine
+
+Maszyna wirtualna posiada wirtualne:
+
+- CPU,
+- RAM,
+- dyski,
+- kartę sieciową.
+
+Dzięki temu na jednym fizycznym komputerze można uruchamiać wiele niezależnych systemów.
+
+## 21. Windows Server i Docker
+
+Windows Server może również pracować z **kontenerami**.
+
+W zależności od scenariusza można wykorzystywać kontenery Windows.
+
+Schemat:
+
+```text
+Windows Server
+      |
+    Docker
+      |
++-----+-----+
+|     |     |
+↓     ↓     ↓
+App1  App2  App3
+```
+
+W środowiskach enterprise kontenery mogą być elementem większej infrastruktury.
+
+## 22. Windows Admin Center
+
+**Windows Admin Center** to narzędzie firmy Microsoft umożliwiające zarządzanie środowiskami Windows Server za pomocą interfejsu webowego.
+
+Można zarządzać między innymi:
+
+- serwerami,
+- maszynami wirtualnymi,
+- siecią,
+- magazynem danych,
+- usługami.
+
+Schemat:
+
+```text
+Administrator
+      |
+      ↓
+Web Browser
+      |
+      ↓
+Windows Admin Center
+      |
+      ↓
+Windows Server
+```
+
+## 23. Server Manager
+
+**Server Manager** jest klasycznym narzędziem administracyjnym Windows Server.
+
+Pozwala między innymi:
+
+- instalować role,
+- instalować funkcje,
+- zarządzać serwerami,
+- sprawdzać status usług,
+- wykonywać podstawowe operacje administracyjne.
+
+## 24. PowerShell
+
+Jednym z najważniejszych narzędzi administratora Windows Server jest **PowerShell**.
+
+Pozwala automatyzować administrację.
+
+Przykładowo:
+
+```powershell
+Get-Service
+```
+
+wyświetla informacje o usługach.
+
+Możemy również zarządzać użytkownikami, procesami, siecią, Active Directory i wieloma innymi elementami.
+
+## 25. Windows Services
+
+Windows Server wykorzystuje **services**, czyli usługi działające w tle.
+
+Przykłady:
+
+```text
+DNS
+DHCP
+Active Directory
+IIS
+Windows Update
+```
+
+Możemy nimi zarządzać za pomocą:
+
+```text
+Services
+PowerShell
+Server Manager
+```
+
+## 26. Storage
+
+Windows Server posiada rozbudowane możliwości zarządzania pamięcią masową.
+
+Może obsługiwać między innymi:
+
+- dyski,
+- partycje,
+- woluminy,
+- RAID,
+- Storage Spaces,
+- SMB,
+- iSCSI.
+
+## 27. SMB
+
+**SMB (Server Message Block)** jest protokołem wykorzystywanym między innymi do udostępniania plików i drukarek w sieci.
+
+Przykład:
+
+```text
+Client
+  |
+  | SMB
+  ↓
+File Server
+```
+
+Adres może wyglądać:
+
+```text
+\\server\share
+```
+
+## 28. Backup
+
+Windows Server może być wykorzystywany w systemach kopii zapasowych.
+
+Backup może obejmować:
+
+```text
+Files
+Databases
+System State
+Virtual Machines
+Active Directory
+```
+
+Ważna zasada:
+
+**serwer produkcyjny nie powinien być jedynym miejscem przechowywania danych.**
+
+## 29. Failover Clustering
+
+Windows Server obsługuje również **Failover Clustering**.
+
+Pozwala to tworzyć środowiska o wysokiej dostępności.
+
+Przykładowo:
+
+```text
+        Application
+             |
+       +-----+-----+
+       |           |
+       ↓           ↓
+    Server 1    Server 2
+       |           |
+       +-----+-----+
+             |
+        Shared Storage
+```
+
+Jeżeli jeden serwer przestanie działać, drugi może przejąć jego zadania.
+
+## 30. High Availability
+
+**High Availability (HA)** oznacza projektowanie systemu tak, aby był dostępny przez możliwie długi czas.
+
+Możemy wykorzystać:
+
+```text
+Redundancy
++
+Failover
++
+Clustering
++
+Backup
+```
+
+aby ograniczyć skutki awarii.
+
+## 31. Windows Server i Active Directory – przykład
+
+Firma może posiadać:
+
+```text
+             Domain Controller
+                    |
+             Active Directory
+                    |
+       +------------+------------+
+       |            |            |
+       ↓            ↓            ↓
+      IT           HR          Sales
+       |            |            |
+     Users        Users        Users
+       |
+    Computers
+```
+
+Administrator może centralnie:
+
+- tworzyć konta,
+- resetować hasła,
+- dodawać użytkowników do grup,
+- nadawać uprawnienia,
+- konfigurować komputery.
+
+## 32. Windows Server i aplikacja .NET
+
+Przykładowo aplikacja ASP.NET może być wdrożona na Windows Server:
+
+```text
+                 Windows Server
+                       |
+                      IIS
+                       |
+                ASP.NET Core API
+                       |
+                  SQL Server
+```
+
+Klient:
+
+```text
+Browser
+   |
+ HTTPS
+   ↓
+IIS
+   ↓
+ASP.NET Core
+   ↓
+SQL Server
+```
+
+Jest to klasyczny scenariusz wykorzystania Windows Server w środowisku Microsoft.
+
+## 33. Windows Server i SQL Server
+
+Windows Server często współpracuje z **Microsoft SQL Server**.
+
+Przykładowa infrastruktura:
+
+```text
+                Windows Server
+                      |
+                 SQL Server
+                      |
+                   Database
+                      |
+                 Applications
+```
+
+W większych środowiskach SQL Server może oczywiście znajdować się na oddzielnym serwerze.
+
+## 34. PowerShell i automatyzacja
+
+PowerShell jest szczególnie ważny, ponieważ pozwala wykonywać operacje masowo.
+
+Przykładowo administrator może automatycznie:
+
+```text
+Create Users
+     ↓
+Add Groups
+     ↓
+Configure Permissions
+     ↓
+Configure Servers
+```
+
+zamiast wykonywać każdą operację ręcznie.
+
+## 35. Windows Server Core
+
+**Server Core** to instalacja Windows Server z ograniczonym interfejsem graficznym.
+
+Zamiast pełnego GUI administrator wykorzystuje przede wszystkim:
+
+```text
+PowerShell
+Command Line
+Remote Management
+```
+
+Zalety:
+
+- mniejsze zużycie zasobów,
+- mniejsza powierzchnia ataku,
+- mniej komponentów,
+- możliwość zdalnego zarządzania.
+
+## 36. Windows Server Desktop Experience
+
+Drugą możliwością jest instalacja z pełnym interfejsem graficznym.
+
+Wtedy administrator może korzystać z:
+
+```text
+GUI
+Server Manager
+PowerShell
+MMC
+```
+
+Jest to wygodniejsze dla osób, które potrzebują graficznych narzędzi administracyjnych.
+
+## 37. Bezpieczeństwo Windows Server
+
+Bezpieczeństwo jest jednym z najważniejszych obszarów administracji Windows Server.
+
+Można stosować między innymi:
+
+- Windows Firewall,
+- Group Policy,
+- Active Directory,
+- Kerberos,
+- TLS,
+- certyfikaty,
+- kontrolę dostępu,
+- zasadę najmniejszych uprawnień,
+- aktualizacje bezpieczeństwa.
+
+## 38. Windows Server w przedsiębiorstwie
+
+Przykładowa infrastruktura przedsiębiorstwa:
+
+```text
+                     INTERNET
+                         |
+                       Firewall
+                         |
+                  +------+------+
+                  |             |
+                 DMZ           LAN
+                  |             |
+                 IIS      +------+------+
+                  |       |             |
+               Web App    AD           DNS
+                  |       |             |
+                  |      DHCP          File Server
+                  |                     |
+                  +----------+----------+
+                             |
+                         SQL Server
+```
+
+Windows Server może być jednym z podstawowych elementów takiej infrastruktury.
+
+## 39. Windows Server a Linux Server
+
+Windows Server i Linux są bardzo popularnymi rozwiązaniami serwerowymi.
+
+| Windows Server | Linux Server |
+|---|---|
+| Microsoft | Open Source ecosystem |
+| Active Directory | LDAP/Kerberos i inne rozwiązania |
+| PowerShell | Bash |
+| IIS | Nginx / Apache |
+| NTFS/SMB | różne systemy plików |
+| Hyper-V | KVM i inne rozwiązania |
+| .NET / Microsoft ecosystem | szeroki ekosystem open source |
+| GUI dostępne | często administracja CLI |
+
+Wybór zależy od środowiska i wymagań organizacji.
+
+## 40. Zalety Windows Server
+
+Najważniejsze zalety:
+
+- bardzo dobra integracja z ekosystemem Microsoft,
+- Active Directory,
+- Group Policy,
+- IIS,
+- Hyper-V,
+- PowerShell,
+- łatwa integracja z Microsoft SQL Server,
+- rozbudowane narzędzia administracyjne,
+- centralne zarządzanie użytkownikami i komputerami,
+- wsparcie dla środowisk enterprise.
+
+## 41. Wady Windows Server
+
+Windows Server ma również pewne wady.
+
+System wymaga odpowiedniego licencjonowania.
+
+Może być bardziej kosztowny niż wiele dystrybucji Linux.
+
+Niektóre zadania administracyjne mogą wymagać dużej wiedzy dotyczącej Active Directory, DNS, Group Policy i innych usług.
+
+W przypadku prostych serwerów aplikacyjnych Linux może być często prostszym lub tańszym rozwiązaniem.
+
+## 42. Kiedy używać Windows Server?
+
+Windows Server jest szczególnie dobrym wyborem, gdy organizacja wykorzystuje:
+
+```text
+Active Directory
+Microsoft 365
+Microsoft SQL Server
+.NET
+ASP.NET
+IIS
+Hyper-V
+Windows Clients
+```
+
+Przykładowo firma posiadająca 500 komputerów z Windows może centralnie zarządzać nimi przez:
+
+```text
+Windows Server
+      ↓
+Active Directory
+      ↓
+Group Policy
+      ↓
+500 Computers
+```
+
+## 43. Najważniejsze pojęcia
+
+Jeżeli chcesz zapamiętać Windows Server, przede wszystkim zapamiętaj:
+
+**Windows Server** – system operacyjny Microsoft przeznaczony do obsługi serwerów i infrastruktury IT.
+
+**Active Directory** – katalog użytkowników, komputerów i innych obiektów.
+
+**AD DS** – Active Directory Domain Services.
+
+**Domain Controller** – serwer obsługujący domenę Active Directory.
+
+**Domain** – logiczne środowisko zarządzania użytkownikami i komputerami.
+
+**Group Policy** – centralne zarządzanie konfiguracją użytkowników i komputerów.
+
+**DNS** – tłumaczy nazwy domenowe na adresy IP.
+
+**DHCP** – automatycznie przydziela konfigurację sieciową.
+
+**IIS** – serwer WWW firmy Microsoft.
+
+**Hyper-V** – technologia wirtualizacji Microsoft.
+
+**SMB** – protokół udostępniania plików i zasobów sieciowych.
+
+**PowerShell** – środowisko automatyzacji i administracji.
+
+**Server Core** – instalacja Windows Server bez pełnego GUI.
+
+**Failover Cluster** – mechanizm zwiększający dostępność usług poprzez redundancję.
+
+## 44. Windows Server – najważniejszy schemat
+
+```text
+                         WINDOWS SERVER
+                               |
+       +-----------------------+-----------------------+
+       |                       |                       |
+ Active Directory             DNS                    DHCP
+       |                       |                       |
+       +-----------------------+-----------------------+
+                               |
+                         Network / LAN
+                               |
+          +--------------------+--------------------+
+          |                    |                    |
+          ↓                    ↓                    ↓
+     File Server              IIS                Hyper-V
+          |                    |                    |
+       Files              Web Applications       Virtual Machines
+                               |
+                               ↓
+                         SQL Server
+```
+
+### Najważniejsze zdanie do zapamiętania
+
+**Windows Server to serwerowy system operacyjny Microsoft służący do budowania i zarządzania infrastrukturą IT, oferujący między innymi Active Directory, DNS, DHCP, IIS, Hyper-V, SMB, Group Policy i PowerShell.**

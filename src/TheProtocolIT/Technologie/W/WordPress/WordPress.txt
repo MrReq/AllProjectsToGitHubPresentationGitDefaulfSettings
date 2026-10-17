@@ -1,0 +1,1484 @@
+# WordPress
+
+## 1. Czym jest WordPress?
+
+**WordPress** to jeden z najpopularniejszych systemów **CMS (Content Management System)**, czyli systemów zarządzania treścią.
+
+Pozwala tworzyć i zarządzać:
+
+- stronami internetowymi,
+- blogami,
+- sklepami internetowymi,
+- portalami informacyjnymi,
+- stronami firmowymi,
+- portfolio,
+- stronami edukacyjnymi,
+- serwisami społecznościowymi.
+
+WordPress został napisany głównie w **PHP** i korzysta z bazy danych, najczęściej **MySQL lub MariaDB**.
+
+Podstawowa architektura wygląda następująco:
+
+```text
+Użytkownik
+    ↓
+Przeglądarka
+    ↓
+Serwer WWW
+    ↓
+WordPress
+    ↓
+PHP
+    ↓
+MySQL / MariaDB
+```
+
+WordPress może działać między innymi na:
+
+```text
+Linux
+Apache
+Nginx
+PHP
+MySQL / MariaDB
+```
+
+## 2. Do czego służy WordPress?
+
+WordPress może być wykorzystany do stworzenia:
+
+```text
+Blog
+Strona firmowa
+Sklep internetowy
+Portfolio
+Landing Page
+Portal informacyjny
+Strona szkoły
+Strona uczelni
+Forum
+Serwis członkowski
+```
+
+Przykładowo firma może stworzyć:
+
+```text
+example.com
+│
+├── Strona główna
+├── O nas
+├── Oferta
+├── Blog
+├── Kontakt
+└── Sklep
+```
+
+bez konieczności pisania całego systemu od zera.
+
+## 3. CMS
+
+Najważniejszym pojęciem związanym z WordPressem jest **CMS**.
+
+CMS pozwala zarządzać treścią poprzez panel administracyjny.
+
+Zamiast pisać HTML:
+
+```html
+<h1>Moja firma</h1>
+<p>Witamy na naszej stronie.</p>
+```
+
+możesz wejść do panelu:
+
+```text
+WordPress Admin
+      ↓
+Posts / Pages
+      ↓
+Edytor
+      ↓
+Publikuj
+```
+
+Treść jest następnie przechowywana w bazie danych.
+
+## 4. WordPress.org vs WordPress.com
+
+To bardzo ważne rozróżnienie.
+
+### WordPress.org
+
+Jest to oprogramowanie WordPress, które możesz pobrać i uruchomić na własnym hostingu.
+
+Masz wtedy kontrolę nad:
+
+- serwerem,
+- bazą danych,
+- PHP,
+- motywami,
+- pluginami,
+- konfiguracją,
+- domeną.
+
+Schemat:
+
+```text
+Ty
+ ↓
+Hosting / VPS
+ ↓
+WordPress
+ ↓
+Twoja strona
+```
+
+### WordPress.com
+
+Jest to platforma oferująca hosting WordPress.
+
+Nie musisz samodzielnie konfigurować całego serwera.
+
+Schemat:
+
+```text
+Ty
+ ↓
+WordPress.com
+ ↓
+Gotowa infrastruktura
+ ↓
+Twoja strona
+```
+
+Najprościej:
+
+| WordPress.org | WordPress.com |
+|---|---|
+| Samodzielnie instalujesz | Usługa hostingowa |
+| Większa kontrola | Większa prostota |
+| Własny hosting | Hosting platformy |
+| Więcej możliwości konfiguracji | Zależność od planu |
+| Dla bardziej technicznych użytkowników | Dobry dla początkujących |
+
+## 5. WordPress i PHP
+
+WordPress jest oparty na **PHP**.
+
+Przykładowa funkcja PHP:
+
+```php
+<?php
+
+function hello_wordpress() {
+    echo "Hello WordPress!";
+}
+```
+
+PHP jest wykonywany po stronie serwera.
+
+Schemat:
+
+```text
+Browser
+   ↓
+HTTP Request
+   ↓
+Web Server
+   ↓
+PHP
+   ↓
+WordPress
+   ↓
+Database
+   ↓
+HTML
+   ↓
+Browser
+```
+
+Użytkownik końcowy zazwyczaj otrzymuje już wygenerowany HTML.
+
+## 6. WordPress i baza danych
+
+WordPress wykorzystuje bazę danych do przechowywania informacji.
+
+Mogą tam znajdować się:
+
+- użytkownicy,
+- wpisy,
+- strony,
+- komentarze,
+- ustawienia,
+- informacje o pluginach,
+- dane konfiguracyjne.
+
+Przykładowo:
+
+```text
+WordPress
+    ↓
+Database
+    ├── Users
+    ├── Posts
+    ├── Pages
+    ├── Comments
+    └── Settings
+```
+
+Najczęściej spotkasz:
+
+**MySQL** lub **MariaDB**.
+
+## 7. Post
+
+**Post** oznacza wpis.
+
+Jest szczególnie często wykorzystywany na blogach.
+
+Przykład:
+
+```text
+Blog
+│
+├── Jak nauczyć się Java?
+├── Docker dla początkujących
+├── Czym jest Kubernetes?
+└── Wprowadzenie do AI
+```
+
+Każdy wpis może posiadać:
+
+- tytuł,
+- treść,
+- autora,
+- datę,
+- kategorię,
+- tagi,
+- obraz główny.
+
+## 8. Page
+
+**Page**, czyli strona, jest przeznaczona do bardziej stałych treści.
+
+Przykład:
+
+```text
+Strony
+├── O nas
+├── Kontakt
+├── Oferta
+├── Polityka prywatności
+└── Regulamin
+```
+
+W dużym uproszczeniu:
+
+```text
+Post = treść publikowana w czasie
+
+Page = bardziej stała strona
+```
+
+## 9. Gutenberg
+
+Współczesny WordPress posiada edytor blokowy znany jako **Gutenberg**.
+
+Zamiast tworzyć całą stronę jako jeden dokument, budujesz ją z bloków.
+
+Przykład:
+
+```text
+Strona
+│
+├── Heading
+├── Paragraph
+├── Image
+├── Button
+├── Gallery
+└── Columns
+```
+
+Możesz więc tworzyć stronę wizualnie.
+
+## 10. Block Editor
+
+Przykładowa struktura:
+
+```text
+┌─────────────────────────────┐
+│        MOJA FIRMA           │
+├─────────────────────────────┤
+│  Witamy na naszej stronie   │
+├─────────────────────────────┤
+│        [ ZOBACZ OFERTĘ ]    │
+├─────────────────────────────┤
+│   Produkt 1   Produkt 2     │
+└─────────────────────────────┘
+```
+
+Każdy element może być osobnym blokiem.
+
+## 11. Theme
+
+**Theme**, czyli motyw, odpowiada przede wszystkim za wygląd i sposób prezentacji strony.
+
+Może definiować:
+
+- kolory,
+- czcionki,
+- układ,
+- nagłówek,
+- stopkę,
+- menu,
+- szablony stron,
+- wygląd wpisów.
+
+Schemat:
+
+```text
+WordPress
+    ↓
+Theme
+    ↓
+Wygląd strony
+```
+
+## 12. Plugin
+
+**Plugin** to rozszerzenie WordPressa.
+
+Pozwala dodać nową funkcjonalność bez konieczności tworzenia całego systemu od początku.
+
+Przykłady zastosowań:
+
+```text
+SEO
+Formularze
+Sklep
+Cache
+Bezpieczeństwo
+Analytics
+Backup
+Newsletter
+Galeria
+Membership
+```
+
+Schemat:
+
+```text
+WordPress
+   │
+   ├── Theme
+   │
+   └── Plugins
+          ├── SEO
+          ├── Security
+          ├── Forms
+          └── Ecommerce
+```
+
+## 13. Plugin vs Theme
+
+To ważne rozróżnienie.
+
+| Theme | Plugin |
+|---|---|
+| Odpowiada głównie za wygląd | Dodaje funkcjonalność |
+| Layout | Funkcje |
+| Kolory | SEO |
+| Czcionki | Formularze |
+| Szablony | Sklep |
+| Header/Footer | Backup |
+
+Przykład:
+
+```text
+Theme:
+„Jak strona wygląda?”
+
+Plugin:
+„Co strona potrafi?”
+```
+
+## 14. WooCommerce
+
+Jednym z najważniejszych pluginów WordPressa jest **WooCommerce**.
+
+Pozwala przekształcić WordPress w sklep internetowy.
+
+Schemat:
+
+```text
+WordPress
+    +
+WooCommerce
+    ↓
+Sklep internetowy
+```
+
+Możesz wtedy zarządzać:
+
+- produktami,
+- kategoriami,
+- cenami,
+- zamówieniami,
+- klientami,
+- płatnościami,
+- wysyłką.
+
+Przykład:
+
+```text
+Sklep
+│
+├── Produkty
+├── Koszyk
+├── Checkout
+├── Zamówienia
+└── Konto klienta
+```
+
+## 15. WordPress REST API
+
+WordPress posiada **REST API**, dzięki któremu inne aplikacje mogą komunikować się z WordPressem.
+
+Przykładowo:
+
+```text
+Frontend
+    ↓
+REST API
+    ↓
+WordPress
+    ↓
+Database
+```
+
+Możesz wykonywać zapytania dotyczące wpisów.
+
+Przykładowo:
+
+```http
+GET /wp-json/wp/v2/posts
+```
+
+Możesz otrzymać dane w formacie JSON:
+
+```json
+[
+  {
+    "id": 10,
+    "title": {
+      "rendered": "Mój pierwszy wpis"
+    }
+  }
+]
+```
+
+Dzięki temu WordPress może działać jako backend dla innego systemu.
+
+## 16. Headless WordPress
+
+**Headless WordPress** oznacza wykorzystanie WordPressa przede wszystkim jako backendu/CMS, podczas gdy frontend jest tworzony niezależnie.
+
+Przykład:
+
+```text
+React / Next.js
+       ↓
+   WordPress API
+       ↓
+    WordPress
+       ↓
+    Database
+```
+
+W takim rozwiązaniu WordPress zarządza treścią, ale użytkownik może nie korzystać bezpośrednio z klasycznego frontendu WordPressa.
+
+Można wtedy wykorzystać technologie takie jak:
+
+```text
+React
+Next.js
+Vue
+Angular
+Svelte
+```
+
+## 17. WordPress Hooks
+
+Jedną z najważniejszych koncepcji programistycznych WordPressa są **Hooks**.
+
+Dzielą się głównie na:
+
+```text
+Actions
+Filters
+```
+
+### Action
+
+Pozwala wykonać własny kod w określonym momencie.
+
+```php
+add_action('init', 'my_function');
+
+function my_function() {
+    // własny kod
+}
+```
+
+### Filter
+
+Pozwala zmienić dane przed ich wykorzystaniem.
+
+```php
+add_filter('the_title', 'modify_title');
+
+function modify_title($title) {
+    return $title . "!";
+}
+```
+
+Dzięki hookom można rozszerzać WordPress bez modyfikowania jego głównego kodu.
+
+## 18. Actions
+
+Przykładowe zdarzenia:
+
+```text
+init
+wp_enqueue_scripts
+wp_footer
+save_post
+user_register
+```
+
+Możesz powiedzieć:
+
+> „Kiedy użytkownik zostanie utworzony, wykonaj tę funkcję.”
+
+```php
+add_action('user_register', 'after_user_register');
+```
+
+## 19. Filters
+
+Filtry pozwalają modyfikować dane.
+
+Przykład:
+
+```php
+add_filter('the_content', 'add_text');
+
+function add_text($content) {
+    return $content . '<p>Dodano przez plugin.</p>';
+}
+```
+
+WordPress przekazuje treść do funkcji, a funkcja zwraca zmodyfikowaną treść.
+
+## 20. WordPress Template Hierarchy
+
+WordPress posiada system szablonów.
+
+Przykładowo motyw może zawierać:
+
+```text
+theme/
+├── index.php
+├── single.php
+├── page.php
+├── archive.php
+├── header.php
+├── footer.php
+└── functions.php
+```
+
+Poszczególne pliki odpowiadają za różne typy widoków.
+
+Przykład:
+
+```text
+Wpis
+ ↓
+single.php
+```
+
+Strona:
+
+```text
+Page
+ ↓
+page.php
+```
+
+## 21. functions.php
+
+W motywie często znajduje się:
+
+```text
+functions.php
+```
+
+Można tam umieszczać funkcje związane z motywem.
+
+Przykład:
+
+```php
+<?php
+
+function my_theme_setup() {
+    add_theme_support('post-thumbnails');
+}
+
+add_action('after_setup_theme', 'my_theme_setup');
+```
+
+`functions.php` można traktować jako jeden z głównych punktów rozszerzania funkcjonalności motywu.
+
+## 22. Shortcodes
+
+WordPress posiada również **shortcodes**.
+
+Przykład:
+
+```text
+[gallery]
+```
+
+Może zostać zamieniony przez WordPress na odpowiedni HTML.
+
+Można również stworzyć własny shortcode:
+
+```php
+add_shortcode('hello', function () {
+    return '<strong>Hello!</strong>';
+});
+```
+
+Następnie:
+
+```text
+[hello]
+```
+
+może wygenerować:
+
+```html
+<strong>Hello!</strong>
+```
+
+## 23. Użytkownicy i role
+
+WordPress posiada system użytkowników.
+
+Standardowe role obejmują między innymi:
+
+```text
+Administrator
+Editor
+Author
+Contributor
+Subscriber
+```
+
+Każda rola posiada inne uprawnienia.
+
+Przykład:
+
+```text
+Administrator
+    ↓
+Pełna administracja
+
+Editor
+    ↓
+Zarządzanie treścią
+
+Author
+    ↓
+Własne wpisy
+
+Subscriber
+    ↓
+Podstawowe konto
+```
+
+## 24. Authentication
+
+WordPress posiada własny system uwierzytelniania.
+
+Użytkownik może logować się przez:
+
+```text
+/wp-login.php
+```
+
+System zarządza:
+
+- użytkownikami,
+- hasłami,
+- sesjami,
+- rolami,
+- uprawnieniami.
+
+Ważne jest stosowanie silnych haseł oraz dodatkowych mechanizmów bezpieczeństwa.
+
+## 25. Permalinks
+
+**Permalinks** określają sposób budowania adresów URL.
+
+Przykład mniej czytelny:
+
+```text
+example.com/?p=123
+```
+
+Lepszy:
+
+```text
+example.com/blog/wordpress/
+```
+
+Czytelne adresy URL są ważne między innymi dla:
+
+- użytkowników,
+- SEO,
+- organizacji strony.
+
+## 26. SEO
+
+WordPress sam w sobie nie jest automatycznie kompletnym systemem SEO.
+
+Można jednak wykorzystać dodatkowe narzędzia i pluginy.
+
+SEO obejmuje między innymi:
+
+```text
+Title
+Meta description
+Heading structure
+URLs
+Sitemap
+Internal linking
+Structured data
+Page speed
+Mobile usability
+```
+
+## 27. Media Library
+
+WordPress posiada **Media Library**.
+
+Pozwala przechowywać:
+
+- obrazy,
+- dokumenty,
+- filmy,
+- pliki audio,
+- inne zasoby.
+
+Przykładowo:
+
+```text
+Media
+│
+├── logo.png
+├── product.jpg
+├── presentation.pdf
+└── video.mp4
+```
+
+## 28. WordPress i JavaScript
+
+Chociaż WordPress jest oparty głównie na PHP, wykorzystuje również JavaScript.
+
+JavaScript może być używany do:
+
+- interaktywnego UI,
+- AJAX,
+- bloków Gutenberga,
+- panelu administracyjnego,
+- aplikacji frontendowych.
+
+W ekosystemie WordPressa szczególne znaczenie ma również:
+
+```text
+React
+```
+
+który jest wykorzystywany między innymi w nowoczesnym edytorze blokowym.
+
+## 29. WordPress i AJAX
+
+AJAX pozwala wykonywać operacje bez przeładowania całej strony.
+
+Przykład:
+
+```text
+Kliknięcie przycisku
+       ↓
+JavaScript
+       ↓
+AJAX Request
+       ↓
+WordPress
+       ↓
+PHP
+       ↓
+Response
+       ↓
+Aktualizacja strony
+```
+
+Może to być wykorzystywane np. przy:
+
+- filtrowaniu produktów,
+- formularzach,
+- wyszukiwaniu,
+- koszyku,
+- dynamicznych elementach UI.
+
+## 30. WordPress i Apache/Nginx
+
+WordPress potrzebuje środowiska serwerowego.
+
+Popularny stos:
+
+```text
+Linux
+ ↓
+Apache
+ ↓
+PHP
+ ↓
+MySQL
+ ↓
+WordPress
+```
+
+albo:
+
+```text
+Linux
+ ↓
+Nginx
+ ↓
+PHP-FPM
+ ↓
+MySQL
+ ↓
+WordPress
+```
+
+## 31. WordPress i HTTPS
+
+Strona powinna korzystać z:
+
+```text
+HTTPS
+```
+
+zamiast:
+
+```text
+HTTP
+```
+
+Schemat:
+
+```text
+Browser
+   ↓
+HTTPS
+   ↓
+Web Server
+   ↓
+WordPress
+```
+
+HTTPS zabezpiecza komunikację pomiędzy klientem a serwerem.
+
+## 32. Cache
+
+WordPress może korzystać z mechanizmów cache.
+
+Bez cache:
+
+```text
+User
+ ↓
+PHP
+ ↓
+WordPress
+ ↓
+Database
+ ↓
+HTML
+```
+
+Z cache:
+
+```text
+User
+ ↓
+Cache
+ ↓
+HTML
+```
+
+Może to znacznie zmniejszyć obciążenie serwera.
+
+Cache może być realizowany między innymi na poziomie:
+
+```text
+Browser
+CDN
+Web Server
+WordPress
+Object Cache
+Database
+```
+
+## 33. CDN
+
+**CDN (Content Delivery Network)** pozwala dostarczać statyczne zasoby z serwerów znajdujących się bliżej użytkownika.
+
+Przykład:
+
+```text
+Użytkownik
+    ↓
+   CDN
+    ↓
+WordPress Server
+```
+
+CDN może przechowywać:
+
+```text
+CSS
+JavaScript
+Images
+Fonts
+Videos
+```
+
+## 34. WordPress Security
+
+Bezpieczeństwo WordPressa jest bardzo ważne, ponieważ jest to bardzo popularna platforma.
+
+Należy dbać o:
+
+- aktualizacje WordPressa,
+- aktualizacje pluginów,
+- aktualizacje motywów,
+- silne hasła,
+- MFA/2FA,
+- ograniczanie uprawnień,
+- backup,
+- HTTPS,
+- bezpieczeństwo serwera.
+
+Szczególnie niebezpieczne może być instalowanie przypadkowych pluginów z nieznanych źródeł.
+
+## 35. Backup
+
+Backup powinien obejmować przede wszystkim:
+
+```text
+WordPress Files
++
+Database
+```
+
+Czyli:
+
+```text
+Backup
+├── wp-content
+├── WordPress files
+└── Database
+```
+
+Sam backup plików nie zawsze wystarczy, ponieważ ważne dane mogą znajdować się w bazie.
+
+## 36. wp-content
+
+Jednym z najważniejszych katalogów WordPressa jest:
+
+```text
+wp-content/
+```
+
+Znajdują się tam między innymi:
+
+```text
+wp-content/
+├── plugins/
+├── themes/
+└── uploads/
+```
+
+Czyli:
+
+```text
+plugins
+    ↓
+wtyczki
+
+themes
+    ↓
+motywy
+
+uploads
+    ↓
+media
+```
+
+## 37. wp-config.php
+
+Jednym z ważnych plików konfiguracyjnych jest:
+
+```text
+wp-config.php
+```
+
+Może zawierać między innymi konfigurację bazy danych.
+
+Przykładowo:
+
+```php
+define('DB_NAME', 'wordpress');
+define('DB_USER', 'wordpress');
+define('DB_PASSWORD', 'password');
+define('DB_HOST', 'localhost');
+```
+
+W rzeczywistym środowisku hasła i sekrety powinny być odpowiednio zabezpieczone.
+
+## 38. WordPress jako sklep
+
+Po zastosowaniu WooCommerce:
+
+```text
+WordPress
+    ↓
+WooCommerce
+    ↓
+Products
+    ↓
+Cart
+    ↓
+Checkout
+    ↓
+Payment
+    ↓
+Order
+```
+
+WordPress może wtedy stać się pełnoprawną platformą e-commerce.
+
+## 39. WordPress jako backend
+
+Dzięki REST API WordPress może również pełnić rolę backendu:
+
+```text
+React
+   ↓
+REST API
+   ↓
+WordPress
+   ↓
+MySQL
+```
+
+Można wtedy stworzyć frontend niezależny od klasycznego systemu szablonów WordPressa.
+
+## 40. WordPress i Docker
+
+WordPress można uruchomić w Dockerze.
+
+Przykładowa architektura:
+
+```text
+Docker Compose
+│
+├── WordPress
+│
+└── MySQL
+```
+
+Przykładowy fragment:
+
+```yaml
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - "8080:80"
+
+  mysql:
+    image: mysql
+```
+
+W praktycznym środowisku należy oczywiście odpowiednio skonfigurować:
+
+- hasła,
+- volumes,
+- sieci,
+- zmienne środowiskowe,
+- backup.
+
+## 41. WordPress jako system programistyczny
+
+WordPress nie jest wyłącznie narzędziem dla osób nietechnicznych.
+
+Programista może tworzyć:
+
+```text
+Custom Theme
+Custom Plugin
+REST API
+Gutenberg Blocks
+Custom Post Types
+Custom Taxonomies
+Database integrations
+External API integrations
+```
+
+Możesz więc wykorzystać WordPress jako platformę developerską.
+
+## 42. Custom Post Types
+
+WordPress pozwala tworzyć własne typy treści.
+
+Przykład:
+
+```text
+Standard:
+Post
+Page
+
+Custom:
+Product
+Course
+Property
+Event
+Vehicle
+Job
+```
+
+Przykładowo dla strony uczelni:
+
+```text
+Course
+│
+├── Name
+├── Lecturer
+├── ECTS
+├── Semester
+└── Description
+```
+
+## 43. Custom Taxonomies
+
+Możesz również tworzyć własne systemy klasyfikacji.
+
+Przykład:
+
+```text
+Product
+   ↓
+Category
+   ↓
+Agriculture
+   ↓
+Rice
+```
+
+Taxonomie pozwalają organizować duże ilości treści.
+
+## 44. WordPress i API
+
+WordPress może komunikować się z zewnętrznymi systemami.
+
+Przykładowo:
+
+```text
+WordPress
+    ↓
+External REST API
+    ↓
+Weather
+```
+
+albo:
+
+```text
+WordPress
+    ↓
+Payment API
+    ↓
+Payment Provider
+```
+
+albo:
+
+```text
+WordPress
+    ↓
+CRM API
+    ↓
+CRM
+```
+
+## 45. WordPress vs własna aplikacja
+
+| WordPress | Własna aplikacja |
+|---|---|
+| Gotowy CMS | Wszystko tworzysz sam |
+| Szybki start | Dłuższy development |
+| Dużo pluginów | Pełna kontrola |
+| Duży ekosystem | Dowolna architektura |
+| Dobry dla treści | Dobry dla niestandardowej logiki |
+| PHP | Dowolna technologia |
+
+Jeżeli potrzebujesz:
+
+> „Strony firmowej z blogiem i formularzem”
+
+WordPress może być świetnym rozwiązaniem.
+
+Jeżeli potrzebujesz:
+
+> „Bardzo złożonego systemu przetwarzającego dane i wykonującego specjalistyczne algorytmy”
+
+często lepsza będzie własna aplikacja.
+
+## 46. WordPress vs Joomla
+
+Oba są systemami CMS.
+
+| WordPress | Joomla |
+|---|---|
+| Bardzo duży ekosystem | Mniejszy ekosystem |
+| Łatwy start | Bardziej techniczny |
+| Ogromna liczba motywów | Duże możliwości konfiguracji |
+| Ogromna liczba pluginów | Rozszerzenia |
+| Bardzo popularny | Mniejszy udział |
+
+## 47. WordPress vs Drupal
+
+Drupal jest często kojarzony z bardziej złożonymi rozwiązaniami CMS.
+
+| WordPress | Drupal |
+|---|---|
+| Łatwiejszy start | Bardziej techniczny |
+| Blogi | Duże systemy |
+| Strony firmowe | Rozbudowane portale |
+| WooCommerce | Commerce |
+| Duży ekosystem | Bardzo duża elastyczność |
+
+## 48. Zalety WordPressa
+
+Najważniejsze zalety:
+
+- bardzo popularny,
+- łatwy start,
+- ogromny ekosystem,
+- dużo pluginów,
+- dużo motywów,
+- możliwość tworzenia sklepów,
+- REST API,
+- możliwość tworzenia własnych pluginów,
+- możliwość tworzenia własnych motywów,
+- dobra integracja z SEO,
+- ogromna społeczność.
+
+## 49. Wady WordPressa
+
+WordPress ma również ograniczenia:
+
+- pluginy mogą powodować konflikty,
+- źle napisane pluginy mogą obniżać bezpieczeństwo,
+- duża liczba pluginów może obciążać stronę,
+- wymaga aktualizacji,
+- konfiguracja dużych instalacji może być skomplikowana,
+- nie jest najlepszym rozwiązaniem dla każdej aplikacji,
+- PHP i architektura WordPressa mają swoją specyfikę.
+
+## 50. Najważniejsze pojęcia
+
+| Pojęcie | Znaczenie |
+|---|---|
+| CMS | System zarządzania treścią |
+| WordPress.org | Samodzielnie instalowany WordPress |
+| WordPress.com | Platforma hostingowa WordPress |
+| Theme | Motyw wyglądu |
+| Plugin | Rozszerzenie funkcjonalności |
+| Post | Wpis |
+| Page | Strona |
+| Gutenberg | Edytor blokowy |
+| WooCommerce | Platforma e-commerce dla WordPressa |
+| Hook | Mechanizm rozszerzania WordPressa |
+| Action | Reakcja na zdarzenie |
+| Filter | Modyfikowanie danych |
+| Shortcode | Skrót reprezentujący funkcjonalność |
+| REST API | API WordPressa |
+| Headless | WordPress jako backend/CMS |
+| PHP | Główny język WordPressa |
+| MySQL | Popularna baza danych |
+| wp-content | Katalog pluginów, motywów i uploadów |
+| wp-config.php | Główny plik konfiguracji |
+| Permalink | Stały adres URL |
+| Custom Post Type | Własny typ treści |
+| Taxonomy | System klasyfikowania treści |
+
+## 51. Schemat całego WordPressa
+
+```text
+                         UŻYTKOWNIK
+                              │
+                              ↓
+                         PRZEGLĄDARKA
+                              │
+                              ↓
+                         HTTP / HTTPS
+                              │
+                              ↓
+                    ┌─────────────────┐
+                    │  WEB SERVER     │
+                    │ Apache / Nginx  │
+                    └────────┬────────┘
+                             │
+                             ↓
+                         PHP
+                             │
+                             ↓
+                       WORDPRESS
+                             │
+             ┌───────────────┼───────────────┐
+             ↓               ↓               ↓
+          THEMES          PLUGINS           API
+             │               │               │
+             └───────────────┼───────────────┘
+                             ↓
+                      MySQL / MariaDB
+                             │
+                             ↓
+                           DATA
+```
+
+## 52. WordPress w praktycznym projekcie
+
+Załóżmy, że chcesz stworzyć stronę dla firmy:
+
+```text
+Firma
+│
+├── WordPress
+│
+├── Theme
+│
+├── SEO Plugin
+│
+├── Security Plugin
+│
+├── Contact Form
+│
+└── WooCommerce
+```
+
+Użytkownik:
+
+```text
+example.com
+     ↓
+WordPress
+     ↓
+PHP
+     ↓
+MySQL
+```
+
+Administrator:
+
+```text
+example.com/wp-admin
+```
+
+może zarządzać treścią bez bezpośredniego modyfikowania kodu.
+
+## 53. WordPress w świecie IT
+
+WordPress warto znać szczególnie, jeżeli interesujesz się:
+
+- Web Development,
+- PHP,
+- Backend Development,
+- Frontend Development,
+- SEO,
+- e-commerce,
+- hostingiem,
+- administracją serwerami,
+- DevOps,
+- bezpieczeństwem,
+- tworzeniem stron internetowych.
+
+Dla programisty ważne jest przede wszystkim zrozumienie:
+
+```text
+PHP
+↓
+WordPress Core
+↓
+Themes
+↓
+Plugins
+↓
+Hooks
+↓
+REST API
+↓
+Database
+```
+
+## 54. Najważniejsze rzeczy do zapamiętania
+
+**WordPress = CMS oparty głównie na PHP, który wykorzystuje bazę danych i pozwala tworzyć oraz zarządzać stronami internetowymi.**
+
+Najważniejsza architektura:
+
+```text
+Browser
+   ↓
+Apache / Nginx
+   ↓
+PHP
+   ↓
+WordPress
+   ↓
+MySQL / MariaDB
+```
+
+Najważniejsze elementy WordPressa:
+
+```text
+WordPress
+├── Posts
+├── Pages
+├── Themes
+├── Plugins
+├── Users
+├── Gutenberg
+├── REST API
+├── Hooks
+├── Media
+└── Database
+```
+
+**Najważniejsze zdanie do zapamiętania: WordPress to elastyczny system CMS oparty na PHP, który dzięki motywom, pluginom, REST API i rozbudowanemu ekosystemowi pozwala szybko tworzyć i rozwijać strony internetowe, blogi, sklepy oraz bardziej zaawansowane serwisy.**

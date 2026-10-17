@@ -1,0 +1,432 @@
+# JSP (JavaServer Pages)
+
+## 1. Czym jest JSP?
+
+JSP (JavaServer Pages) to technologia serwerowa umożliwiająca tworzenie dynamicznych stron internetowych z wykorzystaniem języka Java oraz kodu HTML.
+
+JSP pozwala generować zawartość strony na serwerze, na przykład dane użytkownika, wyniki wyszukiwania, listę produktów lub informacje pobrane z bazy danych.
+
+Technologia JSP jest związana z ekosystemem Java EE, a obecnie Jakarta EE.
+
+Najważniejsza zasada: JSP służy przede wszystkim do tworzenia warstwy prezentacji aplikacji internetowej, czyli widoku, który zostaje przesłany do przeglądarki jako HTML.
+
+JSP jest często spotykana w starszych aplikacjach Java EE oraz systemach wykorzystujących serwlety i serwery aplikacyjne, takie jak Apache Tomcat czy WildFly.
+
+## 2. Do czego służy JSP?
+
+JSP jest wykorzystywana do tworzenia dynamicznych stron internetowych.
+
+Najważniejsze zastosowania to:
+
+- wyświetlanie danych pobranych z bazy danych,
+- tworzenie formularzy internetowych,
+- prezentowanie wyników wyszukiwania,
+- wyświetlanie informacji o użytkowniku,
+- generowanie tabel i list,
+- prezentowanie komunikatów o błędach,
+- tworzenie widoków aplikacji biznesowych,
+- współpraca z serwletami i klasami Java.
+
+Przykładowo aplikacja sklepu internetowego może pobierać produkty z bazy danych, a następnie wyświetlać je na stronie JSP.
+
+## 3. Jak działa JSP?
+
+JSP działa po stronie serwera.
+
+Przeglądarka nie otrzymuje kodu JSP ani kodu Java zawartego w stronie. Otrzymuje wygenerowany HTML.
+
+1\. Przeglądarka
+
+Wysyła żądanie HTTP
+
+2\. Serwer WWW / kontener serwletów
+
+Obsługuje żądanie i uruchamia odpowiednie komponenty
+
+3\. JSP
+
+Jest przekształcana w kod serwletu, kompilowana i wykonywana
+
+4\. HTML
+
+Wygenerowana odpowiedź wraca do przeglądarki
+
+Kontener JSP zazwyczaj przekształca stronę JSP w klasę serwletu Java, kompiluje ją i wykonuje. Przy kolejnych żądaniach skompilowana wersja może być ponownie wykorzystywana, dopóki nie będzie wymagana ponowna kompilacja.
+
+## 4. Podstawowa składnia JSP
+
+Pliki JSP mają najczęściej rozszerzenie:
+
+```
+.jsp
+```
+
+Przykładowy plik `index.jsp`:
+
+```
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moja strona JSP</title>
+</head>
+<body>
+    <h1>Witaj w JSP!</h1>
+</body>
+</html>
+```
+
+Dyrektywa `page` określa między innymi typ odpowiedzi oraz kodowanie strony.
+
+Serwer przetwarza JSP, a przeglądarka otrzymuje wygenerowany dokument HTML.
+
+## 5. Wyświetlanie danych
+
+W starszej składni JSP można było używać wyrażeń JSP do wyświetlania wartości.
+
+```
+<%
+    String name = "Marcin";
+%>
+
+<p>Witaj, <%= name %>!</p>
+```
+
+Rezultat w przeglądarce:
+
+```
+Witaj, Marcin!
+```
+
+Element `<%= ... %>` wypisuje wartość wyrażenia do odpowiedzi HTTP.
+
+W nowoczesnym kodzie JSP preferuje się jednak Expression Language (EL) i znaczniki JSTL zamiast umieszczania kodu Java bezpośrednio w widoku.
+
+## 6. Scriptlet
+
+Scriptlet pozwala umieszczać instrukcje Java bezpośrednio w pliku JSP.
+
+Przykład:
+
+```
+<%
+    int a = 10;
+    int b = 20;
+    int result = a + b;
+%>
+
+<p>Wynik: <%= result %></p>
+```
+
+Scriptlet rozpoczyna się od:
+
+```
+<%
+```
+
+i kończy na:
+
+```
+%>
+```
+
+Chociaż takie rozwiązanie jest możliwe w starszych aplikacjach, w nowych projektach zazwyczaj się go unika.
+
+Lepszym podejściem jest umieszczenie logiki w klasach Java, serwletach lub warstwie serwisowej, a w JSP pozostawienie prezentacji danych.
+
+## 7. Dyrektywy JSP
+
+Dyrektywy przekazują informacje kontenerowi JSP.
+
+Najważniejsze to:
+
+page
+
+Konfiguruje stronę JSP.
+
+```
+<%@ page contentType="text/html; charset=UTF-8" %>
+```
+
+include
+
+Dołącza zawartość innego pliku podczas przetwarzania JSP.
+
+```
+<%@ include file="header.jsp" %>
+```
+
+taglib
+
+Deklaruje bibliotekę znaczników, na przykład JSTL.
+
+```
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+```
+
+Identyfikator biblioteki zależy od wersji JSTL i używanej platformy. Starsze aplikacje mogą korzystać z innych identyfikatorów URI.
+
+## 8. Expression Language (EL)
+
+Expression Language to język wyrażeń pozwalający odczytywać dane dostępne w kontekście strony bez konieczności pisania kodu Java w widoku.
+
+Przykład:
+
+```
+<p>Witaj, ${user.name}!</p>
+```
+
+Wyrażenie `${user.name}` odczytuje właściwość `name` obiektu `user`, jeśli jest on dostępny w odpowiednim zakresie.
+
+EL pozwala także wykonywać proste operacje logiczne i arytmetyczne.
+
+Przykład:
+
+```
+<p>Suma: ${10 + 20}</p>
+```
+
+Rezultat:
+
+```
+Suma: 30
+```
+
+## 9. JSTL – JavaServer Pages Standard Tag Library
+
+JSTL to biblioteka znaczników, która ułatwia wykonywanie typowych operacji w widokach JSP.
+
+Można jej używać do:
+
+- iterowania po kolekcjach,
+- wyświetlania warunkowego,
+- formatowania danych,
+- obsługi podstawowych operacji tekstowych,
+- tworzenia czytelniejszych szablonów.
+
+Przykład warunku:
+
+```
+<c:if test="${user != null}">
+    <p>Użytkownik jest zalogowany.</p>
+</c:if>
+```
+
+Przykład iterowania:
+
+```
+<c:forEach var="product" items="${products}">
+    <p>${product.name}</p>
+</c:forEach>
+```
+
+W powyższych przykładach biblioteka JSTL musi być odpowiednio dodana do projektu i zadeklarowana dyrektywą `taglib`.
+
+## 10. JSP a Servlet
+
+Servlet i JSP są ze sobą ściśle związane, ale pełnią różne role.
+
+| Cecha               | JSP                            | Servlet                             |
+| ------------------- | ------------------------------ | ----------------------------------- |
+| Główne zastosowanie | Tworzenie widoków HTML         | Obsługa żądań i logiki sterującej   |
+| Forma               | Plik `.jsp`                    | Klasa Java                          |
+| Generowanie HTML    | Wygodne dzięki szablonowi HTML | Możliwe, ale często mniej wygodne   |
+| Obsługa HTTP        | Za pośrednictwem kontenera     | Bezpośrednio przez API serwletów    |
+| Typowa rola         | Warstwa prezentacji            | Kontroler lub punkt wejścia żądania |
+
+Przykładowy schemat aplikacji:
+
+```
+Przeglądarka
+     ↓
+Servlet (Controller)
+     ↓
+Service
+     ↓
+Repository / DAO
+     ↓
+Baza danych
+
+Servlet
+     ↓
+JSP (View)
+     ↓
+HTML
+     ↓
+Przeglądarka
+```
+
+Takie podejście można powiązać ze wzorcem architektonicznym MVC.
+
+## 11. JSP a MVC
+
+MVC oznacza Model–View–Controller.
+
+W tym podejściu aplikacja jest podzielona na trzy główne części.
+
+Model – reprezentuje dane i logikę domenową.
+
+View – prezentuje dane użytkownikowi; w tradycyjnych aplikacjach Java tę rolę często pełni JSP.
+
+Controller – obsługuje żądania, koordynuje działanie aplikacji i wybiera widok.
+
+Przykładowy przepływ:
+
+1. Użytkownik otwiera stronę z listą produktów.
+2. Servlet odbiera żądanie.
+3. Serwis pobiera dane.
+4. Kontroler przekazuje listę produktów do JSP.
+5. JSP generuje HTML.
+6. Przeglądarka wyświetla produkty.
+
+## 12. JSP i formularze HTML
+
+JSP może wyświetlać formularze, a dane z formularzy mogą być odbierane przez servlet.
+
+Przykładowy formularz:
+
+```
+<form action="login" method="post">
+    <label for="username">Login:</label>
+    <input id="username" name="username" type="text">
+
+    <label for="password">Hasło:</label>
+    <input id="password" name="password" type="password">
+
+    <button type="submit">Zaloguj</button>
+</form>
+```
+
+Formularz wysyła dane metodą POST do adresu `login`.
+
+Servlet może następnie odczytać wartości przez `request.getParameter("username")`.
+
+W prawdziwej aplikacji logowanie powinno wykorzystywać odpowiednie mechanizmy uwierzytelniania, bezpieczne przechowywanie haseł i ochronę przed atakami na formularze.
+
+## 13. JSP a bazy danych
+
+JSP może wyświetlać dane pobrane z bazy danych, ale nie zaleca się łączenia strony JSP bezpośrednio z bazą.
+
+Lepiej zastosować osobne warstwy:
+
+```
+JSP
+ ↓
+Servlet / Controller
+ ↓
+Service
+ ↓
+Repository / DAO
+ ↓
+JDBC / JPA
+ ↓
+Database
+```
+
+Kontroler pobiera dane za pośrednictwem serwisu, a następnie przekazuje je do JSP.
+
+Dzięki temu kod jest łatwiejszy w testowaniu, rozwijaniu i utrzymaniu.
+
+## 14. JSP a Spring MVC i Thymeleaf
+
+JSP może być używana w aplikacjach opartych na Spring MVC, ale istnieją również inne technologie szablonów.
+
+| Technologia         | Zastosowanie                                             |
+| ------------------- | -------------------------------------------------------- |
+| JSP                 | Widoki w tradycyjnych aplikacjach Java web               |
+| Thymeleaf           | Szablony HTML, często wykorzystywane ze Spring Boot      |
+| FreeMarker          | Generowanie widoków i innych dokumentów z szablonów      |
+| JSF / Jakarta Faces | Komponentowy framework interfejsu użytkownika            |
+| React               | Interfejsy użytkownika budowane z komponentów JavaScript |
+
+JSP jest szczególnie istotna przy utrzymywaniu starszych systemów Java EE.
+
+W nowych projektach wybór technologii zależy od architektury aplikacji i używanego frameworka. JSP ma też ograniczenia przy pakowaniu aplikacji Spring Boot jako samodzielnego pliku JAR; wymaga odpowiedniego sposobu wdrożenia i konfiguracji.
+
+## 15. Zalety JSP
+
+- Integracja z językiem Java.
+- Możliwość dynamicznego generowania HTML.
+- Współpraca z serwletami.
+- Obsługa Expression Language i JSTL.
+- Możliwość korzystania z mechanizmów serwerowych.
+- Dobre dopasowanie do klasycznego modelu MVC.
+- Przydatność przy utrzymywaniu istniejących aplikacji korporacyjnych.
+
+## 16. Wady i ograniczenia JSP
+
+- Bezpośrednie umieszczanie kodu Java w widokach utrudnia utrzymanie.
+- Wymaga kontenera JSP/serwletów lub odpowiedniego serwera aplikacyjnego.
+- Nie jest zwykle pierwszym wyborem w nowych aplikacjach opartych na nowoczesnym frontendzie.
+- Konfiguracja zależy od wersji Java EE lub Jakarta EE.
+- Migracja starszych aplikacji do nowszych wersji platformy może wymagać zmian w zależnościach i bibliotekach.
+- Warstwa prezentacji i logika biznesowa mogą zostać niepotrzebnie pomieszane, jeśli projekt nie ma odpowiedniej architektury.
+
+## 17. Najważniejsze pojęcia do zapamiętania
+
+```
+JSP
+JavaServer Pages
+Servlet
+Jakarta EE
+Java EE
+HTML
+HTTP
+MVC
+Model
+View
+Controller
+Scriptlet
+Expression Language (EL)
+JSTL
+Directive
+page
+include
+taglib
+request
+response
+session
+application scope
+JDBC
+DAO
+JSP Compilation
+```
+
+## 18. Schemat ekosystemu JSP
+
+```
+JSP
+│
+├── Presentation
+│   ├── HTML
+│   ├── CSS
+│   └── JavaScript
+│
+├── JSP Syntax
+│   ├── Directives
+│   ├── Expressions
+│   └── Scriptlets (legacy)
+│
+├── View Technologies
+│   ├── EL
+│   └── JSTL
+│
+├── Java Web
+│   ├── Servlet
+│   ├── HTTP Request
+│   └── HTTP Response
+│
+├── Architecture
+│   ├── MVC
+│   ├── Controller
+│   ├── Service
+│   └── DAO
+│
+└── Runtime
+    ├── Apache Tomcat
+    └── WildFly
+```
+
+Podsumowanie: JSP to technologia Java służąca do generowania dynamicznych stron HTML po stronie serwera. Najlepiej rozumieć ją razem z Servletami, MVC, Expression Language i JSTL. W nowych projektach warto również znać alternatywy, takie jak Thymeleaf i nowoczesne frameworki frontendowe, natomiast znajomość JSP pozostaje przydatna podczas pracy z istniejącymi systemami korporacyjnymi.

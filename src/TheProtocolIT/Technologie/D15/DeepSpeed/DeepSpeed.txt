@@ -1,0 +1,155 @@
+# DeepSpeed
+
+## 1. Czym jest DeepSpeed?
+
+DeepSpeed to otwartoźródłowa biblioteka opracowana przez Microsoft, która służy do przyspieszania i optymalizowania trenowania oraz uruchamiania dużych modeli sztucznej inteligencji.
+
+Technologia została zaprojektowana przede wszystkim z myślą o modelach Deep Learning i Large Language Models (LLM), które wymagają dużej ilości pamięci oraz mocy obliczeniowej.
+
+DeepSpeed umożliwia efektywniejsze wykorzystanie procesorów graficznych (GPU), pamięci i wielu maszyn podczas trenowania modeli AI.
+
+## 2. Do czego służy DeepSpeed?
+
+- Trenowanie dużych modeli językowych.
+- Optymalizowanie wykorzystania pamięci GPU.
+- Przyspieszanie trenowania modeli Deep Learning.
+- Trenowanie modeli na wielu procesorach GPU i wielu maszynach.
+- Skalowanie eksperymentów AI na infrastrukturze obliczeniowej.
+- Dostrajanie istniejących modeli językowych, czyli fine-tuning.
+- Uruchamianie niektórych modeli przy ograniczonej dostępnej pamięci.
+- Współpraca z frameworkami takimi jak PyTorch i narzędziami ekosystemu Hugging Face.
+
+## 3. Najważniejsze cechy DeepSpeed
+
+ZeRO (Zero Redundancy Optimizer)
+
+Technika rozdzielania stanów optymalizatora, gradientów i parametrów modelu między urządzenia, aby ograniczyć powielanie danych i zmniejszyć zapotrzebowanie na pamięć.
+
+Trenowanie rozproszone
+
+DeepSpeed umożliwia rozdzielanie obliczeń pomiędzy wiele procesorów GPU, a w odpowiednich konfiguracjach także wiele maszyn.
+
+Optymalizacja pamięci
+
+Wybrane mechanizmy umożliwiają przenoszenie części danych między pamięcią GPU a pamięcią CPU lub innymi zasobami, co może pomóc w trenowaniu większych modeli.
+
+DeepSpeed-Chat
+
+Projekt i zestaw narzędzi opracowany z myślą o trenowaniu modeli konwersacyjnych, w tym etapach dostrajania modeli instrukcyjnych.
+
+Integracja z PyTorch
+
+DeepSpeed rozszerza możliwości PyTorch, udostępniając mechanizmy optymalizacji i trenowania rozproszonego.
+
+## 4. Jak działa DeepSpeed?
+
+Model AI
+
+Na przykład duży model językowy
+
+DeepSpeed
+
+Optymalizacja pamięci, obliczeń i trenowania
+
+GPU 1
+
+Część obliczeń
+
+GPU 2
+
+Część obliczeń
+
+Przy odpowiedniej konfiguracji obliczenia mogą być rozdzielane również na większą liczbę urządzeń.
+
+Bez optymalizacji duży model może wymagać więcej pamięci, niż dysponuje pojedyncza karta graficzna.
+
+DeepSpeed pomaga rozdzielić obciążenie i efektywniej zarządzać zasobami, ale nie gwarantuje, że każdy model będzie działał na dowolnym sprzęcie.
+
+## 5. Przykład wykorzystania DeepSpeed w Pythonie
+
+Poniższy przykład przedstawia uproszczony schemat integracji DeepSpeed z PyTorch.
+
+```
+import torchimport deepspeedmodel = MyModel()parameters = filter(    lambda p: p.requires_grad,    model.parameters())optimizer = torch.optim.AdamW(    parameters,    lr=1e-4)model_engine, optimizer, _, _ = deepspeed.initialize(    model=model,    optimizer=optimizer,    config="ds_config.json")for batch in train_loader:    inputs, labels = batch    outputs = model_engine(inputs)    loss = calculate_loss(outputs, labels)    model_engine.backward(loss)    model_engine.step()
+```
+
+W przykładzie `MyModel`, `train_loader` i `calculate_loss` oznaczają elementy, które należy zdefiniować w projekcie.
+
+Plik `ds_config.json` określa między innymi wybrane ustawienia trenowania i optymalizacji pamięci.
+
+Wywołania `model_engine.backward()` i `model_engine.step()` obsługują odpowiednio obliczanie gradientów oraz aktualizację parametrów modelu w środowisku DeepSpeed.
+
+## 6. Najważniejsze technologie związane z DeepSpeed
+
+- PyTorch – framework do tworzenia i trenowania modeli Deep Learning.
+- CUDA – platforma NVIDIA do wykonywania obliczeń na kompatybilnych GPU.
+- Hugging Face Transformers – biblioteka zawierająca implementacje wielu modeli językowych.
+- Deep Learning – dziedzina uczenia maszynowego wykorzystująca sieci neuronowe.
+- LLM – duże modele językowe, takie jak modele wykorzystywane w chatbotach.
+- ZeRO – technika ograniczania powielania danych modelu i stanów treningowych.
+- Distributed Training – trenowanie modeli z wykorzystaniem wielu urządzeń lub maszyn.
+
+## 7. Zalety i wady DeepSpeed
+
+Zalety:
+
+- Może znacząco ograniczyć zapotrzebowanie na pamięć podczas trenowania dużych modeli.
+- Wspiera trenowanie rozproszone na wielu GPU.
+- Umożliwia skalowanie eksperymentów AI.
+- Integruje się z PyTorch i częścią ekosystemu Hugging Face.
+- Udostępnia zaawansowane mechanizmy optymalizacji trenowania.
+
+Wady:
+
+- Wymaga znajomości Pythona, PyTorch i podstaw Deep Learning.
+- Konfiguracja środowiska GPU może być skomplikowana.
+- Wiele zastosowań wymaga odpowiedniego sprzętu i sterowników.
+- Przy małych modelach dodatkowa złożoność może nie przynosić istotnych korzyści.
+- Rzeczywiste przyspieszenie zależy od modelu, sprzętu i konfiguracji.
+
+## 8. DeepSpeed a inne technologie AI
+
+| Technologia               | Główne zastosowanie                                      |
+| ------------------------- | -------------------------------------------------------- |
+| DeepSpeed                 | Optymalizacja trenowania i wykonywania dużych modeli AI  |
+| PyTorch                   | Budowanie i trenowanie modeli Deep Learning              |
+| TensorFlow                | Framework do tworzenia modeli uczenia maszynowego        |
+| Hugging Face Transformers | Korzystanie z gotowych modeli i ich dostrajanie          |
+| vLLM                      | Wydajne serwowanie modeli językowych                     |
+| Ray                       | Rozproszone wykonywanie zadań i aplikacji obliczeniowych |
+
+DeepSpeed i PyTorch nie są bezpośrednimi zamiennikami: DeepSpeed rozszerza możliwości trenowania modeli, natomiast PyTorch stanowi podstawowy framework obliczeniowy.
+
+## 9. DeepSpeed na rynku pracy
+
+Znajomość DeepSpeed może być przydatna w pracy nad dużymi modelami językowymi, infrastrukturą AI i trenowaniem rozproszonym.
+
+Technologia ta jest szczególnie związana ze stanowiskami:
+
+- Machine Learning Engineer.
+- AI Engineer.
+- Deep Learning Engineer.
+- Research Engineer.
+- LLM Infrastructure Engineer.
+- AI Infrastructure Engineer.
+
+Warto poznawać DeepSpeed razem z Pythonem, PyTorch, architekturą Transformerów, CUDA, systemami GPU i metodami fine-tuningu modeli.
+
+## 10. Jak zacząć naukę DeepSpeed?
+
+Najpierw warto opanować podstawy Pythona, NumPy, PyTorch i sieci neuronowych.
+
+Następnie należy poznać proces trenowania modelu, obliczanie gradientów, optymalizatory oraz ograniczenia pamięci GPU.
+
+Kolejnym krokiem jest uruchomienie niewielkiego modelu PyTorch i porównanie zwykłego trenowania z trenowaniem za pomocą DeepSpeed ZeRO.
+
+Na koniec można spróbować dostroić model językowy przy użyciu narzędzi Hugging Face i DeepSpeed.
+
+Materiały do nauki:
+
+- [Oficjalna strona DeepSpeed](https://www.deepspeed.ai/)
+- [Tutoriale DeepSpeed](https://www.deepspeed.ai/tutorials/)
+- [DeepSpeed na GitHubie](https://github.com/microsoft/DeepSpeed)
+- [Dokumentacja PyTorch](https://pytorch.org/docs/stable/index.html)
+
+Podsumowanie: DeepSpeed to biblioteka przeznaczona do optymalizacji trenowania i skalowania dużych modeli sztucznej inteligencji. Jest szczególnie przydatna w zaawansowanych projektach Deep Learning i LLM, w których istotne są wydajność obliczeń oraz efektywne wykorzystanie pamięci GPU.

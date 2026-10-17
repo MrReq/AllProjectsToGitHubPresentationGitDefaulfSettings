@@ -1,0 +1,199 @@
+# Dart
+
+## 1. Czym jest Dart?
+
+Dart to obiektowy język programowania wysokiego poziomu opracowany przez firmę Google.
+
+Jest wykorzystywany przede wszystkim do tworzenia aplikacji mobilnych, internetowych i desktopowych przy użyciu frameworka Flutter.
+
+Dart został zaprojektowany z myślą o wydajności, czytelności kodu oraz wygodnym tworzeniu nowoczesnych aplikacji.
+
+Jego składnia przypomina języki takie jak Java, C# i JavaScript, dlatego osoby znające te technologie mogą stosunkowo szybko nauczyć się Darta.
+
+## 2. Do czego służy Dart?
+
+Dart znajduje zastosowanie w różnych obszarach programowania.
+
+- Tworzenie aplikacji mobilnych na Androida i iOS za pomocą Fluttera.
+- Tworzenie aplikacji internetowych działających w przeglądarce.
+- Budowanie aplikacji desktopowych na Windows, macOS i Linux.
+- Tworzenie interfejsów użytkownika dla aplikacji wieloplatformowych.
+- Pisanie narzędzi programistycznych i skryptów.
+- Budowanie aplikacji korzystających z API, baz danych i usług internetowych.
+
+Najważniejszym zastosowaniem Darta jest obecnie rozwój aplikacji z wykorzystaniem Fluttera.
+
+## 3. Najważniejsze cechy Darta
+
+Programowanie obiektowe
+
+Dart obsługuje klasy, obiekty, dziedziczenie, interfejsy, enkapsulację i polimorfizm.
+
+Typowanie statyczne
+
+Typy zmiennych są sprawdzane przez kompilator, co pomaga wykrywać błędy jeszcze przed uruchomieniem programu.
+
+Wnioskowanie typów
+
+Słowo kluczowe `var` pozwala kompilatorowi samodzielnie określić typ zmiennej na podstawie przypisanej wartości.
+
+Null safety
+
+Mechanizm bezpieczeństwa wartości pustych pomaga ograniczyć błędy związane z używaniem wartości `null`.
+
+Programowanie asynchroniczne
+
+Dart udostępnia mechanizmy `Future`, `async` i `await`, które ułatwiają wykonywanie operacji takich jak pobieranie danych z API.
+
+Kompilacja
+
+Dart może być kompilowany do kodu maszynowego lub JavaScriptu, zależnie od platformy docelowej.
+
+## 4. Podstawowa składnia Darta
+
+Przykładowy program wyświetlający komunikat na ekranie:
+
+```
+void main() {
+  print('Hello, Dart!');
+}
+```
+
+Funkcja `main()` jest punktem wejścia programu.
+
+Funkcja `print()` wyświetla tekst w konsoli.
+
+Przykład deklarowania zmiennych:
+
+```
+void main() {
+  String name = 'Adam';
+  int age = 25;
+  double height = 1.80;
+  bool isProgrammer = true;
+
+  print(name);
+  print(age);
+  print(height);
+  print(isProgrammer);
+}
+```
+
+Dart udostępnia między innymi typy `String`, `int`, `double`, `bool` i `List`.
+
+## 5. Programowanie obiektowe w Dart
+
+Dart pozwala tworzyć klasy i obiekty, podobnie jak Java.
+
+```
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  void introduce() {
+    print('Mam na imię $name i mam $age lat.');
+  }
+}
+
+void main() {
+  Person person = Person('Adam', 25);
+  person.introduce();
+}
+```
+
+Klasa `Person` definiuje dane i zachowanie obiektu.
+
+Konstruktor `Person(this.name, this.age)` przypisuje przekazane wartości do pól klasy.
+
+Metoda `introduce()` wyświetla informacje o osobie.
+
+Interpolacja ciągów znaków przy użyciu `$name` pozwala wygodnie umieszczać wartości zmiennych w tekście.
+
+## 6. Dart i Flutter
+
+[wStacks - Mobile App Development | Best Mobile App Development Company | Android | iOS | Flutter](https://images.openai.com/static-rsc-4/N0k8UsZS5guZfRpOsaucoTLNl8RjV6YlXj3hNt4kuHptyreGdx-mKmShaBVPOiIQ6M8b3oT6hltmLSbu-PGrJtgYjvlj6lBBl25UxBJ1_nfxOoRhbkiOm02GB8-uRtpKLZvLxb0FY3SQ0k9cud06fIoXvycH54p2hCJXydF3lCY?purpose=inline)
+
+[Medium](https://images.openai.com/static-rsc-4/B2F3VvDzfV69HUEZgP1OCIjKfJeLW6Mz6if0Z7x9GqA3Fw9LslBvSITTFuq1VfzUz2F0Luyov_1LyNjkVj6Um7oW4VYIhY_scwXLZktKKVi8Hl9g81oUAZSg3yFmICSONEZ1tICk8yuJy0Pc-tu71fWumg4XdVX1OTUSMsu-irs?purpose=inline)
+
+[10 Open-source Dart Web server Frameworks](https://images.openai.com/static-rsc-4/iKiu9pCIwkFUoijJY2Uj_vLfSDFXSBKmb0tcqQorn922eTR4OMowaoHgcJIRGt8kbJCWuuJK0qCQUKI4PqDaiQsVI8x7o14jA4rdqiAnRFJWK4XO0sUOikj7AIEVCYqdRefnCTsQ4d2Ul9o8sR7hXS2RDZpXd8D1XFKmgg9oqT0?purpose=inline)
+
+6
+
+Flutter to framework opracowany przez Google, który wykorzystuje Dart do tworzenia aplikacji na wiele platform.
+
+Dzięki Flutterowi można tworzyć wspólną bazę kodu dla Androida, iOS, przeglądarek internetowych oraz komputerów.
+
+Dart odpowiada za logikę aplikacji, natomiast Flutter dostarcza komponenty interfejsu użytkownika, takie jak przyciski, formularze, listy i układy ekranów.
+
+Przykładowy kod aplikacji Flutter:
+
+```
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text('Witaj w Flutterze!'),
+        ),
+      ),
+    ),
+  );
+}
+```
+
+Ten program uruchamia prostą aplikację z tekstem wyświetlanym na środku ekranu.
+
+## 7. Najważniejsze narzędzia związane z Dart
+
+- Dart SDK – zestaw narzędzi do kompilowania, uruchamiania i analizowania kodu Dart.
+- Flutter SDK – zestaw narzędzi do tworzenia aplikacji wieloplatformowych.
+- Android Studio – środowisko programistyczne przydatne podczas tworzenia aplikacji mobilnych.
+- Visual Studio Code – lekki edytor kodu z rozszerzeniami Dart i Flutter.
+- DartPad – internetowe środowisko umożliwiające eksperymentowanie z Dartem bez instalowania dodatkowych narzędzi.
+- Pub – menedżer pakietów służący do pobierania bibliotek i zarządzania zależnościami.
+
+## 8. Zalety i wady Darta
+
+Zalety:
+
+- Umożliwia tworzenie aplikacji na wiele platform.
+- Ma czytelną składnię zbliżoną do Javy i C#.
+- Wspiera programowanie obiektowe i asynchroniczne.
+- Oferuje mechanizm null safety.
+- W połączeniu z Flutterem pozwala współdzielić dużą część kodu między platformami.
+
+Wady:
+
+- Poza ekosystemem Fluttera ma mniejsze zastosowanie niż popularniejsze języki ogólnego przeznaczenia.
+- Liczba ofert pracy stricte dla Darta jest zazwyczaj mniejsza niż dla Javy, JavaScriptu czy Pythona.
+- Tworzenie aplikacji mobilnych może wymagać dodatkowej znajomości narzędzi i konfiguracji specyficznych dla Androida oraz iOS.
+- W przypadku bardziej specjalistycznych zastosowań dostępność bibliotek może być ograniczeniem w porównaniu z większymi ekosystemami.
+
+## 9. Dart na rynku pracy
+
+Dart jest szczególnie istotny dla programistów specjalizujących się w tworzeniu aplikacji mobilnych i wieloplatformowych.
+
+Znajomość Darta wraz z Flutterem może być przydatna na stanowiskach takich jak Flutter Developer, Mobile Developer czy Cross-platform App Developer.
+
+Warto uczyć się go w połączeniu z obsługą REST API, bazami danych, Git, testami automatycznymi oraz zasadami projektowania interfejsów użytkownika.
+
+## 10. Jak zacząć naukę Darta?
+
+Najlepiej rozpocząć od składni języka, zmiennych, instrukcji warunkowych, pętli, funkcji i kolekcji.
+
+Następnie warto poznać klasy, konstruktory, dziedziczenie, obsługę wyjątków oraz programowanie asynchroniczne.
+
+Kolejnym krokiem może być nauka Fluttera i stworzenie prostej aplikacji, na przykład listy zadań, notatnika albo aplikacji pogodowej korzystającej z API.
+
+Materiały do nauki:
+
+- [Oficjalna dokumentacja Darta](https://dart.dev/)
+- [Dokumentacja składni i funkcji języka](https://dart.dev/language)
+- [DartPad – edytor online](https://dartpad.dev/)
+- [Oficjalna strona Fluttera](https://flutter.dev/)
+
+Podsumowanie: Dart to nowoczesny język programowania, którego najważniejszym zastosowaniem jest tworzenie aplikacji wieloplatformowych za pomocą Fluttera. Jeśli chcesz rozwijać się w kierunku aplikacji mobilnych, połączenie Dart + Flutter jest dobrym punktem wyjścia.

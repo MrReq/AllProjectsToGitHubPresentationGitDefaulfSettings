@@ -1,0 +1,512 @@
+Jasne. Zrobię to w stylu **Czatu A i B**: przejrzyste sekcje tematyczne, krótkie akapity, każde zdanie w osobnej linii, bez poziomych linii oddzielających rozdziały i bez niepotrzebnego komplikowania.
+
+# Apache Cassandra
+
+## 1. Czym jest Cassandra?
+
+Apache Cassandra to rozproszony system zarządzania bazą danych typu NoSQL.
+
+Cassandra została zaprojektowana do przechowywania bardzo dużych ilości danych na wielu komputerach jednocześnie.
+
+Jest szczególnie przydatna w systemach, które muszą obsługiwać ogromną liczbę operacji odczytu i zapisu.
+
+Cassandra jest bazą typu **wide-column database**, czyli bazą opartą na rodzinach kolumn.
+
+Cassandra została pierwotnie stworzona przez Facebooka, a obecnie jest rozwijana jako projekt Apache Software Foundation.
+
+## 2. Najważniejsze cechy Cassandry
+
+Cassandra jest bazą **NoSQL**, dlatego nie opiera się na klasycznym modelu relacyjnym znanym z SQL Server czy Oracle.
+
+Cassandra jest bazą **rozproszoną**, ponieważ dane mogą być przechowywane na wielu serwerach.
+
+Cassandra zapewnia **wysoką dostępność**, ponieważ awaria pojedynczego węzła nie musi oznaczać niedostępności całej bazy.
+
+Cassandra zapewnia **skalowanie poziome**, czyli możemy zwiększać wydajność systemu poprzez dodawanie kolejnych komputerów.
+
+Cassandra została zaprojektowana przede wszystkim z myślą o dużej liczbie operacji zapisu i odczytu.
+
+Cassandra nie posiada jednego centralnego serwera, który byłby wymagany do działania całego systemu.
+
+## 3. Architektura rozproszona
+
+Cassandra działa jako **klaster**.
+
+Klaster składa się z wielu komputerów nazywanych **węzłami**, czyli nodes.
+
+Każdy węzeł może przyjmować żądania od aplikacji.
+
+Nie istnieje jeden specjalny serwer pełniący funkcję klasycznego mastera.
+
+Taki model nazywany jest **peer-to-peer architecture**.
+
+Dzięki temu awaria jednego węzła nie powoduje automatycznie awarii całego klastra.
+
+## 4. Node
+
+**Node** to pojedynczy komputer lub instancja Cassandry działająca w klastrze.
+
+Każdy node przechowuje część danych.
+
+W zależności od konfiguracji node może również przechowywać kopie danych znajdujących się na innych węzłach.
+
+Dodanie kolejnego node'a pozwala zwiększyć pojemność oraz możliwości całego klastra.
+
+## 5. Cluster
+
+**Cluster** to grupa współpracujących ze sobą node'ów.
+
+Przykładowo możemy mieć klaster składający się z 5 node'ów.
+
+Dane są automatycznie rozdzielane pomiędzy węzły klastra.
+
+Cassandra wykorzystuje replikację, aby przechowywać dodatkowe kopie danych.
+
+Dzięki temu awaria jednego node'a nie musi prowadzić do utraty danych.
+
+## 6. Data Center
+
+Cassandra pozwala organizować node'y w **data centers**.
+
+Data center może odpowiadać fizycznej lokalizacji infrastruktury albo logicznej grupie serwerów.
+
+Możemy na przykład posiadać data center w Warszawie oraz drugie w Berlinie.
+
+Dane mogą być replikowane pomiędzy różnymi data center.
+
+Jest to szczególnie przydatne w systemach działających na dużą skalę.
+
+## 7. Keyspace
+
+**Keyspace** jest odpowiednikiem pewnego rodzaju kontenera na dane.
+
+W relacyjnej bazie danych można go w przybliżeniu porównać do **database**.
+
+Keyspace definiuje między innymi sposób replikacji danych.
+
+Przykładowo możemy utworzyć keyspace:
+
+```sql
+CREATE KEYSPACE sklep
+WITH replication = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 3
+};
+```
+
+W tym przykładzie współczynnik replikacji wynosi 3.
+
+Oznacza to, że Cassandra będzie przechowywała trzy kopie danych.
+
+## 8. Replication Factor
+
+**Replication Factor**, czyli RF, określa liczbę kopii danych przechowywanych w klastrze.
+
+Jeżeli RF wynosi 3, dane są przechowywane na trzech różnych node'ach.
+
+Jeżeli jeden node ulegnie awarii, pozostałe kopie mogą nadal być dostępne.
+
+Większy replication factor zwiększa odporność na awarie, ale powoduje również większe wykorzystanie przestrzeni dyskowej.
+
+## 9. Partition
+
+Jednym z najważniejszych pojęć w Cassandrze jest **partition**.
+
+Partition to grupa wierszy przechowywana razem na podstawie **partition key**.
+
+Partition key określa, na którym węźle lub węzłach dane powinny zostać umieszczone.
+
+Przykładowo tabela może mieć:
+
+```text
+user_id
+```
+
+jako partition key.
+
+Wszystkie dane dotyczące tego samego użytkownika mogą wtedy znajdować się w tej samej partycji.
+
+## 10. Partition Key
+
+**Partition key** służy do określenia rozmieszczenia danych w klastrze.
+
+Cassandra wykorzystuje funkcję haszującą do określenia odpowiedniego miejsca przechowywania danych.
+
+Dlatego dobry wybór partition key jest bardzo ważny dla wydajności systemu.
+
+Partition key powinien umożliwiać możliwie równomierne rozłożenie danych pomiędzy node'y.
+
+## 11. Primary Key
+
+W Cassandrze klucz główny może być bardziej rozbudowany niż zwykły klucz główny w klasycznej bazie relacyjnej.
+
+Przykładowo:
+
+```sql
+PRIMARY KEY (user_id, timestamp)
+```
+
+W takim przypadku:
+
+```text
+user_id
+```
+
+jest **partition key**.
+
+Natomiast:
+
+```text
+timestamp
+```
+
+jest **clustering key**.
+
+Całość tworzy primary key.
+
+## 12. Clustering Key
+
+**Clustering key** określa sposób uporządkowania danych wewnątrz partycji.
+
+Przykładowo możemy przechowywać wiadomości użytkownika:
+
+```text
+user_id
+timestamp
+message
+```
+
+Jeżeli `user_id` jest partition key, a `timestamp` clustering key, wszystkie wiadomości użytkownika znajdują się w jednej partycji i mogą być uporządkowane według czasu.
+
+## 13. Tabela w Cassandrze
+
+Cassandra również wykorzystuje tabele, ale ich sposób projektowania różni się od relacyjnych baz danych.
+
+Przykładowa tabela:
+
+```sql
+CREATE TABLE users (
+    user_id UUID,
+    name TEXT,
+    email TEXT,
+    age INT,
+    PRIMARY KEY (user_id)
+);
+```
+
+Tutaj `user_id` jest partition key.
+
+Możemy dodać dane:
+
+```sql
+INSERT INTO users (user_id, name, email, age)
+VALUES (uuid(), 'Jan', 'jan@example.com', 25);
+```
+
+Następnie możemy je odczytać:
+
+```sql
+SELECT * FROM users;
+```
+
+## 14. CQL
+
+Cassandra wykorzystuje język **CQL**, czyli Cassandra Query Language.
+
+CQL przypomina SQL.
+
+Możemy używać między innymi instrukcji:
+
+```sql
+SELECT
+INSERT
+UPDATE
+DELETE
+CREATE
+DROP
+ALTER
+```
+
+CQL wygląda podobnie do SQL, ale Cassandra nie obsługuje wszystkich możliwości klasycznych relacyjnych baz danych.
+
+## 15. Cassandra a SQL
+
+SQL oraz CQL mogą wyglądać podobnie, ale działają w innych modelach baz danych.
+
+W relacyjnej bazie danych projektujemy dane między innymi za pomocą relacji i normalizacji.
+
+W Cassandrze projektujemy tabele przede wszystkim pod kątem sposobu, w jaki dane będą odczytywane.
+
+Oznacza to, że w Cassandrze często tworzymy kilka tabel zawierających częściowo powtarzające się dane.
+
+## 16. Denormalizacja
+
+W klasycznych bazach relacyjnych często staramy się ograniczać powtarzanie danych.
+
+W Cassandrze **denormalizacja** jest często celowym elementem projektu.
+
+Dane mogą być przechowywane w kilku tabelach, aby konkretne zapytania były szybkie.
+
+Przykładowo możemy mieć osobną tabelę:
+
+```text
+orders_by_user
+```
+
+oraz:
+
+```text
+orders_by_product
+```
+
+Obie tabele mogą przechowywać informacje o zamówieniach.
+
+Dzięki temu możemy szybko wyszukiwać zamówienia zarówno po użytkowniku, jak i po produkcie.
+
+## 17. Brak JOIN
+
+Cassandra nie jest projektowana do wykonywania klasycznych operacji **JOIN** znanych z relacyjnych baz danych.
+
+Zamiast wykonywać skomplikowane JOIN-y, dane są zazwyczaj przygotowywane tak, aby można było je pobrać jednym zapytaniem.
+
+Jest to jedna z najważniejszych różnic pomiędzy Cassandrą a bazami relacyjnymi.
+
+## 18. Brak klasycznych relacji
+
+Cassandra nie wykorzystuje relacji między tabelami w taki sposób jak Oracle czy SQL Server.
+
+Nie projektujemy bazy Cassandry poprzez tworzenie wielu tabel połączonych kluczami obcymi.
+
+Zamiast tego projektujemy strukturę danych pod konkretne operacje odczytu.
+
+## 19. Skalowanie poziome
+
+Jedną z największych zalet Cassandry jest **horizontal scaling**.
+
+Jeżeli potrzebujemy większej wydajności, możemy dodać kolejne node'y.
+
+Przykładowo możemy rozpocząć od:
+
+```text
+Node 1
+Node 2
+Node 3
+```
+
+i później dodać:
+
+```text
+Node 4
+Node 5
+Node 6
+```
+
+Cassandra może następnie rozłożyć dane pomiędzy większą liczbę maszyn.
+
+## 20. Fault Tolerance
+
+Cassandra została zaprojektowana z myślą o odporności na awarie.
+
+Dane są replikowane pomiędzy wieloma node'ami.
+
+Jeżeli jeden node przestanie działać, inne node'y mogą nadal obsługiwać żądania.
+
+Jest to szczególnie ważne w systemach, które muszą działać przez całą dobę.
+
+## 21. Consistency
+
+Cassandra pozwala określić poziom **consistency** dla konkretnej operacji.
+
+Oznacza to, że możemy zdecydować, ile replik powinno potwierdzić operację.
+
+Przykładowe poziomy consistency to:
+
+```text
+ONE
+QUORUM
+ALL
+```
+
+`ONE` oznacza, że wystarczy odpowiedź jednej repliki.
+
+`QUORUM` wymaga odpowiedzi większości replik.
+
+`ALL` wymaga odpowiedzi wszystkich replik.
+
+Wyższy poziom consistency może zwiększyć spójność danych, ale może również zwiększyć opóźnienie operacji.
+
+## 22. Eventual Consistency
+
+Cassandra jest często kojarzona z modelem **eventual consistency**.
+
+Oznacza to, że po aktualizacji dane na wszystkich replikach mogą przez krótki czas nie być identyczne.
+
+Po pewnym czasie repliki powinny jednak osiągnąć spójny stan.
+
+Cassandra pozwala jednocześnie dobrać poziom consistency odpowiedni dla konkretnego zastosowania.
+
+## 23. CAP Theorem
+
+Cassandra jest przykładem systemu projektowanego z uwzględnieniem **CAP theorem**.
+
+CAP opisuje trzy właściwości:
+
+```text
+Consistency
+Availability
+Partition Tolerance
+```
+
+W przypadku podziału sieci system musi dokonywać kompromisu pomiędzy pełną spójnością a dostępnością.
+
+Cassandra jest przede wszystkim projektowana z naciskiem na **Availability** oraz **Partition Tolerance**.
+
+## 24. Gossip Protocol
+
+Cassandra wykorzystuje mechanizm **Gossip Protocol** do wymiany informacji pomiędzy node'ami.
+
+Node'y przekazują sobie informacje dotyczące stanu klastra.
+
+Dzięki temu poszczególne node'y mogą wiedzieć, które inne node'y są dostępne.
+
+Gossip jest jednym z mechanizmów pozwalających Cassandrze działać bez centralnego mastera.
+
+## 25. Commit Log
+
+Podczas zapisu Cassandra wykorzystuje między innymi **commit log**.
+
+Commit log służy do zapewnienia trwałości operacji.
+
+Informacja o operacji zapisu jest zapisywana w commit logu.
+
+Dzięki temu Cassandra może odzyskać dane po awarii procesu lub serwera.
+
+## 26. Memtable
+
+**Memtable** to struktura danych znajdująca się w pamięci RAM.
+
+Po zapisaniu danych Cassandra umieszcza je między innymi w memtable.
+
+Memtable jest później zapisywany na dysku.
+
+Dzięki wykorzystaniu pamięci operacje zapisu mogą być bardzo szybkie.
+
+## 27. SSTable
+
+**SSTable**, czyli Sorted String Table, to struktura przechowująca dane na dysku.
+
+Dane z memtable są okresowo zapisywane jako SSTable.
+
+SSTable są strukturami zasadniczo niezmiennymi po ich zapisaniu.
+
+Cassandra wykorzystuje następnie mechanizm **compaction**, aby zarządzać wieloma SSTable.
+
+## 28. Compaction
+
+**Compaction** polega na łączeniu istniejących SSTable.
+
+Podczas compaction Cassandra może usuwać nieaktualne wersje danych oraz znaczniki usunięcia.
+
+Dzięki temu baza może efektywniej wykorzystywać przestrzeń dyskową.
+
+## 29. Tombstone
+
+W Cassandrze usunięcie danych nie musi oznaczać natychmiastowego fizycznego usunięcia informacji z dysku.
+
+Cassandra zapisuje specjalny znacznik nazywany **tombstone**.
+
+Tombstone informuje inne repliki, że dana wartość została usunięta.
+
+Później tombstone może zostać usunięty podczas procesu compaction.
+
+## 30. Kiedy stosować Cassandrę?
+
+Cassandra dobrze sprawdza się w systemach generujących ogromne ilości danych.
+
+Może być wykorzystywana między innymi w systemach IoT.
+
+Może być wykorzystywana w systemach monitorowania.
+
+Może być wykorzystywana w aplikacjach obsługujących bardzo dużą liczbę użytkowników.
+
+Może być wykorzystywana do przechowywania logów.
+
+Może być wykorzystywana w systemach analitycznych wymagających szybkiego zapisu dużych ilości danych.
+
+Może być wykorzystywana w systemach działających w wielu lokalizacjach geograficznych.
+
+## 31. Kiedy Cassandra nie jest dobrym wyborem?
+
+Cassandra nie jest najlepszym rozwiązaniem, gdy aplikacja wymaga wielu skomplikowanych JOIN-ów.
+
+Cassandra nie jest dobrym wyborem, gdy aplikacja wymaga bardzo złożonych transakcji obejmujących wiele tabel.
+
+Cassandra nie powinna być wybierana tylko dlatego, że jest bazą NoSQL.
+
+Struktura danych powinna być projektowana pod konkretne zapytania i wymagania systemu.
+
+## 32. Cassandra vs relacyjna baza danych
+
+**SQL Server / Oracle:**
+
+```text
+model relacyjny
+tabele
+wiersze i kolumny
+JOIN
+klucze obce
+transakcje
+normalizacja
+skalowanie głównie pionowe
+```
+
+**Cassandra:**
+
+```text
+NoSQL
+wide-column
+rozproszony klaster
+replikacja
+skalowanie poziome
+wysoka dostępność
+denormalizacja
+projektowanie pod zapytania
+```
+
+## 33. Najważniejsze pojęcia do zapamiętania
+
+**Cassandra** – rozproszona baza danych NoSQL typu wide-column.
+
+**Node** – pojedynczy węzeł klastra.
+
+**Cluster** – grupa współpracujących node'ów.
+
+**Keyspace** – kontener na dane, określający między innymi strategię replikacji.
+
+**Partition key** – określa partycję, w której przechowywane są dane.
+
+**Clustering key** – określa uporządkowanie danych wewnątrz partycji.
+
+**Replication factor** – określa liczbę kopii danych.
+
+**CQL** – Cassandra Query Language.
+
+**Memtable** – struktura danych przechowywana w pamięci.
+
+**SSTable** – struktura danych przechowywana na dysku.
+
+**Commit log** – mechanizm zapewniający trwałość operacji zapisu.
+
+**Compaction** – proces łączenia SSTable i usuwania nieaktualnych danych.
+
+**Tombstone** – znacznik informujący o usunięciu danych.
+
+**Gossip Protocol** – mechanizm wymiany informacji pomiędzy node'ami.
+
+**Denormalizacja** – celowe powielanie danych w celu uzyskania szybkich odczytów.
+
+**Horizontal scaling** – zwiększanie możliwości systemu poprzez dodawanie kolejnych node'ów.
+
+## 34. Cassandra w jednym zdaniu
+
+**Apache Cassandra to rozproszona baza NoSQL typu wide-column, zaprojektowana do przechowywania ogromnych ilości danych przy wysokiej dostępności, odporności na awarie i możliwości skalowania poziomego.**

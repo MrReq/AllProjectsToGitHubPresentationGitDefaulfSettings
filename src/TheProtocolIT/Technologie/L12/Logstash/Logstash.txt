@@ -1,0 +1,222 @@
+# Logstash – kompletna notatka
+
+## 1. Czym jest Logstash?
+
+Logstash to otwartoźródłowe narzędzie do zbierania, przetwarzania, przekształcania i przesyłania danych, rozwijane w ramach ekosystemu Elastic.
+
+Jest szczególnie często wykorzystywane do przetwarzania logów systemowych, danych aplikacyjnych, zdarzeń bezpieczeństwa oraz informacji pochodzących z różnych źródeł.
+
+Logstash może pobierać dane z plików, usług sieciowych, kolejek komunikatów i baz danych, następnie przekształcać je do odpowiedniego formatu i przekazywać do systemów docelowych.
+
+Narzędzie jest ważnym elementem stosu ELK, który obejmuje Elasticsearch, Logstash i Kibana.
+
+[Install LogStash using Ansbile — Playbook | by Horse Tired | Medium](https://images.openai.com/static-rsc-4/yw5fHVPF2Xk40T8_8kf0HLbqjg03P61xpW20JMMhXyxHKQ3hakKVS2aWeATwvLtdhr848lYYIkzJYENT4T_R6vsgSBezZ7IcNEiMSefisz3MHejyNO-gYZjAdKRIJeM2fCZ0T9uO39KN_pNgheBBE3eo3vumJdisLLsYQRvyNkA?purpose=inline)
+
+[Transforming and sending Nginx log data to Elasticsearch using Filebeat and Logstash — Part 1 | by Daniel Romic | KrakenSystems | Medium](https://images.openai.com/static-rsc-4/JkYi-f_DFSLBk5uJm9HAB442cb5Hvjsxi9F2nWiFZ3M5XIWDFddTpf0JdtISIEUuWkU4qBAJRvfjv1R5h-w6Gmg8ncdXTUhKJGYiM1z8J8rzHMrqnvz8BKosYi_crs5dYRVYG-VSk2KboXrmIel5ok0bD6tr0WZHst3Zqq4MRmo?purpose=inline)
+
+[The Best ELK Dashboard Examples](https://images.openai.com/static-rsc-4/xkHmJMQFAH2ZAFfPpaDHIJaoxblGtaXnll0FMtjfsJTUdS3EcNQMKPB2PWYrVawj0UDZNZeSrB772BlRWz35AIHn9oelf4rsWy7MrzMPi4fejXjREAtQk5HXZBJgclwDo0o7gfpXnycsFXJf327XHpnoM-o_ONt4Ii2ocvfUefA?purpose=inline)
+
+6
+
+## 2. Do czego służy Logstash?
+
+Logstash jest wykorzystywany przede wszystkim do centralizacji i przetwarzania danych pochodzących z wielu źródeł.
+
+Najważniejsze zastosowania to:
+
+- Zbieranie logów aplikacyjnych i systemowych.
+- Przetwarzanie logów serwerów WWW, np. Apache i Nginx.
+- Normalizacja danych pochodzących z różnych systemów.
+- Parsowanie tekstu i wyodrębnianie pól z komunikatów.
+- Filtrowanie niepotrzebnych zdarzeń.
+- Wzbogacanie danych o dodatkowe informacje.
+- Przesyłanie danych do Elasticsearch i innych obsługiwanych systemów docelowych.
+- Przygotowywanie danych do analizy, monitorowania i wykrywania problemów.
+- Integracja różnych źródeł danych w jednym przepływie przetwarzania.
+
+Przykładowo firma może zbierać logi z kilkudziesięciu serwerów, przekształcać je do ujednoliconego formatu i przesyłać do Elasticsearch, gdzie będą wyszukiwane i analizowane za pomocą Kibany.
+
+## 3. Jak działa Logstash?
+
+Logstash wykorzystuje mechanizm przetwarzania danych nazywany pipeline (potokiem).
+
+Standardowy pipeline składa się z trzech podstawowych etapów: Input, Filter i Output.
+
+1\. Input – pobieranie danych
+
+Pliki, syslog, Beats, kolejki i inne źródła
+
+2\. Filter – przetwarzanie danych
+
+Parsowanie, filtrowanie, normalizacja i wzbogacanie
+
+3\. Output – przekazywanie danych
+
+Elasticsearch, pliki, systemy komunikatów i inne wyjścia
+
+Każde zdarzenie przechodzi przez skonfigurowany przepływ. Logstash może zmieniać jego strukturę, dodawać pola, usuwać niepotrzebne informacje lub kierować zdarzenie do innego miejsca.
+
+Nie każdy pipeline musi wykorzystywać wszystkie rodzaje filtrów. Konfiguracja zależy od rodzaju danych i wymagań aplikacji.
+
+## 4. Najważniejsze elementy Logstash
+
+Input plugins odpowiadają za pobieranie danych. Przykłady to `file`, `beats`, `http` i `syslog`.
+
+Filter plugins przetwarzają pobrane zdarzenia. Przykłady to `grok`, `mutate`, `date`, `json`, `geoip` i `drop`.
+
+Output plugins przekazują dane do systemów docelowych. Przykładem jest `elasticsearch`, ale dostępne są również wyjścia do plików, systemów komunikatów i innych usług.
+
+Pipeline określa sposób przepływu danych od źródła przez kolejne etapy do miejsca docelowego.
+
+Event to pojedyncze zdarzenie przetwarzane przez Logstash, zawierające dane reprezentowane jako pola.
+
+Persistent Queue umożliwia buforowanie zdarzeń na dysku, co może pomóc w ograniczaniu utraty danych podczas określonych awarii lub przerw w przetwarzaniu.
+
+Dead Letter Queue (DLQ) może przechowywać wybrane zdarzenia, których nie udało się poprawnie obsłużyć, np. z powodu określonych błędów zapisu. Jej obsługa wymaga odpowiedniej konfiguracji.
+
+## 5. Przykładowa konfiguracja Logstash
+
+Konfiguracja pipeline'u jest zwykle zapisywana w pliku z rozszerzeniem `.conf`.
+
+Przykładowy plik `logstash.conf`:
+
+```
+input {
+  file {
+    path => "/var/log/myapp.log"
+    start_position => "beginning"
+  }
+}
+
+filter {
+  grok {
+    match => {
+      "message" => "%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} %{GREEDYDATA:content}"
+    }
+  }
+
+  date {
+    match => ["timestamp", "ISO8601"]
+    target => "@timestamp"
+  }
+}
+
+output {
+  stdout {
+    codec => rubydebug
+  }
+}
+```
+
+W tym przykładzie:
+
+- `input` odczytuje dane z pliku logów.
+- `grok` próbuje wyodrębnić znacznik czasu, poziom logowania i treść komunikatu.
+- `date` przekształca rozpoznany znacznik czasu do pola `@timestamp`.
+- `stdout` wyświetla przetworzone zdarzenia w konsoli.
+
+Wzorzec `grok` zakłada, że komunikaty mają format zgodny z określonym wyrażeniem. Jeżeli format logów jest inny, wzorzec trzeba dostosować. Ścieżka do pliku również musi odpowiadać środowisku, w którym działa Logstash.
+
+## 6. Logstash a Elasticsearch i Kibana
+
+Te trzy narzędzia pełnią różne funkcje w ekosystemie Elastic.
+
+[Install LogStash using Ansbile — Playbook | by Horse Tired | Medium](https://images.openai.com/static-rsc-4/yw5fHVPF2Xk40T8_8kf0HLbqjg03P61xpW20JMMhXyxHKQ3hakKVS2aWeATwvLtdhr848lYYIkzJYENT4T_R6vsgSBezZ7IcNEiMSefisz3MHejyNO-gYZjAdKRIJeM2fCZ0T9uO39KN_pNgheBBE3eo3vumJdisLLsYQRvyNkA?purpose=inline)
+
+Logstash
+
+Pobiera, przekształca i przekazuje dane z różnych źródeł.
+
+[Free High-Quality Elasticsearch Logo Png for Creative Design](https://images.openai.com/static-rsc-4/GGIhfEN8_HGCofChbawVVmDotRiCigrhpamApQvryWEmGQk1P2R1PBFtieoT79XItj9E-1jHTX25OO4pWRNwILMoEgwX-qB9RcrKTxFXcDp0Tz11MucZ0yLY6uixUI-k63RuhGiTZ7QQmG1To_xKCNIKFpNXd3X3ANgVAOwZZYw?purpose=inline)
+
+Elasticsearch
+
+Indeksuje dane i umożliwia ich szybkie wyszukiwanie, filtrowanie oraz analizowanie.
+
+[Kibana Logo Vector Download | Logowik](https://images.openai.com/static-rsc-4/YaB0_tJTcl3_uAKpmV6jNsKFac-QVz9wWEE0iPkAZPJdP5POMvKrqmDMMzVNUjbagesmPD-L1pGvH74a-b3CXVll7nX6ZHuxWp9COc879nsyRfRi6KgrZvFgRp2shuMRK48o8XtLwqVZGDjlY8aZ5DrsTsoxXzahqTcmWnwrAwc?purpose=inline)
+
+Kibana
+
+Udostępnia interfejs do przeszukiwania danych, tworzenia wykresów, dashboardów i wizualizacji.
+
+Typowy przepływ wygląda następująco:
+
+`Źródła logów → Logstash → Elasticsearch → Kibana`
+
+Nie jest to jedyna możliwa architektura. Logstash może przesyłać dane również do innych systemów, a Elasticsearch może otrzymywać dane bezpośrednio z innych agentów.
+
+## 7. Logstash a Beats i Elastic Agent
+
+Beats to rodzina lekkich agentów służących do zbierania i przesyłania danych. Przykładowo Filebeat może śledzić pliki logów i przekazywać zdarzenia do Logstash.
+
+Elastic Agent jest bardziej zintegrowanym agentem do zbierania różnych rodzajów danych, w tym logów, metryk i danych bezpieczeństwa, zależnie od konfiguracji i dostępnych integracji.
+
+Logstash jest natomiast przeznaczony przede wszystkim do zaawansowanego przetwarzania i routingu danych.
+
+Przykładowa architektura może wyglądać tak:
+
+`Filebeat → Logstash → Elasticsearch`
+
+Takie rozwiązanie pozwala rozdzielić zbieranie danych na serwerach od centralnego przetwarzania i indeksowania.
+
+## 8. Najważniejsze filtry Logstash
+
+| Filtr       | Zastosowanie                                                         |
+| ----------- | -------------------------------------------------------------------- |
+| `grok`      | Wyodrębnianie pól z tekstu na podstawie wzorców                      |
+| `mutate`    | Zmiana nazw, typów i wartości pól                                    |
+| `date`      | Parsowanie dat i ustawianie znacznika czasu                          |
+| `json`      | Parsowanie danych JSON                                               |
+| `csv`       | Przetwarzanie danych w formacie CSV                                  |
+| `geoip`     | Wzbogacanie danych o informacje geograficzne na podstawie adresów IP |
+| `drop`      | Odrzucanie wybranych zdarzeń                                         |
+| `aggregate` | Łączenie informacji z wielu zdarzeń według zdefiniowanych reguł      |
+
+Dostępność i wymagania poszczególnych filtrów zależą od wersji Logstash i zainstalowanych wtyczek.
+
+## 9. Zalety Logstash
+
+- Obsługuje wiele źródeł i miejsc docelowych danych.
+- Pozwala przekształcać różne formaty logów do ujednoliconej struktury.
+- Posiada rozbudowany ekosystem wtyczek.
+- Umożliwia filtrowanie i wzbogacanie zdarzeń.
+- Integruje się z Elasticsearch i innymi elementami ekosystemu Elastic.
+- Pozwala centralizować przetwarzanie danych z wielu systemów.
+- Obsługuje buforowanie zdarzeń i mechanizmy wspomagające odporność pipeline'ów na awarie.
+
+## 10. Wady i ograniczenia Logstash
+
+- Wymaga odpowiedniej konfiguracji pipeline'ów.
+- Złożone wzorce `grok` mogą być trudne do utrzymania.
+- Przy dużych wolumenach danych może wymagać znacznych zasobów CPU i pamięci.
+- Błędy w konfiguracji mogą powodować nieprawidłowe parsowanie lub utratę wybranych zdarzeń.
+- Nie jest samodzielnym narzędziem do pełnej wizualizacji i wyszukiwania logów.
+- W prostych scenariuszach lżejszy agent może wystarczyć bez dodatkowej warstwy przetwarzania.
+
+## 11. Logstash a inne narzędzia
+
+| Technologia             | Główne przeznaczenie                                      |
+| ----------------------- | --------------------------------------------------------- |
+| Logstash                | Zaawansowane przetwarzanie i przesyłanie danych           |
+| Fluent Bit              | Lekkie zbieranie, filtrowanie i przesyłanie logów         |
+| Fluentd                 | Zbieranie i przetwarzanie danych z wykorzystaniem wtyczek |
+| Filebeat                | Zbieranie i przesyłanie logów                             |
+| Vector                  | Wydajne przetwarzanie i routing logów, metryk i zdarzeń   |
+| OpenTelemetry Collector | Zbieranie, przetwarzanie i eksportowanie telemetrii       |
+
+Wybór zależy od skali infrastruktury, dostępnych integracji, wymagań dotyczących wydajności i złożoności przetwarzania.
+
+## 12. Gdzie można nauczyć się Logstash?
+
+- Oficjalna strona: [Logstash](https://www.elastic.co/logstash).
+- Dokumentacja: [Logstash Reference](https://www.elastic.co/guide/en/logstash/current/index.html).
+- Dokumentacja wtyczek: [Filter plugins](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html).
+- Repozytorium źródłowe: [Logstash na GitHubie](https://github.com/elastic/logstash).
+
+## 13. Podsumowanie
+
+Logstash to narzędzie do zbierania, przetwarzania, wzbogacania i przekazywania danych, szczególnie logów aplikacyjnych i systemowych.
+
+Jest ważnym elementem stosu ELK, w którym Logstash przetwarza dane, Elasticsearch umożliwia ich indeksowanie i wyszukiwanie, a Kibana zapewnia wizualizację.
+
+Najważniejsze pojęcia do zapamiętania to Pipeline, Input, Filter, Output, Event, Grok, Beats, Elasticsearch, Kibana i Persistent Queue.

@@ -1,0 +1,274 @@
+# Zend
+
+## Czym jest Zend?
+
+**Zend** to nazwa związana przede wszystkim z ekosystemem **PHP**.
+
+Historycznie Zend był firmą rozwijającą narzędzia, technologie i rozwiązania dla programistów PHP.
+
+Nazwa Zend jest szczególnie kojarzona z **Zend Engine**, **Zend Framework** oraz narzędziami i usługami przeznaczonymi do tworzenia aplikacji PHP.
+
+## Zend Engine
+
+**Zend Engine** to silnik wykonujący kod PHP.
+
+Jest jednym z najważniejszych elementów środowiska PHP.
+
+Kiedy uruchamiamy aplikację PHP, kod jest przetwarzany przez silnik Zend Engine.
+
+Schemat można przedstawić następująco:
+
+```text
+Kod PHP
+   ↓
+Zend Engine
+   ↓
+Wykonanie kodu
+   ↓
+Wynik aplikacji
+```
+
+Zend Engine jest zaimplementowany głównie w języku **C**.
+
+Jest częścią implementacji PHP i odpowiada między innymi za wykonywanie kodu oraz zarządzanie pamięcią.
+
+## Zend Framework
+
+**Zend Framework** był popularnym frameworkiem PHP przeznaczonym do tworzenia aplikacji internetowych.
+
+Framework dostarczał gotowe komponenty, dzięki którym programista nie musiał samodzielnie implementować wielu typowych funkcji.
+
+Mógł być wykorzystywany między innymi do tworzenia:
+
+- aplikacji webowych,
+- REST API,
+- systemów biznesowych,
+- aplikacji wykorzystujących bazy danych,
+- aplikacji wykorzystujących architekturę MVC.
+
+## Zend Framework a Laminas
+
+Zend Framework został później przekazany do **Linux Foundation** i rozwijany jako projekt **Laminas**.
+
+Dlatego w przypadku współczesnych projektów PHP zamiast Zend Framework należy przede wszystkim spotkać się z nazwą **Laminas**.
+
+Można więc zapamiętać:
+
+```text
+Zend Framework
+      ↓
+Laminas
+```
+
+Laminas jest kontynuacją ekosystemu Zend Framework.
+
+## Zend Server
+
+**Zend Server** był komercyjną platformą służącą do uruchamiania i zarządzania aplikacjami PHP.
+
+Oferował dodatkowe narzędzia związane między innymi z:
+
+- uruchamianiem aplikacji PHP,
+- monitorowaniem,
+- wydajnością,
+- bezpieczeństwem,
+- zarządzaniem środowiskiem produkcyjnym.
+
+Zend Server był kierowany przede wszystkim do zastosowań biznesowych.
+
+## Zend Studio
+
+**Zend Studio** było środowiskiem programistycznym przeznaczonym dla programistów PHP.
+
+Zapewniało funkcje takie jak:
+
+- edycja kodu,
+- autouzupełnianie,
+- debugowanie,
+- refaktoryzacja,
+- integracja z systemami kontroli wersji,
+- narzędzia do pracy z PHP.
+
+Było oparte na platformie Eclipse.
+
+## Zend i PHP
+
+Zend jest bardzo mocno związany z historią rozwoju PHP.
+
+W uproszczeniu można przedstawić zależność:
+
+```text
+PHP
+ │
+ ├── Zend Engine
+ │
+ ├── Zend Framework
+ │       ↓
+ │    Laminas
+ │
+ ├── Zend Server
+ │
+ └── Zend Studio
+```
+
+Najważniejszym elementem z punktu widzenia samego działania PHP jest **Zend Engine**.
+
+## Zend Engine a interpreter PHP
+
+Często można spotkać określenie, że Zend Engine jest „interpreterem PHP”.
+
+Jest to pewne uproszczenie.
+
+Zend Engine odpowiada za wykonywanie kodu PHP, ale współczesny PHP wykorzystuje bardziej złożony proces przetwarzania kodu.
+
+Uproszczony schemat wygląda tak:
+
+```text
+Kod PHP
+   ↓
+Lexer / Parser
+   ↓
+Opcode
+   ↓
+Zend Engine
+   ↓
+Wykonanie
+```
+
+Kod PHP jest najpierw analizowany i przekształcany do wewnętrznej reprezentacji, a następnie wykonywany przez silnik.
+
+## Opcode
+
+**Opcode** to wewnętrzna reprezentacja instrukcji programu wykorzystywana podczas wykonywania kodu PHP.
+
+Przykładowo kod:
+
+```php
+<?php
+
+$a = 10;
+$b = 20;
+$c = $a + $b;
+```
+
+jest przetwarzany przez PHP do postaci instrukcji, które mogą być wykonywane przez Zend Engine.
+
+Dzięki temu proces wykonywania kodu jest bardziej uporządkowany i może być optymalizowany.
+
+## OPcache
+
+Współczesny PHP posiada mechanizm **OPcache**.
+
+OPcache może przechowywać skompilowane opcode'y w pamięci.
+
+Dzięki temu PHP nie musi za każdym razem wykonywać całego procesu przetwarzania kodu źródłowego.
+
+Schemat:
+
+```text
+Kod PHP
+   ↓
+Przetworzenie
+   ↓
+Opcode
+   ↓
+OPcache
+   ↓
+Zend Engine
+   ↓
+Wykonanie
+```
+
+OPcache może znacząco poprawić wydajność aplikacji PHP.
+
+## Zend w architekturze aplikacji PHP
+
+W typowej aplikacji PHP można spotkać wiele warstw:
+
+```text
+Przeglądarka
+     ↓
+Web Server
+     ↓
+PHP
+     ↓
+Zend Engine
+     ↓
+Kod aplikacji
+     ↓
+Baza danych
+```
+
+Przykładowo użytkownik wysyła żądanie HTTP do serwera.
+
+Serwer przekazuje odpowiedni skrypt do PHP.
+
+PHP przetwarza kod, a Zend Engine wykonuje jego instrukcje.
+
+Aplikacja może następnie komunikować się z bazą danych i wygenerować odpowiedź HTTP.
+
+## Zend a współczesny PHP
+
+Obecnie sama nazwa **Zend** ma przede wszystkim znaczenie historyczne i technologiczne w świecie PHP.
+
+Najważniejsze skojarzenie to **Zend Engine**, który nadal jest podstawą wykonywania kodu PHP.
+
+Natomiast dawny Zend Framework jest obecnie rozwijany jako **Laminas**.
+
+Dlatego podczas nauki PHP warto rozróżnić:
+
+```text
+Zend Engine → silnik PHP
+
+Zend Framework → dawny framework PHP
+
+Laminas → następca Zend Framework
+
+Zend Server → dawna platforma dla PHP
+
+Zend Studio → dawne IDE dla PHP
+```
+
+## Zalety ekosystemu Zend
+
+Technologie związane z Zend odegrały dużą rolę w rozwoju profesjonalnego PHP.
+
+Zend Framework dostarczał wiele gotowych komponentów.
+
+Zend Engine stanowi podstawę wykonywania kodu PHP.
+
+Narzędzia Zend były projektowane z myślą o profesjonalnych aplikacjach i środowiskach biznesowych.
+
+## Najważniejsze pojęcia
+
+**Zend** – nazwa związana z ekosystemem PHP i firmą rozwijającą technologie PHP.
+
+**Zend Engine** – silnik wykonujący kod PHP.
+
+**Zend Framework** – dawny framework PHP, którego kontynuacją jest Laminas.
+
+**Laminas** – następca Zend Framework.
+
+**Zend Server** – dawna platforma do uruchamiania i zarządzania aplikacjami PHP.
+
+**Zend Studio** – dawne środowisko programistyczne dla PHP.
+
+**Opcode** – wewnętrzna reprezentacja instrukcji PHP wykonywana przez silnik.
+
+**OPcache** – mechanizm cache'owania opcode'ów w PHP.
+
+## W skrócie
+
+**Zend to nazwa silnie związana z ekosystemem PHP.**
+
+**Zend Engine jest silnikiem odpowiedzialnym za wykonywanie kodu PHP.**
+
+**Zend Framework był popularnym frameworkiem PHP, którego następcą jest Laminas.**
+
+**Zend Server był platformą do uruchamiania i zarządzania aplikacjami PHP.**
+
+**Zend Studio było środowiskiem programistycznym dla PHP.**
+
+Najważniejsze skojarzenie do zapamiętania:
+
+**Zend → PHP → Zend Engine → wykonywanie kodu PHP.**

@@ -1,0 +1,299 @@
+# C++ — notatka o technologii
+
+## 1. Czym jest C++?
+
+C++ to język programowania ogólnego przeznaczenia, który wywodzi się z języka C i został rozwinięty przez Bjarne Stroustrupa.
+
+Język C++ łączy programowanie proceduralne, obiektowe, generyczne oraz elementy programowania funkcyjnego.
+
+Jest znany z wysokiej wydajności, dużej kontroli nad pamięcią i możliwości tworzenia zarówno niewielkich programów, jak i rozbudowanych systemów.
+
+C++ jest językiem kompilowanym, co oznacza, że kod źródłowy jest przekształcany przez kompilator do kodu maszynowego lub innej postaci wykonywalnej.
+
+Obecnie język jest rozwijany przez standardy ISO, takie jak C++17, C++20, C++23 oraz C++26.
+
+## 2. Najważniejsze cechy C++
+
+Wydajność
+
+C++ umożliwia tworzenie aplikacji, które wykonują operacje bardzo szybko i efektywnie wykorzystują zasoby komputera.
+
+Programowanie obiektowe
+
+Pozwala tworzyć klasy i obiekty, wykorzystywać dziedziczenie, enkapsulację oraz polimorfizm.
+
+Kontrola nad pamięcią
+
+Programista może zarządzać pamięcią niskopoziomowo, ale może też korzystać z inteligentnych wskaźników i automatycznego zarządzania zasobami.
+
+Programowanie generyczne
+
+Szablony (templates) pozwalają pisać kod, który działa z różnymi typami danych.
+
+Biblioteka standardowa
+
+C++ oferuje między innymi kontenery, algorytmy, obsługę tekstu, plików, wątków i czasu.
+
+Wieloparadygmatowość
+
+Język pozwala stosować różne style programowania w zależności od problemu.
+
+## 3. Jak działa C++?
+
+Typowy proces tworzenia aplikacji w C++ składa się z kilku etapów.
+
+1. Programista zapisuje kod źródłowy, najczęściej w plikach `.cpp` i `.h` lub `.hpp`.
+2. Preprocesor przetwarza dyrektywy, takie jak `#include` i `#define`.
+3. Kompilator sprawdza kod i przekształca go do kodu obiektowego.
+4. Linker łączy pliki obiektowe i biblioteki w program wykonywalny.
+5. System operacyjny uruchamia gotową aplikację.
+
+Do najpopularniejszych kompilatorów należą GCC, Clang oraz MSVC.
+
+## 4. Podstawowy przykład programu
+
+Poniższy program wyświetla komunikat, definiuje zmienną i wykonuje proste obliczenie.
+
+```
+#include <iostream>
+
+int main() {
+    int a = 10;
+    int b = 20;
+
+    int suma = a + b;
+
+    std::cout << "Witaj w C++!" << '\n';
+    std::cout << "Suma: " << suma << '\n';
+
+    return 0;
+}
+```
+
+`#include <iostream>` udostępnia podstawowe mechanizmy wejścia i wyjścia.
+
+`int main()` jest funkcją, od której rozpoczyna się wykonywanie programu.
+
+`int` oznacza typ danych przeznaczony do przechowywania liczb całkowitych.
+
+`std::cout` służy do wyświetlania danych w konsoli.
+
+`return 0` oznacza, że program zakończył się poprawnie.
+
+## 5. Programowanie obiektowe w C++
+
+C++ umożliwia modelowanie rzeczywistych obiektów za pomocą klas.
+
+Przykładem może być klasa reprezentująca samochód.
+
+```
+#include <iostream>
+#include <string>
+
+class Samochod {
+private:
+    std::string marka;
+    int predkosc;
+
+public:
+    Samochod(const std::string& marka)
+        : marka(marka), predkosc(0) {}
+
+    void przyspiesz(int wartosc) {
+        predkosc += wartosc;
+    }
+
+    void pokazInformacje() const {
+        std::cout << marka
+                  << ", predkosc: "
+                  << predkosc << '\n';
+    }
+};
+
+int main() {
+    Samochod auto1("Toyota");
+
+    auto1.przyspiesz(50);
+    auto1.pokazInformacje();
+
+    return 0;
+}
+```
+
+Klasa `Samochod` opisuje właściwości i zachowanie samochodu.
+
+Pola `marka` i `predkosc` są prywatne, dlatego nie można bezpośrednio modyfikować ich z zewnątrz klasy.
+
+Konstruktor inicjalizuje obiekt podczas jego tworzenia.
+
+Metoda `przyspiesz()` zmienia prędkość, a `pokazInformacje()` wyświetla dane.
+
+## 6. Najważniejsze elementy języka
+
+| Element               | Zastosowanie                                              |
+| --------------------- | --------------------------------------------------------- |
+| Zmienne i typy danych | Przechowywanie informacji                                 |
+| Funkcje               | Organizacja kodu w mniejsze części                        |
+| Klasy i obiekty       | Modelowanie danych i zachowań                             |
+| Wskaźniki             | Praca z adresami pamięci                                  |
+| Referencje            | Dostęp do istniejących obiektów przez alias               |
+| Szablony              | Tworzenie kodu generycznego                               |
+| STL                   | Gotowe kontenery i algorytmy                              |
+| Wyjątki               | Obsługa sytuacji wyjątkowych                              |
+| Lambda expressions    | Definiowanie funkcji anonimowych                          |
+| Smart pointers        | Bezpieczniejsze zarządzanie pamięcią                      |
+| Threads               | Programowanie wielowątkowe                                |
+| RAII                  | Automatyczne zwalnianie zasobów przez czas życia obiektów |
+
+## 7. STL — Standard Template Library
+
+STL to część biblioteki standardowej C++, która udostępnia gotowe struktury danych oraz algorytmy.
+
+Najważniejsze kontenery to:
+
+- `std::vector` — dynamiczna tablica.
+- `std::array` — tablica o stałym rozmiarze.
+- `std::list` — lista dwukierunkowa.
+- `std::map` — kolekcja par klucz-wartość uporządkowana według kluczy.
+- `std::unordered_map` — mapa oparta na tablicy haszującej.
+- `std::set` — zbiór unikalnych elementów.
+- `std::queue` — kolejka FIFO.
+- `std::stack` — stos LIFO.
+
+Przykład wykorzystania `std::vector`:
+
+```
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> liczby = {10, 20, 30};
+
+    liczby.push_back(40);
+
+    for (int liczba : liczby) {
+        std::cout << liczba << '\n';
+    }
+
+    return 0;
+}
+```
+
+Biblioteka STL pozwala ograniczyć ilość własnego kodu i korzystać ze sprawdzonych implementacji.
+
+## 8. Zarządzanie pamięcią
+
+C++ daje dużą kontrolę nad pamięcią, co jest jedną z jego zalet, ale także źródłem potencjalnych błędów.
+
+W starszym stylu programowania często korzystano z `new` i `delete`, które wymagają ręcznego zarządzania pamięcią.
+
+W nowoczesnym C++ zaleca się przede wszystkim stosowanie obiektów automatycznych, kontenerów standardowych i inteligentnych wskaźników.
+
+Najważniejsze inteligentne wskaźniki to:
+
+- `std::unique_ptr` — wyłączna własność obiektu.
+- `std::shared_ptr` — współdzielona własność obiektu.
+- `std::weak_ptr` — nieposiadająca referencja do obiektu zarządzanego przez `shared_ptr`.
+
+Technika RAII wiąże czas życia zasobu z czasem życia obiektu, co pomaga automatycznie zwalniać pamięć i inne zasoby.
+
+## 9. Do czego wykorzystuje się C++?
+
+[User Experience of Game Development Tools](https://images.openai.com/static-rsc-4/keg1ZikanXau0j7DieGKhWxPaXjehKMPe8eB4FZKqoU-U1UtcTKRlr7QgMz3OyeFONIoFC_TUEoD-JJREFxLbMrc8Idtv-MifAgddNivGEd21c81Xd37aBMhEJ0FUgWx0EW29Li119Yn23AIV6A-d_NAhc34l-w431UZSxOMFFc?purpose=inline)
+
+Tworzenie gier
+
+C++ jest szeroko wykorzystywany w silnikach gier, takich jak Unreal Engine, oraz w systemach wymagających wysokiej wydajności.
+
+[NUCLEO-G491RE STMICROELECTRONICS, Development Board, STM32 Nucleo-64, STM32G491RET6U | Farnell Sverige](https://images.openai.com/static-rsc-4/oe1-nOR5S2xJdxnoh5h9DcFgRnw5O8q11EN2OKN7l07TP3HXsCASusm-QZBrds9NqrsT6DrRpWrX4-WsShEC-axB8n-nB-40yw6x59GI32Vgn5ebId-bxD3gTkuyqSesi7qgMFnH5DwzXTcMsXmxXQaV-3hnN8W9SUaH3W_33Ds?purpose=inline)
+
+Systemy wbudowane i robotyka
+
+Pozwala programować urządzenia elektroniczne, sterowniki, roboty i systemy czasu rzeczywistego.
+
+[GitHub - cristianadam/qt-creator-tabbededitor: Qt Creator Tabbed Editor Plugin · GitHub](https://images.openai.com/static-rsc-4/ixHazuBg3ezgDy-vYJLD3rjgZWoL8UllNIlMrsGIBUY4SVrFPXCec6x-EdDgtPzGYdeJoSoT3xFimZUQzToRIAFhruzHAD5QBa04pwvnC9FuI94fNy-Vg_sqiWWdjtqDR4zvHt_Uv39h61MjbfpXtYl_rEEllXT22E4_3nCqy3U?purpose=inline)
+
+Aplikacje desktopowe
+
+Biblioteki takie jak Qt umożliwiają budowanie aplikacji okienkowych na Windows, Linux i macOS.
+
+[Frontier Supercomputer Unveils the Largest Universe Simulation Ever](https://images.openai.com/static-rsc-4/fKuS_k_KcpJxkI0MNO0B3zdJF_1yEhbo15VUolbGHjJ7LcN3TSxct3MDkAVNPeR0G2AFNQjs7EY6XVS9ge1RDqm2_UJKXky_86zU9w0hbNMSufWCQUAQQZFx7WJDVk9wqnk8oifmW0ZOlrDyFMfF80g5RvbqxHY175M4s9xq-9M?purpose=inline)
+
+Obliczenia naukowe i systemy wydajne
+
+C++ jest używany w symulacjach, przetwarzaniu obrazu, grafice komputerowej i komponentach infrastruktury IT.
+
+Inne zastosowania obejmują przeglądarki internetowe, silniki baz danych, systemy operacyjne oraz biblioteki wykorzystywane przez aplikacje AI.
+
+## 10. Popularne narzędzia i środowiska
+
+| Narzędzie          | Zastosowanie                                          |
+| ------------------ | ----------------------------------------------------- |
+| Visual Studio      | IDE i kompilator MSVC w środowisku Windows            |
+| CLion              | IDE do programowania w C i C++                        |
+| Visual Studio Code | Edytor z rozszerzeniami C/C++                         |
+| GCC                | Zestaw kompilatorów, w tym kompilator C++             |
+| Clang              | Kompilator i narzędzia ekosystemu LLVM                |
+| CMake              | Konfiguracja i generowanie procesu budowania projektu |
+| GDB                | Debugowanie programów                                 |
+| Qt                 | Tworzenie aplikacji z interfejsem graficznym          |
+| Conan              | Zarządzanie zależnościami w projektach C/C++          |
+| vcpkg              | Instalowanie i zarządzanie bibliotekami C/C++         |
+
+## 11. Zalety i wady C++
+
+Zalety:
+
+- Wysoka wydajność i efektywne wykorzystanie zasobów.
+- Duża kontrola nad pamięcią i sprzętem.
+- Możliwość tworzenia aplikacji wieloplatformowych.
+- Bogata biblioteka standardowa i rozbudowany ekosystem narzędzi.
+- Przydatność w projektach wymagających małych opóźnień.
+
+Wady:
+
+- Stosunkowo wysoki próg wejścia dla początkujących.
+- Złożona składnia i wiele zaawansowanych mechanizmów.
+- Nieprawidłowe zarządzanie pamięcią może prowadzić do trudnych błędów.
+- Konfiguracja kompilacji i zależności bywa bardziej wymagająca niż w niektórych językach wysokiego poziomu.
+- Ręczna optymalizacja nie zawsze jest konieczna, a przedwczesna może utrudniać rozwój projektu.
+
+## 12. C++ a inne języki programowania
+
+| Cecha                   | C++                                           | Java                         | Python                                               |
+| ----------------------- | --------------------------------------------- | ---------------------------- | ---------------------------------------------------- |
+| Wydajność               | Bardzo wysoka                                 | Wysoka                       | Zwykle niższa w czystym kodzie interpretowanym       |
+| Zarządzanie pamięcią    | Duża kontrola, dostępne RAII i smart pointers | Automatyczne GC              | Automatyczne zarządzanie pamięcią                    |
+| Kompilacja              | Zwykle do kodu maszynowego                    | Do bytecode JVM              | Najczęściej wykonywanie przez interpreter środowiska |
+| Programowanie obiektowe | Tak                                           | Tak                          | Tak                                                  |
+| Zastosowania            | Gry, systemy wydajne, embedded                | Backend, aplikacje biznesowe | AI, automatyzacja, analiza danych                    |
+| Trudność na start       | Wyższa                                        | Średnia                      | Zwykle niższa                                        |
+
+C++ będzie dobrym wyborem, gdy istotne są wydajność, kontrola nad zasobami i bliska współpraca ze sprzętem.
+
+Java może być wygodniejsza przy rozbudowanych aplikacjach biznesowych, natomiast Python często ułatwia szybkie prototypowanie oraz pracę z AI i analizą danych.
+
+## 13. Jak zacząć naukę C++?
+
+Proponowana kolejność nauki:
+
+1. Zmienne, typy danych, operatory i instrukcje warunkowe.
+2. Pętle, funkcje i obsługa wejścia oraz wyjścia.
+3. Tablice, `std::string` i `std::vector`.
+4. Klasy, obiekty, konstruktory i enkapsulacja.
+5. Wskaźniki, referencje i zarządzanie pamięcią.
+6. STL, algorytmy i szablony.
+7. Wyjątki, pliki, biblioteki i obsługa błędów.
+8. RAII, smart pointers, nowoczesny C++ i podstawy współbieżności.
+9. Git, CMake, testy jednostkowe i debugowanie.
+10. Projekt praktyczny, np. menedżer zadań, aplikacja konsolowa lub aplikacja GUI w Qt.
+
+## 14. Czy warto uczyć się C++?
+
+Tak, szczególnie jeśli interesuje Cię programowanie systemowe, tworzenie gier, robotyka, aplikacje desktopowe albo wydajne przetwarzanie danych.
+
+C++ pomaga zrozumieć działanie pamięci, kompilacji, struktur danych i wydajności programów.
+
+Jeżeli Twoim głównym celem jest rozwój w backendzie Java i Spring Boot, C++ będzie wartościowym uzupełnieniem wiedzy, ale nie musi mieć pierwszeństwa przed SQL, testami, Git i architekturą aplikacji.
+
+Najlepszym sposobem nauki jest połączenie teorii z regularnym pisaniem kodu oraz budowaniem małych projektów.

@@ -1,0 +1,261 @@
+# Adobe InDesign — notatka
+
+Adobe InDesign to profesjonalny program firmy Adobe przeznaczony przede wszystkim do tworzenia i składania publikacji oraz dokumentów przeznaczonych do druku i publikacji cyfrowej.
+
+InDesign jest szczególnie często wykorzystywany do tworzenia książek, czasopism, gazet, broszur, katalogów, ulotek, raportów, folderów oraz różnego rodzaju materiałów reklamowych.
+
+Najważniejszą rzeczą do zapamiętania jest to, że InDesign służy przede wszystkim do **składu i kompozycji dokumentów**.
+
+Illustrator służy głównie do tworzenia grafiki wektorowej, Photoshop do obróbki grafiki rastrowej, a InDesign do łączenia tekstu, grafiki i innych elementów w gotową publikację.
+
+Można więc uprościć to w następujący sposób.
+
+Illustrator tworzy elementy graficzne.
+
+Photoshop obrabia zdjęcia.
+
+InDesign składa wszystko razem w gotowy dokument.
+
+Podstawowym elementem dokumentu InDesign jest strona.
+
+Dokument może składać się z jednej strony albo z wielu stron.
+
+Strony mogą być ustawione pionowo lub poziomo.
+
+Możemy również tworzyć dokumenty zawierające strony o różnych rozmiarach.
+
+W InDesign bardzo ważnym pojęciem są **marginesy**.
+
+Marginesy określają obszar wewnątrz strony, w którym zazwyczaj umieszczamy najważniejsze elementy dokumentu.
+
+Pomagają zachować odpowiednie proporcje i czytelność projektu.
+
+Kolejnym ważnym elementem są **spady**, czyli Bleed.
+
+Spad to dodatkowy obszar znajdujący się poza właściwym formatem strony.
+
+Jest on potrzebny przede wszystkim podczas przygotowywania materiałów do druku.
+
+Jeżeli element graficzny ma dochodzić do samej krawędzi wydrukowanej strony, powinien zostać rozciągnięty również na obszar spadu.
+
+Dzięki temu po przycięciu arkusza nie powstaje niepożądany biały pasek przy krawędzi.
+
+InDesign pozwala również tworzyć **kolumny**.
+
+Kolumny pomagają organizować tekst i są bardzo często wykorzystywane w gazetach, czasopismach, książkach oraz broszurach.
+
+Tekst może być automatycznie przepływany pomiędzy kolejnymi kolumnami.
+
+Jedną z najważniejszych funkcji InDesign jest praca z tekstem.
+
+Program pozwala tworzyć rozbudowane układy typograficzne i kontrolować wygląd dużych ilości tekstu.
+
+Do wprowadzania tekstu służy **Type Tool**.
+
+Tekst umieszczany jest najczęściej w specjalnych **ramkach tekstowych**.
+
+Ramka tekstowa określa obszar, w którym może znajdować się tekst.
+
+Możemy zmieniać jej rozmiar, położenie oraz sposób przepływania tekstu.
+
+Jedną z bardzo ważnych funkcji jest **Text Threading**, czyli łączenie ramek tekstowych.
+
+Dzięki tej funkcji tekst może automatycznie przepływać z jednej ramki do kolejnej.
+
+Jest to szczególnie przydatne podczas tworzenia wielostronicowych dokumentów.
+
+Jeżeli tekst nie mieści się w jednej ramce, możemy połączyć ją z następną ramką.
+
+InDesign automatycznie przeniesie nadmiar tekstu do kolejnego pola.
+
+InDesign posiada również rozbudowany system **Paragraph Styles** i **Character Styles**.
+
+Style pozwalają zapisać określone ustawienia tekstu i wielokrotnie wykorzystywać je w dokumencie.
+
+Paragraph Style może określać między innymi krój pisma, rozmiar, interlinię, wyrównanie oraz odstępy akapitu.
+
+Character Style służy do formatowania konkretnych fragmentów tekstu, takich jak pojedyncze słowa lub znaki.
+
+Dzięki stylom możemy bardzo szybko zmienić wygląd całego dokumentu.
+
+Jeżeli na przykład wszystkie nagłówki korzystają z jednego stylu, zmiana tego stylu może automatycznie zmienić wszystkie nagłówki w całym dokumencie.
+
+Jest to szczególnie ważne przy dużych publikacjach.
+
+InDesign pozwala również korzystać z **Master Pages**, które w nowszych wersjach programu są określane jako **Parent Pages**.
+
+Parent Page pozwala definiować elementy, które mają pojawiać się automatycznie na wielu stronach.
+
+Możemy na przykład umieścić na Parent Page numer strony, logo, nagłówek lub element graficzny.
+
+Jeżeli wiele stron korzysta z tej samej Parent Page, zmiana elementu na Parent Page może zostać zastosowana na wszystkich tych stronach.
+
+Jest to bardzo wygodne podczas tworzenia książek, raportów i czasopism.
+
+InDesign posiada również funkcję automatycznego numerowania stron.
+
+Numer strony może zostać umieszczony na Parent Page.
+
+Następnie InDesign automatycznie nada odpowiedni numer każdej stronie dokumentu.
+
+Dzięki temu nie musimy ręcznie wpisywać numerów stron.
+
+Bardzo ważnym elementem InDesign są **Layers**, czyli warstwy.
+
+Warstwy pozwalają organizować elementy znajdujące się na stronach.
+
+Możemy na przykład utworzyć osobną warstwę dla tekstu, osobną dla zdjęć oraz osobną dla elementów dekoracyjnych.
+
+Warstwy można ukrywać i blokować.
+
+Pomaga to utrzymać porządek w dużych projektach.
+
+InDesign pozwala również umieszczać w dokumencie obrazy.
+
+Najczęściej wykorzystuje się do tego polecenie **Place**.
+
+Za pomocą Place możemy umieścić w dokumencie zdjęcie, ilustrację lub inny plik graficzny.
+
+Bardzo ważne jest zrozumienie różnicy pomiędzy **Frame** a zawartością znajdującą się w ramce.
+
+Frame jest kontenerem określającym obszar, w którym znajduje się grafika.
+
+Sama grafika jest natomiast zawartością tego kontenera.
+
+Dzięki temu możemy zmieniać rozmiar ramki bez konieczności zmieniania rzeczywistego rozmiaru obrazu.
+
+Obraz możemy również przesuwać wewnątrz ramki.
+
+InDesign korzysta z takiego sposobu pracy, ponieważ pozwala bardzo precyzyjnie kontrolować układ publikacji.
+
+Ważnym pojęciem jest również **Links Panel**.
+
+InDesign często nie zapisuje całego obrazu bezpośrednio w dokumencie, lecz przechowuje informację o miejscu, w którym znajduje się plik graficzny.
+
+Oznacza to, że dokument może być powiązany z zewnętrznymi plikami graficznymi.
+
+Jeżeli taki plik zostanie przeniesiony lub usunięty, InDesign może zgłosić brakujące łącze.
+
+Dlatego podczas przygotowywania projektu należy zwracać uwagę na panel Links.
+
+Przed przekazaniem projektu innej osobie często wykorzystuje się funkcję **Package**.
+
+Package pozwala zebrać dokument, wykorzystane grafiki, czcionki i inne potrzebne elementy w jednym folderze.
+
+Dzięki temu łatwiej przenieść cały projekt na inny komputer.
+
+InDesign pozwala również pracować z tabelami.
+
+Tabele można wykorzystywać między innymi w raportach, katalogach, ofertach oraz dokumentach biznesowych.
+
+Możemy dodawać wiersze i kolumny oraz formatować wygląd tabeli.
+
+Możemy również tworzyć style tabel i komórek.
+
+InDesign pozwala także tworzyć **Table of Contents**, czyli automatyczny spis treści.
+
+Spis treści może być generowany na podstawie zastosowanych stylów akapitowych.
+
+Jeżeli nagłówki dokumentu mają odpowiednie style, InDesign może automatycznie znaleźć te nagłówki i utworzyć na ich podstawie spis treści.
+
+Jest to szczególnie przydatne w przypadku książek, instrukcji oraz raportów.
+
+InDesign obsługuje również **Footnotes**, czyli przypisy.
+
+Przypisy mogą być automatycznie numerowane i umieszczane w odpowiednich miejscach dokumentu.
+
+Program może również automatycznie aktualizować ich numerację po zmianie zawartości dokumentu.
+
+W InDesign bardzo ważna jest typografia.
+
+Program pozwala kontrolować między innymi krój pisma, rozmiar tekstu, interlinię, kerning, tracking oraz wyrównanie.
+
+**Kerning** określa odstęp pomiędzy konkretną parą znaków.
+
+**Tracking** określa ogólne rozłożenie odstępów pomiędzy znakami w większym fragmencie tekstu.
+
+**Leading**, czyli interlinia, określa odległość pomiędzy kolejnymi wierszami tekstu.
+
+Dzięki tym funkcjom możemy bardzo dokładnie kontrolować wygląd tekstu.
+
+InDesign pozwala również korzystać z **Guides**, czyli prowadnic.
+
+Prowadnice pomagają dokładnie rozmieszczać elementy na stronie.
+
+Możemy wykorzystać je do ustawiania tekstu, zdjęć, nagłówków oraz innych elementów.
+
+Prowadnice nie są zazwyczaj drukowane.
+
+Służą przede wszystkim jako pomoc podczas projektowania.
+
+Ważną funkcją jest również **Align**.
+
+Align pozwala wyrównywać obiekty względem siebie lub względem strony.
+
+Możemy dzięki temu zachować spójny i uporządkowany układ dokumentu.
+
+InDesign posiada również funkcje związane z kolorami.
+
+Podobnie jak w Illustratorze, przy projektach przeznaczonych do druku bardzo ważny jest model CMYK.
+
+Przy projektach przeznaczonych do wyświetlania na ekranie często wykorzystuje się RGB.
+
+W przypadku profesjonalnego druku można również korzystać z kolorów dodatkowych, takich jak Pantone.
+
+Jednym z najważniejszych etapów pracy w InDesign jest przygotowanie dokumentu do eksportu.
+
+Najczęściej dokument przeznaczony do profesjonalnego druku eksportuje się do formatu PDF.
+
+Przy przygotowywaniu PDF do druku należy zwrócić uwagę między innymi na rozmiar strony, spady, obrazy, czcionki oraz przestrzeń kolorów.
+
+Bardzo ważną funkcją jest **Preflight**.
+
+Preflight pozwala sprawdzić dokument pod kątem potencjalnych problemów przed eksportem lub drukiem.
+
+Może między innymi wykrywać brakujące czcionki, brakujące pliki graficzne oraz inne problemy związane z dokumentem.
+
+Dzięki temu możemy znaleźć błędy przed przekazaniem projektu do drukarni.
+
+InDesign pozwala również eksportować dokumenty do formatów przeznaczonych do publikacji cyfrowej.
+
+Możemy na przykład tworzyć interaktywne dokumenty PDF oraz materiały przeznaczone do publikacji elektronicznych.
+
+InDesign może również współpracować z innymi programami Adobe.
+
+Możemy stworzyć ilustrację w Illustratorze, zdjęcie przygotować w Photoshopie, a następnie połączyć oba elementy w jednym dokumencie InDesign.
+
+Dlatego programy Adobe często są wykorzystywane razem.
+
+Przykładowy workflow może wyglądać następująco.
+
+Najpierw zdjęcia obrabiamy w Photoshopie.
+
+Następnie logo i ilustracje przygotowujemy w Illustratorze.
+
+Na końcu wszystkie elementy umieszczamy w InDesign i tworzymy z nich gotową publikację.
+
+Podczas nauki InDesign warto najpierw opanować tworzenie dokumentów i stron.
+
+Następnie należy nauczyć się pracy z ramkami tekstowymi i graficznymi.
+
+Kolejnym krokiem powinny być Parent Pages, style akapitowe i style znakowe.
+
+Następnie warto nauczyć się pracy z grafikami, panelem Links oraz funkcją Package.
+
+Później można przejść do tabel, automatycznego spisu treści, przypisów oraz bardziej zaawansowanej typografii.
+
+Na końcu warto nauczyć się przygotowywania dokumentów do druku i eksportowania poprawnych plików PDF.
+
+Najważniejsze jest zapamiętanie, że InDesign nie jest przede wszystkim programem do rysowania.
+
+Jego głównym zadaniem jest składanie i organizowanie wielu elementów w jeden spójny dokument.
+
+Najprościej można zapamiętać trzy najważniejsze programy Adobe w następujący sposób.
+
+Illustrator służy przede wszystkim do tworzenia grafiki wektorowej.
+
+Photoshop służy przede wszystkim do pracy z grafiką rastrową i zdjęciami.
+
+InDesign służy przede wszystkim do składu wielostronicowych dokumentów i publikacji.
+
+Jeżeli zapamiętasz pojęcia takie jak Document, Page, Parent Page, Margin, Bleed, Frame, Text Frame, Text Threading, Paragraph Style, Character Style, Layer, Links, Package, Preflight oraz PDF, będziesz miał solidne podstawy pracy z Adobe InDesign.

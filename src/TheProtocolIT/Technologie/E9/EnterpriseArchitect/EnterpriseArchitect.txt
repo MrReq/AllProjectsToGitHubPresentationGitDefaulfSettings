@@ -1,0 +1,916 @@
+# Entity Framework
+
+## 1. Czym jest Entity Framework?
+
+**Entity Framework (EF)** to framework firmy Microsoft przeznaczony do pracy z bazami danych w aplikacjach .NET.
+
+Entity Framework jest przede wszystkim **ORM (Object-Relational Mapping)**.
+
+ORM pozwala mapować obiekty występujące w kodzie programu na dane przechowywane w relacyjnej bazie danych.
+
+Dzięki Entity Framework programista może pracować z bazą danych za pomocą obiektów C#, zamiast pisać większość zapytań SQL ręcznie.
+
+## 2. Entity Framework Core
+
+Obecnie najważniejszą wersją technologii jest **Entity Framework Core (EF Core)**.
+
+EF Core jest nowoczesną, wieloplatformową wersją Entity Framework.
+
+Może działać między innymi na:
+
+Windows,
+
+Linux,
+
+macOS.
+
+EF Core jest przeznaczony dla platformy .NET i może być wykorzystywany w aplikacjach:
+
+ASP.NET Core,
+
+desktopowych,
+
+webowych,
+
+REST API,
+
+konsolowych,
+
+mikroserwisach.
+
+## 3. ORM
+
+ORM oznacza **Object-Relational Mapping**.
+
+Jego zadaniem jest połączenie świata obiektowego z relacyjną bazą danych.
+
+Przykładowo klasa C#:
+
+```csharp
+public class Patient
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+```
+
+może zostać odwzorowana na tabelę:
+
+```text
+Patient
+----------------
+Id
+Name
+```
+
+Obiekt:
+
+```csharp
+var patient = new Patient
+{
+    Name = "Jan"
+};
+```
+
+może następnie zostać zapisany jako rekord w bazie danych.
+
+## 4. Entity
+
+**Entity** to obiekt reprezentujący dane przechowywane w bazie danych.
+
+Przykładowo:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+```
+
+może reprezentować rekord znajdujący się w tabeli `Products`.
+
+## 5. DbContext
+
+Jednym z najważniejszych elementów Entity Framework Core jest **DbContext**.
+
+`DbContext` reprezentuje sesję pracy z bazą danych.
+
+Odpowiada między innymi za:
+
+połączenie z bazą,
+
+pobieranie danych,
+
+śledzenie encji,
+
+dodawanie danych,
+
+aktualizowanie danych,
+
+usuwanie danych,
+
+zapisywanie zmian.
+
+Przykład:
+
+```csharp
+public class AppDbContext : DbContext
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
+    {
+    }
+
+    public DbSet<Product> Products { get; set; }
+}
+```
+
+## 6. DbSet
+
+`DbSet<TEntity>` reprezentuje zbiór encji określonego typu.
+
+Przykład:
+
+```csharp
+public DbSet<Product> Products { get; set; }
+```
+
+oznacza, że `Products` reprezentuje zbiór obiektów `Product`.
+
+Można go traktować jako punkt dostępu do danych określonego typu.
+
+Przykład:
+
+```csharp
+var products = await context.Products.ToListAsync();
+```
+
+pobiera produkty z bazy danych.
+
+## 7. LINQ
+
+Entity Framework Core wykorzystuje **LINQ (Language Integrated Query)** do tworzenia zapytań.
+
+Przykład:
+
+```csharp
+var products = await context.Products
+    .Where(p => p.Price > 100)
+    .ToListAsync();
+```
+
+EF Core może przetłumaczyć takie wyrażenie na odpowiednie zapytanie SQL.
+
+Przykładowo koncepcyjnie:
+
+```sql
+SELECT *
+FROM Products
+WHERE Price > 100;
+```
+
+## 8. IQueryable
+
+Zapytania EF Core często wykorzystują `IQueryable<T>`.
+
+`IQueryable` pozwala budować zapytanie, które może zostać przetłumaczone na SQL i wykonane po stronie bazy danych.
+
+Przykład:
+
+```csharp
+IQueryable<Product> query = context.Products;
+
+query = query.Where(p => p.Price > 100);
+```
+
+Zapytanie nie musi zostać wykonane natychmiast.
+
+## 9. Deferred Execution
+
+LINQ w EF Core często wykorzystuje mechanizm **deferred execution**.
+
+Oznacza to, że samo utworzenie zapytania nie musi od razu wykonywać SQL.
+
+Przykład:
+
+```csharp
+var query = context.Products
+    .Where(p => p.Price > 100);
+```
+
+Zapytanie zostanie wykonane dopiero wtedy, gdy nastąpi materializacja wyników.
+
+Przykłady materializacji:
+
+```csharp
+ToListAsync()
+FirstAsync()
+SingleAsync()
+CountAsync()
+AnyAsync()
+```
+
+## 10. Tracking
+
+Domyślnie EF Core może śledzić pobrane encje.
+
+Mechanizm ten nazywa się **change tracking**.
+
+Przykład:
+
+```csharp
+var product = await context.Products
+    .FirstAsync(p => p.Id == 1);
+
+product.Price = 500;
+
+await context.SaveChangesAsync();
+```
+
+EF Core wykryje zmianę wartości `Price` i wygeneruje odpowiednie `UPDATE`.
+
+## 11. AsNoTracking
+
+Jeżeli dane są pobierane tylko do odczytu, można wyłączyć śledzenie:
+
+```csharp
+var products = await context.Products
+    .AsNoTracking()
+    .ToListAsync();
+```
+
+Może to zmniejszyć narzut związany z trackingiem przy zapytaniach tylko do odczytu.
+
+## 12. SaveChanges
+
+`SaveChanges()` lub `SaveChangesAsync()` zapisuje zmiany w bazie danych.
+
+Przykład:
+
+```csharp
+context.Products.Add(product);
+
+await context.SaveChangesAsync();
+```
+
+Dopiero `SaveChangesAsync()` powoduje wykonanie operacji zapisu w bazie.
+
+## 13. CRUD
+
+Entity Framework Core obsługuje operacje CRUD.
+
+**Create** – tworzenie danych.
+
+```csharp
+context.Products.Add(product);
+```
+
+**Read** – odczyt.
+
+```csharp
+var product = await context.Products.FindAsync(1);
+```
+
+**Update** – aktualizacja.
+
+```csharp
+product.Price = 500;
+await context.SaveChangesAsync();
+```
+
+**Delete** – usuwanie.
+
+```csharp
+context.Products.Remove(product);
+await context.SaveChangesAsync();
+```
+
+## 14. Add
+
+`Add()` oznacza dodanie nowej encji do kontekstu.
+
+Przykład:
+
+```csharp
+var product = new Product
+{
+    Name = "Laptop",
+    Price = 4000
+};
+
+context.Products.Add(product);
+
+await context.SaveChangesAsync();
+```
+
+EF Core wygeneruje odpowiedni `INSERT`.
+
+## 15. Update
+
+Encja pobrana przez tracking może zostać zmodyfikowana bez wywoływania `Update()`.
+
+Przykład:
+
+```csharp
+var product = await context.Products.FindAsync(1);
+
+product.Price = 4500;
+
+await context.SaveChangesAsync();
+```
+
+EF Core wykryje zmianę.
+
+Metoda `Update()` jest częściej potrzebna w sytuacjach, gdy pracujemy z odłączoną encją.
+
+## 16. Remove
+
+`Remove()` oznacza oznaczenie encji do usunięcia.
+
+Przykład:
+
+```csharp
+context.Products.Remove(product);
+
+await context.SaveChangesAsync();
+```
+
+EF Core wykona odpowiednie `DELETE`.
+
+## 17. Relationships
+
+EF Core umożliwia definiowanie relacji pomiędzy encjami.
+
+Najważniejsze rodzaje relacji to:
+
+**one-to-one** – jeden do jednego.
+
+**one-to-many** – jeden do wielu.
+
+**many-to-many** – wiele do wielu.
+
+## 18. One-to-Many
+
+Przykładowo jeden lekarz może mieć wiele wizyt.
+
+```csharp
+public class Doctor
+{
+    public int Id { get; set; }
+
+    public ICollection<Appointment> Appointments { get; set; }
+}
+```
+
+oraz:
+
+```csharp
+public class Appointment
+{
+    public int Id { get; set; }
+
+    public int DoctorId { get; set; }
+
+    public Doctor Doctor { get; set; }
+}
+```
+
+Jeden `Doctor` może posiadać wiele `Appointment`.
+
+## 19. Foreign Key
+
+**Foreign Key** jest kluczem obcym wskazującym na rekord w innej tabeli.
+
+Przykład:
+
+```csharp
+public int DoctorId { get; set; }
+```
+
+może być kluczem obcym wskazującym na:
+
+```text
+Doctor.Id
+```
+
+W bazie danych może to wyglądać:
+
+```text
+Doctor
+----------------
+PK Id
+
+Appointment
+----------------
+PK Id
+FK DoctorId
+```
+
+## 20. Navigation Property
+
+Navigation Property umożliwia przechodzenie pomiędzy powiązanymi encjami.
+
+Przykład:
+
+```csharp
+public Doctor Doctor { get; set; }
+```
+
+Pozwala na dostęp do lekarza powiązanego z wizytą.
+
+W drugą stronę:
+
+```csharp
+public ICollection<Appointment> Appointments { get; set; }
+```
+
+pozwala przejść od lekarza do jego wizyt.
+
+## 21. Eager Loading
+
+**Eager Loading** oznacza pobieranie powiązanych danych razem z główną encją.
+
+Służy do tego `Include()`.
+
+Przykład:
+
+```csharp
+var appointments = await context.Appointments
+    .Include(a => a.Doctor)
+    .ToListAsync();
+```
+
+EF Core pobierze wizyty wraz z powiązanymi lekarzami.
+
+Można również stosować:
+
+```csharp
+.ThenInclude()
+```
+
+do dalszego rozwijania relacji.
+
+## 22. Lazy Loading
+
+**Lazy Loading** oznacza automatyczne pobieranie danych powiązanych dopiero wtedy, gdy są potrzebne.
+
+EF Core może obsługiwać lazy loading przy odpowiedniej konfiguracji.
+
+Mechanizm ten może być wygodny, ale należy uważać na niepotrzebne zapytania do bazy.
+
+Może między innymi prowadzić do problemu znanego jako **N+1 queries**.
+
+## 23. Explicit Loading
+
+Explicit Loading oznacza jawne załadowanie danych powiązanych.
+
+Przykład:
+
+```csharp
+await context.Entry(doctor)
+    .Collection(d => d.Appointments)
+    .LoadAsync();
+```
+
+Programista sam decyduje, kiedy dane mają zostać pobrane.
+
+## 24. Migrations
+
+**Migrations** pozwalają zarządzać zmianami struktury bazy danych za pomocą kodu.
+
+Przykładowo dodanie właściwości:
+
+```csharp
+public string Email { get; set; }
+```
+
+może wymagać zmiany struktury tabeli.
+
+Można utworzyć migrację:
+
+```bash
+dotnet ef migrations add AddEmailToPatient
+```
+
+Następnie zastosować ją:
+
+```bash
+dotnet ef database update
+```
+
+## 25. Code First
+
+W podejściu **Code First** model aplikacji jest tworzony przede wszystkim na podstawie klas C#.
+
+Przykład:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+```
+
+EF Core może na tej podstawie utworzyć strukturę bazy danych.
+
+Schemat:
+
+```text
+C# Classes
+    ↓
+EF Core
+    ↓
+Migrations
+    ↓
+Database
+```
+
+## 26. Database First
+
+W podejściu **Database First** baza danych istnieje wcześniej.
+
+Na jej podstawie można wygenerować klasy oraz `DbContext`.
+
+Schemat:
+
+```text
+Database
+    ↓
+EF Core
+    ↓
+C# Classes + DbContext
+```
+
+Database First jest przydatne między innymi wtedy, gdy baza danych została już zaprojektowana i jest zarządzana niezależnie od aplikacji.
+
+## 27. Fluent API
+
+EF Core umożliwia konfigurację modelu za pomocą **Fluent API**.
+
+Konfigurację można umieszczać między innymi w `OnModelCreating()`.
+
+Przykład:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Product>()
+        .Property(p => p.Name)
+        .HasMaxLength(200);
+}
+```
+
+Fluent API umożliwia bardzo szczegółową konfigurację modelu.
+
+## 28. Data Annotations
+
+Model można również konfigurować za pomocą atrybutów.
+
+Przykład:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+
+    [Required]
+    [MaxLength(200)]
+    public string Name { get; set; }
+}
+```
+
+Jest to podejście nazywane **Data Annotations**.
+
+## 29. Fluent API vs Data Annotations
+
+Data Annotations są proste i dobrze sprawdzają się przy podstawowej konfiguracji.
+
+Fluent API pozwala na bardziej rozbudowaną konfigurację.
+
+W większych projektach często stosuje się Fluent API, aby oddzielić konfigurację bazy danych od klas domenowych.
+
+## 30. Transactions
+
+EF Core obsługuje transakcje.
+
+Transakcja pozwala wykonać grupę operacji jako jedną logiczną całość.
+
+Jeżeli jedna z operacji zakończy się błędem, można wycofać zmiany.
+
+Przykładowo:
+
+```text
+BEGIN TRANSACTION
+       ↓
+ INSERT
+       ↓
+ UPDATE
+       ↓
+ COMMIT
+```
+
+lub w przypadku błędu:
+
+```text
+ROLLBACK
+```
+
+## 31. Concurrency
+
+EF Core posiada mechanizmy obsługi współbieżności.
+
+Można stosować między innymi **optimistic concurrency**.
+
+Przykładowo dwóch użytkowników może próbować zmodyfikować ten sam rekord.
+
+EF Core może wykryć, że rekord został zmieniony od momentu jego odczytania.
+
+## 32. Database Providers
+
+EF Core korzysta z providerów odpowiedzialnych za komunikację z konkretnym typem bazy danych.
+
+Popularne providery obejmują między innymi:
+
+SQL Server,
+
+SQLite,
+
+PostgreSQL,
+
+MySQL,
+
+MariaDB,
+
+Cosmos DB.
+
+Przykładowo dla SQL Server wykorzystywany jest pakiet:
+
+```text
+Microsoft.EntityFrameworkCore.SqlServer
+```
+
+## 33. Connection String
+
+EF Core potrzebuje informacji umożliwiających połączenie z bazą danych.
+
+Informacje te są zazwyczaj przekazywane za pomocą **connection string**.
+
+Przykład:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=MyApp;Trusted_Connection=True;TrustServerCertificate=True"
+  }
+}
+```
+
+W aplikacji ASP.NET Core konfiguracja może wyglądać tak:
+
+```csharp
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+```
+
+## 34. Dependency Injection
+
+EF Core bardzo dobrze integruje się z **Dependency Injection** w ASP.NET Core.
+
+`DbContext` jest zazwyczaj rejestrowany w kontenerze DI.
+
+Przykład:
+
+```csharp
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
+```
+
+Następnie można wstrzyknąć go do serwisu:
+
+```csharp
+public ProductService(AppDbContext context)
+{
+    _context = context;
+}
+```
+
+## 35. DbContext Lifetime
+
+W aplikacjach ASP.NET Core `DbContext` jest zazwyczaj rejestrowany jako **Scoped**.
+
+Oznacza to, że jedna instancja kontekstu jest używana w określonym zakresie żądania HTTP.
+
+Nie powinno się zazwyczaj tworzyć jednej instancji `DbContext` i używać jej przez cały czas działania aplikacji.
+
+## 36. SQL Generated by EF Core
+
+EF Core tłumaczy wyrażenia LINQ na SQL.
+
+Przykład:
+
+```csharp
+var products = await context.Products
+    .Where(p => p.Price > 1000)
+    .OrderBy(p => p.Name)
+    .ToListAsync();
+```
+
+może zostać przetłumaczony na SQL w rodzaju:
+
+```sql
+SELECT *
+FROM Products
+WHERE Price > 1000
+ORDER BY Name;
+```
+
+Dokładny SQL zależy między innymi od providera oraz wersji EF Core.
+
+## 37. Raw SQL
+
+Chociaż EF Core pozwala wykonywać większość operacji za pomocą LINQ, można również wykonywać własny SQL.
+
+Przykładowo:
+
+```csharp
+var products = await context.Products
+    .FromSqlRaw("SELECT * FROM Products")
+    .ToListAsync();
+```
+
+W przypadku parametrów należy korzystać z bezpiecznych mechanizmów parametryzacji, aby uniknąć SQL Injection.
+
+## 38. SQL Injection
+
+Niebezpieczne jest składanie SQL poprzez bezpośrednie łączenie danych użytkownika z tekstem zapytania.
+
+Przykładowo należy unikać:
+
+```csharp
+var sql = "SELECT * FROM Users WHERE Name = '" + name + "'";
+```
+
+Parametryzowane zapytania pozwalają ograniczyć ryzyko SQL Injection.
+
+## 39. EF Core w ASP.NET Core
+
+Entity Framework Core jest bardzo często wykorzystywany razem z ASP.NET Core.
+
+Typowa architektura może wyglądać tak:
+
+```text
+Controller
+    ↓
+Service
+    ↓
+Repository
+    ↓
+DbContext
+    ↓
+EF Core
+    ↓
+Database
+```
+
+W prostszych aplikacjach można jednak korzystać z `DbContext` bezpośrednio w serwisach i nie tworzyć osobnej warstwy Repository.
+
+## 40. Repository Pattern
+
+**Repository Pattern** oddziela logikę dostępu do danych od pozostałej części aplikacji.
+
+Przykład:
+
+```csharp
+public class ProductRepository
+{
+    private readonly AppDbContext _context;
+
+    public ProductRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<List<Product>> GetAllAsync()
+    {
+        return await _context.Products.ToListAsync();
+    }
+}
+```
+
+Repository może być następnie wykorzystywane przez warstwę serwisową.
+
+## 41. EF Core a ADO.NET
+
+ADO.NET wymaga bardziej bezpośredniej pracy z bazą danych.
+
+Przykładowo trzeba samodzielnie korzystać z:
+
+`SqlConnection`
+
+`SqlCommand`
+
+`SqlDataReader`
+
+Entity Framework Core abstrahuje dużą część tych operacji.
+
+Można więc uprościć:
+
+```text
+ADO.NET
+C# → SQL → Connection → Database
+
+EF Core
+C# Objects → LINQ → EF Core → SQL → Database
+```
+
+## 42. Zalety Entity Framework Core
+
+EF Core pozwala pracować z bazą danych za pomocą obiektów C#.
+
+Zmniejsza ilość ręcznie pisanego SQL.
+
+Integruje się z LINQ.
+
+Posiada mechanizm migrations.
+
+Obsługuje relacje pomiędzy encjami.
+
+Posiada change tracking.
+
+Obsługuje transakcje.
+
+Integruje się z ASP.NET Core i Dependency Injection.
+
+Może współpracować z wieloma systemami baz danych.
+
+## 43. Wady Entity Framework Core
+
+EF Core może generować bardziej skomplikowany SQL niż programista napisałby ręcznie.
+
+Nie każda operacja jest równie łatwa do wyrażenia za pomocą LINQ.
+
+Niewłaściwie napisane zapytania mogą powodować problemy z wydajnością.
+
+Change Tracking może powodować dodatkowy narzut.
+
+Przy bardzo specyficznych lub wysoko zoptymalizowanych zapytaniach ręczny SQL może być bardziej odpowiedni.
+
+## 44. Najważniejsze pojęcia
+
+**Entity Framework** – ORM firmy Microsoft dla platformy .NET.
+
+**EF Core** – nowoczesna, wieloplatformowa wersja Entity Framework.
+
+**ORM** – Object-Relational Mapping.
+
+**Entity** – obiekt reprezentujący dane.
+
+**DbContext** – główny kontekst pracy z bazą.
+
+**DbSet** – zbiór encji określonego typu.
+
+**LINQ** – mechanizm tworzenia zapytań w C#.
+
+**IQueryable** – reprezentacja zapytania możliwego do przetłumaczenia na źródło danych.
+
+**Change Tracking** – śledzenie zmian encji.
+
+**AsNoTracking** – pobieranie danych bez śledzenia zmian.
+
+**Migration** – opis zmiany struktury bazy danych.
+
+**Code First** – tworzenie modelu przede wszystkim na podstawie kodu.
+
+**Database First** – tworzenie modelu na podstawie istniejącej bazy.
+
+**Fluent API** – programistyczna konfiguracja modelu.
+
+**Data Annotations** – konfiguracja modelu za pomocą atrybutów.
+
+**Navigation Property** – właściwość umożliwiająca dostęp do powiązanej encji.
+
+**Foreign Key** – klucz obcy.
+
+**Include** – eager loading powiązanych danych.
+
+**Provider** – komponent obsługujący konkretny typ bazy danych.
+
+**SaveChanges** – zapis zmian do bazy.
+
+## 45. Podsumowanie
+
+Entity Framework Core to jeden z najważniejszych frameworków .NET służących do komunikacji z relacyjnymi bazami danych.
+
+Jego podstawowym zadaniem jest mapowanie **obiektów C# na dane w bazie danych**.
+
+Najważniejszymi elementami EF Core są **DbContext, DbSet, Entity, LINQ, Change Tracking, Migrations i Relationships**.
+
+EF Core pozwala tworzyć zapytania za pomocą LINQ, a następnie tłumaczy je na SQL odpowiedni dla konkretnego providera.
+
+Może być wykorzystywany zarówno w prostych aplikacjach, jak i dużych systemach ASP.NET Core.
+
+**W skrócie: Entity Framework Core = ORM + C# + LINQ + DbContext + DbSet + Migrations + relacje + SQL.**

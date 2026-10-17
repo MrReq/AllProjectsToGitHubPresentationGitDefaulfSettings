@@ -1,0 +1,168 @@
+# CrewAI — notatka o technologii
+
+## 1. Czym jest CrewAI?
+
+[Building a Github repo summarizer with CrewAI](https://images.openai.com/static-rsc-4/xlbHGMGTqhvtitDBEP_-tXZgLjXh6MMqeHPCqFhI0gcESG8P2imqnTWoX18e2PaXa_MzkIoqQZLyev57BD9g58tZsJskfN-JJmvoTcve_8JJ9JIVkZ9lHYbVEeqh_3BAB98_qEEVos-YjdHb1wp4YrLMm5oROyEVbGY_-gmcYw0?purpose=inline)
+
+[wandb.ai](https://wandb.ai/byyoung3/crewai_git_documenter/reports/Building-a-Github-repo-summarizer-with-CrewAI--VmlldzoxMjY5Mzc5Ng)
+
+CrewAI to framework służący do tworzenia systemów sztucznej inteligencji, w których wielu agentów AI współpracuje ze sobą, aby realizować złożone zadania.
+
+Framework jest rozwijany w ekosystemie Pythona i umożliwia definiowanie agentów o różnych rolach, celach, zadaniach oraz narzędziach.
+
+Zamiast polegać na jednym modelu AI wykonującym wszystkie operacje, można stworzyć zespół wyspecjalizowanych agentów, z których każdy odpowiada za inną część procesu.
+
+Przykładowo jeden agent może wyszukiwać informacje, drugi analizować dane, a trzeci przygotowywać końcowy raport.
+
+CrewAI jest wykorzystywany do automatyzacji procesów biznesowych, researchu, tworzenia treści, analizy dokumentów i budowania aplikacji opartych na agentach AI.
+
+## 2. Jak działa CrewAI?
+
+Podstawą frameworka jest współpraca agentów oraz podział pracy na zadania.
+
+Użytkownik
+
+Określa cel, np. przygotowanie raportu rynkowego
+
+Crew — zespół agentów
+
+Koordynuje współpracę agentów
+
+Researcher
+
+Zbiera informacje
+
+Analyst
+
+Analizuje dane
+
+Writer
+
+Przygotowuje raport końcowy
+
+Wynik końcowy
+
+Raport przygotowany na podstawie wyników pracy agentów
+
+Każdy agent może korzystać z modelu językowego, instrukcji, narzędzi oraz danych przekazanych w ramach procesu.
+
+Ważne jest to, że agenci nie muszą być osobnymi modelami AI — mogą korzystać z tego samego modelu językowego, ale mieć inne role i instrukcje.
+
+## 3. Najważniejsze elementy CrewAI
+
+Agent
+
+Reprezentuje wyspecjalizowanego wykonawcę zadania. Można określić jego rolę, cel, opis działania, dostępne narzędzia i model AI.
+
+Task — zadanie
+
+Określa, co konkretny agent ma wykonać, jaki wynik powinien zwrócić i ewentualnie któremu agentowi przekazać rezultat.
+
+Crew — zespół
+
+Łączy agentów i zadania w jeden proces. Określa sposób organizacji pracy oraz przekazywania rezultatów.
+
+Process — proces
+
+Określa sposób wykonywania zadań. W klasycznym modelu CrewAI można korzystać z procesu sekwencyjnego lub hierarchicznego.
+
+Tools — narzędzia
+
+Pozwalają agentom wykonywać działania wykraczające poza samo generowanie tekstu, np. wyszukiwać informacje, odczytywać pliki albo korzystać z API.
+
+## 4. Jak wygląda program w CrewAI?
+
+CrewAI wykorzystuje przede wszystkim język Python.
+
+Poniższy przykład pokazuje prosty zespół dwóch agentów: badacza i autora raportu.
+
+```
+from crewai import Agent, Task, Crew, Processresearcher = Agent(    role="Researcher",    goal="Zbierz najważniejsze informacje o sztucznej inteligencji",    backstory="Jesteś analitykiem specjalizującym się w technologiach AI.",    verbose=True)writer = Agent(    role="Writer",    goal="Przygotuj zwięzły raport na podstawie zebranych informacji",    backstory="Jesteś autorem raportów technologicznych.",    verbose=True)research_task = Task(    description=(        "Przygotuj przegląd najważniejszych zastosowań "        "sztucznej inteligencji w biznesie."    ),    expected_output="Lista zastosowań AI z krótkimi wyjaśnieniami.",    agent=researcher)writing_task = Task(    description="Napisz raport na podstawie wyników wcześniejszego zadania.",    expected_output="Raport w języku polskim z podsumowaniem.",    agent=writer,    context=[research_task])crew = Crew(    agents=[researcher, writer],    tasks=[research_task, writing_task],    process=Process.sequential,    verbose=True)result = crew.kickoff()print(result)
+```
+
+W tym przykładzie pierwszy agent przygotowuje informacje, a drugi wykorzystuje wynik jego pracy do opracowania raportu.
+
+Aby uruchomić rzeczywisty program, trzeba zainstalować odpowiednią wersję pakietu `crewai`, skonfigurować dostęp do obsługiwanego modelu językowego i zapewnić wymagane klucze API.
+
+## 5. Przykładowe zastosowania CrewAI
+
+[MarketMind AI – Multi-Agent Research Platform | Devpost](https://images.openai.com/static-rsc-4/zIpylo758lVQgQ3JWllF-zaXeuSAJJN5EY2_XkV8sKObEVAuSOVHbIik8Q6i1zlPZKQDpeCbUIfWDY-TJkpHhUjVPkylg9DFspcz8HXLhr0Eu2IL41RhsA-I9T0XE1ByZMCM1TrlpsjwJmBiAf-L_AeWZlelIN-CvgAINzcwnPc?purpose=inline)
+
+Research i analiza rynku
+
+Jeden agent zbiera informacje, drugi porównuje konkurencję, a trzeci przygotowuje podsumowanie dla firmy.
+
+[AI生成コードのレビュー体制設計 2026年後半｜品質統制と責任分担のチェックリスト](https://images.openai.com/static-rsc-4/aA5K_3BbeeTl_8-0qO1jIU9SPMWPg_ln60BF_dJDWoeyCCA0BucQ1zUMRFnK2II96Awgw-s1PChfbYf4cOTy7v4nTRYF_46QNTLxaafmbXFQrpkzfZYXEhf9uBBxzpZHjjcOo5idxvOpnX6Az0mVgPu_QZgtNpKiDtb2eNQUsN4?purpose=inline)
+
+Wsparcie programowania
+
+Agenci mogą analizować wymagania, proponować kod, przygotowywać testy i sprawdzać potencjalne błędy. Wyniki wymagają weryfikacji przez człowieka.
+
+[AI in Accounting: 7 Use Cases, Examples & Tools (2026)](https://images.openai.com/static-rsc-4/_zsjiTltADegbvgkWZivAUCUX1Ik5gNXaA18eawib7rw5pIuDm1NBUerNGKcajx1NarFebQIaOoj1_VSS51Zal_bJGWa_QawrH47TADLxlunMmwUsgIBwcB-fIK6ZFC3CPdEDiXZg01DkLJk42Sd0JL5cSu5R_8WXQevivJji6k?purpose=inline)
+
+Automatyzacja dokumentów
+
+Zespół agentów może klasyfikować dokumenty, wyodrębniać dane i tworzyć streszczenia.
+
+[Smart Crop Monitoring Market Expected to Reach US$ 10.30 Billion](https://images.openai.com/static-rsc-4/weBwnx3Yo53xzDaKOYt0mdFtIvPo2dNzKDJD_K3q60KxxX4vbEj_6bx0KLrdVHK8XVY6nGW_yY4xapDMPNDnA2ivNPGgVyHWKfNznC6WualCXeNuA3XRQbfhTe-5ujxthAVlm93d5GGd8zVDy8WrUZ6pugaBca-GGhNaq6Jus4Q?purpose=inline)
+
+Rolnictwo i AgriTech
+
+Jeden agent może analizować informacje o uprawie, drugi porządkować dane pogodowe, a trzeci przygotowywać zalecenia dla rolnika. W zastosowaniach praktycznych wyniki należy opierać na wiarygodnych danych i konsultować w razie potrzeby ze specjalistą.
+
+## 6. CrewAI a LangChain i LangGraph
+
+| Cecha               | CrewAI                              | LangChain                                  | LangGraph                                    |
+| ------------------- | ----------------------------------- | ------------------------------------------ | -------------------------------------------- |
+| Główny nacisk       | Współpraca agentów                  | Budowanie aplikacji LLM i integracji       | Sterowanie przepływem pracy agentów i modeli |
+| Podstawowe pojęcia  | Agent, Task, Crew                   | Modele, narzędzia, łańcuchy i integracje   | Graf, węzły, przejścia i stan                |
+| Model pracy         | Zespół agentów wykonujących zadania | Elastyczne komponenty aplikacji            | Grafowy przepływ z kontrolą stanu            |
+| Typowe zastosowanie | Automatyzacja wieloetapowych zadań  | Aplikacje korzystające z modeli językowych | Złożone, kontrolowane procesy agentowe       |
+
+CrewAI bywa wygodnym wyborem, gdy chcesz szybko zorganizować współpracę kilku agentów wokół określonego celu.
+
+LangChain udostępnia szeroki zestaw integracji i komponentów do aplikacji LLM, a LangGraph jest przydatny, gdy potrzebujesz precyzyjnej kontroli przepływu, stanu i wznowień procesu.
+
+## 7. Zalety i wady CrewAI
+
+Zalety:
+
+- Ułatwia podział złożonych zadań między wyspecjalizowanych agentów.
+- Pozwala definiować role, cele i oczekiwane wyniki.
+- Umożliwia łączenie agentów z narzędziami oraz zewnętrznymi usługami.
+- Dobrze nadaje się do prototypowania automatyzacji AI.
+- Wykorzystuje Pythona, który jest popularny w obszarze AI i analizy danych.
+
+Wady:
+
+- Współpraca wielu agentów może zwiększać koszty wywołań modeli i czas wykonania.
+- Agenci mogą generować błędne informacje lub nieprawidłowo przekazywać sobie wyniki.
+- Większa liczba agentów nie zawsze oznacza lepszy rezultat.
+- Procesy wymagają testowania, monitorowania oraz odpowiednich zabezpieczeń.
+- W przypadku prostych zadań pojedynczy model z dobrze przygotowanym promptem może być tańszy i łatwiejszy w utrzymaniu.
+
+## 8. Jak zacząć naukę CrewAI?
+
+Proponowana kolejność nauki:
+
+1. Poznaj podstawy Pythona: funkcje, klasy, moduły, środowiska wirtualne i instalowanie pakietów.
+2. Naucz się korzystać z API modeli językowych.
+3. Utwórz jednego agenta i jedno zadanie.
+4. Dodaj drugiego agenta, który wykorzysta wynik pierwszego.
+5. Połącz zadania w zespół `Crew`.
+6. Poznaj procesy sekwencyjne i hierarchiczne.
+7. Dodaj narzędzie, np. własną funkcję lub integrację z API.
+8. Naucz się obsługi błędów, ograniczania kosztów i testowania rezultatów.
+9. Zbuduj małą aplikację rozwiązującą konkretny problem biznesowy.
+
+Dokumentację, przykłady i aktualne instrukcje instalacji znajdziesz na oficjalnej stronie: [CrewAI — dokumentacja](https://docs.crewai.com/).
+
+## 9. Czy warto uczyć się CrewAI?
+
+Tak, jeśli chcesz rozwijać się w obszarze agentów AI i automatyzacji procesów biznesowych.
+
+Szczególnie dobrym ćwiczeniem jest zbudowanie aplikacji, w której agenci zbierają dane, analizują je i przygotowują raport z możliwością sprawdzenia źródeł.
+
+W projekcie AgriMind AI CrewAI mógłby odpowiadać za warstwę wieloetapowej analizy, natomiast istniejący backend Spring Boot i PostgreSQL mogłyby nadal obsługiwać użytkowników, dane oraz logikę biznesową.
+
+W takim rozwiązaniu CrewAI nie zastępuje całej aplikacji — jest komponentem odpowiedzialnym za wybrany proces AI.

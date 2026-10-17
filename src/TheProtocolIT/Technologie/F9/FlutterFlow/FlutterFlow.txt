@@ -1,0 +1,1205 @@
+# FlutterFlow
+
+## Czym jest FlutterFlow?
+
+FlutterFlow to **wizualna platforma do tworzenia aplikacji**, która wykorzystuje technologię Flutter.
+
+Pozwala tworzyć aplikacje za pomocą **interfejsu typu drag-and-drop**, bez konieczności ręcznego pisania całego kodu.
+
+FlutterFlow jest przede wszystkim narzędziem **Low-Code**, ale pozwala również dodawać własny kod Dart i Flutter.
+
+Dzięki temu można połączyć szybkość tworzenia aplikacji wizualnie z możliwością późniejszego rozszerzania projektu za pomocą kodu.
+
+## Do czego służy FlutterFlow?
+
+FlutterFlow można wykorzystywać do tworzenia:
+
+aplikacji mobilnych.
+
+aplikacji webowych.
+
+MVP.
+
+prototypów.
+
+aplikacji biznesowych.
+
+paneli administracyjnych.
+
+aplikacji SaaS.
+
+aplikacji e-commerce.
+
+aplikacji wykorzystujących Firebase.
+
+aplikacji wykorzystujących REST API.
+
+aplikacji wykorzystujących AI.
+
+## FlutterFlow a Flutter
+
+Flutter i FlutterFlow nie są tym samym narzędziem.
+
+**Flutter** jest frameworkiem programistycznym wykorzystującym język Dart.
+
+**FlutterFlow** jest wizualnym środowiskiem Low-Code wykorzystującym Flutter jako podstawę technologiczną.
+
+Można to zapamiętać:
+
+```text
+Flutter
+→ framework
+→ Dart
+→ programowanie
+
+FlutterFlow
+→ platforma Low-Code
+→ wizualne projektowanie
+→ generowanie kodu Flutter
+```
+
+## Jak działa FlutterFlow?
+
+Typowy proces wygląda tak:
+
+```text
+Pomysł
+  ↓
+FlutterFlow
+  ↓
+Projektowanie UI
+  ↓
+Logika aplikacji
+  ↓
+Baza danych / API
+  ↓
+Testowanie
+  ↓
+Generowanie aplikacji
+  ↓
+Flutter
+```
+
+Programista lub twórca aplikacji może wiele elementów przygotować bezpośrednio za pomocą interfejsu graficznego.
+
+## Drag and Drop
+
+Jedną z najważniejszych funkcji FlutterFlow jest możliwość przeciągania elementów na ekran.
+
+Możemy dodawać między innymi:
+
+Text.
+
+Button.
+
+Image.
+
+Container.
+
+ListView.
+
+Column.
+
+Row.
+
+TextField.
+
+Navigation Bar.
+
+Cards.
+
+Forms.
+
+Przykładowo:
+
+```text
+Widget Panel
+     ↓
+   Button
+     ↓
+┌───────────────┐
+│     LOGIN     │
+└───────────────┘
+```
+
+Nie musimy ręcznie tworzyć całej struktury widgetów w Dart.
+
+## UI Builder
+
+FlutterFlow posiada wizualny **UI Builder**.
+
+Pozwala on projektować interfejs aplikacji.
+
+Możemy ustawiać:
+
+szerokość.
+
+wysokość.
+
+padding.
+
+margin.
+
+kolory.
+
+czcionki.
+
+zaokrąglenia.
+
+cienie.
+
+wyrównanie.
+
+responsywność.
+
+Przypomina to połączenie narzędzia projektowego z IDE.
+
+## Widget Tree
+
+Podobnie jak w Flutterze, FlutterFlow wykorzystuje hierarchiczną strukturę widgetów.
+
+Przykładowo:
+
+```text
+Scaffold
+│
+├── AppBar
+│
+└── Column
+    ├── Text
+    ├── TextField
+    └── Button
+```
+
+FlutterFlow wizualizuje tę strukturę, dzięki czemu można łatwo kontrolować relacje pomiędzy elementami.
+
+## Pages
+
+Aplikacja we FlutterFlow jest podzielona na strony.
+
+Przykładowo:
+
+```text
+Pages
+├── Splash
+├── Login
+├── Register
+├── Home
+├── Products
+├── ProductDetails
+├── Cart
+└── Profile
+```
+
+Każda strona może posiadać własny interfejs i logikę.
+
+## Components
+
+FlutterFlow pozwala tworzyć **reusable components**.
+
+Przykładowo możemy stworzyć:
+
+Custom Button.
+
+Product Card.
+
+Navigation Bar.
+
+Header.
+
+User Avatar.
+
+Search Bar.
+
+Dzięki temu jeden komponent można wykorzystywać w wielu miejscach aplikacji.
+
+```text
+ProductCard
+   ↓
+Products Page
+   ↓
+Home Page
+   ↓
+Favorites Page
+```
+
+## Design System
+
+FlutterFlow umożliwia tworzenie spójnego systemu projektowego.
+
+Możemy definiować:
+
+kolory.
+
+typografię.
+
+style przycisków.
+
+odstępy.
+
+kształty.
+
+komponenty.
+
+Dzięki temu cała aplikacja może mieć jednolity wygląd.
+
+## Themes
+
+Możemy stworzyć motyw aplikacji.
+
+Przykładowo:
+
+```text
+Primary Color
+Secondary Color
+Background Color
+Text Color
+Error Color
+```
+
+Możemy również przygotować:
+
+```text
+Light Theme
+Dark Theme
+```
+
+## Actions
+
+Jednym z najważniejszych elementów FlutterFlow są **Actions**.
+
+Actions określają, co ma się wydarzyć po wykonaniu określonego działania przez użytkownika.
+
+Przykładowo:
+
+```text
+Click Button
+     ↓
+Navigate To Page
+```
+
+lub:
+
+```text
+Click Login
+     ↓
+Validate Form
+     ↓
+Authenticate User
+     ↓
+Navigate Home
+```
+
+## Action Flow
+
+Możemy tworzyć całe przepływy działań.
+
+Przykład logowania:
+
+```text
+User clicks Login
+        ↓
+Validate Form
+        ↓
+Firebase Authentication
+        ↓
+Success?
+   ┌────┴────┐
+   ↓         ↓
+  YES        NO
+   ↓         ↓
+Home       Error
+```
+
+Wiele takich operacji można skonfigurować wizualnie.
+
+## Navigation
+
+FlutterFlow posiada wizualną konfigurację nawigacji.
+
+Możemy przechodzić pomiędzy stronami:
+
+```text
+Login
+  ↓
+Home
+  ↓
+Products
+  ↓
+Product Details
+```
+
+Możemy również przekazywać parametry pomiędzy stronami.
+
+Przykładowo:
+
+```text
+Products
+   ↓
+Product Details
+   ↓
+productId = 123
+```
+
+## Backend
+
+FlutterFlow pozwala integrować aplikację z backendem.
+
+Możemy wykorzystać między innymi:
+
+Firebase.
+
+Supabase.
+
+REST API.
+
+API zewnętrznych usług.
+
+Własny backend.
+
+## Firebase
+
+Jedną z najważniejszych integracji FlutterFlow jest **Firebase**.
+
+Możemy wykorzystać:
+
+Firebase Authentication.
+
+Cloud Firestore.
+
+Firebase Storage.
+
+Cloud Functions.
+
+Firebase Analytics.
+
+Firebase Cloud Messaging.
+
+Przykładowa architektura:
+
+```text
+FlutterFlow
+     ↓
+Firebase
+ ┌───┼────────┬──────────┐
+ ↓   ↓        ↓          ↓
+Auth Firestore Storage   FCM
+```
+
+## Supabase
+
+FlutterFlow może również współpracować z **Supabase**.
+
+Supabase wykorzystuje między innymi PostgreSQL.
+
+Przykładowa architektura:
+
+```text
+FlutterFlow
+     ↓
+Supabase
+     ↓
+PostgreSQL
+```
+
+Może to być interesujące, jeżeli chcemy korzystać z relacyjnej bazy danych SQL.
+
+## REST API
+
+FlutterFlow może komunikować się z zewnętrznym API.
+
+Przykładowo:
+
+```text
+FlutterFlow
+     ↓
+HTTP Request
+     ↓
+FastAPI
+     ↓
+PostgreSQL
+```
+
+Możemy skonfigurować:
+
+GET.
+
+POST.
+
+PUT.
+
+PATCH.
+
+DELETE.
+
+## API Calls
+
+FlutterFlow pozwala definiować własne wywołania API.
+
+Możemy określić:
+
+URL.
+
+metodę HTTP.
+
+nagłówki.
+
+parametry.
+
+body.
+
+odpowiedź.
+
+Przykład:
+
+```text
+GET
+https://api.example.com/products
+```
+
+Odpowiedź:
+
+```json
+{
+  "id": 1,
+  "name": "Rice",
+  "price": 25
+}
+```
+
+Dane mogą następnie zostać wykorzystane w interfejsie aplikacji.
+
+## JSON
+
+FlutterFlow może pracować z odpowiedziami JSON.
+
+Przykład:
+
+```json
+{
+  "user": {
+    "id": 1,
+    "name": "Jan"
+  }
+}
+```
+
+Możemy wykorzystać dane z odpowiedzi do wyświetlenia:
+
+```text
+Hello Jan
+```
+
+## Authentication
+
+FlutterFlow pozwala tworzyć systemy logowania.
+
+Możemy przygotować:
+
+Login.
+
+Register.
+
+Logout.
+
+Forgot Password.
+
+Email Verification.
+
+Social Login.
+
+W przypadku Firebase Authentication możemy skonfigurować uwierzytelnianie bez pisania całego mechanizmu od podstaw.
+
+## State Management
+
+Aplikacja musi przechowywać określone dane podczas działania.
+
+FlutterFlow umożliwia pracę z różnymi rodzajami stanu.
+
+Możemy mieć między innymi:
+
+App State.
+
+Page State.
+
+Component State.
+
+Local State.
+
+Przykładowo:
+
+```text
+App State
+├── currentUser
+├── cart
+├── theme
+└── language
+```
+
+## App State
+
+**App State** przechowuje dane dostępne w większej części aplikacji.
+
+Może zawierać:
+
+informacje o użytkowniku.
+
+koszyk.
+
+preferencje.
+
+język.
+
+ustawienia aplikacji.
+
+## Page State
+
+**Page State** jest związany z konkretną stroną.
+
+Przykładowo strona produktów może przechowywać:
+
+```text
+searchText
+selectedCategory
+currentPage
+sortOption
+```
+
+## Component State
+
+Component State pozwala przechowywać dane związane z konkretnym komponentem.
+
+Przykładowo:
+
+```text
+ProductCard
+ ├── isFavorite
+ └── quantity
+```
+
+## Conditional Logic
+
+FlutterFlow pozwala definiować warunki.
+
+Przykładowo:
+
+```text
+IF user is logged in
+        ↓
+     Show Home
+
+ELSE
+        ↓
+     Show Login
+```
+
+Możemy również tworzyć bardziej rozbudowane warunki.
+
+## Conditional Visibility
+
+Elementy interfejsu mogą być wyświetlane tylko w określonych sytuacjach.
+
+Przykładowo:
+
+```text
+User is Admin
+     ↓
+Show Admin Panel
+```
+
+Dla zwykłego użytkownika:
+
+```text
+User is User
+     ↓
+Hide Admin Panel
+```
+
+## Custom Code
+
+Mimo że FlutterFlow jest platformą Low-Code, pozwala dodawać własny kod.
+
+Możemy wykorzystywać:
+
+Custom Functions.
+
+Custom Actions.
+
+Custom Widgets.
+
+Kod Dart.
+
+Dzięki temu można wyjść poza możliwości dostępne wyłącznie poprzez interfejs graficzny.
+
+## Custom Functions
+
+Custom Function pozwala napisać własną funkcję w Dart.
+
+Przykładowo:
+
+```dart
+double calculatePrice(
+  double price,
+  int quantity,
+) {
+  return price * quantity;
+}
+```
+
+Następnie funkcję można wykorzystać w logice aplikacji.
+
+## Custom Widgets
+
+Jeżeli standardowe widgety FlutterFlow nie są wystarczające, można stworzyć własny widget.
+
+Możemy wtedy wykorzystać kod Flutter/Dart.
+
+Przykładowo:
+
+```text
+FlutterFlow
+     ↓
+Custom Widget
+     ↓
+Dart / Flutter
+```
+
+## Generated Code
+
+FlutterFlow jest oparty na Flutterze i może generować kod aplikacji.
+
+Schemat:
+
+```text
+Visual Design
+      ↓
+FlutterFlow
+      ↓
+Generated Flutter Code
+      ↓
+Dart
+      ↓
+Flutter Application
+```
+
+To jedna z ważniejszych różnic pomiędzy FlutterFlow a klasycznymi narzędziami do tworzenia prototypów.
+
+## Export kodu
+
+Możliwość pracy z wygenerowanym kodem oznacza, że projekt może zostać później rozwijany bardziej programistycznie.
+
+Można więc zacząć:
+
+```text
+Low-Code
+```
+
+a następnie przejść do:
+
+```text
+Custom Code
+```
+
+gdy aplikacja staje się bardziej zaawansowana.
+
+## Responsive Design
+
+FlutterFlow pozwala tworzyć interfejsy dostosowane do różnych rozmiarów ekranu.
+
+Możemy projektować dla:
+
+Mobile.
+
+Tablet.
+
+Desktop.
+
+Web.
+
+Przykładowo:
+
+```text
+Mobile
+┌──────────────┐
+│    Header    │
+│              │
+│   Content    │
+│              │
+│ Navigation   │
+└──────────────┘
+
+Desktop
+┌───────────────────────────────┐
+│ Header                        │
+├────────┬──────────────────────┤
+│ Menu   │ Content              │
+└────────┴──────────────────────┘
+```
+
+## Animations
+
+FlutterFlow pozwala dodawać animacje do elementów interfejsu.
+
+Możemy animować między innymi:
+
+pojawianie się elementów.
+
+przesuwanie.
+
+skalowanie.
+
+przezroczystość.
+
+przejścia pomiędzy stronami.
+
+Dzięki temu aplikacja może wyglądać bardziej profesjonalnie.
+
+## Database Queries
+
+FlutterFlow może pobierać dane z bazy i wyświetlać je w interfejsie.
+
+Przykładowo:
+
+```text
+Firestore
+   ↓
+Query Products
+   ↓
+ListView
+   ↓
+Product Card
+```
+
+Możemy tworzyć listy dynamiczne.
+
+## Dynamic Data
+
+Elementy interfejsu mogą być powiązane z danymi.
+
+Przykładowo:
+
+```text
+Database
+   ↓
+Product
+   ├── name
+   ├── price
+   └── image
+        ↓
+Product Card
+```
+
+Wtedy jedna karta może być wykorzystana dla wielu produktów.
+
+## Lists
+
+FlutterFlow pozwala tworzyć dynamiczne listy.
+
+Przykładowo:
+
+```text
+Products
+├── Rice
+├── Wheat
+├── Corn
+├── Barley
+└── Oats
+```
+
+Lista może być pobierana bezpośrednio z backendu.
+
+## Forms
+
+FlutterFlow pozwala wizualnie tworzyć formularze.
+
+Możemy przygotować:
+
+Login.
+
+Registration.
+
+Contact Form.
+
+Checkout.
+
+Profile.
+
+Search.
+
+Przykład:
+
+```text
+┌──────────────────────┐
+│ Name                 │
+│ [__________________] │
+│                      │
+│ Email                │
+│ [__________________] │
+│                      │
+│ Password             │
+│ [__________________] │
+│                      │
+│      [ Register ]    │
+└──────────────────────┘
+```
+
+## Validation
+
+Możemy określić wymagania dla pól formularza.
+
+Przykładowo:
+
+```text
+Email
+→ wymagany
+→ poprawny format
+
+Password
+→ wymagane
+→ minimum określona liczba znaków
+```
+
+## Payments
+
+FlutterFlow może być integrowany z usługami umożliwiającymi płatności.
+
+W zależności od rozwiązania możemy integrować aplikację z odpowiednimi API lub usługami płatniczymi.
+
+Przykładowy przepływ:
+
+```text
+FlutterFlow
+     ↓
+Payment API
+     ↓
+Payment Provider
+     ↓
+Payment
+```
+
+W przypadku płatności należy odpowiednio zabezpieczyć klucze i logikę po stronie serwera.
+
+## AI
+
+FlutterFlow może być również wykorzystywany jako frontend dla aplikacji AI.
+
+Przykładowa architektura:
+
+```text
+FlutterFlow
+     ↓
+REST API
+     ↓
+FastAPI
+     ↓
+AI Model
+     ↓
+Prediction
+```
+
+Można dzięki temu szybko stworzyć interfejs dla produktu wykorzystującego AI.
+
+## FlutterFlow + FastAPI
+
+Bardzo ciekawym połączeniem jest:
+
+```text
+FlutterFlow
+      ↓
+REST API
+      ↓
+FastAPI
+      ↓
+Python
+      ↓
+AI / Machine Learning
+```
+
+FlutterFlow odpowiada za frontend.
+
+FastAPI odpowiada za backend.
+
+Python może obsługiwać model AI.
+
+## FlutterFlow + Spring Boot
+
+Możemy również wykorzystać:
+
+```text
+FlutterFlow
+      ↓
+REST API
+      ↓
+Spring Boot
+      ↓
+PostgreSQL
+```
+
+Jest to dobre rozwiązanie, gdy backend ma skomplikowaną logikę biznesową.
+
+## Testowanie
+
+FlutterFlow pozwala testować aplikację podczas jej tworzenia.
+
+Możemy sprawdzać:
+
+nawigację.
+
+formularze.
+
+akcje.
+
+responsywność.
+
+połączenie z backendem.
+
+logowanie.
+
+dynamiczne dane.
+
+## Deployment
+
+Gotową aplikację można przygotować do uruchomienia na różnych platformach.
+
+W zależności od konfiguracji projektu możemy przygotowywać aplikacje:
+
+Android.
+
+iOS.
+
+Web.
+
+Desktop.
+
+FlutterFlow może więc być elementem całego procesu:
+
+```text
+Design
+  ↓
+FlutterFlow
+  ↓
+Development
+  ↓
+Testing
+  ↓
+Build
+  ↓
+Deployment
+```
+
+## FlutterFlow a Figma
+
+FlutterFlow i Figma mogą być używane razem.
+
+Figma jest przede wszystkim narzędziem do projektowania UI/UX.
+
+FlutterFlow jest narzędziem do tworzenia działającej aplikacji.
+
+Można to zapamiętać:
+
+```text
+Figma
+→ projektuję wygląd
+
+FlutterFlow
+→ buduję aplikację
+```
+
+Przykładowy workflow:
+
+```text
+Figma
+ ↓
+UI/UX Design
+ ↓
+FlutterFlow
+ ↓
+Interactions
+ ↓
+Backend
+ ↓
+Application
+```
+
+## FlutterFlow a Flutter
+
+FlutterFlow może być dobrym sposobem na rozpoczęcie pracy z Flutterem.
+
+Przykładowo:
+
+```text
+FlutterFlow
+     ↓
+Wizualne tworzenie aplikacji
+     ↓
+Generated Flutter Code
+     ↓
+Dart
+     ↓
+Flutter
+```
+
+Jednak znajomość Fluttera i Darta nadal jest bardzo cenna, ponieważ pozwala lepiej rozumieć wygenerowany kod i tworzyć własne rozszerzenia.
+
+## FlutterFlow a tradycyjne programowanie
+
+Tradycyjne podejście:
+
+```text
+Dart
+ ↓
+Flutter
+ ↓
+Widgets
+ ↓
+Business Logic
+ ↓
+Application
+```
+
+FlutterFlow:
+
+```text
+Visual Builder
+ ↓
+Actions
+ ↓
+Database
+ ↓
+Generated Flutter Code
+ ↓
+Application
+```
+
+## Zalety FlutterFlow
+
+Bardzo szybkie tworzenie aplikacji.
+
+Mało kodowania.
+
+Wizualny projekt interfejsu.
+
+Możliwość tworzenia prototypów.
+
+Integracja z Firebase.
+
+Integracja z Supabase.
+
+Obsługa REST API.
+
+Możliwość dodawania własnego kodu.
+
+Generowanie aplikacji Flutter.
+
+Dobre rozwiązanie do MVP.
+
+Możliwość tworzenia aplikacji mobilnych i webowych.
+
+Dobra integracja z backendami.
+
+## Wady FlutterFlow
+
+Nie wszystko można zrobić bez kodowania.
+
+Bardziej zaawansowane aplikacje mogą wymagać Custom Code.
+
+Trzeba rozumieć podstawy Fluttera, jeżeli projekt jest bardziej skomplikowany.
+
+Automatycznie generowany kod nie zawsze będzie tak elegancki, jak ręcznie zaprojektowana aplikacja.
+
+Przy bardzo specyficznych wymaganiach klasyczne programowanie Flutter może dawać większą kontrolę.
+
+Platforma jest bardziej abstrakcyjna niż bezpośrednia praca w IDE.
+
+## FlutterFlow – najważniejsze pojęcia
+
+**FlutterFlow** – platforma Low-Code do tworzenia aplikacji opartych na Flutterze.
+
+**Dart** – język programowania wykorzystywany przez Flutter.
+
+**Widget** – podstawowy element interfejsu.
+
+**Page** – strona aplikacji.
+
+**Component** – wielokrotnie używany element UI.
+
+**Action** – operacja wykonywana w odpowiedzi na zdarzenie.
+
+**Action Flow** – sekwencja akcji.
+
+**App State** – globalny stan aplikacji.
+
+**Page State** – stan konkretnej strony.
+
+**Component State** – stan komponentu.
+
+**API Call** – wywołanie zewnętrznego API.
+
+**Custom Function** – własna funkcja napisana w Dart.
+
+**Custom Action** – własna logika wykonywana przez aplikację.
+
+**Custom Widget** – własny widget Flutter.
+
+**Firebase** – popularny backend integrowany z FlutterFlow.
+
+**Supabase** – backend wykorzystujący między innymi PostgreSQL.
+
+**Responsive Design** – dostosowanie UI do różnych rozmiarów ekranu.
+
+**Generated Code** – kod Flutter wygenerowany na podstawie projektu.
+
+## FlutterFlow – najważniejsze do zapamiętania
+
+FlutterFlow to **Low-Code platforma do tworzenia aplikacji opartych na Flutterze**.
+
+Wykorzystuje wizualny interfejs typu **drag-and-drop**.
+
+Pozwala tworzyć interfejsy bez ręcznego pisania całego kodu.
+
+Możemy tworzyć **Pages** i **Components**.
+
+**Actions** pozwalają definiować logikę aplikacji.
+
+**Action Flow** pozwala łączyć wiele operacji w jeden proces.
+
+FlutterFlow może współpracować z **Firebase**.
+
+Może współpracować z **Supabase**.
+
+Może komunikować się z dowolnym odpowiednio przygotowanym **REST API**.
+
+Można dodawać własny kod Dart.
+
+Można tworzyć Custom Functions, Custom Actions i Custom Widgets.
+
+FlutterFlow może generować kod Flutter.
+
+FlutterFlow jest szczególnie dobry do szybkiego tworzenia **MVP i aplikacji biznesowych**.
+
+Najprościej zapamiętać:
+
+```text
+                         FLUTTERFLOW
+                              ↓
+                         LOW-CODE
+                              ↓
+                    Visual App Builder
+                              ↓
+              ┌───────────────┼───────────────┐
+              ↓               ↓               ↓
+             UI            Actions          State
+              ↓               ↓               ↓
+         Components       Logic Flow      App Data
+              └───────────────┼───────────────┘
+                              ↓
+                    Firebase / Supabase
+                              ↓
+                         REST API
+                              ↓
+                    FastAPI / Spring
+                              ↓
+                          Database
+```
+
+**FlutterFlow = wizualny Low-Code Builder oparty na Flutterze, który pozwala szybko przejść od pomysłu i projektu UI do działającej aplikacji.**

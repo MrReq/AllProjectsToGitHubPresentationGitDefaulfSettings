@@ -1,0 +1,135 @@
+# GitLab
+
+## 1. Czym jest GitLab?
+
+GitLab to platforma DevSecOps służąca do zarządzania kodem źródłowym, współpracy programistycznej, automatyzacji testowania oraz wdrażania oprogramowania.
+
+Wykorzystuje system kontroli wersji Git i udostępnia narzędzia do zarządzania repozytoriami, zgłaszania błędów, przeglądania zmian oraz tworzenia procesów CI/CD.
+
+GitLab może być używany jako usługa chmurowa lub instalowany na własnej infrastrukturze, zależnie od potrzeb organizacji i wybranego rozwiązania.
+
+## 2. Do czego służy GitLab?
+
+GitLab służy do przechowywania kodu źródłowego i zarządzania historią zmian w projektach informatycznych.
+
+Umożliwia współpracę wielu programistów nad tym samym projektem oraz kontrolowanie zmian przed ich połączeniem z główną gałęzią.
+
+Pozwala automatyzować kompilowanie aplikacji, wykonywanie testów, analizę jakości kodu i wdrażanie oprogramowania.
+
+Wspiera również zarządzanie zadaniami, dokumentacją, bezpieczeństwem aplikacji oraz procesami DevOps.
+
+## 3. Najważniejsze funkcje GitLab
+
+Git Repository to repozytorium przechowujące pliki projektu i historię zmian zarządzaną przez Git.
+
+Merge Requests umożliwiają przedstawianie zmian do przeglądu i połączenia z inną gałęzią projektu.
+
+Issues służą do zgłaszania błędów, planowania funkcji i zarządzania zadaniami.
+
+GitLab CI/CD umożliwia automatyczne budowanie, testowanie i wdrażanie aplikacji.
+
+GitLab Runner to aplikacja wykonująca zadania CI/CD zdefiniowane w pipeline.
+
+Container Registry pozwala przechowywać obrazy kontenerów, na przykład obrazy Docker.
+
+Security Scanning obejmuje funkcje wspierające wykrywanie podatności i problemów bezpieczeństwa w kodzie oraz zależnościach, zależnie od dostępnej edycji i konfiguracji.
+
+## 4. Jak działa GitLab?
+
+Programista tworzy lub pobiera repozytorium GitLab na swój komputer.
+
+Następnie wprowadza zmiany w kodzie i zapisuje je za pomocą commitów.
+
+Po przesłaniu zmian do repozytorium zdalnego może utworzyć Merge Request, aby inni członkowie zespołu mogli sprawdzić kod.
+
+GitLab może automatycznie uruchomić pipeline CI/CD, który skompiluje aplikację i wykona testy.
+
+Po pomyślnym zakończeniu wymaganych kontroli zmiany mogą zostać połączone z główną gałęzią, a aplikacja może zostać przygotowana do wdrożenia.
+
+## 5. GitLab CI/CD
+
+GitLab CI/CD to jeden z najważniejszych elementów platformy, który umożliwia automatyzację całego procesu dostarczania oprogramowania.
+
+Konfigurację zapisuje się zazwyczaj w pliku `.gitlab-ci.yml`, umieszczonym w głównym katalogu repozytorium.
+
+Przykładowy plik dla projektu Java wykorzystującego Maven:
+
+```
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: maven:3.9-eclipse-temurin-21
+  script:
+    - mvn -B -DskipTests package
+
+test:
+  stage: test
+  image: maven:3.9-eclipse-temurin-21
+  script:
+    - mvn -B test
+```
+
+W tym przykładzie pipeline zawiera dwa etapy: budowanie aplikacji i wykonywanie testów.
+
+Zadania są realizowane w środowisku kontenerowym zapewnianym przez odpowiednio skonfigurowany GitLab Runner.
+
+W rzeczywistym projekcie można dodatkowo skonfigurować cache zależności Maven, raporty testowe, reguły uruchamiania zadań oraz wdrażanie aplikacji.
+
+## 6. GitLab a GitHub
+
+GitLab i GitHub to platformy wykorzystujące Git do zarządzania kodem źródłowym i współpracy programistycznej.
+
+GitHub oferuje GitHub Actions do automatyzacji procesów CI/CD.
+
+GitLab udostępnia własny system CI/CD z konfiguracją opartą na pliku `.gitlab-ci.yml`.
+
+GitLab jest znany z szerokiego połączenia funkcji związanych z repozytoriami, CI/CD, bezpieczeństwem i zarządzaniem cyklem życia oprogramowania.
+
+GitHub zapewnia rozbudowany ekosystem projektów open source, integracji i narzędzi programistycznych.
+
+Wybór platformy zależy od wymagań zespołu, infrastruktury, integracji oraz kosztów.
+
+## 7. Zalety GitLab
+
+GitLab łączy wiele narzędzi programistycznych i DevOps w jednej platformie.
+
+Umożliwia automatyzację budowania, testowania i wdrażania aplikacji.
+
+Pozwala instalować rozwiązanie na własnej infrastrukturze w obsługiwanych wariantach, co może być ważne dla organizacji wymagających większej kontroli nad środowiskiem.
+
+Wspiera współpracę zespołową, przeglądy kodu i zarządzanie zadaniami.
+
+Oferuje funkcje związane z bezpieczeństwem oprogramowania, których dostępność zależy od edycji i planu.
+
+## 8. Wady i ograniczenia GitLab
+
+Rozbudowane funkcje platformy mogą wymagać czasu na naukę i konfigurację.
+
+Samodzielnie utrzymywana instancja wymaga odpowiedniej infrastruktury, aktualizacji, monitorowania i zabezpieczeń.
+
+Niektóre zaawansowane funkcje CI/CD, bezpieczeństwa i zarządzania projektami mogą być ograniczone do określonych planów.
+
+Konfiguracja bardziej złożonych pipeline'ów wymaga znajomości YAML, Gita, kontenerów i zasad CI/CD.
+
+## 9. Znaczenie GitLab w pracy informatyka
+
+GitLab jest wykorzystywany przez programistów, testerów QA, inżynierów DevOps oraz zespoły odpowiedzialne za bezpieczeństwo aplikacji.
+
+Programiści mogą przechowywać kod i współpracować nad nowymi funkcjami.
+
+Testerzy mogą automatyzować wykonywanie testów jednostkowych, integracyjnych i API.
+
+Inżynierowie DevOps mogą tworzyć pipeline'y, budować obrazy Docker i automatyzować wdrażanie aplikacji.
+
+Znajomość GitLab jest szczególnie przydatna w organizacjach, które wykorzystują tę platformę do zarządzania całym cyklem życia oprogramowania.
+
+## 10. Podsumowanie
+
+GitLab to platforma DevSecOps oparta na Git, która łączy zarządzanie kodem, współpracę zespołową, automatyzację CI/CD i funkcje związane z bezpieczeństwem oprogramowania.
+
+Najważniejsze elementy GitLab to repozytoria, Merge Requests, Issues, GitLab CI/CD, GitLab Runner oraz Container Registry.
+
+Warto poznać GitLab, jeśli interesujesz się programowaniem, testowaniem automatycznym, Dockerem i praktykami DevOps.

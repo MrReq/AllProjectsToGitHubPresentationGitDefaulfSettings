@@ -1,0 +1,672 @@
+# Frontify
+
+## Czym jest Frontify?
+
+**Frontify** to platforma typu **Digital Brand Hub / Brand Management Platform**, która służy firmom do centralnego zarządzania marką, jej identyfikacją wizualną, materiałami marketingowymi i zasadami komunikacji.
+
+Można ją potraktować jako **centralne miejsce, w którym firma przechowuje i udostępnia wszystkie informacje potrzebne do prawidłowego używania marki**.
+
+Przykładowo firma może przechowywać w Frontify:
+
+- logo,
+- kolory marki,
+- typografię,
+- ikony,
+- zdjęcia,
+- grafiki,
+- materiały marketingowe,
+- szablony,
+- wytyczne dotyczące marki,
+- zasady komunikacji,
+- materiały dla pracowników,
+- materiały dla agencji zewnętrznych.
+
+Najprościej:
+
+```text
+                         FRONTIFY
+                            │
+          ┌─────────────────┼─────────────────┐
+          │                 │                 │
+          ▼                 ▼                 ▼
+     Brand Guidelines    Assets          Templates
+          │                 │                 │
+          ▼                 ▼                 ▼
+       Zasady             Pliki          Materiały
+       marki              marki          marketingowe
+```
+
+## Do czego służy Frontify?
+
+Frontify jest przede wszystkim wykorzystywany do **zarządzania spójnością marki**.
+
+Firma może mieć setki lub tysiące materiałów związanych z marką.
+
+Bez centralnego systemu mogą one być rozproszone:
+
+```text
+Google Drive
+Dropbox
+SharePoint
+lokalne komputery
+e-maile
+Slack
+foldery agencji
+```
+
+Frontify pozwala stworzyć jedno centralne środowisko:
+
+```text
+                    FRONTIFY
+                       │
+       ┌───────────────┼────────────────┐
+       │               │                │
+       ▼               ▼                ▼
+   Guidelines        Assets          Templates
+       │               │                │
+       └───────────────┼────────────────┘
+                       ▼
+                 Brand consistency
+```
+
+## Brand Guidelines
+
+Jednym z najważniejszych zastosowań Frontify są **Brand Guidelines**.
+
+Brand Guidelines to dokumentacja opisująca, jak należy korzystać z marki.
+
+Może zawierać między innymi:
+
+- logo,
+- warianty logo,
+- kolory,
+- fonty,
+- typografię,
+- fotografie,
+- ilustracje,
+- ikony,
+- zasady kompozycji,
+- zasady używania materiałów,
+- przykłady poprawnego zastosowania,
+- przykłady błędnego zastosowania.
+
+Przykład:
+
+```text
+LOGO
+
+✓ poprawne użycie
+✓ odpowiednie proporcje
+✓ odpowiednie tło
+
+✗ nie zmieniaj kolorów
+✗ nie rozciągaj logo
+✗ nie obracaj logo
+```
+
+Dzięki temu projektant w Polsce, marketingowiec w Niemczech i agencja w Hiszpanii mogą korzystać z tych samych zasad.
+
+# Digital Asset Management
+
+Frontify może pełnić również funkcję **DAM — Digital Asset Management**.
+
+DAM oznacza system zarządzania cyfrowymi zasobami.
+
+Przykładowe zasoby:
+
+```text
+Images
+Videos
+Logos
+Icons
+Documents
+Presentations
+Marketing materials
+Product assets
+```
+
+Zamiast szukać:
+
+```text
+C:\Users\Marketing\Desktop\logo_final_v7_NEW2.png
+```
+
+użytkownik może znaleźć odpowiedni materiał w centralnej bibliotece.
+
+## Asset Library
+
+Biblioteka materiałów może zawierać:
+
+```text
+Brand Assets
+│
+├── Logos
+│   ├── Logo RGB
+│   ├── Logo CMYK
+│   └── Logo monochrome
+│
+├── Photography
+│   ├── Products
+│   ├── People
+│   └── Office
+│
+├── Icons
+│
+├── Illustrations
+│
+└── Videos
+```
+
+Materiały można organizować, wyszukiwać i udostępniać odpowiednim użytkownikom.
+
+# Brand Portal
+
+Frontify może pełnić funkcję **brand portalu**.
+
+Brand portal to centralna strona, na której użytkownicy mogą znaleźć wszystkie najważniejsze informacje dotyczące marki.
+
+Przykładowo:
+
+```text
+                 COMPANY BRAND HUB
+                        │
+       ┌────────────────┼────────────────┐
+       │                │                │
+       ▼                ▼                ▼
+    Guidelines        Assets          Templates
+       │                │                │
+       ▼                ▼                ▼
+     Logo             Photos          PowerPoint
+     Colors           Videos          Social Media
+     Fonts            Icons           Documents
+```
+
+Może to być wewnętrzne źródło informacji dla:
+
+- marketingu,
+- designerów,
+- sprzedaży,
+- HR,
+- zarządu,
+- agencji reklamowych,
+- partnerów biznesowych.
+
+# Design System
+
+Frontify może również wspierać dokumentowanie **Design Systemu**.
+
+Design System zawiera elementy wielokrotnie wykorzystywane w produktach cyfrowych.
+
+Przykładowo:
+
+```text
+Design System
+│
+├── Colors
+├── Typography
+├── Buttons
+├── Forms
+├── Cards
+├── Icons
+├── Navigation
+├── Components
+└── Guidelines
+```
+
+Dzięki temu designerzy i developerzy mogą korzystać z tych samych zasad.
+
+# Frontify a Figma
+
+Frontify i Figma mogą być używane razem, ale rozwiązują różne problemy.
+
+**Figma** służy przede wszystkim do projektowania interfejsów.
+
+**Frontify** służy przede wszystkim do zarządzania marką i jej zasobami.
+
+```text
+Figma
+  │
+  └── Projektowanie UI/UX
+       │
+       ├── Screens
+       ├── Components
+       ├── Prototypes
+       └── Design
+
+Frontify
+  │
+  └── Zarządzanie marką
+       │
+       ├── Guidelines
+       ├── Brand Assets
+       ├── Templates
+       └── Brand Portal
+```
+
+Można więc wykorzystać oba narzędzia jednocześnie.
+
+# Frontify a Adobe
+
+Frontify może współpracować z ekosystemem Adobe.
+
+Przykładowe narzędzia Adobe wykorzystywane przez designerów:
+
+- Adobe Photoshop
+- Adobe Illustrator
+- Adobe InDesign
+- Adobe After Effects
+
+Typowy workflow może wyglądać tak:
+
+```text
+Adobe Illustrator
+       │
+       ▼
+   przygotowanie
+      grafiki
+       │
+       ▼
+    Frontify
+       │
+       ▼
+  udostępnienie
+       │
+       ├── Marketing
+       ├── Sales
+       ├── Agency
+       └── Design
+```
+
+# Frontify a DAM
+
+Warto rozróżnić pojęcia.
+
+**DAM** oznacza Digital Asset Management.
+
+**Frontify** jest szerszą platformą do zarządzania marką, która obejmuje między innymi funkcjonalność zarządzania zasobami cyfrowymi.
+
+Można to zapamiętać:
+
+```text
+DAM
+│
+└── zarządzanie cyfrowymi plikami
+
+Brand Management
+│
+├── Guidelines
+├── Assets
+├── Templates
+├── Brand Portal
+└── Governance
+```
+
+Frontify łączy te obszary w jednym środowisku.
+
+# Brand Governance
+
+Jednym z ważnych pojęć jest **Brand Governance**.
+
+Oznacza ono kontrolowanie tego, czy marka jest wykorzystywana zgodnie z ustalonymi zasadami.
+
+Przykładowo firma może określić:
+
+```text
+Logo
+→ tylko zatwierdzone wersje
+
+Colors
+→ tylko określone wartości
+
+Typography
+→ tylko zatwierdzone fonty
+
+Photography
+→ określony styl
+
+Communication
+→ określony ton
+```
+
+Dzięki temu marka pozostaje spójna.
+
+# Brand Consistency
+
+**Brand Consistency** oznacza spójność marki.
+
+Wyobraź sobie dużą międzynarodową firmę.
+
+Bez odpowiedniego systemu:
+
+```text
+Polska       → inne logo
+Niemcy       → inny kolor
+Hiszpania    → inny font
+USA          → inny styl grafik
+```
+
+Z Frontify:
+
+```text
+                 FRONTIFY
+                     │
+                     ▼
+              SAME GUIDELINES
+                     │
+       ┌─────────────┼─────────────┐
+       ▼             ▼             ▼
+     Poland        Germany        USA
+       │             │             │
+       └─────────────┼─────────────┘
+                     ▼
+              SPÓJNA MARKA
+```
+
+# Templates
+
+Frontify może służyć również do udostępniania **szablonów**.
+
+Przykładowe materiały:
+
+- prezentacje,
+- posty social media,
+- materiały reklamowe,
+- dokumenty,
+- materiały sprzedażowe,
+- bannery,
+- materiały HR.
+
+Zamiast tworzyć każdy materiał od zera, pracownik może wykorzystać zatwierdzony template.
+
+# Media Library
+
+Biblioteka multimediów może przechowywać:
+
+```text
+PNG
+JPG
+SVG
+PDF
+MP4
+AI
+PSD
+```
+
+W zależności od konfiguracji organizacji użytkownicy mogą mieć różne uprawnienia do materiałów.
+
+# Search
+
+W przypadku dużych organizacji bardzo ważną funkcją jest wyszukiwanie.
+
+Przykładowo użytkownik może szukać:
+
+```text
+"logo white"
+```
+
+albo:
+
+```text
+"summer campaign"
+```
+
+albo:
+
+```text
+"product photography"
+```
+
+Zamiast ręcznie przeszukiwać setki folderów.
+
+# Permissions
+
+Frontify może być wykorzystywany w dużych organizacjach, dlatego istotne są **uprawnienia**.
+
+Można rozdzielać dostęp między różne grupy użytkowników.
+
+Przykładowo:
+
+```text
+Administrator
+      │
+      ├── pełny dostęp
+      │
+      ▼
+Brand Manager
+      │
+      ├── zarządzanie marką
+      │
+      ▼
+Designer
+      │
+      ├── assets
+      └── guidelines
+      │
+      ▼
+Employee
+      │
+      └── pobieranie zatwierdzonych materiałów
+```
+
+# Collaboration
+
+Frontify wspiera również współpracę pomiędzy zespołami.
+
+Przykładowo:
+
+```text
+Brand Team
+     │
+     ▼
+Frontify
+     │
+ ┌───┼────┬─────────┐
+ ▼   ▼    ▼         ▼
+UX  Marketing Sales  Agency
+```
+
+Wszyscy korzystają z tego samego źródła informacji.
+
+# Frontify i workflow projektowy
+
+Przykładowy workflow projektanta:
+
+```text
+1. Otwórz Frontify
+        │
+        ▼
+2. Znajdź Brand Guidelines
+        │
+        ▼
+3. Sprawdź kolory i typography
+        │
+        ▼
+4. Pobierz potrzebne assets
+        │
+        ▼
+5. Projektuj w Figma / Adobe
+        │
+        ▼
+6. Przygotuj finalny materiał
+        │
+        ▼
+7. Udostępnij / opublikuj
+```
+
+# Frontify i Figma w praktyce
+
+Przykładowo projektant tworzy stronę internetową.
+
+W Frontify znajduje:
+
+```text
+Primary Color
+#123456
+
+Secondary Color
+#ABCDEF
+
+Font
+Inter
+
+Logo
+company-logo.svg
+```
+
+Następnie wykorzystuje te elementy w Figmie.
+
+```text
+Frontify
+   │
+   │ Brand assets
+   ▼
+Figma
+   │
+   │ UI design
+   ▼
+Developer
+   │
+   ▼
+Website
+```
+
+# Frontify dla dużych firm
+
+Frontify jest szczególnie przydatny dla organizacji, które mają:
+
+- wiele zespołów,
+- wiele lokalizacji,
+- wiele produktów,
+- wiele marek,
+- zewnętrzne agencje,
+- duże biblioteki materiałów.
+
+Im większa organizacja, tym większy problem może stanowić utrzymanie spójności marki.
+
+# Przykład zastosowania
+
+Załóżmy firmę produkującą samochody.
+
+Firma posiada:
+
+```text
+10 000 zdjęć
+500 grafik
+50 wersji logo
+100 dokumentów
+kilka zestawów fontów
+wiele kampanii marketingowych
+```
+
+Frontify może stworzyć centralny system:
+
+```text
+                  AUTOMOTIVE BRAND
+                         │
+                      FRONTIFY
+                         │
+       ┌─────────────────┼─────────────────┐
+       │                 │                 │
+       ▼                 ▼                 ▼
+    Guidelines         Assets          Templates
+       │                 │                 │
+       ▼                 ▼                 ▼
+     Logo              Photos          Campaigns
+     Colors            Videos          Presentations
+     Fonts             Icons           Social Media
+```
+
+Każdy zespół korzysta z zatwierdzonych materiałów.
+
+# Zalety Frontify
+
+Najważniejsze zalety:
+
+- centralizacja materiałów marki,
+- łatwiejsze zarządzanie brandem,
+- poprawa spójności wizualnej,
+- łatwiejsze wyszukiwanie materiałów,
+- współpraca między zespołami,
+- dostęp do Brand Guidelines,
+- zarządzanie cyfrowymi zasobami,
+- możliwość obsługi dużych organizacji,
+- ograniczenie używania nieaktualnych materiałów,
+- ułatwienie pracy agencjom zewnętrznym.
+
+# Wady Frontify
+
+Potencjalne wady:
+
+- koszt rozwiązania może być wysoki dla małych firm,
+- wymaga odpowiedniej konfiguracji,
+- wymaga uporządkowania istniejących materiałów,
+- użytkownicy muszą nauczyć się systemu,
+- przy bardzo małej organizacji może być niepotrzebnie rozbudowany,
+- skuteczność zależy od jakości zarządzania brandem.
+
+# Frontify vs Figma vs Zeplin
+
+| Narzędzie | Główne zastosowanie |
+|---|---|
+| **Frontify** | Brand Management |
+| **Figma** | UI/UX Design |
+| **Zeplin** | Handoff Design → Development |
+| **Adobe Photoshop** | Grafika rastrowa |
+| **Adobe Illustrator** | Grafika wektorowa |
+| **Adobe InDesign** | Publikacje i skład |
+
+Można je nawet wykorzystać razem:
+
+```text
+             FRONTIFY
+          Brand Guidelines
+                 │
+        ┌────────┴────────┐
+        ▼                 ▼
+      FIGMA             ADOBE
+     UI/UX             Graphics
+        │                 │
+        └────────┬────────┘
+                 ▼
+              ZEP L I N
+                 │
+                 ▼
+             Developer
+```
+
+# Najważniejsze pojęcia
+
+| Pojęcie | Znaczenie |
+|---|---|
+| Brand Management | zarządzanie marką |
+| Brand Guidelines | zasady dotyczące marki |
+| Brand Portal | centralny portal marki |
+| Brand Asset | zasób związany z marką |
+| DAM | Digital Asset Management |
+| Brand Governance | kontrolowanie sposobu używania marki |
+| Brand Consistency | spójność marki |
+| Asset Library | biblioteka materiałów |
+| Design System | system zasad i komponentów projektowych |
+| Template | gotowy szablon |
+| Digital Asset | cyfrowy materiał |
+| Permissions | uprawnienia użytkowników |
+
+# Najważniejsze do zapamiętania
+
+```text
+                         FRONTIFY
+                            │
+                ┌───────────┼───────────┐
+                │           │           │
+                ▼           ▼           ▼
+           GUIDELINES     ASSETS     TEMPLATES
+                │           │           │
+                └───────────┼───────────┘
+                            ▼
+                    BRAND CONSISTENCY
+                            │
+                            ▼
+                    SPÓJNA MARKA
+```
+
+**Frontify = centralna platforma do zarządzania marką, Brand Guidelines, materiałami cyfrowymi i spójnością identyfikacji wizualnej firmy.**

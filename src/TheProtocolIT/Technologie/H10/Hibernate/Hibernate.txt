@@ -1,0 +1,1123 @@
+# Hibernate
+
+## 1. Czym jest Hibernate
+
+Hibernate to framework ORM dla języka Java.
+
+ORM oznacza Object-Relational Mapping.
+
+Hibernate umożliwia mapowanie obiektów Java na rekordy w relacyjnej bazie danych.
+
+Dzięki Hibernate programista może pracować przede wszystkim z obiektami Java zamiast ręcznie pisać dużą ilość kodu SQL.
+
+Hibernate jest jednym z najpopularniejszych frameworków ORM w ekosystemie Java.
+
+Hibernate jest również jedną z najważniejszych implementacji standardu JPA.
+
+## 2. Czym jest ORM
+
+ORM oznacza Object-Relational Mapping.
+
+ORM jest techniką mapowania obiektowego modelu aplikacji na relacyjny model bazy danych.
+
+Przykładowo w Javie możemy mieć klasę:
+
+```java
+public class User {
+    private Long id;
+    private String name;
+    private String email;
+}
+```
+
+W bazie danych możemy mieć:
+
+```sql
+CREATE TABLE users (
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(255)
+);
+```
+
+Hibernate może powiązać klasę `User` z tabelą `users`.
+
+## 3. Dlaczego używa się Hibernate
+
+Bez ORM programista często musi ręcznie:
+
+```text
+utworzyć SQL
+otworzyć połączenie
+wykonać zapytanie
+pobrać ResultSet
+przetworzyć dane
+utworzyć obiekty Java
+zamknąć zasoby
+```
+
+Hibernate automatyzuje dużą część tych operacji.
+
+Programista może napisać:
+
+```java
+User user = entityManager.find(User.class, 1L);
+```
+
+a Hibernate wygeneruje odpowiednie zapytanie SQL.
+
+## 4. Hibernate a JPA
+
+Hibernate i JPA nie są tym samym.
+
+JPA oznacza Java Persistence API.
+
+JPA jest standardem/specyfikacją opisującą sposób wykonywania ORM w Javie.
+
+Hibernate jest implementacją tego standardu.
+
+Można to przedstawić:
+
+```text
+JPA
+ │
+ │ standard
+ ▼
+Hibernate
+ │
+ │ implementacja
+ ▼
+Database
+```
+
+Kod aplikacji może korzystać z API JPA, natomiast Hibernate wykonuje rzeczywistą pracę.
+
+## 5. Entity
+
+Entity to klasa Java reprezentująca dane przechowywane w bazie danych.
+
+Przykład:
+
+```java
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    private Long id;
+
+    private String name;
+
+    private String email;
+}
+```
+
+Adnotacja `@Entity` informuje Hibernate, że klasa jest encją.
+
+## 6. @Table
+
+Adnotacja `@Table` pozwala określić nazwę tabeli.
+
+Przykład:
+
+```java
+@Entity
+@Table(name = "users")
+public class User {
+}
+```
+
+Klasa `User` zostanie powiązana z tabelą `users`.
+
+Jeżeli `@Table` nie zostanie użyte, Hibernate może wykorzystać nazwę encji zgodnie z konfiguracją strategii nazewnictwa.
+
+## 7. @Id
+
+`@Id` oznacza pole będące kluczem głównym encji.
+
+Przykład:
+
+```java
+@Id
+private Long id;
+```
+
+Każda encja powinna posiadać identyfikator.
+
+Identyfikator pozwala jednoznacznie rozróżnić rekordy.
+
+## 8. Generowanie ID
+
+Hibernate może automatycznie generować wartości identyfikatorów.
+
+Przykład:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+```
+
+W przypadku PostgreSQL lub MySQL może to być powiązane z mechanizmem generowania wartości po stronie bazy.
+
+Inne strategie obejmują między innymi:
+
+```text
+IDENTITY
+SEQUENCE
+TABLE
+AUTO
+```
+
+## 9. @Column
+
+`@Column` pozwala określić sposób mapowania pola na kolumnę.
+
+Przykład:
+
+```java
+@Column(name = "first_name")
+private String firstName;
+```
+
+Pole Java `firstName` zostanie powiązane z kolumną `first_name`.
+
+Możemy również określić między innymi:
+
+```java
+@Column(
+    nullable = false,
+    unique = true,
+    length = 255
+)
+private String email;
+```
+
+## 10. Przykładowa encja
+
+Kompletna encja może wyglądać tak:
+
+```java
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    // getters and setters
+}
+```
+
+Hibernate może na tej podstawie mapować obiekt `User` na tabelę `users`.
+
+## 11. Session
+
+`Session` jest jednym z najważniejszych elementów Hibernate.
+
+`Session` reprezentuje kontekst komunikacji aplikacji z bazą danych.
+
+Można za jej pomocą między innymi:
+
+```text
+zapisywać encje
+odczytywać encje
+aktualizować encje
+usuwać encje
+wykonywać zapytania
+```
+
+W klasycznym Hibernate często spotyka się:
+
+```java
+Session session = sessionFactory.openSession();
+```
+
+W aplikacjach wykorzystujących JPA częściej pracuje się poprzez `EntityManager`.
+
+## 12. SessionFactory
+
+`SessionFactory` jest obiektem odpowiedzialnym za tworzenie sesji Hibernate.
+
+Możemy uprościć architekturę:
+
+```text
+SessionFactory
+      │
+      ├── Session
+      ├── Session
+      └── Session
+```
+
+`SessionFactory` jest kosztownym obiektem i zazwyczaj tworzy się jedną instancję dla całej aplikacji.
+
+## 13. EntityManager
+
+W aplikacjach korzystających z JPA możemy używać `EntityManager`.
+
+Przykład:
+
+```java
+EntityManager entityManager;
+```
+
+`EntityManager` pozwala wykonywać operacje na encjach.
+
+Przykład:
+
+```java
+User user = entityManager.find(User.class, 1L);
+```
+
+W przypadku Hibernate implementacją JPA jest Hibernate.
+
+## 14. CRUD
+
+Hibernate pozwala wykonywać operacje CRUD.
+
+CRUD oznacza:
+
+```text
+Create
+Read
+Update
+Delete
+```
+
+Możemy zapisać obiekt:
+
+```java
+entityManager.persist(user);
+```
+
+Odczytać:
+
+```java
+User user = entityManager.find(User.class, 1L);
+```
+
+Usunąć:
+
+```java
+entityManager.remove(user);
+```
+
+Aktualizacja może odbywać się poprzez pracę z zarządzaną encją lub użycie `merge()` w odpowiednich przypadkach.
+
+## 15. persist
+
+`persist()` służy do zapisania nowej encji.
+
+Przykład:
+
+```java
+User user = new User();
+user.setName("Adam");
+
+entityManager.persist(user);
+```
+
+Hibernate będzie śledzić encję i podczas odpowiedniego momentu wykona `INSERT`.
+
+## 16. find
+
+`find()` pozwala pobrać encję na podstawie jej identyfikatora.
+
+Przykład:
+
+```java
+User user = entityManager.find(User.class, 10L);
+```
+
+Hibernate może wygenerować zapytanie podobne do:
+
+```sql
+SELECT *
+FROM users
+WHERE id = 10;
+```
+
+## 17. remove
+
+`remove()` oznacza usunięcie zarządzanej encji.
+
+Przykład:
+
+```java
+entityManager.remove(user);
+```
+
+Hibernate może wygenerować:
+
+```sql
+DELETE FROM users
+WHERE id = ?;
+```
+
+## 18. update i dirty checking
+
+Jedną z bardzo ważnych funkcji Hibernate jest dirty checking.
+
+Hibernate obserwuje zmiany w zarządzanych encjach.
+
+Przykładowo:
+
+```java
+User user = entityManager.find(User.class, 1L);
+
+user.setName("Marcin");
+```
+
+Nie musimy koniecznie pisać:
+
+```java
+UPDATE users
+SET name = 'Marcin'
+WHERE id = 1;
+```
+
+Hibernate może wykryć zmianę podczas synchronizacji kontekstu persystencji z bazą.
+
+## 19. Persistence Context
+
+Persistence Context jest środowiskiem, w którym Hibernate zarządza encjami.
+
+Encja znajdująca się w Persistence Context jest określana jako managed entity.
+
+Hibernate śledzi jej stan.
+
+Dzięki temu może wykrywać zmiany.
+
+Persistence Context jest jednym z kluczowych pojęć związanych z JPA i Hibernate.
+
+## 20. Stany encji
+
+Encja może znajdować się między innymi w kilku stanach:
+
+```text
+Transient
+   ↓
+Managed
+   ↓
+Detached
+   ↓
+Removed
+```
+
+Transient oznacza obiekt, który nie jest jeszcze zarządzany przez Hibernate.
+
+Managed oznacza encję zarządzaną przez Persistence Context.
+
+Detached oznacza obiekt, który wcześniej był zarządzany, ale nie jest już związany z Persistence Context.
+
+Removed oznacza encję przeznaczoną do usunięcia.
+
+## 21. Transaction
+
+Operacje na bazie danych powinny być wykonywane w ramach transakcji.
+
+Przykład z JPA:
+
+```java
+EntityTransaction transaction =
+        entityManager.getTransaction();
+
+transaction.begin();
+
+entityManager.persist(user);
+
+transaction.commit();
+```
+
+Jeżeli wystąpi problem, możemy wykonać rollback.
+
+```java
+transaction.rollback();
+```
+
+## 22. Spring i Hibernate
+
+Hibernate jest bardzo często wykorzystywany razem ze Spring Boot.
+
+Przykładowa architektura:
+
+```text
+Controller
+    ↓
+Service
+    ↓
+Repository
+    ↓
+JPA / Hibernate
+    ↓
+Database
+```
+
+Spring Boot może automatycznie skonfigurować Hibernate na podstawie właściwości aplikacji.
+
+## 23. Spring Data JPA
+
+Spring Data JPA jeszcze bardziej upraszcza korzystanie z Hibernate.
+
+Możemy stworzyć:
+
+```java
+public interface UserRepository
+        extends JpaRepository<User, Long> {
+}
+```
+
+Nie musimy wtedy samodzielnie implementować podstawowych operacji CRUD.
+
+Możemy użyć:
+
+```java
+userRepository.findById(1L);
+```
+
+lub:
+
+```java
+userRepository.save(user);
+```
+
+Spring Data JPA korzysta pod spodem z JPA, a często domyślną implementacją jest Hibernate.
+
+## 24. JPQL
+
+JPQL oznacza Java Persistence Query Language.
+
+JPQL jest językiem zapytań operującym na encjach i ich właściwościach, a nie bezpośrednio na tabelach.
+
+Przykład:
+
+```java
+SELECT u
+FROM User u
+WHERE u.email = :email
+```
+
+Zapytanie odnosi się do encji `User`, a nie bezpośrednio do tabeli `users`.
+
+Hibernate przekształca takie zapytanie na odpowiedni SQL.
+
+## 25. HQL
+
+HQL oznacza Hibernate Query Language.
+
+HQL jest językiem zapytań charakterystycznym dla Hibernate.
+
+Jest bardzo podobny do JPQL.
+
+Przykład:
+
+```java
+FROM User
+WHERE email = :email
+```
+
+Współczesne aplikacje wykorzystujące JPA często korzystają przede wszystkim z JPQL, natomiast HQL oferuje również możliwości specyficzne dla Hibernate.
+
+## 26. Native SQL
+
+Hibernate pozwala również wykonywać natywne zapytania SQL.
+
+Przykład:
+
+```java
+Query query = entityManager.createNativeQuery(
+    "SELECT * FROM users WHERE email = :email"
+);
+
+query.setParameter("email", email);
+```
+
+Native SQL może być przydatny, gdy potrzebujemy funkcji specyficznych dla konkretnej bazy danych.
+
+## 27. Relationships
+
+Hibernate umożliwia mapowanie relacji pomiędzy encjami.
+
+Najważniejsze rodzaje relacji to:
+
+```text
+One-to-One
+One-to-Many
+Many-to-One
+Many-to-Many
+```
+
+## 28. @OneToOne
+
+`@OneToOne` oznacza relację jeden do jednego.
+
+Przykładowo użytkownik może posiadać jeden profil:
+
+```java
+@OneToOne
+private Profile profile;
+```
+
+Możemy więc mieć:
+
+```text
+User ─────── Profile
+  1             1
+```
+
+## 29. @OneToMany
+
+`@OneToMany` oznacza relację jeden do wielu.
+
+Przykładowo jeden użytkownik może posiadać wiele zamówień:
+
+```java
+@OneToMany
+private List<Order> orders;
+```
+
+Schemat:
+
+```text
+User
+ │
+ ├── Order
+ ├── Order
+ └── Order
+```
+
+## 30. @ManyToOne
+
+`@ManyToOne` oznacza relację wiele do jednego.
+
+W przypadku zamówień:
+
+```java
+@ManyToOne
+private User user;
+```
+
+Wiele zamówień może należeć do jednego użytkownika.
+
+```text
+Order  ──┐
+Order  ──┼──► User
+Order  ──┘
+```
+
+## 31. @ManyToMany
+
+`@ManyToMany` oznacza relację wiele do wielu.
+
+Przykładowo użytkownik może mieć wiele ról, a jedna rola może należeć do wielu użytkowników.
+
+```java
+@ManyToMany
+private Set<Role> roles;
+```
+
+W relacyjnej bazie danych taka relacja zazwyczaj wymaga tabeli pośredniej.
+
+## 32. FetchType
+
+Hibernate może określić sposób pobierania powiązanych danych.
+
+Najważniejsze strategie to:
+
+```text
+LAZY
+EAGER
+```
+
+`LAZY` oznacza pobieranie danych dopiero wtedy, gdy są potrzebne.
+
+`EAGER` oznacza pobieranie danych od razu.
+
+## 33. Lazy Loading
+
+Lazy loading jest bardzo ważnym mechanizmem Hibernate.
+
+Przykładowo użytkownik może posiadać wiele zamówień.
+
+Jeżeli zamówienia są `LAZY`, Hibernate nie musi od razu pobierać wszystkich zamówień.
+
+Dopiero gdy aplikacja odwoła się do:
+
+```java
+user.getOrders()
+```
+
+Hibernate może wykonać dodatkowe zapytanie do bazy.
+
+## 34. Problem N+1
+
+N+1 jest jednym z najczęstszych problemów wydajnościowych związanych z ORM.
+
+Możemy pobrać 100 użytkowników:
+
+```sql
+SELECT * FROM users;
+```
+
+Następnie dla każdego użytkownika Hibernate może wykonać osobne zapytanie dotyczące zamówień.
+
+Otrzymujemy:
+
+```text
+1 zapytanie dla użytkowników
++
+100 zapytań dla zamówień
+=
+101 zapytań
+```
+
+Jest to problem N+1.
+
+Można go ograniczać między innymi za pomocą odpowiednich zapytań, `JOIN FETCH`, Entity Graphs lub właściwego modelowania pobierania danych.
+
+## 35. JOIN FETCH
+
+`JOIN FETCH` pozwala pobierać powiązane dane w ramach jednego zapytania.
+
+Przykład:
+
+```java
+SELECT u
+FROM User u
+JOIN FETCH u.orders
+```
+
+Dzięki temu możemy uniknąć części dodatkowych zapytań powodujących problem N+1.
+
+## 36. Cascade
+
+Cascade określa, jakie operacje powinny być propagowane pomiędzy encjami.
+
+Przykładowo:
+
+```java
+@OneToMany(cascade = CascadeType.ALL)
+private List<Order> orders;
+```
+
+Może oznaczać, że określone operacje wykonane na `User` zostaną również zastosowane do jego `Order`.
+
+Dostępne są między innymi:
+
+```text
+PERSIST
+MERGE
+REMOVE
+REFRESH
+DETACH
+ALL
+```
+
+## 37. orphanRemoval
+
+`orphanRemoval` pozwala automatycznie usuwać encje, które zostały usunięte z relacji rodzic-dziecko.
+
+Przykład:
+
+```java
+@OneToMany(
+    cascade = CascadeType.ALL,
+    orphanRemoval = true
+)
+private List<Order> orders;
+```
+
+Jeżeli zamówienie zostanie usunięte z kolekcji zgodnie z zasadami mapowania, Hibernate może usunąć również odpowiadający rekord z bazy.
+
+## 38. Inheritance
+
+Hibernate pozwala mapować dziedziczenie obiektowe na relacyjną bazę danych.
+
+Przykładowo:
+
+```text
+Person
+  │
+  ├── Employee
+  └── Client
+```
+
+Można wykorzystać strategie:
+
+```text
+SINGLE_TABLE
+JOINED
+TABLE_PER_CLASS
+```
+
+## 39. SINGLE_TABLE
+
+W strategii `SINGLE_TABLE` cała hierarchia jest przechowywana w jednej tabeli.
+
+Przykładowo:
+
+```text
+person
+-----------------------
+id
+name
+type
+salary
+company
+```
+
+Kolumna typu może określać konkretny rodzaj encji.
+
+Zaletą jest prostota i wydajność odczytu.
+
+Wadą może być duża liczba kolumn `NULL`.
+
+## 40. JOINED
+
+W strategii `JOINED` klasy mają własne tabele połączone relacjami.
+
+Przykładowo:
+
+```text
+person
+employee
+client
+```
+
+Jest to bardziej zbliżone do klasycznego modelowania dziedziczenia w relacyjnej bazie.
+
+## 41. TABLE_PER_CLASS
+
+W strategii `TABLE_PER_CLASS` każda konkretna klasa może mieć własną tabelę zawierającą odziedziczone pola.
+
+Może to powodować bardziej skomplikowane zapytania podczas pracy z całym typem bazowym.
+
+## 42. Optimistic Locking
+
+Hibernate obsługuje optimistic locking.
+
+Jest to mechanizm pomagający chronić dane przed problemami związanymi z równoczesną edycją rekordu.
+
+Często wykorzystuje się:
+
+```java
+@Version
+private Long version;
+```
+
+Hibernate może wtedy sprawdzać wersję rekordu podczas aktualizacji.
+
+Jeżeli inna transakcja wcześniej zmodyfikowała rekord, aktualizacja może zakończyć się konfliktem.
+
+## 43. Pessimistic Locking
+
+Hibernate obsługuje również pessimistic locking.
+
+W tym przypadku baza może blokować określone rekordy na czas transakcji.
+
+Jest to przydatne w sytuacjach, w których chcemy ograniczyć możliwość równoczesnej modyfikacji konkretnych danych.
+
+## 44. Hibernate Cache
+
+Hibernate może wykorzystywać mechanizmy cache.
+
+Najważniejszy jest First-Level Cache.
+
+First-Level Cache jest związany z Persistence Context.
+
+Hibernate może również korzystać z Second-Level Cache.
+
+Second-Level Cache może być współdzielony pomiędzy różnymi Persistence Context.
+
+Może to ograniczyć liczbę zapytań do bazy.
+
+## 45. First-Level Cache
+
+First-Level Cache jest domyślnie związany z konkretnym Persistence Context.
+
+Jeżeli pobierzemy tę samą encję wielokrotnie w ramach tego samego kontekstu, Hibernate może nie wykonywać za każdym razem nowego zapytania SQL.
+
+Przykładowo:
+
+```java
+User u1 = entityManager.find(User.class, 1L);
+User u2 = entityManager.find(User.class, 1L);
+```
+
+Hibernate może wykorzystać już zarządzaną encję.
+
+## 46. Second-Level Cache
+
+Second-Level Cache działa na poziomie `SessionFactory` / jednostki persistence, zależnie od konfiguracji.
+
+Może być wykorzystywany przez wiele Persistence Context.
+
+Do implementacji cache można wykorzystać zewnętrzne rozwiązania.
+
+Cache może zwiększyć wydajność, ale niewłaściwe wykorzystanie może prowadzić do problemów ze spójnością lub zużyciem pamięci.
+
+## 47. Hibernate Dialect
+
+Hibernate musi wiedzieć, z jaką bazą danych pracuje.
+
+W tym celu może wykorzystywać Dialect.
+
+Dialect pozwala Hibernate generować SQL odpowiedni dla konkretnego systemu bazodanowego.
+
+Przykładowo możemy pracować z:
+
+```text
+PostgreSQL
+MySQL
+Oracle
+SQL Server
+```
+
+Współczesny Hibernate potrafi często automatycznie rozpoznać odpowiedni dialekt na podstawie konfiguracji połączenia.
+
+## 48. Hibernate Configuration
+
+Konfiguracja Hibernate może obejmować między innymi:
+
+```text
+adres bazy
+login
+hasło
+dialect
+tryb generowania schematu
+logging SQL
+batching
+cache
+```
+
+W Spring Boot konfiguracja może znajdować się w:
+
+```text
+application.properties
+```
+
+lub:
+
+```text
+application.yml
+```
+
+## 49. Hibernate w Spring Boot
+
+Przykładowa konfiguracja:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/app
+spring.datasource.username=postgres
+spring.datasource.password=password
+
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.show-sql=true
+```
+
+Spring Boot może automatycznie skonfigurować Hibernate jako dostawcę JPA.
+
+## 50. ddl-auto
+
+Jedną z ważnych właściwości Hibernate jest:
+
+```properties
+spring.jpa.hibernate.ddl-auto=
+```
+
+Możliwe wartości obejmują między innymi:
+
+```text
+none
+validate
+update
+create
+create-drop
+```
+
+`validate` sprawdza zgodność encji ze schematem.
+
+`update` próbuje aktualizować schemat.
+
+`create` tworzy schemat od początku.
+
+`create-drop` tworzy schemat podczas uruchomienia i usuwa go podczas zamykania aplikacji.
+
+W środowisku produkcyjnym automatyczne modyfikowanie schematu przez `update` jest zazwyczaj złym pomysłem.
+
+## 51. Hibernate i Flyway
+
+Hibernate oraz Flyway mogą być używane razem.
+
+Hibernate może odpowiadać za ORM.
+
+Flyway może odpowiadać za kontrolowane wersjonowanie schematu bazy danych.
+
+Przykładowo:
+
+```text
+Java Entity
+     │
+     ▼
+Hibernate
+     │
+     ▼
+ORM
+
+Flyway
+     │
+     ▼
+Database Migrations
+```
+
+W produkcyjnych aplikacjach takie rozdzielenie odpowiedzialności jest często bardzo korzystne.
+
+## 52. Hibernate i JDBC
+
+Hibernate działa wyżej niż JDBC.
+
+JDBC umożliwia bezpośrednią komunikację aplikacji Java z bazą danych.
+
+Hibernate wykorzystuje JDBC jako jeden z mechanizmów komunikacji z bazą.
+
+Możemy uprościć:
+
+```text
+Application
+     │
+Hibernate / JPA
+     │
+JDBC
+     │
+Database
+```
+
+## 53. Hibernate i SQL
+
+Hibernate nie eliminuje SQL.
+
+Hibernate ostatecznie musi komunikować się z relacyjną bazą danych.
+
+Framework generuje SQL na podstawie operacji wykonywanych na encjach i zapytań.
+
+Dlatego znajomość SQL nadal jest bardzo ważna podczas pracy z Hibernate.
+
+Programista powinien umieć analizować wygenerowane zapytania SQL.
+
+## 54. Zalety Hibernate
+
+Hibernate ogranicza ilość ręcznie pisanego kodu JDBC.
+
+Pozwala mapować obiekty Java na relacyjne bazy danych.
+
+Obsługuje relacje pomiędzy encjami.
+
+Obsługuje transakcje.
+
+Posiada mechanizmy cache.
+
+Obsługuje lazy loading.
+
+Obsługuje dirty checking.
+
+Obsługuje optimistic i pessimistic locking.
+
+Wspiera dziedziczenie.
+
+Dobrze integruje się ze Spring Boot.
+
+## 55. Wady Hibernate
+
+Hibernate może być trudny do zrozumienia dla początkujących.
+
+Nieprawidłowe mapowanie może prowadzić do problemów wydajnościowych.
+
+Lazy loading może prowadzić do niespodziewanych zapytań.
+
+Może wystąpić problem N+1.
+
+Automatycznie generowany SQL nie zawsze będzie optymalny.
+
+Abstrakcja ORM może ukrywać przed programistą istotne szczegóły działania bazy.
+
+W przypadku skomplikowanych zapytań czasami lepszym rozwiązaniem jest użycie natywnego SQL.
+
+## 56. Kiedy używać Hibernate
+
+Hibernate jest dobrym wyborem dla aplikacji Java wykorzystujących relacyjne bazy danych.
+
+Jest szczególnie popularny w aplikacjach Spring Boot.
+
+Sprawdza się w systemach biznesowych posiadających wiele encji i relacji.
+
+Jest dobrym rozwiązaniem, gdy chcemy pracować przede wszystkim z obiektowym modelem danych.
+
+Nie oznacza to jednak, że wszystkie zapytania powinny być wykonywane przez ORM.
+
+Wydajne aplikacje często łączą ORM z dobrze napisanym SQL.
+
+## 57. Najważniejsze pojęcia do zapamiętania
+
+**Hibernate** — framework ORM dla Javy.
+
+**ORM** — Object-Relational Mapping.
+
+**JPA** — standard API persystencji dla Javy.
+
+**Entity** — klasa Java mapowana na dane w bazie.
+
+**@Entity** — oznacza klasę jako encję.
+
+**@Table** — określa tabelę powiązaną z encją.
+
+**@Id** — oznacza klucz główny.
+
+**@Column** — określa mapowanie pola na kolumnę.
+
+**EntityManager** — API JPA do zarządzania encjami.
+
+**Session** — kontekst pracy Hibernate z bazą danych.
+
+**SessionFactory** — fabryka obiektów `Session`.
+
+**Persistence Context** — kontekst, w którym Hibernate zarządza encjami.
+
+**Dirty Checking** — automatyczne wykrywanie zmian w zarządzanych encjach.
+
+**Lazy Loading** — pobieranie danych dopiero wtedy, gdy są potrzebne.
+
+**Eager Loading** — pobieranie danych od razu.
+
+**N+1 Problem** — wykonanie jednego zapytania głównego i wielu dodatkowych zapytań dla powiązanych danych.
+
+**JPQL** — język zapytań operujący na encjach JPA.
+
+**HQL** — język zapytań Hibernate.
+
+**Cascade** — propagowanie operacji pomiędzy encjami.
+
+**@Version** — mechanizm wykorzystywany między innymi do optimistic locking.
+
+**First-Level Cache** — cache związany z Persistence Context.
+
+**Second-Level Cache** — cache działający na szerszym poziomie niż pojedynczy Persistence Context.
+
+**Dialect** — mechanizm dostosowania generowanego SQL do konkretnej bazy danych.
+
+**ddl-auto** — konfiguracja sposobu zarządzania schematem przez Hibernate.
+
+**Flyway** — narzędzie do wersjonowania migracji bazy danych, które może współpracować z Hibernate.
+
+## 58. Hibernate w jednym zdaniu
+
+Hibernate to **framework ORM dla Javy, który mapuje obiekty Java na dane relacyjnej bazy danych i automatyzuje wiele operacji związanych z zapisem, odczytem, aktualizacją, usuwaniem oraz zarządzaniem relacjami między encjami**.

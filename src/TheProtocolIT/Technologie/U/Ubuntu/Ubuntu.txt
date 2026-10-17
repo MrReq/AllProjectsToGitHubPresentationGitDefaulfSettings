@@ -1,0 +1,483 @@
+Jasne — lecimy w tym samym stylu co wcześniejsze notatki z alfabetu IT.
+
+# Ubuntu
+
+## 1. Czym jest Ubuntu?
+
+Ubuntu to popularna dystrybucja systemu operacyjnego Linux oparta na Debianie.
+
+Ubuntu jest rozwijane przez firmę Canonical.
+
+System Ubuntu jest dostępny bezpłatnie i jest oprogramowaniem open source.
+
+Ubuntu może być używane zarówno na komputerach osobistych, jak i na serwerach, w chmurze oraz w środowiskach programistycznych.
+
+Ubuntu jest jedną z najpopularniejszych dystrybucji Linuxa, szczególnie wśród osób rozpoczynających naukę systemów Linux.
+
+## 2. Linux a Ubuntu
+
+Linux to przede wszystkim rodzina systemów opartych na jądrze Linux.
+
+Ubuntu jest konkretną dystrybucją wykorzystującą jądro Linux.
+
+Można więc powiedzieć, że Linux jest podstawą, a Ubuntu jest jednym z systemów zbudowanych na tej podstawie.
+
+Innymi popularnymi dystrybucjami są między innymi Debian, Fedora, Arch Linux, openSUSE oraz Linux Mint.
+
+## 3. Ubuntu Desktop
+
+Ubuntu Desktop to wersja Ubuntu przeznaczona przede wszystkim dla komputerów osobistych.
+
+Domyślnym środowiskiem graficznym Ubuntu jest GNOME.
+
+Środowisko graficzne pozwala korzystać z systemu za pomocą okien, ikon, menu i aplikacji.
+
+Ubuntu Desktop może być wykorzystywane do pracy, nauki, programowania, korzystania z Internetu oraz obsługi multimediów.
+
+## 4. Ubuntu Server
+
+Ubuntu Server jest wersją przeznaczoną do uruchamiania serwerów.
+
+Ubuntu Server zazwyczaj działa bez graficznego interfejsu użytkownika.
+
+Administracja systemem odbywa się głównie za pomocą terminala.
+
+Ubuntu Server jest często wykorzystywany do hostowania aplikacji, baz danych, serwerów WWW, kontenerów oraz usług sieciowych.
+
+## 5. Terminal w Ubuntu
+
+Terminal jest jednym z najważniejszych narzędzi w Ubuntu.
+
+Pozwala wykonywać polecenia systemowe bez korzystania z interfejsu graficznego.
+
+Przykładowe polecenie wyświetlające zawartość katalogu to:
+
+```bash
+ls
+```
+
+Polecenie służące do przejścia do innego katalogu to:
+
+```bash
+cd
+```
+
+Polecenie pokazujące aktualną lokalizację to:
+
+```bash
+pwd
+```
+
+Polecenie tworzące katalog to:
+
+```bash
+mkdir nazwa
+```
+
+Polecenie tworzące plik może wyglądać tak:
+
+```bash
+touch plik.txt
+```
+
+## 6. System plików
+
+Ubuntu korzysta z hierarchicznego systemu plików.
+
+Najwyższym poziomem systemu plików jest katalog główny oznaczany symbolem:
+
+```text
+/
+```
+
+W systemie znajdują się między innymi katalogi:
+
+```text
+/home
+/etc
+/var
+/usr
+/bin
+/tmp
+/root
+```
+
+Katalog `/home` zawiera katalogi użytkowników.
+
+Katalog `/etc` zawiera konfigurację systemu i usług.
+
+Katalog `/var` przechowuje dane zmienne, takie jak logi.
+
+Katalog `/tmp` jest przeznaczony na pliki tymczasowe.
+
+Katalog `/root` jest katalogiem domowym administratora root.
+
+## 7. Użytkownicy i uprawnienia
+
+Ubuntu posiada system użytkowników i grup.
+
+Każdy użytkownik może mieć określone uprawnienia do plików i katalogów.
+
+Podstawowe prawa dostępu to:
+
+```text
+r – read – odczyt
+w – write – zapis
+x – execute – wykonanie
+```
+
+Uprawnienia mogą być określone osobno dla właściciela pliku, grupy oraz pozostałych użytkowników.
+
+Do wykonywania operacji wymagających uprawnień administratora często używa się polecenia:
+
+```bash
+sudo
+```
+
+Przykład:
+
+```bash
+sudo apt update
+```
+
+## 8. Root
+
+Root jest specjalnym użytkownikiem posiadającym bardzo szerokie uprawnienia w systemie.
+
+Root może między innymi zmieniać konfigurację systemu, instalować oprogramowanie oraz modyfikować pliki innych użytkowników.
+
+Ubuntu zachęca do korzystania z konta zwykłego użytkownika i używania `sudo` tylko wtedy, gdy wymagane są uprawnienia administratora.
+
+## 9. Instalowanie oprogramowania
+
+Ubuntu posiada system zarządzania pakietami.
+
+Jednym z najważniejszych narzędzi jest `APT`.
+
+Polecenie:
+
+```bash
+sudo apt update
+```
+
+odświeża informacje o dostępnych pakietach.
+
+Polecenie:
+
+```bash
+sudo apt upgrade
+```
+
+aktualizuje zainstalowane pakiety.
+
+Program można zainstalować za pomocą:
+
+```bash
+sudo apt install nazwa_programu
+```
+
+Program można usunąć za pomocą:
+
+```bash
+sudo apt remove nazwa_programu
+```
+
+## 10. Pakiety DEB
+
+Ubuntu korzysta z pakietów w formacie `.deb`.
+
+Pakiet DEB może zawierać program oraz informacje potrzebne do jego instalacji.
+
+APT automatycznie zarządza zależnościami pomiędzy pakietami.
+
+Dzięki temu instalowanie oprogramowania jest znacznie prostsze niż ręczne pobieranie wszystkich wymaganych bibliotek.
+
+## 11. Snap
+
+Ubuntu wspiera również system pakietów Snap.
+
+Snap umożliwia instalowanie aplikacji w formie pakietów zawierających aplikację oraz wymagane zależności.
+
+Przykładowa instalacja pakietu Snap może wyglądać tak:
+
+```bash
+sudo snap install nazwa
+```
+
+Snap jest rozwijany przez Canonical.
+
+## 12. Ubuntu i programowanie
+
+Ubuntu jest bardzo popularnym systemem wśród programistów.
+
+Można na nim instalować między innymi Java, Python, Node.js, .NET, Docker, Kubernetes oraz wiele innych narzędzi.
+
+Terminal Linuxa jest szczególnie wygodny podczas pracy z narzędziami programistycznymi.
+
+Ubuntu jest również często wykorzystywane jako środowisko developerskie dla aplikacji działających później na serwerach Linux.
+
+## 13. Ubuntu i Java
+
+Na Ubuntu można instalować różne wersje JDK.
+
+Przykładowo można sprawdzić wersję Javy poleceniem:
+
+```bash
+java -version
+```
+
+Kompilator Java można sprawdzić poleceniem:
+
+```bash
+javac -version
+```
+
+Java może być instalowana z wykorzystaniem APT albo innych sposobów zarządzania wersjami JDK.
+
+## 14. Ubuntu i Python
+
+Python jest bardzo dobrze wspierany przez Ubuntu.
+
+Wersję Pythona można sprawdzić poleceniem:
+
+```bash
+python3 --version
+```
+
+Pakiety Python można instalować między innymi za pomocą `pip`.
+
+Przykład:
+
+```bash
+pip install nazwa_pakietu
+```
+
+W projektach Python często stosuje się również środowiska wirtualne.
+
+## 15. Ubuntu i Docker
+
+Ubuntu jest bardzo często wykorzystywane jako system hostujący kontenery Docker.
+
+Docker pozwala uruchamiać aplikacje w izolowanych kontenerach.
+
+Przykładowe polecenie uruchomienia kontenera może wyglądać tak:
+
+```bash
+docker run hello-world
+```
+
+Ubuntu może być zarówno systemem developerskim, jak i systemem serwerowym, na którym działają kontenery produkcyjne.
+
+## 16. Ubuntu i Kubernetes
+
+Ubuntu może również służyć jako system operacyjny dla węzłów Kubernetes.
+
+Kubernetes zarządza kontenerami uruchamianymi na wielu maszynach.
+
+Ubuntu jest często wybierane do tworzenia środowisk Kubernetes ze względu na dobre wsparcie dla kontenerów i narzędzi infrastrukturalnych.
+
+## 17. Ubuntu w chmurze
+
+Ubuntu jest dostępne u wielu dostawców usług chmurowych.
+
+Można tworzyć maszyny wirtualne z Ubuntu między innymi w środowiskach takich jak AWS, Microsoft Azure czy Google Cloud.
+
+Dzięki temu Ubuntu jest bardzo popularne w administracji serwerami oraz DevOps.
+
+## 18. Aktualizacje Ubuntu
+
+Ubuntu jest regularnie aktualizowane.
+
+Aktualizacje mogą zawierać poprawki bezpieczeństwa, poprawki błędów oraz nowe wersje oprogramowania.
+
+Istnieją również wersje Ubuntu oznaczane jako LTS, czyli Long Term Support.
+
+Wersje LTS otrzymują długoterminowe wsparcie i są często wybierane na serwerach oraz w środowiskach produkcyjnych.
+
+## 19. Ubuntu LTS
+
+LTS oznacza Long Term Support.
+
+Wersje LTS są przeznaczone dla użytkowników, którzy potrzebują stabilnego systemu oraz długiego okresu wsparcia.
+
+Ubuntu wydaje nowe wersje LTS co dwa lata.
+
+Wersje pośrednie są wydawane częściej i mają krótszy okres wsparcia.
+
+## 20. Ubuntu w DevOps
+
+Ubuntu jest często wykorzystywane w DevOps.
+
+Na Ubuntu można uruchamiać narzędzia takie jak Docker, Kubernetes, Jenkins, Ansible, Git, Terraform oraz wiele innych.
+
+System pozwala automatyzować instalowanie oprogramowania, konfigurację serwerów, wdrażanie aplikacji oraz zarządzanie infrastrukturą.
+
+## 21. Ubuntu a Windows
+
+Ubuntu i Windows różnią się między innymi architekturą systemu, sposobem zarządzania oprogramowaniem oraz narzędziami administracyjnymi.
+
+Windows jest systemem komercyjnym rozwijanym przez Microsoft.
+
+Ubuntu jest dystrybucją Linuxa rozwijaną przez Canonical i opartą na otwartym oprogramowaniu.
+
+Ubuntu szczególnie dobrze sprawdza się w pracy z terminalem, serwerami, programowaniem oraz narzędziami DevOps.
+
+Windows jest natomiast bardzo popularny na komputerach osobistych oraz w środowiskach wykorzystujących technologie Microsoftu.
+
+## 22. Ubuntu i WSL
+
+Ubuntu może być również uruchamiane w Windows poprzez WSL, czyli Windows Subsystem for Linux.
+
+WSL pozwala korzystać z wielu narzędzi i poleceń Linuxa bez konieczności instalowania klasycznej maszyny wirtualnej.
+
+Jedną z popularnych dystrybucji dostępnych w WSL jest właśnie Ubuntu.
+
+Jest to bardzo wygodne rozwiązanie dla programistów pracujących na Windowsie, którzy potrzebują środowiska Linux.
+
+## 23. Ubuntu w praktyce
+
+Ubuntu można wykorzystać jako system operacyjny na komputerze osobistym.
+
+Ubuntu można wykorzystać jako system serwerowy.
+
+Ubuntu można wykorzystać jako środowisko programistyczne.
+
+Ubuntu można wykorzystać do nauki administracji systemami Linux.
+
+Ubuntu można wykorzystać w projektach DevOps i Cloud.
+
+Ubuntu można wykorzystać jako środowisko dla Dockera i Kubernetes.
+
+Ubuntu może również działać jako system operacyjny maszyny wirtualnej.
+
+## 24. Najważniejsze polecenia Ubuntu
+
+```bash
+pwd
+```
+
+Pokazuje aktualny katalog.
+
+```bash
+ls
+```
+
+Wyświetla zawartość katalogu.
+
+```bash
+cd
+```
+
+Zmienia katalog.
+
+```bash
+mkdir
+```
+
+Tworzy katalog.
+
+```bash
+touch
+```
+
+Tworzy pusty plik.
+
+```bash
+cp
+```
+
+Kopiuje pliki lub katalogi.
+
+```bash
+mv
+```
+
+Przenosi lub zmienia nazwę pliku.
+
+```bash
+rm
+```
+
+Usuwa pliki.
+
+```bash
+cat
+```
+
+Wyświetla zawartość pliku.
+
+```bash
+grep
+```
+
+Wyszukuje tekst.
+
+```bash
+sudo
+```
+
+Uruchamia polecenie z uprawnieniami administratora.
+
+```bash
+apt
+```
+
+Zarządza pakietami.
+
+```bash
+systemctl
+```
+
+Zarządza usługami systemowymi.
+
+```bash
+chmod
+```
+
+Zmienia uprawnienia plików.
+
+```bash
+chown
+```
+
+Zmienia właściciela pliku.
+
+```bash
+ps
+```
+
+Wyświetla procesy.
+
+```bash
+top
+```
+
+Pokazuje aktywne procesy i wykorzystanie zasobów.
+
+## 25. Ubuntu – najważniejsze informacje do zapamiętania
+
+Ubuntu jest dystrybucją systemu Linux.
+
+Ubuntu jest rozwijane przez Canonical.
+
+Ubuntu jest oparte na Debianie.
+
+Ubuntu Desktop wykorzystuje domyślnie środowisko GNOME.
+
+Ubuntu Server jest przeznaczone do pracy serwerowej.
+
+APT służy do zarządzania pakietami.
+
+Pakiety Ubuntu mają między innymi format `.deb`.
+
+Snap jest alternatywnym systemem dystrybucji pakietów.
+
+`sudo` umożliwia wykonywanie poleceń z uprawnieniami administratora.
+
+Root jest użytkownikiem posiadającym najwyższe uprawnienia w systemie.
+
+Ubuntu posiada wersje LTS przeznaczone do długoterminowego wsparcia.
+
+Ubuntu jest bardzo popularne w programowaniu, DevOps, Cloud, Dockerze i Kubernetesie.
+
+Ubuntu może być również uruchamiane w Windows za pomocą WSL.

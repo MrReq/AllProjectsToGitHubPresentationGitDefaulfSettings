@@ -1,0 +1,499 @@
+# Burp Suite — notatka
+
+## 1. Czym jest Burp Suite?
+
+Burp Suite to platforma przeznaczona do testowania bezpieczeństwa aplikacji internetowych.
+
+Jest szczególnie popularna wśród pentesterów, audytorów bezpieczeństwa oraz osób zajmujących się bezpieczeństwem aplikacji webowych.
+
+Burp Suite pozwala przechwytywać, analizować i modyfikować komunikację pomiędzy przeglądarką a aplikacją internetową.
+
+Może być używany zarówno do ręcznego testowania, jak i do częściowej automatyzacji testów bezpieczeństwa.
+
+## 2. Web Application Security
+
+Burp Suite koncentruje się przede wszystkim na bezpieczeństwie aplikacji webowych.
+
+Pozwala analizować żądania HTTP i HTTPS wysyłane przez przeglądarkę.
+
+Można dzięki temu sprawdzać, jak aplikacja reaguje na różne dane wejściowe.
+
+## 3. Proxy
+
+Jednym z najważniejszych elementów Burp Suite jest Proxy.
+
+Proxy działa jako pośrednik pomiędzy przeglądarką a aplikacją internetową.
+
+Pozwala przechwycić komunikację przed wysłaniem jej do serwera.
+
+Dzięki temu można zobaczyć dokładną zawartość żądania oraz odpowiedzi serwera.
+
+## 4. Intercept
+
+Intercept pozwala zatrzymać przechwycone żądanie.
+
+Zatrzymane żądanie można przeanalizować lub zmodyfikować.
+
+Następnie można zdecydować, czy żądanie ma zostać wysłane dalej.
+
+Jest to jedna z podstawowych funkcji wykorzystywanych podczas ręcznych testów bezpieczeństwa.
+
+## 5. HTTP Request
+
+HTTP Request to żądanie wysyłane przez klienta do serwera.
+
+Może zawierać między innymi metodę HTTP, adres URL, nagłówki oraz dane.
+
+Burp Suite pozwala analizować wszystkie te elementy.
+
+## 6. HTTP Response
+
+HTTP Response to odpowiedź otrzymywana od serwera.
+
+Może zawierać kod statusu HTTP, nagłówki oraz dane zwracane klientowi.
+
+Burp Suite pozwala analizować odpowiedzi i sprawdzać, czy aplikacja nie ujawnia niepotrzebnych informacji.
+
+## 7. HTTP Methods
+
+Burp Suite pozwala analizować różne metody HTTP.
+
+Najczęściej spotykane są GET, POST, PUT, PATCH i DELETE.
+
+Różne metody mogą być wykorzystywane do różnych operacji wykonywanych przez aplikację.
+
+## 8. Headers
+
+Nagłówki HTTP zawierają dodatkowe informacje dotyczące żądania lub odpowiedzi.
+
+Przykładami są `Host`, `Cookie`, `Authorization`, `Content-Type` oraz `User-Agent`.
+
+Burp Suite pozwala łatwo przeglądać i modyfikować nagłówki.
+
+## 9. Cookies
+
+Cookies są informacjami przechowywanymi po stronie klienta i wysyłanymi wraz z odpowiednimi żądaniami.
+
+Często są wykorzystywane do utrzymywania sesji użytkownika.
+
+Burp Suite pozwala analizować cookies i sprawdzać sposób zarządzania sesją.
+
+## 10. Session
+
+Sesja pozwala aplikacji rozpoznać użytkownika pomiędzy kolejnymi żądaniami.
+
+Może być identyfikowana za pomocą cookie lub tokenu.
+
+Podczas testów bezpieczeństwa warto sprawdzać, czy mechanizm sesji jest odpowiednio zabezpieczony.
+
+## 11. HTTPS
+
+HTTPS szyfruje komunikację pomiędzy klientem a serwerem.
+
+Burp Suite może analizować komunikację HTTPS po odpowiednim skonfigurowaniu certyfikatu CA w testowanym środowisku.
+
+Pozwala to obserwować żądania i odpowiedzi przesyłane przez zaszyfrowane połączenie.
+
+## 12. Burp CA Certificate
+
+Aby Burp Suite mógł analizować HTTPS w kontrolowanym środowisku testowym, przeglądarka musi ufać certyfikatowi CA wygenerowanemu przez Burp.
+
+Certyfikat powinien być instalowany wyłącznie w środowisku, które użytkownik kontroluje.
+
+Pozwala to Burp Suite pośredniczyć w połączeniach HTTPS podczas testów.
+
+## 13. HTTP History
+
+HTTP History przechowuje historię przechwyconych żądań i odpowiedzi.
+
+Można dzięki temu wrócić do wcześniejszego żądania.
+
+Jest to bardzo przydatne podczas analizowania działania aplikacji.
+
+## 14. Repeater
+
+Repeater pozwala ręcznie wysyłać ponownie wybrane żądania HTTP.
+
+Można zmieniać parametry żądania i obserwować reakcję serwera.
+
+Jest to jedno z najważniejszych narzędzi Burp Suite podczas ręcznych testów.
+
+## 15. Repeater i testowanie
+
+Repeater pozwala wykonywać kontrolowane eksperymenty na żądaniach.
+
+Można zmienić pojedynczy parametr i sprawdzić, czy odpowiedź serwera ulegnie zmianie.
+
+Dzięki temu można lepiej zrozumieć zachowanie testowanej aplikacji.
+
+## 16. Intruder
+
+Intruder służy do automatyzowania powtarzalnych modyfikacji żądań.
+
+Może testować wiele wartości wybranych parametrów.
+
+Jest używany między innymi do testowania parametrów wejściowych, mechanizmów uwierzytelniania oraz innych elementów aplikacji w autoryzowanych testach.
+
+## 17. Payload
+
+Payload jest wartością wstawianą przez Intruder w określone miejsce żądania.
+
+Może być generowany z listy wartości lub przygotowanego zestawu danych testowych.
+
+Payload pozwala automatycznie wykonywać wiele wariantów tego samego żądania.
+
+## 18. Intruder Positions
+
+Intruder pozwala wskazać miejsca w żądaniu, które mają być zmieniane.
+
+Takie miejsca mogą znajdować się między innymi w parametrach URL, nagłówkach, cookies lub danych formularza.
+
+Następnie Intruder może testować przygotowane wartości w tych miejscach.
+
+## 19. Scanner
+
+Burp Suite posiada funkcje automatycznego skanowania bezpieczeństwa zależne od edycji produktu.
+
+Scanner może analizować aplikację i wskazywać potencjalne problemy bezpieczeństwa.
+
+Wyniki automatycznego skanowania powinny być następnie zweryfikowane przez człowieka.
+
+## 20. Target
+
+Target przedstawia informacje dotyczące testowanej aplikacji.
+
+Pozwala organizować i analizować zasoby należące do określonego celu.
+
+Jest szczególnie przydatny podczas większych testów aplikacji.
+
+## 21. Scope
+
+Scope pozwala określić zakres testowania.
+
+Można wskazać, które domeny, adresy lub zasoby należą do testowanej aplikacji.
+
+Ograniczenie zakresu pomaga uniknąć przypadkowego testowania niepowiązanych systemów.
+
+## 22. Site Map
+
+Site Map przedstawia strukturę zasobów wykrytych podczas pracy z aplikacją.
+
+Może zawierać strony, endpointy, parametry oraz inne zasoby.
+
+Pozwala lepiej zrozumieć strukturę testowanej aplikacji.
+
+## 23. Decoder
+
+Decoder służy do kodowania i dekodowania danych.
+
+Może być wykorzystywany między innymi do analizy danych zakodowanych za pomocą Base64, URL Encoding czy innych formatów.
+
+Ułatwia analizowanie danych znajdujących się w żądaniach i odpowiedziach.
+
+## 24. Comparer
+
+Comparer pozwala porównywać dwa fragmenty danych.
+
+Może być używany do porównywania żądań lub odpowiedzi HTTP.
+
+Jest przydatny, gdy chcemy znaleźć różnice pomiędzy dwoma wariantami komunikacji.
+
+## 25. Logger
+
+Logger pozwala rejestrować komunikację i działania związane z testowaniem.
+
+Może być wykorzystywany do późniejszej analizy przebiegu testów.
+
+## 26. Extensions
+
+Burp Suite posiada możliwość rozszerzania funkcjonalności za pomocą rozszerzeń.
+
+Rozszerzenia mogą dodawać nowe funkcje lub integrować Burp Suite z innymi narzędziami.
+
+Popularnym rozwiązaniem jest korzystanie z rozszerzeń dostępnych przez BApp Store.
+
+## 27. BApp Store
+
+BApp Store jest miejscem, w którym dostępne są rozszerzenia Burp Suite.
+
+Rozszerzenia mogą wspierać różne zadania związane z testowaniem bezpieczeństwa aplikacji.
+
+Przed instalacją rozszerzenia należy sprawdzić jego pochodzenie i wymagane uprawnienia.
+
+## 28. Authentication
+
+Burp Suite może być wykorzystywany do analizowania mechanizmów uwierzytelniania.
+
+Można analizować między innymi formularze logowania, cookies sesyjne oraz tokeny.
+
+Testy powinny być wykonywane wyłącznie na aplikacjach, do których mamy uprawnienia.
+
+## 29. Authorization
+
+Autoryzacja określa, do jakich zasobów użytkownik ma dostęp.
+
+Burp Suite pozwala modyfikować żądania i sprawdzać, czy aplikacja prawidłowo kontroluje uprawnienia.
+
+Można dzięki temu analizować między innymi różnice pomiędzy dostępem użytkownika zwykłego i uprzywilejowanego.
+
+## 30. Access Control
+
+Access Control oznacza kontrolę dostępu do zasobów.
+
+Błędy kontroli dostępu mogą powodować sytuacje, w których użytkownik uzyskuje dostęp do danych lub funkcji, których nie powinien posiadać.
+
+Burp Suite jest często wykorzystywany do testowania takich mechanizmów w autoryzowanych testach.
+
+## 31. SQL Injection
+
+SQL Injection jest podatnością polegającą na niewłaściwym przetwarzaniu danych wejściowych używanych w zapytaniach SQL.
+
+Burp Suite może pomóc w analizowaniu parametrów aplikacji pod kątem tego typu problemów.
+
+Samo wykrycie podejrzanego zachowania nie oznacza jeszcze potwierdzenia podatności.
+
+## 32. Cross-Site Scripting
+
+Cross-Site Scripting, czyli XSS, jest podatnością związaną z niewłaściwym przetwarzaniem danych, które mogą zostać wykonane jako kod w przeglądarce.
+
+Burp Suite może pomagać w testowaniu parametrów aplikacji pod kątem XSS.
+
+Testy powinny być wykonywane w kontrolowanym środowisku.
+
+## 33. CSRF
+
+CSRF oznacza Cross-Site Request Forgery.
+
+Jest to rodzaj ataku wykorzystującego sytuację, w której przeglądarka użytkownika może wysłać niepożądane żądanie do aplikacji, w której użytkownik jest uwierzytelniony.
+
+Burp Suite może pomóc sprawdzić, czy aplikacja stosuje odpowiednie mechanizmy ochrony.
+
+## 34. SSRF
+
+SSRF oznacza Server-Side Request Forgery.
+
+Podatność może umożliwić wykorzystanie serwera aplikacji do wykonywania niepożądanych żądań do innych zasobów.
+
+Burp Suite może być wykorzystywany podczas kontrolowanych testów parametrów, które powodują wykonywanie żądań po stronie serwera.
+
+## 35. IDOR
+
+IDOR oznacza Insecure Direct Object Reference.
+
+Problem może wystąpić wtedy, gdy aplikacja pozwala użytkownikowi odwołać się do obiektu na podstawie identyfikatora bez odpowiedniej kontroli uprawnień.
+
+Burp Repeater może być używany do kontrolowanej zmiany identyfikatorów w żądaniach.
+
+## 36. API Testing
+
+Burp Suite może być wykorzystywany do testowania API.
+
+Można przechwytywać żądania API i analizować endpointy, parametry, nagłówki oraz odpowiedzi.
+
+Jest szczególnie przydatny podczas testowania REST API.
+
+## 37. REST API
+
+REST API wykorzystuje żądania HTTP do komunikacji pomiędzy klientem a serwerem.
+
+Burp Suite pozwala obserwować taką komunikację.
+
+Można analizować między innymi endpointy GET, POST, PUT, PATCH i DELETE.
+
+## 38. JSON
+
+JSON jest bardzo często wykorzystywany jako format danych w API.
+
+Burp Suite pozwala analizować JSON znajdujący się w body żądań i odpowiedzi.
+
+Można również modyfikować poszczególne wartości podczas testowania aplikacji.
+
+## 39. WebSockets
+
+Burp Suite może również analizować komunikację WebSocket.
+
+WebSocket pozwala utrzymywać dwukierunkową komunikację pomiędzy klientem a serwerem.
+
+Jest często wykorzystywany w aplikacjach wymagających komunikacji w czasie rzeczywistym.
+
+## 40. Authentication Tokens
+
+Nowoczesne aplikacje często korzystają z tokenów do uwierzytelniania użytkownika.
+
+Przykładem może być token JWT.
+
+Burp Suite pozwala analizować sposób przesyłania tokenów oraz ich wykorzystanie przez aplikację.
+
+## 41. JWT
+
+JWT oznacza JSON Web Token.
+
+Jest formatem umożliwiającym przekazywanie określonych informacji pomiędzy stronami.
+
+Podczas testów bezpieczeństwa można analizować strukturę tokenów oraz sposób, w jaki aplikacja sprawdza ich poprawność.
+
+## 42. Burp Suite i przeglądarka
+
+Burp Suite może współpracować z przeglądarką skonfigurowaną do korzystania z Burp Proxy.
+
+Dzięki temu żądania generowane podczas korzystania ze strony mogą być przechwytywane.
+
+Pozwala to analizować aplikację w sposób podobny do normalnego korzystania z niej przez użytkownika.
+
+## 43. Burp Browser
+
+Burp Suite może udostępniać własną przeglądarkę przeznaczoną do pracy z narzędziami Burp.
+
+Ułatwia to rozpoczęcie testowania bez ręcznej konfiguracji zewnętrznej przeglądarki.
+
+Jest szczególnie wygodna podczas nauki i wykonywania kontrolowanych testów.
+
+## 44. Burp Suite Community Edition
+
+Burp Suite Community Edition jest bezpłatną edycją Burp Suite.
+
+Udostępnia podstawowe narzędzia potrzebne do ręcznego testowania aplikacji.
+
+Jest dobrym środowiskiem do nauki podstaw Burp Suite.
+
+## 45. Burp Suite Professional
+
+Burp Suite Professional jest płatną wersją przeznaczoną dla profesjonalnego testowania bezpieczeństwa.
+
+Oferuje dodatkowe funkcje automatyzacji i analizy.
+
+Jest wykorzystywana przez profesjonalistów zajmujących się bezpieczeństwem aplikacji.
+
+## 46. Burp Suite Enterprise
+
+Burp Suite Enterprise jest rozwiązaniem przeznaczonym przede wszystkim do automatycznego skanowania aplikacji w ramach procesów bezpieczeństwa organizacji.
+
+Może być wykorzystywane do regularnego monitorowania aplikacji webowych.
+
+Różni się przeznaczeniem od narzędzia używanego głównie do ręcznych testów.
+
+## 47. Burp Suite i OWASP
+
+Burp Suite jest często wykorzystywany podczas nauki zagadnień opisanych przez OWASP.
+
+OWASP Top 10 przedstawia najważniejsze kategorie ryzyka związane z bezpieczeństwem aplikacji webowych.
+
+Burp Suite może być używany jako narzędzie pomocnicze podczas nauki i testowania tych zagadnień.
+
+## 48. Burp Suite w QA
+
+Burp Suite może być przydatny również dla testerów QA.
+
+Tester może analizować komunikację aplikacji i sprawdzać, czy mechanizmy bezpieczeństwa działają zgodnie z wymaganiami.
+
+Dzięki temu testy funkcjonalne mogą zostać uzupełnione o testy związane z bezpieczeństwem.
+
+## 49. Burp Suite w pentestach
+
+Burp Suite jest jednym z popularnych narzędzi używanych podczas testów penetracyjnych aplikacji webowych.
+
+Pentester może wykorzystywać Proxy, Repeater, Intruder oraz inne funkcje do analizy zachowania aplikacji.
+
+Wszystkie takie działania powinny odbywać się w ramach odpowiedniego zakresu i uzyskanej zgody.
+
+## 50. Burp Suite i bezpieczeństwo
+
+Burp Suite jest narzędziem do testowania bezpieczeństwa, a nie narzędziem przeznaczonym do atakowania przypadkowych systemów.
+
+Testy powinny być wykonywane na własnych aplikacjach, środowiskach laboratoryjnych lub systemach, dla których posiadamy odpowiednie uprawnienia.
+
+Właściwe określenie zakresu testów jest jednym z podstawowych elementów profesjonalnego pentestingu.
+
+## 51. Typowy workflow
+
+Najpierw określamy zakres testowanej aplikacji.
+
+Następnie uruchamiamy Burp Suite i konfigurujemy przeglądarkę lub korzystamy z Burp Browser.
+
+Otwieramy testowaną aplikację i obserwujemy przechwycone żądania.
+
+Następnie analizujemy strukturę aplikacji w Site Map.
+
+Interesujące żądania wysyłamy do Repeatera.
+
+W Repeaterze modyfikujemy pojedyncze elementy żądania i obserwujemy odpowiedzi.
+
+W razie potrzeby wykorzystujemy Intruder do wykonywania powtarzalnych testów.
+
+Na końcu dokumentujemy znalezione problemy i ich wpływ na bezpieczeństwo aplikacji.
+
+## 52. Jak uczyć się Burp Suite?
+
+Najpierw warto dobrze poznać HTTP.
+
+Następnie należy nauczyć się działania Proxy i Intercept.
+
+Kolejnym krokiem powinno być opanowanie Repeatera.
+
+Następnie warto nauczyć się pracy z Intruderem.
+
+Kolejnym etapem jest poznanie Target, Scope oraz Site Map.
+
+Następnie warto przejść do testowania API, sesji, uwierzytelniania i kontroli dostępu.
+
+Dopiero później warto przechodzić do bardziej zaawansowanych zagadnień bezpieczeństwa.
+
+Do nauki najlepiej wykorzystywać specjalnie przygotowane środowiska laboratoryjne i aplikacje podatne na ataki.
+
+## 53. Najważniejsze pojęcia
+
+Burp Suite — platforma do testowania bezpieczeństwa aplikacji webowych.
+
+Proxy — pośrednik pomiędzy klientem a serwerem.
+
+Intercept — mechanizm zatrzymywania przechwyconych żądań.
+
+HTTP Request — żądanie wysyłane do serwera.
+
+HTTP Response — odpowiedź otrzymywana od serwera.
+
+HTTP History — historia przechwyconej komunikacji.
+
+Repeater — narzędzie do ręcznego ponawiania i modyfikowania żądań.
+
+Intruder — narzędzie do automatyzowania powtarzalnych testów żądań.
+
+Payload — wartość używana podczas automatycznego testowania.
+
+Scanner — funkcja automatycznego wykrywania potencjalnych problemów bezpieczeństwa.
+
+Target — obszar związany z testowaną aplikacją.
+
+Scope — określony zakres testowania.
+
+Site Map — struktura zasobów wykrytych w aplikacji.
+
+Decoder — narzędzie do kodowania i dekodowania danych.
+
+Comparer — narzędzie do porównywania danych.
+
+Extensions — rozszerzenia zwiększające możliwości Burp Suite.
+
+BApp Store — katalog rozszerzeń Burp Suite.
+
+Session — mechanizm utrzymywania stanu użytkownika.
+
+Cookie — dane przechowywane przez przeglądarkę i wysyłane do serwera.
+
+Authentication — uwierzytelnianie użytkownika.
+
+Authorization — określanie uprawnień użytkownika.
+
+Access Control — kontrola dostępu do zasobów.
+
+API Testing — testowanie interfejsów API.
+
+SQL Injection — podatność związana z niebezpiecznym przetwarzaniem danych w zapytaniach SQL.
+
+XSS — podatność umożliwiająca wykonanie niepożądanego kodu w kontekście przeglądarki.
+
+CSRF — podatność wykorzystująca możliwość wykonania niepożądanego żądania przez uwierzytelnionego użytkownika.
+
+SSRF — podatność pozwalająca wpływać na żądania wykonywane przez serwer.
+
+IDOR — problem związany z niewłaściwą kontrolą dostępu do obiektów.

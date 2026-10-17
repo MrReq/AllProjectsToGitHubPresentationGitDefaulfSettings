@@ -1,0 +1,103 @@
+# Chef
+
+## 1. Czym jest Chef?
+
+Chef to narzędzie do automatyzacji konfiguracji infrastruktury IT, zarządzania serwerami oraz wdrażania oprogramowania, należące do kategorii narzędzi Infrastructure as Code (IaC).
+
+Chef pozwala definiować konfigurację serwerów za pomocą kodu, dzięki czemu administratorzy mogą automatycznie instalować oprogramowanie, konfigurować usługi i utrzymywać spójne środowiska na wielu maszynach.
+
+Narzędzie jest wykorzystywane w obszarze DevOps, administracji systemami Linux i Windows oraz zarządzania infrastrukturą chmurową.
+
+## 2. Najważniejsze funkcje Chef
+
+- Automatyzacja konfiguracji – automatyczne instalowanie pakietów, tworzenie plików konfiguracyjnych i uruchamianie usług.
+- Infrastructure as Code – opisywanie infrastruktury i jej konfiguracji w postaci kodu.
+- Zarządzanie serwerami – utrzymywanie spójnej konfiguracji wielu maszyn.
+- Automatyzacja wdrożeń – przygotowywanie środowisk do uruchamiania aplikacji.
+- Zarządzanie zależnościami – definiowanie pakietów i komponentów wymaganych przez system.
+- Kontrola konfiguracji – wykrywanie i korygowanie różnic między konfiguracją docelową a rzeczywistym stanem serwera.
+- Integracja z DevOps – współpraca z procesami CI/CD i narzędziami chmurowymi.
+
+## 3. Jak działa Chef?
+
+Chef wykorzystuje kod opisujący pożądany stan infrastruktury.
+
+W klasycznej architekturze Chef Infra występują następujące elementy:
+
+- Chef Workstation – środowisko, w którym administrator tworzy i testuje konfigurację.
+- Chef Infra Server – centralny serwer przechowujący informacje o węzłach, politykach i konfiguracji.
+- Chef Infra Client – oprogramowanie uruchamiane na zarządzanych maszynach, które stosuje przypisane konfiguracje.
+- Cookbooks – zestawy przepisów i plików opisujących konfigurację.
+- Recipes – instrukcje definiujące działania, takie jak instalowanie pakietów czy uruchamianie usług.
+- Resources – deklaratywne elementy konfiguracji, np. pakiety, pliki, użytkownicy i usługi.
+
+W uproszczeniu administrator opisuje, jak powinien wyglądać serwer, a Chef automatyzuje doprowadzenie go do tego stanu.
+
+## 4. Przykład zastosowania Chef
+
+Poniższy przykład pokazuje przepis instalujący i uruchamiający serwer WWW Apache na systemie Linux korzystającym z pakietów RPM.
+
+```
+package 'httpd' do
+  action :install
+end
+
+service 'httpd' do
+  action [:enable, :start]
+end
+
+file '/var/www/html/index.html' do
+  content '<h1>Witaj na serwerze!</h1>'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+```
+
+W tym przykładzie Chef instaluje pakiet Apache, włącza usługę i uruchamia ją, a następnie tworzy prostą stronę internetową.
+
+Dzięki deklaratywnemu podejściu Chef sprawdza stan zasobów i wykonuje potrzebne działania, zamiast bezwarunkowo powtarzać wszystkie operacje przy każdym uruchomieniu.
+
+## 5. Do czego wykorzystuje się Chef?
+
+- Administracja serwerami – konfiguracja systemów Linux i Windows.
+- DevOps – automatyzacja przygotowywania środowisk deweloperskich, testowych i produkcyjnych.
+- Chmura obliczeniowa – zarządzanie konfiguracją maszyn wirtualnych i serwerów.
+- Serwery WWW – instalowanie i konfigurowanie Apache, Nginx oraz innych usług.
+- Bezpieczeństwo infrastruktury – utrzymywanie wymaganych ustawień systemowych i zasad konfiguracji.
+- Skalowanie infrastruktury – powtarzalne konfigurowanie wielu serwerów według jednego standardu.
+
+## 6. Chef a inne narzędzia DevOps
+
+- Chef – wykorzystuje przepisy w języku Ruby do automatyzacji konfiguracji infrastruktury.
+- Ansible – automatyzuje konfigurację głównie za pomocą plików YAML i zwykle nie wymaga instalowania agenta na zarządzanych hostach.
+- Puppet – wykorzystuje deklaratywny model zarządzania konfiguracją i własny język deklaracji.
+- Terraform – służy przede wszystkim do tworzenia i zarządzania zasobami infrastruktury, np. sieciami, maszynami wirtualnymi i usługami chmurowymi.
+- Docker – służy do budowania i uruchamiania aplikacji w kontenerach.
+
+Narzędzia te rozwiązują częściowo podobne problemy, ale mogą również działać razem w jednym procesie wdrażania.
+
+## 7. Zalety i wady Chef
+
+Zalety:
+
+- Automatyzuje powtarzalne zadania administracyjne.
+- Umożliwia utrzymywanie spójnej konfiguracji wielu serwerów.
+- Pozwala przechowywać konfigurację w systemie kontroli wersji.
+- Wspiera rozbudowane i złożone środowiska infrastrukturalne.
+- Ogranicza ryzyko błędów wynikających z ręcznej konfiguracji.
+
+Wady:
+
+- Wymaga poznania koncepcji Chef oraz składni opartej na Ruby.
+- Może być trudniejszy do opanowania dla początkujących niż prostsze narzędzia.
+- Centralna architektura Chef Infra Server wymaga dodatkowej administracji.
+- Przy niewielkich projektach jego konfiguracja może być bardziej rozbudowana, niż jest to konieczne.
+
+## 8. Dlaczego warto znać Chef?
+
+Chef jest przydatny osobom rozwijającym się w kierunku DevOps, administracji systemami, automatyzacji infrastruktury i inżynierii chmurowej.
+
+Jego znajomość pomaga zrozumieć koncepcję Infrastructure as Code oraz sposób automatycznego przygotowywania i utrzymywania środowisk serwerowych.
+
+W pracy programisty Java i Spring Boot Chef może służyć do przygotowywania serwerów, instalowania wymaganych pakietów, konfigurowania usług i utrzymywania środowiska, w którym działa aplikacja.
