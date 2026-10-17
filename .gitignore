@@ -16,8 +16,8 @@ out/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-Nauka
-PKD
+#Nauka
+#PKD
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
