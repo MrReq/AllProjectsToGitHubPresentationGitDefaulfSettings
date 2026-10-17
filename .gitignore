@@ -2,8 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-Nauka
-PKD
+#Nauka
+#PKD
 
 ### Eclipse ###
 .apt_generated
